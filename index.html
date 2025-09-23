@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trip to Japan: Romantic Itinerary for Couples</title>
+    <title>Romantic Trip: Tokyo & Kawaguchiko</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;700&display=swap');
 
         body {
             font-family: 'Noto Sans Thai', sans-serif;
-            background-color: #f4f7f6;
+            background-color: #fdfaf6;
             color: #333;
             margin: 0;
             padding: 0;
@@ -22,6 +22,7 @@
             color: white;
             padding: 80px 20px;
             text-align: center;
+            border-bottom: 5px solid #e74c3c;
         }
 
         .hero h1 {
@@ -37,7 +38,7 @@
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 30px auto;
             padding: 0 20px;
         }
@@ -50,51 +51,42 @@
             margin-bottom: 30px;
         }
         .summary-card h2, .accommodation-section h2 {
-            color: #d35400;
+            color: #c0392b;
             margin-top: 0;
             text-align: center;
+            font-size: 2em;
         }
         
         .accommodation-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            gap: 25px;
             margin-top: 20px;
         }
         
         .hotel-card {
-            border: 1px solid #eee;
+            background: #fff;
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hotel-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
         }
         .hotel-card img {
             width: 100%;
-            height: 180px;
+            height: 200px;
             object-fit: cover;
         }
         .hotel-info {
             padding: 15px;
         }
-        .hotel-info h3 {
-            margin: 0 0 10px 0;
-            font-size: 1.2em;
-        }
-        .hotel-info p {
-            margin: 0 0 10px 0;
-            font-size: 0.95em;
-            font-weight: 300;
-        }
-        .hotel-price {
-            font-weight: bold;
-            color: #c0392b;
-        }
-        .hotel-location {
-            font-size: 0.9em;
-            color: #7f8c8d;
-            margin-bottom: 5px;
-        }
-
+        .hotel-info h3 { margin: 0 0 10px 0; font-size: 1.2em; color: #34495e; }
+        .hotel-info p { margin: 0 0 10px 0; font-size: 0.95em; font-weight: 300; line-height: 1.6; }
+        .hotel-price { font-weight: bold; color: #e74c3c; }
+        .hotel-location { font-size: 0.9em; color: #7f8c8d; margin-bottom: 5px; font-weight: 500;}
 
         .day-section {
             background-color: #ffffff;
@@ -107,30 +99,37 @@
         .day-header {
             background-color: #2c3e50; color: white; padding: 20px;
         }
-        .day-header.d1 { background-color: #c0392b; }
-        .day-header.d2 { background-color: #2980b9; }
-        .day-header.d3 { background-color: #27ae60; }
-        .day-header.d4 { background-color: #8e44ad; }
+        .day-header.d1 { background: linear-gradient(45deg, #d35400, #e74c3c); }
+        .day-header.d2 { background: linear-gradient(45deg, #2980b9, #3498db); }
+        .day-header.d3 { background: linear-gradient(45deg, #27ae60, #2ecc71); }
+        .day-header.d4 { background: linear-gradient(45deg, #8e44ad, #9b59b6); }
 
         .day-header h2 { margin: 0; font-size: 1.8em; }
         .day-header p { margin: 5px 0 0; opacity: 0.9; }
 
-        .timeline { padding: 20px; }
-        .timeline-item { display: flex; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #ecf0f1; }
+        .timeline { padding: 30px; }
+        .timeline-item { display: flex; gap: 20px; margin-bottom: 25px; padding-bottom: 25px; border-bottom: 1px solid #ecf0f1; align-items: flex-start;}
         .timeline-item:last-child { border-bottom: none; margin-bottom: 0; }
-        .timeline-time { flex-basis: 120px; min-width: 120px; font-weight: 700; color: #34495e; font-size: 1.1em; }
+        .timeline-time { flex-basis: 120px; min-width: 120px; font-weight: 700; color: #34495e; font-size: 1.1em; padding-top: 5px; }
         .timeline-content { flex-grow: 1; }
-        .timeline-content h3 { margin: 0 0 8px 0; font-size: 1.2em; color: #2c3e50; }
+        .timeline-content h3 { margin: 0 0 8px 0; font-size: 1.3em; color: #2c3e50; }
         .timeline-content p { margin: 0 0 10px 0; line-height: 1.6; font-weight: 300; }
         .timeline-cost { background-color: #ecf0f1; color: #7f8c8d; padding: 5px 10px; border-radius: 20px; font-size: 0.9em; display: inline-block; font-weight: 500; }
+        .timeline-image {
+            width: 150px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
 
-        footer { text-align: center; padding: 20px; color: #7f8c8d; font-size: 0.9em; }
+        footer { text-align: center; padding: 25px; color: #7f8c8d; font-size: 0.9em; }
     </style>
 </head>
 <body>
 
     <div class="hero">
-        <h1>Romantic Trip to Tokyo & Kawaguchiko</h1>
+        <h1>Romantic Trip: Tokyo & Kawaguchiko</h1>
         <p>23 - 27 ตุลาคม 2568 | แผนการเดินทางสำหรับคู่รัก</p>
     </div>
 
@@ -148,44 +147,43 @@
             <h2>ที่พักแนะนำบรรยากาศโรแมนติก (ไม่เกิน 5,000 บาท/คืน)</h2>
             <div class="accommodation-grid">
                 <div class="hotel-card">
-                    <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=60" alt="Tokyo Hotel">
-                    <div class="hotel-info">
-                        <div class="hotel-location">โตเกียว (คืน 24-25 ต.ค.)</div>
-                        <h3>The Gate Hotel Kaminarimon by Hulic</h3>
-                        <p>โรงแรมดีไซน์สวยงาม มีบาร์บนดาดฟ้าเห็นวิวโตเกียวสกายทรี บรรยากาศโรแมนติกมาก อยู่ใกล้กับย่านอาซากุสะ เดินทางสะดวก</p>
-                        <span class="hotel-price">ราคาประมาณ 4,500 - 5,000 บาท/คืน</span>
-                    </div>
-                </div>
-                <div class="hotel-card">
-                     <img src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=800&q=60" alt="Tokyo Hotel 2">
-                    <div class="hotel-info">
-                        <div class="hotel-location">โตเกียว (คืน 24-25 ต.ค.)</div>
-                        <h3>Hotel Tavinos Asakusa</h3>
-                        <p>โรงแรมสไตล์ใหม่ ธีมมังงะสุดเก๋ เหมาะสำหรับคู่รักที่ชอบความสนุกสนานและสีสันสดใส ตั้งอยู่ในทำเลดี เดินทางง่าย</p>
-                        <span class="hotel-price">ราคาประมาณ 3,000 - 4,000 บาท/คืน</span>
-                    </div>
-                </div>
-                <div class="hotel-card">
-                    <img src="https://images.unsplash.com/photo-1619448858348-431876015f23?auto=format&fit=crop&w=800&q=60" alt="Fuji Hotel">
+                    <img src="https://images.unsplash.com/photo-1598422898993-2c8c2b9a7a2a?auto=format&fit=crop&w=800&q=60" alt="Image of โรงแรม Komaya Ryokan คาวากุจิโกะ">
                     <div class="hotel-info">
                         <div class="hotel-location">คาวากุจิโกะ (คืน 26 ต.ค.)</div>
-                        <h3>HAOSTAY</h3>
-                        <p>ไฮไลท์คือดาดฟ้าที่สามารถขึ้นไปชมวิวภูเขาไฟฟูจิได้อย่างเต็มตา บรรยากาศดีและได้รับรีวิวสูงมากในเรื่องความสวยงาม</p>
-                        <span class="hotel-price">ราคาประมาณ 4,500 - 5,000 บาท/คืน</span>
+                        <h3>Komaya Ryokan</h3>
+                        <p>เรียวกังสไตล์ญี่ปุ่นแท้ๆ ริมทะเลสาบ ให้บรรยากาศอบอุ่นและเห็นวิวฟูจิได้ชัดเจน เหมาะกับการพักผ่อนอย่างสงบ</p>
+                        <span class="hotel-price">~฿4,393 / คืน</span>
                     </div>
                 </div>
                 <div class="hotel-card">
-                    <img src="https://images.unsplash.com/photo-1627893123775-45856c9c64a3?auto=format&fit=crop&w=800&q=60" alt="Fuji Hotel 2">
+                    <img src="https://images.unsplash.com/photo-1627893123775-45856c9c64a3?auto=format&fit=crop&w=800&q=60" alt="Image of โรงแรม Tominoko Hotel พร้อมวิวออนเซ็น">
                     <div class="hotel-info">
                         <div class="hotel-location">คาวากุจิโกะ (คืน 26 ต.ค.)</div>
                         <h3>Tominoko Hotel</h3>
-                        <p>สัมผัสประสบการณ์สุดพิเศษ แช่ออนเซ็นพร้อมชมวิวภูเขาไฟฟูจิ เป็นอะไรที่โรแมนติกและผ่อนคลายที่สุดสำหรับคู่รัก</p>
-                        <span class="hotel-price">ราคาประมาณ 4,400 - 5,000 บาท/คืน</span>
+                        <p>ไฮไลท์คือการแช่ออนเซ็นไปพร้อมๆ กับชมวิวภูเขาไฟฟูจิ เป็นประสบการณ์ที่โรแมนติกและผ่อนคลายที่สุด</p>
+                        <span class="hotel-price">~฿4,452 / คืน</span>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <img src="https://images.unsplash.com/photo-1579281514336-c3597d3555ce?auto=format&fit=crop&w=800&q=60" alt="Image of โรงแรม Crescendo Kawaguchiko">
+                    <div class="hotel-info">
+                        <div class="hotel-location">คาวากุจิโกะ (คืน 26 ต.ค.)</div>
+                        <h3>Crescendo Kawaguchiko</h3>
+                        <p>ที่พักที่ได้รับคะแนนรีวิวสูงในด้านบริการที่เป็นกันเองและอบอุ่น คุ้มค่าและเหมาะกับการพักผ่อน</p>
+                        <span class="hotel-price">~฿4,043 / คืน</span>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <img src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=800&q=60" alt="Image of โรงแรม Toyoko Inn Fuji Kawaguchiko Ohashi">
+                    <div class="hotel-info">
+                        <div class="hotel-location">คาวากุจิโกะ (คืน 26 ต.ค.)</div>
+                        <h3>Toyoko Inn Fuji Kawaguchiko</h3>
+                        <p>ตัวเลือกที่คุ้มค่าที่สุด มีมาตรฐานโรงแรมเชนที่เชื่อถือได้ และยังคงมองเห็นวิวภูเขาไฟฟูจิได้จากบางห้อง</p>
+                        <span class="hotel-price">~฿3,116 / คืน</span>
                     </div>
                 </div>
             </div>
         </div>
-
 
         <div class="day-section">
             <div class="day-header d1">
@@ -194,28 +192,13 @@
             </div>
             <div class="timeline">
                 <div class="timeline-item">
-                    <div class="timeline-time">07:00 - 09:00</div>
-                    <div class="timeline-content">
-                        <h3>เดินทางถึงโตเกียวและเข้าเมือง</h3>
-                        <p>เดินทางจากสนามบินนาริตะ/ฮาเนดะ สู่ใจกลางโตเกียว แนะนำให้ซื้อตั๋วรถไฟด่วนเพื่อความรวดเร็ว</p>
-                        <span class="timeline-cost">~1,250 บาท (JPY 5,000)</span>
-                    </div>
-                </div>
-                <div class="timeline-item">
                     <div class="timeline-time">09:00 - 11:30</div>
                     <div class="timeline-content">
                         <h3>เที่ยววัดเซ็นโซจิ (อาซากุสะ)</h3>
                         <p>นำกระเป๋าฝากที่โรงแรม แล้วไปถ่ายรูปกับโคมแดงยักษ์ที่เป็นสัญลักษณ์และขอพรที่วัดที่เก่าแก่ที่สุดในโตเกียว</p>
                         <span class="timeline-cost">~200 บาท (JPY 800)</span>
                     </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-time">11:30 - 13:00</div>
-                    <div class="timeline-content">
-                        <h3>อาหารกลางวัน @ ถนนนากามิเสะ</h3>
-                        <p>เดินชิมของอร่อยและหาอาหารกลางวันทาน มีทั้งข้าวหน้าต่างๆ เทมปุระ และขนมขึ้นชื่อมากมาย</p>
-                        <span class="timeline-cost">~750 บาท (JPY 3,000)</span>
-                    </div>
+                    <img src="https://images.unsplash.com/photo-1533261361409-8f8457599553?auto=format&fit=crop&w=400&q=60" alt="Image of วัดเซ็นโซจิ โคมแดงยักษ์" class="timeline-image">
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-time">13:00 - 16:30</div>
@@ -224,6 +207,7 @@
                         <p>เดินทางไปย่านชิบูย่า ชมความวุ่นวายอันเป็นระเบียบของห้าแยกที่โด่งดังที่สุดในโลก และทักทายรูปปั้นฮาจิโกะ</p>
                         <span class="timeline-cost">~150 บาท (JPY 600)</span>
                     </div>
+                    <img src="https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&w=400&q=60" alt="Image of ห้าแยกชิบูย่า ตอนกลางคืน" class="timeline-image">
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-time">19:00 เป็นต้นไป</div>
@@ -232,6 +216,7 @@
                         <p>สัมผัสบรรยากาศย้อนยุคที่ตรอกร้านอาหารย่างเสียบไม้ (Yakitori) เล็กๆ ในย่านชินจูกุ ได้ฟีลญี่ปุ่นแท้ๆ</p>
                         <span class="timeline-cost">~1,300 บาท (JPY 5,200)</span>
                     </div>
+                    <img src="https://images.unsplash.com/photo-1591375372224-9121b4d08153?auto=format&fit=crop&w=400&q=60" alt="Image of ตรอก Omoide Yokocho ชินจูกุ" class="timeline-image">
                 </div>
             </div>
         </div>
@@ -249,14 +234,7 @@
                         <p>ใช้เวลาทั้งวันกับเครื่องเล่นสุดสนุก การแสดงตระการตา และมุมถ่ายรูปสุดโรแมนติกที่สวนสนุกดิสนีย์แห่งเดียวในโลก</p>
                         <span class="timeline-cost">ตั๋วเข้าสวนสนุก: ~4,500 บาท (JPY 18,000)</span>
                     </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-time">ตลอดวัน</div>
-                    <div class="timeline-content">
-                        <h3>อาหารในสวนสนุก</h3>
-                        <p>ลิ้มลองเมนูพิเศษที่มีขายเฉพาะที่นี่ เช่น ขาไก่งวงรมควัน, ป๊อปคอร์นรสแปลกใหม่ และขนมน่ารักๆ</p>
-                        <span class="timeline-cost">~1,000 บาท (JPY 4,000)</span>
-                    </div>
+                    <img src="https://images.unsplash.com/photo-1589903932230-59a680388901?auto=format&fit=crop&w=400&q=60" alt="Image of บรรยากาศโรแมนติกใน Tokyo DisneySea" class="timeline-image">
                 </div>
             </div>
         </div>
@@ -267,22 +245,6 @@
                 <p>พักผ่อนท่ามกลางธรรมชาติและวิวสุดอลังการที่คาวากุจิโกะ</p>
             </div>
             <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-time">08:00 - 10:30</div>
-                    <div class="timeline-content">
-                        <h3>เดินทางสู่คาวากุจิโกะ</h3>
-                        <p>เดินทางจากสถานีชินจูกุด้วยรถบัส Highway Bus ที่สะดวกสบายและชมวิวทิวทัศน์สวยงามตลอดทาง</p>
-                        <span class="timeline-cost">รถบัสไป-กลับ: ~2,200 บาท (JPY 8,800)</span>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-time">10:30 - 12:30</div>
-                    <div class="timeline-content">
-                        <h3>อาหารกลางวันเมนูท้องถิ่น "โฮโต"</h3>
-                        <p>เมื่อถึงที่หมาย ลองชิม "โฮโต" อาหารพื้นเมืองลักษณะคล้ายอุด้งเส้นแบนในซุปมิโสะร้อนๆ ใส่ฟักทองและผักต่างๆ</p>
-                        <span class="timeline-cost">~625 บาท (JPY 2,500)</span>
-                    </div>
-                </div>
                  <div class="timeline-item">
                     <div class="timeline-time">12:30 - 16:00</div>
                     <div class="timeline-content">
@@ -290,6 +252,7 @@
                         <p>ขึ้นกระเช้า Mt. Fuji Panoramic Ropeway ชมวิวมุมสูงของทะเลสาบและภูเขาไฟฟูจิ และเดินเล่นถ่ายรูปที่ Oishi Park</p>
                         <span class="timeline-cost">~450 บาท (JPY 1,800)</span>
                     </div>
+                    <img src="https://images.unsplash.com/photo-1613967719734-6d1419045b54?auto=format&fit=crop&w=400&q=60" alt="Image of กระเช้า Mt. Fuji Panoramic Ropeway" class="timeline-image">
                 </div>
                  <div class="timeline-item">
                     <div class="timeline-time">16:00 เป็นต้นไป</div>
@@ -298,6 +261,7 @@
                         <p>เข้าที่พักและใช้เวลาดื่มด่ำกับบรรยากาศสุดโรแมนติก ชมวิวภูเขาไฟฟูจิจากห้องพักของคุณ</p>
                         <span class="timeline-cost">เลือกที่พักที่แนะนำด้านบน</span>
                     </div>
+                     <img src="https://images.unsplash.com/photo-1578637387934-051880a7164b?auto=format&fit=crop&w=400&q=60" alt="Image of สวน Oishi Park และภูเขาไฟฟูจิ" class="timeline-image">
                 </div>
             </div>
         </div>
@@ -315,14 +279,7 @@
                         <p>เก็บภาพแลนด์มาร์คสุดท้ายกับเจดีย์ 5 ชั้นสีแดง ที่มีฉากหลังเป็นภูเขาไฟฟูจิ เป็นภาพที่สวยงามและน่าประทับใจ</p>
                         <span class="timeline-cost">~250 บาท (JPY 1,000)</span>
                     </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-time">12:00 - 13:00</div>
-                    <div class="timeline-content">
-                        <h3>อาหารกลางวันมื้อสุดท้าย</h3>
-                        <p>รับประทานอาหารมื้อสุดท้ายก่อนออกเดินทาง อาจจะเป็นร้านอาหารง่ายๆ บริเวณสถานีหรือในสนามบิน</p>
-                        <span class="timeline-cost">~1,000 บาท (JPY 4,000)</span>
-                    </div>
+                     <img src="https://images.unsplash.com/photo-1528164344705-47542687000d?auto=format&fit=crop&w=400&q=60" alt="Image of เจดีย์ชูเรโตะและภูเขาไฟฟูจิ" class="timeline-image">
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-time">13:00 เป็นต้นไป</div>
