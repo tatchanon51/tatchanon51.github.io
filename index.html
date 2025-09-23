@@ -3,379 +3,311 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>แผนการเดินทางโคเปนเฮเกน</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Trip to Japan: Tokyo & Kawaguchiko</title>
     <style>
-        /* Custom styles for better table readability and overall aesthetics */
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;700&display=swap');
+
         body {
-            font-family: "Inter", sans-serif;
-            background-color: #f0f2f5; /* Light grey background */
+            font-family: 'Noto Sans Thai', sans-serif;
+            background-color: #f4f7f6;
             color: #333;
+            margin: 0;
+            padding: 0;
         }
+
+        .hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1526481280643-3b94609b62f6?auto=format&fit=crop&w=1650&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3em;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            margin-top: 10px;
+            font-weight: 300;
+        }
+
         .container {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 1.5rem;
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .summary-card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+            padding: 25px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .summary-card h2 {
+            color: #d35400;
+            margin-top: 0;
+        }
+
+        .day-section {
             background-color: #ffffff;
-            border-radius: 1rem; /* Rounded corners for the main container */
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+            overflow: hidden;
         }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 1.5rem;
-            border-radius: 0.75rem; /* Rounded corners for tables */
-            overflow: hidden; /* Ensures rounded corners are visible */
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+        .day-header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
         }
-        th, td {
-            padding: 12px 15px;
-            border: 1px solid #e0e0e0;
-            text-align: left;
+        
+        .day-header.d1 { background-color: #c0392b; }
+        .day-header.d2 { background-color: #2980b9; }
+        .day-header.d3 { background-color: #27ae60; }
+        .day-header.d4 { background-color: #8e44ad; }
+
+
+        .day-header h2 {
+            margin: 0;
+            font-size: 1.8em;
         }
-        th {
-            background-color: #e0f2f7; /* Light blue for table headers */
-            font-weight: 600;
-            color: #2c3e50;
+        .day-header p {
+            margin: 5px 0 0;
+            opacity: 0.9;
         }
-        tbody tr:nth-child(even) {
-            background-color: #f9f9f9; /* Zebra striping for rows */
+
+        .timeline {
+            padding: 20px;
         }
-        tbody tr:hover {
-            background-color: #f0f0f0; /* Hover effect for rows */
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ecf0f1;
         }
-        .section-header {
-            background-color: #d1ecf1; /* Slightly darker blue for section headers */
-            font-weight: bold;
-            color: #0c5460;
-            padding: 10px 15px;
-            border: 1px solid #bee5eb;
+        .timeline-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
         }
-        h1, h3, h4 {
-            color: #2c3e50;
-            margin-bottom: 1rem;
-        }
-        ul {
-            list-style-type: disc;
-            margin-left: 1.5rem;
-            padding-left: 0.5rem;
-        }
-        ul li {
-            margin-bottom: 0.5rem;
-        }
-        strong {
+
+        .timeline-time {
+            flex-basis: 120px;
+            min-width: 120px;
+            font-weight: 700;
             color: #34495e;
+            font-size: 1.1em;
+        }
+
+        .timeline-content {
+            flex-grow: 1;
+        }
+
+        .timeline-content h3 {
+            margin: 0 0 8px 0;
+            font-size: 1.2em;
+            color: #2c3e50;
+        }
+
+        .timeline-content p {
+            margin: 0 0 10px 0;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+        
+        .timeline-cost {
+            background-color: #ecf0f1;
+            color: #7f8c8d;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            display: inline-block;
+            font-weight: 500;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #7f8c8d;
+            font-size: 0.9em;
         }
     </style>
 </head>
-<body class="p-4">
+<body>
+
+    <div class="hero">
+        <h1>แผนการเดินทาง โตเกียว & คาวากุจิโกะ</h1>
+        <p>23 - 27 ตุลาคม 2568 | ทริปสำหรับ 2 ท่าน</p>
+    </div>
+
     <div class="container">
-        <h1 class="text-4xl font-bold text-center mb-6">แผนการเดินทางโคเปนเฮเกน: 5 วัน 4 คืน และ 3 วัน 2 คืน (สิงหาคม 2025)</h1>
 
-        <p class="text-lg text-center mb-8">อัตราแลกเปลี่ยนโดยประมาณ: 1 DKK ≈ 5.2 THB (โปรดตรวจสอบ ณ เวลาเดินทางจริง)</p>
-
-        <div class="bg-blue-50 p-6 rounded-lg shadow-md mb-8 border border-blue-200">
-            <p class="text-xl font-semibold text-blue-800 mb-3"><strong>คำแนะนำสำคัญ:</strong></p>
-            <ul class="list-disc list-inside text-blue-700">
-                <li class="mb-2"><strong>Copenhagen Card:</strong> แนะนำอย่างยิ่งค่ะ ครอบคลุมค่าเดินทางด้วยขนส่งสาธารณะทุกประเภท และค่าเข้าชมสถานที่ท่องเที่ยวสำคัญๆ ส่วนใหญ่ จะช่วยประหยัดได้มากและเพิ่มความสะดวกสบาย</li>
-                <li class="mb-2"><strong>โรงแรม:</strong> ราคาที่ระบุเป็นราคาโดยประมาณในเดือนสิงหาคม ซึ่งเป็นช่วง High Season และเป็นช่วงที่คุณสามารถจองล่วงหน้าได้ ควรจองล่วงหน้านานๆ เพื่อให้ได้ราคาและทำเลที่ต้องการ</li>
-                <li><strong>ค่าอาหาร:</strong> เป็นค่าประมาณต่อมื้อสำหรับอาหารระดับกลาง หากเลือกทานอาหารประหยัด (เช่น ซื้อจากซูเปอร์มาร์เก็ต หรือร้านฟาสต์ฟู้ด) จะลดค่าใช้จ่ายลงได้</li>
-            </ul>
+        <div class="summary-card">
+            <h2>สรุปประมาณการค่าใช้จ่าย (สำหรับ 2 ท่าน)</h2>
+            <p><strong>ค่าใช้จ่ายตามแผน (อาหาร,เดินทาง,ตั๋ว):</strong> ~15,025 บาท (JPY 60,100)</p>
+            <p><strong>ค่าที่พัก (3 คืน):</strong> ~11,000 - 15,000 บาท</p>
+            <p><strong>รวมค่าใช้จ่ายตลอดทริป (ไม่รวมตั๋วเครื่องบิน): ~26,025 - 30,025 บาท</strong></p>
+            <small>*คำนวณที่ 100 เยน = 25 บาท</small>
         </div>
 
-        <h3 class="text-3xl font-bold mb-4">แผนการเดินทางโคเปนเฮเกน 5 วัน 4 คืน</h3>
-        <p class="text-xl font-medium mb-4"><strong>Copenhagen Card (120 ชั่วโมง):</strong> ประมาณ 919 DKK (≈ 4,779 THB)</p>
+        <div class="day-section">
+            <div class="day-header d1">
+                <h2>วันที่ 24 ต.ค.: ตะลุยแลนด์มาร์คโตเกียว</h2>
+                <p>สัมผัสวัฒนธรรมดั้งเดิมและความทันสมัยใจกลางเมือง</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-time">07:00 - 09:00</div>
+                    <div class="timeline-content">
+                        <h3>เดินทางถึงโตเกียวและเข้าเมือง</h3>
+                        <p>เดินทางจากสนามบินนาริตะ/ฮาเนดะ สู่ใจกลางโตเกียว แนะนำให้ซื้อตั๋วรถไฟด่วนเพื่อความรวดเร็ว</p>
+                        <span class="timeline-cost">~1,250 บาท (JPY 5,000)</span>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">09:00 - 11:30</div>
+                    <div class="timeline-content">
+                        <h3>เที่ยววัดเซ็นโซจิ (อาซากุสะ)</h3>
+                        <p>นำกระเป๋าฝากที่โรงแรม แล้วไปถ่ายรูปกับโคมแดงยักษ์ที่เป็นสัญลักษณ์และขอพรที่วัดที่เก่าแก่ที่สุดในโตเกียว</p>
+                        <span class="timeline-cost">~200 บาท (JPY 800)</span>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">11:30 - 13:00</div>
+                    <div class="timeline-content">
+                        <h3>อาหารกลางวัน @ ถนนนากามิเสะ</h3>
+                        <p>เดินชิมของอร่อยและหาอาหารกลางวันทาน มีทั้งข้าวหน้าต่างๆ เทมปุระ และขนมขึ้นชื่อมากมาย</p>
+                        <span class="timeline-cost">~750 บาท (JPY 3,000)</span>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">13:00 - 16:30</div>
+                    <div class="timeline-content">
+                        <h3>ถ่ายรูปที่ห้าแยกชิบูย่า</h3>
+                        <p>เดินทางไปย่านชิบูย่า ชมความวุ่นวายอันเป็นระเบียบของห้าแยกที่โด่งดังที่สุดในโลก และทักทายรูปปั้นฮาจิโกะ</p>
+                        <span class="timeline-cost">~150 บาท (JPY 600)</span>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">19:00 เป็นต้นไป</div>
+                    <div class="timeline-content">
+                        <h3>อาหารเย็น @ Omoide Yokocho</h3>
+                        <p>สัมผัสบรรยากาศย้อนยุคที่ตรอกร้านอาหารย่างเสียบไม้ (Yakitori) เล็กๆ ในย่านชินจูกุ ได้ฟีลญี่ปุ่นแท้ๆ</p>
+                        <span class="timeline-cost">~1,300 บาท (JPY 5,200)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        <table class="min-w-full bg-white rounded-lg overflow-hidden">
-            <thead>
-                <tr>
-                    <th class="px-4 py-3">วันและช่วงเวลา</th>
-                    <th class="px-4 py-3">สถานที่</th>
-                    <th class="px-4 py-3">คำอธิบาย</th>
-                    <th class="px-4 py-3">รายละเอียดค่าใช้จ่าย (DKK/THB)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td colspan="4" class="section-header"><strong>วันแรก: มาถึงโคเปนเฮเกนและสัมผัสเสน่ห์คลาสสิก</strong></td>
-                </tr>
-                <tr>
-                    <td class="px-4 py-3"><strong>เช้า (09:00 - 11:00 น.)</strong></td>
-                    <td class="px-4 py-3"><strong>เดินทางจากสนามบิน & เช็คอินโรงแรม</strong></td>
-                    <td class="px-4 py-3">เดินทางโดยเมโทรหรือรถไฟจากสนามบิน (CPH) เข้าสู่ใจกลางเมือง จากนั้นเข้าเช็คอินที่โรงแรม</td>
-                    <td class="px-4 py-3"><strong>ค่าเดินทางสนามบิน-โรงแรม:</strong> 36 DKK (≈ 187 THB) หากยังไม่มี Copenhagen Card<br><br><strong>โรงแรมแนะนำสำหรับ 4 คืน:</strong><br><strong>Scandic Palace Hotel</strong> หรือ <strong>Wakeup Copenhagen, Carsten Niebuhrs Gade</strong><br><br><strong>ประมาณการค่าที่พัก 4 คืน (ระดับกลาง):</strong><br><strong>รวม:</strong> 7,000 DKK (≈ 36,400 THB)</td>
-                </tr>
-                <tr>
-                    <td class="px-4 py-3"><strong>เที่ยง (11:00 - 14:00 น.)</strong></td>
-                    <td class="px-4 py-3"><strong>Nyhavn (นูฮาวน์) & Canal Tour</strong></td>
-                    <td class="px-4 py-3">เดินทางสู่ท่าเรือ Nyhavn ถ่ายรูปกับบ้านเรือนสีสันสดใส และรับประทานอาหารกลางวัน จากนั้นล่องเรือชมคลองชมเมือง</td>
-                    <td class="px-4 py-3"><strong>ค่าอาหารกลางวัน:</strong> 120-200 DKK (≈ 624-1,040 THB)<br><strong>ค่าล่องเรือ Canal Tour:</strong> ฟรี (ถ้ามี Copenhagen Card) หรือประมาณ 100 DKK (≈ 520 THB)</td>
-                </tr>
-                <tr>
-                    <td class="px-4 py-3"><strong>บ่าย (14:00 - 18:00 น.)</strong></td>
-                    <td class="px-4 py-3"><strong>Amalienborg Palace & The Little Mermaid</strong></td>
-                    <td class="px-4 py-3">เดินทางสู่พระราชวัง Amalienborg ชมพิธีเปลี่ยนเวรยาม จากนั้นไปยังรูปปั้นเงือกน้อย The Little Mermaid</td>
-                    <td class="px-4 py-3"><strong>ค่าเข้า Amalienborg Palace Museum:</strong> ฟรี (ถ้ามี Copenhagen Card) หรือ 125 DKK (≈ 650 THB)<br><strong>การเดินทาง:</strong> ฟรี (ถ้ามี Copenhagen Card)</td>
-                </tr>
-                <tr>
-                    <td class="px-4 py-3"><strong>ค่ำ (18:00 น. เป็นต้นไป)</strong></td>
-                    <td class="px-4 py-3"><strong>Strøget (สโทรเก็ต) & อาหารค่ำ</strong></td>
-                    <td class="px-4 py-3">เดินเล่นช้อปปิ้งบนถนน Strøget และรับประทานอาหารค่ำในย่านใจกลางเมือง</td>
-                    <td class="px-4 py-3"><strong>ค่าอาหารค่ำ:</strong> 150-300 DKK (≈ 780-1,560 THB)<br><strong>ค่าใช้จ่ายอื่นๆ (ช้อปปิ้ง):</strong> ตามงบประมาณ</td>
-                </tr>
-                <tr>
-                    <td colspan="3" class="px-4 py-3 text-right font-bold"><strong>รวมค่าใช้จ่ายวันที่ 1 (ไม่รวมโรงแรม):</strong></td>
-                    <td class="px-4 py-3 font-bold"><strong>ประมาณ 406 - 736 DKK (≈ 2,111 - 3,827 THB)</strong></td>
-                </tr>
-                <tr>
-                    <td colspan="4" class="section-header"><strong>วันที่สอง: ประวัติศาสตร์อันยาวนานและสวนสนุก</strong></td>
-                </tr>
-                <tr>
-                    <td class="px-4 py-3"><strong>เช้า (09:00 - 12:00 น.)</strong></td>
-                    <td class="px-4 py-3"><strong>Rosenborg Castle & King's Garden</strong></td>
-                    <td class="px-4 py-3">เดินทางสู่ปราสาท Rosenborg ชมความงดงามของปราสาทและเครื่องประดับราชวงศ์ จากนั้นเดินเล่นในสวน King's Garden</td>
-                    <td class="px-4 py-3"><strong>ค่าเข้า Rosenborg Castle:</strong> ฟรี (ถ้ามี Copenhagen Card) หรือ 130 DKK (≈ 676 THB)<br><strong>การเดินทาง:</strong> ฟรี (ถ้ามี Copenhagen Card)</td>
-                </tr>
-                <tr>
-                    <td class="px-4 py-3"><strong>เที่ยง (12:00 - 14:00 น.)</strong></td>
-                    <td class="px-4 py-3"><strong>The National Museum of Denmark</strong></td>
-                    <td class="px-4 py-3">เยี่ยมชมพิพิธภัณฑ์แห่งชาติเดนมาร์ก จากนั้นรับประทานอาหารกลางวันใกล้ๆ พิพิธภัณฑ์</td>
-                    <td class="px-4 py-3"><strong>ค่าเข้า National Museum:</strong> ฟรี (ถ้ามี Copenhagen Card) หรือ 95 DKK (≈ 494 THB)<br><strong>ค่าอาหารกลางวัน:</strong> 120-200 DKK (≈ 624-1,040 THB)</td>
-                </tr>
-                <tr>
-                    <td class="px-4 py-3"><strong>บ่าย (14:00 - 17:00 น.)</strong></td>
-                    <td class="px-4 py-3"><strong>Round Tower (Rundetårn) & Latin Quarter</strong></td>
-                    <td class="px-4 py-3">ขึ้น Round Tower เพื่อชมวิวพาโนรามาของเมือง จากนั้นเดินเล่นสำรวจย่าน Latin Quarter</td>
-                    <td class="px-4 py-3"><strong>ค่าเข้า Round Tower:</strong> ฟรี (ถ้ามี Copenhagen Card) หรือ 40 DKK (≈ 208 THB)<br><strong>การเดินทาง:</strong> ฟรี (ถ้ามี Copenhagen Card)</td>
-                </tr>
-                <tr>
-                    <td class="px-4 py-3"><strong>ค่ำ (17:00 น. เป็นต้นไป)</strong></td>
-                    <td class="px-4 py-3"><strong>Tivoli Gardens (สวนสนุกทิโวลี)</strong></td>
-                    <td class="px-4 py-3">เข้าชมสวนสนุก Tivoli Gardens เพลิดเพลินกับบรรยากาศ รับประทานอาหารค่ำใน Tivoli</td>
-                    <td class="px-4 py-3"><strong>ค่าเข้า Tivoli Gardens:</strong> ฟรี (ถ้ามี Copenhagen Card) หรือ 155 DKK (≈ 806 THB) ไม่รวมค่าเครื่องเล่น<br><strong>ค่าเครื่องเล่น (หากต้องการ):</strong> ซื้อแบบ Ride Ticket (250-300 DKK)<br><strong>ค่าอาหารค่ำใน Tivoli:</strong> 180-400 DKK (≈ 936-2,080 THB)</td>
-                </tr>
-                <tr>
-                    <td colspan="3" class="px-4 py-3 text-right font-bold"><strong>รวมค่าใช้จ่ายวันที่ 2:</strong></td>
-                    <td class="px-4 py-3 font-bold"><strong>ประมาณ 455 - 940 DKK (≈ 2,366 - 4,888 THB) หากรวมค่าเครื่องเล่นใน Tivoli อาจสูงถึง 1,240 DKK (≈ 6,448 THB)</strong></td>
-                </tr>
-                <tr>
-                    <td colspan="4" class="section-header"><strong>วันที่สาม: ทริปปราสาททางเหนือของโคเปนเฮเกน</strong></td>
-                </tr>
-                <tr>
-                    <td class="px-4 py-3"><strong>เช้า (09:00 - 13:00 น.)</strong></td>
-                    <td class="px-4 py-3"><strong>Kronborg Castle (Helsingør)</strong></td>
-                    <td class="px-4 py-3">เดินทางโดยรถไฟสู่เมือง Helsingør เยี่ยมชม Kronborg Castle ปราสาทที่สร้างแรงบันดาลใจให้บทละคร Hamlet</td>
-                    <td class="px-4 py-3"><strong>ค่าเดินทางไป-กลับ Helsingør:</strong> ฟรี (ถ้ามี Copenhagen Card) หรือประมาณ 2 x 108 DKK (≈ 1,123 THB)<br><strong>ค่าเข้า Kronborg Castle:</strong> ฟรี (ถ้ามี Copenhagen Card) หรือ 145 DKK (≈ 754 THB)</td>
-                </tr>
-                <tr>
-                    <td class="px-4 py-3"><strong>เที่ยง (13:00 - 14:30 น.)</strong></td>
-                    <td class="px-4 py-3"><strong>อาหารกลางวันที่ Helsingør</strong></td>
-                    <td class="px-4 py-3">รับประทานอาหารกลางวันที่ร้านอาหารในเมือง Helsingør</td>
-                    <td class="px-4 py-3"><strong>ค่าอาหารกลางวัน:</strong> 120-200 DKK (≈ 624-1,040 THB)</td>
-                </tr>
-                <tr>
-                    <td class="px-4 py-3"><strong>บ่าย (14:30 - 18:00 น.)</strong></td>
-                    <td class="px-4 py-3"><strong>Frederiksborg Castle (Hillerød)</strong></td>
-                    <td class="px-4 py-3">เดินทางโดยรถไฟต่อจาก Helsingør ไปยังเมือง Hillerød เยี่ยมชม Frederiksborg Castle ปราสาทที่สวยงามตระการตา</td>
-                    <td class="px-4 py-3"><strong>ค่าเดินทางไป-กลับ Hillerød:</strong> ฟรี (ถ้ามี Copenhagen Card) หรือประมาณ 2 x 108 DKK (≈ 1,123 THB)<br><strong>ค่าเข้า Frederiksborg Castle:</strong> ฟรี (ถ้ามี Copenhagen Card) หรือ 110 DKK (≈ 572 THB)</td>
-                </tr>
-                <tr>
-                    <td class="px-4 py-3"><strong>ค่ำ (18:00 น. เป็นต้นไป)</strong></td>
-                    <td class="px-4 py-3"><strong>เดินทางกลับโคเปนเฮเกน & อาหารค่ำ</strong></td>
-                    <td class="px-4 py-3">เดินทางกลับโคเปนเฮเกน รับประทานอาหารค่ำในย่านที่พัก</td>
-                    <td class="px-4 py-3"><strong>ค่าอาหารค่ำ:</strong> 150-300 DKK (≈ 780-1,560 THB)</td>
-                </tr>
-                <tr>
-                    <td colspan="3" class="px-4 py-3 text-right font-bold"><strong>รวมค่าใช้จ่ายวันที่ 3:</strong></td>
-                    <td class="px-4 py-3 font-bold"><strong>ประมาณ 390 - 750 DKK (≈ 2,028 - 3,900 THB) หากไม่มี CPH Card อาจสูงถึง 3,519 THB</strong></td>
-                </tr>
-                <tr>
-                    <td colspan="4" class="section-header"><strong>วันที่สี่: ชุมชนทางเลือกและศิลปะสมัยใหม่</strong></td>
-                </tr>
-                <tr>
-                    <td class="px-4 py-3"><strong>เช้า (09:00 - 12:00 น.)</strong></td>
-                    <td class="px-4 py-3"><strong>Freetown Christiania & Christianshavn</strong></td>
-                    <td class="px-4 py-3">เดินทางสู่ Freetown Christiania ชมงานศิลปะบนกำแพง จากนั้นเดินเล่นย่าน Christianshavn</td>
-                    <td class="px-4 py-3"><strong>การเดินทาง:</strong> ฟรี (ถ้ามี Copenhagen Card)</td>
-                </tr>
-                <tr>
-                    <td class="px-4 py-3"><strong>เที่ยง (12:00 - 14:00 น.)</strong></td>
-                    <td class="px-4 py-3"><strong>Kødbyen (Meatpacking District) & อาหารกลางวัน</strong></td>
-                    <td class="px-4 py-3">เดินทางสู่ย่าน Kødbyen รับประทานอาหารกลางวันในบรรยากาศที่ไม่เหมือนใคร</td>
-                    <td class="px-4 py-3"><strong>ค่าอาหารกลางวัน:</strong> 120-250 DKK (≈ 624-1,300 THB)</td>
-                </tr>
-                <tr>
-                    <td class="px-4 py-3"><strong>บ่าย (14:00 - 17:00 น.)</strong></td>
-                    <td class="px-4 py-3"><strong>Glyptotek (Ny Carlsberg Glyptotek)</strong></td>
-                    <td class="px-4 py-3">เยี่ยมชมพิพิธภัณฑ์ศิลปะ Glyptotek หรือเลือกเข้าชม Danish Design Museum</td>
-                    <td class="px-4 py-3"><strong>ค่าเข้า Glyptotek/Design Museum:</strong> ฟรี (ถ้ามี Copenhagen Card) หรือ 120-125 DKK (≈ 624-650 THB)</td>
-                </tr>
-                <tr>
-                    <td class="px-4 py-3"><strong>ค่ำ (17:00 น. เป็นต้นไป)</strong></td>
-                    <td class="px-4 py-3"><strong>เดินเล่นยามเย็น & อาหารค่ำพิเศษ</strong></td>
-                    <td class="px-4 py-3">เดินเล่นย่านที่ยังไม่ได้สำรวจ รับประทานอาหารค่ำพิเศษเป็นการฉลองวันสุดท้าย</td>
-                    <td class="px-4 py-3"><strong>ค่าอาหารค่ำ:</strong> 200-400 DKK (≈ 1,040-2,080 THB)</td>
-                </tr>
-                <tr>
-                    <td colspan="3" class="px-4 py-3 text-right font-bold"><strong>รวมค่าใช้จ่ายวันที่ 4:</strong></td>
-                    <td class="px-4 py-3 font-bold"><strong>ประมาณ 320 - 650 DKK (≈ 1,664 - 3,380 THB)</strong></td>
-                </tr>
-                <tr>
-                    <td colspan="4" class="section-header"><strong>วันที่ห้า: พักผ่อน ช้อปปิ้ง และเดินทางกลับ</strong></td>
-                </tr>
-                <tr>
-                    <td class="px-4 py-3"><strong>เช้า (09:00 - 12:00 น.)</strong></td>
-                    <td class="px-4 py-3"><strong>ผ่อนคลาย & ช้อปปิ้ง/เก็บตก</strong></td>
-                    <td class="px-4 py-3">เช็คเอาท์จากโรงแรม (ฝากกระเป๋าไว้) ใช้เวลาช่วงเช้าสบายๆ ช้อปปิ้งของฝากที่ตลาด Torvehallerne หรือร้านค้าแถว Strøget</td>
-                    <td class="px-4 py-3"><strong>ค่าใช้จ่ายอื่นๆ (ช้อปปิ้ง/อาหารเช้า):</strong> ตามงบประมาณ</td>
-                </tr>
-                <tr>
-                    <td class="px-4 py-3"><strong>เที่ยง (12:00 - 14:00 น.)</strong></td>
-                    <td class="px-4 py-3"><strong>อาหารกลางวัน & เดินทางไปสนามบิน</strong></td>
-                    <td class="px-4 py-3">รับประทานอาหารกลางวันมื้อสุดท้าย จากนั้นกลับไปรับกระเป๋าที่โรงแรมและเดินทางไปยังสนามบิน Copenhagen Airport (CPH)</td>
-                    <td class="px-4 py-3"><strong>ค่าอาหารกลางวัน:</strong> 120-200 DKK (≈ 624-1,040 THB)<br><strong>ค่าเดินทางโรงแรม-สนามบิน:</strong> 36 DKK (≈ 187 THB) หากไม่มี Copenhagen Card</td>
-                </tr>
-                <tr>
-                    <td colspan="3" class="px-4 py-3 text-right font-bold"><strong>รวมค่าใช้จ่ายวันที่ 5 (ไม่รวมของฝาก):</strong></td>
-                    <td class="px-4 py-3 font-bold"><strong>ประมาณ 156 - 236 DKK (≈ 811 - 1,227 THB)</strong></td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="day-section">
+            <div class="day-header d2">
+                <h2>วันที่ 25 ต.ค.: ผจญภัยที่ Tokyo DisneySea</h2>
+                <p>ท่องโลกจินตนาการแห่งท้องทะเลและการผจญภัย</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-time">10:00 - 21:00</div>
+                    <div class="timeline-content">
+                        <h3>สนุกเต็มวันที่ Tokyo DisneySea</h3>
+                        <p>ใช้เวลาทั้งวันกับเครื่องเล่นสุดสนุก การแสดงตระการตา และมุมถ่ายรูปสุดโรแมนติกที่สวนสนุกดิสนีย์แห่งเดียวในโลก</p>
+                        <span class="timeline-cost">ตั๋วเข้าสวนสนุก: ~4,500 บาท (JPY 18,000)</span>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">ตลอดวัน</div>
+                    <div class="timeline-content">
+                        <h3>อาหารในสวนสนุก</h3>
+                        <p>ลิ้มลองเมนูพิเศษที่มีขายเฉพาะที่นี่ เช่น ขาไก่งวงรมควัน, ป๊อปคอร์นรสแปลกใหม่ และขนมน่ารักๆ</p>
+                        <span class="timeline-cost">~1,000 บาท (JPY 4,000)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="day-section">
+            <div class="day-header d3">
+                <h2>วันที่ 26 ต.ค.: ชมความงามภูเขาไฟฟูจิ</h2>
+                <p>พักผ่อนท่ามกลางธรรมชาติและวิวสุดอลังการที่คาวากุจิโกะ</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-time">08:00 - 10:30</div>
+                    <div class="timeline-content">
+                        <h3>เดินทางสู่คาวากุจิโกะ</h3>
+                        <p>เดินทางจากสถานีชินจูกุด้วยรถบัส Highway Bus ที่สะดวกสบายและชมวิวทิวทัศน์สวยงามตลอดทาง</p>
+                        <span class="timeline-cost">รถบัสไป-กลับ: ~2,200 บาท (JPY 8,800)</span>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">10:30 - 12:30</div>
+                    <div class="timeline-content">
+                        <h3>อาหารกลางวันเมนูท้องถิ่น "โฮโต"</h3>
+                        <p>เมื่อถึงที่หมาย ลองชิม "โฮโต" อาหารพื้นเมืองลักษณะคล้ายอุด้งเส้นแบนในซุปมิโสะร้อนๆ ใส่ฟักทองและผักต่างๆ</p>
+                        <span class="timeline-cost">~625 บาท (JPY 2,500)</span>
+                    </div>
+                </div>
+                 <div class="timeline-item">
+                    <div class="timeline-time">12:30 - 16:00</div>
+                    <div class="timeline-content">
+                        <h3>ขึ้นกระเช้าชมวิวและเดินเล่น</h3>
+                        <p>ขึ้นกระเช้า Mt. Fuji Panoramic Ropeway ชมวิวมุมสูงของทะเลสาบและภูเขาไฟฟูจิ และเดินเล่นถ่ายรูปที่ Oishi Park</p>
+                        <span class="timeline-cost">~450 บาท (JPY 1,800)</span>
+                    </div>
+                </div>
+                 <div class="timeline-item">
+                    <div class="timeline-time">16:00 เป็นต้นไป</div>
+                    <div class="timeline-content">
+                        <h3>พักผ่อนชมวิวฟูจิ</h3>
+                        <p>เข้าที่พักและใช้เวลาดื่มด่ำกับบรรยากาศสุดโรแมนติก ชมวิวภูเขาไฟฟูจิจากห้องพักของคุณ</p>
+                        <span class="timeline-cost">ค่าที่พักไม่เกิน 5,000 บาท</span>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        <br>
-
-        <h4 class="text-2xl font-bold mb-3">สรุปประมาณการค่าใช้จ่ายรวม (ต่อ 1 ท่าน) - 5 วัน 4 คืน</h4>
-        <ul class="list-disc list-inside ml-4 mb-6">
-            <li><strong>ค่าตั๋วเครื่องบิน (ไป-กลับ กรุงเทพฯ - โคเปนเฮเกน):</strong> 25,000 - 40,000 THB</li>
-            <li><strong>ค่าที่พัก (4 คืน):</strong> 7,000 DKK (≈ 36,400 THB)</li>
-            <li><strong>Copenhagen Card (120 ชั่วโมง):</strong> 919 DKK (≈ 4,779 THB)</li>
-            <li><strong>ค่าอาหาร (5 วัน):</strong> ประมาณ 1,280 DKK (≈ 6,656 THB)</li>
-            <li><strong>ค่าเดินทางนอกเหนือจาก CPH Card (ถ้ามี):</strong> 72 DKK (≈ 374 THB)</li>
-            <li><strong>ค่าใช้จ่ายอื่นๆ (ของฝาก, ฉุกเฉิน):</strong> 800 DKK (≈ 4,160 THB)</li>
-        </ul>
-        <p class="text-xl font-bold mb-4"><strong>รวมทั้งหมด (ไม่รวมตั๋วเครื่องบิน):</strong> ประมาณ 10,071 DKK (≈ 52,369 THB)</p>
-        <p class="text-xl font-bold mb-8"><strong>สรุปงบประมาณรวม (โดยประมาณ):</strong> 77,369 - 92,369 THB (ไม่รวมค่าช้อปปิ้งส่วนตัว)</p>
-
-        <hr class="my-8 border-t-2 border-gray-300">
-
-        <h3 class="text-3xl font-bold mb-4">แผนการเดินทางโคเปนเฮเกน 3 วัน 2 คืน</h3>
-        <p class="text-xl font-medium mb-4"><strong>Copenhagen Card (72 ชั่วโมง):</strong> ประมาณ 669 DKK (≈ 3,480 THB)</p>
-
-        <table class="min-w-full bg-white rounded-lg overflow-hidden">
-            <thead>
-                <tr>
-                    <th class="px-4 py-3">วันและช่วงเวลา</th>
-                    <th class="px-4 py-3">สถานที่</th>
-                    <th class="px-4 py-3">คำอธิบาย</th>
-                    <th class="px-4 py-3">รายละเอียดค่าใช้จ่าย (DKK/THB)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td colspan="4" class="section-header"><strong>วันแรก: สำรวจใจกลางเมืองและแลนด์มาร์กสำคัญ</strong></td>
-                </tr>
-                <tr>
-                    <td class="px-4 py-3"><strong>เช้า (09:00 - 11:00 น.)</strong></td>
-                    <td class="px-4 py-3"><strong>เดินทางจากสนามบิน & เช็คอินโรงแรม</strong></td>
-                    <td class="px-4 py-3">เดินทางโดยเมโทรหรือรถไฟจากสนามบิน (CPH) เข้าสู่ใจกลางเมือง จากนั้นเข้าเช็คอินที่โรงแรม</td>
-                    <td class="px-4 py-3"><strong>ค่าเดินทางสนามบิน-โรงแรม:</strong> 36 DKK (≈ 187 THB) หากยังไม่มี Copenhagen Card<br><br><strong>โรงแรมแนะนำสำหรับ 2 คืน:</strong><br><strong>Scandic Palace Hotel</strong> หรือ <strong>Wakeup Copenhagen, Carsten Niebuhrs Gade</strong><br><br><strong>ประมาณการค่าที่พัก 2 คืน (ระดับกลาง):</strong><br><strong>รวม:</strong> 3,500 DKK (≈ 18,200 THB)</td>
-                </tr>
-                <tr>
-                    <td class="px-4 py-3"><strong>เที่ยง (11:00 - 14:00 น.)</strong></td>
-                    <td class="px-4 py-3"><strong>Nyhavn (นูฮาวน์) & Canal Tour</strong></td>
-                    <td class="px-4 py-3">เดินทางสู่ท่าเรือ Nyhavn ถ่ายรูปกับบ้านเรือนสีสันสดใส และรับประทานอาหารกลางวัน จากนั้นล่องเรือชมคลองชมเมือง</td>
-                    <td class="px-4 py-3"><strong>ค่าอาหารกลางวัน:</strong> 120-200 DKK (≈ 624-1,040 THB)<br><strong>ค่าล่องเรือ Canal Tour:</strong> ฟรี (ถ้ามี Copenhagen Card) หรือประมาณ 100 DKK (≈ 520 THB)</td>
-                </tr>
-                <tr>
-                    <td class="px-4 py-3"><strong>บ่าย (14:00 - 18:00 น.)</strong></td>
-                    <td class="px-4 py-3"><strong>Amalienborg Palace & The Little Mermaid</strong></td>
-                    <td class="px-4 py-3">เดินทางสู่พระราชวัง Amalienborg ชมพิธีเปลี่ยนเวรยาม จากนั้นไปยังรูปปั้นเงือกน้อย The Little Mermaid</td>
-                    <td class="px-4 py-3"><strong>ค่าเข้า Amalienborg Palace Museum:</strong> ฟรี (ถ้ามี Copenhagen Card) หรือ 125 DKK (≈ 650 THB)<br><strong>การเดินทาง:</strong> ฟรี (ถ้ามี Copenhagen Card)</td>
-                </tr>
-                <tr>
-                    <td class="px-4 py-3"><strong>ค่ำ (18:00 น. เป็นต้นไป)</strong></td>
-                    <td class="px-4 py-3"><strong>Strøget (สโทรเก็ต) & อาหารค่ำ</strong></td>
-                    <td class="px-4 py-3">เดินเล่นช้อปปิ้งบนถนน Strøget และรับประทานอาหารค่ำในย่านใจกลางเมือง</td>
-                    <td class="px-4 py-3"><strong>ค่าอาหารค่ำ:</strong> 150-300 DKK (≈ 780-1,560 THB)<br><strong>ค่าใช้จ่ายอื่นๆ (ช้อปปิ้ง):</strong> ตามงบประมาณ</td>
-                </tr>
-                <tr>
-                    <td colspan="3" class="px-4 py-3 text-right font-bold"><strong>รวมค่าใช้จ่ายวันที่ 1 (ไม่รวมโรงแรม):</strong></td>
-                    <td class="px-4 py-3 font-bold"><strong>ประมาณ 406 - 736 DKK (≈ 2,111 - 3,827 THB)</strong></td>
-                </tr>
-                <tr>
-                    <td colspan="4" class="section-header"><strong>วันที่สอง: ประวัติศาสตร์ ศิลปะ และความบันเทิง</strong></td>
-                </tr>
-                <tr>
-                    <td class="px-4 py-3"><strong>เช้า (09:00 - 12:00 น.)</strong></td>
-                    <td class="px-4 py-3"><strong>Rosenborg Castle & King's Garden</strong></td>
-                    <td class="px-4 py-3">เดินทางสู่ปราสาท Rosenborg ชมความงดงามของปราสาทและเครื่องประดับราชวงศ์ จากนั้นเดินเล่นในสวน King's Garden</td>
-                    <td class="px-4 py-3"><strong>ค่าเข้า Rosenborg Castle:</strong> ฟรี (ถ้ามี Copenhagen Card) หรือ 130 DKK (≈ 676 THB)<br><strong>การเดินทาง:</strong> ฟรี (ถ้ามี Copenhagen Card)</td>
-                </tr>
-                <tr>
-                    <td class="px-4 py-3"><strong>เที่ยง (12:00 - 14:00 น.)</strong></td>
-                    <td class="px-4 py-3"><strong>National Museum of Denmark หรือ Ny Carlsberg Glyptotek</strong></td>
-                    <td class="px-4 py-3">เลือกระหว่างพิพิธภัณฑ์ประวัติศาสตร์หรือพิพิธภัณฑ์ศิลปะ จากนั้นรับประทานอาหารกลางวันใกล้ๆ พิพิธภัณฑ์</td>
-                    <td class="px-4 py-3"><strong>ค่าเข้าพิพิธภัณฑ์:</strong> ฟรี (ถ้ามี Copenhagen Card)<br><strong>ค่าอาหารกลางวัน:</strong> 120-200 DKK (≈ 624-1,040 THB)</td>
-                </tr>
-                <tr>
-                    <td class="px-4 py-3"><strong>บ่าย (14:00 - 17:00 น.)</strong></td>
-                    <td class="px-4 py-3"><strong>Round Tower (Rundetårn) & เดินเล่น</strong></td>
-                    <td class="px-4 py-3">ขึ้น Round Tower เพื่อชมวิวพาโนรามาของเมือง จากนั้นเดินเล่นสำรวจย่าน Latin Quarter</td>
-                    <td class="px-4 py-3"><strong>ค่าเข้า Round Tower:</strong> ฟรี (ถ้ามี Copenhagen Card) หรือ 40 DKK (≈ 208 THB)<br><strong>การเดินทาง:</strong> ฟรี (ถ้ามี Copenhagen Card)</td>
-                </tr>
-                <tr>
-                    <td class="px-4 py-3"><strong>ค่ำ (17:00 น. เป็นต้นไป)</strong></td>
-                    <td class="px-4 py-3"><strong>Tivoli Gardens (สวนสนุกทิโวลี)</strong></td>
-                    <td class="px-4 py-3">เข้าชมสวนสนุก Tivoli Gardens เพลิดเพลินกับบรรยากาศ รับประทานอาหารค่ำใน Tivoli</td>
-                    <td class="px-4 py-3"><strong>ค่าเข้า Tivoli Gardens:</strong> ฟรี (ถ้ามี Copenhagen Card) หรือ 155 DKK (≈ 806 THB) ไม่รวมค่าเครื่องเล่น<br><strong>ค่าเครื่องเล่น (หากต้องการ):</strong> ซื้อแบบ Ride Ticket (250-300 DKK)<br><strong>ค่าอาหารค่ำใน Tivoli:</strong> 180-400 DKK (≈ 936-2,080 THB)</td>
-                </tr>
-                <tr>
-                    <td colspan="3" class="px-4 py-3 text-right font-bold"><strong>รวมค่าใช้จ่ายวันที่ 2:</strong></td>
-                    <td class="px-4 py-3 font-bold"><strong>ประมาณ 455 - 940 DKK (≈ 2,366 - 4,888 THB) หากรวมค่าเครื่องเล่นใน Tivoli อาจสูงถึง 1,240 DKK (≈ 6,448 THB)</strong></td>
-                </tr>
-                <tr>
-                    <td colspan="4" class="section-header"><strong>วันที่สาม: สัมผัสอีกมุมหนึ่งของโคเปนเฮเกนและเดินทางกลับ</strong></td>
-                </tr>
-                <tr>
-                    <td class="px-4 py-3"><strong>เช้า (09:00 - 12:00 น.)</strong></td>
-                    <td class="px-4 py-3"><strong>Freetown Christiania & Christianshavn</strong></td>
-                    <td class="px-4 py-3">เดินทางสู่ Freetown Christiania ชมงานศิลปะบนกำแพง จากนั้นเดินเล่นย่าน Christianshavn</td>
-                    <td class="px-4 py-3"><strong>การเดินทาง:</strong> ฟรี (ถ้ามี Copenhagen Card)</td>
-                </tr>
-                <tr>
-                    <td class="px-4 py-3"><strong>เที่ยง (12:00 - 14:00 น.)</strong></td>
-                    <td class="px-4 py-3"><strong>Kødbyen (Meatpacking District) & อาหารกลางวัน</strong></td>
-                    <td class="px-4 py-3">เดินทางสู่ย่าน Kødbyen รับประทานอาหารกลางวันในบรรยากาศที่ไม่เหมือนใคร</td>
-                    <td class="px-4 py-3"><strong>ค่าอาหารกลางวัน:</strong> 120-250 DKK (≈ 624-1,300 THB)</td>
-                </tr>
-                <tr>
-                    <td class="px-4 py-3"><strong>บ่าย (14:00 - 17:00 น.)</strong></td>
-                    <td class="px-4 py-3"><strong>ช้อปปิ้งของฝาก/เก็บตก & เดินทางไปสนามบิน</strong></td>
-                    <td class="px-4 py-3">ช้อปปิ้งของฝากเพิ่มเติม หรือเก็บตกสถานที่ จากนั้นกลับโรงแรมเพื่อรับสัมภาระและเดินทางไปสนามบิน</td>
-                    <td class="px-4 py-3"><strong>ค่าใช้จ่ายอื่นๆ (ช้อปปิ้ง):</strong> ตามงบประมาณ<br><strong>ค่าเดินทางโรงแรม-สนามบิน:</strong> 36 DKK (≈ 187 THB) หากไม่มี Copenhagen Card</td>
-                </tr>
-                <tr>
-                    <td colspan="3" class="px-4 py-3 text-right font-bold"><strong>รวมค่าใช้จ่ายวันที่ 3 (ไม่รวมของฝาก):</strong></td>
-                    <td class="px-4 py-3 font-bold"><strong>ประมาณ 156 - 236 DKK (≈ 811 - 1,227 THB)</strong></td>
-                </tr>
-            </tbody>
-        </table>
-
-        <br>
-
-        <h4 class="text-2xl font-bold mb-3">สรุปประมาณการค่าใช้จ่ายรวม (ต่อ 1 ท่าน) - 3 วัน 2 คืน</h4>
-        <ul class="list-disc list-inside ml-4 mb-6">
-            <li><strong>ค่าตั๋วเครื่องบิน (ไป-กลับ กรุงเทพฯ - โคเปนเฮเกน):</strong> 25,000 - 40,000 THB</li>
-            <li><strong>ค่าที่พัก (2 คืน):</strong> 3,500 DKK (≈ 18,200 THB)</li>
-            <li><strong>Copenhagen Card (72 ชั่วโมง):</strong> 669 DKK (≈ 3,480 THB)</li>
-            <li><strong>ค่าอาหาร (3 วัน):</strong> ประมาณ 690 DKK (≈ 3,588 THB)</li>
-            <li><strong>ค่าเดินทางนอกเหนือจาก CPH Card (ถ้ามี):</strong> 72 DKK (≈ 374 THB)</li>
-            <li><strong>ค่าใช้จ่ายอื่นๆ (ของฝาก, ฉุกเฉิน):</strong> 500 DKK (≈ 2,600 THB)</li>
-        </ul>
-        <p class="text-xl font-bold mb-4"><strong>รวมทั้งหมด (ไม่รวมตั๋วเครื่องบิน):</strong> ประมาณ 5,431 DKK (≈ 28,241 THB)</p>
-        <p class="text-xl font-bold mb-8"><strong>สรุปงบประมาณรวม (โดยประมาณ):</strong> 53,241 - 68,241 THB (ไม่รวมค่าช้อปปิ้งส่วนตัว)</p>
-
+        <div class="day-section">
+            <div class="day-header d4">
+                <h2>วันที่ 27 ต.ค.: อำลาฟูจิ และเดินทางกลับ</h2>
+                <p>เก็บภาพความทรงจำส่งท้ายและเดินทางสู่สนามบิน</p>
+            </div>
+            <div class="timeline">
+                 <div class="timeline-item">
+                    <div class="timeline-time">08:00 - 10:00</div>
+                    <div class="timeline-content">
+                        <h3>ชมเจดีย์ชูเรโตะ</h3>
+                        <p>เก็บภาพแลนด์มาร์คสุดท้ายกับเจดีย์ 5 ชั้นสีแดง ที่มีฉากหลังเป็นภูเขาไฟฟูจิ เป็นภาพที่สวยงามและน่าประทับใจ</p>
+                        <span class="timeline-cost">~250 บาท (JPY 1,000)</span>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">12:00 - 13:00</div>
+                    <div class="timeline-content">
+                        <h3>อาหารกลางวันมื้อสุดท้าย</h3>
+                        <p>รับประทานอาหารมื้อสุดท้ายก่อนออกเดินทาง อาจจะเป็นร้านอาหารง่ายๆ บริเวณสถานีหรือในสนามบิน</p>
+                        <span class="timeline-cost">~1,000 บาท (JPY 4,000)</span>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">13:00 เป็นต้นไป</div>
+                    <div class="timeline-content">
+                        <h3>เดินทางสู่สนามบิน</h3>
+                        <p>เดินทางจากคาวากุจิโกะหรือโตเกียวสู่สนามบินนาริตะ/ฮาเนดะ เพื่อเดินทางกลับกรุงเทพฯ โดยสวัสดิภาพ</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+    <footer>
+        <p>จัดทำแผนการเดินทางโดยไกด์ผู้มีประสบการณ์ | ขอให้เป็นการเดินทางที่ยอดเยี่ยม!</p>
+    </footer>
+
 </body>
 </html>
