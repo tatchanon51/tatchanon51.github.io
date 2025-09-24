@@ -3,16 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Romantic Trip: Tokyo & Kawaguchiko</title>
+    <title>Osaka Romantic Trip for Couples</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;700&display=swap');
 
+        :root {
+            --primary-color: #007BFF; /* Blue for Osaka's river */
+            --secondary-color: #e60012; /* Red for Japan's sun */
+            --text-color: #333;
+            --bg-color: #f9f9f9;
+        }
+
         body {
             font-family: 'Noto Sans Thai', sans-serif;
-            background-color: #fdfaf6;
-            color: #333;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             margin: 0;
             padding: 0;
+            font-size: 16px;
         }
 
         .hero {
@@ -20,272 +28,363 @@
             background-size: cover;
             background-position: center;
             color: white;
-            padding: 80px 20px;
+            padding: 100px 20px 60px;
             text-align: center;
-            border-bottom: 5px solid #e74c3c;
         }
 
         .hero h1 {
-            font-size: 3em;
+            font-size: 2.5em;
             margin: 0;
             font-weight: 700;
         }
 
         .hero p {
-            font-size: 1.2em;
+            font-size: 1.1em;
             margin-top: 10px;
             font-weight: 300;
         }
 
         .container {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 0 20px;
+            padding: 20px;
         }
 
-        .summary-card, .accommodation-section {
+        .card {
             background-color: white;
             border-radius: 12px;
             box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-            padding: 25px;
-            margin-bottom: 30px;
+            padding: 20px;
+            margin-bottom: 25px;
         }
-        .summary-card h2, .accommodation-section h2 {
-            color: #c0392b;
+
+        .card h2 {
+            color: var(--primary-color);
             margin-top: 0;
             text-align: center;
-            font-size: 2em;
-        }
-        .accommodation-section p.intro {
-            text-align: center;
-            max-width: 800px;
-            margin: 10px auto 25px;
-            line-height: 1.7;
-            font-size: 1.1em;
+            font-size: 1.8em;
         }
         
-        .accommodation-grid {
+        .guide-note {
+            text-align: center;
+            margin: 10px auto 25px;
+            line-height: 1.7;
+            font-size: 1em;
+            background-color: #e6f7ff;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #1890ff;
+        }
+        
+        .accommodation-grid, .food-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+            grid-template-columns: 1fr;
+            gap: 20px;
             margin-top: 20px;
         }
         
-        .hotel-card {
+        .hotel-card, .food-card {
             background: #fff;
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
         }
-        .hotel-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-        }
-        .hotel-card img {
+        .hotel-card img, .food-card img {
             width: 100%;
-            height: 500px;
+            height: 200px;
             object-fit: cover;
         }
-        .hotel-info {
-            padding: 15px;
-        }
-        .hotel-info h3 { margin: 0 0 10px 0; font-size: 1.2em; color: #34495e; }
+        .hotel-info { padding: 15px; }
+        .hotel-info h3 { margin: 0 0 10px 0; font-size: 1.2em; color: var(--secondary-color); }
         .hotel-info p { margin: 0 0 10px 0; font-size: 0.95em; font-weight: 300; line-height: 1.6; }
-        .hotel-price { font-weight: bold; color: #e74c3c; }
+        .hotel-price { font-weight: bold; color: var(--primary-color); }
         .hotel-location { font-size: 0.9em; color: #7f8c8d; margin-bottom: 5px; font-weight: 500;}
+        
+        .food-card h3 {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: 0;
+            padding: 15px;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            font-size: 1.2em;
+        }
 
         .day-section {
             background-color: #ffffff;
             border-radius: 12px;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             box-shadow: 0 6px 20px rgba(0,0,0,0.08);
             overflow: hidden;
         }
 
         .day-header {
-            background-color: #2c3e50; color: white; padding: 20px;
+            color: white; 
+            padding: 20px;
         }
-        .day-header.d1 { background: linear-gradient(45deg, #d35400, #e74c3c); }
-        .day-header.d2 { background: linear-gradient(45deg, #2980b9, #3498db); }
-        .day-header.d3 { background: linear-gradient(45deg, #27ae60, #2ecc71); }
-        .day-header.d4 { background: linear-gradient(45deg, #8e44ad, #9b59b6); }
+        .day-header.d1 { background: linear-gradient(45deg, #0250c5, #01b7ff); }
+        .day-header.d2 { background: linear-gradient(45deg, #ff0f7b, #f89b29); }
+        .day-header.d3 { background: linear-gradient(45deg, #283c86, #45a247); }
+        .day-header.d4 { background: linear-gradient(45deg, #4e54c8, #8f94fb); }
+        .day-header.d5 { background: linear-gradient(45deg, #D38312, #A83279); }
 
-        .day-header h2 { margin: 0; font-size: 1.8em; }
+
+        .day-header h2 { margin: 0; font-size: 1.6em; }
         .day-header p { margin: 5px 0 0; opacity: 0.9; }
 
-        .timeline { padding: 30px; }
-        .timeline-item { display: flex; gap: 20px; margin-bottom: 25px; padding-bottom: 25px; border-bottom: 1px solid #ecf0f1; align-items: flex-start;}
+        .timeline { padding: 20px; }
+        .timeline-item { 
+            margin-bottom: 25px; 
+            padding-bottom: 25px; 
+            border-bottom: 1px solid #ecf0f1;
+        }
         .timeline-item:last-child { border-bottom: none; margin-bottom: 0; }
-        .timeline-time { flex-basis: 120px; min-width: 120px; font-weight: 700; color: #34495e; font-size: 1.1em; padding-top: 5px; }
-        .timeline-content { flex-grow: 1; }
-        .timeline-content h3 { margin: 0 0 8px 0; font-size: 1.3em; color: #2c3e50; }
+        .timeline-time { font-weight: 700; color: #34495e; font-size: 1.1em; margin-bottom: 10px; }
+        .timeline-content h3 { margin: 0 0 8px 0; font-size: 1.2em; color: #34495e; }
         .timeline-content p { margin: 0 0 10px 0; line-height: 1.6; font-weight: 300; }
-        .timeline-cost { background-color: #ecf0f1; color: #7f8c8d; padding: 5px 10px; border-radius: 20px; font-size: 0.9em; display: inline-block; font-weight: 500; }
+        .timeline-transport {
+            background-color: #f8f9fa;
+            border-left: 3px solid var(--primary-color);
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 0.9em;
+        }
+        .timeline-cost { background-color: #e9ecef; color: #495057; padding: 5px 10px; border-radius: 20px; font-size: 0.9em; display: inline-block; font-weight: 500; }
         .timeline-image {
-            width: 150px;
-            height: 100px;
+            width: 100%;
+            margin-top: 15px;
+            height: 200px;
             object-fit: cover;
             border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
         footer { text-align: center; padding: 25px; color: #7f8c8d; font-size: 0.9em; }
+
+        @media (min-width: 768px) {
+            .hero h1 { font-size: 3em; }
+            .container { max-width: 1100px; margin: 30px auto; }
+            .accommodation-grid { grid-template-columns: 1fr 1fr; }
+            .food-grid { grid-template-columns: repeat(4, 1fr); }
+            .timeline-item { display: flex; gap: 20px; align-items: flex-start; }
+            .timeline-image { width: 200px; height: 130px; margin-top: 0; }
+            .timeline-time { flex-basis: 120px; min-width: 120px; padding-top: 5px; }
+        }
     </style>
 </head>
 <body>
 
-    <div class="hero">
-        <h1>Romantic Trip: Tokyo & Kawaguchiko</h1>
-        <p>23 - 27 ตุลาคม 2568 | แผนการเดินทางสำหรับคู่รัก</p>
-    </div>
+    <header class="hero">
+        <h1>Osaka Romantic Trip</h1>
+        <p>23 - 27 ตุลาคม | แผนการเดินทางสำหรับคู่รัก</p>
+    </header>
 
-    <div class="container">
+    <main class="container">
+    
+        <section class="card">
+            <div class="guide-note">
+                <strong>คำแนะนำจากไกด์:</strong> แผนการเดินทางนี้ถูกออกแบบมาอย่างดีที่สุดสำหรับทริป 5 วันในภูมิภาคคันไซครับ **การกลับจากสนามบินโอซาก้า (KIX) เป็นทางเลือกที่สะดวกและคุ้มค่าที่สุด** ทำให้เราสามารถปักหลักพักที่เดียวในโอซาก้าได้ตลอด 4 คืนโดยไม่ต้องย้ายที่พักครับ
+            </div>
+        </section>
 
-        <div class="accommodation-section">
-            <h2>แผนการเข้าพักและโรงแรมแนะนำ</h2>
-            <p class="intro">เพื่อให้ทริปนี้สมบูรณ์แบบที่สุด ผมขอแนะนำให้แบ่งการพักเป็น 2 แห่งครับ เราจะพักที่โตเกียว 2 คืนเพื่อเที่ยวในเมืองอย่างสะดวกสบาย และย้ายไปพักที่คาวากุจิโกะ 1 คืน เพื่อดื่มด่ำกับไฮไลท์ของทริป นั่นคือวิวภูเขาไฟฟูจิจากห้องพักครับ</p>
-            
-            <h3 style="text-align:center; color: #34495e;">โตเกียว: 2 คืน (24-25 ต.ค.) - เน้นดีไซน์และความสะดวก</h3>
+        <section id="accommodation" class="card">
+            <h2>ที่พักแนะนำ (พักที่เดียว 4 คืน)</h2>
             <div class="accommodation-grid">
-                <div class="hotel-card">
-                    <a href="https://www.agoda.com/apa-hotel-hanzomon-hirakawacho/hotel/tokyo-jp.html?countryId=3&finalPriceView=2&isShowMobileAppPrice=false&cid=-1&numberOfBedrooms=&familyMode=false&adults=2&children=0&rooms=1&maxRooms=0&checkIn=2025-10-24&isCalendarCallout=false&childAges=&numberOfGuest=0&missingChildAges=false&travellerType=1&showReviewSubmissionEntry=false&currencyCode=THB&isFreeOccSearch=false&tspTypes=6&los=2&searchrequestid=fda1abf1-d34f-4b0a-9891-c6ed530f3809&ds=JwxeI6B2lhG9ket%2B&fbclid=IwZXh0bgNhZW0CMTAAYnJpZBExRzFIYjk4Z2ZMQmFWMUt2ZgEeeOtqXR05X0FfOuv-T1NJCXkyI_q6IAX8fNvnbI_FKA_NNtxRWEH36LtP8_E_aem_EhW_GjekevFUdOeP0ZG4nQ"><img src="https://pix8.agoda.net/property/28797833/752658240/67dfcd6d22b58eb3571b08fd4a9f8098.jpeg" alt="Image of APA Hotel Nagatacho Hanzomon Ekimae"></a>
+                <article class="hotel-card">
+                    <a href="https://www.agoda.com/apa-hotel-resort-osaka-namba-ekimae-tower/hotel/osaka-jp.html?countryId=3&finalPriceView=2&isShowMobileAppPrice=false&cid=-1&numberOfBedrooms=&familyMode=false&adults=2&children=0&rooms=1&maxRooms=0&checkIn=2025-10-23&isCalendarCallout=false&childAges=&numberOfGuest=0&missingChildAges=false&travellerType=1&showReviewSubmissionEntry=false&currencyCode=THB&isFreeOccSearch=false&tspTypes=7&los=4&searchrequestid=1745ced6-55e6-45b0-a10f-2f38419781ec"><img src="https://q-xx.bstatic.com/xdata/images/hotel/max1024x768/572175087.jpg?k=d92bd6f4f99413fd947846c9b697ad8b53be243b6587fafa70bf354503b780d2&o=&s=1024x" alt="โรงแรมใจกลางโอซาก้า"></a>
                     <div class="hotel-info">
-                        <h3>APA Hotel Nagatacho Hanzomon Ekimae</h3>
-                        <p>โรงแรมดีไซน์สวยงาม บรรยากาศโรแมนติก อยู่ใกล้กับย่านชิบุยะ เดินทางสะดวก 17 นาทีด้วยรถไฟฟ้าจากชิบุยะ</p>
-                        <span class="hotel-price">฿4,700 / คืน</span>
+                        <div class="hotel-location">ย่านนัมบะ</div>
+                        <h3>Cross Hotel Osaka</h3>
+                        <p>โรงแรมดีไซน์ทันสมัย อยู่ห่างจากป้ายกูลิโกะแมนเพียงไม่กี่ก้าว เหมาะสำหรับคู่รักที่ชอบความคึกคักและแสงสียามค่ำคืน หาของกินง่ายมาก</p>
+                        <span class="hotel-price">~฿4,000 - 5,000 / คืน</span>
                     </div>
-                </div>
-            </div>
-
-            <h3 style="text-align:center; color: #34495e; margin-top: 40px;">คาวากุจิโกะ: 1 คืน (26 ต.ค.) - วิวภูเขาไฟฟูจิสุดโรแมนติก</h3>
-             <div class="accommodation-grid">
-                <div class="hotel-card">
-                    <a href="https://www.agoda.com/shoshu-hotel/hotel/all/yamanakako-jp.html?countryId=3&finalPriceView=2&isShowMobileAppPrice=false&cid=-1&numberOfBedrooms=&familyMode=false&adults=2&children=0&rooms=1&maxRooms=0&checkIn=2025-10-24&isCalendarCallout=false&childAges=&numberOfGuest=0&missingChildAges=false&travellerType=1&showReviewSubmissionEntry=false&currencyCode=THB&isFreeOccSearch=false&los=2&searchrequestid=fda1abf1-d34f-4b0a-9891-c6ed530f3809&ds=XS0VK8d8DLlmPD0E"><img src="https://q-xx.bstatic.com/xdata/images/hotel/max1024x768/623564327.jpg?k=6c3dd903de3f6f0b2226b0e3cf402c1d223f9839e096ab277063e5abf651c853" alt="Image of 初聚 SHOSHU Hotel"></a>
+                </article>
+                 <article class="hotel-card">
+                    <a href="https://www.agoda.com/apa-hotel-namba-eki-higashi/hotel/osaka-jp.html?countryId=3&finalPriceView=2&isShowMobileAppPrice=false&cid=-1&numberOfBedrooms=&familyMode=false&adults=2&children=0&rooms=1&maxRooms=0&checkIn=2025-10-23&isCalendarCallout=false&childAges=&numberOfGuest=0&missingChildAges=false&travellerType=1&showReviewSubmissionEntry=false&currencyCode=THB&isFreeOccSearch=false&los=4&searchrequestid=1745ced6-55e6-45b0-a10f-2f38419781ec"><img src="https://q-xx.bstatic.com/xdata/images/hotel/max1024x768/177189140.jpg?k=29383421b89c2429b6ace5013403f662e20640ff6b06aa00f47860af33ecf7a3&o=&s=1024x" alt="โรงแรมวิวสวยในโอซาก้า"></a>
                     <div class="hotel-info">
-                        <h3>初聚 SHOSHU Hotel</h3>
-                        <p>เรียวกังสไตล์ญี่ปุ่นแท้ๆ ให้บรรยากาศอบอุ่นและเห็นวิวฟูจิได้ชัดเจน เหมาะกับการพักผ่อนอย่างสงบ</p>
-                        <span class="hotel-price">~฿4,160 / คืน</span>
+                        <div class="hotel-location">ย่านนัมบ</div>
+                        <h3>Hotel Nikko Osaka</h3>
+                        <p>โรงแรมขนาดใหญ่ที่มีมาตรฐานสูง ตั้งอยู่บนสถานีรถไฟใต้ดิน Shinsaibashi โดยตรง ทำให้เดินทางสะดวกมาก ห้องพักสะอาด กว้างขวาง</p>
+                        <span class="hotel-price">~฿4,500 - 5,000 / คืน</span>
                     </div>
-                </div>
-                </div>
+                </article>
             </div>
-        </div>
+        </section>
 
-        <div class="summary-card">
-            <h2>สรุปประมาณการค่าใช้จ่าย (สำหรับ 2 ท่าน)</h2>
-            <p><strong>ค่าใช้จ่ายตามแผน (อาหาร,เดินทาง,ตั๋ว):</strong> ~15,025 บาท (JPY 60,100)</p>
-            <p><strong>ค่าที่พัก (3 คืน):</strong> ~11,000 - 15,000 บาท</p>
-            <p><strong>รวมค่าใช้จ่ายตลอดทริป (ไม่รวมตั๋วเครื่องบิน): ~26,025 - 30,025 บาท</strong></p>
-            <small>*คำนวณที่ 100 เยน = 25 บาท (ราคาอาจมีการเปลี่ยนแปลง)</small>
-        </div>
-
-        <div class="day-section">
-            <div class="day-header d1">
-                <h2>วันที่ 24 ต.ค.: ตะลุยแลนด์มาร์คโตเกียว</h2>
-                <p>สัมผัสวัฒนธรรมดั้งเดิมและความทันสมัยใจกลางเมือง</p>
+        <section id="food" class="card">
+            <h2>อาหารห้ามพลาดเมื่อมาคันไซ!</h2>
+            <div class="food-grid">
+                <article class="food-card">
+                    <img src="https://images.unsplash.com/photo-1553621042-f6e147245754?auto=format&fit=crop&w=800&q=60" alt="ซูชิสดๆ">
+                    <h3>ซูชิ / ซาชิมิ</h3>
+                </article>
+                <article class="food-card">
+                    <img src="https://img.thaicdn.net/u/2017/surauch/cooking/n1_9.jpg" alt="ทาโกะยากิ">
+                    <h3>ทาโกะยากิ</h3>
+                </article>
+                <article class="food-card">
+                    <img src="https://chillchilljapan.com/wp-content/uploads/2020/09/shutterstock_1262590948-650x513.jpg.webp" alt="โอโคโนมิยากิ">
+                    <h3>โอโคโนมิยากิ</h3>
+                </article>
+                <article class="food-card">
+                    <img src="https://chillchilljapan.com/wp-content/uploads/2020/09/shutterstock_1553404661-650x513.jpg.webp" alt="คุชิคัตสึ">
+                    <h3>คุชิคัตสึ</h3>
+                </article>
             </div>
+        </section>
+
+        <section class="day-section">
+            <header class="day-header d1">
+                <h2>วันที่ 23 ต.ค.: สัมผัสหัวใจของโอซาก้า</h2>
+                <p>เดินทางถึงโอซาก้า / ตะลุยกินย่านนัมบะ</p>
+            </header>
             <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-time">09:00 - 11:30</div>
+                <article class="timeline-item">
+                    <div class="timeline-time">07:30 - 09:30</div>
                     <div class="timeline-content">
-                        <h3>เที่ยววัดเซ็นโซจิ (อาซากุสะ)</h3>
-                        <p>นำกระเป๋าฝากที่โรงแรม แล้วไปถ่ายรูปกับโคมแดงยักษ์ที่เป็นสัญลักษณ์และขอพรที่วัดที่เก่าแก่ที่สุดในโตเกียว</p>
-                        <span class="timeline-cost">~200 บาท (JPY 800)</span>
+                        <h3>เดินทางถึงโอซาก้า (KIX) และเข้าเมือง</h3>
+                        <p>ผ่านขั้นตอนตรวจคนเข้าเมือง รับกระเป๋า และเตรียมตัวเดินทางเข้าสู่ใจกลางเมืองโอซาก้า</p>
+                        <div class="timeline-transport">
+                            <strong>การเดินทาง:</strong> ขึ้นรถไฟ **Nankai Airport Express** จากสนามบิน KIX สู่สถานี Namba<br>
+                            <strong>เวลา:</strong> ~45 นาที<br>
+                            <strong>ค่าใช้จ่าย:</strong> ~930 เยน / คน (~230 บาท)
+                        </div>
                     </div>
-                    <img src="https://artralux.co.th/wp-content/uploads/2022/11/cover%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%AD%E0%B8%B2%E0%B8%8B%E0%B8%B2.jpg" alt="Image of Senso-ji Temple's giant red lantern" class="timeline-image">
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-time">13:00 - 16:30</div>
+                </article>
+                <article class="timeline-item">
+                    <div class="timeline-time">10:00 - 13:00</div>
                     <div class="timeline-content">
-                        <h3>ถ่ายรูปที่ห้าแยกชิบูย่า</h3>
-                        <p>เดินทางไปย่านชิบูย่า ชมความวุ่นวายอันเป็นระเบียบของห้าแยกที่โด่งดังที่สุดในโลก และทักทายรูปปั้นฮาจิโกะ</p>
-                        <span class="timeline-cost">~150 บาท (JPY 600)</span>
+                        <h3>มื้อแรกที่ตลาดปลาคุโรมง</h3>
+                        <p>นำกระเป๋าไปฝากที่โรงแรม แล้วมุ่งหน้าไป **ตลาดคุโรมง (Kuromon Market)** สวรรค์ของคนรักอาหารทะเล ทานซูชิ ซาชิมิสดๆ และหอยเม่นเป็นมื้อแรก</p>
+                        <div class="timeline-transport">
+                             <strong>การเดินทาง:</strong> เดินจากย่านนัมบะ / ชินไซบาชิ (~10-15 นาที)
+                        </div>
+                         <img src="https://images.unsplash.com/photo-1553621042-f6e147245754?auto=format&fit=crop&w=800&q=60" alt="ตลาดปลาคุโรมง" class="timeline-image">
                     </div>
-                    <img src="https://www.japan-guide.com/g18/3007_01.jpg" alt="Image of Shibuya Crossing at night" class="timeline-image">
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-time">19:00 เป็นต้นไป</div>
+                </article>
+                 <article class="timeline-item">
+                    <div class="timeline-time">18:00 เป็นต้นไป</div>
                     <div class="timeline-content">
-                        <h3>อาหารเย็น @ Omoide Yokocho</h3>
-                        <p>สัมผัสบรรยากาศย้อนยุคที่ตรอกร้านอาหารย่างเสียบไม้ (Yakitori) เล็กๆ ในย่านชินจูกุ ได้ฟีลญี่ปุ่นแท้ๆ</p>
-                        <span class="timeline-cost">~1,300 บาท (JPY 5,200)</span>
+                        <h3>แสงสีเสียงที่โดทงโบริ</h3>
+                        <p>หลังจากเช็คอิน ถ่ายรูปกับแลนด์มาร์ค **ป้ายไฟกูลิโกะแมน (Glico Running Man)** และทาน **ทาโกะยากิ** กับ **โอโคโนมิยากิ** อาหารขึ้นชื่อของโอซาก้า</p>
+                        <img src="https://chillchilljapan.com/wp-content/uploads/2017/01/dotoncover.jpg.webp" alt="ป้ายไฟกูลิโกะแมน" class="timeline-image">
                     </div>
-                    <img src="https://byfood.b-cdn.net/api/public/assets/62713/content?optimizer=image" alt="Image of Omoide Yokocho alley in Shinjuku" class="timeline-image">
-                </div>
+                </article>
             </div>
-        </div>
+        </section>
 
-        <div class="day-section">
-            <div class="day-header d2">
-                <h2>วันที่ 25 ต.ค.: ผจญภัยที่ Tokyo DisneySea</h2>
-                <p>ท่องโลกจินตนาการแห่งท้องทะเลและการผจญภัย</p>
-            </div>
+        <section class="day-section">
+            <header class="day-header d2">
+                <h2>วันที่ 24 ต.ค.: ผจญภัยที่ Universal Studios Japan</h2>
+                <p>สนุกสุดเหวี่ยงเต็มวันในโลกแห่งภาพยนตร์</p>
+            </header>
             <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-time">10:00 - 21:00</div>
+                <article class="timeline-item">
+                     <div class="timeline-time">เต็มวัน</div>
                     <div class="timeline-content">
-                        <h3>สนุกเต็มวันที่ Tokyo DisneySea</h3>
-                        <p>ใช้เวลาทั้งวันกับเครื่องเล่นสุดสนุก การแสดงตระการตา และมุมถ่ายรูปสุดโรแมนติกที่สวนสนุกดิสนีย์แห่งเดียวในโลก</p>
-                        <span class="timeline-cost">ตั๋วเข้าสวนสนุก: ~4,500 บาท (JPY 18,000)</span>
+                        <h3>Universal Studios Japan (USJ)</h3>
+                        <p>ใช้เวลาทั้งวันกับเครื่องเล่นและโซนต่างๆ ที่น่าตื่นตาตื่นใจ โดยเฉพาะ The Wizarding World of Harry Potter และ Super Nintendo World (แนะนำให้ซื้อตั๋วล่วงหน้า)</p>
+                        <div class="timeline-transport">
+                            <strong>การเดินทาง:</strong> จากสถานี Namba ขึ้นรถไฟสาย Hanshin Namba Line ไปลงที่ Nishikujo แล้วเปลี่ยนเป็นสาย JR Yumesaki Line ไปลงที่ Universal City<br>
+                            <strong>เวลา:</strong> ~25 นาที<br>
+                            <strong>ค่าใช้จ่าย:</strong> ~390 เยน / คน / เที่ยว (~100 บาท)
+                        </div>
+                        <img src="https://lillagreen.com/wp-content/uploads/2019/11/Universal-Studios-Japan-Osaka-2.jpg" alt="Universal Studios Japan" class="timeline-image">
                     </div>
-                    <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/16/05/f9/9d/tokyo-disneysea.jpg?w=1200&h=-1&s=1" alt="Image of a romantic scene at Tokyo DisneySea" class="timeline-image">
-                </div>
+                </article>
             </div>
-        </div>
+        </section>
         
-        <div class="day-section">
-            <div class="day-header d3">
-                <h2>วันที่ 26 ต.ค.: ชมความงามภูเขาไฟฟูจิ</h2>
-                <p>พักผ่อนท่ามกลางธรรมชาติและวิวสุดอลังการที่คาวากุจิโกะ</p>
-            </div>
+        <section class="day-section">
+            <header class="day-header d3">
+                <h2>วันที่ 25 ต.ค.: เสน่ห์เมืองเก่าเกียวโต (Day Trip)</h2>
+                <p>เดินทางสู่อดีตราชธานีอันงดงาม</p>
+            </header>
             <div class="timeline">
-                 <div class="timeline-item">
-                    <div class="timeline-time">12:30 - 16:00</div>
+                 <article class="timeline-item">
+                    <div class="timeline-time">09:00 - 13:00</div>
                     <div class="timeline-content">
-                        <h3>ขึ้นกระเช้าชมวิวและเดินเล่น</h3>
-                        <p>ขึ้นกระเช้า Mt. Fuji Panoramic Ropeway ชมวิวมุมสูงของทะเลสาบและภูเขาไฟฟูจิ และเดินเล่นถ่ายรูปที่ Oishi Park</p>
-                        <span class="timeline-cost">~450 บาท (JPY 1,800)</span>
+                        <h3>ศาลเจ้าฟูชิมิอินาริ</h3>
+                        <p>เดินทางจากโอซาก้าสู่เกียวโต ไปยัง **ศาลเจ้าฟูชิมิอินาริ (Fushimi Inari Shrine)** ถ่ายรูปกับอุโมงค์เสาโทริอิสีแดงนับหมื่นต้น</p>
+                        <div class="timeline-transport">
+                            <strong>การเดินทาง:</strong> จาก Namba ขึ้นรถไฟใต้ดินสาย Midosuji ไป Umeda แล้วเปลี่ยนเป็นรถไฟสาย JR Kyoto Line ไปลงที่ Kyoto Station จากนั้นเปลี่ยนเป็นสาย JR Nara Line ไปลงที่ Inari Station<br>
+                             <strong>เวลา:</strong> ~60-75 นาที<br>
+                            <strong>ค่าใช้จ่าย:</strong> ~820 เยน / คน / เที่ยว (~210 บาท)
+                        </div>
+                         <img src="https://images.unsplash.com/photo-1528164344705-47542687000d?auto=format&fit=crop&w=800&q=60" alt="ศาลเจ้าฟูชิมิอินาริ" class="timeline-image">
                     </div>
-                    <img src="https://www.qualityb2bpackage.com/upload_photo/1687515709.jpg" alt="Image of Mt. Fuji Panoramic Ropeway" class="timeline-image">
-                </div>
-                 <div class="timeline-item">
-                    <div class="timeline-time">16:00 เป็นต้นไป</div>
+                </article>
+                 <article class="timeline-item">
+                     <div class="timeline-time">14:00 - 17:00</div>
                     <div class="timeline-content">
-                        <h3>พักผ่อนชมวิวฟูจิ</h3>
-                        <p>เข้าที่พักและใช้เวลาดื่มด่ำกับบรรยากาศสุดโรแมนติก ชมวิวภูเขาไฟฟูจิจากห้องพักของคุณ</p>
-                        <span class="timeline-cost">เลือกที่พักที่แนะนำด้านบน</span>
+                        <h3>ป่าไผ่อาราชิยามะ</h3>
+                        <p>เดินทางต่อไปยัง **ป่าไผ่อาราชิยามะ (Arashiyama Bamboo Grove)** เดินเล่นท่ามกลางต้นไผ่สูงตระหง่าน และข้าม **สะพานโทเง็ตสึเคียว (Togetsukyo Bridge)**</p>
+                        <img src="https://chillchilljapan.com/wp-content/uploads/2020/11/pixta_61196765_M.jpg.webp" alt="ป่าไผ่อาราชิยามะ" class="timeline-image">
                     </div>
-                     <img src="https://images.unsplash.com/photo-1578637387934-051880a7164b?auto=format&fit=crop&w=400&q=60" alt="Image of Oishi Park and Mount Fuji" class="timeline-image">
-                </div>
+                </article>
             </div>
-        </div>
+        </section>
 
-        <div class="day-section">
-            <div class="day-header d4">
-                <h2>วันที่ 27 ต.ค.: อำลาฟูจิ และเดินทางกลับ</h2>
-                <p>เก็บภาพความทรงจำส่งท้ายและเดินทางสู่สนามบิน</p>
-            </div>
+        <section class="day-section">
+            <header class="day-header d4">
+                <h2>วันที่ 26 ต.ค.: ชมวิวเมืองและช้อปปิ้ง</h2>
+                <p>ตึกสูงสุดและย่านแฟชั่นของโอซาก้า</p>
+            </header>
             <div class="timeline">
-                 <div class="timeline-item">
-                    <div class="timeline-time">08:00 - 10:00</div>
+                 <article class="timeline-item">
+                    <div class="timeline-time">10:00 - 13:00</div>
                     <div class="timeline-content">
-                        <h3>ชมเจดีย์ชูเรโตะ</h3>
-                        <p>เก็บภาพแลนด์มาร์คสุดท้ายกับเจดีย์ 5 ชั้นสีแดง ที่มีฉากหลังเป็นภูเขาไฟฟูจิ เป็นภาพที่สวยงามและน่าประทับใจ</p>
-                        <span class="timeline-cost">~250 บาท (JPY 1,000)</span>
+                        <h3>Abeno Q's Mall และ ตึก Harukas 300</h3>
+                        <p>เดินทางไปย่านเทนโนจิ ช้อปปิ้งรองเท้า On Cloud ที่ **Abeno Q's Mall** จากนั้นขึ้นไปชมวิวโอซาก้าแบบ 360 องศาบน **ตึก Abeno Harukas 300**</p>
+                        <div class="timeline-transport">
+                            <strong>การเดินทาง:</strong> จาก Namba ขึ้นรถไฟใต้ดินสาย Midosuji ไปลงที่ Tennoji Station<br>
+                             <strong>เวลา:</strong> ~6 นาที<br>
+                            <strong>ค่าใช้จ่าย:</strong> ~230 เยน / คน / เที่ยว (~60 บาท)
+                        </div>
+                         <img src="https://www.datocms-assets.com/101439/1752992009-abeno-q-s-mall.webp?auto=format&crop=focalpoint&fit=crop&fp-x=0.66&fp-y=0.43&h=736&w=736" alt="Abeno Harukas 300">
                     </div>
-                     <img src="https://images.unsplash.com/photo-1528164344705-47542687000d?auto=format&fit=crop&w=400&q=60" alt="Image of Chureito Pagoda with Mount Fuji" class="timeline-image">
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-time">13:00 เป็นต้นไป</div>
+                </article>
+                 <article class="timeline-item">
+                     <div class="timeline-time">14:00 - 17:00</div>
                     <div class="timeline-content">
-                        <h3>เดินทางสู่สนามบิน</h3>
-                        <p>เดินทางจากคาวากุจิโกะหรือโตเกียวสู่สนามบินนาริตะ/ฮาเนดะ เพื่อเดินทางกลับกรุงเทพฯ โดยสวัสดิภาพ</p>
+                        <h3>ย่านชินเซไกและหอคอยซึเทนคาคุ</h3>
+                        <p>เดินเล่นใน **ย่านชินเซไก (Shinsekai)** ที่ให้บรรยากาศย้อนยุค และถ่ายรูปกับ **หอคอยซึเทนคาคุ (Tsutenkaku Tower)** สัญลักษณ์ของโอซาก้า</p>
+                        <p><strong>ต้องลอง:</strong> **คุชิคัตสึ** (ของทอดเสียบไม้) อาหารขึ้นชื่อของย่านนี้</p>
+                        <img src="https://cms.talonjapan.com/wp-content/uploads/2024/07/tsutenkaku-tower-gengorou.webp" alt="ย่านชินเซไก">
                     </div>
-                </div>
+                </article>
             </div>
-        </div>
-    </div>
+        </section>
+
+        <section class="day-section">
+            <header class="day-header d5">
+                <h2>วันที่ 27 ต.ค.: ปราสาทโอซาก้าและเดินทางกลับ</h2>
+                <p>ชมความยิ่งใหญ่และเตรียมตัวสู่สนามบิน</p>
+            </header>
+            <div class="timeline">
+                 <article class="timeline-item">
+                    <div class="timeline-time">09:00 - 12:00</div>
+                    <div class="timeline-content">
+                        <h3>ปราสาทโอซาก้า</h3>
+                        <p>เช็คเอาท์และฝากกระเป๋าไว้ที่โรงแรม ไปชมความยิ่งใหญ่ของ **ปราสาทโอซาก้า (Osaka Castle)** แลนด์มาร์คสำคัญทางประวัติศาสตร์</p>
+                         <img src="https://artralux.co.th/wp-content/uploads/2022/10/cover%E0%B8%9B%E0%B8%A3%E0%B8%B2%E0%B8%AA%E0%B8%B2%E0%B8%97%E0%B9%82%E0%B8%AD%E0%B8%8B%E0%B8%B2%E0%B8%81%E0%B9%89%E0%B8%B2-2.jpg" alt="ปราสาทโอซาก้า">
+                    </div>
+                </article>
+                 <article class="timeline-item">
+                    <div class="timeline-time">15:30 เป็นต้นไป</div>
+                    <div class="timeline-content">
+                        <h3>เดินทางสู่สนามบิน (KIX)</h3>
+                        <p>กลับไปรับกระเป๋าที่โรงแรม และเดินทางสู่สนามบินคันไซ (KIX) เพื่อเช็คอินเที่ยวบิน MM 91 กลับกรุงเทพฯ เวลา 19:10 น.</p>
+                         <div class="timeline-transport">
+                            <strong>การเดินทาง:</strong> ขึ้นรถไฟ **Nankai Airport Express** จากสถานี Namba สู่สนามบิน KIX<br>
+                            <strong>เวลา:</strong> ~45 นาที<br>
+                            <strong>ค่าใช้จ่าย:</strong> ~930 เยน / คน (~230 บาท)
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
     <footer>
         <p>จัดทำแผนการเดินทางโดยไกด์ผู้มีประสบการณ์ | ขอให้เป็นการเดินทางที่โรแมนติกและยอดเยี่ยม!</p>
     </footer>
