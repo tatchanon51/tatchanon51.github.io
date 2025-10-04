@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ultimate Osaka Trip for Couples</title>
     <style>
+        /* General Styles */
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;700&display=swap');
 
         :root {
@@ -23,8 +24,9 @@
             font-size: 16px;
         }
 
+        /* Hero Section */
         .hero {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://www.japan-guide.com/thumb/XYZeXYZe2157_1680.jpg');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://blog-static.kkday.com/th/blog/wp-content/uploads/jpg-18-4.jpeg');
             background-size: cover;
             background-position: center;
             color: white;
@@ -35,6 +37,7 @@
         .hero h1 { font-size: 2.5em; margin: 0; font-weight: 700; }
         .hero p { font-size: 1.1em; margin-top: 10px; font-weight: 300; }
 
+        /* Main Container and Cards */
         .container { padding: 20px; }
 
         .card {
@@ -47,6 +50,7 @@
 
         .card h2 { color: var(--primary-color); margin-top: 0; text-align: center; font-size: 1.8em; }
         
+        /* Preparation List */
         #prep-list ul {
             list-style-type: none;
             padding: 0;
@@ -61,6 +65,7 @@
             margin-bottom: 5px;
         }
 
+        /* Hotel Info Card */
         .hotel-info-card {
             display: flex;
             flex-direction: column;
@@ -73,6 +78,7 @@
             border-radius: 8px;
         }
 
+        /* Itinerary Day Section */
         .day-section {
             background-color: #ffffff;
             border-radius: 12px;
@@ -91,13 +97,14 @@
         .day-header h2 { margin: 0; font-size: 1.6em; }
         .day-header p { margin: 5px 0 0; opacity: 0.9; }
 
+        /* Timeline Styles */
         .timeline { padding: 20px; }
         .timeline-item { margin-bottom: 25px; padding-bottom: 25px; border-bottom: 1px solid #ecf0f1; }
         .timeline-item:last-child { border-bottom: none; margin-bottom: 0; }
         .timeline-time { font-weight: 700; color: #34495e; font-size: 1.1em; margin-bottom: 10px; }
         .timeline-content h3 { margin: 0 0 8px 0; font-size: 1.2em; color: #34495e; }
         .timeline-content p { margin: 0 0 10px 0; line-height: 1.6; font-weight: 300; }
-        .timeline-transport {
+        .timeline-transport, .timeline-food {
             background-color: #f8f9fa;
             border-left: 3px solid var(--primary-color);
             padding: 10px;
@@ -107,8 +114,6 @@
         .timeline-food {
             background-color: #fff9e6;
             border-left: 3px solid #f0ad4e;
-            padding: 10px;
-            margin-top: 10px;
         }
         .timeline-image {
             width: 100%;
@@ -118,8 +123,10 @@
             border-radius: 8px;
         }
 
+        /* Footer */
         footer { text-align: center; padding: 25px; color: #7f8c8d; font-size: 0.9em; }
 
+        /* Responsive Media Queries */
         @media (min-width: 768px) {
             .hero h1 { font-size: 3em; }
             .container { max-width: 1100px; margin: 30px auto; }
@@ -160,7 +167,7 @@
         <section class="card" id="hotel-info">
             <h2>เกี่ยวกับที่พักของคุณ: Hotel Forza Osaka Kitahama</h2>
             <div class="hotel-info-card">
-                <img src="https://pix8.agoda.net/property/42274449/792443369/9b6b709820c6e6db8b1bef7339d712d7.jpeg?ce=0&s=1024x" alt="">
+                <img src="https://pix8.agoda.net/property/42274449/792443369/9b6b709820c6e6db8b1bef7339d712d7.jpeg?ce=0&s=1024x" alt="Hotel Forza Osaka Kitahama">
                 <div>
                     <p>คุณเลือกโรงแรมได้ยอดเยี่ยมมากครับ! <strong>Hotel Forza Osaka Kitahama</strong> เป็นโรงแรมที่ทันสมัยและได้รับคะแนนรีวิวสูงมาก ตั้งอยู่ในย่านธุรกิจคิตาฮามะ ซึ่งมีข้อดีคือ **มีความเงียบสงบ** เหมาะแก่การพักผ่อน แต่ **เดินทางสะดวกสุดๆ** เพราะติดกับสถานีรถไฟใต้ดิน Kitahama ที่มีรถไฟถึง 2 สายหลักวิ่งผ่าน</p>
                     <h4>จุดเด่นของทำเลที่ตั้ง:</h4>
@@ -180,7 +187,7 @@
         <section class="day-section">
             <header class="day-header d1">
                 <h2>วันที่ 23 ต.ค.: สัมผัสหัวใจของโอซาก้า</h2>
-                <p>เดินทางถึงโอซาก้า / ตะลุยกินย่านนัมบะ</p>
+                <p>เดินทางถึงโอซาก้า / ตะลุยกินและย่านลับ</p>
             </header>
             <div class="timeline">
                 <article class="timeline-item">
@@ -189,11 +196,11 @@
                         <h3>เดินทางถึงโอซาก้า (KIX) และเข้าเมือง</h3>
                         <p>ผ่านขั้นตอน ตม. รับกระเป๋า และซื้อบัตร ICOCA Card ที่สถานีรถไฟ จากนั้นเดินทางเข้าสู่ที่พัก</p>
                         <div class="timeline-transport">
-                            <strong>การเดินทาง:</strong> ขึ้นรถไฟสาย **Nankai Main Line** จากสนามบิน KIX ไปลงสถานี Tengachaya แล้วเปลี่ยนเป็นรถไฟใต้ดินสาย **Sakaisuji Line** (สายสีน้ำตาล) ไปลงสถานี **Kitahama** (ทางออกใกล้โรงแรมที่สุด)<br>
+                            <strong>การเดินทาง:</strong> ขึ้นรถไฟสาย **Nankai Main Line** จากสนามบิน KIX ไปลงสถานี Tengachaya แล้วเปลี่ยนเป็นรถไฟใต้ดินสาย **Sakaisuji Line** (สายสีน้ำตาล) ไปลงสถานี **Kitahama**<br>
                             <strong>เวลา:</strong> ~60 นาที<br>
                             <strong>ค่าใช้จ่าย:</strong> ~1,180 เยน / คน (~300 บาท)
                         </div>
-                        <img src="https://www.japankakkoii.com/wp-content/uploads/2019/05/Kansai-Airport-02.jpg.webp" alt="" class="timeline-image">
+                        <img src="https://www.japankakkoii.com/wp-content/uploads/2019/05/Kansai-Airport-02.jpg.webp" alt="Kansai Airport" class="timeline-image">
                     </div>
                 </article>
                 <article class="timeline-item">
@@ -207,9 +214,17 @@
                              <strong>ค่าใช้จ่าย:</strong> ~190 เยน / คน (~50 บาท)
                         </div>
                          <div class="timeline-food">
-                           <strong>ต้องลอง:</strong> ซูชิหน้าปลาไหล, ซาชิมิสดๆ, หอยเม่น (Uni), หอยเชลล์ย่าง, สตรอว์เบอร์รี
+                           <strong>ต้องลอง:</strong> ซูชิหน้าปลาไหล, ซาชิมิสดๆ, หอยเม่น (Uni), หอยเชลล์ย่าง
                          </div>
-                         <img src="https://ap-southeast-2-seek-apac.graphassets.com/AEzBCRO50TYyqbV6XzRDQz/5zCUge4QiCAO9HmZclWR" alt="" class="timeline-image">
+                         <img src="https://www.japankakkoii.com/wp-content/uploads/2019/06/Kuromon-Market-Osaka-01.jpg.webp" alt="ตลาดปลาคุโรมง" class="timeline-image">
+                    </div>
+                </article>
+                 <article class="timeline-item">
+                    <div class="timeline-time">14:00 - 17:00</div>
+                    <div class="timeline-content">
+                        <h3>สำรวจย่านเด็นเด็นทาวน์ (Den Den Town)</h3>
+                        <p>หลังจากทานมื้อเที่ยง เดินสำรวจ **ย่านเด็นเด็นทาวน์** ซึ่งอยู่ติดกับตลาดคุโรมง เป็นศูนย์รวมสินค้าอิเล็กทรอนิกส์, อนิเมะ, และ **ร้านขายของสำหรับผู้ใหญ่ (Sex Toy Shops)** ที่คุณสนใจ ซึ่งมีให้เลือกชมหลายร้านในย่านนี้</p>
+                        <img src="https://cms.dmpcdn.com/travel/2022/09/15/67beafc0-34d2-11ed-8373-11483df4fdb7_webp_original.jpg" alt="Den Den Town" class="timeline-image">
                     </div>
                 </article>
                  <article class="timeline-item">
@@ -218,9 +233,9 @@
                         <h3>แสงสีเสียงที่โดทงโบริ</h3>
                         <p>หลังจากเช็คอิน ถ่ายรูปกับแลนด์มาร์ค **ป้ายไฟกูลิโกะแมน (Glico Running Man)** และทานอาหารเย็นริมคลอง **โดทงโบริ (Dotonbori)**</p>
                         <div class="timeline-food">
-                           <strong>ต้องลอง:</strong> **ทาโกะยากิ** (ร้าน Acchichi Honpo) และ **โอโคโนมิยากิ** (ร้าน Mizuno)
+                           <strong>ต้องลอง:</strong> **ทาโกะยากิ** และ **โอโคโนมิยากิ**
                          </div>
-                        <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/18/15/61/2d/caption.jpg?w=1400&h=800&s=1" alt="" class="timeline-image">
+                        <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/18/15/61/2d/caption.jpg?w=1400&h=800&s=1" alt="แสงสีเสียงที่โดทงโบริ" class="timeline-image">
                     </div>
                 </article>
             </div>
@@ -242,7 +257,7 @@
                             <strong>เวลา:</strong> ~35 นาที<br>
                             <strong>ค่าใช้จ่าย:</strong> ~500 เยน / คน / เที่ยว (~125 บาท)
                         </div>
-                        <img src="https://www.jubileetravel.co.th/wp-content/uploads/2021/06/Universal-Studio-Japan-%E0%B8%97%E0%B8%B1%E0%B8%A7%E0%B8%A3%E0%B9%8C%E0%B8%8D%E0%B8%B5%E0%B9%88%E0%B8%9B%E0%B8%B8%E0%B9%88%E0%B8%99%E0%B9%82%E0%B8%AD%E0%B8%8B%E0%B8%B2%E0%B8%81%E0%B9%89%E0%B8%B2-%E0%B8%A3%E0%B8%B5%E0%B8%A7%E0%B8%B4%E0%B8%A7%E0%B9%82%E0%B8%AD%E0%B8%8B%E0%B8%B2%E0%B8%81%E0%B9%89%E0%B8%B2-jubileetravel-35.jpg" alt="" class="timeline-image">
+                        <img src="https://www.jubileetravel.co.th/wp-content/uploads/2021/06/Universal-Studio-Japan-%E0%B8%97%E0%B8%B1%E0%B8%A7%E0%B8%A3%E0%B8%B5%E0%B9%88%E0%B8%9B%E0%B8%B8%E0%B9%88%E0%B8%99%E0%B9%82%E0%B8%AD%E0%B8%8B%E0%B8%B2%E0%B8%81%E0%B9%89%E0%B8%B2-%E0%B8%A3%E0%B8%B5%E0%B8%A7%E0%B8%B4%E0%B8%A7%E0%B9%82%E0%B8%AD%E0%B8%8B%E0%B8%B2%E0%B8%81%E0%B9%89%E0%B8%B2-jubileetravel-35.jpg" alt="Universal Studios Japan" class="timeline-image">
                     </div>
                 </article>
             </div>
@@ -250,8 +265,8 @@
         
         <section class="day-section">
             <header class="day-header d3">
-                <h2>วันที่ 25 ต.ค.: วันแห่งทะเล ช้อปปิ้ง และย่านลับ</h2>
-                <p>อควาเรียม, รองเท้า On Cloud และเด็นเด็นทาวน์</p>
+                <h2>วันที่ 25 ต.ค.: วันแห่งทะเล ช้อปปิ้ง และชมวิว</h2>
+                <p>อควาเรียม, รองเท้า On Cloud และตึกสูงสุด</p>
             </header>
             <div class="timeline">
                 <article class="timeline-item">
@@ -264,7 +279,7 @@
                              <strong>เวลา:</strong> ~20 นาที<br>
                             <strong>ค่าใช้จ่าย:</strong> ~290 เยน / คน / เที่ยว (~75 บาท)
                         </div>
-                         <img src="https://a.travel-assets.com/findyours-php/viewfinder/images/res70/91000/91756-Osaka-Aquarium-Kaiyukan.jpg" alt="" class="timeline-image">
+                         <img src="https://a.travel-assets.com/findyours-php/viewfinder/images/res70/91000/91756-Osaka-Aquarium-Kaiyukan.jpg" alt="Osaka Aquarium Kaiyukan" class="timeline-image">
                     </div>
                 </article>
                  <article class="timeline-item">
@@ -277,18 +292,17 @@
                              <strong>เวลา:</strong> ~20 นาที<br>
                             <strong>ค่าใช้จ่าย:</strong> ~420 เยน / คน / เที่ยว (~110 บาท)
                         </div>
-                         <img src="https://media-cdn.tripadvisor.com/media/attractions-splice-spp-674x446/09/39/7e/7f.jpg" alt="" class="timeline-image">
+                         <img src="https://media-cdn.tripadvisor.com/media/attractions-splice-spp-674x446/09/39/7e/7f.jpg" alt="Harukas 300" class="timeline-image">
                     </div>
                 </article>
                  <article class="timeline-item">
                      <div class="timeline-time">18:00 เป็นต้นไป</div>
                     <div class="timeline-content">
-                        <h3>สำรวจย่านเด็นเด็นทาวน์ (Den Den Town)</h3>
-                        <p>เดินทางกลับมายังสถานี **Nippombashi** เพื่อสำรวจ **ย่านเด็นเด็นทาวน์** ซึ่งเป็นศูนย์รวมสินค้าอิเล็กทรอนิกส์, อนิเมะ, และ **ร้านขายของสำหรับผู้ใหญ่ (Sex Toy Shops)** ที่คุณสนใจ ซึ่งมีให้เลือกชมหลายร้านในย่านนี้</p>
+                        <h3>ย่านชินเซไก (Shinsekai)</h3>
+                        <p>เดินเล่นในย่าน **ชินเซไก** ที่ให้บรรยากาศย้อนยุค และถ่ายรูปกับ **หอคอยซึเทนคาคุ (Tsutenkaku Tower)**</p>
                          <div class="timeline-food">
-                           <strong>ต้องลอง:</strong> **คุชิคัตสึ** (ของทอดเสียบไม้) ซึ่งเป็นอาหารขึ้นชื่อของย่านชินเซไกที่อยู่ติดกัน
+                           <strong>ต้องลอง:</strong> **คุชิคัตสึ** (ของทอดเสียบไม้) ซึ่งเป็นอาหารขึ้นชื่อของย่านนี้
                          </div>
-                        <img src="https://cms.dmpcdn.com/travel/2022/09/15/67beafc0-34d2-11ed-8373-11483df4fdb7_webp_original.jpg" alt="" class="timeline-image">
                     </div>
                 </article>
             </div>
@@ -310,7 +324,7 @@
                              <strong>เวลา:</strong> ~50 นาที<br>
                             <strong>ค่าใช้จ่าย:</strong> ~410 เยน / คน / เที่ยว (~105 บาท)
                         </div>
-                         <img src="https://blog-static.kkday.com/th/blog/wp-content/uploads/jpg-18-4.jpeg" alt="" class="timeline-image">
+                         <img src="https://blog-static.kkday.com/th/blog/wp-content/uploads/jpg-18-4.jpeg" alt="ศาลเจ้าฟูชิมิอินาริ" class="timeline-image">
                     </div>
                 </article>
                  <article class="timeline-item">
@@ -321,7 +335,7 @@
                         <div class="timeline-food">
                            <strong>ต้องลอง:</strong> ขนมและไอศกรีมรสชาเขียวมัทฉะ, ขนมแป้งดิบ (Yatsuhashi)
                          </div>
-                        <img src="https://img.activityjapan.com/wi/kyoto-image1.jpg" alt="" class="timeline-image">
+                        <img src="https://img.activityjapan.com/wi/kyoto-image1.jpg" alt="วัดคิโยมิสุเดระ" class="timeline-image">
                     </div>
                 </article>
             </div>
@@ -343,15 +357,15 @@
                              <strong>เวลา:</strong> ~20 นาที<br>
                             <strong>ค่าใช้จ่าย:</strong> ~160 เยน / คน / เที่ยว (~40 บาท)
                         </div>
-                         <img src="https://chillchilljapan.com/wp-content/uploads/2021/03/shutterstock_406416991.jpg.webp" alt="" class="timeline-image">
+                         <img src="https://chillchilljapan.com/wp-content/uploads/2021/03/shutterstock_406416991.jpg.webp" alt="ปราสาทโอซาก้า" class="timeline-image">
                     </div>
                 </article>
                  <article class="timeline-item">
                     <div class="timeline-time">12:00 - 17:00</div>
                     <div class="timeline-content">
                         <h3>มื้อเที่ยงและเก็บตก</h3>
-                        <p>รับประทานอาหารกลางวัน และอาจจะแวะซื้อของฝากหรือไปลองชูครีมร้านดัง **Beard Papa's** ซึ่งมีหลายสาขาในโอซาก้า</p>
-                        <img src="https://images.squarespace-cdn.com/content/v1/600a96cbf8894d79eb1e1b1f/1623875922301-L6MRBWYCVYUQTU4C4JQJ/_34A7873.jpg" alt="" class="timeline-image">
+                        <p>รับประทานอาหารกลางวัน และอาจจะแวะซื้อของฝากหรือไปลองชูครีมร้านดัง **Beard Papa's**</p>
+                        <img src="https://images.squarespace-cdn.com/content/v1/600a96cbf8894d79eb1e1b1f/1623875922301-L6MRBWYCVYUQTU4C4JQJ/_34A7873.jpg" alt="Beard Papa's" class="timeline-image">
                     </div>
                 </article>
                  <article class="timeline-item">
@@ -375,4 +389,3 @@
 
 </body>
 </html>
-
