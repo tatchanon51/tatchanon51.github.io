@@ -61,6 +61,18 @@
             margin-bottom: 5px;
         }
 
+        .hotel-info-card {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .hotel-info-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
         .day-section {
             background-color: #ffffff;
             border-radius: 12px;
@@ -115,23 +127,11 @@
                 columns: 2;
                 gap: 20px;
             }
+            .hotel-info-card { flex-direction: row; }
             .timeline-item { display: flex; gap: 20px; align-items: flex-start; }
             .timeline-image { width: 200px; height: 130px; margin-top: 0; }
             .timeline-time { flex-basis: 120px; min-width: 120px; padding-top: 5px; }
         }
-		
-		.hotel-info-card {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-        .hotel-info-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 8px;
-        }
-
     </style>
 </head>
 <body>
@@ -160,7 +160,7 @@
         <section class="card" id="hotel-info">
             <h2>เกี่ยวกับที่พักของคุณ: Hotel Forza Osaka Kitahama</h2>
             <div class="hotel-info-card">
-                <img src="https://pix8.agoda.net/property/42274449/792443369/9b6b709820c6e6db8b1bef7339d712d7.jpeg?ce=0&s=1024x" alt="[ภาพบรรยากาศสวยๆ ของโรงแรม]">
+                <img src="https://pix8.agoda.net/property/42274449/792443369/9b6b709820c6e6db8b1bef7339d712d7.jpeg?ce=0&s=1024x" alt="">
                 <div>
                     <p>คุณเลือกโรงแรมได้ยอดเยี่ยมมากครับ! <strong>Hotel Forza Osaka Kitahama</strong> เป็นโรงแรมที่ทันสมัยและได้รับคะแนนรีวิวสูงมาก ตั้งอยู่ในย่านธุรกิจคิตาฮามะ ซึ่งมีข้อดีคือ **มีความเงียบสงบ** เหมาะแก่การพักผ่อน แต่ **เดินทางสะดวกสุดๆ** เพราะติดกับสถานีรถไฟใต้ดิน Kitahama ที่มีรถไฟถึง 2 สายหลักวิ่งผ่าน</p>
                     <h4>จุดเด่นของทำเลที่ตั้ง:</h4>
@@ -196,10 +196,10 @@
                     </div>
                 </article>
                 <article class="timeline-item">
-                    <div class="timeline-time">10:00 - 13:00</div>
+                    <div class="timeline-time">10:30 - 13:00</div>
                     <div class="timeline-content">
                         <h3>มื้อแรกที่ตลาดปลาคุโรมง</h3>
-                        <p>นำกระเป๋าไปฝากที่ **Hotel Forza Osaka Kitahama** แล้วไปประเดิมมื้อแรกที่ **ตลาดคุโรมง (Kuromon Market)** สวรรค์ของคนรักอาหารทะเล</p>
+                        <p>นำกระเป๋าไปฝากที่โรงแรม แล้วไปประเดิมมื้อแรกที่ **ตลาดคุโรมง (Kuromon Market)** สวรรค์ของคนรักอาหารทะเล</p>
                         <div class="timeline-transport">
                              <strong>การเดินทาง:</strong> จากสถานี Kitahama ขึ้นรถไฟใต้ดินสาย **Sakaisuji Line** ไปลงสถานี **Nippombashi** (ทางออก 10) เดินไม่ไกลก็ถึงตลาด<br>
                              <strong>เวลา:</strong> ~5 นาที<br>
@@ -208,7 +208,7 @@
                          <div class="timeline-food">
                            <strong>ต้องลอง:</strong> ซูชิหน้าปลาไหล, ซาชิมิสดๆ, หอยเม่น (Uni), หอยเชลล์ย่าง, สตรอว์เบอร์รี
                          </div>
-                         <img src="https://images.unsplash.com/photo-1553621042-f6e147245754?auto=format&fit=crop&w=800&q=60" alt="[ภาพของซูชิและซาชิมิสดๆ ในตลาดคุโรมง]" class="timeline-image">
+                         <img src="https://ap-southeast-2-seek-apac.graphassets.com/AEzBCRO50TYyqbV6XzRDQz/5zCUge4QiCAO9HmZclWR" alt="" class="timeline-image">
                     </div>
                 </article>
                  <article class="timeline-item">
@@ -219,7 +219,7 @@
                         <div class="timeline-food">
                            <strong>ต้องลอง:</strong> **ทาโกะยากิ** (ร้าน Acchichi Honpo) และ **โอโคโนมิยากิ** (ร้าน Mizuno)
                          </div>
-                        <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/18/15/61/2d/caption.jpg?w=1400&h=800&s=1" alt="[ภาพของป้ายไฟกูลิโกะแมนยามค่ำคืน]" class="timeline-image">
+                        <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/18/15/61/2d/caption.jpg?w=1400&h=800&s=1" alt="" class="timeline-image">
                     </div>
                 </article>
             </div>
@@ -241,7 +241,7 @@
                             <strong>เวลา:</strong> ~35 นาที<br>
                             <strong>ค่าใช้จ่าย:</strong> ~500 เยน / คน / เที่ยว (~125 บาท)
                         </div>
-                        <img src="https://www.jubileetravel.co.th/wp-content/uploads/2021/06/Universal-Studio-Japan-%E0%B8%97%E0%B8%B1%E0%B8%A7%E0%B8%A3%E0%B9%8C%E0%B8%8D%E0%B8%B5%E0%B9%88%E0%B8%9B%E0%B8%B8%E0%B9%88%E0%B8%99%E0%B9%82%E0%B8%AD%E0%B8%8B%E0%B8%B2%E0%B8%81%E0%B9%89%E0%B8%B2-%E0%B8%A3%E0%B8%B5%E0%B8%A7%E0%B8%B4%E0%B8%A7%E0%B9%82%E0%B8%AD%E0%B8%8B%E0%B8%B2%E0%B8%81%E0%B9%89%E0%B8%B2-jubileetravel-35.jpg" alt="[ภาพของทางเข้า Universal Studios Japan]" class="timeline-image">
+                        <img src="https://www.jubileetravel.co.th/wp-content/uploads/2021/06/Universal-Studio-Japan-%E0%B8%97%E0%B8%B1%E0%B8%A7%E0%B8%A3%E0%B9%8C%E0%B8%8D%E0%B8%B5%E0%B9%88%E0%B8%9B%E0%B8%B8%E0%B9%88%E0%B8%99%E0%B9%82%E0%B8%AD%E0%B8%8B%E0%B8%B2%E0%B8%81%E0%B9%89%E0%B8%B2-%E0%B8%A3%E0%B8%B5%E0%B8%A7%E0%B8%B4%E0%B8%A7%E0%B9%82%E0%B8%AD%E0%B8%8B%E0%B8%B2%E0%B8%81%E0%B9%89%E0%B8%B2-jubileetravel-35.jpg" alt="" class="timeline-image">
                     </div>
                 </article>
             </div>
@@ -249,7 +249,53 @@
         
         <section class="day-section">
             <header class="day-header d3">
-                <h2>วันที่ 25 ต.ค.: เสน่ห์เมืองเก่าเกียวโต (Day Trip)</h2>
+                <h2>วันที่ 25 ต.ค.: วันแห่งทะเล ช้อปปิ้ง และย่านลับ</h2>
+                <p>อควาเรียม, รองเท้า On Cloud และเด็นเด็นทาวน์</p>
+            </header>
+            <div class="timeline">
+                <article class="timeline-item">
+                    <div class="timeline-time">09:30 - 13:00</div>
+                    <div class="timeline-content">
+                        <h3>Osaka Aquarium Kaiyukan</h3>
+                        <p>ชมความยิ่งใหญ่ของโลกใต้ทะเลที่ **Osaka Aquarium Kaiyukan** หนึ่งในอควาเรียมที่ดีที่สุดในโลก ไฮไลท์คือฉลามวาฬยักษ์</p>
+                        <div class="timeline-transport">
+                            <strong>การเดินทาง:</strong> จากสถานี Kitahama ขึ้นรถไฟใต้ดินสาย **Sakaisuji Line** ไปลงที่ **Sakaisuji-Hommachi** แล้วเปลี่ยนเป็นสาย **Chuo Line** (สายสีเขียว) ไปลงที่ **Osakako Station**<br>
+                             <strong>เวลา:</strong> ~20 นาที<br>
+                            <strong>ค่าใช้จ่าย:</strong> ~290 เยน / คน / เที่ยว (~75 บาท)
+                        </div>
+                         <img src="https://a.travel-assets.com/findyours-php/viewfinder/images/res70/91000/91756-Osaka-Aquarium-Kaiyukan.jpg" alt="" class="timeline-image">
+                    </div>
+                </article>
+                 <article class="timeline-item">
+                    <div class="timeline-time">14:00 - 17:00</div>
+                    <div class="timeline-content">
+                        <h3>Abeno Q's Mall และ ตึก Harukas 300</h3>
+                        <p>เดินทางไปย่านเทนโนจิ ช้อปปิ้งรองเท้า On Cloud ที่ **Abeno Q's Mall** จากนั้นขึ้นไปชมวิวโอซาก้าแบบ 360 องศาบน **ตึก Abeno Harukas 300**</p>
+                        <div class="timeline-transport">
+                            <strong>การเดินทาง:</strong> จากสถานี Osakako กลับมาที่ **Bentencho** แล้วเปลี่ยนเป็นสาย **JR Osaka Loop Line** ไปลงที่ **Tennoji**<br>
+                             <strong>เวลา:</strong> ~20 นาที<br>
+                            <strong>ค่าใช้จ่าย:</strong> ~420 เยน / คน / เที่ยว (~110 บาท)
+                        </div>
+                         <img src="https://images.unsplash.com/photo-1616361739344-798a2a893453?auto=format&fit=crop&w=800&q=60" alt="">
+                    </div>
+                </article>
+                 <article class="timeline-item">
+                     <div class="timeline-time">18:00 เป็นต้นไป</div>
+                    <div class="timeline-content">
+                        <h3>สำรวจย่านเด็นเด็นทาวน์ (Den Den Town)</h3>
+                        <p>เดินทางกลับมายังสถานี **Nippombashi** เพื่อสำรวจ **ย่านเด็นเด็นทาวน์** ซึ่งเป็นศูนย์รวมสินค้าอิเล็กทรอนิกส์, อนิเมะ, และ **ร้านขายของสำหรับผู้ใหญ่ (Sex Toy Shops)** ที่คุณสนใจ ซึ่งมีให้เลือกชมหลายร้านในย่านนี้</p>
+                         <div class="timeline-food">
+                           <strong>ต้องลอง:</strong> **คุชิคัตสึ** (ของทอดเสียบไม้) ซึ่งเป็นอาหารขึ้นชื่อของย่านชินเซไกที่อยู่ติดกัน
+                         </div>
+                        <img src="https://images.unsplash.com/photo-1613487957484-2794278733d7?auto=format&fit=crop&w=800&q=60" alt="">
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="day-section">
+            <header class="day-header d4">
+                <h2>วันที่ 26 ต.ค.: เสน่ห์เมืองเก่าเกียวโต (Day Trip)</h2>
                 <p>เดินทางสู่อดีตราชธานีอันงดงาม</p>
             </header>
             <div class="timeline">
@@ -263,7 +309,7 @@
                              <strong>เวลา:</strong> ~50 นาที<br>
                             <strong>ค่าใช้จ่าย:</strong> ~410 เยน / คน / เที่ยว (~105 บาท)
                         </div>
-                         <img src="https://images.unsplash.com/photo-1528164344705-47542687000d?auto=format&fit=crop&w=800&q=60" alt="[ภาพของอุโมงค์เสาโทริอิที่ศาลเจ้าฟูชิมิอินาริ]" class="timeline-image">
+                         <img src="https://images.unsplash.com/photo-1528164344705-47542687000d?auto=format&fit=crop&w=800&q=60" alt="" class="timeline-image">
                     </div>
                 </article>
                  <article class="timeline-item">
@@ -274,40 +320,7 @@
                         <div class="timeline-food">
                            <strong>ต้องลอง:</strong> ขนมและไอศกรีมรสชาเขียวมัทฉะ, ขนมแป้งดิบ (Yatsuhashi)
                          </div>
-                        <img src="https://imgcp.aacdn.jp/img-a/1200/auto/global-aaj-front/article/2017/09/59afbecc2b40b_59afb6ecc9bbc_1992004829.jpg" alt="[ภาพของวัดคิโยมิสุเดระในช่วงใบไม้ร่วง]" class="timeline-image">
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <section class="day-section">
-            <header class="day-header d4">
-                <h2>วันที่ 26 ต.ค.: ชมวิวเมือง ช้อปปิ้ง และย่านลับ</h2>
-                <p>ตึกสูงสุด, รองเท้า On Cloud และย่านเด็นเด็นทาวน์</p>
-            </header>
-            <div class="timeline">
-                 <article class="timeline-item">
-                    <div class="timeline-time">10:00 - 13:00</div>
-                    <div class="timeline-content">
-                        <h3>Abeno Q's Mall และ ตึก Harukas 300</h3>
-                        <p>เดินทางไปย่านเทนโนจิ ช้อปปิ้งรองเท้า On Cloud ที่ **Abeno Q's Mall** จากนั้นขึ้นไปชมวิวโอซาก้าแบบ 360 องศาบน **ตึก Abeno Harukas 300**</p>
-                        <div class="timeline-transport">
-                            <strong>การเดินทาง:</strong> จากสถานี Kitahama ขึ้นรถไฟใต้ดินสาย **Sakaisuji Line** ไปลงที่ **Dobutsuen-mae** แล้วเปลี่ยนเป็นสาย **Midosuji Line** ไป 1 สถานีเพื่อลงที่ **Tennoji**<br>
-                             <strong>เวลา:</strong> ~15 นาที<br>
-                            <strong>ค่าใช้จ่าย:</strong> ~240 เยน / คน / เที่ยว (~60 บาท)
-                        </div>
-                         <img src="https://media-cdn.tripadvisor.com/media/attractions-splice-spp-674x446/09/39/7e/7f.jpg" alt="[ภาพวิวเมืองโอซาก้าจากตึก Abeno Harukas 300]">
-                    </div>
-                </article>
-                 <article class="timeline-item">
-                     <div class="timeline-time">15:00 เป็นต้นไป</div>
-                    <div class="timeline-content">
-                        <h3>สำรวจย่านเด็นเด็นทาวน์ (Den Den Town)</h3>
-                        <p>เดินทางกลับมายังสถานี **Nippombashi** เพื่อสำรวจ **ย่านเด็นเด็นทาวน์** ซึ่งเป็นศูนย์รวมสินค้าอิเล็กทรอนิกส์, อนิเมะ, และ **ร้านขายของสำหรับผู้ใหญ่ (Sex Toy Shops)** ที่คุณสนใจ ซึ่งมีให้เลือกชมหลายร้านในย่านนี้</p>
-                         <div class="timeline-food">
-                           <strong>ต้องลอง:</strong> **คุชิคัตสึ** (ของทอดเสียบไม้) ซึ่งเป็นอาหารขึ้นชื่อของย่านชินเซไกที่อยู่ติดกัน
-                         </div>
-                        <img src="https://cms.dmpcdn.com/travel/2022/09/15/67beafc0-34d2-11ed-8373-11483df4fdb7_webp_original.jpg" alt="[ภาพบรรยากาศย่านเด็นเด็นทาวน์ที่มีแสงสีและป้ายต่างๆ]">
+                        <img src="https://images.unsplash.com/photo-1554254881-b53f663d443c?auto=format&fit=crop&w=800&q=60" alt="">
                     </div>
                 </article>
             </div>
@@ -329,7 +342,14 @@
                              <strong>เวลา:</strong> ~20 นาที<br>
                             <strong>ค่าใช้จ่าย:</strong> ~160 เยน / คน / เที่ยว (~40 บาท)
                         </div>
-                         <img src="https://chillchilljapan.com/wp-content/uploads/2021/03/shutterstock_406416991.jpg.webp" alt="[ภาพของปราสาทโอซาก้าในฤดูใบไม้ร่วง]">
+                         <img src="https://images.unsplash.com/photo-1594966956977-1e5f419a52?auto=format&fit=crop&w=800&q=60" alt="">
+                    </div>
+                </article>
+                 <article class="timeline-item">
+                    <div class="timeline-time">12:00 - 17:00</div>
+                    <div class="timeline-content">
+                        <h3>มื้อเที่ยงและเก็บตก</h3>
+                        <p>รับประทานอาหารกลางวัน และอาจจะแวะซื้อของฝากหรือไปลองชูครีมร้านดัง **Beard Papa's** ซึ่งมีหลายสาขาในโอซาก้า</p>
                     </div>
                 </article>
                  <article class="timeline-item">
@@ -353,3 +373,4 @@
 
 </body>
 </html>
+
