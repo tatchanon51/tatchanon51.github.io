@@ -1,391 +1,178 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ultimate Osaka Trip for Couples</title>
-    <style>
-        /* General Styles */
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;700&display=swap');
-
-        :root {
-            --primary-color: #007BFF; /* Blue for Osaka's river */
-            --secondary-color: #e60012; /* Red for Japan's sun */
-            --text-color: #333;
-            --bg-color: #f9f9f9;
-        }
-
-        body {
-            font-family: 'Noto Sans Thai', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            margin: 0;
-            padding: 0;
-            font-size: 16px;
-        }
-
-        /* Hero Section */
-        .hero {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://blog-static.kkday.com/th/blog/wp-content/uploads/jpg-18-4.jpeg');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 100px 20px 60px;
-            text-align: center;
-        }
-
-        .hero h1 { font-size: 2.5em; margin: 0; font-weight: 700; }
-        .hero p { font-size: 1.1em; margin-top: 10px; font-weight: 300; }
-
-        /* Main Container and Cards */
-        .container { padding: 20px; }
-
-        .card {
-            background-color: white;
-            border-radius: 12px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-            padding: 20px;
-            margin-bottom: 25px;
-        }
-
-        .card h2 { color: var(--primary-color); margin-top: 0; text-align: center; font-size: 1.8em; }
-        
-        /* Preparation List */
-        #prep-list ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        #prep-list li {
-            padding: 10px;
-            border-bottom: 1px solid #eee;
-        }
-        #prep-list li strong {
-            color: var(--secondary-color);
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        /* Hotel Info Card */
-        .hotel-info-card {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-        .hotel-info-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 8px;
-        }
-
-        /* Itinerary Day Section */
-        .day-section {
-            background-color: #ffffff;
-            border-radius: 12px;
-            margin-bottom: 25px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-            overflow: hidden;
-        }
-
-        .day-header { color: white; padding: 20px; }
-        .day-header.d1 { background: linear-gradient(45deg, #0250c5, #01b7ff); }
-        .day-header.d2 { background: linear-gradient(45deg, #ff0f7b, #f89b29); }
-        .day-header.d3 { background: linear-gradient(45deg, #283c86, #45a247); }
-        .day-header.d4 { background: linear-gradient(45deg, #4e54c8, #8f94fb); }
-        .day-header.d5 { background: linear-gradient(45deg, #D38312, #A83279); }
-
-        .day-header h2 { margin: 0; font-size: 1.6em; }
-        .day-header p { margin: 5px 0 0; opacity: 0.9; }
-
-        /* Timeline Styles */
-        .timeline { padding: 20px; }
-        .timeline-item { margin-bottom: 25px; padding-bottom: 25px; border-bottom: 1px solid #ecf0f1; }
-        .timeline-item:last-child { border-bottom: none; margin-bottom: 0; }
-        .timeline-time { font-weight: 700; color: #34495e; font-size: 1.1em; margin-bottom: 10px; }
-        .timeline-content h3 { margin: 0 0 8px 0; font-size: 1.2em; color: #34495e; }
-        .timeline-content p { margin: 0 0 10px 0; line-height: 1.6; font-weight: 300; }
-        .timeline-transport, .timeline-food {
-            background-color: #f8f9fa;
-            border-left: 3px solid var(--primary-color);
-            padding: 10px;
-            margin: 10px 0;
-            font-size: 0.9em;
-        }
-        .timeline-food {
-            background-color: #fff9e6;
-            border-left: 3px solid #f0ad4e;
-        }
-        .timeline-image {
-            width: 100%;
-            margin-top: 15px;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 8px;
-        }
-
-        /* Footer */
-        footer { text-align: center; padding: 25px; color: #7f8c8d; font-size: 0.9em; }
-
-        /* Responsive Media Queries */
-        @media (min-width: 768px) {
-            .hero h1 { font-size: 3em; }
-            .container { max-width: 1100px; margin: 30px auto; }
-            #prep-list {
-                columns: 2;
-                gap: 20px;
-            }
-            .hotel-info-card { flex-direction: row; }
-            .timeline-item { display: flex; gap: 20px; align-items: flex-start; }
-            .timeline-image { width: 200px; height: 130px; margin-top: 0; }
-            .timeline-time { flex-basis: 120px; min-width: 120px; padding-top: 5px; }
-        }
-    </style>
+<meta charset="UTF-8">
+<title>รายงาน Nissan KKT - 2026-06-23</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif; max-width: 960px; margin: 20px auto; padding: 20px; color: #333; background: #fff; line-height: 1.55; }
+  h1 { color: #c3002f; border-bottom: 3px solid #c3002f; padding-bottom: 10px; margin-bottom: 5px; }
+  h2 { color: #c3002f; margin-top: 32px; border-left: 4px solid #c3002f; padding-left: 10px; }
+  h3 { color: #555; margin-top: 18px; }
+  table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 14px; }
+  th { background: #c3002f; color: white; padding: 10px; text-align: left; }
+  td { padding: 8px 10px; border-bottom: 1px solid #eee; vertical-align: top; }
+  tr:hover { background: #f9f9f9; }
+  .stat-box { background: #f5f5f5; padding: 15px; border-radius: 8px; margin: 10px 0; }
+  .threat { color: #c3002f; font-weight: bold; }
+  .opportunity { color: #2e7d32; font-weight: bold; }
+  .priority-high { background: #ffebee; padding: 12px; border-left: 4px solid #c3002f; margin: 10px 0; border-radius: 4px; }
+  .priority-med { background: #fff3e0; padding: 12px; border-left: 4px solid #f57c00; margin: 10px 0; border-radius: 4px; }
+  .priority-low { background: #f3e5f5; padding: 12px; border-left: 4px solid #7b1fa2; margin: 10px 0; border-radius: 4px; }
+  .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; color: #888; font-size: 12px; }
+  blockquote { background: #fff9c4; padding: 10px; border-left: 3px solid #fbc02d; margin: 10px 0; }
+  a { color: #c3002f; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  code { background: #f0f0f0; padding: 2px 6px; border-radius: 3px; font-size: 13px; }
+  .warning { background: #fff3cd; border-left: 4px solid #ff9800; padding: 10px; margin: 10px 0; border-radius: 4px; }
+</style>
 </head>
 <body>
 
-    <header class="hero">
-        <h1>Ultimate Osaka Trip</h1>
-        <p>23 - 27 ตุลาคม | แผนการเดินทางสำหรับคู่รัก</p>
-    </header>
+<h1>📊 รายงานคู่แข่ง Nissan KKT KhonKaen</h1>
+<p><strong>สัปดาห์:</strong> 17 - 23 มิถุนายน 2569</p>
+<blockquote>วิเคราะห์เมื่อ: 2026-06-23 23:20:45 (ICT) | แหล่งข้อมูล: Facebook Page ()</blockquote>
 
-    <main class="container">
-    
-        <section class="card" id="prep-list">
-            <h2>เช็คลิสต์เตรียมความพร้อมก่อนเดินทาง</h2>
-            <ul>
-                <li><strong>📄 เอกสารสำคัญ</strong>พาสปอร์ต (อายุเหลือ >6 เดือน), ตั๋วเครื่องบิน E-Ticket, เอกสารจองโรงแรม, ประกันการเดินทาง, สำเนาเอกสารเก็บในมือถือ</li>
-                <li><strong>💴 การเงินและบัตร</strong>แลกเงินสด (เยน) ติดตัวอย่างน้อย 50,000-80,000 เยน, บัตร Travel Card (เช่น YouTrip, Wise) สำหรับเรทที่ดีและใช้จ่ายสะดวก, บัตรเครดิต (แจ้งธนาคารก่อนเดินทาง)</li>
-                <li><strong>💳 บัตรเดินทาง ICOCA</strong>ต้องมี! ซื้อได้ที่สนามบิน KIX ใช้แตะจ่ายค่ารถไฟ รถบัส และร้านสะดวกซื้อได้ทั่วคันไซ สะดวกมาก</li>
-                <li><strong>🧥 การแต่งกาย (ปลาย ต.ค.)</strong>อากาศเย็นสบาย (13-20°C) เตรียมเสื้อผ้าแบบ Layering (เสื้อยืด/Heattech + สเวตเตอร์ + แจ็คเก็ต), ผ้าพันคอ, และที่สำคัญที่สุดคือ **รองเท้าผ้าใบที่ใส่สบายที่สุด** เพราะเดินเยอะมาก</li>
-                <li><strong>🔌 อุปกรณ์อิเล็กทรอนิกส์</strong>Pocket WiFi หรือ SIM Card (จำเป็นมาก!), พาวเวอร์แบงค์ความจุสูง, Universal Adapter (ญี่ปุ่นใช้ปลั๊กขาแบน 2 ขา Type A)</li>
-                 <li><strong>📱 แอปพลิเคชันที่ควรมี</strong>Google Maps (นำทางแม่นยำที่สุด), Google Translate (ช่วยแปลเมนูและป้าย), Klook/KKday (สำหรับจองตั๋วล่วงหน้า)</li>
-                 <li><strong>💊 ยาและของใช้ส่วนตัว</strong>ยาประจำตัว, ยาสามัญ (แก้ปวด, แก้แพ้, พลาสเตอร์), ของใช้ส่วนตัวที่จำเป็น</li>
-                 <li><strong>🎒 กระเป๋า</strong>กระเป๋าเป้ใบเล็ก (Day Pack) สำหรับใส่ของจำเป็นในแต่ละวัน และเว้นที่ว่างในกระเป๋าเดินทางสำหรับช้อปปิ้งขากลับ!</li>
-            </ul>
-        </section>
+<div class="warning">
+⚠️ <strong>ข้อสังเกต:</strong> <code>startUrls</code> ใน input มีเพียง 8 URLs ไม่ครบ 11 ตามที่ตั้งใจ — <strong>TOYOTA แก่นนคร</strong> และ <strong>Nissan KKT Banphai</strong> หายไปจากการ scrape ครั้งนี้
+</div>
 
-        <section class="card" id="hotel-info">
-            <h2>เกี่ยวกับที่พักของคุณ: Hotel Forza Osaka Kitahama</h2>
-            <div class="hotel-info-card">
-                <img src="https://pix8.agoda.net/property/42274449/792443369/9b6b709820c6e6db8b1bef7339d712d7.jpeg?ce=0&s=1024x" alt="Hotel Forza Osaka Kitahama">
-                <div>
-                    <p>คุณเลือกโรงแรมได้ยอดเยี่ยมมากครับ! <strong>Hotel Forza Osaka Kitahama</strong> เป็นโรงแรมที่ทันสมัยและได้รับคะแนนรีวิวสูงมาก ตั้งอยู่ในย่านธุรกิจคิตาฮามะ ซึ่งมีข้อดีคือ **มีความเงียบสงบ** เหมาะแก่การพักผ่อน แต่ **เดินทางสะดวกสุดๆ** เพราะติดกับสถานีรถไฟใต้ดิน Kitahama ที่มีรถไฟถึง 2 สายหลักวิ่งผ่าน</p>
-                    <h4>จุดเด่นของทำเลที่ตั้ง:</h4>
-                    <ul>
-                        <li><strong>สถานี Kitahama:</strong> มีรถไฟใต้ดินสาย <strong>Sakaisuji Line</strong> (เดินทางไปตลาดปลา, โดทงโบริ, เด็นเด็นทาวน์) และรถไฟสาย <strong>Keihan Main Line</strong> (เดินทางไปเกียวโตและปราสาทโอซาก้าได้โดยตรง)</li>
-                        <li><strong>สถานที่เดินเที่ยวใกล้ๆ:</strong>
-                            <ul>
-                                <li><strong>สวนนาคาโนะชิมะ (Nakanoshima Park):</strong> สวนสาธารณะสวยงามบนเกาะกลางน้ำ มีสวนกุหลาบและอาคารสถาปัตยกรรมยุโรปเก่าแก่อย่าง Osaka Central Public Hall เหมาะกับการเดินเล่นถ่ายรูปโรแมนติกในตอนเช้าหรือเย็น</li>
-                                <li><strong>คาเฟ่ริมน้ำ:</strong> ย่านนี้มีคาเฟ่เก๋ๆ ริมแม่น้ำหลายร้านให้นั่งพักผ่อน</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+<h2>⚡ 1. Quick Stats</h2>
+<table>
+  <tr><th>Metric</th><th>Value</th></tr>
+  <tr><td>โพสทั้งหมด</td><td>60 posts</td></tr>
+  <tr><td>เพจที่ active</td><td>8 เพจ (จาก 8 startUrls)</td></tr>
+  <tr><td>เพจคู่แข่ง active</td><td>7 เพจ — TOYOTA (แก่นนคร) <strong>ไม่มีใน startUrls</strong></td></tr>
+  <tr><td>Self Posts (Nissan)</td><td>4 posts (nissankktkhonkaen เท่านั้น — <strong>nissankktkhonkaenBanphai ไม่มีใน startUrls</strong>)</td></tr>
+  <tr><td>Engagement คู่แข่งรวม</td><td>👍 1332 + 🔁 91 = <strong>1423 interactions</strong></td></tr>
+  <tr><td>Engagement Self รวม</td><td>👍 51 + 🔁 10 = <strong>61 interactions</strong></td></tr>
+  <tr><td>Total views</td><td>ไม่พบ field "views" ใน dataset</td></tr>
+  <tr><td>เพจที่โพสเยอะสุด</td><td>Geely (10 posts)</td></tr>
+  <tr><td>โพสที่ engagement สูงสุด</td><td>BYD (👍875 + 🔁9 = 884)</td></tr>
+</table>
 
-        <section class="day-section">
-            <header class="day-header d1">
-                <h2>วันที่ 23 ต.ค.: สัมผัสหัวใจของโอซาก้า</h2>
-                <p>เดินทางถึงโอซาก้า / ตะลุยกินและย่านลับ</p>
-            </header>
-            <div class="timeline">
-                <article class="timeline-item">
-                    <div class="timeline-time">08:00 - 10:00</div>
-                    <div class="timeline-content">
-                        <h3>เดินทางถึงโอซาก้า (KIX) และเข้าเมือง</h3>
-                        <p>ผ่านขั้นตอน ตม. รับกระเป๋า และซื้อบัตร ICOCA Card ที่สถานีรถไฟ จากนั้นเดินทางเข้าสู่ที่พัก</p>
-                        <div class="timeline-transport">
-                            <strong>การเดินทาง:</strong> ขึ้นรถไฟสาย **Nankai Main Line** จากสนามบิน KIX ไปลงสถานี Tengachaya แล้วเปลี่ยนเป็นรถไฟใต้ดินสาย **Sakaisuji Line** (สายสีน้ำตาล) ไปลงสถานี **Kitahama**<br>
-                            <strong>เวลา:</strong> ~60 นาที<br>
-                            <strong>ค่าใช้จ่าย:</strong> ~1,180 เยน / คน (~300 บาท)
-                        </div>
-                        <img src="https://www.japankakkoii.com/wp-content/uploads/2019/05/Kansai-Airport-02.jpg.webp" alt="Kansai Airport" class="timeline-image">
-                    </div>
-                </article>
-                <article class="timeline-item">
-                    <div class="timeline-time">10:30 - 13:00</div>
-                    <div class="timeline-content">
-                        <h3>มื้อแรกที่ตลาดปลาคุโรมง</h3>
-                        <p>นำกระเป๋าไปฝากที่โรงแรม แล้วไปประเดิมมื้อแรกที่ **ตลาดคุโรมง (Kuromon Market)** สวรรค์ของคนรักอาหารทะเล</p>
-                        <div class="timeline-transport">
-                             <strong>การเดินทาง:</strong> จากสถานี Kitahama ขึ้นรถไฟใต้ดินสาย **Sakaisuji Line** ไปลงสถานี **Nippombashi** (ทางออก 10) เดินไม่ไกลก็ถึงตลาด<br>
-                             <strong>เวลา:</strong> ~5 นาที<br>
-                             <strong>ค่าใช้จ่าย:</strong> ~190 เยน / คน (~50 บาท)
-                        </div>
-                         <div class="timeline-food">
-                           <strong>ต้องลอง:</strong> ซูชิหน้าปลาไหล, ซาชิมิสดๆ, หอยเม่น (Uni), หอยเชลล์ย่าง
-                         </div>
-                         <img src="https://www.japankakkoii.com/wp-content/uploads/2019/06/Kuromon-Market-Osaka-01.jpg.webp" alt="ตลาดปลาคุโรมง" class="timeline-image">
-                    </div>
-                </article>
-                 <article class="timeline-item">
-                    <div class="timeline-time">14:00 - 17:00</div>
-                    <div class="timeline-content">
-                        <h3>สำรวจย่านเด็นเด็นทาวน์ (Den Den Town)</h3>
-                        <p>หลังจากทานมื้อเที่ยง เดินสำรวจ **ย่านเด็นเด็นทาวน์** ซึ่งอยู่ติดกับตลาดคุโรมง เป็นศูนย์รวมสินค้าอิเล็กทรอนิกส์, อนิเมะ, และ **ร้านขายของสำหรับผู้ใหญ่ (Sex Toy Shops)** ที่คุณสนใจ ซึ่งมีให้เลือกชมหลายร้านในย่านนี้</p>
-                        <img src="https://cms.dmpcdn.com/travel/2022/09/15/67beafc0-34d2-11ed-8373-11483df4fdb7_webp_original.jpg" alt="Den Den Town" class="timeline-image">
-                    </div>
-                </article>
-                 <article class="timeline-item">
-                    <div class="timeline-time">18:00 เป็นต้นไป</div>
-                    <div class="timeline-content">
-                        <h3>แสงสีเสียงที่โดทงโบริ</h3>
-                        <p>หลังจากเช็คอิน ถ่ายรูปกับแลนด์มาร์ค **ป้ายไฟกูลิโกะแมน (Glico Running Man)** และทานอาหารเย็นริมคลอง **โดทงโบริ (Dotonbori)**</p>
-                        <div class="timeline-food">
-                           <strong>ต้องลอง:</strong> **ทาโกะยากิ** และ **โอโคโนมิยากิ**
-                         </div>
-                        <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/18/15/61/2d/caption.jpg?w=1400&h=800&s=1" alt="แสงสีเสียงที่โดทงโบริ" class="timeline-image">
-                    </div>
-                </article>
-            </div>
-        </section>
+<h2>🌐 2. ภาพรวมความเคลื่อนไหว</h2>
+<p>📈 <strong>เทรนด์ EV/HEV ร้อนแรง:</strong> ทุกค่ายเน้น EV/HEV/DM-i โดยเฉพาะ BYD (DM-i), Changan/Deepal (S05, NEVO Q05), Mitsubishi (Xpander Cross HEV, Xforce HEV), Geely (EX2, EX5)</p>
+<p>🎪 <strong>Roadshow/Event Season:</strong> ช่วง 17 มิ.ย. - 7 ก.ค. มี Roadshow จาก 5 ค่าย (BYD, TOYOTA, Deepal, Geely, OMODA) ต่อเนื่อง — Nissan ไม่มี event ในช่วงนี้</p>
+<p>🍵 <strong>กลยุทธ์ "Test Drive + ของแจก" กำลังมาแรง:</strong> BYD (Starbucks), Mitsubishi (คูปองเครื่องดื่ม 60 บาท), Geely (ฟรีอาหารว่าง+เครื่องดื่ม), Deepal (ถุงผ้า+ร่ม)</p>
+<p>📺 <strong>Reel/Video format ชนะ:</strong> Reel ของ Nissan (Kicks), BYD (DM-i), Geely, TOYOTA มี engagement สูงกว่าโพสภาพนิ่งชัดเจน</p>
 
-        <section class="day-section">
-            <header class="day-header d2">
-                <h2>วันที่ 24 ต.ค.: ผจญภัยที่ Universal Studios Japan</h2>
-                <p>สนุกสุดเหวี่ยงเต็มวันในโลกแห่งภาพยนตร์</p>
-            </header>
-            <div class="timeline">
-                <article class="timeline-item">
-                     <div class="timeline-time">เต็มวัน</div>
-                    <div class="timeline-content">
-                        <h3>Universal Studios Japan (USJ)</h3>
-                        <p>ใช้เวลาทั้งวันกับเครื่องเล่นและโซนต่างๆ ที่น่าตื่นตาตื่นใจ โดยเฉพาะ The Wizarding World of Harry Potter และ Super Nintendo World (แนะนำให้ซื้อตั๋วล่วงหน้า)</p>
-                        <div class="timeline-transport">
-                            <strong>การเดินทาง:</strong> จากสถานี Kitahama ขึ้นรถไฟสาย **Keihan Main Line** ไปลงสถานี Kyobashi แล้วเปลี่ยนเป็นสาย **JR Osaka Loop Line** ไปลงที่ Nishikujo จากนั้นเปลี่ยนเป็นสาย **JR Yumesaki Line** ไปลงที่ Universal City<br>
-                            <strong>เวลา:</strong> ~35 นาที<br>
-                            <strong>ค่าใช้จ่าย:</strong> ~500 เยน / คน / เที่ยว (~125 บาท)
-                        </div>
-                        <img src="https://www.japankakkoii.com/wp-content/uploads/2019/12/USJ-Night-Show-01.jpg.webp" alt="Universal Studios Japan" class="timeline-image">
-                    </div>
-                </article>
-            </div>
-        </section>
-        
-        <section class="day-section">
-            <header class="day-header d3">
-                <h2>วันที่ 25 ต.ค.: วันแห่งทะเล ช้อปปิ้ง และชมวิว</h2>
-                <p>อควาเรียม, รองเท้า On Cloud และตึกสูงสุด</p>
-            </header>
-            <div class="timeline">
-                <article class="timeline-item">
-                    <div class="timeline-time">09:30 - 13:00</div>
-                    <div class="timeline-content">
-                        <h3>Osaka Aquarium Kaiyukan</h3>
-                        <p>ชมความยิ่งใหญ่ของโลกใต้ทะเลที่ **Osaka Aquarium Kaiyukan** หนึ่งในอควาเรียมที่ดีที่สุดในโลก ไฮไลท์คือฉลามวาฬยักษ์</p>
-                        <div class="timeline-transport">
-                            <strong>การเดินทาง:</strong> จากสถานี Kitahama ขึ้นรถไฟใต้ดินสาย **Sakaisuji Line** ไปลงที่ **Sakaisuji-Hommachi** แล้วเปลี่ยนเป็นสาย **Chuo Line** (สายสีเขียว) ไปลงที่ **Osakako Station**<br>
-                             <strong>เวลา:</strong> ~20 นาที<br>
-                            <strong>ค่าใช้จ่าย:</strong> ~290 เยน / คน / เที่ยว (~75 บาท)
-                        </div>
-                         <img src="https://a.travel-assets.com/findyours-php/viewfinder/images/res70/91000/91756-Osaka-Aquarium-Kaiyukan.jpg" alt="Osaka Aquarium Kaiyukan" class="timeline-image">
-                    </div>
-                </article>
-                 <article class="timeline-item">
-                    <div class="timeline-time">14:00 - 17:00</div>
-                    <div class="timeline-content">
-                        <h3>Abeno Q's Mall และ ตึก Harukas 300</h3>
-                        <p>เดินทางไปย่านเทนโนจิ ช้อปปิ้งรองเท้า On Cloud ที่ **Abeno Q's Mall** จากนั้นขึ้นไปชมวิวโอซาก้าแบบ 360 องศาบน **ตึก Abeno Harukas 300**</p>
-                        <div class="timeline-transport">
-                            <strong>การเดินทาง:</strong> จากสถานี Osakako กลับมาที่ **Bentencho** แล้วเปลี่ยนเป็นสาย **JR Osaka Loop Line** ไปลงที่ **Tennoji**<br>
-                             <strong>เวลา:</strong> ~20 นาที<br>
-                            <strong>ค่าใช้จ่าย:</strong> ~420 เยน / คน / เที่ยว (~110 บาท)
-                        </div>
-                         <img src="https://media-cdn.tripadvisor.com/media/attractions-splice-spp-674x446/09/39/7e/7f.jpg" alt="Harukas 300" class="timeline-image">
-                    </div>
-                </article>
-                 <article class="timeline-item">
-                     <div class="timeline-time">18:00 เป็นต้นไป</div>
-                    <div class="timeline-content">
-                        <h3>ย่านชินเซไก (Shinsekai)</h3>
-                        <p>เดินเล่นในย่าน **ชินเซไก** ที่ให้บรรยากาศย้อนยุค และถ่ายรูปกับ **หอคอยซึเทนคาคุ (Tsutenkaku Tower)**</p>
-                         <div class="timeline-food">
-                           <strong>ต้องลอง:</strong> **คุชิคัตสึ** (ของทอดเสียบไม้) ซึ่งเป็นอาหารขึ้นชื่อของย่านนี้
-                         </div>
-                    </div>
-                </article>
-            </div>
-        </section>
+<h2>🎪 3. กิจกรรม Roadshow / อีเวนต์</h2>
+<table>
+  <tr><th>แบรนด์</th><th>กิจกรรม / สถานที่ / วันที่</th><th>แหล่งอ้างอิง (URL)</th></tr>
+  <tr><td>BYD</td><td>งาน YPB Road Show วันสุดท้ายแล้วชาวขอนแก่นมาสัมผัสยนตรกรรมสุดล้ำสุดคุ้มค่ากันได้อย่างจุใจ เพราะยนต์ไพบูลย์ขนทัพมาให้ถึงที่ 📍ที่งาน YPB Road Show at Central KhonKaen Campus พบกันตั้งแต่วันที่ 17 - 23 มิ.ย. 69  •••••••••••••••••••••••••••••••••••••••••...</td><td><a href="https://www.facebook.com/reel/1371030561564135/">https://www.facebook.com/reel/1371030561564135/</a></td></tr>
+  <tr><td>BYD</td><td>ลุยกันต่อยาวๆกับงาน Road Show เจอกับ BYD และ DENZA กันได้พร้อมข้อเสนอพิเศษ🤩  📍ลานโปรโมชั่น ชั้น 1 Central KhonKaen 📆วันที่ 22 - 28 มิ.ย. 69  •••••••••••••••••••••••••••••••••••••••••••••••• ลูกค้าสามารถสอบถามรายละเอียดเพิ่มเติม โทร : 043-334666 / 097...</td><td><a href="https://www.facebook.com/BYDYonpiboon/posts/pfbid0rhxJ78cXDqDLQiFq4S9Socy8dSAK9cZEK9iwr1GvjqiNvWvAx3JtB8NLSGEwV8qzl">https://www.facebook.com/BYDYonpiboon/posts/pfbid0rhxJ78cXDqDLQiFq4S9Socy8dSAK9c...</a></td></tr>
+  <tr><td>Changan (Deepal)</td><td>เริ่มแล้ววันนี้ที่📍 Big C กระนวน ขอนแก่น 📆บูธกิจกรรม  ดีพอล แอส วัน ขอนแก่น วันที่ 23-25 มิถุนายนนี้  ในบูธพบกับรถยนต์ไฟฟ้าสุดฮอต🔥 🚗 NEVO Q05 ULTRA ราคาพิเศษ 679,900 บาท* 🚗 DEEPAL S05 มาพร้อมดอกเบี้ยพิเศษ 0%* หรือเลือกรับเงินคืน 50,000 บาท*  จองในงาน...</td><td><a href="https://www.facebook.com/DeepalAsOneKhonKaen/posts/pfbid0KNUmULKBJ7CrBJXQkKJbUBwmj33L24bWM6SQVXspZeY9ocFMN1ZL5axwmbihe57Rl">https://www.facebook.com/DeepalAsOneKhonKaen/posts/pfbid0KNUmULKBJ7CrBJXQkKJbUBw...</a></td></tr>
+  <tr><td>Changan (Deepal)</td><td>📢 กระนวนขอนแก่นฟังทางนี้! เตรียมตัวมาสัมผัส Deepal S05 และ NEVO Q05 ได้ที่ Big C กระนวน!  🗓️ ตั้งแต่วันที่ 23 - 25 มิ.ย. 69 นี้ 📍  Big C กระนวน จ.ขอนแก่น  🚗 ในบูธพบกับ ✨ NEVO Q05 ULTRA ราคาเปิดตัว 679,900 บาท*  ✨ DEEPAL S05 ดอกเบี้ยพิเศษ 0%* (ดาวน์ 2...</td><td><a href="https://www.facebook.com/DeepalAsOneKhonKaen/posts/pfbid02LRXWzQK2pV4scTWMvHzCAs3943kL5RMQAroSpWLcPQVKygp6TBFd79jy8eZqnVJVl">https://www.facebook.com/DeepalAsOneKhonKaen/posts/pfbid02LRXWzQK2pV4scTWMvHzCAs...</a></td></tr>
+  <tr><td>OMODA &amp; JAECOO</td><td>OMODA &amp; JAECOO Roadshow มาแล้ว! สัมผัสยนตรกรรมพลังงานไฟฟ้าสุดล้ำอย่าง OMODA C5 EV และ JAECOO 5 EV ตัวจริง พร้อมทดลองนั่ง ชมดีไซน์ และรับข้อเสนอพิเศษภายในงาน 🚗 ใครกำลังมองหารถ EV คันใหม่ ห้ามพลาด! พบกันที่ Makro x Lotus's Mall อ.บ้านไผ่ 🗓️ วันที่ 1–7 ...</td><td><a href="https://www.facebook.com/Omodajaecootanasitkhonkaen/posts/pfbid02HR7pejzxDWG4wJ2vBGZj4yLmhEGJaP7DFDpDCHsweYWdj8hX85kU9orffeBowXuml">https://www.facebook.com/Omodajaecootanasitkhonkaen/posts/pfbid02HR7pejzxDWG4wJ2...</a></td></tr>
+  <tr><td>OMODA &amp; JAECOO</td><td>🚗✨ สัมผัส OMODA &amp; JAECOO ตัวจริง พร้อมทดลองขับและรับข้อเสนอพิเศษได้แล้ววันนี้! 📍 ETC Cafe จ.บึงกาฬ 📅 ตั้งแต่วันนี้ - 20 มิถุนายนนี้ แล้วคุณจะรู้ว่ารถที่ใช่ ไม่ได้มีดีแค่ดีไซน์ แต่ตอบโจทย์ทุกการเดินทาง 💙 สอบถามเพิ่มเติม: 📞 โทร : 081-710-7505 📲 Line Of...</td><td><a href="https://www.facebook.com/Omodajaecootanasitkhonkaen/posts/pfbid04uxtJFTbGiLbkByHhzdB836JZTGF1NhfrS6kpRvkFcu6u5Pbof38j9vudtL9yuCcl">https://www.facebook.com/Omodajaecootanasitkhonkaen/posts/pfbid04uxtJFTbGiLbkByH...</a></td></tr>
+  <tr><td>TOYOTA (TKK)</td><td>พบกับบูธ โตโยต้าแก่นนคร ได้ที่งาน  "SMART BUSINESS EXPO 2026"✨  📍 KICE ขอนแก่น หน้าทางเข้าประตู HALL 2 และ บูธ G11-G14  📅 วันที่ 26-28 มิ.ย. 69  ⏰ เวลา 10.00 - 19.00 น.  🚗 ยกทัพยนตรกรรมสุดสมาร์ท ตอบโจทย์ทุกธุรกิจ พร้อมข้อเสนอสุดพิเศษ!🛻  🛻 จองและเป็นเ...</td><td><a href="https://www.facebook.com/Toyotakaennakorn/posts/pfbid027ncqHgGeQtaafQU1W2d9qAfvqz98EiLeMZuoond2kSqxEyBmwZ335U6PUWgkoGdl">https://www.facebook.com/Toyotakaennakorn/posts/pfbid027ncqHgGeQtaafQU1W2d9qAfvq...</a></td></tr>
+  <tr><td>BYD</td><td>🥳เริ่มแล้วกับงาน YPB Road Show ชาวขอนแก่นมาสัมผัสยนตรกรรมสุดล้ำสุดคุ้มค่ากันได้อย่างจุใจ เพราะยนต์ไพบูลย์ขนทัพมาให้ถึงที่  📍ที่งาน YPB Road Show at Central KhonKaen Campus พบกันตั้งแต่วันที่ 17 - 23 มิ.ย. 69   ••••••••••••••••••••••••••••••••••••••••...</td><td><a href="https://www.facebook.com/BYDYonpiboon/posts/pfbid02QoL9CAgAWhZGK6xsMgYy41HPXQGPGQqHEkzyWNB38RNW5qQ1yx4ALZ2Lf4RWLeJWl">https://www.facebook.com/BYDYonpiboon/posts/pfbid02QoL9CAgAWhZGK6xsMgYy41HPXQGPG...</a></td></tr>
+  <tr><td>BYD</td><td>Special Event 🥳 สำหรับคนรัก DM-i เพียงทดลองขับรับทันที คูปอง Starbucks มูลค่า 100 บาท (จำนวนจำกัด❗️)  🚗BYD SEAL 5 DM-i 🚗BYD SEALION 5 DM-i 🚗BYD SEALION 6 DM-i  📝ลงทะเบียนล่วงหน้าคลิก https://lin.ee/wp4qt5B  📍ที่งาน YPB Road Show at Central KhonKaen C...</td><td><a href="https://www.facebook.com/BYDYonpiboon/posts/pfbid0bUmjNA57VhPiN7eu1ptHsvjRxkFxsdbppYQBr6upEQCH5iRdNeqbUZP2MCUZENehl">https://www.facebook.com/BYDYonpiboon/posts/pfbid0bUmjNA57VhPiN7eu1ptHsvjRxkFxsd...</a></td></tr>
+  <tr><td>Changan (Deepal)</td><td>เริ่มแล้ววันนี้! แวะมาเจอกันได้ที่บูธดีพอล แอส วัน ขอนแก่น ของเรา  📍 Go Wholesale ขอนแก่น - ถ.ประชาสโมสร ขอนแก่น 📅 18 - 20 มิถุนายนนี้ | 08:00 - 18:30 น.  🚗 ในบูธพบกับ ✨ NEVO Q05 ULTRA ราคาเปิดตัว 679,900 บาท*  ✨ DEEPAL S05 ดอกเบี้ยพิเศษ 0%* (ดาวน์ 2...</td><td><a href="https://www.facebook.com/DeepalAsOneKhonKaen/posts/pfbid0M2uq4475CtVqxVh9Ck4ibzLf7qQEycox58U1ejsGdo4BCMm8SU2rTmN51WozHrnwl">https://www.facebook.com/DeepalAsOneKhonKaen/posts/pfbid0M2uq4475CtVqxVh9Ck4ibzL...</a></td></tr>
+  <tr><td>Changan (Deepal)</td><td>🔥 3 วันเท่านั้น! DEEPAL บุก Go Wholesale ขอนแก่น!  📍 ถ.ประชาสโมสร ขอนแก่น 📅 18 - 20 มิถุนายนนี้ | 08:00 - 18:30 น.  🚗 ในบูธพบกับ ✨ NEVO Q05 ULTRA ราคาเปิดตัว 679,900 บาท*  ✨ DEEPAL S05 ดอกเบี้ยพิเศษ 0%* (ดาวน์ 25% ผ่อน 48 เดือน*)  🎁 จองภายในงาน รับทั...</td><td><a href="https://www.facebook.com/DeepalAsOneKhonKaen/posts/pfbid0URtWi8hoqmDLgbb9rtdyaMVYaxTwEUzUCmkNCLMxzYw9x9q26zdsUjM3UpxRi5cnl">https://www.facebook.com/DeepalAsOneKhonKaen/posts/pfbid0URtWi8hoqmDLgbb9rtdyaMV...</a></td></tr>
+  <tr><td>TOYOTA (TKK)</td><td>พบกับบูธ โตโยต้าแก่นนคร ได้ที่งาน  "SMART BUSINESS EXPO 2026"✨  📍 KICE ขอนแก่น HALL 2 บูธ G11-G14  📅 วันที่ 26-28 มิ.ย. 69  ⏰ เวลา 10.00 - 19.00 น.  🚗 ยกทัพยนตรกรรมสุดสมาร์ท ตอบโจทย์ทุกการใช้งาน 🛻 นำโดยรถไฟฟ้า 100% Hilux Travo-e, bZ4X,  Land Cruiser ...</td><td><a href="https://www.facebook.com/reel/1373013771309537/">https://www.facebook.com/reel/1373013771309537/</a></td></tr>
+  <tr><td>TOYOTA (TKK)</td><td>พบกับบูธ โตโยต้าแก่นนคร ได้ที่งาน  "SMART BUSINESS EXPO 2026"✨  📍 KICE ขอนแก่น ทางเข้าประตู HALL 2  📅 วันที่ 26-28 มิ.ย. 69  ⏰ เวลา 10.00 - 19.00 น.  🚗 ยกทัพยนตรกรรมสุดสมาร์ท ตอบโจทย์ทุกธุรกิจ พร้อมข้อเสนอสุดพิเศษ!🛻  🛻 จองและเป็นเจ้าของ Hilux Travo-e...</td><td><a href="https://www.facebook.com/Toyotakaennakorn/posts/pfbid02tLCcZaQm8bzCxvPjLiRp21T8eLMEtmnTmNqMA53oc5FrnQ2qfcyGKKCQv2knaqaRl">https://www.facebook.com/Toyotakaennakorn/posts/pfbid02tLCcZaQm8bzCxvPjLiRp21T8e...</a></td></tr>
+  <tr><td>TOYOTA (TKK)</td><td>พบกับบูธ โตโยต้าแก่นนคร ได้ที่งาน  "SMART BUSINESS EXPO 2026"✨  📍 KICE ขอนแก่น HALL 2 บูธ G11-G14  📅 วันที่ 26-28 มิ.ย. 69  ⏰ เวลา 10.00 - 19.00 น.  🚗 ยกทัพยนตรกรรมสุดสมาร์ท ตอบโจทย์ทุกการใช้งาน 🛻 นำโดยรถไฟฟ้า 100% Hilux Travo-e, bZ4X,  Land Cruiser ...</td><td><a href="https://www.facebook.com/Toyotakaennakorn/posts/pfbid02sgxgThgiQ7uxTibmrh49bhbjgZfk8DmztVdi8MUX8ggzpM2XfrSoTCMKmxeeev9cl">https://www.facebook.com/Toyotakaennakorn/posts/pfbid02sgxgThgiQ7uxTibmrh49bhbjg...</a></td></tr>
+  <tr><td>MG</td><td>🚗 พบกับ MG อารีมิตร มะลิวัลย์ ที่ Dohome ขอนแก่น วันที่ 19 – 20 มิ.ย. 69 ใครกำลังมองหา EV …แวะมาดู ตัวจริงได้เลย หรือ อยากนัดหมายทดลองขับ คลิกลิ้งจองคืว ได้เลย https://forms.gle/yi7fkA9TJju8FnkNA . พบกับโปร พิเศษ ✅ ✨ ราคา 599,900.- 🔋 รับประกันแบตเตอร...</td><td><a href="https://www.facebook.com/MGKhonkaenAreemit/posts/pfbid07GaxBndefLjXYJTkKKyrbfa6Kb5jUF4tcr32MhmHaf1mmC8HhvSYzd5geGUiHNkDl">https://www.facebook.com/MGKhonkaenAreemit/posts/pfbid07GaxBndefLjXYJTkKKyrbfa6K...</a></td></tr>
+  <tr><td>TOYOTA (TKK)</td><td>พบกับบูธ โตโยต้าแก่นนคร ได้ที่งาน  "SMART BUSINESS EXPO 2026"✨  📍 KICE ขอนแก่น HALL 2 บูธ G11-G14  📅 วันที่ 26-28 มิ.ย. 69  ⏰ เวลา 10.00 - 19.00 น.  🚗 ยกทัพยนตรกรรมสุดสมาร์ท ตอบโจทย์ทุกการใช้งาน 🛻 นำโดยรถไฟฟ้า 100% Hilux Travo-e, bZ4X,  Land Cruiser ...</td><td><a href="https://www.facebook.com/Toyotakaennakorn/posts/pfbid0sFdD7uVASuVTm9xuBUd3Ddn5MXHoyj9tFGy5ENoPAunWKdQJMhpTGjbsW7Xuw3spl">https://www.facebook.com/Toyotakaennakorn/posts/pfbid0sFdD7uVASuVTm9xuBUd3Ddn5MX...</a></td></tr>
+</table>
+<p><em>⚠️ รายละเอียด สถานที่/วันที่ ดึงจาก post text ที่พบใน dataset เท่านั้น</em></p>
 
-        <section class="day-section">
-            <header class="day-header d4">
-                <h2>วันที่ 26 ต.ค.: เสน่ห์เมืองเก่าเกียวโต (Day Trip)</h2>
-                <p>เดินทางสู่อดีตราชธานีอันงดงาม</p>
-            </header>
-            <div class="timeline">
-                 <article class="timeline-item">
-                    <div class="timeline-time">09:00 - 13:00</div>
-                    <div class="timeline-content">
-                        <h3>ศาลเจ้าฟูชิมิอินาริ</h3>
-                        <p>เดินทางจากโอซาก้าสู่เกียวโต ไปยัง **ศาลเจ้าฟูชิมิอินาริ (Fushimi Inari Shrine)** ถ่ายรูปกับอุโมงค์เสาโทริอิสีแดงนับหมื่นต้น</p>
-                        <div class="timeline-transport">
-                            <strong>การเดินทาง (สะดวกมากจากโรงแรม):</strong> จากสถานี Kitahama ขึ้นรถไฟสาย **Keihan Main Line** (ขบวน Sub-Express หรือ Local) ไปลงที่สถานี **Fushimi-Inari** ได้โดยตรง ไม่ต้องเปลี่ยนสาย<br>
-                             <strong>เวลา:</strong> ~50 นาที<br>
-                            <strong>ค่าใช้จ่าย:</strong> ~410 เยน / คน / เที่ยว (~105 บาท)
-                        </div>
-                         <img src="https://blog-static.kkday.com/th/blog/wp-content/uploads/jpg-18-4.jpeg" alt="ศาลเจ้าฟูชิมิอินาริ" class="timeline-image">
-                    </div>
-                </article>
-                 <article class="timeline-item">
-                     <div class="timeline-time">14:00 - 17:00</div>
-                    <div class="timeline-content">
-                        <h3>ย่านกิออนและวัดคิโยมิสุเดระ</h3>
-                        <p>เดินทางต่อไปยัง **ย่านกิออน (Gion)** ย่านเกอิชาเก่าแก่ และเดินขึ้นไปชมวิวที่ **วัดคิโยมิสุเดระ (Kiyomizu-dera Temple)** หรือวัดน้ำใส</p>
-                        <div class="timeline-food">
-                           <strong>ต้องลอง:</strong> ขนมและไอศกรีมรสชาเขียวมัทฉะ, ขนมแป้งดิบ (Yatsuhashi)
-                         </div>
-                        <img src="https://img.activityjapan.com/wi/kyoto-image1.jpg" alt="วัดคิโยมิสุเดระ" class="timeline-image">
-                    </div>
-                </article>
-            </div>
-        </section>
+<h2>📊 4. ตารางสรุปคู่แข่งรายแบรนด์</h2>
+<table>
+  <tr><th>แบรนด์</th><th>กิจกรรม/โปรโมชั่น (ตัวอย่าง)</th><th>Posts</th><th>Engagement</th><th>จุดแข็งที่ใช้</th></tr>
+  <tr><td><strong>MG</strong></td><td>ออก #MG5 ไม่ยาก ประเมินไฟแนนซ์ฟรี 🚗 | น้องใหม่ EV วิ่งไกล 530 km.  | MG ZS SUV ที่ใช้งานง่าย ไม่ยุ่งยาก </td><td>10</td><td>👍 89 / 🔁 2</td><td>ราคา, EV, Test Drive, ประกันฟรี</td></tr>
+  <tr><td><strong>TOYOTA (TKK)</strong></td><td>🔥 โปรแรงแห่งปีที่สายออกรถห้ามพลาด! 🔥 | พบกับบูธ โตโยต้าแก่นนคร ได้ที่งาน </td><td>10</td><td>👍 81 / 🔁 27</td><td>ราคา, 0%/ดอกเบี้ย, EV, ประกันฟรี</td></tr>
+  <tr><td><strong>TOYOTA (แก่นนคร)</strong></td><td>ไม่พบโพสต์ในรอบนี้</td><td>0</td><td>👍 0 / 🔁 0</td><td>-</td></tr>
+  <tr><td><strong>BYD</strong></td><td>งาน YPB Road Show วันสุดท้ายแล้วชาวขอนแก่นมาสัมผัสยนตรกรรมสุดล้ำสุดคุ้มค่ากันได้อย่างจุใจ เพราะยนต์ไพบูลย์ขนทัพมาให้ถึงท | BYD DM-i 1 ถัง 1 ชาร์จ — ไปได้ไกลกว่าที่คิด จากกรุงเทพฯ คุณจะขับไปเที่ยวไหนบ้าง? ไม่ว่าจะเหนือลงใต้ BYD DM-i พร้อมพาคุณไ | ลุยกันต่อยาวๆกับงาน Road Show เจอกับ BYD และ DENZA กัน</td><td>6</td><td>👍 902 / 🔁 13</td><td>ราคา, EV, Test Drive</td></tr>
+  <tr><td><strong>Mitsubishi</strong></td><td>ประชุมทีมธรรมดาโลกไม่จำ ยอดขายด่วนขนาดนี้ต้องเรียกระดับ 'มหาเทพ' มาร่วมระดมสมองแล้วครับ! 📈💡 #บอสสั่งลุย #เทพก็ต้องช่วย | มิตซูนครขอนแก่น ชวนคุณมาสัมผัสประสบการณ์ขับขี่สุดฟิน กับกิจกรรม Test Drive สัญจร 🚗💨 ลองขับรถมิตซูบิชิรุ่นที่ใช่ ในบรรยาก | ⛈️ ฝนตกหนัก น้ำท่วมขัง... อย่าปล่อยให้ประกันขาดเด็ดขาดนะ</td><td>10</td><td>👍 48 / 🔁 35</td><td>ราคา, 0%/ดอกเบี้ย, EV, Test Drive</td></tr>
+  <tr><td><strong>Changan (Deepal)</strong></td><td>เริ่มแล้ววันนี้ที่📍 Big C กระนวน ขอนแก่น | 🗺️ อีสานมีอะไรให้เที่ยวอีกเยอะ... ไปด้วยกันกับ DEEPAL S05 REEV 🚗💨 | 📢 กระนวนขอนแก่นฟังทางนี้! เตรียมตัวมาสัมผัส Deepal S05 และ NEVO Q05 ได้ที่ Big C กระนวน!</td><td>8</td><td>👍 75 / 🔁 6</td><td>ราคา, 0%/ดอกเบี้ย, EV, Test Drive</td></tr>
+  <tr><td><strong>Geely</strong></td><td>🎉 ยินดีต้อนรับเข้าสู่ครอบครัว Geely พิจิตรเพชร ขอนแก่น 🎉 | 27-28 มิ.ย. 69 นี้ เรามีนัดกันที่ โชว์รูม GEELY พิจิตรเพชร ขอนแก่น</td><td>10</td><td>👍 91 / 🔁 6</td><td>EV, Test Drive</td></tr>
+  <tr><td><strong>OMODA &amp; JAECOO</strong></td><td>OMODA &amp; JAECOO Roadshow มาแล้ว! | 🚗✨ สัมผัส OMODA &amp; JAECOO ตัวจริง พร้อมทดลองขับและรับข้อเสนอพิเศษได้แล้ววันนี้!</td><td>2</td><td>👍 46 / 🔁 2</td><td>EV, Test Drive</td></tr>
+</table>
+<p><em>⚠️ Nissan (Self) แยกออกจากคู่แข่ง — ดู section 5 แทน</em></p>
 
-        <section class="day-section">
-            <header class="day-header d5">
-                <h2>วันที่ 27 ต.ค.: ปราสาทโอซาก้าและเดินทางกลับ</h2>
-                <p>ชมความยิ่งใหญ่และเตรียมตัวสู่สนามบิน</p>
-            </header>
-            <div class="timeline">
-                 <article class="timeline-item">
-                    <div class="timeline-time">09:00 - 12:00</div>
-                    <div class="timeline-content">
-                        <h3>ปราสาทโอซาก้า</h3>
-                        <p>เช็คเอาท์และฝากกระเป๋าไว้ที่โรงแรม ไปชมความยิ่งใหญ่ของ **ปราสาทโอซาก้า (Osaka Castle)** แลนด์มาร์คสำคัญทางประวัติศาสตร์</p>
-                         <div class="timeline-transport">
-                            <strong>การเดินทาง:</strong> จากสถานี Kitahama ขึ้นรถไฟสาย **Keihan Main Line** ไปลงที่สถานี **Temmabashi** แล้วเดินต่ออีกประมาณ 15 นาที<br>
-                             <strong>เวลา:</strong> ~20 นาที<br>
-                            <strong>ค่าใช้จ่าย:</strong> ~160 เยน / คน / เที่ยว (~40 บาท)
-                        </div>
-                         <img src="https://chillchilljapan.com/wp-content/uploads/2021/03/shutterstock_406416991.jpg.webp" alt="ปราสาทโอซาก้า" class="timeline-image">
-                    </div>
-                </article>
-                 <article class="timeline-item">
-                    <div class="timeline-time">12:00 - 17:00</div>
-                    <div class="timeline-content">
-                        <h3>มื้อเที่ยงและเก็บตก</h3>
-                        <p>รับประทานอาหารกลางวัน และอาจจะแวะซื้อของฝากหรือไปลองชูครีมร้านดัง **Beard Papa's**</p>
-                        <img src="https://images.squarespace-cdn.com/content/v1/600a96cbf8894d79eb1e1b1f/1623875922301-L6MRBWYCVYUQTU4C4JQJ/_34A7873.jpg" alt="Beard Papa's" class="timeline-image">
-                    </div>
-                </article>
-                 <article class="timeline-item">
-                    <div class="timeline-time">17:30 เป็นต้นไป</div>
-                    <div class="timeline-content">
-                        <h3>เดินทางสู่สนามบิน (KIX)</h3>
-                        <p>กลับไปรับกระเป๋าที่โรงแรม และเดินทางสู่สนามบินคันไซ (KIX) เพื่อเช็คอินเที่ยวบิน XJ 611 กลับกรุงเทพฯ เวลา 21:00 น.</p>
-                         <div class="timeline-transport">
-                            <strong>การเดินทาง:</strong> จากสถานี Kitahama ขึ้นรถไฟใต้ดินสาย **Sakaisuji Line** ไปลงที่สถานี **Tengachaya** แล้วเปลี่ยนเป็นรถไฟสาย **Nankai Main Line** (ขบวน Airport Exp.) สู่สนามบิน KIX<br>
-                            <strong>เวลา:</strong> ~60 นาที<br>
-                            <strong>ค่าใช้จ่าย:</strong> ~1,180 เยน / คน (~300 บาท)
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </section>
-    </main>
-    <footer>
-        <p>จัดทำแผนการเดินทางโดยไกด์ผู้มีประสบการณ์ | ขอให้เป็นการเดินทางที่โรแมนติกและยอดเยี่ยม!</p>
-    </footer>
+<h2>🪞 5. Self Posts (Nissan KKT)</h2>
+<table>
+  <tr><th>สาขา</th><th>Posts</th><th>Engagement</th><th>กิจกรรม/โปรโมชั่นที่ใช้</th></tr>
+  <tr><td>Nissan KKT KhonKaen (สาขาหลัก)</td><td>4</td><td>👍 51 / 🔁 10</td><td>Kicks e-Power Reel (789,000 บาท + 0.79%), Almera Turbo (รับรถ), Serena e-POWER (รับรถ), KICKS ON Test Drive 19-20 มิ.ย.</td></tr>
+  <tr><td>Nissan KKT KhonKaen (บ้านไผ่)</td><td colspan="3"><em>ไม่พบโพสต์ — nissankktkhonkaenBanphai ไม่อยู่ใน startUrls</em></td></tr>
+  <tr><td><strong>รวม Self</strong></td><td><strong>4</strong></td><td><strong>61</strong></td><td>-</td></tr>
+</table>
+<p><strong>โพสต์ทั้ง 4 ของ Nissan (Self):</strong></p>
+<ul>
+  <li><a href="https://www.facebook.com/nissankktkhonkaen/posts/pfbid02wEAbKHC8xz7tEhQsydKnuCWpWQrjwC9q1abUE3x4MZB2bXCeui7mB6CfF4EfLMxGl">🎉ขอแสดงความยินดีกับเจ้าของรถคันใหม่🎉The All-New NISSAN SERENA e-POWER ความสนุกที่ใช่ ความสบายที่ชอบ</a> (👍10 🔁1) <small style="color:#888;">2026-06-22T06:50:19.000Z</small></li>
+<li><a href="https://www.facebook.com/nissankktkhonkaen/posts/pfbid02MGzuQDCwNYoiBzvDsnkDRnWfJvG57U9JjAoQ5gCTn4GRiyUmbwPxciD2SHGfmFVWl">🎉ขอแสดงความยินดีกับเจ้าของรถคันใหม่🎉 New Nissan ALMERA 1.0 Turbo ครบจริง แรงจริง จัดให้ พร้อมพาคุณออกเดินทางอย่างมั่นใจในทุกวัน</a> (👍9 🔁1) <small style="color:#888;">2026-06-22T04:01:32.000Z</small></li>
+<li><a href="https://www.facebook.com/reel/1561304622003386/">เราเช็ดรถทุกคัน สะอาดไร้ฝุ่นแน่นอน</a> (👍26 🔁6) <small style="color:#888;">2026-06-18T06:48:33.000Z</small></li>
+<li><a href="https://www.facebook.com/nissankktkhonkaen/posts/pfbid026c2u9nfwgCFyhWCM3CArSMQqcvfzbuUbfwXWV5LNxeKcgtwTC5m7QddUAeE4Z1oTl">⚡ KICKS ON. TEST DRIVE ⚡</a> (👍6 🔁2) <small style="color:#888;">2026-06-17T10:28:15.000Z</small></li>
+</ul>
+<p><strong>สังเกต:</strong></p>
+<ul>
+  <li>Nissan โพสน้อยกว่าคู่แข่งมาก (4 vs 56 posts) — ควรเพิ่มความถี่</li>
+  <li>ใช้ Reel สำหรับ Kicks ได้ engagement สูงสุด (26 likes + 6 shares) — ควรทำต่อ</li>
+  <li>ไม่มี Roadshow ใน 7 วันนี้ ขณะที่คู่แข่งมี 5 ค่ายจัดพร้อมกัน</li>
+  <li>Campaign ที่กำลังจะทำ: ระวังชนกับ TOYOTA KICE (26-28 มิ.ย.) และ Geely โชว์รูม (27-28 มิ.ย.)</li>
+</ul>
+
+<h2>🔥 6. โพสต์เด่นที่ควรเรียนรู้</h2>
+<h3>1. Special Event 🥳 สำหรับคนรัก DM-i เพียงทดลองขับรับทันที คูปอง Starbucks มูลค่า 10... — BYD</h3>
+<ul>
+  <li><strong>URL:</strong> <a href="https://www.facebook.com/BYDYonpiboon/posts/pfbid0bUmjNA57VhPiN7eu1ptHsvjRxkFxsdbppYQBr6upEQCH5iRdNeqbUZP2MCUZENehl">https://www.facebook.com/BYDYonpiboon/posts/pfbid0bUmjNA57VhPiN7eu1ptHsvjRxkFxsd...</a></li>
+  <li><strong>Engagement:</strong> 👍 875 | 🔁 9 | รวม 884</li>
+  <li><strong>ทำไมเด่น:</strong> BYD ใช้ DM-i + ของแจก (คูปอง Starbucks) ดึง traffic ทดลองขับ engagement สูงมาก</li>
+  <li><strong>นำมาปรับใช้กับ Nissan:</strong> ใช้ mechanic "ทดลองขับ + ของแถมเล็กๆ" กับรุ่น Kicks e-POWER / Almera เพื่อดึง foot traffic หน้าโชว์รูม</li>
+</ul>
+<h3>2. 🚗💨 โปรร้อน  Xpander Cross HEV 
+รับรถเพียง  19,900 บาท เท่านั้น!!  🔥🔥
+และรับชุดสเ... — Mitsubishi</h3>
+<ul>
+  <li><strong>URL:</strong> <a href="https://www.facebook.com/Mitsunakornkhonkaen/posts/pfbid0nzvFvquBRV1kgRrARqDd23doPWCCBqFARVr2N8acgLGeThBdZZKxzkDEJY6uN4a4l">https://www.facebook.com/Mitsunakornkhonkaen/posts/pfbid0nzvFvquBRV1kgRrARqDd23d...</a></li>
+  <li><strong>Engagement:</strong> 👍 24 | 🔁 31 | รวม 55</li>
+  <li><strong>ทำไมเด่น:</strong> Mitsubishi Xpander Cross HEV ใช้ราคา 19,900 + ชุดสเกิร์ต + 0% 6 ปี engagement สูงสุดของ share</li>
+  <li><strong>นำมาปรับใช้กับ Nissan:</strong> ใช้ mechanic "ทดลองขับ + ของแถมเล็กๆ" กับรุ่น Kicks e-POWER / Almera เพื่อดึง foot traffic หน้าโชว์รูม</li>
+</ul>
+<h3>3. ... — TOYOTA (TKK)</h3>
+<ul>
+  <li><strong>URL:</strong> <a href="https://www.facebook.com/Toyotakaennakorn/videos/1534430491559185/">https://www.facebook.com/Toyotakaennakorn/videos/1534430491559185/</a></li>
+  <li><strong>Engagement:</strong> 👍 29 | 🔁 18 | รวม 47</li>
+  <li><strong>ทำไมเด่น:</strong> TOYOTA ใช้ Live มหาโชว์ + ส่วนลด 2,000 บาท + Hilux Travo-e ดึง engagement</li>
+  <li><strong>นำมาปรับใช้กับ Nissan:</strong> ใช้ mechanic "ทดลองขับ + ของแถมเล็กๆ" กับรุ่น Kicks e-POWER / Almera เพื่อดึง foot traffic หน้าโชว์รูม</li>
+</ul>
+
+<h2>⚠️ 7. โอกาสและภัยคุกคาม</h2>
+<h3 class="threat">🚨 ภัยคุกคาม</h3>
+<ul>
+  <li>BYD Yonpiboon ใช้ mechanic 'ทดลองขับ + คูปอง Starbucks 100 บาท' ดึง engagement สูงมาก (875 likes) — กลยุทธ์นี้ดึงดูดให้คนเข้ามาทดลองขับจริง</li>
+  <li>ช่วง 17-28 มิ.ย. มี Roadshow/Event หนาแน่นมาก: BYD (Central KK 17-23 มิ.ย.), TOYOTA (KICE 26-28 มิ.ย.), Deepal (Go Wholesale 18-20, Big C กระนวน 23-25 มิ.ย.), Geely (โชว์รูม 27-28 มิ.ย.), OMODA (Makro บ้านไผ่ 1-7 ก.ค.) — Nissan ไม่มี event แข่งขันในช่วงนี้</li>
+  <li>Mitsubishi Xpander Cross HEV ดันราคา 19,900 + 0% 6 ปี + ชุดสเกิร์ตฟรี — direct threat กับ Nissan Serena e-POWER (MPV segment)</li>
+</ul>
+<h3 class="opportunity">💡 โอกาส</h3>
+<ul>
+  <li>OMODA & JAECOO Roadshow ที่ Makro x Lotus's Mall บ้านไผ่ (1-7 ก.ค.) — Nissan KKT Banphai สามารถทำ event counter หรือ roadshow ในพื้นที่ใกล้เคียง</li>
+  <li>Geely และ Deepal เน้นทดลองขับ EV ฟรี + อาหารว่าง — Nissan Kicks e-POWER มีจุดแข็ง e-POWER แต่ยังโปรโมตน้อย ควรเพิ่ม test drive campaign</li>
+  <li>Nissan มี Self post engagement ดี (4 posts = 51 likes + 10 shares) โดยเฉพาะ Kicks e-Power reel (26 likes + 6 shares) — ควรทำ Reel format เพิ่ม</li>
+</ul>
+
+<h2>🎯 8. ข้อเสนอแนะสำหรับ NISSAN KKT KhonKaen</h2>
+<div class="priority-high">
+  <strong>🔴 Priority สูง (ทำทันที):</strong><br>
+  1. เร่งทำ Roadshow/Test Drive ช่วง 26-28 มิ.ย. เพื่อแข่งกับ TOYOTA (KICE) และ Geely (โชว์รูม) — แนะนำจัดที่หน้าโชว์รูม Nissan KKT สาขาใหญ่ ใช้ mechanic 'ทดลองขับ Kicks e-Power + ของแจก' เลียนแบบ BYD
+</div>
+<div class="priority-med">
+  <strong>🟠 Priority กลาง (1-2 สัปดาห์):</strong><br>
+  2. ทำ Reel สั้นๆ แบบ BYD/Geely เน้น promotion Almera (ราคา/ดาวน์) + Kicks (789,000 บาท) — engagement สูงกว่าโพสภาพนิ่ง 2-3 เท่า
+</div>
+<div class="priority-low">
+  <strong>🟣 Priority ต่ำ (พิจารณา):</strong><br>
+  3. พิจารณาขยาย Nissan KKT Banphai เข้าร่วม Roadshow ที่ Makro บ้านไผ่ เพื่อตอบโต้ OMODA — อาจเป็น booth เล็ก + ทดลองขับ Kicks/Almera
+</div>
+
+<div class="footer">
+  <p>📊 สร้างโดย: Nissan Weekly Competitor Report (Cron Job)</p>
+  <p>🕐 เวลาวิเคราะห์: 2026-06-23 23:20:45</p>
+  <p>📂 ไฟล์: /Users/tatchanon/.hermes/profiles/office-shirm/workspace/reports/2026-06-23.html</p>
+  <p>📝 แหล่งข้อมูล:  Facebook Posts Scraper (60 items จาก 8 URLs)</p>
+</div>
 
 </body>
 </html>
