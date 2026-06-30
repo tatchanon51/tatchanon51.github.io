@@ -23,7 +23,6 @@
   .insight.success { background: #E8F5E9; border-left-color: #2E7D32; }
   .insight.warn { background: #FFF3E0; border-left-color: #F57C00; }
   .insight.info { background: #E3F2FD; border-left-color: #1976D2; }
-  .warning { background: #FFEBEE; border-left: 4px solid #C3002F; padding: 12px 18px; margin: 15px 0; font-size: 14px; border-radius: 4px; }
   .chart-container { background: white; padding: 20px; border-radius: 8px; margin: 18px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
   .chart-title { font-size: 16px; font-weight: 700; color: #C3002F; margin-bottom: 5px; }
   .chart-desc { font-size: 12px; color: #666; margin-bottom: 12px; font-style: italic; }
@@ -62,151 +61,169 @@
 
 <h1>📊 รายงานคู่แข่ง Nissan KKT KhonKaen</h1>
 <p><strong>สัปดาห์:</strong> 2026-06-23 - 2026-06-29</p>
-<blockquote>วิเคราะห์เมื่อ: 2026-06-29 23:55 (ICT) | ข้อมูลจาก Facebook Page (คู่แข่งในขอนแก่น)</blockquote>
-
-<div class="warning">⚠️ <strong>เพจที่ scrape ไม่สำเร็จ:</strong> TOYOTA (TKK) — ไม่พบใน dataset รอบนี้</div>
+<blockquote>วิเคราะห์เมื่อ: 2026-06-30 10:29 (ICT) | ข้อมูลจาก Facebook Page (คู่แข่งในขอนแก่น)</blockquote>
 
 <h2>⚡ 1. Quick Stats</h2>
-<table>
-  <tr><th style="width:30%;">Metric</th><th>Value</th></tr>
-<tr><td>โพสทั้งหมด</td><td>69 posts</td></tr>
-<tr><td>เพจที่ active</td><td>8 เพจ</td></tr>
-<tr><td>เพจคู่แข่ง active</td><td>7 เพจ — ขาด 1 เพจ</td></tr>
-<tr><td>Self Posts (Nissan)</td><td>9 posts</td></tr>
-<tr><td>Engagement คู่แข่งรวม</td><td>👍 602 | 💬 14 | 🔁 41 = <strong>657</strong> interactions</td></tr>
-<tr><td>Engagement Self รวม</td><td>👍 63 | 💬 2 | 🔁 14 = <strong>79</strong> interactions</td></tr>
-<tr><td>💬 Comments</td><td>มีข้อมูลแค่ 8/69 posts (Facebook จำกัด field นี้)</td></tr>
-<tr><td>เพจที่โพสเยอะสุด</td><td>OMODA & JAECOO (10 posts)</td></tr>
-<tr><td>โพสที่ engagement สูงสุด</td><td>BYD (Special Event 🥳 สำหรับคนรัก DM-i เพียงทดลองขับรับทันที คูปอง... = 👍136 🔁1 รวม 137)</td></tr>
-
-</table>
-<p class="legend">*L = Like, C = Comment, S = Share — Comments มีข้อมูลจำกัดเนื่องจาก Facebook จำกัดการเข้าถึง field นี้</p>
+<div class="stat-grid">
+  <div class="stat-box">
+    <div class="stat-label">โพสทั้งหมด</div>
+    <div class="stat-value">69 posts</div>
+  </div>
+  <div class="stat-box">
+    <div class="stat-label">เพจที่ active</div>
+    <div class="stat-value">8 เพจ</div>
+  </div>
+  <div class="stat-box">
+    <div class="stat-label">Engagement รวม</div>
+    <div class="stat-value">736</div>
+    <div class="stat-sub">รวมทุกแบรนด์</div>
+  </div>
+  <div class="stat-box">
+    <div class="stat-label">Self Posts (Nissan)</div>
+    <div class="stat-value">9 posts</div>
+    <div class="stat-sub">Engagement: 79</div>
+  </div>
+  <div class="stat-box">
+    <div class="stat-label">Top Brand (คู่แข่ง)</div>
+    <div class="stat-value">OMODA & JAECOO</div>
+    <div class="stat-sub">Engagement: 204</div>
+  </div>
+  <div class="stat-box">
+    <div class="stat-label">Top Post</div>
+    <div class="stat-value">👍 136</div>
+    <div class="stat-sub">BYD</div>
+  </div>
+</div>
+<p class="legend">*L = Like, C = Comment, S = Share</p>
 
 <h2>🌐 2. ภาพรวมความเคลื่อนไหว</h2>
 <ul>
-  <li>📈 <strong>เพจที่ engagement สูงสุด:</strong> OMODA & JAECOO ทำ 204 interactions จาก 10 posts</li>
-  <li>🥇 <strong>Top post:</strong> BYD — Special Event 🥳 สำหรับคนรัก DM-i เพียงทดลองขับรับทันที คูปอง Starbucks มูลค่า 100 บาท (จำนวนจำกัด❗️) ที่งาน YPB Road Sho... (engagement 137)</li>
-  <li>🎪 <strong>Roadshow/Event:</strong> พบ 32 โพสที่เกี่ยวกับ event/งาน/บูธ จาก 8 แบรนด์</li>
-  <li>📺 <strong>Reel/Video trend:</strong> โพสที่มี engagement สูงสุด (137) คือโพสโปรโมชั่นรถ EV/HEV + ของแจก</li>
-  <li>🏆 <strong>Nissan (Self) อยู่อันดับ:</strong> #4 จาก 8 แบรนด์ (engagement 79)</li>
+  <li>📈 <strong>เพจที่ engagement สูงสุด:</strong> OMODA & JAECOO (204 interactions)</li>
+  <li>🥇 <strong>Top post:</strong> BYD — engagement 137</li>
+  <li>🎪 <strong>Roadshow/Event:</strong> พบ 10 โพสที่ผ่าน filter roadshow จาก 69 โพส</li>
+  <li>🏆 <strong>Nissan (Self) อยู่อันดับ:</strong> 4 จาก 8 แบรนด์</li>
 </ul>
 
 <h2>🎪 3. กิจกรรม Roadshow / อีเวนต์</h2>
 <table>
-  <tr><th>แบรนด์</th><th>กิจกรรม / รายละเอียด</th><th>URL</th></tr>
-<tr><td>Deepal</td><td style='font-size:12px;'>DEEPAL AS ONE KHON KAEN ไม่หยุดพัฒนา!🌟   💙ดีพอล แอส วัน ขอนแก่น เข้าร่วมอบรมหลักสูตรการตลาดออนไลน์ (Online Marketing) เพื่อเสริมความรู้และทักษะด้านการตลาดออนไลน์ให้แข็งแกร่งยิ่งขึ้น  เพราะการพัฒนาทีมงานอย่างต่อเนื่อง คือรากฐานของการให้บริการที่ดี 💙   หากสนใจรถยนต์ไฟฟ้า สอบถามเพิ่มเติมได้ที่ :  📍 โชว</td><td><a href="https://www.facebook.com/DeepalAsOneKhonKaen/posts/pfbid02Jx8MgZayiGtV6292ksKvaG6fgtu42N4tfNAMVmyck4xYqRbCfAHk5bCueC3o7dLgl">https://www.facebook.com/DeepalAsOneKhonKaen/posts/pfbid02Jx8MgZayiGtV6292ksKvaG...</a></td></tr>
-<tr><td>Geely</td><td style='font-size:12px;'>Geely พิจิตรเพชร ขอนแก่น กำลังตามหาเพื่อนร่วมงาน 📣#ประกาศรับสมัครพนักงาน  📍 ผู้จัดการฝ่ายขาย รถกระบะไฟฟ้า Geely (จีลี่) 1 อัตรา 💵 เงินเดือน(บาท) : ตามความสามารถ ประสบการณ์การทำงาน  ☎️ สนใจสมัครงานนี้กรุณาติดต่อ ผจก.บี โทร. 080-8899992  คุณสมบัติ • เพศ : ชาย – หญิง อายุ 30 ปีขึ้นไป • มีประสบการณ์ด้าน</td><td><a href="https://www.facebook.com/permalink.php?story_fbid=pfbid0Lhasn4dmbhkMoq4cPYNwsxu8aATddqDsk3bL3HJkEC6bcgPrDr791wxu6FgZv6Svl&id=61568642176912">https://www.facebook.com/permalink.php?story_fbid=pfbid0Lhasn4dmbhkMoq4cPYNwsxu8...</a></td></tr>
-<tr><td>Geely</td><td style='font-size:12px;'>🎉 ยินดีต้อนรับเข้าสู่ครอบครัว Geely พิจิตรเพชร ขอนแก่น 🎉 ขอให้คุณลูกค้ารวยๆ เฮงๆ ตลอดทั้งปี ขอบคุณที่ไว้วางใจให้เราดูแล ✨  สอบถามข้อมูลเพิ่มเติม สนใจทดลองขับ หรือจองรถทักเลย! 🎉 📍Geely พิจิตรเพชร ขอนแก่น พร้อมให้บริการ! ฝ่ายขาย : 043-261498 โชว์รูม/ศูนย์บริการ : 093-3193298 LINE : https://lin.ee/MT1B</td><td><a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02RyNZbYdfSbCmeED8e2bWcnuov5Cjbft7JzTRSkbg29CUby2wtVdtQm2w9o18CcGsl&id=61568642176912">https://www.facebook.com/permalink.php?story_fbid=pfbid02RyNZbYdfSbCmeED8e2bWcnu...</a></td></tr>
-<tr><td>Geely</td><td style='font-size:12px;'>รีบใช้รถ! จองสีอะไรไม่ต้องรอนาน สอบถามข้อมูลเพิ่มเติม สนใจทดลองขับ หรือจองรถทักเลย! 🎉 📍Geely พิจิตรเพชร ขอนแก่น พร้อมให้บริการ! ฝ่ายขาย : 043-261498 โชว์รูม/ศูนย์บริการ : 093-3193298 LINE : https://lin.ee/MT1BXVR แผนที่ โชว์รูม Geely พิจิตรเพชร ขอนแก่น https://maps.app.goo.gl/Lk69eQttS3fojzHq6 ถนนมิ</td><td><a href="https://www.facebook.com/reel/1574333260795576/">https://www.facebook.com/reel/1574333260795576/...</a></td></tr>
-<tr><td>Nissan (Self)</td><td style='font-size:12px;'>🎉ขอแสดงความยินดีกับเจ้าของรถคันใหม่🎉 New Nissan ALMERA 1.0 Turbo ครบจริง แรงจริง จัดให้ พร้อมพาคุณออกเดินทางอย่างมั่นใจในทุกวัน ขอบพระคุณที่ไว้วางใจให้ นิสสัน เคเคที ขอนแก่น และที่ปรึกษาการขาย Product Genius  "น้องผึ้ง" ดูแลให้บริการท่านในการรับรถใหม่ เป็นจุดเริ่มต้นของความสุขบนท้องถนนสำหรับคุณและคร</td><td><a href="https://www.facebook.com/nissankktkhonkaen/posts/pfbid07i2xzRKk1UG4RPZRQsRriuJr31bj5xEcF8noDd4qzobavva6gpxsGZDazNt7kdYEl">https://www.facebook.com/nissankktkhonkaen/posts/pfbid07i2xzRKk1UG4RPZRQsRriuJr3...</a></td></tr>
-<tr><td>Nissan (Self)</td><td style='font-size:12px;'>🎉ขอแสดงความยินดีกับเจ้าของรถคันใหม่🎉The All-New NISSAN SERENA e-POWER ความสนุกที่ใช่ ความสบายที่ชอบ ขอบพระคุณที่ไว้วางใจให้ นิสสัน เคเคที ขอนแก่น และที่ปรึกษาการขาย  Online  "น้องแพน" ดูแลให้บริการท่านในการรับรถใหม่ เป็นจุดเริ่มต้นของความสุขบนท้องถนนและครอบครัว   ขอให้ท่านมีความสุข เดินทางปลอดภัยไปก</td><td><a href="https://www.facebook.com/nissankktkhonkaen/posts/pfbid02HFwwybigwtXmMNXuQYjWh2Wf6g9iXQ3UtBgeS8HFmWx3iWvxh139TCi8VzCVFEPHl">https://www.facebook.com/nissankktkhonkaen/posts/pfbid02HFwwybigwtXmMNXuQYjWh2Wf...</a></td></tr>
-<tr><td>Nissan (Self)</td><td style='font-size:12px;'>🎉ขอแสดงความยินดีกับเจ้าของรถคันใหม่🎉 The All-New Nissan KICKS e-POWER  พร้อมพาคุณออกเดินทาง…อย่างมั่นใจในทุกวันกับ KICKS ลุคใหม่ ขอบพระคุณที่ไว้วางใจให้ นิสสัน เคเคที ขอนแก่น และที่ปรึกษาการขาย  "น้องกิ๊ก" ดูแลให้บริการท่านในการรับรถใหม่ เป็นจุดเริ่มต้นของความสุขบนท้องถนนสำหรับคุณและครอบครัว  ขอให้ท</td><td><a href="https://www.facebook.com/nissankktkhonkaen/posts/pfbid0t2x52fBLbiQQuuBpGLgQ3fEtP8tQPb147r9MTuRcxYgPBW6wsiwqyZsJxy66VmwHl">https://www.facebook.com/nissankktkhonkaen/posts/pfbid0t2x52fBLbiQQuuBpGLgQ3fEtP...</a></td></tr>
-<tr><td>Geely</td><td style='font-size:12px;'>ขยับเข้าสู่ยุค EV อย่างเต็มรูปแบบกับ Geely EX2 ⚡️ พบกับคันจริง พร้อมโปรโมชั่นสุดเอ็กซ์คลูซีฟจาก Geely พิจิตรเพชร ขอนแก่น ได้แล้ววันนี้ที่งาน SMART BUSINESS EXPO 2026 ครั้งที่ 3  👉 ไม่ว่าจะอยากชมรถ นั่งทดสอบฟังก์ชัน หรือสอบถามโปรดีๆ ทีมงานเราสแตนด์บายรอทุกคนอยู่  🗓 26 - 28 มิ.ย. 2569 📍 ศูนย์ประชุมไคซ</td><td><a href="https://www.facebook.com/permalink.php?story_fbid=pfbid025cUxTdQRJaviUFdWSg7dWsYRMMXZ1MH8DsKStGus6LBjYcr4afKLNqC3K74Y6v2ml&id=61568642176912">https://www.facebook.com/permalink.php?story_fbid=pfbid025cUxTdQRJaviUFdWSg7dWsY...</a></td></tr>
-<tr><td>Geely</td><td style='font-size:12px;'>🎉 ยินดีต้อนรับเข้าสู่ครอบครัว Geely พิจิตรเพชร ขอนแก่น 🎉 ขอให้คุณลูกค้ารวยๆ เฮงๆ ตลอดทั้งปี ขอบคุณที่ไว้วางใจให้เราดูแล ✨  สอบถามข้อมูลเพิ่มเติม สนใจทดลองขับ หรือจองรถทักเลย! 🎉 📍Geely พิจิตรเพชร ขอนแก่น พร้อมให้บริการ! ฝ่ายขาย : 043-261498 โชว์รูม/ศูนย์บริการ : 093-3193298 LINE : https://lin.ee/MT1B</td><td><a href="https://www.facebook.com/permalink.php?story_fbid=pfbid09vMfDnn2ggp9wL1XywkaxtDjbSznRC6GTFZS68oW1YUMC5DgjpYekqRCYRrqZuYul&id=61568642176912">https://www.facebook.com/permalink.php?story_fbid=pfbid09vMfDnn2ggp9wL1XywkaxtDj...</a></td></tr>
-<tr><td>Geely</td><td style='font-size:12px;'>🎉 ยินดีต้อนรับเข้าสู่ครอบครัว Geely พิจิตรเพชร ขอนแก่น 🎉 ขอให้คุณลูกค้ารวยๆ เฮงๆ ตลอดทั้งปี ขอบคุณที่ไว้วางใจให้เราดูแล ✨  สอบถามข้อมูลเพิ่มเติม สนใจทดลองขับ หรือจองรถทักเลย! 🎉 📍Geely พิจิตรเพชร ขอนแก่น พร้อมให้บริการ! ฝ่ายขาย : 043-261498 โชว์รูม/ศูนย์บริการ : 093-3193298 LINE : https://lin.ee/MT1B</td><td><a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02s1eYhPTZ4a9Lh38MddnfxGG3v3DURZe4WRnxuNaHKtupVvTUmDh73jq4T8DiNhbTl&id=61568642176912">https://www.facebook.com/permalink.php?story_fbid=pfbid02s1eYhPTZ4a9Lh38MddnfxGG...</a></td></tr>
-<tr><td>Geely</td><td style='font-size:12px;'>เติมความอุ่นใจไปกับ GEELY 💙 บริการช่วยเหลือฉุกเฉิน 24 ชั่วโมง พร้อมอยู่เคียงข้างคุณในทุกสถานการณ์  ✅ ให้คำปรึกษาด้านเทคนิค 24 ชั่วโมง ✅ บริการช่างฉุกเฉินนอกสถานที่ ✅ รถยกฉุกเฉิน (กรณีรถเสีย) ฟรียกรถไปศูนย์บริการ GEELY ในระยะ 100 กม. ✅ รถยกฉุกเฉิน (กรณีพลังงานหมด) ฟรียกรถไปสถานีชาร์จในระยะ 100 กม. ✅ </td><td><a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02gNikfkbnYTX2KLrG6fUDivxoQqoGmoFFDjmB5HUMFhmf35AiUih55WtEeLacEiKsl&id=61568642176912">https://www.facebook.com/permalink.php?story_fbid=pfbid02gNikfkbnYTX2KLrG6fUDivx...</a></td></tr>
-<tr><td>Geely</td><td style='font-size:12px;'>🎉 ยินดีต้อนรับเข้าสู่ครอบครัว Geely พิจิตรเพชร ขอนแก่น 🎉 ขอให้คุณลูกค้ารวยๆ เฮงๆ ตลอดทั้งปี ขอบคุณที่ไว้วางใจให้เราดูแล ✨  สอบถามข้อมูลเพิ่มเติม สนใจทดลองขับ หรือจองรถทักเลย! 🎉 📍Geely พิจิตรเพชร ขอนแก่น พร้อมให้บริการ! ฝ่ายขาย : 043-261498 โชว์รูม/ศูนย์บริการ : 093-3193298 LINE : https://lin.ee/MT1B</td><td><a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02U4bV5GkQ6HctsJnwmsXsnexditBhoc3CfsTYBzQ8ctDgrT51gJ4nTZfcRNZet1Vxl&id=61568642176912">https://www.facebook.com/permalink.php?story_fbid=pfbid02U4bV5GkQ6HctsJnwmsXsnex...</a></td></tr>
-<tr><td>Geely</td><td style='font-size:12px;'>27-28 มิ.ย. 69 นี้ เรามีนัดกันที่ โชว์รูม GEELY พิจิตรเพชร ขอนแก่น ทดลองขับรถยนต์ไฟฟ้าที่ฮอตที่สุดในขณะนี้! GEELY EX2 และ GEELY EX5 ฟรี! ตลอดทั้งงาน ✨  ✔️ ฟรี! ทดลองขับ สัมผัสรถจริง ✔️ ฟรี! อาหารว่างและเครื่องดื่มสุดฟิน ✔️ ฟรี! ปรึกษาไฟแนนซ์ ดันทุกเคส!  🗓 พบกันวันที่: 27 - 28 มิถุนายน 2569 📍 สถานที่</td><td><a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02GpHPajiYwapq1TRTr5qVjwSFnjtA3m2AkTfNLNM4xWa8X4dUGSr6NPFuW1FHgSVFl&id=61568642176912">https://www.facebook.com/permalink.php?story_fbid=pfbid02GpHPajiYwapq1TRTr5qVjwS...</a></td></tr>
-<tr><td>MG</td><td style='font-size:12px;'>จองก่อน ได้ก่อน MG URBAN ทำให้ชีวิตง่ายขึ้น  ราคา 529,900.-  / ดอกเบี้ย 1.99%  รับประกันแบตตลอดการใช้งาน  ฟรีชุดโฮมชาร์จพร้อมติดตั้งที่บ้าน  ลองให้จบแล้วจะพบคำตอบ . ที่ MG อารีมิตร 2 สาขา มหาสารคาม / ขอนแก่น มะลิวัลย์   จองก่อน ได้รถก่อน  . ลงทะเบียนจองและ ทดลองขับ คลิกเลย https://forms.gle/sWaeNRQh</td><td><a href="https://www.facebook.com/MGKhonkaenAreemit/posts/pfbid0VTCB44eEfGuaw659S3AJZPbeFP7aAfzSBgUtWCQm5xouAbJiMP5zGktrJxrB25hsl">https://www.facebook.com/MGKhonkaenAreemit/posts/pfbid0VTCB44eEfGuaw659S3AJZPbeF...</a></td></tr>
-<tr><td>Deepal</td><td style='font-size:12px;'>🚗 5 ระบบความปลอดภัยในหน้าฝน กับ NEVO Q05💫  NEVO Q05 มาพร้อมระบบความปลอดภัยครบครัน รับมือหน้าฝนได้ทุกสถานการณ์  🌂 ระบบปัดน้ำฝนอัตโนมัติ ไม่ต้องเสียสมาธิ 🛞 ระบบ ABS ป้องกันล้อล็อกเมื่อเบรกกะทันหัน ⚖️ ระบบควบคุมเสถียรภาพ ดึงรถกลับเลนได้ทันที ⚠️ ระบบเตือนออกนอกเลนก่อนเกิดเหตุ 🛡️ ระบบป้องกันการชนด้านหน้า</td><td><a href="https://www.facebook.com/reel/1362770335744257/">https://www.facebook.com/reel/1362770335744257/...</a></td></tr>
-<tr><td>BYD</td><td style='font-size:12px;'>BYD Yonpiboon Khonkaen  Special Event สำหรับคนรัก DM-i เพียงทดลองขับ รับทันที คูปอง Starbucks มูลค่า 100 บาท (จำนวน จำกัด ! ) ที่งาน YPB Road Show  BYD SEAL 5 DM-i  BYD SEALION 5 DM-i  BYD SEALION 6 DM-i  ลงทะเบียนล่วงหน้าคลิก https://forms.gle/PyyoL12su4cP9D9g8  • ลานโปรโมชั่น ชั่น 1 Central Khonka</td><td><a href="https://www.facebook.com/BYDYonpiboon/videos/999892246167853/">https://www.facebook.com/BYDYonpiboon/videos/999892246167853/...</a></td></tr>
-<tr><td>BYD</td><td style='font-size:12px;'>🚗✨ BYD SEAL 5 DM-i ซีดาน Plug-in Hybrid ที่ตอบโจทย์ทั้งการใช้งานและความคุ้มค่า  ✔️ ดีไซน์สปอร์ต ทันสมัย ✔️ ขับขี่นุ่มนวล ประหยัดน้ำมัน ✔️ เทคโนโลยีครบ พร้อมทุกการเดินทาง พบตัวจริง พร้อมทดลองนั่ง และรับข้อเสนอสุดพิเศษภายในงาน 🤩 📍 ลานโปรโมชั่น ชั้น 1 Central KhonKaen 📅 วันที่ 22 - 28 มิ.ย. 2569 ••••••</td><td><a href="https://www.facebook.com/reel/1050621530822503/">https://www.facebook.com/reel/1050621530822503/...</a></td></tr>
-<tr><td>BYD</td><td style='font-size:12px;'>รีบเป็นเจ้าของ BYD SEALION 6 DM-i ก่อนปรับราคา*  ใครที่กำลังมองหา SUV ที่ขับไกล ประหยัด คุ้ม ฟีเจอร์ครบๆ นี่คือจังหวะที่ไม่ควรพลาด 🚘⚡  เริ่มตั้งแต่ 1 ก.ค. 69 จนกว่าจะมีประกาศเปลี่ยนแปลง   สอบถามรายละเอียดและจองทดลองขับได้ที่โชว์รูม บีวายดี ยนต์ไพบูลย์ ทุกสาขา *ราคาจำหน่ายสุทธิหลังหักส่วนลด •••••••••</td><td><a href="https://www.facebook.com/BYDYonpiboon/posts/pfbid05REeNSqznwLmdgQCggBnChFK6VTGyC65CCpTRkoySzSdKkrF24kEJ1ATKJEgPVr5l">https://www.facebook.com/BYDYonpiboon/posts/pfbid05REeNSqznwLmdgQCggBnChFK6VTGyC...</a></td></tr>
-<tr><td>BYD</td><td style='font-size:12px;'>Special Event 🥳 สำหรับคนรัก DM-i เพียงทดลองขับรับทันที คูปอง Starbucks มูลค่า 100 บาท (จำนวนจำกัด❗️) ที่งาน YPB Road Show  🚗BYD SEAL 5 DM-i 🚗BYD SEALION 5 DM-i 🚗BYD SEALION 6 DM-i  📝ลงทะเบียนล่วงหน้าคลิก https://forms.gle/PyyoL12su4cP9D9g8  📍ลานโปรโมชั่น ชั่น 1 Central KhonKaen  ระหว่างวันที่ 26 - 2</td><td><a href="https://www.facebook.com/BYDYonpiboon/posts/pfbid02hMHrxjZ3SFMRzXeP88pjWp2BQQP79rtxRez28pQnAap4qPdZQWMi6e7JuL7rFQcol">https://www.facebook.com/BYDYonpiboon/posts/pfbid02hMHrxjZ3SFMRzXeP88pjWp2BQQP79...</a></td></tr>
-<tr><td>BYD</td><td style='font-size:12px;'>งาน YPB Road Show วันสุดท้ายแล้วชาวขอนแก่นมาสัมผัสยนตรกรรมสุดล้ำสุดคุ้มค่ากันได้อย่างจุใจ เพราะยนต์ไพบูลย์ขนทัพมาให้ถึงที่ 📍ที่งาน YPB Road Show at Central KhonKaen Campus พบกันตั้งแต่วันที่ 17 - 23 มิ.ย. 69  •••••••••••••••••••••••••••••••••••••••••••••••• ลูกค้าสามารถสอบถามรายละเอียดเพิ่มเติม โทร </td><td><a href="https://www.facebook.com/reel/1371030561564135/">https://www.facebook.com/reel/1371030561564135/...</a></td></tr>
-
+  <tr><th>แบรนด์</th><th>ชื่องาน</th><th>สถานที่</th><th>วันที่</th><th>โปรโมชั่น/รุ่นรถ</th><th>URL</th></tr>
+  <tr><td><strong>Geely</strong></td><td style='font-size:12px;'>SMART BUSINESS EXPO 2026 ครั้งที่ 3</td><td style='font-size:12px;'>KICE</td><td style='font-size:12px;'>26-28 มิ.ย. 2569</td><td style='font-size:12px;'>Geely EX2</td><td><a href='https://www.facebook.com/permalink.php?story_fbid=pfbid025cUxTdQRJaviUFdWSg7dWsYRMMXZ1MH8DsKStGus6LBjYcr4afKLNqC3K74Y6v2ml&amp;id=61568642176912' target='_blank'>เปิด</a></td></tr>
+<tr><td><strong>BYD</strong></td><td style='font-size:12px;'>YPB Road Show</td><td style='font-size:12px;'>Central KhonKaen</td><td style='font-size:12px;'>26-28 มิ.ย. 69</td><td style='font-size:12px;'>BYD SEAL 5 DM-, BYD SEALION 5 DM-, BYD Y</td><td><a href='https://www.facebook.com/BYDYonpiboon/videos/999892246167853/' target='_blank'>เปิด</a></td></tr>
+<tr><td><strong>BYD</strong></td><td style='font-size:12px;'>YPB Road Show</td><td style='font-size:12px;'>Central KhonKaen</td><td style='font-size:12px;'>26-28 มิ.ย. 69</td><td style='font-size:12px;'>BYD SEAL 5 DM-, BYD SEALION 5 DM-, BYD SEALION 6 DM-</td><td><a href='https://www.facebook.com/BYDYonpiboon/posts/pfbid02hMHrxjZ3SFMRzXeP88pjWp2BQQP79rtxRez28pQnAap4qPdZQWMi6e7JuL7rFQcol' target='_blank'>เปิด</a></td></tr>
+<tr><td><strong>BYD</strong></td><td style='font-size:12px;'>YPB Road Show วันสุดท้ายแล้วชาวขอนแก่นมาสัมผัสยนตรกรรมสุดล้ำ</td><td style='font-size:12px;'>Central KhonKaen</td><td style='font-size:12px;'>17-23 มิ.ย. 69</td><td style='font-size:12px;'>SEAL</td><td><a href='https://www.facebook.com/reel/1371030561564135/' target='_blank'>เปิด</a></td></tr>
+<tr><td><strong>TOYOTA (แก่นนคร)</strong></td><td style='font-size:12px;'>SMART BUSINESS EXPO 2026</td><td style='font-size:12px;'>KICE ขอนแก่น</td><td style='font-size:12px;'>26-28 มิ.ย. 69</td><td style='font-size:12px;'>Hilux</td><td><a href='https://www.facebook.com/Toyotakaennakorn/posts/pfbid0heYhUk4ViD4jUmetPG94nRYHKVuByRwy3BRDyVGQUt7kLitZr3JrWLZ8UwL7715Ll' target='_blank'>เปิด</a></td></tr>
+<tr><td><strong>Nissan (Self)</strong></td><td style='font-size:12px;'>Smart Business Expo 2026</td><td style='font-size:12px;'>KICE</td><td style='font-size:12px;'>28 มิ.ย. 69</td><td style='font-size:12px;'>Test Drive + ของแจก</td><td><a href='https://www.facebook.com/nissankktkhonkaen/posts/pfbid02TSEE324YnYfDAcTuZGbg3vQMmvXJHRLFVPvYnPpgh8xdWFsoHn2fLug9z4QXSDmul' target='_blank'>เปิด</a></td></tr>
+<tr><td><strong>TOYOTA (แก่นนคร)</strong></td><td style='font-size:12px;'>SMART BUSINESS EXPO 2026</td><td style='font-size:12px;'>KICE ขอนแก่น</td><td style='font-size:12px;'>26-28 มิ.ย. 69</td><td style='font-size:12px;'>Hilux</td><td><a href='https://www.facebook.com/Toyotakaennakorn/posts/pfbid0NmPUiPaY2EP6VAYXkVR9qPbkhBe8Pb3vpu8YemjybGvnRAZZH7ZmiVHN3S8pMKPTl' target='_blank'>เปิด</a></td></tr>
+<tr><td><strong>Deepal</strong></td><td style='font-size:12px;'>-</td><td style='font-size:12px;'>โชว์รูม</td><td style='font-size:12px;'>วันนี้</td><td style='font-size:12px;'>DEEPAL S05</td><td><a href='https://www.facebook.com/DeepalAsOneKhonKaen/posts/pfbid0KKyH9Z5AfFmaskWetRgyE6joJP9T4tD5Jp3r3AVduqUepeNGdGJwy4z42dTqDCpSl' target='_blank'>เปิด</a></td></tr>
+<tr><td><strong>Nissan (Self)</strong></td><td style='font-size:12px;'>Smart Business Expo 2026</td><td style='font-size:12px;'>KICE</td><td style='font-size:12px;'>26-28 มิ.ย. 69</td><td style='font-size:12px;'>Test Drive + ของแจก</td><td><a href='https://www.facebook.com/reel/724045584135361/' target='_blank'>เปิด</a></td></tr>
+<tr><td><strong>MG</strong></td><td style='font-size:12px;'>-</td><td style='font-size:12px;'>-</td><td style='font-size:12px;'>30 มิ.ย. 69</td><td style='font-size:12px;'>Test Drive + ของแจก</td><td><a href='https://www.facebook.com/MGKhonkaenAreemit/posts/pfbid0HgdWXPYpMKr6s4FhMPwie8huz7VZk77d75etTJsaa3W2PQVwKGQU1gervCuYFQUKl' target='_blank'>เปิด</a></td></tr>
 </table>
-<p class="legend">⚠️ รายละเอียด extract จาก post text ที่พบใน dataset เท่านั้น</p>
+<p class="legend">⚠️ Filter: ดึงเฉพาะโพสที่มี event keyword + venue/date/mechanic (ตัดประกาศรับสมัคร/ส่งมอบรถ/อบรม ออก)</p>
 
 <h2>📊 4. ตารางสรุปคู่แข่งรายแบรนด์</h2>
 <table>
   <tr><th>แบรนด์</th><th>ตัวอย่างเนื้อหา</th><th>Posts</th><th>L* / C* / S*</th><th>Engagement</th><th>ธีม/กลยุทธ์</th></tr>
-<tr><td><strong>TOYOTA (TKK)</strong></td><td style='font-size:12px;'>ไม่พบโพสต์ในรอบนี้</td><td>0</td><td>👍 0 | 💬 0 | 🔁 0</td><td>0</td><td>-</td></tr>
-<tr><td><strong>TOYOTA (แก่นนคร)</strong></td><td style='font-size:12px;'>โตโยต้าแก่นนคร มาพบทุกท่านที่งาน  "SMART BUSINESS EXPO 2026"✨  📍 KICE ขอนแก่น หน้าทางเข้าประตู HALL  | ⚽️ “Toyota Kaennakorn World Service Cup 2026” 🥳 🔧 ทุกการเข้าศูนย์ คือการลุ้นชัยชนะไปด้วยกัน ร่วมทายผ</td><td>10</td><td>👍 33 | 💬 3 | 🔁 9</td><td>45</td><td>EV, 0%/ดอกเบี้ย, ประกัน, Roadshow, ของแจก</td></tr>
-<tr><td><strong>BYD</strong></td><td style='font-size:12px;'>Special Event 🥳 สำหรับคนรัก DM-i เพียงทดลองขับรับทันที คูปอง Starbucks มูลค่า 100 บาท (จำนวนจำกัด❗️) | 🚗✨ BYD SEAL 5 DM-i ซีดาน Plug-in Hybrid ที่ตอบโจทย์ทั้งการใช้งานและความคุ้มค่า  ✔️ ดีไซน์สปอร์ต ทันส</td><td>6</td><td>👍 148 | 💬 2 | 🔁 1</td><td>151</td><td>EV, HEV, DM-i, Test Drive, ราคา, Roadshow, ของแจก</td></tr>
-<tr><td><strong>Mitsubishi</strong></td><td style='font-size:12px;'>ประชุมทีมธรรมดาโลกไม่จำ ยอดขายด่วนขนาดนี้ต้องเรียกระดับ 'มหาเทพ' มาร่วมระดมสมองแล้วครับ! 📈💡 #บอสสั่ง | 🚨 ช้าหมด อดขับ! ลดล้างสต๊อก Mitsubishi Mirage Active ครั้งใหญ่ที่สุดแห่งปี! 🚗💨  โอกาสทองที่จะได้เป็น</td><td>7</td><td>👍 22 | 💬 0 | 🔁 9</td><td>31</td><td>EV, HEV, ราคา, ประกัน, Roadshow</td></tr>
-<tr><td><strong>Deepal</strong></td><td style='font-size:12px;'>DEEPAL AS ONE KHON KAEN ไม่หยุดพัฒนา!🌟   💙ดีพอล แอส วัน ขอนแก่น เข้าร่วมอบรมหลักสูตรการตลาดออนไลน์ ( | 🚗 5 ระบบความปลอดภัยในหน้าฝน กับ NEVO Q05💫  NEVO Q05 มาพร้อมระบบความปลอดภัยครบครัน รับมือหน้าฝนได้ทุก</td><td>8</td><td>👍 49 | 💬 2 | 🔁 3</td><td>54</td><td>EV, Test Drive, 0%/ดอกเบี้ย, ราคา, ส่งมอบรถ, Roadshow</td></tr>
-<tr><td><strong>OMODA & JAECOO</strong></td><td style='font-size:12px;'>⚡️ JAECOO 6 EV รถไฟฟ้าสายลุย ดีไซน์โดดเด่น เริ่มต้นเพียง 799,000 บาท* 🎁 รับฟรี! ✅ Home Charger พร้อม | ⚡ OMODA C5 EV MAX+ เพียง 649,000 บาท! ⚡ จากราคาปกติ 709,000 บาท 🎁 รับฟรี! ✅ Home Charger พร้อมติดตั้</td><td>10</td><td>👍 188 | 💬 7 | 🔁 9</td><td>204</td><td>EV, ราคา, ประกัน, ส่งมอบรถ</td></tr>
-<tr><td><strong>MG</strong></td><td style='font-size:12px;'>น้องใหม่ EV วิ่งไกล 530 km.  มาพร้อม ระบบช่วยจอดอัตโนมัติ  อยากลองขับ ทักเลย #MGURBAN #อารีมิตรmgขอน | MG ZS SUV ที่ใช้งานง่าย ไม่ยุ่งยาก  ฟรีบัตรน้ำมัน 10,000 ถ้ารอเดือนหน้าโปรนี้ไม่ได้แล้ว  . MG อารีมิ</td><td>10</td><td>👍 95 | 💬 0 | 🔁 0</td><td>95</td><td>EV, Test Drive, 0%/ดอกเบี้ย, ราคา, ประกัน, Roadshow</td></tr>
-<tr><td><strong>Geely</strong></td><td style='font-size:12px;'>ขยับเข้าสู่ยุค EV อย่างเต็มรูปแบบกับ Geely EX2 ⚡️ พบกับคันจริง พร้อมโปรโมชั่นสุดเอ็กซ์คลูซีฟจาก Geel | 🎉 ยินดีต้อนรับเข้าสู่ครอบครัว Geely พิจิตรเพชร ขอนแก่น 🎉 ขอให้คุณลูกค้ารวยๆ เฮงๆ ตลอดทั้งปี ขอบคุณที</td><td>9</td><td>👍 67 | 💬 0 | 🔁 10</td><td>77</td><td>EV, Test Drive, Roadshow</td></tr>
-<tr><td><strong>Nissan (Self)</strong></td><td style='font-size:12px;'>🚗 NISSAN-KKT ON TOUR สุดสัปดาห์นี้ ✨ มีโปรโมชั่นพิเศษ !! ✨ 📅 พบกันวันที่ 26–28 มิ.ย. 69 ที่งาน Smart | 🎉ขอแสดงความยินดีกับเจ้าของรถคันใหม่🎉 The All-New Nissan KICKS e-POWER  พร้อมพาคุณออกเดินทาง…อย่างมั่</td><td>9</td><td>👍 63 | 💬 2 | 🔁 14</td><td>79</td><td>EV, Test Drive, 0%/ดอกเบี้ย, ประกัน, ส่งมอบรถ, Roadshow</td></tr>
+  <tr><td><strong>OMODA &amp; JAECOO</strong></td><td style='font-size:12px;'>⚡ พร้อมลุยทุกเส้นทาง กับ JAECOO 6 EV รถไฟฟ้าที่เท่ไม่เหมือนใคร
+สอบถามเพิ่มเติม:
+📞 โทร : 081-710-7505
+📲 Line Official : @omodajaecoo.kk
+คลิก : https://</td><td>10</td><td>👍 188 | 💬 7 | 🔁 9</td><td>204</td><td>EV, 0%/ดอกเบี้ย, ของแจก, ประกัน</td></tr>
+<tr><td><strong>BYD</strong></td><td style='font-size:12px;'>❌แจ้งเบอร์โทรศัพท์ขัดข้อง
+ขณะนี้เบอร์โทร 043-334666 ไม่สามารถใช้งานได้ชั่วคราว อยู่ในระหว่างดำเนินการแก้ไข
 
+📲ท่านสามารถติดต่อได้ที่เบอร์ 063-0210088 
+</td><td>6</td><td>👍 148 | 💬 2 | 🔁 1</td><td>151</td><td>EV, HEV, 0%/ดอกเบี้ย, ของแจก, Test Drive, Roadshow</td></tr>
+<tr><td><strong>MG</strong></td><td style='font-size:12px;'>จองก่อน ได้ก่อน MG URBAN ทำให้ชีวิตง่ายขึ้น 
+พบกับ MG อารีมิตร มะลิวัลย์ 
+ที่ ลานโปรโมชัน ชั้น 1 โซนหน้า AIIZ เซ็นทรัล ขอนแก่น 
+.
+ลองให้จบแล้วจะพบคำตอ</td><td>10</td><td>👍 95 | 💬 0 | 🔁 0</td><td>95</td><td>EV, 0%/ดอกเบี้ย, ของแจก, Test Drive, ประกัน, Roadshow</td></tr>
+<tr><td><strong>Geely</strong></td><td style='font-size:12px;'>Geely พิจิตรเพชร ขอนแก่น กำลังตามหาเพื่อนร่วมงาน
+📣#ประกาศรับสมัครพนักงาน
+
+📍 ผู้จัดการฝ่ายขาย รถกระบะไฟฟ้า Geely (จีลี่)
+1 อัตรา
+💵 เงินเดือน(บาท) : ตาม</td><td>9</td><td>👍 67 | 💬 0 | 🔁 10</td><td>77</td><td>EV, ของแจก, Test Drive, ส่งมอบรถ, Roadshow</td></tr>
+<tr><td><strong>Deepal</strong></td><td style='font-size:12px;'>☕⚡ กาแฟยังไม่หมดแก้ว แบตก็พร้อมไปต่อ!
+ภารกิจแรก แกล้ง ๆ ให้แบตเตอรี่ สื่อมวลชน เหลือน้อย และมาทดลองชาร์จไว กับ NEVO Q05 
+
+มาดูกันว่า NEVO Q05 ชาร์จไวจ</td><td>8</td><td>👍 49 | 💬 2 | 🔁 3</td><td>54</td><td>EV, 0%/ดอกเบี้ย, Test Drive, Roadshow</td></tr>
+<tr><td><strong>TOYOTA (แก่นนคร)</strong></td><td style='font-size:12px;'></td><td>10</td><td>👍 33 | 💬 3 | 🔁 9</td><td>45</td><td>EV, 0%/ดอกเบี้ย, ของแจก, ประกัน, Roadshow</td></tr>
+<tr><td><strong>Mitsubishi</strong></td><td style='font-size:12px;'></td><td>7</td><td>👍 22 | 💬 0 | 🔁 9</td><td>31</td><td>EV, HEV, 0%/ดอกเบี้ย, ของแจก, ประกัน, ส่งมอบรถ, Roadshow</td></tr>
+<tr><td><strong>Nissan (Self)</strong></td><td style='font-size:12px;'>🎉ขอแสดงความยินดีกับเจ้าของรถคันใหม่🎉 New Nissan ALMERA 1.0 Turbo ครบจริง แรงจริง จัดให้ พร้อมพาคุณออกเดินทางอย่างมั่นใจในทุกวัน
+ขอบพระคุณที่ไว้วางใจให</td><td>9</td><td>👍 63 | 💬 2 | 🔁 14</td><td>79</td><td>EV, HEV, 0%/ดอกเบี้ย, ของแจก, Test Drive, ประกัน, ส่งมอบรถ, Roadshow</td></tr>
 </table>
 <p class="legend">*L = Like, C = Comment, S = Share</p>
-<p class="legend">⚠️ Nissan (Self) รวมอยู่ในตารางนี้เพื่อเปรียบเทียบ — แต่แยก section 5 ดูรายละเอียดเพิ่ม</p>
+<p class="legend">ℹ️ ไม่ติดตาม TOYOTA (TKK) อีกต่อไป (ตัดออกจาก watchlist มิ.ย. 69)</p>
 
 <h2>🪞 5. Self Posts (Nissan KKT)</h2>
 <table>
-  <tr><th>เนื้อหา</th><th>L* / C* / S*</th><th>URL</th><th>เวลา</th></tr>
-<tr><td style='font-size:12px;'>🎉ขอแสดงความยินดีกับเจ้าของรถคันใหม่🎉 New Nissan ALMERA 1.0 Turbo ครบจริง แรงจริง</td><td>👍6 💬0 🔁0</td><td><a href="https://www.facebook.com/nissankktkhonkaen/posts/pfbid07i2xzRKk1UG4RPZRQsRriuJr31bj5xEcF8noDd4qzobavva6gpxsGZDazNt7kdYEl">เปิด</a></td><td>2026-06-29T06:13</td></tr>
-<tr><td style='font-size:12px;'>🎉ขอแสดงความยินดีกับเจ้าของรถคันใหม่🎉The All-New NISSAN SERENA e-POWER ความสนุกที</td><td>👍7 💬0 🔁1</td><td><a href="https://www.facebook.com/nissankktkhonkaen/posts/pfbid02HFwwybigwtXmMNXuQYjWh2Wf6g9iXQ3UtBgeS8HFmWx3iWvxh139TCi8VzCVFEPHl">เปิด</a></td><td>2026-06-29T04:20</td></tr>
-<tr><td style='font-size:12px;'>🎉ขอแสดงความยินดีกับเจ้าของรถคันใหม่🎉 The All-New Nissan KICKS e-POWER  พร้อมพาคุ</td><td>👍11 💬1 🔁2</td><td><a href="https://www.facebook.com/nissankktkhonkaen/posts/pfbid0t2x52fBLbiQQuuBpGLgQ3fEtP8tQPb147r9MTuRcxYgPBW6wsiwqyZsJxy66VmwHl">เปิด</a></td><td>2026-06-29T03:57</td></tr>
-<tr><td style='font-size:12px;'>ไม่ว่าจะที่นั่งไหน The All-New NISSAN SERENA e-POWER ก็จัดให้ ครบทุกความสบายด้วย</td><td>👍1 💬0 🔁0</td><td><a href="https://www.facebook.com/nissankktkhonkaen/posts/pfbid0VoqLQNHe88EWK8effRzYvzCC7MaMXzUg1NMFr5SW8tFyKsZHobup4kCAFzXBzwWPl">เปิด</a></td><td>2026-06-29T03:26</td></tr>
-<tr><td style='font-size:12px;'>คุณเป็นเจ้าของเสียงในหัวเหล่านี้หรือเปล่า?  มาลองปลดล็อกความคิด ให้ #ชีวิตไปต่อแ</td><td>👍1 💬0 🔁0</td><td><a href="https://www.facebook.com/nissankktkhonkaen/posts/pfbid0ui3ALq8yvAdPbZwechjt2iG3MNK3yKUqBwjHhcJV2F4WBk1dyNc1YhZadHBSbRNml">เปิด</a></td><td>2026-06-29T03:21</td></tr>
-<tr><td style='font-size:12px;'>เริ่มแล้ว!! 🚗 NISSAN-KKT ON TOUR 🛻 📅 พบกันวันนี้–28 มิ.ย. 69 ที่บูธนิสสัน เคเคที</td><td>👍11 💬0 🔁1</td><td><a href="https://www.facebook.com/nissankktkhonkaen/posts/pfbid02TSEE324YnYfDAcTuZGbg3vQMmvXJHRLFVPvYnPpgh8xdWFsoHn2fLug9z4QXSDmul">เปิด</a></td><td>2026-06-27T02:44</td></tr>
-<tr><td style='font-size:12px;'>Weekend Starts Here ☀️🌿​ อย่าปล่อยวันหยุดให้หมดไปกับการอยู่บ้าน​ ออกไปเก็บทุกประ</td><td>👍4 💬0 🔁2</td><td><a href="https://www.facebook.com/nissankktkhonkaen/posts/pfbid0Ltwdb98L9g6tpFAGGNuwNJ4F2U2gEZoZnzyD6ogMhhsTBvR6tDCHH86RcfMpUadLl">เปิด</a></td><td>2026-06-26T13:32</td></tr>
-<tr><td style='font-size:12px;'>ฝนตกหนัก ถนนเปียก ทัศนวิสัยไม่เป็นใจ 🌧️🚗​ NISSAN ALMERA พร้อมให้คุณขับได้อย่างมั</td><td>👍2 💬0 🔁0</td><td><a href="https://www.facebook.com/nissankktkhonkaen/posts/pfbid08XehL22acuUqZGY9TMH8PJAmxxjDjuSv2fbHPEm1Yw7XroAYhfegSBmshiGCnadel">เปิด</a></td><td>2026-06-25T06:28</td></tr>
-<tr><td style='font-size:12px;'>🚗 NISSAN-KKT ON TOUR สุดสัปดาห์นี้ ✨ มีโปรโมชั่นพิเศษ !! ✨ 📅 พบกันวันที่ 26–28 ม</td><td>👍20 💬1 🔁8</td><td><a href="https://www.facebook.com/reel/724045584135361/">เปิด</a></td><td>2026-06-24T09:54</td></tr>
-
+  <tr><th>เนื้อหา</th><th>L* / C* / S*</th><th>URL</th></tr>
+  <tr><td style='font-size:12px;'>🎉ขอแสดงความยินดีกับเจ้าของรถคันใหม่🎉 New Nissan ALMERA 1.0 Turbo ครบจริง แรงจริง จัดให้ พร้อมพาคุณออกเดินทางอย่างมั่นใจใ</td><td>👍6 💬0 🔁0</td><td><a href='https://www.facebook.com/nissankktkhonkaen/posts/pfbid07i2xzRKk1UG4RPZRQsRriuJr31bj5xEcF8noDd4qzobavva6gpxsGZDazNt7kdYEl' target='_blank'>เปิด</a></td></tr>
+<tr><td style='font-size:12px;'>🎉ขอแสดงความยินดีกับเจ้าของรถคันใหม่🎉The All-New NISSAN SERENA e-POWER ความสนุกที่ใช่ ความสบายที่ชอบ
+ขอบพระคุณที่ไว้วางใจ</td><td>👍7 💬0 🔁1</td><td><a href='https://www.facebook.com/nissankktkhonkaen/posts/pfbid02HFwwybigwtXmMNXuQYjWh2Wf6g9iXQ3UtBgeS8HFmWx3iWvxh139TCi8VzCVFEPHl' target='_blank'>เปิด</a></td></tr>
+<tr><td style='font-size:12px;'>🎉ขอแสดงความยินดีกับเจ้าของรถคันใหม่🎉 The All-New Nissan KICKS e-POWER  พร้อมพาคุณออกเดินทาง…อย่างมั่นใจในทุกวันกับ KICKS</td><td>👍11 💬1 🔁2</td><td><a href='https://www.facebook.com/nissankktkhonkaen/posts/pfbid0t2x52fBLbiQQuuBpGLgQ3fEtP8tQPb147r9MTuRcxYgPBW6wsiwqyZsJxy66VmwHl' target='_blank'>เปิด</a></td></tr>
+<tr><td style='font-size:12px;'>ไม่ว่าจะที่นั่งไหน The All-New NISSAN SERENA e-POWER ก็จัดให้ ครบทุกความสบายด้วยฟีเจอร์เต็มคัน ​
+.​
+💺 เบาะเลื่อน พับ ปรั</td><td>👍1 💬0 🔁0</td><td><a href='https://www.facebook.com/nissankktkhonkaen/posts/pfbid0VoqLQNHe88EWK8effRzYvzCC7MaMXzUg1NMFr5SW8tFyKsZHobup4kCAFzXBzwWPl' target='_blank'>เปิด</a></td></tr>
+<tr><td style='font-size:12px;'>คุณเป็นเจ้าของเสียงในหัวเหล่านี้หรือเปล่า? 
+มาลองปลดล็อกความคิด ให้ #ชีวิตไปต่อแบบไม่ต้องรอชาร์จ 
+กับ The All-New NISSAN</td><td>👍1 💬0 🔁0</td><td><a href='https://www.facebook.com/nissankktkhonkaen/posts/pfbid0ui3ALq8yvAdPbZwechjt2iG3MNK3yKUqBwjHhcJV2F4WBk1dyNc1YhZadHBSbRNml' target='_blank'>เปิด</a></td></tr>
+<tr><td style='font-size:12px;'>เริ่มแล้ว!! 🚗 NISSAN-KKT ON TOUR 🛻
+📅 พบกันวันนี้–28 มิ.ย. 69 ที่บูธนิสสัน เคเคที ขอนแก่น ในงาน Smart Business Expo 2026
+</td><td>👍11 💬0 🔁1</td><td><a href='https://www.facebook.com/nissankktkhonkaen/posts/pfbid02TSEE324YnYfDAcTuZGbg3vQMmvXJHRLFVPvYnPpgh8xdWFsoHn2fLug9z4QXSDmul' target='_blank'>เปิด</a></td></tr>
+<tr><td style='font-size:12px;'>Weekend Starts Here ☀️🌿​
+อย่าปล่อยวันหยุดให้หมดไปกับการอยู่บ้าน​
+ออกไปเก็บทุกประสบการณ์ให้คุ้มค่ากับ​
+The All-New NISSAN</td><td>👍4 💬0 🔁2</td><td><a href='https://www.facebook.com/nissankktkhonkaen/posts/pfbid0Ltwdb98L9g6tpFAGGNuwNJ4F2U2gEZoZnzyD6ogMhhsTBvR6tDCHH86RcfMpUadLl' target='_blank'>เปิด</a></td></tr>
+<tr><td style='font-size:12px;'>ฝนตกหนัก ถนนเปียก ทัศนวิสัยไม่เป็นใจ 🌧️🚗​
+NISSAN ALMERA พร้อมให้คุณขับได้อย่างมั่นใจทุกเส้นทาง​
+​
+ด้วย 360° SAFETY SHIEL</td><td>👍2 💬0 🔁0</td><td><a href='https://www.facebook.com/nissankktkhonkaen/posts/pfbid08XehL22acuUqZGY9TMH8PJAmxxjDjuSv2fbHPEm1Yw7XroAYhfegSBmshiGCnadel' target='_blank'>เปิด</a></td></tr>
+<tr><td style='font-size:12px;'>🚗 NISSAN-KKT ON TOUR สุดสัปดาห์นี้
+✨ มีโปรโมชั่นพิเศษ !! ✨
+📅 พบกันวันที่ 26–28 มิ.ย. 69 ที่งาน Smart Business Expo 2026
+</td><td>👍20 💬1 🔁8</td><td><a href='https://www.facebook.com/reel/724045584135361/' target='_blank'>เปิด</a></td></tr>
 </table>
 <p class="legend">*L = Like, C = Comment, S = Share</p>
-<p><strong>สังเกต:</strong></p>
-<ul>
-  <li>Nissan โพส 9 posts ใน 7 วัน — เทียบกับคู่แข่งเฉลี่ย 8 posts/brand</li>
-  <li>Self engagement 79 interactions — อันดับ 4/8</li>
-  <li>Top Nissan post: 🎉ขอแสดงความยินดีกับเจ้าของรถคันใหม่🎉 New Nissan ALMERA 1.0 Turbo ครบจริง แรงจริง...</li>
-</ul>
 
 <h2>🔥 6. โพสต์เด่นที่ควรเรียนรู้</h2>
+<div class='post-card'><h3>1. BYD</h3><p class='post-meta'>📅 Special Event 🥳 สำหรับคนรัก DM-i เพียงทดลองขับรับทันที คูปอง Starbucks มูลค่า 100 บาท (จำนวนจำกัด❗️) ที่งาน YPB Road Sho...</p><p><strong>Engagement:</strong> 👍 136 | 💬 0 | 🔁 1 | รวม <strong>137</strong></p><p><strong>URL:</strong> <a href='https://www.facebook.com/BYDYonpiboon/posts/pfbid02hMHrxjZ3SFMRzXeP88pjWp2BQQP79rtxRez28pQnAap4qPdZQWMi6e7JuL7rFQcol' target='_blank'>https://www.facebook.com/BYDYonpiboon/posts/pfbid02hMHrxjZ3SFMRzXeP88pjWp2BQQP79...</a></p></div>
+<div class='post-card'><h3>2. OMODA &amp; JAECOO</h3><p class='post-meta'>📅 ⚡️ JAECOO 6 EV รถไฟฟ้าสายลุย ดีไซน์โดดเด่น
+เริ่มต้นเพียง 799,000 บาท*
+🎁 รับฟรี!
+✅ Home Charger พร้อมติดตั้ง
+✅ ประกันภัยช...</p><p><strong>Engagement:</strong> 👍 97 | 💬 0 | 🔁 4 | รวม <strong>101</strong></p><p><strong>URL:</strong> <a href='https://www.facebook.com/reel/1021070033749784/' target='_blank'>https://www.facebook.com/reel/1021070033749784/...</a></p></div>
+<div class='post-card'><h3>3. OMODA &amp; JAECOO</h3><p class='post-meta'>📅 ⚡ OMODA C5 EV MAX+ เพียง 649,000 บาท! ⚡
+จากราคาปกติ 709,000 บาท
+🎁 รับฟรี!
+✅ Home Charger พร้อมติดตั้ง
+✅ ประกันภัยชั้น 1 ...</p><p><strong>Engagement:</strong> 👍 43 | 💬 0 | 🔁 0 | รวม <strong>43</strong></p><p><strong>URL:</strong> <a href='https://www.facebook.com/Omodajaecootanasitkhonkaen/posts/pfbid02iiaTSdrKbLNuF97i7LjX2KezG5TrQzmPkDwDVq1LnzokQcTdHVzwbYzsQgS6XE3zl' target='_blank'>https://www.facebook.com/Omodajaecootanasitkhonkaen/posts/pfbid02iiaTSdrKbLNuF97...</a></p></div>
+<div class='post-card'><h3>4. MG</h3><p class='post-meta'>📅 น้องใหม่ EV วิ่งไกล 530 km. 
+มาพร้อม ระบบช่วยจอดอัตโนมัติ 
+อยากลองขับ ทักเลย #MGURBAN #อารีมิตรmgขอนแก่นมะลิวัลย์ #mgภาค...</p><p><strong>Engagement:</strong> 👍 34 | 💬 0 | 🔁 0 | รวม <strong>34</strong></p><p><strong>URL:</strong> <a href='https://www.facebook.com/reel/1638280100563392/' target='_blank'>https://www.facebook.com/reel/1638280100563392/...</a></p></div>
+<div class='post-card'><h3>5. Nissan (Self)</h3><p class='post-meta'>📅 🚗 NISSAN-KKT ON TOUR สุดสัปดาห์นี้
+✨ มีโปรโมชั่นพิเศษ !! ✨
+📅 พบกันวันที่ 26–28 มิ.ย. 69 ที่งาน Smart Business Expo 2026
+...</p><p><strong>Engagement:</strong> 👍 20 | 💬 1 | 🔁 8 | รวม <strong>29</strong></p><p><strong>URL:</strong> <a href='https://www.facebook.com/reel/724045584135361/' target='_blank'>https://www.facebook.com/reel/724045584135361/...</a></p></div>
 
-<div class="post-card">
-  <h3>1. BYD</h3>
-  <p class="post-meta">📅 Special Event 🥳 สำหรับคนรัก DM-i เพียงทดลองขับรับทันที คูปอง Starbucks มูลค่า 100 บาท (จำนวนจำกัด❗️)...</p>
-  <p><strong>Engagement:</strong> 👍 136 | 💬 0 | 🔁 1 | รวม <strong>137</strong></p>
-  <p><strong>URL:</strong> <a href="https://www.facebook.com/BYDYonpiboon/posts/pfbid02hMHrxjZ3SFMRzXeP88pjWp2BQQP79rtxRez28pQnAap4qPdZQWMi6e7JuL7rFQcol">https://www.facebook.com/BYDYonpiboon/posts/pfbid02hMHrxjZ3SFMRzXeP88pjWp2BQQP79...</a></p>
-</div>
-<div class="post-card">
-  <h3>2. OMODA & JAECOO</h3>
-  <p class="post-meta">📅 ⚡️ JAECOO 6 EV รถไฟฟ้าสายลุย ดีไซน์โดดเด่น เริ่มต้นเพียง 799,000 บาท* 🎁 รับฟรี! ✅ Home Charger พร้อม...</p>
-  <p><strong>Engagement:</strong> 👍 97 | 💬 0 | 🔁 4 | รวม <strong>101</strong></p>
-  <p><strong>URL:</strong> <a href="https://www.facebook.com/reel/1021070033749784/">https://www.facebook.com/reel/1021070033749784/...</a></p>
-</div>
-<div class="post-card">
-  <h3>3. OMODA & JAECOO</h3>
-  <p class="post-meta">📅 ⚡ OMODA C5 EV MAX+ เพียง 649,000 บาท! ⚡ จากราคาปกติ 709,000 บาท 🎁 รับฟรี! ✅ Home Charger พร้อมติดตั้...</p>
-  <p><strong>Engagement:</strong> 👍 43 | 💬 0 | 🔁 0 | รวม <strong>43</strong></p>
-  <p><strong>URL:</strong> <a href="https://www.facebook.com/Omodajaecootanasitkhonkaen/posts/pfbid02iiaTSdrKbLNuF97i7LjX2KezG5TrQzmPkDwDVq1LnzokQcTdHVzwbYzsQgS6XE3zl">https://www.facebook.com/Omodajaecootanasitkhonkaen/posts/pfbid02iiaTSdrKbLNuF97...</a></p>
-</div>
-<div class="post-card">
-  <h3>4. MG</h3>
-  <p class="post-meta">📅 น้องใหม่ EV วิ่งไกล 530 km.  มาพร้อม ระบบช่วยจอดอัตโนมัติ  อยากลองขับ ทักเลย #MGURBAN #อารีมิตรmgขอน...</p>
-  <p><strong>Engagement:</strong> 👍 34 | 💬 0 | 🔁 0 | รวม <strong>34</strong></p>
-  <p><strong>URL:</strong> <a href="https://www.facebook.com/reel/1638280100563392/">https://www.facebook.com/reel/1638280100563392/...</a></p>
-</div>
-<div class="post-card">
-  <h3>5. Nissan (Self)</h3>
-  <p class="post-meta">📅 🚗 NISSAN-KKT ON TOUR สุดสัปดาห์นี้ ✨ มีโปรโมชั่นพิเศษ !! ✨ 📅 พบกันวันที่ 26–28 มิ.ย. 69 ที่งาน Smart...</p>
-  <p><strong>Engagement:</strong> 👍 20 | 💬 1 | 🔁 8 | รวม <strong>29</strong></p>
-  <p><strong>URL:</strong> <a href="https://www.facebook.com/reel/724045584135361/">https://www.facebook.com/reel/724045584135361/...</a></p>
-</div>
-
-<h2>📈 7. กราฟวิเคราะห์ Engagement</h2>
+<h2>⚠️ 7. กราฟวิเคราะห์</h2>
 
 <div class="chart-container">
-  <div class="chart-title">📊 7.1 Engagement ต่อ Brand — เปรียบเทียบ 8 แบรนด์</div>
-  <div class="chart-desc">Bar: ดูว่า brand ไหนได้ engagement สูงสุด (Likes + Comments + Shares)</div>
+  <div class="chart-title">📊 7.1 Total Engagement ต่อแบรนด์</div>
+  <div class="chart-desc">Bar (แนวนอน): ยอด engagement รวม (likes + comments + shares)</div>
   <canvas id="chartEngagement"></canvas>
 </div>
 
 <div class="chart-container">
-  <div class="chart-title">📊 7.2 Engagement Breakdown ต่อ Brand (Likes / Comments / Shares)</div>
-  <div class="chart-desc">Stacked bar: แยก engagement ของแต่ละ brand ตามประเภท</div>
+  <div class="chart-title">📊 7.2 Engagement Breakdown — Likes / Comments / Shares</div>
+  <div class="chart-desc">Stacked Bar: สัดส่วน engagement แต่ละประเภท</div>
   <canvas id="chartBreakdown"></canvas>
 </div>
 
 <div class="chart-container">
-  <div class="chart-title">📊 7.3 Posts per Day — แนวโน้มการโพสใน 7 วัน</div>
-  <div class="chart-desc">Line: จำนวน posts ที่ถูกโพสในแต่ละวัน (รวมทุก brand)</div>
+  <div class="chart-title">📊 7.3 โพสต่อวัน</div>
+  <div class="chart-desc">Line: ความถี่ในการโพสรายวัน</div>
   <canvas id="chartDaily"></canvas>
 </div>
 
@@ -219,34 +236,33 @@
 <h2>⚠️ 8. ข้อเสนอแนะ</h2>
 <div class="insight success">
   <strong>Priority สูง — เพิ่มความถี่ในการโพส</strong><br>
-  Nissan (Self) โพส 9 posts ใน 7 วัน เทียบกับคู่แข่งที่โพส 6-10 posts/brand — ควรเพิ่มเป็นอย่างน้อย 7-10 posts ต่อสัปดาห์
+  Nissan (Self) โพส 9 posts ใน 7 วัน — ควรเพิ่มให้ทันคู่แข่ง
 </div>
 <div class="insight warn">
   <strong>Priority กลาง — ใช้ mechanic "Test Drive + ของแจก"</strong><br>
-  Top post ทุก brand ใช้กลยุทธ์นี้ (BYD Starbucks, JAECOO ของแถม) — engagement สูง 97-136 likes — Nissan ควรทดลองกับ KICKS / SERENA e-POWER
+  Top post ส่วนใหญ่ใช้กลยุทธ์นี้ — Nissan ควรทดลองกับ KICKS / SERENA e-POWER
 </div>
 <div class="insight info">
   <strong>Priority ต่ำ — เจาะตลาด EV</strong><br>
-  8 จาก 8 แบรนด์ เน้น EV (Deepal, Geely, OMODA & JAECOO, Nissan (Self), Mitsubishi, MG, TOYOTA (แก่นนคร), BYD) — Nissan มี KICKS e-POWER + SERENA e-POWER ที่แข่งได้
+  แบรนด์ส่วนใหญ่เน้น EV — Nissan มี KICKS e-POWER + SERENA e-POWER ที่แข่งได้
 </div>
 
 <div style="margin-top: 30px; padding-top: 15px; border-top: 1px solid #E0E0E0; color: #888; font-size: 11px; text-align: center;">
   <p>📊 สร้างโดย: Nissan Weekly Competitor Report</p>
-  <p>🕐 เวลาวิเคราะห์: 2026-06-29 23:55</p>
+  <p>🕐 เวลาวิเคราะห์: 2026-06-30 10:29</p>
 </div>
 
-
 <script>
-const LABELS = ["TOYOTA (\u0e41\u0e01\u0e48\u0e19\u0e19\u0e04\u0e23)", "BYD", "Mitsubishi", "Deepal", "OMODA & JAECOO", "MG", "Geely", "Nissan (Self)"];
-const LIKES = [33, 148, 22, 49, 188, 95, 67, 63];
-const COMMENTS = [3, 2, 0, 2, 7, 0, 0, 2];
-const SHARES = [9, 1, 9, 3, 9, 0, 10, 14];
-const ENG = [45, 151, 31, 54, 204, 95, 77, 79];
-const POSTS = [10, 6, 7, 8, 10, 10, 9, 9];
+const LABELS = ["OMODA & JAECOO", "BYD", "MG", "Geely", "Deepal", "TOYOTA (แก่นนคร)", "Mitsubishi", "Nissan (Self)"];
+const LIKES = [188, 148, 95, 67, 49, 33, 22, 63];
+const COMMENTS = [7, 2, 0, 0, 2, 3, 0, 2];
+const SHARES = [9, 1, 0, 10, 3, 9, 9, 14];
+const ENG = [204, 151, 95, 77, 54, 45, 31, 79];
+const POSTS = [10, 6, 10, 9, 8, 10, 7, 9];
 const DAY_LABELS = ["2026-06-23", "2026-06-24", "2026-06-25", "2026-06-26", "2026-06-27", "2026-06-28", "2026-06-29"];
 const DAY_COUNTS = [8, 11, 9, 12, 11, 1, 17];
 
-// Chart 1: Total Engagement per Brand (bar)
+// 7.1 Total Engagement (bar แนวนอน, value แสดงท้าย bar)
 new Chart(document.getElementById('chartEngagement'), {
   type: 'bar',
   data: {
@@ -261,12 +277,30 @@ new Chart(document.getElementById('chartEngagement'), {
   options: {
     responsive: true,
     indexAxis: 'y',
-    plugins: { legend: { display: false } },
-    scales: { x: { beginAtZero: true, ticks: { callback: v => v.toLocaleString() } } }
+    plugins: {
+      legend: { display: false },
+      tooltip: { callbacks: { label: ctx => ctx.parsed.x.toLocaleString() + ' engagement' } },
+      // ป้องกัน label ทับ bar (พิมพ์ value ท้าย bar)
+      datalabels: { display: false }
+    },
+    scales: {
+      x: { beginAtZero: true, ticks: { callback: v => v.toLocaleString() } },
+      y: {
+        ticks: {
+          // ตัด label ยาวเพื่อไม่ให้ทับ bar
+          callback: function(value, index) {
+            const label = LABELS[index] || '';
+            return label.length > 14 ? label.substring(0, 12) + '…' : label;
+          },
+          autoSkip: false,
+          font: { size: 11 }
+        }
+      }
+    }
   }
 });
 
-// Chart 2: Engagement Breakdown (stacked bar)
+// 7.2 Engagement Breakdown (stacked bar)
 new Chart(document.getElementById('chartBreakdown'), {
   type: 'bar',
   data: {
@@ -280,15 +314,28 @@ new Chart(document.getElementById('chartBreakdown'), {
   options: {
     responsive: true,
     indexAxis: 'y',
-    plugins: { legend: { position: 'top' } },
+    plugins: {
+      legend: { position: 'top' },
+      tooltip: { callbacks: { label: ctx => ctx.dataset.label + ': ' + ctx.parsed.x } }
+    },
     scales: {
       x: { stacked: true, beginAtZero: true, ticks: { callback: v => v.toLocaleString() } },
-      y: { stacked: true }
+      y: {
+        stacked: true,
+        ticks: {
+          callback: function(value, index) {
+            const label = LABELS[index] || '';
+            return label.length > 14 ? label.substring(0, 12) + '…' : label;
+          },
+          autoSkip: false,
+          font: { size: 11 }
+        }
+      }
     }
   }
 });
 
-// Chart 3: Posts per Day (line)
+// 7.3 Posts per Day (line)
 new Chart(document.getElementById('chartDaily'), {
   type: 'line',
   data: {
@@ -310,7 +357,7 @@ new Chart(document.getElementById('chartDaily'), {
   }
 });
 
-// Chart 4: Engagement per Post (bar)
+// 7.4 Engagement per Post (bar)
 new Chart(document.getElementById('chartEngPerPost'), {
   type: 'bar',
   data: {
@@ -329,7 +376,19 @@ new Chart(document.getElementById('chartEngPerPost'), {
       legend: { display: false },
       tooltip: { callbacks: { label: ctx => 'เฉลี่ย: ' + ctx.parsed.x + ' engagement/post' } }
     },
-    scales: { x: { beginAtZero: true } }
+    scales: {
+      x: { beginAtZero: true },
+      y: {
+        ticks: {
+          callback: function(value, index) {
+            const label = LABELS[index] || '';
+            return label.length > 14 ? label.substring(0, 12) + '…' : label;
+          },
+          autoSkip: false,
+          font: { size: 11 }
+        }
+      }
+    }
   }
 });
 </script>
