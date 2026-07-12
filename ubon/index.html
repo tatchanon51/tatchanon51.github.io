@@ -5,31 +5,546 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>รายงาน Nissan Ubon (Test) - 05 Jul 2026 ถึง 11 Jul 2026</title>
 <style>
-  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans Thai", sans-serif;
-         max-width: 1100px; margin: 20px auto; padding: 20px; color: #333; line-height: 1.55; }
-  h1 { color: #c3002f; border-bottom: 3px solid #c3002f; padding-bottom: 10px; margin-top: 0; }
-  h2 { color: #c3002f; margin-top: 35px; border-left: 4px solid #c3002f; padding-left: 12px; font-size: 22px; }
-  h3 { color: #555; margin-top: 18px; }
-  table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 14px; }
-  th { background: #c3002f; color: white; padding: 10px; text-align: left; }
-  td { padding: 8px 10px; border-bottom: 1px solid #eee; vertical-align: top; }
-  tr:hover { background: #f9f9f9; }
-  .stat-box { background: #f5f5f5; padding: 15px; border-radius: 8px; margin: 10px 0; }
-  .threat { color: #c3002f; }
-  .opportunity { color: #2e7d32; }
-  .priority-high { background: #ffebee; padding: 12px; border-left: 4px solid #c3002f; margin: 12px 0; border-radius: 4px; }
-  .priority-med { background: #fff3e0; padding: 12px; border-left: 4px solid #f57c00; margin: 12px 0; border-radius: 4px; }
-  .priority-low { background: #f3e5f5; padding: 12px; border-left: 4px solid #7b1fa2; margin: 12px 0; border-radius: 4px; }
-  .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; color: #888; font-size: 12px; }
-  blockquote { background: #fff9c4; padding: 10px 14px; border-left: 3px solid #fbc02d; margin: 10px 0; }
-  .chart-container { background: white; padding: 20px; border-radius: 8px; margin: 20px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-  .chart-title { font-size: 18px; font-weight: bold; color: #c3002f; margin-bottom: 10px; }
-  .insight-box { background: #e3f2fd; padding: 12px; border-left: 4px solid #1976d2; margin: 10px 0; border-radius: 4px; }
-  .meta-header { background: linear-gradient(135deg, #c3002f, #8b0020); color: white; padding: 20px; border-radius: 8px; margin-bottom: 20px; }
-  .meta-header h1 { color: white; border-bottom: 2px solid rgba(255,255,255,0.3); margin-bottom: 5px; }
-  .meta-header p { margin: 5px 0; color: rgba(255,255,255,0.92); font-size: 14px; }
-  .headline { background: #f8f9fa; padding: 10px 14px; border-left: 3px solid #c3002f; margin: 8px 0; font-size: 14px; }
-  .headline-label { font-weight: bold; color: #c3002f; }
+/* ============================================================
+   🎨 PREMIUM BRIEF — Tier C (12 Jul 2026)
+   Bloomberg/McKinsey-style marketing dashboard
+   ============================================================ */
+
+/* ---------- Reset + Variables ---------- */
+:root {
+  /* NMT brand tokens */
+  --nmt-red: #c3002f;
+  --nmt-red-dark: #8b0020;
+  --nmt-red-soft: #ffebee;
+  --nmt-red-tint: rgba(195,0,47,0.06);
+
+  /* Neutrals */
+  --ink-900: #0a0e1a;
+  --ink-800: #1a1f2e;
+  --ink-700: #2a3142;
+  --ink-500: #5b6478;
+  --ink-400: #8a92a6;
+  --ink-300: #c1c7d4;
+  --ink-200: #e3e7ee;
+  --ink-100: #f2f5fa;
+  --ink-50: #f9fbfd;
+  --ink-white: #ffffff;
+
+  /* Semantic */
+  --bg-page: #f9fbfd;
+  --bg-surface: #ffffff;
+  --bg-elevated: #ffffff;
+  --border: #e3e7ee;
+  --border-strong: #c1c7d4;
+  --accent-blue: #1976d2;
+  --accent-green: #2e7d32;
+  --accent-amber: #f57c00;
+  --accent-purple: #7b1fa2;
+
+  /* Typography scale (fluid) */
+  --fs-display: clamp(1.75rem, 2.5vw, 2.5rem);
+  --fs-h2: clamp(1.25rem, 1.8vw, 1.625rem);
+  --fs-h3: clamp(1.0625rem, 1.4vw, 1.25rem);
+  --fs-body: 0.9375rem;
+  --fs-small: 0.8125rem;
+  --fs-mono: 0.875rem;
+
+  /* Spacing */
+  --sp-1: 4px;  --sp-2: 8px;  --sp-3: 12px; --sp-4: 16px;
+  --sp-5: 24px; --sp-6: 32px; --sp-7: 48px; --sp-8: 64px;
+
+  /* Radius + shadow */
+  --r-sm: 6px; --r-md: 10px; --r-lg: 14px; --r-xl: 20px;
+  --shadow-sm: 0 1px 2px rgba(10,14,26,0.06);
+  --shadow-md: 0 2px 8px rgba(10,14,26,0.08), 0 1px 2px rgba(10,14,26,0.04);
+  --shadow-lg: 0 8px 24px rgba(10,14,26,0.10), 0 2px 6px rgba(10,14,26,0.04);
+  --shadow-xl: 0 16px 40px rgba(10,14,26,0.12), 0 4px 8px rgba(10,14,26,0.06);
+}
+
+/* ---------- Base + Typography ---------- */
+*,*::before,*::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+               'Noto Sans Thai', 'Sarabun', sans-serif;
+  font-feature-settings: 'cv11','ss01','ss03'; /* Inter tabular nums + open digits */
+  background: var(--bg-page);
+  color: var(--ink-700);
+  line-height: 1.6;
+  font-size: var(--fs-body);
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.tabular { font-variant-numeric: tabular-nums; }
+.tabular-bold { font-variant-numeric: tabular-nums; font-weight: 700; }
+
+/* ---------- Layout container ---------- */
+.brief-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--sp-5) var(--sp-5) var(--sp-8);
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: var(--sp-7);
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .brief-wrap { grid-template-columns: 1fr; gap: var(--sp-5); padding: var(--sp-4); }
+}
+
+/* ---------- Sticky sidebar TOC ---------- */
+.toc {
+  position: sticky; top: var(--sp-4);
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: var(--sp-3);
+  box-shadow: var(--shadow-sm);
+  font-size: var(--fs-small);
+  max-height: calc(100vh - 2*var(--sp-4));
+  overflow-y: auto;
+}
+.toc-title {
+  font-size: 0.6875rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.08em; color: var(--ink-400);
+  margin: var(--sp-2) var(--sp-2) var(--sp-3);
+}
+.toc ol { list-style: none; padding: 0; margin: 0; counter-reset: toc; }
+.toc li { counter-increment: toc; margin: 1px 0; }
+.toc a {
+  display: flex; align-items: center; gap: var(--sp-2);
+  padding: 7px 10px; border-radius: var(--r-sm);
+  color: var(--ink-500); text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+  line-height: 1.3;
+}
+.toc a::before {
+  content: counter(toc, decimal-leading-zero);
+  font-size: 0.6875rem; font-weight: 700;
+  color: var(--ink-300); min-width: 18px;
+}
+.toc a:hover { background: var(--ink-100); color: var(--ink-800); }
+.toc a.active { background: var(--nmt-red-soft); color: var(--nmt-red-dark); font-weight: 600; }
+.toc a.active::before { color: var(--nmt-red); }
+@media (max-width: 900px) { .toc { display: none; } }
+
+/* ---------- Hero banner ---------- */
+.hero {
+  position: relative;
+  background:
+    radial-gradient(ellipse 80% 50% at 100% 0%, rgba(255,82,82,0.18), transparent 70%),
+    linear-gradient(135deg, var(--nmt-red) 0%, var(--nmt-red-dark) 100%);
+  color: var(--ink-white);
+  padding: var(--sp-7) var(--sp-6);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  margin-bottom: var(--sp-6);
+}
+.hero::before {
+  content: ''; position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+  mask-image: linear-gradient(180deg, black, transparent 80%);
+  -webkit-mask-image: linear-gradient(180deg, black, transparent 80%);
+}
+.hero-inner { position: relative; z-index: 1; }
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: var(--sp-2);
+  font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.1em; padding: 4px 10px;
+  background: rgba(255,255,255,0.18); border-radius: 999px;
+  backdrop-filter: blur(8px);
+  margin-bottom: var(--sp-3);
+}
+.hero-eyebrow .pulse {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: #4ade80; box-shadow: 0 0 0 0 rgba(74,222,128,0.7);
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(74,222,128,0.7); }
+  70%  { box-shadow: 0 0 0 8px rgba(74,222,128,0); }
+  100% { box-shadow: 0 0 0 0 rgba(74,222,128,0); }
+}
+.hero-title {
+  font-size: var(--fs-display);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin: 0 0 var(--sp-3);
+  max-width: 30ch;
+}
+.hero-meta {
+  display: flex; flex-wrap: wrap; gap: var(--sp-5);
+  margin-top: var(--sp-4);
+  font-size: var(--fs-small);
+}
+.hero-meta div { display: flex; flex-direction: column; gap: 2px; }
+.hero-meta .label {
+  font-size: 0.6875rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.08em; color: rgba(255,255,255,0.65);
+}
+.hero-meta .value { font-weight: 600; color: rgba(255,255,255,0.98); }
+
+/* ---------- Stat cards (replaces Quick Stats table) ---------- */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--sp-3);
+  margin: var(--sp-4) 0;
+}
+.stat-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: var(--sp-4);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.stat-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.stat-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--nmt-red), var(--nmt-red-dark));
+  opacity: 0.7;
+}
+.stat-card.highlight::before { opacity: 1; height: 4px; }
+.stat-card .stat-label {
+  font-size: 0.6875rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.08em; color: var(--ink-400);
+  margin-bottom: var(--sp-2);
+}
+.stat-card .stat-value {
+  font-size: 1.875rem; font-weight: 800;
+  color: var(--ink-900); letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+}
+.stat-card.highlight .stat-value { color: var(--nmt-red); }
+.stat-card .stat-sub {
+  font-size: var(--fs-small); color: var(--ink-500);
+  margin-top: var(--sp-1);
+}
+
+/* ---------- Section cards ---------- */
+.section-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: var(--sp-6);
+  margin-bottom: var(--sp-6);
+  box-shadow: var(--shadow-sm);
+  scroll-margin-top: var(--sp-4);
+}
+.section-card-header {
+  display: flex; align-items: flex-start; gap: var(--sp-3);
+  padding-bottom: var(--sp-4);
+  margin-bottom: var(--sp-4);
+  border-bottom: 1px solid var(--border);
+}
+.section-num {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px; border-radius: 10px;
+  background: linear-gradient(135deg, var(--nmt-red), var(--nmt-red-dark));
+  color: white; font-weight: 800; font-size: 0.875rem;
+  flex-shrink: 0;
+}
+.section-card h2 {
+  margin: 0; padding: 0; border: none;
+  font-size: var(--fs-h2); color: var(--ink-900);
+  font-weight: 700; letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+.section-card .headline {
+  margin: 0 0 var(--sp-4); padding: 0; border: none;
+  display: grid; gap: var(--sp-1);
+  background: var(--ink-50);
+  border-radius: var(--r-sm);
+  padding: var(--sp-3) var(--sp-4);
+  font-size: var(--fs-small);
+}
+.section-card .headline span { display: block; }
+.section-card .headline-label {
+  font-weight: 700; color: var(--nmt-red-dark);
+  font-size: 0.6875rem; text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.section-card ul, .section-card ol { padding-left: var(--sp-5); }
+.section-card li { margin-bottom: var(--sp-2); }
+.section-card p { margin: var(--sp-3) 0; }
+
+/* ---------- Subsection (5.1, 5.1.5, 5.2) ---------- */
+.subsection {
+  margin-top: var(--sp-5);
+  padding-top: var(--sp-5);
+  border-top: 1px dashed var(--border);
+}
+.subsection h3 {
+  font-size: var(--fs-h3); color: var(--ink-800);
+  font-weight: 700; margin: 0 0 var(--sp-3);
+  display: flex; align-items: center; gap: var(--sp-2);
+}
+.subsection h3 .sub-num {
+  font-size: 0.75rem; font-weight: 700;
+  color: var(--nmt-red);
+  background: var(--nmt-red-soft);
+  padding: 2px 8px; border-radius: 6px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Insight box ---------- */
+.insight-box {
+  background: linear-gradient(135deg, #f0f7ff, #e3f2fd);
+  border-left: 4px solid var(--accent-blue);
+  padding: var(--sp-3) var(--sp-4);
+  border-radius: var(--r-sm);
+  margin: var(--sp-3) 0;
+  font-size: var(--fs-small);
+  color: var(--ink-700);
+}
+.insight-box strong { color: var(--ink-900); }
+.insight-box.warning {
+  background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+  border-left-color: var(--accent-amber);
+}
+.insight-box.danger {
+  background: linear-gradient(135deg, #ffebee, #ffcdd2);
+  border-left-color: var(--nmt-red);
+}
+
+/* ---------- Priority boxes ---------- */
+.priority-card {
+  background: var(--bg-surface);
+  border-radius: var(--r-md);
+  padding: var(--sp-4);
+  margin: var(--sp-3) 0;
+  border-left: 4px solid;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--sp-3);
+  align-items: start;
+  box-shadow: var(--shadow-sm);
+}
+.priority-card .badge {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 56px; height: 28px; border-radius: 6px;
+  font-size: 0.6875rem; font-weight: 800; text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.priority-card.high { border-left-color: var(--nmt-red); }
+.priority-card.high .badge { background: var(--nmt-red); color: white; }
+.priority-card.med { border-left-color: var(--accent-amber); }
+.priority-card.med .badge { background: var(--accent-amber); color: white; }
+.priority-card.low { border-left-color: var(--accent-purple); }
+.priority-card.low .badge { background: var(--accent-purple); color: white; }
+.priority-card ol { margin: 0; padding-left: var(--sp-5); }
+
+/* ---------- Chart container ---------- */
+.chart-container {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: var(--sp-5);
+  margin: var(--sp-4) 0;
+  box-shadow: var(--shadow-sm);
+}
+.chart-title {
+  font-size: var(--fs-h3); font-weight: 700; color: var(--ink-900);
+  margin: 0 0 var(--sp-3);
+  display: flex; align-items: center; gap: var(--sp-2);
+}
+.chart-title .num {
+  font-size: 0.75rem; font-weight: 700;
+  background: var(--ink-100); color: var(--ink-500);
+  padding: 2px 8px; border-radius: 6px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Top post card ---------- */
+.post-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: var(--sp-4);
+  margin: var(--sp-3) 0;
+  position: relative;
+}
+.post-card::before {
+  content: ''; position: absolute; left: 0; top: var(--sp-4); bottom: var(--sp-4);
+  width: 3px; border-radius: 0 3px 3px 0;
+  background: var(--nmt-red);
+}
+.post-card h3 {
+  font-size: var(--fs-h3); color: var(--ink-900);
+  margin: 0 0 var(--sp-2);
+  padding-left: var(--sp-3);
+}
+.post-card ul { padding-left: var(--sp-6); }
+
+/* ---------- Footer ---------- */
+.brief-footer {
+  margin-top: var(--sp-7);
+  padding-top: var(--sp-5);
+  border-top: 1px solid var(--border);
+  display: flex; flex-wrap: wrap; gap: var(--sp-4);
+  justify-content: space-between; align-items: center;
+  font-size: var(--fs-small); color: var(--ink-400);
+}
+.brief-footer .brand-line {
+  display: flex; align-items: center; gap: var(--sp-2);
+}
+.brief-footer .brand-line strong { color: var(--ink-700); }
+
+/* ============================================================
+   🌗 DARK MODE TOGGLE BUTTON (12 Jul 2026)
+   ============================================================ */
+.theme-toggle {
+  position: fixed;
+  bottom: var(--sp-5);
+  right: var(--sp-5);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+  -webkit-tap-highlight-color: transparent;
+}
+.theme-toggle:hover {
+  transform: scale(1.05) rotate(15deg);
+  box-shadow: var(--shadow-lg);
+}
+.theme-toggle:active {
+  transform: scale(0.95);
+}
+.theme-toggle .icon-sun { display: none; }
+.theme-toggle .icon-moon { display: block; }
+/* When html has class "dark" — flip icons */
+html.dark .theme-toggle .icon-sun { display: block; }
+html.dark .theme-toggle .icon-moon { display: none; }
+@media print {
+  .theme-toggle { display: none; }
+}
+
+/* ============================================================
+   🌙 DARK MODE — Manual (.dark class on html) + Auto (prefers-color-scheme)
+   ============================================================ */
+/* Manual override via toggle button */
+html.dark {
+  --bg-page: #0a0e1a;
+  --bg-surface: #131826;
+  --bg-elevated: #1a2030;
+  --ink-900: #f5f7fa;
+  --ink-800: #e3e7ee;
+  --ink-700: #c1c7d4;
+  --ink-500: #8a92a6;
+  --ink-400: #5b6478;
+  --ink-300: #3a4256;
+  --ink-200: #2a3142;
+  --ink-100: #1a2030;
+  --ink-50: #131826;
+  --ink-white: #0a0e1a;
+  --border: #2a3142;
+  --border-strong: #3a4256;
+  --nmt-red-soft: rgba(195,0,47,0.18);
+  --nmt-red-tint: rgba(195,0,47,0.10);
+}
+/* Auto-detect via OS preference (only when user hasn't manually chosen) */
+@media (prefers-color-scheme: dark) {
+  html:not(.light) {
+    --bg-page: #0a0e1a;
+    --bg-surface: #131826;
+    --bg-elevated: #1a2030;
+    --ink-900: #f5f7fa;
+    --ink-800: #e3e7ee;
+    --ink-700: #c1c7d4;
+    --ink-500: #8a92a6;
+    --ink-400: #5b6478;
+    --ink-300: #3a4256;
+    --ink-200: #2a3142;
+    --ink-100: #1a2030;
+    --ink-50: #131826;
+    --ink-white: #0a0e1a;
+    --border: #2a3142;
+    --border-strong: #3a4256;
+    --nmt-red-soft: rgba(195,0,47,0.18);
+    --nmt-red-tint: rgba(195,0,47,0.10);
+  }
+}
+/* Shared dark-mode component overrides */
+html.dark .stat-card,
+html.dark .section-card,
+html.dark .chart-container,
+html.dark .post-card,
+html.dark .toc,
+html.dark .priority-card {
+  box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+}
+html.dark .stat-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.5); }
+html.dark .insight-box {
+  background: linear-gradient(135deg, rgba(25,118,210,0.10), rgba(25,118,210,0.05));
+  color: var(--ink-700);
+}
+html.dark .insight-box.warning {
+  background: linear-gradient(135deg, rgba(245,124,0,0.10), rgba(245,124,0,0.05));
+}
+html.dark .insight-box.danger {
+  background: linear-gradient(135deg, rgba(195,0,47,0.12), rgba(195,0,47,0.06));
+}
+/* Apply dark tokens when html.dark or auto-detect */
+html.dark, html:not(.light) {
+  /* (insight-box overrides already above apply only to html.dark; auto needs duplicates?) */
+}
+@media (prefers-color-scheme: dark) {
+  html:not(.light) .stat-card,
+  html:not(.light) .section-card,
+  html:not(.light) .chart-container,
+  html:not(.light) .post-card,
+  html:not(.light) .toc,
+  html:not(.light) .priority-card {
+    box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+  }
+  html:not(.light) .stat-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.5); }
+  html:not(.light) .insight-box {
+    background: linear-gradient(135deg, rgba(25,118,210,0.10), rgba(25,118,210,0.05));
+    color: var(--ink-700);
+  }
+  html:not(.light) .insight-box.warning {
+    background: linear-gradient(135deg, rgba(245,124,0,0.10), rgba(245,124,0,0.05));
+  }
+  html:not(.light) .insight-box.danger {
+    background: linear-gradient(135deg, rgba(195,0,47,0.12), rgba(195,0,47,0.06));
+  }
+}
+
+/* ============================================================
+   🖨️ PRINT STYLESHEET
+   ============================================================ */
+@media print {
+  :root { --bg-page: white; --bg-surface: white; --ink-700: black; --ink-500: #333; --ink-400: #666; --border: #ddd; }
+  body { background: white; }
+  .toc, .brief-footer, .hero::before { display: none; }
+  .brief-wrap { grid-template-columns: 1fr; max-width: 100%; padding: 0; }
+  .section-card { break-inside: avoid; box-shadow: none; border: 1px solid #ccc; page-break-inside: avoid; }
+  .hero { background: var(--nmt-red) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .stat-card { break-inside: avoid; box-shadow: none; }
+  .chart-container { break-inside: avoid; }
+  a { color: var(--ink-900) !important; text-decoration: none !important; }
+  a[href]::after { content: '' !important; } /* don't append URL after link */
+}
 </style>
 
 <style>
@@ -74,9 +589,9 @@ table.roadshow-table:not(.tier2-table) { table-layout: fixed; }
 .tier2-table thead th .sort-indicator { opacity: 0.5; font-size: 10px; margin-left: 4px; }
 .tier2-table thead th.sorted-asc .sort-indicator::before { content: '▲'; opacity: 1; }
 .tier2-table thead th.sorted-desc .sort-indicator::before { content: '▼'; opacity: 1; }
-.tier2-table tbody tr { transition: background 0.15s ease; }
-.tier2-table tbody tr:nth-child(even) { background: #f8f9fa; }
-.tier2-table tbody tr:hover { background: #ffebee; }
+.tier2-table tbody tr { transition: background 0.15s ease; background: var(--bg-surface); }
+.tier2-table tbody tr:nth-child(even) { background: var(--ink-50); }
+.tier2-table tbody tr:hover { background: var(--nmt-red-soft); }
 .tier2-table tbody td {
   padding: 12px;
   border-bottom: 1px solid #f0f0f0;
@@ -121,32 +636,92 @@ table.roadshow-table:not(.tier2-table) { table-layout: fixed; }
 
 </head>
 <body>
-<div class="meta-header">
-  <h1>📊 รายงานคู่แข่ง Nissan Ubon (Siam Nissan Dauto Group) — TEST BUILD</h1>
-  <p><strong>สัปดาห์:</strong> 05 Jul 2026 ถึง 11 Jul 2026</p>
-  <p><strong>วิเคราะห์เมื่อ:</strong> 2026-07-11 11:30 UTC</p>
-  <p><strong>แหล่งข้อมูล:</strong> Facebook Page (คู่แข่งในอุบลราชธานี)</p>
-  <p><strong>จำนวน posts ที่วิเคราะห์:</strong> 178 posts จาก 15 เพจ (2 errors)</p>
+<button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
+  <span class="icon-moon" aria-hidden="true">🌙</span>
+  <span class="icon-sun" aria-hidden="true">☀️</span>
+</button>
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow"><span class="pulse"></span> Weekly Competitor Brief — TEST BUILD</div>
+    <h1 class="hero-title">Nissan Ubon — สนามรบ Central Ubon 7 ค่าย EV ปะทะ Nissan e-POWER</h1>
+    <div class="hero-meta">
+      <div><span class="label">สัปดาห์</span><span class="value">05–11 Jul 2026</span></div>
+      <div><span class="label">วิเคราะห์เมื่อ</span><span class="value">2026-07-11 11:30 UTC</span></div>
+      <div><span class="label">แหล่งข้อมูล</span><span class="value">Facebook Page (คู่แข่งในอุบลราชธานี)</span></div>
+      <div><span class="label">Posts</span><span class="value">178 จาก 15 เพจ</span></div>
+    </div>
+  </div>
 </div>
 
-<h2>1. ⚡ Quick Stats</h2>
+<div class="brief-wrap">
+  <nav class="toc" aria-label="Table of contents">
+    <div class="toc-title">สารบัญ</div>
+    <ol>
+      <li><a href="#sec-1">Quick Stats</a></li>
+      <li><a href="#sec-2">ภาพรวมความเคลื่อนไหว</a></li>
+      <li><a href="#sec-3">Roadshow / อีเวนต์</a></li>
+      <li><a href="#sec-4">ตารางสรุปคู่แข่งรายแบรนด์</a></li>
+      <li><a href="#sec-5">Self Analysis</a></li>
+      <li><a href="#sec-6">โพสต์เด่นที่ควรเรียนรู้</a></li>
+      <li><a href="#sec-7">โอกาสและภัยคุกคาม</a></li>
+      <li><a href="#sec-8">ข้อเสนอแนะ</a></li>
+      <li><a href="#sec-9">กราฟวิเคราะห์ Engagement</a></li>
+    </ol>
+  </nav>
+  <div class="brief-content">
+<div class="section-card" id="sec-1">
+  <div class="section-card-header">
+    <span class="section-num">1</span>
+    <h2>⚡ Quick Stats</h2>
+  </div>
 <div class="headline">
   <span class="headline-label">🔖 Headline:</span> Quick Stats — ตัวเลขสรุปของสัปดาห์นี้<br>
   <span class="headline-label">📋 คืออะไร:</span> ตารางสรุปตัวเลขสำคัญ (โพสทั้งหมด, เพจ active, engagement, views, top brand)<br>
   <span class="headline-label">🎯 เพื่ออะไร:</span> ให้ผู้อ่านเห็นภาพรวม 1 นาที
 </div>
-<table class="tier2-table">
-<tr><th>Metric</th><th style="text-align:right">Value</th></tr>
-<tr><td class="brand-cell">โพสทั้งหมด</td><td style="text-align:right;font-weight:bold">178 posts</td></tr>
-<tr><td class="brand-cell">เพจที่ active</td><td style="text-align:right;font-weight:bold">15 เพจ</td></tr>
-<tr><td class="brand-cell">Engagement คู่แข่งรวม</td><td style="text-align:right;font-weight:bold">3,805 interactions</td></tr>
-<tr><td class="brand-cell">Engagement Self รวม (Nissan)</td><td style="text-align:right;font-weight:bold;color:#c3002f">610 interactions</td></tr>
-<tr><td class="brand-cell">Total Engagement</td><td style="text-align:right;font-weight:bold">4,415 interactions</td></tr>
-<tr><td class="brand-cell">เพจที่โพสเยอะสุด</td><td style="text-align:right"><strong>isuzutp</strong> (16 โพส)</td></tr>
-<tr><td class="brand-cell">โพสที่ engagement สูงสุด (Top 1)</td><td style="text-align:right"><strong>siamnissanubondautogroup</strong></td></tr>
-<tr><td class="brand-cell">Engagement สูงสุด (Top 1 โพส)</td><td style="text-align:right;font-weight:bold;color:#c3002f">233 interactions</td></tr>
-</table>
-<h2>2. 🌐 ภาพรวมความเคลื่อนไหว</h2>
+<div class="stat-grid">
+  <div class="stat-card">
+    <div class="stat-label">โพสทั้งหมด</div>
+    <div class="stat-value">178</div>
+    <div class="stat-sub">posts ทั้งหมดในรอบสัปดาห์</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-label">เพจที่ active</div>
+    <div class="stat-value">15</div>
+    <div class="stat-sub">เพจจาก 17 เพจในระบบ</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-label">Engagement คู่แข่ง</div>
+    <div class="stat-value">3,805</div>
+    <div class="stat-sub">รวม 13 ค่าย</div>
+  </div>
+  <div class="stat-card highlight">
+    <div class="stat-label">Engagement Nissan (Self)</div>
+    <div class="stat-value">610</div>
+    <div class="stat-sub">16.1% of total market</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-label">Total Engagement</div>
+    <div class="stat-value">4,415</div>
+    <div class="stat-sub">ทุก brand รวมกัน</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-label">เพจโพสเยอะสุด</div>
+    <div class="stat-value">16</div>
+    <div class="stat-sub">isuzutp</div>
+  </div>
+  <div class="stat-card highlight">
+    <div class="stat-label">Engagement สูงสุด</div>
+    <div class="stat-value">233</div>
+    <div class="stat-sub">Nissan e-POWER @ Central Ubon</div>
+  </div>
+</div>
+
+</div><div class="section-card" id="sec-2">
+  <div class="section-card-header">
+    <span class="section-num">2</span>
+    <h2>🌐 ภาพรวมความเคลื่อนไหว</h2>
+  </div>
 <div class="headline">
   <span class="headline-label">🔖 Headline:</span> ภาพรวมความเคลื่อนไหว — เทรนด์สำคัญของสัปดาห์<br>
   <span class="headline-label">📋 คืออะไร:</span> สรุป 3-5 เทรนด์/ธีมหลักที่เห็นในโพสต์คู่แข่งทั้งหมด<br>
@@ -163,7 +738,12 @@ table.roadshow-table:not(.tier2-table) { table-layout: fixed; }
 
 
 
-<h2>3. 🎪 กิจกรรม Roadshow / อีเวนต์</h2>
+
+</div><div class="section-card" id="sec-3">
+  <div class="section-card-header">
+    <span class="section-num">3</span>
+    <h2>🎪 กิจกรรม Roadshow / อีเวนต์</h2>
+  </div>
 <div class="headline">
   <span class="headline-label">🔖 Headline:</span> Roadshow & อีเวนต์ — กิจกรรมที่คู่แข่งจัดในสัปดาห์นี้<br>
   <span class="headline-label">📋 คืออะไร:</span> ตาราง event (event + venue + วันที่) พร้อม URL อ้างอิง<br>
@@ -262,7 +842,12 @@ table.roadshow-table:not(.tier2-table) { table-layout: fixed; }
 <!-- BYD ATTO 3 Premium row ถูกตัดออกเพราะ venue = "ไม่ระบุ" (ตัดตาม user preference 12 Jul 2026) -->
 </tbody></table>
 
-<h2>4. 📊 ตารางสรุปคู่แข่งรายแบรนด์</h2>
+
+</div><div class="section-card" id="sec-4">
+  <div class="section-card-header">
+    <span class="section-num">4</span>
+    <h2>📊 ตารางสรุปคู่แข่งรายแบรนด์</h2>
+  </div>
 <div class="headline">
   <span class="headline-label">🔖 Headline:</span> ตารางสรุปคู่แข่งรายแบรนด์ — ภาพรวมกิจกรรม/โปรโมชั่น/engagement<br>
   <span class="headline-label">📋 คืออะไร:</span> ตาราง aggregate ตาม Brand (รวม Facebook Page ของแต่ละ brand) — posts, engagement, format, top topics<br>
@@ -408,9 +993,14 @@ table.roadshow-table:not(.tier2-table) { table-layout: fixed; }
 </tbody>
 </table>
 
-<h2>5. 🪞 Self Analysis (Nissan Ubon - Siam Nissan Dauto Group)</h2>
-<div class="headline">
-  <span class="headline-label">🔖 Headline:</span> Self Analysis — Nissan dealer activity + own roadshows + benchmark<br>
+
+</div><div class="section-card" id="sec-5">
+  <div class="section-card-header">
+    <span class="section-num">5</span>
+    <h2>🪞 Self Analysis (Nissan Ubon - Siam Nissan Dauto Group)</h2>
+  </div>
+  <div class="headline">
+    <span class="headline-label">🔖 Headline:</span> Self Analysis — Nissan dealer activity + own roadshows + benchmark<br>
   <span class="headline-label">📋 คืออะไร:</span> ตาราง Nissan (Self) ทุกมิติ (dealer posts + roadshow + benchmark vs Top 3 Competitors + actionable insight)<br>
   <span class="headline-label">🎯 เพื่ออะไร:</span> ให้ทีมเห็น Nissan activity ครบ — ทั้ง regular posting, roadshow ที่กำลังจัด, และ gap vs top competitors<br>
   <em>Ubon มี Nissan dealer เพียง 1 สาขา (Siam Nissan Dauto Group - อุบลราชธานี)</em>
@@ -542,7 +1132,7 @@ table.roadshow-table:not(.tier2-table) { table-layout: fixed; }
 </tbody>
 </table>
 
-<div class="priority-high">
+<div class="insight-box danger">
 <strong>📌 Actionable Insight (Self vs Top 3):</strong>
 <ul>
 <li>Nissan อยู่อันดับ 3 จาก 15 แบรนด์ ใน Total Engagement (610) — เป็นรอง isuzutp (825) และ DeepalMongkolUbon (675)</li>
@@ -552,7 +1142,12 @@ table.roadshow-table:not(.tier2-table) { table-layout: fixed; }
 </ul>
 </div>
 
-<h2>6. 🔥 โพสต์เด่นที่ควรเรียนรู้</h2>
+
+</div><div class="section-card" id="sec-6">
+  <div class="section-card-header">
+    <span class="section-num">6</span>
+    <h2>🔥 โพสต์เด่นที่ควรเรียนรู้</h2>
+  </div>
 <div class="headline">
   <span class="headline-label">🔖 Headline:</span> โพสต์เด่น — Top 3 โพสต์คู่แข่งที่ควรเรียนรู้<br>
   <span class="headline-label">📋 คืออะไร:</span> โพสต์ 3 อันดับแรกที่มี engagement สูงสุด + URL + snippet<br>
@@ -583,7 +1178,12 @@ table.roadshow-table:not(.tier2-table) { table-layout: fixed; }
     <li><strong>นำมาปรับใช้กับ Nissan:</strong> ทำ <strong>Reel เปรียบเทียบ "Kicks e-POWER vs Kicks เบนซิน"</strong> ในรูปแบบเดียวกัน (HEV vs ICE) — Nissan มี Kicks e-POWER เป็น <strong>hybrid 100% ที่ขับได้โดยไม่ต้องชาร์จ</strong> เป็น positioning ที่ตอบโจทย์คนกลัวชาร์จ EV ได้ตรงเป๊ะ — Toyota ทำให้ Yaris HEV viral (141 eng), Nissan ทำให้ Kicks e-POWER viral ได้เหมือนกัน</li>
 </ul>
 
-<h2>7. ⚠️ โอกาสและภัยคุกคาม</h2>
+
+</div><div class="section-card" id="sec-7">
+  <div class="section-card-header">
+    <span class="section-num">7</span>
+    <h2>⚠️ โอกาสและภัยคุกคาม</h2>
+  </div>
 <div class="headline">
   <span class="headline-label">🔖 Headline:</span> โอกาสและภัยคุกคาม — สิ่งที่ Nissan ต้องระวังและคว้าไว้<br>
   <span class="headline-label">📋 คืออะไร:</span> Signals จากโพสต์คู่แข่งที่บ่งบอกถึงการคุกคามหรือโอกาส<br>
@@ -606,40 +1206,50 @@ table.roadshow-table:not(.tier2-table) { table-layout: fixed; }
   <li><strong>Suzuki/Geely/Mazda มีโพสน้อยมาก</strong> (3-6 โพส) — ตลาดเปิดให้ Nissan claim share</li>
 </ul>
 
-<h2>8. 🎯 ข้อเสนอแนะสำหรับ NISSAN UBON (Siam Nissan Dauto Group)</h2>
+
+</div><div class="section-card" id="sec-8">
+  <div class="section-card-header">
+    <span class="section-num">8</span>
+    <h2>🎯 ข้อเสนอแนะสำหรับ NISSAN UBON (Siam Nissan Dauto Group)</h2>
+  </div>
 <div class="headline">
   <span class="headline-label">🔖 Headline:</span> ข้อเสนอแนะ — Action plan สำหรับทีม Marketing<br>
   <span class="headline-label">📋 คืออะไร:</span> รายการ action items แยกตาม Priority (สูง/กลาง/ต่ำ)<br>
   <span class="headline-label">🎯 เพื่ออะไร:</span> ทีม Marketing มี to-do list actionable
 </div>
 
-<div class="priority-high">
+<div class="priority-card high"><span class="badge">HIGH</span><div>
 <strong>🔴 Priority สูง (ทำทันที):</strong>
 <ol>
   <li>เปิด EV conversation — ดัน Kicks e-POWER / X-Trail e-POWER เป็น "EV alternative" ที่ขับได้โดยไม่ต้องชาร์จ</li>
   <li>ทดลอง Facebook Live 1-2 รอบ ในสัปดาห์หน้า (12-13 ก.ค. ช่วงเย็น) — ใช้รูปแบบ Isuzu ที่ได้ 825 interactions ต่อ 1 โพส</li>
   <li>เพิ่ม Reel/TikTok ทุกวันในช่วง 7-16 ก.ค. ขณะอยู่บูธ Central Ubon</li>
 </ol>
-</div>
+</div></div>
 
-<div class="priority-med">
+<div class="priority-card med"><span class="badge">MED</span><div>
 <strong>🟠 Priority กลาง (1-2 สัปดาห์):</strong>
 <ol start="4">
   <li>ทำ post-event recap หลัง 16 ก.ค. — สรุปว่าใครมางานบ้าง, engagement ที่ได้</li>
   <li>ทำ Nissan Care Day ที่โชว์รูม — ต่อยอดคอนเทนต์เซอร์วิสที่ทำได้ผลดี</li>
   <li>เปรียบเทียบ Nissan Kicks e-POWER vs TOYOTA Yaris Cross HEV vs BYD Atto 3 ในรูปแบบ Reel</li>
 </ol>
-</div>
+</div></div>
 
-<div class="priority-low">
+<div class="priority-card low"><span class="badge">LOW</span><div>
 <strong>🟣 Priority ต่ำ (พิจารณา):</strong>
 <ol start="7">
   <li>เตรียม positioning "ทางเลือกที่สาม ระหว่าง ICE กับ EV" รอรับ Geely (TTTO Group) เมื่อขยายเข้าอุบล</li>
   <li>ติดตาม Suzuki/Mazda/Geely (โพสน้อยมาก 3-6 โพส) — พื้นที่ยังเปิดให้ Nissan claim share</li>
 </ol>
-</div>
+</div></div>
 
-<h2>9. 📈 กราฟวิเคราะห์ Engagement และ Positioning</h2>
+
+</div><div class="section-card" id="sec-9">
+  <div class="section-card-header">
+    <span class="section-num">9</span>
+    <h2>📈 กราฟวิเคราะห์ Engagement และ Positioning</h2>
+  </div>
 <div class="headline">
   <span class="headline-label">🔖 Headline:</span> กราฟวิเคราะห์ Engagement และ Positioning — 7 มิติเปรียบเทียบ Nissan กับคู่แข่ง<br>
   <span class="headline-label">📋 คืออะไร:</span> กราฟ 9.1-9.7 (Nissan (Self) แยก bar สุดท้าย)<br>
@@ -836,11 +1446,15 @@ new Chart(document.getElementById('chartPromo'), {
 </ul>
 </div>
 
-<div class="footer">
-<p>📊 รายงาน Nissan Ubon (TEST BUILD) — สัปดาห์ 05 Jul 2026 ถึง 11 Jul 2026</p>
-<p>🕐 เวลาวิเคราะห์: 2026-07-11 11:33 UTC</p>
-<p>👤 สร้างโดย: Tatchanon Wissawakornrungrot, Regional Marketing Manager at Nissan Motor (Thailand)</p>
+
+</div><div class="brief-footer">
+  <div class="brand-line">
+    <strong>👤 สร้างโดย:</strong> Tatchanon Wissawakornrungrot — Regional Marketing Manager, Nissan Motor (Thailand)
+  </div>
+  <div>📊 Nissan Ubon Weekly Competitor Brief · สัปดาห์ 05–11 Jul 2026</div>
 </div>
+  </div><!-- /brief-content -->
+</div><!-- /brief-wrap -->
 
 <script>
 // Tier 2 mobile-friendly JS for Section 4 (Brand Breakdown) + Section 5 (Benchmark)
@@ -916,3 +1530,79 @@ new Chart(document.getElementById('chartPromo'), {
   initSortable('tier2Benchmark', { col: 'eng', dir: 'desc' });
 })();
 </script>
+
+
+
+<script>
+// Scroll-spy for TOC active state
+(function() {
+  const tocLinks = document.querySelectorAll('.toc a');
+  const sections = document.querySelectorAll('.section-card[id]');
+  if (!tocLinks.length || !sections.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        tocLinks.forEach(l => {
+          l.classList.toggle('active', l.getAttribute('href') === '#' + id);
+        });
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px', threshold: 0 });
+
+  sections.forEach(s => observer.observe(s));
+})();
+</script>
+
+<script>
+// 🌗 Dark Mode Toggle (12 Jul 2026)
+(function() {
+  const STORAGE_KEY = 'nissan-report-theme';
+  const html = document.documentElement;
+  const toggleBtn = document.getElementById('themeToggle');
+  if (!toggleBtn) return;
+
+  // 1. Read saved preference (overrides everything)
+  const saved = localStorage.getItem(STORAGE_KEY);
+
+  function applyTheme(state) {
+    // state: 'light' | 'dark' | 'auto'
+    if (state === 'dark') {
+      html.classList.add('dark');
+      html.classList.remove('light');
+    } else if (state === 'light') {
+      html.classList.add('light');
+      html.classList.remove('dark');
+    } else {
+      // auto — remove both, let prefers-color-scheme decide
+      html.classList.remove('dark');
+      html.classList.remove('light');
+    }
+    html.dataset.theme = state;
+  }
+
+  // Initial: apply saved pref if exists, otherwise 'auto'
+  applyTheme(saved || 'auto');
+
+  // 2. Toggle button cycles: auto → light → dark → auto
+  toggleBtn.addEventListener('click', function() {
+    const current = html.dataset.theme || 'auto';
+    let next;
+    if (current === 'auto') next = 'light';
+    else if (current === 'light') next = 'dark';
+    else next = 'auto';
+    applyTheme(next);
+    localStorage.setItem(STORAGE_KEY, next);
+    // Update aria-label for accessibility
+    const label = next === 'dark' ? 'Switch to auto theme' :
+                  next === 'light' ? 'Switch to dark theme' :
+                  'Switch to light theme';
+    toggleBtn.setAttribute('aria-label', label);
+    toggleBtn.setAttribute('title', label);
+  });
+})();
+</script>
+
+</body>
+</html>
