@@ -1282,12 +1282,12 @@ table.roadshow-table:not(.tier2-table) { table-layout: fixed; }
 
 <h3>9.4 Bubble Chart: Posts vs Engagement</h3>
 <div class="headline">
-  <span class="headline-label">🔖 Headline:</span> 9.4 Bubble Chart — Video content ช่วย engagement จริงไหม?<br>
+  <span class="headline-label">🔖 Headline:</span> 9.4 Bubble Chart — ใครทำ engagement ต่อโพสได้ดีที่สุด?<br>
   <span class="headline-label">📋 คืออะไร:</span> Posts (X) vs Engagement (Y) ขนาดฟอง = engagement per post (eng/post)<br>
   <span class="headline-label">📐 วิธีอ่าน:</span> แกน X = จำนวน Posts, แกน Y = Total Engagement · <strong>ขนาดฟอง = engagement per post</strong> (ฟองใหญ่ = brand ที่ทำได้ดีต่อโพส, ฟองเล็ก = brand ที่ต้องโพสเยอะถึงจะได้ engagement) · ฟองใหญ่มุมขวาล่าง = scale winner (eng สูง + eff โพสดี)<br>
-  <span class="headline-label">🎯 เพื่ออะไร:</span> ทดสอบ hypothesis video → engagement
+  <span class="headline-label">🎯 เพื่ออะไร:</span> หา "scale winner" — brand ที่ใช้ทุกโพสได้คุ้มค่า (eng/post สูง = brand นั้นไม่ต้องโพสเยอะก็ได้ eng ดี)
 </div>
-<div class="chart-container"><div class="chart-title">📊 9.4 Bubble Chart</div><canvas id="chartBubble"></canvas></div>
+<div class="chart-container"><div class="chart-title">📊 9.4 Bubble Chart: Posts vs Engagement (ขนาดฟอง = Engagement per Post)</div><canvas id="chartBubble"></canvas></div>
 
 <h3>9.5 Topic Mix (Stacked Bar 100%)</h3>
 <div class="headline">
@@ -1372,7 +1372,6 @@ new Chart(document.getElementById('chartEngagementBreakdown'), {
   options: { responsive: true, scales: { x: { stacked: true, ...tickOpts }, y: { stacked: true } } }
 });
 
-// 9.4 Bubble Chart
 // 9.4 Bubble Chart — size = engagement per post
 new Chart(document.getElementById('chartBubble'), {
   type: 'bubble',
