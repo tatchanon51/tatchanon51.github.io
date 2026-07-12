@@ -1283,7 +1283,8 @@ table.roadshow-table:not(.tier2-table) { table-layout: fixed; }
 <h3>9.4 Bubble Chart: Posts vs Engagement</h3>
 <div class="headline">
   <span class="headline-label">🔖 Headline:</span> 9.4 Bubble Chart — Video content ช่วย engagement จริงไหม?<br>
-  <span class="headline-label">📋 คืออะไร:</span> Posts (X) vs Engagement (Y) ขนาดฟอง = video posts<br>
+  <span class="headline-label">📋 คืออะไร:</span> Posts (X) vs Engagement (Y) ขนาดฟอง = engagement per post (eng/post)<br>
+  <span class="headline-label">📐 วิธีอ่าน:</span> แกน X = จำนวน Posts, แกน Y = Total Engagement · <strong>ขนาดฟอง = engagement per post</strong> (ฟองใหญ่ = brand ที่ทำได้ดีต่อโพส, ฟองเล็ก = brand ที่ต้องโพสเยอะถึงจะได้ engagement) · ฟองใหญ่มุมขวาล่าง = scale winner (eng สูง + eff โพสดี)<br>
   <span class="headline-label">🎯 เพื่ออะไร:</span> ทดสอบ hypothesis video → engagement
 </div>
 <div class="chart-container"><div class="chart-title">📊 9.4 Bubble Chart</div><canvas id="chartBubble"></canvas></div>
@@ -1372,13 +1373,14 @@ new Chart(document.getElementById('chartEngagementBreakdown'), {
 });
 
 // 9.4 Bubble Chart
-const palette = ['#c3002f','#1976d2','#388e3c','#f57c00','#7b1fa2','#0097a7','#5d4037','#e91e63','#fbc02d','#0d47a1','#827717','#4e342e','#bf360c','#1b5e20','#3e2723'];
+// 9.4 Bubble Chart — size = engagement per post
 new Chart(document.getElementById('chartBubble'), {
   type: 'bubble',
   data: { datasets: brands.map(function(b, i) {
+    const epp = posts[i] > 0 ? totalEng[i] / posts[i] : 0;  // engagement per post
     return {
       label: b,
-      data: [{ x: posts[i], y: totalEng[i], r: Math.sqrt((reels[i] + videos[i]) * 8) + 5 }],
+      data: [{ x: posts[i], y: totalEng[i], r: Math.sqrt(epp * 8) + 5 }],
       backgroundColor: palette[i % palette.length] + '80',
       borderColor: palette[i % palette.length],
       borderWidth: 2
@@ -1439,7 +1441,7 @@ new Chart(document.getElementById('chartPromo'), {
 <li><strong>9.1:</strong> Nissan (Self) อยู่อันดับ 3 จาก 15 แบรนด์ (610 engagement) ตามหลัง Isuzu (825) และ Deepal (675)</li>
 <li><strong>9.2:</strong> Nissan eng/post = 33.9 สูงกว่าค่าเฉลี่ย 26.4 — content quality ดี แต่ quantity น้อย</li>
 <li><strong>9.3:</strong> Nissan comments ต่ำ (51) เทียบกับ Isuzu (625) — ขาด conversation starter</li>
-<li><strong>9.4:</strong> Nissan bubble ขนาดกลาง (7 reels) — video content ใช้พอประมาณ</li>
+<li><strong>9.4:</strong> Nissan bubble ขนาดกลาง (eng/post ปานกลาง) — มี scale ที่ดีแต่ยังไม่ถึง top</li>
 <li><strong>9.5:</strong> Nissan 0% EV content — critical gap vs BYD 100%, Deepal 85%, AION 77%</li>
 <li><strong>9.6:</strong> Nissan ใช้ Reel 7/18 = 39% (สูงสุดในบรรดา brand ที่ engagement สูง)</li>
 <li><strong>9.7:</strong> Nissan ใช้ Price promo 12 ครั้ง + Roadshow 8 ครั้ง — promotional mix หนักไปทาง price/event</li>
