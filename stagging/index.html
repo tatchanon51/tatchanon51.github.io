@@ -61,6 +61,58 @@
   --shadow-xl: 0 16px 40px rgba(10,14,26,0.12), 0 4px 8px rgba(10,14,26,0.06);
 }
 
+/* ===== GLOBAL TABLE STYLES (Tier C — ทุกตารางใน brief ใช้รูปแบบเดียวกัน 13 Jul 2026) ===== */
+.section-card > table,
+.section-card > div > table,
+.section-card table.tier2-table {
+  width: 100%; border-collapse: separate; border-spacing: 0;
+  font-size: 14px; border: 1px solid var(--ink-200);
+  border-radius: var(--r-md); overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  margin: var(--sp-3) 0;
+}
+.section-card thead,
+.section-card table.tier2-table thead {
+  background: linear-gradient(135deg, var(--nmt-red) 0%, var(--nmt-red-dark) 100%);
+  color: white;
+}
+.section-card thead th,
+.section-card table.tier2-table thead th {
+  padding: 12px; text-align: left; font-weight: 600;
+  letter-spacing: 0.3px; text-shadow: 0 1px 1px rgba(0,0,0,0.15);
+  cursor: pointer; user-select: none; position: relative;
+}
+.section-card thead th:hover,
+.section-card table.tier2-table thead th:hover {
+  background: rgba(255,255,255,0.12);
+}
+.section-card tbody tr,
+.section-card table.tier2-table tbody tr {
+  transition: background 0.15s ease;
+}
+.section-card tbody tr:nth-child(odd),
+.section-card table.tier2-table tbody tr:nth-child(odd) {
+  background: var(--bg-surface);
+}
+.section-card tbody tr:nth-child(even),
+.section-card table.tier2-table tbody tr:nth-child(even) {
+  background: var(--ink-50);
+}
+.section-card tbody tr:hover,
+.section-card table.tier2-table tbody tr:hover {
+  background: var(--nmt-red-soft) !important;
+}
+.section-card tbody td,
+.section-card table.tier2-table tbody td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--ink-100);
+  vertical-align: middle;
+}
+.section-card tbody tr:last-child td,
+.section-card table.tier2-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
 /* ---------- Base + Typography ---------- */
 *,*::before,*::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
