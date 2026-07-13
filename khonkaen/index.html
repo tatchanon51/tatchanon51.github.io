@@ -676,29 +676,47 @@ const observer = new IntersectionObserver((entries) => {
 }, { rootMargin: '-20% 0px -70% 0px', threshold: 0 });
 document.querySelectorAll('.section-card[id]').forEach(s => observer.observe(s));
 
-// Sortable tables
-document.querySelectorAll('thead th').forEach((th, colIdx) => {
-  th.addEventListener('click', () => {
-    const table = th.closest('table');
-    const tbody = table.querySelector('tbody');
-    const rows = Array.from(tbody.querySelectorAll('tr'));
-    const sorted = rows.sort((a, b) => {
-      const av = a.cells[colIdx]?.innerText || '';
-      const bv = b.cells[colIdx]?.innerText || '';
-      const an = parseFloat(av.replace(/[^0-9.-]/g, ''));
-      const bn = parseFloat(bv.replace(/[^0-9.-]/g, ''));
-      if (!isNaN(an) && !isNaN(bn)) return an - bn;
-      return av.localeCompare(bv, 'th');
+// Sortable tables (Pitfall 49 — scope to each table, validate cell exists)
+document.querySelectorAll('.section-card > table').forEach((table) => {
+  table.querySelectorAll('thead th').forEach((th, colIdx) => {
+    th.addEventListener('click', () => {
+      const tbody = table.querySelector('tbody');
+      const rows = Array.from(tbody.querySelectorAll('tr'));
+      const sorted = rows.sort((a, b) => {
+        const ac = a.cells[colIdx];
+        const bc = b.cells[colIdx];
+        // Pitfall 49: validate cell exists before accessing innerText
+        if (!ac || !bc) return 0;
+        const av = ac.innerText || '';
+        const bv = bc.innerText || '';
+        // Try numeric sort first (extract leading number from string)
+        function parseNum(s) {
+          if (!s) return NaN;
+          const cleaned = String(s).replace(/[^0-9.\-]/g, '');
+          // If multiple dots (e.g., "365.7.24" from "365.7 (24)"), keep only first dot
+          const firstDot = cleaned.indexOf('.');
+          if (firstDot >= 0) {
+            const before = cleaned.slice(0, firstDot + 1);
+            const after = cleaned.slice(firstDot + 1).replace(/\./g, '');
+            return parseFloat(before + after);
+          }
+          return parseFloat(cleaned);
+        }
+        const an = parseNum(av);
+        const bn = parseNum(bv);
+        if (!isNaN(an) && !isNaN(bn) && av.trim() !== '' && bv.trim() !== '') return an - bn;
+        return av.localeCompare(bv, 'th');
+      });
+      if (th.classList.contains('sorted-asc')) {
+        sorted.reverse();
+        th.classList.remove('sorted-asc');
+        th.classList.add('sorted-desc');
+      } else {
+        th.classList.remove('sorted-desc');
+        th.classList.add('sorted-asc');
+      }
+      sorted.forEach(r => tbody.appendChild(r));
     });
-    if (th.classList.contains('sorted-asc')) {
-      sorted.reverse();
-      th.classList.remove('sorted-asc');
-      th.classList.add('sorted-desc');
-    } else {
-      th.classList.remove('sorted-desc');
-      th.classList.add('sorted-asc');
-    }
-    sorted.forEach(r => tbody.appendChild(r));
   });
 });
 </script>
