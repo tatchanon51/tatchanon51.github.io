@@ -222,6 +222,73 @@ tbody td {
   margin-bottom: 8px;
 }
 canvas { max-width: 100%; }
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin: 8px 0 0;
+}
+.metric-card {
+  background: var(--ink-50);
+  padding: 16px 12px;
+  border-radius: 8px;
+  text-align: center;
+  border: 1px solid transparent;
+  transition: all 0.15s;
+}
+.metric-card:hover {
+  border-color: var(--nmt-red-mid);
+  transform: translateY(-1px);
+}
+.metric-label {
+  font-size: 11px;
+  color: var(--ink-500);
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+.metric-value {
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--nmt-red);
+  line-height: 1.1;
+}
+.metric-sub {
+  font-size: 10px;
+  color: var(--ink-500);
+  margin-top: 4px;
+}
+.metric-value.good { color: #388E3C; }
+.metric-value.bad { color: var(--nmt-red); }
+
+.event-type {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--ink-100);
+  color: var(--ink-700);
+}
+.event-type.motor-show { background: #FFE0B2; color: #E65100; }
+.event-type.roadshow { background: #F8BBD0; color: #AD1457; }
+.event-type.test-drive { background: #C5E1A5; color: #33691E; }
+.event-type.booth { background: #B3E5FC; color: #01579B; }
+.event-type.event { background: #E1BEE7; color: #4A148C; }
+
+.venue-pill {
+  display: inline-block;
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  background: var(--nmt-red-soft);
+  color: var(--nmt-red);
+}
+.venue-pill.unknown {
+  background: var(--ink-100);
+  color: var(--ink-500);
+}
+
 insight {
   background: var(--nmt-red-soft);
   border-left: 4px solid var(--nmt-red);
@@ -262,8 +329,8 @@ insight {
 </head>
 <body>
 
-<!-- HERO -->
-<div class="hero">
+<!-- HERO (Section 1) -->
+<div class="hero" id="sec-1">
   <h1>📊 รายงาน Nissan นครพนม — Premium Brief</h1>
   <div class="hero-meta">สัปดาห์ 06-13 ก.ค. 2569 · อัปเดต 13 Jul 2026</div>
   <div class="hero-chips">
@@ -303,23 +370,23 @@ insight {
       <div class="headline"><span class="headline-label">🔖 Headline:</span> Nissan vs คู่แข่ง — ตำแหน่งและประสิทธิภาพในตลาด<br>
       <span class="headline-label">📋 คืออะไร:</span> 4 metric สรุปสถานะ Nissan เทียบกับตลาด<br>
       <span class="headline-label">🎯 เพื่ออะไร:</span> Quick view สำหรับ execs — รู้ทันทีว่า Nissan อยู่จุดไหน</div>
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:14px;margin-top:8px">
-        <div style="background:var(--ink-50);padding:16px 12px;border-radius:8px;text-align:center">
-          <div style="font-size:11px;color:var(--ink-500);margin-bottom:6px">📊 Nissan Rank</div>
-          <div style="font-size:32px;font-weight:700;color:var(--nmt-red)">#3 of 5</div>
-          <div style="font-size:10px;color:var(--ink-500);margin-top:4px">ลำดับ Total Engagement</div></div>
-        <div style="background:var(--ink-50);padding:16px 12px;border-radius:8px;text-align:center">
-          <div style="font-size:11px;color:var(--ink-500);margin-bottom:6px">⚡ Nissan Eng/Post</div>
-          <div style="font-size:32px;font-weight:700;color:var(--nmt-red)">4</div>
-          <div style="font-size:10px;color:var(--ink-500);margin-top:4px">40 eng / 10 posts</div></div>
-        <div style="background:var(--ink-50);padding:16px 12px;border-radius:8px;text-align:center">
-          <div style="font-size:11px;color:var(--ink-500);margin-bottom:6px">🎯 Top 3 Avg (Eng/Post)</div>
-          <div style="font-size:32px;font-weight:700;color:#C3002F">6.3</div>
-          <div style="font-size:10px;color:var(--ink-500);margin-top:4px">Top 3 เหนือกว่า Nissan Nissan · TOYOTA, Isuzu, Honda</div></div>
-        <div style="background:var(--ink-50);padding:16px 12px;border-radius:8px;text-align:center">
-          <div style="font-size:11px;color:var(--ink-500);margin-bottom:6px">📈 Market Share</div>
-          <div style="font-size:32px;font-weight:700;color:var(--nmt-red)">14.8%</div>
-          <div style="font-size:10px;color:var(--ink-500);margin-top:4px">Nissan / Total Eng</div></div>
+      <div class="metric-grid">
+        <div class="metric-card">
+          <div class="metric-label">📊 Nissan Rank</div>
+          <div class="metric-value">#3 of 5</div>
+          <div class="metric-sub">ลำดับ Total Engagement</div></div>
+        <div class="metric-card">
+          <div class="metric-label">⚡ Nissan Eng/Post</div>
+          <div class="metric-value">4</div>
+          <div class="metric-sub">40 eng / 10 posts</div></div>
+        <div class="metric-card">
+          <div class="metric-label">🎯 Top 3 Avg (Eng/Post)</div>
+          <div class="metric-value bad">6.3</div>
+          <div class="metric-sub">Top 3 เหนือกว่า Nissan · TOYOTA, Isuzu, Honda</div></div>
+        <div class="metric-card">
+          <div class="metric-label">📈 Market Share</div>
+          <div class="metric-value">14.8%</div>
+          <div class="metric-sub">Nissan / Total Eng</div></div>
       </div>
     </div>
     <div class="section-card" id="sec-3">
@@ -330,33 +397,33 @@ insight {
       <tbody><tr>
       <td class="brand-cell" style="border-color:var(--nmt-red);border-width:2px">Nissan (Self)</td>
       <td style="font-size:11px">นิสสันนครพนม - Nissan Nakhon Phanom</td>
-      <td style="font-size:13px"><strong>BIG Motor Show</strong></td>
+      <td><span class="event-type motor-show">BIG Motor Show</span></td>
       <td style="font-weight:600;color:var(--nmt-red);font-size:12px;white-space:nowrap">11 - 14 กรกฎาคม 2569</td>
-      <td style="font-size:12px;font-weight:600">BIG C นครพนม</td>
+      <td><span class="venue-pill ">BIG C นครพนม</span></td>
       <td style="text-align:center;font-weight:bold">27</td>
       <td><a href="https://www.facebook.com/NissanNKP/posts/pfbid02XCsgokv4f29H1iwnRX82iMCHNGpoxJd8vsJSGgXeEAU2icuhnAr1fovZjki5NbEJl" target="_blank">ดูโพสต์</a></td>
     </tr><tr>
       <td class="brand-cell" style="">Isuzu</td>
       <td style="font-size:11px">อีซูซุนครพนม ISUZU Nakhon Phanom</td>
-      <td style="font-size:13px"><strong>บูธโชว์รถ</strong></td>
+      <td><span class="event-type event">บูธโชว์รถ</span></td>
       <td style="font-weight:600;color:var(--nmt-red);font-size:12px;white-space:nowrap">วันที่ 13 กรกฎาคม 2569</td>
-      <td style="font-size:12px;font-weight:600">ปตท.</td>
+      <td><span class="venue-pill ">ปตท.</span></td>
       <td style="text-align:center;font-weight:bold">14</td>
       <td><a href="https://www.facebook.com/isuzunakhonphanom/posts/pfbid025ZS6Sf4k6thmGnzVSNDehn7E2cwcbEc12AH1NtniZWPF2BQTv7rFFWDVRJU4mefHl" target="_blank">ดูโพสต์</a></td>
     </tr><tr>
       <td class="brand-cell" style="">Isuzu</td>
       <td style="font-size:11px">อีซูซุนครพนม ISUZU Nakhon Phanom</td>
-      <td style="font-size:13px"><strong>บูธโชว์รถ</strong></td>
+      <td><span class="event-type event">บูธโชว์รถ</span></td>
       <td style="font-weight:600;color:var(--nmt-red);font-size:12px;white-space:nowrap">วันที่ 10 กรกฎาคม 2569</td>
-      <td style="font-size:12px;font-weight:600">นครพนม</td>
+      <td><span class="venue-pill ">นครพนม</span></td>
       <td style="text-align:center;font-weight:bold">10</td>
       <td><a href="https://www.facebook.com/isuzunakhonphanom/posts/pfbid0TzZdDEEiHcmE4YcpCTNP3cu3J2JnMRQdcF6aLwX1MAnobkpmrq1bKmjHTW6t9V73l" target="_blank">ดูโพสต์</a></td>
     </tr><tr>
       <td class="brand-cell" style="">Isuzu</td>
       <td style="font-size:11px">อีซูซุนครพนม ISUZU Nakhon Phanom</td>
-      <td style="font-size:13px"><strong>บูธโชว์รถ</strong></td>
+      <td><span class="event-type event">บูธโชว์รถ</span></td>
       <td style="font-weight:600;color:var(--nmt-red);font-size:12px;white-space:nowrap">วันที่ 11 กรกฎาคม 2569</td>
-      <td style="font-size:12px;font-weight:600">นครพนม</td>
+      <td><span class="venue-pill ">นครพนม</span></td>
       <td style="text-align:center;font-weight:bold">7</td>
       <td><a href="https://www.facebook.com/isuzunakhonphanom/posts/pfbid02u1dvW697whRkh59uxAUVjboRAdaS4Ga24LM5KjKxG547qpMD1AuokqRLuY6hpTiMl" target="_blank">ดูโพสต์</a></td>
     </tr></tbody></table>

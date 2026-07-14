@@ -222,6 +222,73 @@ tbody td {
   margin-bottom: 8px;
 }
 canvas { max-width: 100%; }
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin: 8px 0 0;
+}
+.metric-card {
+  background: var(--ink-50);
+  padding: 16px 12px;
+  border-radius: 8px;
+  text-align: center;
+  border: 1px solid transparent;
+  transition: all 0.15s;
+}
+.metric-card:hover {
+  border-color: var(--nmt-red-mid);
+  transform: translateY(-1px);
+}
+.metric-label {
+  font-size: 11px;
+  color: var(--ink-500);
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+.metric-value {
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--nmt-red);
+  line-height: 1.1;
+}
+.metric-sub {
+  font-size: 10px;
+  color: var(--ink-500);
+  margin-top: 4px;
+}
+.metric-value.good { color: #388E3C; }
+.metric-value.bad { color: var(--nmt-red); }
+
+.event-type {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--ink-100);
+  color: var(--ink-700);
+}
+.event-type.motor-show { background: #FFE0B2; color: #E65100; }
+.event-type.roadshow { background: #F8BBD0; color: #AD1457; }
+.event-type.test-drive { background: #C5E1A5; color: #33691E; }
+.event-type.booth { background: #B3E5FC; color: #01579B; }
+.event-type.event { background: #E1BEE7; color: #4A148C; }
+
+.venue-pill {
+  display: inline-block;
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  background: var(--nmt-red-soft);
+  color: var(--nmt-red);
+}
+.venue-pill.unknown {
+  background: var(--ink-100);
+  color: var(--ink-500);
+}
+
 insight {
   background: var(--nmt-red-soft);
   border-left: 4px solid var(--nmt-red);
@@ -262,8 +329,8 @@ insight {
 </head>
 <body>
 
-<!-- HERO -->
-<div class="hero">
+<!-- HERO (Section 1) -->
+<div class="hero" id="sec-1">
   <h1>📊 รายงาน Nissan ขอนแก่น — Premium Brief</h1>
   <div class="hero-meta">สัปดาห์ 06-13 ก.ค. 2569 · อัปเดต 13 Jul 2026</div>
   <div class="hero-chips">
@@ -303,23 +370,23 @@ insight {
       <div class="headline"><span class="headline-label">🔖 Headline:</span> Nissan vs คู่แข่ง — ตำแหน่งและประสิทธิภาพในตลาด<br>
       <span class="headline-label">📋 คืออะไร:</span> 4 metric สรุปสถานะ Nissan เทียบกับตลาด<br>
       <span class="headline-label">🎯 เพื่ออะไร:</span> Quick view สำหรับ execs — รู้ทันทีว่า Nissan อยู่จุดไหน</div>
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:14px;margin-top:8px">
-        <div style="background:var(--ink-50);padding:16px 12px;border-radius:8px;text-align:center">
-          <div style="font-size:11px;color:var(--ink-500);margin-bottom:6px">📊 Nissan Rank</div>
-          <div style="font-size:32px;font-weight:700;color:var(--nmt-red)">#5 of 8</div>
-          <div style="font-size:10px;color:var(--ink-500);margin-top:4px">ลำดับ Total Engagement</div></div>
-        <div style="background:var(--ink-50);padding:16px 12px;border-radius:8px;text-align:center">
-          <div style="font-size:11px;color:var(--ink-500);margin-bottom:6px">⚡ Nissan Eng/Post</div>
-          <div style="font-size:32px;font-weight:700;color:var(--nmt-red)">19.3</div>
-          <div style="font-size:10px;color:var(--ink-500);margin-top:4px">58 eng / 3 posts</div></div>
-        <div style="background:var(--ink-50);padding:16px 12px;border-radius:8px;text-align:center">
-          <div style="font-size:11px;color:var(--ink-500);margin-bottom:6px">🎯 Top 3 Avg (Eng/Post)</div>
-          <div style="font-size:32px;font-weight:700;color:#C3002F">136.8</div>
-          <div style="font-size:10px;color:var(--ink-500);margin-top:4px">Top 3 เหนือกว่า Nissan Nissan · Omoda, Deepal, Geely</div></div>
-        <div style="background:var(--ink-50);padding:16px 12px;border-radius:8px;text-align:center">
-          <div style="font-size:11px;color:var(--ink-500);margin-bottom:6px">📈 Market Share</div>
-          <div style="font-size:32px;font-weight:700;color:var(--nmt-red)">4.5%</div>
-          <div style="font-size:10px;color:var(--ink-500);margin-top:4px">Nissan / Total Eng</div></div>
+      <div class="metric-grid">
+        <div class="metric-card">
+          <div class="metric-label">📊 Nissan Rank</div>
+          <div class="metric-value">#5 of 8</div>
+          <div class="metric-sub">ลำดับ Total Engagement</div></div>
+        <div class="metric-card">
+          <div class="metric-label">⚡ Nissan Eng/Post</div>
+          <div class="metric-value">19.3</div>
+          <div class="metric-sub">58 eng / 3 posts</div></div>
+        <div class="metric-card">
+          <div class="metric-label">🎯 Top 3 Avg (Eng/Post)</div>
+          <div class="metric-value bad">136.8</div>
+          <div class="metric-sub">Top 3 เหนือกว่า Nissan · Omoda, Deepal, Geely</div></div>
+        <div class="metric-card">
+          <div class="metric-label">📈 Market Share</div>
+          <div class="metric-value">4.5%</div>
+          <div class="metric-sub">Nissan / Total Eng</div></div>
       </div>
     </div>
     <div class="section-card" id="sec-3">
@@ -330,25 +397,25 @@ insight {
       <tbody><tr>
       <td class="brand-cell" style="">Geely</td>
       <td style="font-size:11px">GEELY Pijitphet Khonkaen</td>
-      <td style="font-size:13px"><strong>Xperience Event</strong></td>
+      <td><span class="event-type event">Xperience Event</span></td>
       <td style="font-weight:600;color:var(--nmt-red);font-size:12px;white-space:nowrap"></td>
-      <td style="font-size:12px;font-weight:600">ขอนแก่น</td>
+      <td><span class="venue-pill ">ขอนแก่น</span></td>
       <td style="text-align:center;font-weight:bold">44</td>
       <td><a href="https://www.facebook.com/reel/2138485593677215/" target="_blank">ดูโพสต์</a></td>
     </tr><tr>
       <td class="brand-cell" style="">Geely</td>
       <td style="font-size:11px">GEELY Pijitphet Khonkaen</td>
-      <td style="font-size:13px"><strong>Xperience Event</strong></td>
+      <td><span class="event-type event">Xperience Event</span></td>
       <td style="font-weight:600;color:var(--nmt-red);font-size:12px;white-space:nowrap">10 - 12 กรกฎาคม 2569</td>
-      <td style="font-size:12px;font-weight:600">ขอนแก่น</td>
+      <td><span class="venue-pill ">ขอนแก่น</span></td>
       <td style="text-align:center;font-weight:bold">8</td>
       <td><a href="https://www.facebook.com/permalink.php?story_fbid=pfbid0ZgVCfVHrtmoJUK95itmRTBJWLtwcc9NRdQyBxnNdJQ2HigJm7SQxACZGy7xz2m7Cl&id=61568642176912" target="_blank">ดูโพสต์</a></td>
     </tr><tr>
       <td class="brand-cell" style="">Mitsubishi</td>
       <td style="font-size:11px">มิตซูนครขอนแก่น Mitsu Nakorn Khon Kaen</td>
-      <td style="font-size:13px"><strong>Xperience Event</strong></td>
+      <td><span class="event-type event">Xperience Event</span></td>
       <td style="font-weight:600;color:var(--nmt-red);font-size:12px;white-space:nowrap"></td>
-      <td style="font-size:12px;font-weight:600">ขอนแก่น</td>
+      <td><span class="venue-pill ">ขอนแก่น</span></td>
       <td style="text-align:center;font-weight:bold">2</td>
       <td><a href="https://www.facebook.com/Mitsunakornkhonkaen/posts/pfbid02Tv5s3hPno36wqsFEmMiUehd2js7eGJzFxLkBL5pfgx4mzZXxiq4y98JaJCja1WE9l" target="_blank">ดูโพสต์</a></td>
     </tr></tbody></table>
