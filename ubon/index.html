@@ -161,7 +161,20 @@ table.sortable thead th {
   position: relative;
   transition: background 0.15s;
 }
-table.sortable thead th:hover { background: var(--nmt-red-soft); color: var(--nmt-red); }
+/* Hover: slightly darker red gradient so white text remains readable */
+table.sortable thead th:hover {
+  background: linear-gradient(135deg, #A8001F 0%, #6B0017 100%);
+}
+/* Active sort column: light background + dark red text for max contrast */
+table.sortable thead th.sort-active {
+  background: var(--ink-50);
+  color: var(--nmt-red);
+  border-bottom: 2px solid var(--nmt-red);
+}
+table.sortable thead th.sort-active .sort-ind {
+  opacity: 1;
+  color: var(--nmt-red);
+}
 table.sortable thead th .sort-ind {
   font-size: 10px;
   margin-left: 4px;
@@ -785,10 +798,11 @@ const c6=document.getElementById('chartFormat')?.getContext('2d');if(c6)new Char
         }
       });
       rows.forEach(function(r){ tbody.appendChild(r); });
-      // Update indicators
+      // Update indicators + active class
       headers.forEach(function(h, i){
         var ind = h.querySelector('.sort-ind');
         if (ind) ind.textContent = (i === col) ? (dir === 'asc' ? ' ▲' : ' ▼') : '';
+        h.classList.toggle('sort-active', i === col);
       });
       currentCol = col; currentDir = dir;
     }
