@@ -155,6 +155,20 @@ thead th {
 tbody tr:nth-child(odd) { background: var(--bg-surface); }
 tbody tr:nth-child(even) { background: var(--ink-50); }
 tbody tr:hover { background: var(--nmt-red-soft); }
+table.sortable thead th {
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  transition: background 0.15s;
+}
+table.sortable thead th:hover { background: var(--nmt-red-soft); color: var(--nmt-red); }
+table.sortable thead th .sort-ind {
+  font-size: 10px;
+  margin-left: 4px;
+  opacity: 0.5;
+  display: inline-block;
+  min-width: 10px;
+}
 tbody td {
   padding: 9px 12px;
   border-bottom: 1px solid var(--border);
@@ -422,43 +436,52 @@ insight {
     </div>
     <div class="section-card" id="sec-4">
       <div class="section-card-header"><span class="section-num">4</span><h2>📊 ตารางสรุปคู่แข่งรายแบรนด์</h2></div>
-      <div class="headline"><span class="headline-label">🔖 Headline:</span> ภาพรวม 8 แบรนด์ — เรียงตาม Total Engagement<br>
+      <div class="headline"><span class="headline-label">🔖 Headline:</span> ภาพรวม 8 แบรนด์ — เรียงตาม Total Engagement (default)<br>
       <span class="headline-label">📋 คืออะไร:</span> Aggregate posts + engagement + format mix + top topics<br>
-      <span class="headline-label">🎯 เพื่ออะไร:</span> Identify top performers + gap</div>
-      <table><thead><tr><th>แบรนด์</th><th>Page Name</th><th>Posts</th><th>Total Engagement</th><th>Eng/Post</th><th>R / P / V</th><th>Top Topics</th></tr></thead>
-      <tbody><tr><td class="brand-cell">Omoda</td><td style="font-size:11px">Omoda & Jaecoo Tanasit Khonkaen</td>
-      <td style="text-align:center">2</td><td style="text-align:center;font-weight:bold">772</td>
-      <td style="text-align:center;font-weight:bold;color:var(--nmt-red)">386.0</td>
-      <td style="text-align:center;font-size:12px">0R / 2P / 0V</td>
-      <td style="font-size:12px">Test Drive (2), EV/Electric (1)</td></tr><tr><td class="brand-cell">Deepal</td><td style="font-size:11px">Deepal As One Khon Kaen</td>
-      <td style="text-align:center">10</td><td style="text-align:center;font-weight:bold">133</td>
-      <td style="text-align:center;font-weight:bold;color:var(--nmt-red)">13.3</td>
-      <td style="text-align:center;font-size:12px">1R / 9P / 0V</td>
-      <td style="font-size:12px">EV/Electric (10), ราคา/ผ่อน (3), Test Drive (2)</td></tr><tr><td class="brand-cell">Geely</td><td style="font-size:11px">GEELY Pijitphet Khonkaen</td>
-      <td style="text-align:center">10</td><td style="text-align:center;font-weight:bold">112</td>
-      <td style="text-align:center;font-weight:bold;color:var(--nmt-red)">11.2</td>
-      <td style="text-align:center;font-size:12px">1R / 9P / 0V</td>
-      <td style="font-size:12px">EV/Electric (9), Service (8), Test Drive (6)</td></tr><tr><td class="brand-cell">Mitsubishi</td><td style="font-size:11px">มิตซูนครขอนแก่น Mitsu Nakorn Khon Kaen</td>
-      <td style="text-align:center">10</td><td style="text-align:center;font-weight:bold">92</td>
-      <td style="text-align:center;font-weight:bold;color:var(--nmt-red)">9.2</td>
-      <td style="text-align:center;font-size:12px">3R / 7P / 0V</td>
-      <td style="font-size:12px">ราคา/ผ่อน (8), Service (8), EV/Electric (3)</td></tr><tr><td class="brand-cell">TOYOTA</td><td style="font-size:11px">Toyota Kaennakorn โตโยต้าแก่นนคร</td>
-      <td style="text-align:center">10</td><td style="text-align:center;font-weight:bold">48</td>
-      <td style="text-align:center;font-weight:bold;color:var(--nmt-red)">4.8</td>
-      <td style="text-align:center;font-size:12px">1R / 9P / 0V</td>
-      <td style="font-size:12px">Contest (9), ราคา/ผ่อน (8), Test Drive (5)</td></tr><tr><td class="brand-cell">MG</td><td style="font-size:11px">MG ขอนแก่น อารีมิตร มะลิวัลย์</td>
-      <td style="text-align:center">7</td><td style="text-align:center;font-weight:bold">39</td>
-      <td style="text-align:center;font-weight:bold;color:var(--nmt-red)">5.6</td>
-      <td style="text-align:center;font-size:12px">4R / 3P / 0V</td>
-      <td style="font-size:12px">EV/Electric (4), Other (2), Test Drive (2)</td></tr><tr><td class="brand-cell">BYD</td><td style="font-size:11px">BYD Yonpiboon Khonkaen</td>
-      <td style="text-align:center">10</td><td style="text-align:center;font-weight:bold">27</td>
-      <td style="text-align:center;font-weight:bold;color:var(--nmt-red)">2.7</td>
-      <td style="text-align:center;font-size:12px">4R / 6P / 0V</td>
-      <td style="font-size:12px">EV/Electric (10), Test Drive (3), ราคา/ผ่อน (3)</td></tr><tr><td class="brand-cell" style="border-color:var(--nmt-red);border-width:2px">Nissan (Self)</td><td style="font-size:11px;font-weight:600">นิสสันขอนแก่น-Nissan KKT Khonkaen</td>
-      <td style="text-align:center">3</td><td style="text-align:center;font-weight:bold">58</td>
-      <td style="text-align:center;font-weight:bold;color:var(--nmt-red)">19.3</td>
-      <td style="text-align:center;font-size:12px">1R / 2P / 0V</td>
-      <td style="font-size:12px">ราคา/ผ่อน (3), EV/Electric (3), Test Drive (2)</td></tr></tbody></table>
+      <span class="headline-label">🎯 เพื่ออะไร:</span> Identify top performers + gap — <strong>คลิกหัวคอลัมน์เพื่อ sort</strong></div>
+      <table class="sortable" data-default-sort="3" data-default-dir="desc">
+      <thead><tr>
+        <th data-col="0" data-type="text">แบรนด์ <span class="sort-ind"></span></th>
+        <th data-col="1" data-type="text">Page Name <span class="sort-ind"></span></th>
+        <th data-col="2" data-type="num">Posts <span class="sort-ind"></span></th>
+        <th data-col="3" data-type="num">Total Engagement <span class="sort-ind"></span></th>
+        <th data-col="4" data-type="num">Eng/Post <span class="sort-ind"></span></th>
+        <th data-col="5" data-type="num">Reels <span class="sort-ind"></span></th>
+        <th data-col="6" data-type="text">Top Topics <span class="sort-ind"></span></th>
+      </tr></thead>
+      <tbody><tr><td class="brand-cell" data-sort="Omoda">Omoda</td><td style="font-size:11px" data-sort="Omoda & Jaecoo Tanas">Omoda & Jaecoo Tanasit Khonkaen</td>
+      <td style="text-align:center" data-sort="2">2</td><td style="text-align:center;font-weight:bold" data-sort="772">772</td>
+      <td style="text-align:center;font-weight:bold;color:var(--nmt-red)" data-sort="386.0">386.0</td>
+      <td style="text-align:center;font-size:12px" data-sort="0">0R / 2P / 0V</td>
+      <td style="font-size:12px" data-sort="Test Drive (2), EV/E">Test Drive (2), EV/Electric (1)</td></tr><tr><td class="brand-cell" data-sort="Deepal">Deepal</td><td style="font-size:11px" data-sort="Deepal As One Khon K">Deepal As One Khon Kaen</td>
+      <td style="text-align:center" data-sort="10">10</td><td style="text-align:center;font-weight:bold" data-sort="133">133</td>
+      <td style="text-align:center;font-weight:bold;color:var(--nmt-red)" data-sort="13.3">13.3</td>
+      <td style="text-align:center;font-size:12px" data-sort="1">1R / 9P / 0V</td>
+      <td style="font-size:12px" data-sort="EV/Electric (10), รา">EV/Electric (10), ราคา/ผ่อน (3), Test Drive (2)</td></tr><tr><td class="brand-cell" data-sort="Geely">Geely</td><td style="font-size:11px" data-sort="GEELY Pijitphet Khon">GEELY Pijitphet Khonkaen</td>
+      <td style="text-align:center" data-sort="10">10</td><td style="text-align:center;font-weight:bold" data-sort="112">112</td>
+      <td style="text-align:center;font-weight:bold;color:var(--nmt-red)" data-sort="11.2">11.2</td>
+      <td style="text-align:center;font-size:12px" data-sort="1">1R / 9P / 0V</td>
+      <td style="font-size:12px" data-sort="EV/Electric (9), Ser">EV/Electric (9), Service (8), Test Drive (6)</td></tr><tr><td class="brand-cell" data-sort="Mitsubishi">Mitsubishi</td><td style="font-size:11px" data-sort="มิตซูนครขอนแก่น Mits">มิตซูนครขอนแก่น Mitsu Nakorn Khon Kaen</td>
+      <td style="text-align:center" data-sort="10">10</td><td style="text-align:center;font-weight:bold" data-sort="92">92</td>
+      <td style="text-align:center;font-weight:bold;color:var(--nmt-red)" data-sort="9.2">9.2</td>
+      <td style="text-align:center;font-size:12px" data-sort="3">3R / 7P / 0V</td>
+      <td style="font-size:12px" data-sort="ราคา/ผ่อน (8), Servi">ราคา/ผ่อน (8), Service (8), EV/Electric (3)</td></tr><tr><td class="brand-cell" data-sort="TOYOTA">TOYOTA</td><td style="font-size:11px" data-sort="Toyota Kaennakorn โต">Toyota Kaennakorn โตโยต้าแก่นนคร</td>
+      <td style="text-align:center" data-sort="10">10</td><td style="text-align:center;font-weight:bold" data-sort="48">48</td>
+      <td style="text-align:center;font-weight:bold;color:var(--nmt-red)" data-sort="4.8">4.8</td>
+      <td style="text-align:center;font-size:12px" data-sort="1">1R / 9P / 0V</td>
+      <td style="font-size:12px" data-sort="Contest (9), ราคา/ผ่">Contest (9), ราคา/ผ่อน (8), Test Drive (5)</td></tr><tr><td class="brand-cell" data-sort="MG">MG</td><td style="font-size:11px" data-sort="MG ขอนแก่น อารีมิตร ">MG ขอนแก่น อารีมิตร มะลิวัลย์</td>
+      <td style="text-align:center" data-sort="7">7</td><td style="text-align:center;font-weight:bold" data-sort="39">39</td>
+      <td style="text-align:center;font-weight:bold;color:var(--nmt-red)" data-sort="5.6">5.6</td>
+      <td style="text-align:center;font-size:12px" data-sort="4">4R / 3P / 0V</td>
+      <td style="font-size:12px" data-sort="EV/Electric (4), Oth">EV/Electric (4), Other (2), Test Drive (2)</td></tr><tr><td class="brand-cell" data-sort="BYD">BYD</td><td style="font-size:11px" data-sort="BYD Yonpiboon Khonka">BYD Yonpiboon Khonkaen</td>
+      <td style="text-align:center" data-sort="10">10</td><td style="text-align:center;font-weight:bold" data-sort="27">27</td>
+      <td style="text-align:center;font-weight:bold;color:var(--nmt-red)" data-sort="2.7">2.7</td>
+      <td style="text-align:center;font-size:12px" data-sort="4">4R / 6P / 0V</td>
+      <td style="font-size:12px" data-sort="EV/Electric (10), Te">EV/Electric (10), Test Drive (3), ราคา/ผ่อน (3)</td></tr><tr><td class="brand-cell" style="border-color:var(--nmt-red);border-width:2px" data-sort="Nissan">Nissan (Self)</td><td style="font-size:11px;font-weight:600" data-sort="นิสสันขอนแก่น-Nissan">นิสสันขอนแก่น-Nissan KKT Khonkaen</td>
+      <td style="text-align:center" data-sort="3">3</td><td style="text-align:center;font-weight:bold" data-sort="58">58</td>
+      <td style="text-align:center;font-weight:bold;color:var(--nmt-red)" data-sort="19.3">19.3</td>
+      <td style="text-align:center;font-size:12px" data-sort="1">1R / 2P / 0V</td>
+      <td style="font-size:12px" data-sort="ราคา/ผ่อน (3), EV/El">ราคา/ผ่อน (3), EV/Electric (3), Test Drive (2)</td></tr></tbody></table>
     </div>
     <div class="section-card" id="sec-5">
       <div class="section-card-header"><span class="section-num">5</span><h2>🪞 Self Analysis (Nissan)</h2></div>
@@ -638,6 +661,53 @@ const c3=document.getElementById('chartEngagementBreakdown')?.getContext('2d');i
 const c4=document.getElementById('chartBubble')?.getContext('2d');if(c4){const maxEpp=Math.max(...epp);const cappedEpp=epp.map(e=>Math.min(e,maxEpp/2));new Chart(c4,{type:'bubble',data:{datasets:activeBrands.map((b,i)=>({label:b+' ('+epp[i].toFixed(1)+' eng/post)',data:[{x:posts[i],y:te[i],r:Math.sqrt(cappedEpp[i])*5+6}],backgroundColor:palette[i]+'80',borderColor:palette[i],borderWidth:2}))},options:{responsive:true,scales:{x:{title:{display:true,text:'Posts'}},y:{title:{display:true,text:'Total Engagement'}}}}});}
 const c5=document.getElementById('chartTopicMix')?.getContext('2d');if(c5)new Chart(c5,{type:'bar',data:{labels:brands,datasets:tl.map((t,i)=>({label:t,data:td.map(r=>r[i]),backgroundColor:palette[i]}))},options:{responsive:true,scales:{x:{stacked:true},y:{stacked:true}}}});
 const c6=document.getElementById('chartFormat')?.getContext('2d');if(c6)new Chart(c6,{type:'bar',data:{labels:brands,datasets:[{label:'Reel',data:reels,backgroundColor:'#E91E63'},{label:'Photo',data:photos,backgroundColor:'#1976D2'},{label:'Video',data:videos,backgroundColor:'#F57C00'}]},options:{responsive:true,scales:{x:{stacked:true},y:{stacked:true}}}});
+// Sortable tables (Section 4)
+(function(){
+  document.querySelectorAll('table.sortable').forEach(function(table){
+    var defaultCol = parseInt(table.getAttribute('data-default-sort') || '0');
+    var defaultDir = table.getAttribute('data-default-dir') || 'desc';
+    var headers = table.querySelectorAll('thead th');
+    var currentCol = -1;
+    var currentDir = '';
+    function doSort(col, dir){
+      var type = headers[col].getAttribute('data-type') || 'text';
+      var tbody = table.querySelector('tbody');
+      var rows = Array.from(tbody.querySelectorAll('tr'));
+      rows.sort(function(a, b){
+        var aVal = a.children[col]?.getAttribute('data-sort') ?? a.children[col]?.innerText ?? '';
+        var bVal = b.children[col]?.getAttribute('data-sort') ?? b.children[col]?.innerText ?? '';
+        if (type === 'num') {
+          aVal = parseFloat(String(aVal).replace(/[^0-9.\-]/g, '')) || 0;
+          bVal = parseFloat(String(bVal).replace(/[^0-9.\-]/g, '')) || 0;
+          return dir === 'asc' ? aVal - bVal : bVal - aVal;
+        } else {
+          aVal = String(aVal).toLowerCase();
+          bVal = String(bVal).toLowerCase();
+          if (aVal < bVal) return dir === 'asc' ? -1 : 1;
+          if (aVal > bVal) return dir === 'asc' ? 1 : -1;
+          return 0;
+        }
+      });
+      rows.forEach(function(r){ tbody.appendChild(r); });
+      // Update indicators
+      headers.forEach(function(h, i){
+        var ind = h.querySelector('.sort-ind');
+        if (ind) ind.textContent = (i === col) ? (dir === 'asc' ? ' ▲' : ' ▼') : '';
+      });
+      currentCol = col; currentDir = dir;
+    }
+    headers.forEach(function(h, i){
+      h.style.cursor = 'pointer';
+      h.style.userSelect = 'none';
+      h.addEventListener('click', function(){
+        var newDir = (currentCol === i && currentDir === 'desc') ? 'asc' : 'desc';
+        doSort(i, newDir);
+      });
+    });
+    // Apply default sort
+    doSort(defaultCol, defaultDir);
+  });
+})();
 (function(){var t=document.querySelector('.dark-mode-toggle');if(t)t.onclick=function(){document.body.classList.toggle('dark-mode');};if(window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches)document.body.classList.add('dark-mode');})();
 </script>
 <script>

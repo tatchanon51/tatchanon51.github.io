@@ -155,6 +155,20 @@ thead th {
 tbody tr:nth-child(odd) { background: var(--bg-surface); }
 tbody tr:nth-child(even) { background: var(--ink-50); }
 tbody tr:hover { background: var(--nmt-red-soft); }
+table.sortable thead th {
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  transition: background 0.15s;
+}
+table.sortable thead th:hover { background: var(--nmt-red-soft); color: var(--nmt-red); }
+table.sortable thead th .sort-ind {
+  font-size: 10px;
+  margin-left: 4px;
+  opacity: 0.5;
+  display: inline-block;
+  min-width: 10px;
+}
 tbody td {
   padding: 9px 12px;
   border-bottom: 1px solid var(--border);
@@ -430,31 +444,40 @@ insight {
     </div>
     <div class="section-card" id="sec-4">
       <div class="section-card-header"><span class="section-num">4</span><h2>📊 ตารางสรุปคู่แข่งรายแบรนด์</h2></div>
-      <div class="headline"><span class="headline-label">🔖 Headline:</span> ภาพรวม 5 แบรนด์ — เรียงตาม Total Engagement<br>
+      <div class="headline"><span class="headline-label">🔖 Headline:</span> ภาพรวม 5 แบรนด์ — เรียงตาม Total Engagement (default)<br>
       <span class="headline-label">📋 คืออะไร:</span> Aggregate posts + engagement + format mix + top topics<br>
-      <span class="headline-label">🎯 เพื่ออะไร:</span> Identify top performers + gap</div>
-      <table><thead><tr><th>แบรนด์</th><th>Page Name</th><th>Posts</th><th>Total Engagement</th><th>Eng/Post</th><th>R / P / V</th><th>Top Topics</th></tr></thead>
-      <tbody><tr><td class="brand-cell">TOYOTA</td><td style="font-size:11px">โตโยต้า เจริญศรี นครพนม, โตโยต้านครพนมจำกัด Toyota Nakhonphanom</td>
-      <td style="text-align:center">23</td><td style="text-align:center;font-weight:bold">89</td>
-      <td style="text-align:center;font-weight:bold;color:var(--nmt-red)">3.9</td>
-      <td style="text-align:center;font-size:12px">13R / 10P / 0V</td>
-      <td style="font-size:12px">Service (9), ราคา/ผ่อน (7), Other (6)</td></tr><tr><td class="brand-cell">Isuzu</td><td style="font-size:11px">อีซูซุนครพนม ISUZU Nakhon Phanom</td>
-      <td style="text-align:center">11</td><td style="text-align:center;font-weight:bold">86</td>
-      <td style="text-align:center;font-weight:bold;color:var(--nmt-red)">7.8</td>
-      <td style="text-align:center;font-size:12px">1R / 10P / 0V</td>
-      <td style="font-size:12px">ราคา/ผ่อน (8), Test Drive (5), Service (3)</td></tr><tr><td class="brand-cell">Honda</td><td style="font-size:11px">บริษัท นครพนมฮอนด้าคาร์ส์ จำกัด</td>
-      <td style="text-align:center">5</td><td style="text-align:center;font-weight:bold">36</td>
-      <td style="text-align:center;font-weight:bold;color:var(--nmt-red)">7.2</td>
-      <td style="text-align:center;font-size:12px">0R / 5P / 0V</td>
-      <td style="font-size:12px">ราคา/ผ่อน (4), EV/Electric (3), Test Drive (2)</td></tr><tr><td class="brand-cell">Mitsubishi</td><td style="font-size:11px">มิตซู ทีเคที เจริญศรี นครพนม</td>
-      <td style="text-align:center">2</td><td style="text-align:center;font-weight:bold">19</td>
-      <td style="text-align:center;font-weight:bold;color:var(--nmt-red)">9.5</td>
-      <td style="text-align:center;font-size:12px">0R / 2P / 0V</td>
-      <td style="font-size:12px">ราคา/ผ่อน (2), Service (2)</td></tr><tr><td class="brand-cell" style="border-color:var(--nmt-red);border-width:2px">Nissan (Self)</td><td style="font-size:11px;font-weight:600">นิสสันนครพนม - Nissan Nakhon Phanom</td>
-      <td style="text-align:center">10</td><td style="text-align:center;font-weight:bold">40</td>
-      <td style="text-align:center;font-weight:bold;color:var(--nmt-red)">4.0</td>
-      <td style="text-align:center;font-size:12px">5R / 5P / 0V</td>
-      <td style="font-size:12px">ราคา/ผ่อน (10), Service (10), EV/Electric (3)</td></tr></tbody></table>
+      <span class="headline-label">🎯 เพื่ออะไร:</span> Identify top performers + gap — <strong>คลิกหัวคอลัมน์เพื่อ sort</strong></div>
+      <table class="sortable" data-default-sort="3" data-default-dir="desc">
+      <thead><tr>
+        <th data-col="0" data-type="text">แบรนด์ <span class="sort-ind"></span></th>
+        <th data-col="1" data-type="text">Page Name <span class="sort-ind"></span></th>
+        <th data-col="2" data-type="num">Posts <span class="sort-ind"></span></th>
+        <th data-col="3" data-type="num">Total Engagement <span class="sort-ind"></span></th>
+        <th data-col="4" data-type="num">Eng/Post <span class="sort-ind"></span></th>
+        <th data-col="5" data-type="num">Reels <span class="sort-ind"></span></th>
+        <th data-col="6" data-type="text">Top Topics <span class="sort-ind"></span></th>
+      </tr></thead>
+      <tbody><tr><td class="brand-cell" data-sort="TOYOTA">TOYOTA</td><td style="font-size:11px" data-sort="โตโยต้า เจริญศรี นคร">โตโยต้า เจริญศรี นครพนม, โตโยต้านครพนมจำกัด Toyota Nakhonphanom</td>
+      <td style="text-align:center" data-sort="23">23</td><td style="text-align:center;font-weight:bold" data-sort="89">89</td>
+      <td style="text-align:center;font-weight:bold;color:var(--nmt-red)" data-sort="3.9">3.9</td>
+      <td style="text-align:center;font-size:12px" data-sort="13">13R / 10P / 0V</td>
+      <td style="font-size:12px" data-sort="Service (9), ราคา/ผ่">Service (9), ราคา/ผ่อน (7), Other (6)</td></tr><tr><td class="brand-cell" data-sort="Isuzu">Isuzu</td><td style="font-size:11px" data-sort="อีซูซุนครพนม ISUZU N">อีซูซุนครพนม ISUZU Nakhon Phanom</td>
+      <td style="text-align:center" data-sort="11">11</td><td style="text-align:center;font-weight:bold" data-sort="86">86</td>
+      <td style="text-align:center;font-weight:bold;color:var(--nmt-red)" data-sort="7.8">7.8</td>
+      <td style="text-align:center;font-size:12px" data-sort="1">1R / 10P / 0V</td>
+      <td style="font-size:12px" data-sort="ราคา/ผ่อน (8), Test ">ราคา/ผ่อน (8), Test Drive (5), Service (3)</td></tr><tr><td class="brand-cell" data-sort="Honda">Honda</td><td style="font-size:11px" data-sort="บริษัท นครพนมฮอนด้าค">บริษัท นครพนมฮอนด้าคาร์ส์ จำกัด</td>
+      <td style="text-align:center" data-sort="5">5</td><td style="text-align:center;font-weight:bold" data-sort="36">36</td>
+      <td style="text-align:center;font-weight:bold;color:var(--nmt-red)" data-sort="7.2">7.2</td>
+      <td style="text-align:center;font-size:12px" data-sort="0">0R / 5P / 0V</td>
+      <td style="font-size:12px" data-sort="ราคา/ผ่อน (4), EV/El">ราคา/ผ่อน (4), EV/Electric (3), Test Drive (2)</td></tr><tr><td class="brand-cell" data-sort="Mitsubishi">Mitsubishi</td><td style="font-size:11px" data-sort="มิตซู ทีเคที เจริญศร">มิตซู ทีเคที เจริญศรี นครพนม</td>
+      <td style="text-align:center" data-sort="2">2</td><td style="text-align:center;font-weight:bold" data-sort="19">19</td>
+      <td style="text-align:center;font-weight:bold;color:var(--nmt-red)" data-sort="9.5">9.5</td>
+      <td style="text-align:center;font-size:12px" data-sort="0">0R / 2P / 0V</td>
+      <td style="font-size:12px" data-sort="ราคา/ผ่อน (2), Servi">ราคา/ผ่อน (2), Service (2)</td></tr><tr><td class="brand-cell" style="border-color:var(--nmt-red);border-width:2px" data-sort="Nissan">Nissan (Self)</td><td style="font-size:11px;font-weight:600" data-sort="นิสสันนครพนม - Nissa">นิสสันนครพนม - Nissan Nakhon Phanom</td>
+      <td style="text-align:center" data-sort="10">10</td><td style="text-align:center;font-weight:bold" data-sort="40">40</td>
+      <td style="text-align:center;font-weight:bold;color:var(--nmt-red)" data-sort="4.0">4.0</td>
+      <td style="text-align:center;font-size:12px" data-sort="5">5R / 5P / 0V</td>
+      <td style="font-size:12px" data-sort="ราคา/ผ่อน (10), Serv">ราคา/ผ่อน (10), Service (10), EV/Electric (3)</td></tr></tbody></table>
     </div>
     <div class="section-card" id="sec-5">
       <div class="section-card-header"><span class="section-num">5</span><h2>🪞 Self Analysis (Nissan)</h2></div>
@@ -729,6 +752,53 @@ const c3=document.getElementById('chartEngagementBreakdown')?.getContext('2d');i
 const c4=document.getElementById('chartBubble')?.getContext('2d');if(c4){const maxEpp=Math.max(...epp);const cappedEpp=epp.map(e=>Math.min(e,maxEpp/2));new Chart(c4,{type:'bubble',data:{datasets:activeBrands.map((b,i)=>({label:b+' ('+epp[i].toFixed(1)+' eng/post)',data:[{x:posts[i],y:te[i],r:Math.sqrt(cappedEpp[i])*5+6}],backgroundColor:palette[i]+'80',borderColor:palette[i],borderWidth:2}))},options:{responsive:true,scales:{x:{title:{display:true,text:'Posts'}},y:{title:{display:true,text:'Total Engagement'}}}}});}
 const c5=document.getElementById('chartTopicMix')?.getContext('2d');if(c5)new Chart(c5,{type:'bar',data:{labels:brands,datasets:tl.map((t,i)=>({label:t,data:td.map(r=>r[i]),backgroundColor:palette[i]}))},options:{responsive:true,scales:{x:{stacked:true},y:{stacked:true}}}});
 const c6=document.getElementById('chartFormat')?.getContext('2d');if(c6)new Chart(c6,{type:'bar',data:{labels:brands,datasets:[{label:'Reel',data:reels,backgroundColor:'#E91E63'},{label:'Photo',data:photos,backgroundColor:'#1976D2'},{label:'Video',data:videos,backgroundColor:'#F57C00'}]},options:{responsive:true,scales:{x:{stacked:true},y:{stacked:true}}}});
+// Sortable tables (Section 4)
+(function(){
+  document.querySelectorAll('table.sortable').forEach(function(table){
+    var defaultCol = parseInt(table.getAttribute('data-default-sort') || '0');
+    var defaultDir = table.getAttribute('data-default-dir') || 'desc';
+    var headers = table.querySelectorAll('thead th');
+    var currentCol = -1;
+    var currentDir = '';
+    function doSort(col, dir){
+      var type = headers[col].getAttribute('data-type') || 'text';
+      var tbody = table.querySelector('tbody');
+      var rows = Array.from(tbody.querySelectorAll('tr'));
+      rows.sort(function(a, b){
+        var aVal = a.children[col]?.getAttribute('data-sort') ?? a.children[col]?.innerText ?? '';
+        var bVal = b.children[col]?.getAttribute('data-sort') ?? b.children[col]?.innerText ?? '';
+        if (type === 'num') {
+          aVal = parseFloat(String(aVal).replace(/[^0-9.\-]/g, '')) || 0;
+          bVal = parseFloat(String(bVal).replace(/[^0-9.\-]/g, '')) || 0;
+          return dir === 'asc' ? aVal - bVal : bVal - aVal;
+        } else {
+          aVal = String(aVal).toLowerCase();
+          bVal = String(bVal).toLowerCase();
+          if (aVal < bVal) return dir === 'asc' ? -1 : 1;
+          if (aVal > bVal) return dir === 'asc' ? 1 : -1;
+          return 0;
+        }
+      });
+      rows.forEach(function(r){ tbody.appendChild(r); });
+      // Update indicators
+      headers.forEach(function(h, i){
+        var ind = h.querySelector('.sort-ind');
+        if (ind) ind.textContent = (i === col) ? (dir === 'asc' ? ' ▲' : ' ▼') : '';
+      });
+      currentCol = col; currentDir = dir;
+    }
+    headers.forEach(function(h, i){
+      h.style.cursor = 'pointer';
+      h.style.userSelect = 'none';
+      h.addEventListener('click', function(){
+        var newDir = (currentCol === i && currentDir === 'desc') ? 'asc' : 'desc';
+        doSort(i, newDir);
+      });
+    });
+    // Apply default sort
+    doSort(defaultCol, defaultDir);
+  });
+})();
 (function(){var t=document.querySelector('.dark-mode-toggle');if(t)t.onclick=function(){document.body.classList.toggle('dark-mode');};if(window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches)document.body.classList.add('dark-mode');})();
 </script>
 <script>
