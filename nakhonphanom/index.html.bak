@@ -2,613 +2,654 @@
 <html lang="th">
 <head>
 <meta charset="UTF-8">
-<title>📊 รายงาน Nissan นครพนม สัปดาห์ 06-13 ก.ค. 2569 — Premium Brief</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>📊 รายงาน Nissan NakhonPhanom สัปดาห์ 06-13 ก.ค. 2569 — Premium Brief</title>
 <style>
 :root {
-  --nmt-red: #C3002F;
-  --nmt-red-soft: rgba(195, 0, 47, 0.08);
-  --nmt-red-mid: rgba(195, 0, 47, 0.4);
-  --ink-50: #F9FBFD;
-  --ink-100: #F0F3F7;
-  --ink-200: #DCE2EA;
-  --ink-400: #94A0B3;
-  --ink-500: #6B7785;
-  --ink-700: #3F4750;
-  --ink-900: #1A1A1A;
-  --bg-page: #FFFFFF;
-  --bg-surface: #FFFFFF;
-  --border: #DCE2EA;
-  --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
-  --shadow-md: 0 2px 8px rgba(0,0,0,0.06);
+  --nmt-red: #c3002f;
+  --nmt-red-dark: #8b0020;
+  --nmt-red-soft: #ffebee;
+  --ink-900: #0a0e1a;
+  --ink-700: #2a3142;
+  --ink-500: #5b6478;
+  --ink-400: #8a92a6;
+  --ink-200: #e3e7ee;
+  --ink-100: #f2f5fa;
+  --ink-50: #f9fbfd;
+  --bg-page: #f9fbfd;
+  --bg-surface: #ffffff;
+  --border: #e3e7ee;
+  --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px;
+  --sp-5: 24px; --sp-6: 32px; --sp-7: 48px; --sp-8: 64px;
+  --shadow-sm: 0 1px 2px rgba(10,14,26,0.06);
+  --shadow-md: 0 2px 8px rgba(10,14,26,0.08), 0 1px 2px rgba(10,14,26,0.04);
+  --shadow-lg: 0 8px 24px rgba(10,14,26,0.10), 0 2px 6px rgba(10,14,26,0.04);
+  --r-sm: 6px; --r-md: 10px; --r-lg: 14px;
 }
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  font-family: 'Inter', 'Noto Sans Thai', sans-serif;
-  margin: 0; padding: 0;
-  background: var(--ink-50);
-  color: var(--ink-900);
-  line-height: 1.55;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans Thai', 'Sarabun', sans-serif; background: var(--bg-page); color: var(--ink-700); line-height: 1.6; }
+
+/* Hero */
 .hero {
-  background: linear-gradient(135deg, var(--nmt-red) 0%, #8B0020 100%);
-  color: white;
-  padding: 32px 40px 28px;
-  position: sticky;
-  top: 0; z-index: 100;
-  box-shadow: var(--shadow-md);
+  position: relative;
+  background: radial-gradient(ellipse 80% 50% at 100% 0%, rgba(255,82,82,0.18), transparent 70%),
+              linear-gradient(135deg, var(--nmt-red) 0%, var(--nmt-red-dark) 100%);
+  color: white; padding: var(--sp-7) var(--sp-6);
+  border-radius: var(--r-lg); box-shadow: var(--shadow-lg);
+  margin: var(--sp-5); overflow: hidden;
 }
-.hero h1 {
-  margin: 0 0 6px 0;
-  font-size: 24px;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-}
-.hero-meta { font-size: 13px; opacity: 0.92; margin-bottom: 16px; }
-.hero-chips { display: flex; gap: 12px; flex-wrap: wrap; }
-.hero-chip {
-  background: rgba(255,255,255,0.15);
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: 500;
-  backdrop-filter: blur(8px);
-}
-.hero-chip strong { font-weight: 700; }
-.toc {
-  position: sticky;
-  top: 120px;
-  background: var(--bg-surface);
-  border-bottom: 1px solid var(--border);
-  padding: 8px 40px;
-  z-index: 99;
-  font-size: 12px;
-  display: flex;
-  gap: 14px;
-  overflow-x: auto;
-}
-.toc a {
-  color: var(--ink-500);
-  text-decoration: none;
-  white-space: nowrap;
-  padding: 4px 8px;
-  border-radius: 4px;
-  transition: all 0.15s;
-}
-.toc a:hover, .toc a.active {
-  color: var(--nmt-red);
-  background: var(--nmt-red-soft);
-}
-.container { max-width: 1400px; margin: 0 auto; padding: 20px 40px 60px; }
-.section-card {
-  background: var(--bg-surface);
-  border-radius: 12px;
-  padding: 24px 28px;
-  margin-bottom: 20px;
+.hero::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px); background-size: 32px 32px; pointer-events: none; }
+.hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; opacity: 0.9; margin-bottom: 12px; }
+.hero-eyebrow::before { content: ''; width: 8px; height: 8px; background: #fff; border-radius: 50%; animation: pulse 2s ease-in-out infinite; }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+.hero-title { font-size: clamp(1.75rem, 2.5vw, 2.5rem); font-weight: 800; line-height: 1.2; margin-bottom: 8px; }
+.hero-sub { font-size: 15px; opacity: 0.92; margin-bottom: 16px; }
+.hero-meta { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 16px; }
+.hero-chip { background: rgba(255,255,255,0.15); backdrop-filter: blur(4px); padding: 8px 14px; border-radius: 8px; font-size: 13px; }
+.hero-chip strong { display: block; font-size: 18px; font-weight: 800; }
+
+/* Brief-wrap layout */
+.brief-wrap { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: var(--sp-7); padding: 0 var(--sp-5) var(--sp-5); }
+@media (max-width: 900px) { .brief-wrap { grid-template-columns: 1fr; } }
+
+/* Sticky TOC */
+.toc { position: sticky; top: var(--sp-4); align-self: start; background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--r-md); padding: var(--sp-4); font-size: 13px; }
+.toc h4 { font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--ink-500); margin-bottom: 12px; font-weight: 700; }
+.toc ul { list-style: none; }
+.toc li { margin-bottom: 4px; }
+.toc a { color: var(--ink-700); text-decoration: none; padding: 6px 8px; display: block; border-radius: 6px; transition: all 0.15s; }
+.toc a:hover { background: var(--nmt-red-soft); color: var(--nmt-red); }
+.toc a.active { background: var(--nmt-red); color: white; font-weight: 600; }
+@media (max-width: 900px) { .toc { display: none; } }
+
+/* Section card */
+.section-card { background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--r-lg); padding: var(--sp-6); margin-bottom: var(--sp-6); box-shadow: var(--shadow-sm); scroll-margin-top: var(--sp-4); }
+.section-card-header { display: flex; align-items: center; gap: 12px; margin-bottom: var(--sp-4); }
+.section-num { width: 36px; height: 36px; border-radius: 10px; background: linear-gradient(135deg, var(--nmt-red), var(--nmt-red-dark)); color: white; font-weight: 800; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.section-card h2 { font-size: 19px; color: var(--ink-900); font-weight: 700; }
+
+/* Stat cards */
+.stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: var(--sp-3); margin: var(--sp-4) 0; }
+.stat-card { background: var(--bg-surface); border: 1px solid var(--border); padding: var(--sp-4); position: relative; border-radius: var(--r-md); }
+.stat-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--nmt-red), var(--nmt-red-dark)); border-radius: var(--r-md) var(--r-md) 0 0; }
+.stat-card.highlight .stat-value { color: var(--nmt-red); }
+.stat-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--ink-500); margin-bottom: 4px; font-weight: 600; }
+.stat-value { font-size: 1.875rem; font-weight: 800; font-variant-numeric: tabular-nums; color: var(--ink-900); }
+
+/* Priority cards */
+.priority-card { display: grid; grid-template-columns: auto 1fr; gap: var(--sp-3); border-left: 4px solid; padding: var(--sp-4); margin: var(--sp-3) 0; border-radius: 0 var(--r-sm) var(--r-sm) 0; background: var(--bg-surface); }
+.priority-card.high { border-left-color: var(--nmt-red); }
+.priority-card.med { border-left-color: #f57c00; }
+.priority-card.low { border-left-color: #7b1fa2; }
+.priority-card .badge { padding: 4px 10px; border-radius: 6px; font-size: 11px; font-weight: 700; height: fit-content; }
+.priority-card.high .badge { background: var(--nmt-red); color: white; }
+.priority-card.med .badge { background: #f57c00; color: white; }
+.priority-card.low .badge { background: #7b1fa2; color: white; }
+
+/* Insight cards */
+.insight-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: var(--sp-3); margin: var(--sp-4) 0; }
+.insight-card { background: var(--bg-surface); border: 1px solid var(--border); padding: var(--sp-4); border-radius: var(--r-md); box-shadow: var(--shadow-sm); }
+.insight-card h4 { font-size: 14px; color: var(--nmt-red); margin-bottom: 6px; font-weight: 700; }
+.insight-card p { font-size: 13px; color: var(--ink-700); }
+
+/* ===== GLOBAL TABLE STYLES (Tier C — ทุกตารางใน brief ใช้รูปแบบเดียวกัน 13 Jul 2026) ===== */
+.section-card > table,
+.section-card > div > table,
+.section-card table.tier2-table {
+  width: 100%; border-collapse: separate; border-spacing: 0;
+  font-size: 14px; border: 1px solid var(--ink-200);
+  border-radius: var(--r-md); overflow: hidden;
   box-shadow: var(--shadow-sm);
-  border: 1px solid var(--border);
+  margin: var(--sp-3) 0;
 }
-.section-card-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 16px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid var(--border);
-}
-.section-num {
-  background: var(--nmt-red);
+.section-card thead,
+.section-card table.tier2-table thead {
+  background: linear-gradient(135deg, var(--nmt-red) 0%, var(--nmt-red-dark) 100%);
   color: white;
-  width: 28px; height: 28px;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 13px;
-  flex-shrink: 0;
 }
-.section-card h2 {
-  margin: 0;
-  font-size: 17px;
-  font-weight: 700;
-  color: var(--ink-900);
+.section-card thead th,
+.section-card table.tier2-table thead th {
+  padding: 12px; text-align: left; font-weight: 600;
+  letter-spacing: 0.3px; text-shadow: 0 1px 1px rgba(0,0,0,0.15);
+  cursor: pointer; user-select: none; position: relative;
 }
-.section-card h3 {
-  margin: 20px 0 12px;
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--ink-700);
+.section-card thead th:hover,
+.section-card table.tier2-table thead th:hover {
+  background: rgba(255,255,255,0.12);
 }
-.headline {
+.section-card tbody tr,
+.section-card table.tier2-table tbody tr {
+  transition: background 0.15s ease;
+}
+.section-card tbody tr:nth-child(odd),
+.section-card table.tier2-table tbody tr:nth-child(odd) {
+  background: var(--bg-surface);
+}
+.section-card tbody tr:nth-child(even),
+.section-card table.tier2-table tbody tr:nth-child(even) {
   background: var(--ink-50);
-  padding: 12px 14px;
-  border-radius: 8px;
-  font-size: 12px;
-  line-height: 1.7;
-  margin-bottom: 16px;
-  border-left: 3px solid var(--nmt-red);
 }
-.headline-label {
-  display: inline-block;
-  font-weight: 700;
-  color: var(--ink-700);
-  margin-right: 4px;
+.section-card tbody tr:hover,
+.section-card table.tier2-table tbody tr:hover {
+  background: var(--nmt-red-soft) !important;
 }
-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 13px;
-  margin: 12px 0;
-}
-thead tr {
-  background: linear-gradient(135deg, var(--nmt-red) 0%, #8B0020 100%);
-}
-thead th {
-  color: white;
+.section-card tbody td,
+.section-card table.tier2-table tbody td {
   padding: 10px 12px;
-  text-align: left;
-  font-weight: 600;
-  font-size: 12px;
-  border: none;
+  border-bottom: 1px solid var(--ink-100);
+  vertical-align: middle;
 }
+.section-card tbody tr:last-child td,
+.section-card table.tier2-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Tables (legacy fallback) */
+table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 13px; border-radius: var(--r-md); overflow: hidden; border: 1px solid var(--border); margin: var(--sp-3) 0; }
+thead { background: linear-gradient(135deg, var(--nmt-red) 0%, var(--nmt-red-dark) 100%); color: white; }
+thead th { padding: 10px; text-align: left; font-weight: 600; cursor: pointer; user-select: none; }
+thead th:hover { background: rgba(255,255,255,0.1); }
+tbody tr { transition: background 0.15s; }
 tbody tr:nth-child(odd) { background: var(--bg-surface); }
 tbody tr:nth-child(even) { background: var(--ink-50); }
 tbody tr:hover { background: var(--nmt-red-soft); }
-tbody td {
-  padding: 9px 12px;
-  border-bottom: 1px solid var(--border);
-  vertical-align: middle;
-}
-.brand-cell {
-  font-weight: 700;
-  border-left: 4px solid transparent;
-  padding-left: 10px !important;
-}
-.brand-cell[style*="border-color"] {
-  border-left-width: 4px;
-  border-left-style: solid;
-}
-.priority-card {
-  display: flex;
-  align-items: start;
-  gap: 12px;
-  padding: 14px 16px;
-  border-radius: 8px;
-  background: var(--bg-surface);
-  border: 1px solid var(--border);
-  margin-bottom: 12px;
-  transition: all 0.15s;
-}
-.priority-card:hover {
-  box-shadow: var(--shadow-md);
-  border-color: var(--nmt-red-mid);
-}
-.priority-card .badge {
-  background: var(--nmt-red);
-  color: white;
-  padding: 3px 8px;
-  border-radius: 4px;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  flex-shrink: 0;
-}
-.priority-card.high .badge { background: var(--nmt-red); }
-.priority-card.med .badge { background: #F57C00; }
-.priority-card.low .badge { background: #1976D2; }
-.priority-card div { flex: 1; }
-.format-pill {
-  display: inline-block;
-  padding: 1px 6px;
-  border-radius: 4px;
-  font-size: 10px;
-  font-weight: 700;
-}
-.pill-photo { background: #E3F2FD; color: #1565C0; }
-.pill-reel { background: #FCE4EC; color: #C3002F; }
-.pill-video { background: #FFF3E0; color: #E65100; }
-.chart-container {
-  background: var(--bg-surface);
-  padding: 14px;
-  border-radius: 8px;
-  border: 1px solid var(--border);
-  margin: 12px 0;
-}
-.chart-title {
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--ink-700);
-  margin-bottom: 8px;
-}
-canvas { max-width: 100%; }
-insight {
-  background: var(--nmt-red-soft);
-  border-left: 4px solid var(--nmt-red);
-  padding: 14px 16px;
-  border-radius: 8px;
-  margin: 16px 0;
-  font-size: 13px;
-  line-height: 1.7;
-}
-.dark-mode {
-  --bg-page: #0F1419;
-  --bg-surface: #1A1F26;
-  --ink-50: #232930;
-  --ink-100: #2A313A;
-  --ink-200: #3A434E;
-  --ink-500: #8B96A3;
-  --ink-700: #C5CDD6;
-  --ink-900: #E8EDF2;
-  --border: #2F3742;
-  --nmt-red-soft: rgba(195, 0, 47, 0.15);
-}
-.dark-mode-toggle {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: var(--nmt-red);
-  color: white;
-  border: none;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  font-size: 18px;
-  cursor: pointer;
-  box-shadow: var(--shadow-md);
-  z-index: 200;
+tbody td { padding: 10px; border-bottom: 1px solid var(--ink-100); vertical-align: middle; }
+tbody tr:last-child td { border-bottom: none; }
+.brand-cell { font-weight: 700; border-left: 4px solid var(--nmt-red); padding-left: 12px !important; color: var(--ink-900); }
+a { color: #1976d2; text-decoration: underline; font-weight: normal; }
+a:hover { color: var(--nmt-red); }
+
+/* Headline block */
+.headline { background: var(--ink-50); border-left: 4px solid var(--nmt-red); padding: var(--sp-4); margin: var(--sp-3) 0; border-radius: 0 var(--r-sm) var(--r-sm) 0; font-size: 13px; }
+.headline-label { display: inline-block; font-weight: 700; color: var(--nmt-red); margin-right: 6px; }
+
+/* Chart container */
+.chart-container { background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--r-md); padding: var(--sp-4); margin: var(--sp-4) 0; }
+.chart-title { font-size: 14px; font-weight: 700; color: var(--ink-900); margin-bottom: 8px; }
+canvas { max-height: 380px; }
+
+/* Theme toggle */
+.theme-toggle { position: fixed; bottom: var(--sp-5); right: var(--sp-5); width: 48px; height: 48px; border-radius: 50%; background: var(--bg-surface); border: 1px solid var(--border); box-shadow: var(--shadow-md); cursor: pointer; z-index: 1000; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; transition: transform 0.2s; }
+.theme-toggle:hover { transform: scale(1.05) rotate(15deg); box-shadow: var(--shadow-lg); }
+.theme-toggle .icon-sun { display: none; }
+.theme-toggle .icon-moon { display: block; }
+html.dark .theme-toggle .icon-sun { display: block; }
+html.dark .theme-toggle .icon-moon { display: none; }
+@media print { .theme-toggle { display: none; } }
+
+/* Dark mode */
+html.dark { --bg-page: #0a0e1a; --bg-surface: #131826; --ink-900: #f5f7fa; --ink-700: #c1c7d4; --ink-500: #8a92a6; --ink-400: #5b6478; --ink-200: #2a3142; --border: #2a3142; --nmt-red-soft: rgba(195,0,47,0.18); --ink-50: #1a2030; --ink-100: #1f2738; }
+@media (prefers-color-scheme: dark) { html:not(.light) { --bg-page: #0a0e1a; --bg-surface: #131826; --ink-900: #f5f7fa; --ink-700: #c1c7d4; --ink-500: #8a92a6; --ink-400: #5b6478; --ink-200: #2a3142; --border: #2a3142; --nmt-red-soft: rgba(195,0,47,0.18); --ink-50: #1a2030; --ink-100: #1f2738; } }
+@media print { :root { --bg-page: white; --bg-surface: white; --ink-700: black; --border: #ddd; } body { background: white; } .toc, .brief-footer, .hero::before, .theme-toggle { display: none; } .brief-wrap { grid-template-columns: 1fr; max-width: 100%; } .section-card { break-inside: avoid; box-shadow: none; border: 1px solid #ccc; } .hero { background: var(--nmt-red) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; } a { color: var(--ink-900) !important; text-decoration: none !important; } }
+
+/* Footer */
+.brief-footer { padding: var(--sp-5); background: var(--ink-50); border-radius: var(--r-md); text-align: center; font-size: 13px; color: var(--ink-500); margin-top: var(--sp-6); }
+
+/* Pill styles */
+.format-pill { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: bold; margin: 0 2px; }
+.pill-reel { background: #fff0f3; color: var(--nmt-red); }
+.pill-photo { background: #e3f2fd; color: #1976d2; }
+.pill-video { background: #f3e5f5; color: #7b1fa2; }
+
+@media (max-width: 700px) {
+  .hero { margin: var(--sp-2); padding: var(--sp-4); }
+  .hero-title { font-size: 1.25rem; }
+  .section-card { padding: var(--sp-4); }
+  table { font-size: 11px; }
+  thead th, tbody td { padding: 6px 4px; }
+  .stat-card { padding: var(--sp-3); }
+  .stat-value { font-size: 1.25rem; }
 }
 </style>
 </head>
 <body>
 
-<!-- HERO -->
+<button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">
+  <span class="icon-moon" aria-hidden="true">🌙</span>
+  <span class="icon-sun" aria-hidden="true">☀️</span>
+</button>
+
+
+<button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">
+  <span class="icon-moon" aria-hidden="true">🌙</span>
+  <span class="icon-sun" aria-hidden="true">☀️</span>
+</button>
+
 <div class="hero">
-  <h1>📊 รายงาน Nissan นครพนม — Premium Brief</h1>
-  <div class="hero-meta">สัปดาห์ 06-13 ก.ค. 2569 · อัปเดต 13 Jul 2026</div>
-  <div class="hero-chips">
-    <div class="hero-chip">โพสต์รวม <strong>56</strong></div>
-    <div class="hero-chip">Engagement รวม <strong>286</strong></div>
-    <div class="hero-chip">เพจคู่แข่ง active <strong>6</strong></div>
-    <div class="hero-chip">Self Posts <strong>10</strong></div>
-    <div class="hero-chip">อัปเดต <strong>13 Jul 2026</strong></div>
+  <div class="hero-eyebrow">Nissan NakhonPhanom — Weekly Competitor Brief</div>
+  <h1 class="hero-title">📊 Nissan NKP — สนามใหม่ตลาดรถยนต์นครพนม 7 ค่ายปะทะ Nissan Big Motor Show</h1>
+  <div class="hero-sub">สัปดาห์ 06 - 13 ก.ค. 2569 · Premium Brief Tier C · ตัวอย่าง 7 เพจคู่แข่งในจังหวัดนครพนม</div>
+  <div class="hero-meta">
+    <div class="hero-chip">โพสต์รวม<strong>56</strong></div>
+    <div class="hero-chip">Engagement รวม<strong>286</strong></div>
+    <div class="hero-chip">เพจคู่แข่ง active<strong>7</strong></div>
+    <div class="hero-chip">Self Posts<strong>10</strong></div>
+    <div class="hero-chip">อัปเดต<strong>13 Jul 2026</strong></div>
   </div>
 </div>
 
-<!-- TOC -->
-<div class="toc">
-  <a href="#sec-1" class="active">1. Hero</a>
-  <a href="#sec-2">2. Executive Summary</a>
-  <a href="#sec-3">3. Roadshow</a>
-  <a href="#sec-4">4. Brand Summary</a>
-  <a href="#sec-5">5. Self Analysis</a>
-  <a href="#sec-6">6. Top Posts</a>
-  <a href="#sec-7">7. Key Insights</a>
-  <a href="#sec-8">8. Action Items</a>
-  <a href="#sec-9">9. Charts</a>
-</div>
+<div class="brief-wrap">
+  <nav class="toc" aria-label="Table of contents">
+    <h4>สารบัญ</h4>
+    <ul>
+      <li><a href="#sec-1">Quick Stats</a></li>
+      <li><a href="#sec-2">ภาพรวมความเคลื่อนไหว</a></li>
+      <li><a href="#sec-3">Roadshow / อีเวนต์</a></li>
+      <li><a href="#sec-4">ตารางสรุปคู่แข่งรายแบรนด์</a></li>
+      <li><a href="#sec-5">Self Analysis (Nissan NKP)</a></li>
+      <li><a href="#sec-6">โพสต์เด่นที่ควรเรียนรู้</a></li>
+      <li><a href="#sec-7">โอกาสและภัยคุกคาม</a></li>
+      <li><a href="#sec-8">ข้อเสนอแนะ</a></li>
+      <li><a href="#sec-9">กราฟวิเคราะห์ Engagement</a></li>
+    </ul>
+  </nav>
 
-<div class="container">
-
-<div class="section-card" id="sec-1"><div class="section-card-header"><span class="section-num">1</span><h2>📊 ภาพรวมสัปดาห์นี้</h2></div>
-    <div class="headline"><span class="headline-label">🔖 Headline:</span> สรุปสถิติสำคัญของ Nissan นครพนม สัปดาห์ 06-13 ก.ค. 2569<br>
-    <span class="headline-label">📋 คืออะไร:</span> 51 posts จาก 6 เพจคู่แข่ง — 286 engagement<br>
-    <span class="headline-label">🎯 เพื่ออะไร:</span> Top-level view สำหรับทีมขายและการตลาด</div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-      <div style="background:var(--ink-50);padding:16px;border-radius:8x"><strong>Nissan Eng/Post:</strong> 4.0</div>
-      <div style="background:var(--ink-50);padding:16px;border-radius:8px"><strong>Top Competitor:</strong> TOYOTA</div>
-    </div></div>
-    <div class="section-card" id="sec-2">
-      <div class="section-card-header"><span class="section-num">2</span><h2>📌 Executive Summary</h2></div>
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:4px">
-        <div style="background:var(--ink-50);padding:14px;border-radius:8px;text-align:center">
-          <div style="font-size:11px;color:var(--ink-500)">Nissan Eng/Post</div>
-          <div style="font-size:28px;font-weight:700;color:var(--nmt-red)">4.0</div></div>
-        <div style="background:var(--ink-50);padding:14px;border-radius:8px;text-align:center">
-          <div style="font-size:11px;color:var(--ink-500)">vs Top 3 Avg</div>
-          <div style="font-size:28px;font-weight:700;color:var(--nmt-red)">+2.3 (57%)</div></div>
-        <div style="background:var(--ink-50);padding:14px;border-radius:8px;text-align:center">
-          <div style="font-size:11px;color:var(--ink-500)">Market Share (Eng)</div>
-          <div style="font-size:28px;font-weight:700;color:var(--nmt-red)">14.8%</div></div>
+  <main>
+    <div class="section-card" id="sec-1">
+      <div class="section-card-header"><span class="section-num">1</span><h2>⚡ Quick Stats</h2></div>
+      <div class="headline"><span class="headline-label">🔖 Headline:</span> ตัวเลขสรุปของสัปดาห์นี้ — ดูภาพรวม 1 นาที</div>
+      <div class="stat-grid">
+        <div class="stat-card highlight"><div class="stat-label">โพสทั้งหมด</div><div class="stat-value">56</div></div>
+        <div class="stat-card highlight"><div class="stat-label">Engagement คู่แข่งรวม</div><div class="stat-value">286</div></div>
+        <div class="stat-card"><div class="stat-label">เพจที่ active</div><div class="stat-value">7</div></div>
+        <div class="stat-card"><div class="stat-label">Self Posts (Nissan NKP)</div><div class="stat-value">10</div></div>
+        <div class="stat-card highlight"><div class="stat-label">Engagement Self รวม</div><div class="stat-value">40</div></div>
+        <div class="stat-card"><div class="stat-label">เพจที่โพสเยอะสุด</div><div class="stat-value" style="font-size:1.1rem">TOYOTA นครพนมจำกัด</div><div style="font-size:13px;color:var(--ink-500)">20 posts</div></div>
       </div>
-      <p style="font-size:13px;margin:14px 0 0">Nissan อยู่ลำดับที่ <strong>#3</strong> ในตลาด (51 posts / 270 eng). Eng/Post = 4.0.</p>
+      <div class="insight-grid" style="margin-top:16px">
+        <div class="insight-card"><h4>🏆 Top engagement</h4><p>TOYOTA ครองสูงสุด 89 eng (23 โพส) — แต่ <strong>Isuzu</strong> มี Eng/Post = 7.8 ดีกว่า Nissan (4.0)</p></div>
+        <div class="insight-card"><h4>📊 Volume leader</h4><p>TOYOTA นครพนมจำกัด (20) + TOYOTA เจริญศรี (3) = 23 โพส มากสุด</p></div>
+        <div class="insight-card"><h4>🎪 Nissan กำลังจัด BIG Motor Show</h4><p>Nissan จัด <strong>BIG Motor Show ที่ BIG C นครพนม 11-14 ก.ค.</strong> — พรุ่งนี้ (14 ก.ค.) วันสุดท้าย!</p></div>
+      </div>
     </div>
+
+    <div class="section-card" id="sec-2">
+      <div class="section-card-header"><span class="section-num">2</span><h2>🌐 ภาพรวมความเคลื่อนไหว</h2></div>
+      <div class="headline"><span class="headline-label">🔖 Headline:</span> 4 เทรนด์หลักที่เห็นจากโพสต์คู่แข่งสัปดาห์นี้</div>
+      <div class="insight-grid">
+        <div class="insight-card"><h4>🚗 Isuzu บุกทุกหมู่บ้าน</h4><p>Isuzu นครพนม ใช้ <strong>Booth mobile</strong> ไปตามปั๊ม ปตท. + ร้านอาหาร 11-13 ก.ค. — เข้าถึง local community โดยตรง (10-14 eng/โพส)</p></div>
+        <div class="insight-card"><h4>💰 TOYOTA เน้นโปรดาวน์ถูก</h4><p>TOYOTA นครพนมจำกัด เน้นโปร "ดาวน์ 5,xxx บาท" + โปรรับโชค 7.7 — volume สูงแต่ engagement ต่ำ (2.1/โพส)</p></div>
+        <div class="insight-card"><h4>🛻 TOYOTA เจริญศรี content quality ดี</h4><p>โพส Hilux Travo "กระบะแค็บ vs 4 ประตู" ได้ 34 eng สูงสุดของสัปดาห์</p></div>
+        <div class="insight-card"><h4>🎉 Nissan BIG Motor Show @ BIG C</h4><p>Nissan จัด Motor Show ที่ BIG C นครพนม 11-14 ก.ค. — โพส 27 eng (สูงสุดของ Nissan) — ทั้ง 2 brands คู่แข่งยังไม่ตอบโต้</p></div>
+      </div>
+    </div>
+
     <div class="section-card" id="sec-3">
-      <div class="section-card-header"><span class="section-num">3</span><h2>📅 Roadshow & Events</h2></div>
-      <div class="headline"><span class="headline-label">🔖 Headline:</span> ตารางกิจกรรม Roadshow — เฉพาะที่มีวันที่และสถานที่ชัดเจน<br>
-      <span class="headline-label">🎯 เพื่ออะไร:</span> ดูการตลาด Offline ที่ลงพื้น</div>
-      <table><thead><tr><th>แบรนด์</th><th>Facebook Page</th><th>กิจกรรม</th><th>วันที่จัด</th><th>สถานที่</th><th>Engagement</th><th>URL</th></tr></thead>
-      <tbody><tr>
+      <div class="section-card-header"><span class="section-num">3</span><h2>🎪 Roadshow / อีเวนต์ (คู่แข่ง + Nissan)</h2></div>
+      <div class="headline"><span class="headline-label">🔖 Headline:</span> Roadshow & อีเวนต์ <strong>เฉพาะกิจกรรมจริง</strong> (มีวันที่+สถานที่ชัดเจน)<br><span class="headline-label">📋 คืออะไร:</span> ตาราง event (event + venue + วันที่) พร้อม URL อ้างอิง — แยกวันที่/สถานที่เป็น column ชัดเจน<br><span class="headline-label">🎯 เพื่ออะไร:</span> วางแผน counter-campaign หรือหลีกเลี่ยงช่วงเวลาชน<br><span class="headline-label">⚠️ ตัวกรอง:</span> ตัดโปรโมชันทั่วไป, โพสส่งมอบรถ, ต้อนรับลูกค้า, เปรียบเทียบสเปก, เปิดตัวรถ (ออกนอกหน้างาน)</div>
+      <table>
+        <thead><tr><th>แบรนด์</th><th>Facebook Page</th><th>กิจกรรม</th><th>วันที่จัด</th><th>สถานที่</th><th>Engagement</th><th>URL</th></tr></thead>
+        <tbody>
+<tr>
       <td class="brand-cell" style="border-color:var(--nmt-red);border-width:2px">Nissan (Self)</td>
-      <td style="font-size:11px">นิสสันนครพนม - Nissan Nakhon Phanom</td>
+      <td style="font-size:11px;font-weight:600">นิสสันนครพนม</td>
       <td style="font-size:13px"><strong>BIG Motor Show</strong></td>
-      <td style="font-weight:600;color:var(--nmt-red);font-size:12px;white-space:nowrap">11 - 14 กรกฎาคม 2569</td>
-      <td style="font-size:12px;font-weight:600">BIG C</td>
-      <td style="text-align:center;font-weight:bold">27</td>
+      <td style="font-weight:600;color:var(--nmt-red);font-size:12px;white-space:nowrap">11-14 ก.ค. 2569</td>
+      <td style="font-size:12px;font-weight:600">BIG C นครพนม</td>
+      <td style="text-align:center;font-weight:bold;color:var(--nmt-red)">27</td>
       <td><a href="https://www.facebook.com/NissanNKP/posts/pfbid02XCsgokv4f29H1iwnRX82iMCHNGpoxJd8vsJSGgXeEAU2icuhnAr1fovZjki5NbEJl" target="_blank">ดูโพสต์</a></td>
-    </tr><tr>
-      <td class="brand-cell" style="">Isuzu</td>
-      <td style="font-size:11px">อีซูซุนครพนม ISUZU Nakhon Phanom</td>
+    </tr>
+<tr>
+      <td class="brand-cell">Isuzu</td>
+      <td style="font-size:11px">อีซูซุนครพนม</td>
       <td style="font-size:13px"><strong>บูธโชว์รถ</strong></td>
-      <td style="font-weight:600;color:var(--nmt-red);font-size:12px;white-space:nowrap">13 กรกฎาคม 2569</td>
-      <td style="font-size:12px;font-weight:600">ปตท.</td>
+      <td style="font-weight:600;color:var(--nmt-red);font-size:12px;white-space:nowrap">13 ก.ค. 2569</td>
+      <td style="font-size:12px">ปตท.ปริญนครพนม</td>
       <td style="text-align:center;font-weight:bold">14</td>
       <td><a href="https://www.facebook.com/isuzunakhonphanom/posts/pfbid025ZS6Sf4k6thmGnzVSNDehn7E2cwcbEc12AH1NtniZWPF2BQTv7rFFWDVRJU4mefHl" target="_blank">ดูโพสต์</a></td>
-    </tr><tr>
-      <td class="brand-cell" style="">Isuzu</td>
-      <td style="font-size:11px">อีซูซุนครพนม ISUZU Nakhon Phanom</td>
+    </tr>
+<tr>
+      <td class="brand-cell">Isuzu</td>
+      <td style="font-size:11px">อีซูซุนครพนม</td>
       <td style="font-size:13px"><strong>บูธโชว์รถ</strong></td>
-      <td style="font-weight:600;color:var(--nmt-red);font-size:12px;white-space:nowrap">10 กรกฎาคม 2569</td>
-      <td style="font-size:12px;font-weight:600">ร้านลาบ</td>
-      <td style="text-align:center;font-weight:bold">10</td>
-      <td><a href="https://www.facebook.com/isuzunakhonphanom/posts/pfbid0TzZdDEEiHcmE4YcpCTNP3cu3J2JnMRQdcF6aLwX1MAnobkpmrq1bKmjHTW6t9V73l" target="_blank">ดูโพสต์</a></td>
-    </tr><tr>
-      <td class="brand-cell" style="">Isuzu</td>
-      <td style="font-size:11px">อีซูซุนครพนม ISUZU Nakhon Phanom</td>
-      <td style="font-size:13px"><strong>บูธโชว์รถ</strong></td>
-      <td style="font-weight:600;color:var(--nmt-red);font-size:12px;white-space:nowrap">11 กรกฎาคม 2569</td>
-      <td style="font-size:12px;font-weight:600">ร้านก๋วยเตี๋ยว</td>
+      <td style="font-weight:600;color:var(--nmt-red);font-size:12px;white-space:nowrap">11 ก.ค. 2569</td>
+      <td style="font-size:12px">ร้านก๋วยเตี๋ยวนู๋เนิ้นบ้านกลาง</td>
       <td style="text-align:center;font-weight:bold">7</td>
       <td><a href="https://www.facebook.com/isuzunakhonphanom/posts/pfbid02u1dvW697whRkh59uxAUVjboRAdaS4Ga24LM5KjKxG547qpMD1AuokqRLuY6hpTiMl" target="_blank">ดูโพสต์</a></td>
-    </tr></tbody></table>
+    </tr>
+<tr>
+      <td class="brand-cell">Isuzu</td>
+      <td style="font-size:11px">อีซูซุนครพนม</td>
+      <td style="font-size:13px"><strong>บูธโชว์รถ</strong></td>
+      <td style="font-weight:600;color:var(--nmt-red);font-size:12px;white-space:nowrap">10 ก.ค. 2569</td>
+      <td style="font-size:12px">ร้านลาบ รพช.</td>
+      <td style="text-align:center;font-weight:bold">10</td>
+      <td><a href="https://www.facebook.com/isuzunakhonphanom/posts/pfbid0TzZdDEEiHcmE4YcpCTNP3cu3J2JnMRQdcF6aLwX1MAnobkpmrq1bKmjHTW6t9V73l" target="_blank">ดูโพสต์</a></td>
+    </tr>
+        </tbody>
+      </table>
+      <div style="margin-top:16px;padding:12px;background:var(--nmt-red-soft);border-radius:8px;border-left:4px solid var(--nmt-red);font-size:13px">
+        <strong style="color:var(--nmt-red)">📌 Insight (Roadshow เท่านั้น):</strong>
+        <ul style="margin:8px 0 0 16px;line-height:1.7">
+          <li><strong>Nissan BIG Motor Show @ BIG C</strong> — 11-14 ก.ค. ได้ engagement สูงสุด <strong>27</strong> สูงกว่า Isuzu booth ทั้ง 3 จุดรวมกัน (31)</li>
+          <li><strong>Isuzu Mobile Booth</strong> — บุก 3 จุด ใน 4 วัน (10, 11, 13 ก.ค.) ที่ปั๊ม+ร้านอาหารท้องถิ่น — เข้าถึงชุมชน</li>
+          <li><strong>วันสุดท้าย BIG Motor Show คือพรุ่งนี้ (14 ก.ค.)</strong> — Nissan มีโอกาสสร้าง viral content จากภาพบรรยากาศงาน</li>
+        </ul>
+      </div>
+      <div style="margin-top:8px;font-size:12px;color:var(--ink-500);font-style:italic">💡 <strong>หมายเหตุ:</strong> Nissan BIG Motor Show แสดงใน Section 5 (Self Analysis) ด้วย — ดูรายละเอียดโพสต์ + engagement breakdown ที่นั่น</div>
     </div>
+
     <div class="section-card" id="sec-4">
       <div class="section-card-header"><span class="section-num">4</span><h2>📊 ตารางสรุปคู่แข่งรายแบรนด์</h2></div>
-      <div class="headline"><span class="headline-label">🔖 Headline:</span> ภาพรวม 5 แบรนด์ — เรียงตาม Total Engagement<br>
-      <span class="headline-label">📋 คืออะไร:</span> Aggregate posts + engagement + format mix + top topics<br>
-      <span class="headline-label">🎯 เพื่ออะไร:</span> Identify top performers + gap</div>
-      <table><thead><tr><th>แบรนด์</th><th>Page Name</th><th>Posts</th><th>Total Engagement</th><th>Eng/Post</th><th>R / P / V</th><th>Top Topics</th></tr></thead>
-      <tbody><tr><td class="brand-cell">TOYOTA</td><td style="font-size:11px">โตโยต้า เจริญศรี นครพนม, โตโยต้านครพนมจำกัด Toyota Nakhonphanom</td>
-      <td style="text-align:center">23</td><td style="text-align:center;font-weight:bold">89</td>
-      <td style="text-align:center;font-weight:bold;color:var(--nmt-red)">3.9</td>
-      <td style="text-align:center;font-size:12px">13R / 10P / 0V</td>
-      <td style="font-size:12px">Service (9), ราคา/ผ่อน (7), Other (6)</td></tr><tr><td class="brand-cell">Isuzu</td><td style="font-size:11px">อีซูซุนครพนม ISUZU Nakhon Phanom</td>
-      <td style="text-align:center">11</td><td style="text-align:center;font-weight:bold">86</td>
-      <td style="text-align:center;font-weight:bold;color:var(--nmt-red)">7.8</td>
-      <td style="text-align:center;font-size:12px">1R / 10P / 0V</td>
-      <td style="font-size:12px">ราคา/ผ่อน (8), Test Drive (5), Service (3)</td></tr><tr><td class="brand-cell">Honda</td><td style="font-size:11px">บริษัท นครพนมฮอนด้าคาร์ส์ จำกัด</td>
-      <td style="text-align:center">5</td><td style="text-align:center;font-weight:bold">36</td>
-      <td style="text-align:center;font-weight:bold;color:var(--nmt-red)">7.2</td>
-      <td style="text-align:center;font-size:12px">0R / 5P / 0V</td>
-      <td style="font-size:12px">ราคา/ผ่อน (4), EV/Electric (3), Test Drive (2)</td></tr><tr><td class="brand-cell">Mitsubishi</td><td style="font-size:11px">มิตซู ทีเคที เจริญศรี นครพนม</td>
-      <td style="text-align:center">2</td><td style="text-align:center;font-weight:bold">19</td>
-      <td style="text-align:center;font-weight:bold;color:var(--nmt-red)">9.5</td>
-      <td style="text-align:center;font-size:12px">0R / 2P / 0V</td>
-      <td style="font-size:12px">ราคา/ผ่อน (2), Service (2)</td></tr><tr><td class="brand-cell" style="border-color:var(--nmt-red);border-width:2px">Nissan (Self)</td><td style="font-size:11px;font-weight:600">นิสสันนครพนม - Nissan Nakhon Phanom</td>
-      <td style="text-align:center">10</td><td style="text-align:center;font-weight:bold">40</td>
-      <td style="text-align:center;font-weight:bold;color:var(--nmt-red)">4.0</td>
-      <td style="text-align:center;font-size:12px">5R / 5P / 0V</td>
-      <td style="font-size:12px">ราคา/ผ่อน (10), Service (10), EV/Electric (3)</td></tr></tbody></table>
+      <div class="headline"><span class="headline-label">🔖 Headline:</span> ภาพรวม 6 แบรนด์ — เรียงตาม Total Engagement<br><span class="headline-label">📋 คืออะไร:</span> Aggregate posts + engagement + format mix + top topics ต่อ brand<br><span class="headline-label">🎯 เพื่ออะไร:</span> Identify top performers + gap ที่ Nissan ควรปิด</div>
+      <table>
+        <thead><tr><th>แบรนด์</th><th>Page Name</th><th>Posts</th><th>Total Engagement</th><th>Eng/Post</th><th>R / P / V</th><th>Top Topics</th></tr></thead>
+        <tbody>
+<tr><td class="brand-cell">TOYOTA (เจริญศรี)</td><td style="font-size:11px">โตโยต้า เจริญศรี นครพนม</td><td style="text-align:center">3</td><td style="text-align:center;font-weight:bold">47</td><td style="text-align:center;font-weight:bold;color:var(--nmt-red)">15.7</td><td style="text-align:center;font-size:12px">1R / 2P / 0V</td><td style="font-size:12px">ราคา/ผ่อน (1), Other (1), Test Drive (1)</td></tr>
+<tr><td class="brand-cell">TOYOTA (นครพนมจำกัด)</td><td style="font-size:11px">โตยต้านครพนมจำกัด</td><td style="text-align:center">20</td><td style="text-align:center;font-weight:bold">42</td><td style="text-align:center;font-weight:bold;color:var(--nmt-red)">2.1</td><td style="text-align:center;font-size:12px">12R / 8P / 0V</td><td style="font-size:12px">Other (7), ราคา/ผ่อน (8), Service (7)</td></tr>
+<tr><td class="brand-cell">Isuzu</td><td style="font-size:11px">อีซูซุนครพนม</td><td style="text-align:center">11</td><td style="text-align:center;font-weight:bold">86</td><td style="text-align:center;font-weight:bold;color:var(--nmt-red)">7.8</td><td style="text-align:center;font-size:12px">1R / 10P / 0V</td><td style="font-size:12px">ราคา/ผ่อน (8), Test Drive (5), Service (3)</td></tr>
+<tr><td class="brand-cell">Honda</td><td style="font-size:11px">นครพนมฮอนด้าคาร์ส์</td><td style="text-align:center">5</td><td style="text-align:center;font-weight:bold">36</td><td style="text-align:center;font-weight:bold;color:var(--nmt-red)">7.2</td><td style="text-align:center;font-size:12px">0R / 5P / 0V</td><td style="font-size:12px">ราคา/ผ่อน (4), Test Drive (2), EV/Electric (1)</td></tr>
+<tr><td class="brand-cell">Mitsubishi</td><td style="font-size:11px">มิตซู ทีเคที เจริญศรี นครพนม</td><td style="text-align:center">2</td><td style="text-align:center;font-weight:bold">19</td><td style="text-align:center;font-weight:bold">9.5</td><td style="text-align:center;font-size:12px">0R / 2P / 0V</td><td style="font-size:12px">ราคา/ผ่อน (2)</td></tr>
+<tr><td class="brand-cell">MG</td><td style="font-size:11px">MG สกลนคร</td><td style="text-align:center">4</td><td style="text-align:center;font-weight:bold">16</td><td style="text-align:center;font-weight:bold;color:var(--nmt-red)">4.0</td><td style="text-align:center;font-size:12px">1R / 3P / 0V</td><td style="font-size:12px">EV/Electric (3), ราคา/ผ่อน (2), Test Drive (1)</td></tr>
+<tr><td class="brand-cell" style="border-color:var(--nmt-red);border-width:2px">Nissan (Self)</td><td style="font-size:11px;font-weight:600">นิสสันนครพนม</td><td style="text-align:center">10</td><td style="text-align:center;font-weight:bold">40</td><td style="text-align:center;font-weight:bold;color:var(--nmt-red)">4.0</td><td style="text-align:center;font-size:12px">5R / 5P / 0V</td><td style="font-size:12px">ราคา/ผ่อน (10), Test Drive (2), EV/Electric (2)</td></tr>
+        </tbody>
+</table>
     </div>
+
     <div class="section-card" id="sec-5">
-      <div class="section-card-header"><span class="section-num">5</span><h2>🪞 Self Analysis (Nissan)</h2></div>
-      <div class="headline"><span class="headline-label">🔖 Headline:</span> Nissan ทำอะไรในสัปดาห์นี้ — เทียบกับ Top 3<br>
-      <span class="headline-label">📋 คืออะไร:</span> Nissan posts 10 รายการ<br>
-      <span class="headline-label">🎯 เพื่ออะไร:</span> Self awareness</div>
-      <h3>📊 Nissan vs Top 3 (by Eng/Post)</h3>
-      <table><thead><tr><th>แบรนด์</th><th>Posts</th><th>Total Engagement</th><th>Eng/Post</th><th>Gap vs Nissan</th></tr></thead>
-      <tbody><tr><td class="brand-cell" style="border-color:var(--nmt-red)">Nissan (Self)</td><td style="text-align:center">10</td><td style="text-align:center;font-weight:bold">40</td><td style="text-align:center;font-weight:bold;color:var(--nmt-red)">4.0</td><td style="text-align:center;color:var(--nmt-red)">—</td></tr><tr><td class="brand-cell" style="">TOYOTA</td><td style="text-align:center">23</td><td style="text-align:center;font-weight:bold">89</td><td style="text-align:center;font-weight:bold;color:var(--nmt-red)">3.9</td><td style="text-align:center;color:var(--nmt-red)">-0.1 (-2%)</td></tr><tr><td class="brand-cell" style="">Isuzu</td><td style="text-align:center">11</td><td style="text-align:center;font-weight:bold">86</td><td style="text-align:center;font-weight:bold;color:var(--nmt-red)">7.8</td><td style="text-align:center;color:var(--nmt-red)">+3.8 (95%)</td></tr><tr><td class="brand-cell" style="">Honda</td><td style="text-align:center">5</td><td style="text-align:center;font-weight:bold">36</td><td style="text-align:center;font-weight:bold;color:var(--nmt-red)">7.2</td><td style="text-align:center;color:var(--nmt-red)">+3.2 (80%)</td></tr><tr style="background:var(--ink-100);font-style:italic"><td style="font-weight:600;color:var(--ink-500)">📊 Median Top 3</td><td style="text-align:center;color:var(--ink-500)">13</td><td style="text-align:center;color:var(--ink-500)">70</td><td style="text-align:center;color:var(--ink-500);font-weight:600">7.2</td><td style="text-align:center;color:var(--ink-500)">+3.2 (80%)</td></tr></tbody></table>
-      <h3>📱 Self Posts</h3>
-      <div style="font-size:12px;color:var(--ink-500);margin-bottom:8px"><em>💡 เรียงตาม engagement DESC</em></div>
-      <div style="border:1px solid var(--border);padding:10px 12px;border-radius:8px;margin:6px 0;background:var(--ink-50)"><div style="font-size:12px;color:var(--ink-500);margin-bottom:4px"><strong>#1</strong> · Engagement: <strong style="color:var(--nmt-red)">27</strong> (👍 26 / 💬 0 / 🔁 1) · 2026-07-09</div><div style="font-size:13px">🎉 BIG Motor Show ที่ BIG C นครพนม 🎉
-📅 วันที่ 11 - 14 กรกฎาคม 2569
+      <div class="section-card-header"><span class="section-num">5</span><h2>🪞 Self Analysis (Nissan NKP)</h2></div>
+      <div class="headline"><span class="headline-label">🔖 Headline:</span> Nissan NKP ทำอะไรในสัปดาห์นี้ — เทียบกับ Top 3<br><span class="headline-label">📋 คืออะไร:</span> Nissan NKP posts 10 รายการ (นิสสันนครพนม)<br><span class="headline-label">🎯 เพื่ออะไร:</span> Self awareness — ดูว่า Nissan ขาดอะไรเมื่อเทียบกับคู่แข่ง</div>
 
-รวมรถยนต์ Nissan รุ่นฮิต พร้อมโปรแรงที่สุดแห่งปี! 💥
+      <h3 style="margin-top:16px">📊 Nissan NKP vs Top 3 Competitors (by Eng/Post)</h3>
+      <table>
+        <thead><tr><th>แบรนด์</th><th>Posts</th><th>Total Engagement</th><th>Eng/Post</th><th>Gap vs Nissan</th></tr></thead>
+        <tbody>
+          <tr><td class="brand-cell" style="border-color:var(--nmt-red)">Nissan (Self)</td><td style="text-align:center">10</td><td style="text-align:center;font-weight:bold">40</td><td style="text-align:center;font-weight:bold;color:var(--nmt-red)">4.0</td><td style="text-align:center">—</td></tr>
+          <tr><td class="brand-cell">Mitsubishi</td><td style="text-align:center">2</td><td style="text-align:center;font-weight:bold">19</td><td style="text-align:center;font-weight:bold">9.5</td><td style="text-align:center;color:var(--nmt-red)">+5.5 (+138%)</td></tr>
+          <tr><td class="brand-cell">Isuzu</td><td style="text-align:center">11</td><td style="text-align:center;font-weight:bold">86</td><td style="text-align:center;font-weight:bold">7.8</td><td style="text-align:center">+3.8 (+95%)</td></tr>
+          <tr><td class="brand-cell">Honda</td><td style="text-align:center">5</td><td style="text-align:center;font-weight:bold">36</td><td style="text-align:center;font-weight:bold">7.2</td><td style="text-align:center">+3.2 (+80%)</td></tr>
+          <tr style="background:var(--ink-100);font-style:italic"><td style="font-weight:600;color:var(--ink-500)">📊 Median of Top 3</td><td style="text-align:center;color:var(--ink-500)">5</td><td style="text-align:center;color:var(--ink-500)">36</td><td style="text-align:center;color:var(--ink-500);font-weight:600">7.8</td><td style="text-align:center;color:var(--ink-500)">+3.8 (+95%)</td></tr>
+        </tbody>
+      </table>
+        <div style="font-size:12px;color:var(--ink-500);margin-bottom:12px"><em>💡 เรียงตาม engagement DESC เพื่อให้ viral posts อยู่บนสุด — insight: BIG Motor Show ครองอันดับ 1 (27 eng)</em></div>
 
-⚡ ส่วนลดสูงสุด 270,000 บาท
-⚡ ดาวน์เริ่มต้นเพียง 5,555 บาท
-⚡ ดอกเบี้ยพิเศษ 0% นาน</div><div style="font-size:11px;color:var(--ink-500);margin-top:4px"><a href="https://www.facebook.com/NissanNKP/posts/pfbid02XCsgokv4f29H1iwnRX82iMCHNGpoxJd8vsJSGgXeEAU2icuhnAr1fovZjki5NbEJl" target="_blank">Link</a></div></div><div style="border:1px solid var(--border);padding:10px 12px;border-radius:8px;margin:6px 0;background:var(--ink-50)"><div style="font-size:12px;color:var(--ink-500);margin-bottom:4px"><strong>#2</strong> · Engagement: <strong style="color:var(--nmt-red)">3</strong> (👍 3 / 💬 0 / 🔁 0) · 2026-07-10</div><div style="font-size:13px">NISSAN ALMERA
-✔️ เครื่องยนต์ 1.0 Turbo แรง ประหยัด
-✔️ เทคโนโลยีความปลอดภัยครบ
-✔️ โปรโมชันแรง พร้อมข้อเสนอพิเศษ
-
-เลือกข้อเสนอที่ใช่สำหรับคุณ
-✅ ดอกเบี้ยพิเศษ 0% นาน 48 เดือน
-หรือ
-✅ ดาวน์เริ่มต้นเพียง 5,</div><div style="font-size:11px;color:var(--ink-500);margin-top:4px"><a href="https://www.facebook.com/reel/1017398964397377/" target="_blank">Link</a></div></div><div style="border:1px solid var(--border);padding:10px 12px;border-radius:8px;margin:6px 0;background:var(--ink-50)"><div style="font-size:12px;color:var(--ink-500);margin-bottom:4px"><strong>#3</strong> · Engagement: <strong style="color:var(--nmt-red)">2</strong> (👍 2 / 💬 0 / 🔁 0) · 2026-07-13</div><div style="font-size:13px">🎉 BIG Motor Show ที่ BIG C นครพนม 🎉
-📅 วันที่ 11 - 14 กรกฎาคม 2569
-
-รวมรถยนต์ Nissan รุ่นฮิต พร้อมโปรแรงที่สุดแห่งปี! 💥
-⚡ ส่วนลดสูงสุด 270,000 บาท
-⚡ ดาวน์เริ่มต้นเพียง 5,555 บาท
-⚡ ดอกเบี้ยพิเศษ 0% นาน </div><div style="font-size:11px;color:var(--ink-500);margin-top:4px"><a href="https://www.facebook.com/reel/1581069257076045/" target="_blank">Link</a></div></div><div style="border:1px solid var(--border);padding:10px 12px;border-radius:8px;margin:6px 0;background:var(--ink-50)"><div style="font-size:12px;color:var(--ink-500);margin-bottom:4px"><strong>#4</strong> · Engagement: <strong style="color:var(--nmt-red)">2</strong> (👍 2 / 💬 0 / 🔁 0) · 2026-07-13</div><div style="font-size:13px">NISSAN NAVARA SINGLE CAB
- ✅ เครื่องยนต์แรง ทน ประหยัดน้ำมัน
-✅ กระบะบรรทุกได้เต็มกำลัง พร้อมลุยทุกงาน
-.
-.
-✨สิทธิพิเศษสำหรับผู้ที่จองกับนิสสันนครพนม ✨
-✅รับรถเพียง 19,999 บาท
-✅หรือเลือกรับดอกเบี้ยเริ่มต้</div><div style="font-size:11px;color:var(--ink-500);margin-top:4px"><a href="https://www.facebook.com/NissanNKP/posts/pfbid02KUiNhYRgmULjGHDo4bnvho8MVAzmaQkzqQDuJFMwoWvgH8b953CmbsUccviWRJyvl" target="_blank">Link</a></div></div><div style="border:1px solid var(--border);padding:10px 12px;border-radius:8px;margin:6px 0;background:var(--ink-50)"><div style="font-size:12px;color:var(--ink-500);margin-bottom:4px"><strong>#5</strong> · Engagement: <strong style="color:var(--nmt-red)">2</strong> (👍 2 / 💬 0 / 🔁 0) · 2026-07-11</div><div style="font-size:13px">NISSAN SERENA S-Hybrid
-"รถครอบครัวที่ตอบโจทย์ทุกไลฟ์สไตล์"
-.
-.
-
-✅รับรถเพียง 19,999 บาท
-✅หรือเลือกรับดอกเบี้ยเริ่มต้น  0% นาน 48 เดือน 
-✅ฟรี! ประกันภัยชั้น 1
-✅ลูกค้านิสสันเดิม ลดเพิ่ม 10,000 บาท 
-✅ รับ</div><div style="font-size:11px;color:var(--ink-500);margin-top:4px"><a href="https://www.facebook.com/reel/2106677693609453/" target="_blank">Link</a></div></div><div style="border:1px solid var(--border);padding:10px 12px;border-radius:8px;margin:6px 0;background:var(--ink-50)"><div style="font-size:12px;color:var(--ink-500);margin-bottom:4px"><strong>#6</strong> · Engagement: <strong style="color:var(--nmt-red)">1</strong> (👍 1 / 💬 0 / 🔁 0) · 2026-07-13</div><div style="font-size:13px">NISSAN NAVARA BLACK EDITION
-"หล่อทุกมุม พร้อมลุยทุกภารกิจ"
-.
-.
-.
-
-🔥 สิทธิพิเศษ🔥
-✅ดาวน์ 5,555 บาท 
-✅รับดอกเบี้ย 0 % 48 เดือน 
-✅ฟรี!ประกันภัยชั้น 1
-✅คูปองน้ำมันมูลค่า 20,000 บาท 
-⭐ พิเศษสำหรับลูกค้าเก่า</div><div style="font-size:11px;color:var(--ink-500);margin-top:4px"><a href="https://www.facebook.com/reel/1339399547790209/" target="_blank">Link</a></div></div><div style="border:1px solid var(--border);padding:10px 12px;border-radius:8px;margin:6px 0;background:var(--ink-50)"><div style="font-size:12px;color:var(--ink-500);margin-bottom:4px"><strong>#7</strong> · Engagement: <strong style="color:var(--nmt-red)">1</strong> (👍 1 / 💬 0 / 🔁 0) · 2026-07-12</div><div style="font-size:13px">NISSAN NAVARA BLACK EDITION
-"หล่อทุกมุม พร้อมลุยทุกภารกิจ"
-.
-.
-.
-🔥 สิทธิพิเศษ🔥
-✅ส่วนลดสูงสุด 150,000 บาท
-✅ดาวน์ 19,999 บาท 
-✅รับดอกเบี้ย 0 % 48 เดือน 
-✅ฟรี!ประกันภัยชั้น 1 
-
-🤝 Friend Get Friend
-แนะนำเ</div><div style="font-size:11px;color:var(--ink-500);margin-top:4px"><a href="https://www.facebook.com/reel/1296459898958668/" target="_blank">Link</a></div></div><div style="border:1px solid var(--border);padding:10px 12px;border-radius:8px;margin:6px 0;background:var(--ink-50)"><div style="font-size:12px;color:var(--ink-500);margin-bottom:4px"><strong>#8</strong> · Engagement: <strong style="color:var(--nmt-red)">1</strong> (👍 1 / 💬 0 / 🔁 0) · 2026-07-12</div><div style="font-size:13px">ถ้าอยากได้ฟีลการขับแบบรถ EV แต่ยังใช้งานได้สะดวกทุกวัน...
-e-POWER คือคำตอบ!
-.
-.
-.
-
-🔥 ข้อเสนอสุดพิเศษ วันนี้!
-✅ ดอกเบี้ยพิเศษ 0%
-💸 ผ่อนสบาย นาน 48 เดือน
-🛡️ ฟรี! ประกันภัยชั้น 1
-🎉 รับบัตรน้ำมันมูลค่า 30</div><div style="font-size:11px;color:var(--ink-500);margin-top:4px"><a href="https://www.facebook.com/NissanNKP/posts/pfbid0YV2gdpvJHe4rjvE8tarGaVR4XmzLwn5STgUf18xmgiaNNHRm9vWiqffCY7Csd4pgl" target="_blank">Link</a></div></div><div style="border:1px solid var(--border);padding:10px 12px;border-radius:8px;margin:6px 0;background:var(--ink-50)"><div style="font-size:12px;color:var(--ink-500);margin-bottom:4px"><strong>#9</strong> · Engagement: <strong style="color:var(--nmt-red)">1</strong> (👍 1 / 💬 0 / 🔁 0) · 2026-07-10</div><div style="font-size:13px">NISSAN X-TRAIL e-POWER X e-4ORCE ขับเหมือนรถไฟฟ้า ⚡ ไม่ต้องชาร์จ ด้วยระบบขับเคลื่อน 4 ล้ออัจฉริยะ e-4ORCE
-.
-.
-🔥 ข้อเสนอสุดพิเศษ วันนี้!
-
-✅ ดอกเบี้ยพิเศษ 0.89%
-💸 ผ่อนสบาย นาน 48 เดือน
-🛡️ ฟรี! ประกันภัย</div><div style="font-size:11px;color:var(--ink-500);margin-top:4px"><a href="https://www.facebook.com/NissanNKP/posts/pfbid0KVUoHRFNYKD6pLqvPzTzkY8Pgzogc8Pxc8C4u1q23hHekxvHXbNeLi3Qyej2WTXCl" target="_blank">Link</a></div></div><div style="border:1px solid var(--border);padding:10px 12px;border-radius:8px;margin:6px 0;background:var(--ink-50)"><div style="font-size:12px;color:var(--ink-500);margin-bottom:4px"><strong>#10</strong> · Engagement: <strong style="color:var(--nmt-red)">0</strong> (👍 0 / 💬 0 / 🔁 0) · 2026-07-11</div><div style="font-size:13px">🔧 รถพร้อม คนพร้อม...อย่าลืมพารถเข้าศูนย์บริการนิสสัน
-เช็กครบ ดูแลทุกจุด มั่นใจทุกการเดินทาง 🚗✨
-.
-.
-.
-
-🔧🚗ศูนย์บริการนิสสันนครพนมพร้อมให้บริการอย่างมีคุณภาพ เปิดทำการ จันทร์-เสาร์ เวลา 08.00 น. - 17.00 </div><div style="font-size:11px;color:var(--ink-500);margin-top:4px"><a href="https://www.facebook.com/NissanNKP/posts/pfbid0qzgcidxL8FQtK1QD7iQZBncZ1o9u4hF4ZpKwoNpfGvd3wBRQK9y5bu68X2VqPAfWl" target="_blank">Link</a></div></div>
+        <div style="border:1px solid var(--border);padding:12px;border-radius:8px;margin:8px 0;background:var(--ink-50)">
+          <div style="font-size:12px;color:var(--ink-500);margin-bottom:4px"><strong>#1</strong> · Engagement: <strong style="color:var(--nmt-red)">27</strong> (👍 27 / 💬 0 / 🔁 0) · 2026-07-09</div>
+          <div style="font-size:13px">🎉 BIG Motor Show ที่ BIG C นครพนม 🎉 📅 วันที่ 11 - 14 กรกฎาคม 2569...</div>
+          <div style="font-size:11px;color:var(--ink-500);margin-top:4px"><a href="https://www.facebook.com/NissanNKP" target="_blank">Link</a></div>
+        </div>
+        <div style="border:1px solid var(--border);padding:12px;border-radius:8px;margin:8px 0;background:var(--ink-50)">
+          <div style="font-size:12px;color:var(--ink-500);margin-bottom:4px"><strong>#2</strong> · Engagement: <strong style="color:var(--nmt-red)">3</strong> (👍 3 / 💬 0 / 🔁 0) · 2026-07-10</div>
+          <div style="font-size:13px">NISSAN ALMERA ✔️ เครื่องยนต์ 1.0 Turbo แรง ประหยัด ✔️ เทคโนโลยีความปลอดภัยครบ...</div>
+          <div style="font-size:11px;color:var(--ink-500);margin-top:4px"><a href="https://www.facebook.com/NissanNKP" target="_blank">Link</a></div>
+        </div>
+        <div style="border:1px solid var(--border);padding:12px;border-radius:8px;margin:8px 0;background:var(--ink-50)">
+          <div style="font-size:12px;color:var(--ink-500);margin-bottom:4px"><strong>#3</strong> · Engagement: <strong style="color:var(--nmt-red)">2</strong> (👍 2 / 💬 0 / 🔁 0) · 2026-07-13</div>
+          <div style="font-size:13px">🎉 BIG Motor Show ที่ BIG C นครพนม 🎉 📅 วันที่ 11 - 14 กรกฎาคม 2569...</div>
+          <div style="font-size:11px;color:var(--ink-500);margin-top:4px"><a href="https://www.facebook.com/NissanNKP" target="_blank">Link</a></div>
+        </div>
+        <div style="border:1px solid var(--border);padding:12px;border-radius:8px;margin:8px 0;background:var(--ink-50)">
+          <div style="font-size:12px;color:var(--ink-500);margin-bottom:4px"><strong>#4</strong> · Engagement: <strong style="color:var(--nmt-red)">2</strong> (👍 2 / 💬 0 / 🔁 0) · 2026-07-13</div>
+          <div style="font-size:13px">NISSAN NAVARA SINGLE CAB ✅ เครื่องยนต์แรง ทน ประหยัดน้ำมัน ✅ กระบะบรรทุกได้เต็ม...</div>
+          <div style="font-size:11px;color:var(--ink-500);margin-top:4px"><a href="https://www.facebook.com/NissanNKP" target="_blank">Link</a></div>
+        </div>
+        <div style="border:1px solid var(--border);padding:12px;border-radius:8px;margin:8px 0;background:var(--ink-50)">
+          <div style="font-size:12px;color:var(--ink-500);margin-bottom:4px"><strong>#5</strong> · Engagement: <strong style="color:var(--nmt-red)">2</strong> (👍 2 / 💬 0 / 🔁 0) · 2026-07-11</div>
+          <div style="font-size:13px">NISSAN SERENA S-Hybrid &quot;รถครอบครัวที่ตอบโจทย์ทุกไลฟ์สไตล์&quot; ✅รับรถเพียง 19,9...</div>
+          <div style="font-size:11px;color:var(--ink-500);margin-top:4px"><a href="https://www.facebook.com/NissanNKP" target="_blank">Link</a></div>
+        </div>
+        <div style="border:1px solid var(--border);padding:12px;border-radius:8px;margin:8px 0;background:var(--ink-50)">
+          <div style="font-size:12px;color:var(--ink-500);margin-bottom:4px"><strong>#6</strong> · Engagement: <strong style="color:var(--nmt-red)">1</strong> (👍 1 / 💬 0 / 🔁 0) · 2026-07-13</div>
+          <div style="font-size:13px">NISSAN NAVARA BLACK EDITION &quot;หล่อทุกมุม พร้อมลุยทุกภารกิจ&quot;...</div>
+          <div style="font-size:11px;color:var(--ink-500);margin-top:4px"><a href="https://www.facebook.com/NissanNKP" target="_blank">Link</a></div>
+        </div>
+        <div style="border:1px solid var(--border);padding:12px;border-radius:8px;margin:8px 0;background:var(--ink-50)">
+          <div style="font-size:12px;color:var(--ink-500);margin-bottom:4px"><strong>#7</strong> · Engagement: <strong style="color:var(--nmt-red)">1</strong> (👍 1 / 💬 0 / 🔁 0) · 2026-07-12</div>
+          <div style="font-size:13px">NISSAN NAVARA BLACK EDITION ดาวน์ 5,555 บาท...</div>
+          <div style="font-size:11px;color:var(--ink-500);margin-top:4px"><a href="https://www.facebook.com/NissanNKP" target="_blank">Link</a></div>
+        </div>
+        <div style="border:1px solid var(--border);padding:12px;border-radius:8px;margin:8px 0;background:var(--ink-50)">
+          <div style="font-size:12px;color:var(--ink-500);margin-bottom:4px"><strong>#8</strong> · Engagement: <strong style="color:var(--nmt-red)">1</strong> (👍 1 / 💬 0 / 🔁 0) · 2026-07-12</div>
+          <div style="font-size:13px">ถ้าอยากได้ฟีลการขับแบบรถ EV แต่ยังใช้งานได้สะสะดวกทุกวัน... e-POWER คือคำตอบ!...</div>
+          <div style="font-size:11px;color:var(--ink-500);margin-top:4px"><a href="https://www.facebook.com/NissanNKP" target="_blank">Link</a></div>
+        </div>
+        <div style="border:1px solid var(--border);padding:12px;border-radius:8px;margin:8px 0;background:var(--ink-50)">
+          <div style="font-size:12px;color:var(--ink-500);margin-bottom:4px"><strong>#9</strong> · Engagement: <strong style="color:var(--nmt-red)">1</strong> (👍 1 / 💬 0 / 🔁 0) · 2026-07-10</div>
+          <div style="font-size:13px">NISSAN X-TRAIL e-POWER X e-4ORCE ขับเหมือนรถไฟฟ้า ⚡ ไม่ต้องชาร์จ...</div>
+          <div style="font-size:11px;color:var(--ink-500);margin-top:4px"><a href="https://www.facebook.com/NissanNKP" target="_blank">Link</a></div>
+        </div>
+        <div style="border:1px solid var(--border);padding:12px;border-radius:8px;margin:8px 0;background:var(--ink-50)">
+          <div style="font-size:12px;color:var(--ink-500);margin-bottom:4px"><strong>#10</strong> · Engagement: <strong style="color:var(--ink-500)">0</strong> (👍 0 / 💬 0 / 🔁 0) · 2026-07-11</div>
+          <div style="font-size:13px">🔧 รถพร้อม คนพร้อม...อย่าลืมพารถเข้าศูนย์บริการนิสสัน เช็กครบ ดูแลทุกจุด มั่นใจทุกการขับขี่...</div>
+          <div style="font-size:11px;color:var(--ink-500);margin-top:4px"><a href="https://www.facebook.com/NissanNKP" target="_blank">Link</a></div>
+        </div>
     </div>
+
     <div class="section-card" id="sec-6">
       <div class="section-card-header"><span class="section-num">6</span><h2>🔥 โพสต์เด่นที่ควรเรียนรู้</h2></div>
-      <div class="headline"><span class="headline-label">🔖 Headline:</span> Top 5 โพสต์ที่ได้ engagement สูงสุด<br>
-      <span class="headline-label">📋 คืออะไร:</span> Top 5 by Total Engagement<br>
-      <span class="headline-label">🎯 เพื่ออะไร:</span> นำ pattern ที่ work ไป apply</div>
+      <div class="headline"><span class="headline-label">🔖 Headline:</span> Top 5 โพสต์ที่ได้ engagement สูงสุด — ศึกษา format และ message<br><span class="headline-label">📋 คืออะไร:</span> Top 5 by Total Engagement (likes + comments + shares)<br><span class="headline-label">🎯 เพื่ออะไร:</span> นำ pattern ที่ work ไป apply กับ Nissan NKP content<br><span class="headline-label">📊 ข้อมูล:</span> เลข likes/comments/shares ตรวจสอบกับชุดข้อมูลนครพนม (13 Jul 2026)</div>
+
       <div style="border:1px solid var(--border);padding:14px;border-radius:8px;margin:10px 0;background:var(--bg-surface);border-left:4px solid var(--nmt-red)">
-      <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px">
-        <strong style="color:var(--nmt-red)">#1 · TOYOTA</strong>
-        <span style="background:var(--nmt-red);color:white;padding:3px 10px;border-radius:6px;font-size:12px;font-weight:bold">34 eng</span></div>
-      <div style="font-size:13px;line-height:1.6;margin-bottom:8px">กระบะแค็บ หรือ กระบะ 4 ประตู ?
-
-แบบไหนก็ดี เราพร้อมจัดให้ 
-#โตโยต้าเจริญศรี...</div>
-      <div style="font-size:11px;color:var(--ink-500);margin-bottom:8px">👍 28 · 💬 3 · 🔁 3 · 2026-07-07 · <a href="https://www.facebook.com/reel/1321359623500989/" target="_blank">Link</a></div>
-      <div style="background:var(--ink-50);padding:8px 12px;border-radius:6px;margin-top:8px">
-        <strong style="font-size:12px;color:var(--ink-700)">💡 ทำไมประสบความสำเร็จ:</strong>
-        <ul style="margin:6px 0 0 16px;padding:0"><li style="margin:2px 0;font-size:13px">• คำถาม interactive</li><li style="margin:2px 0;font-size:13px">• กระตุ้น engagement (3 comments)</li></ul></div></div><div style="border:1px solid var(--border);padding:14px;border-radius:8px;margin:10px 0;background:var(--bg-surface);border-left:4px solid var(--nmt-red)">
-      <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px">
-        <strong style="color:var(--nmt-red)">#2 · Nissan</strong>
-        <span style="background:var(--nmt-red);color:white;padding:3px 10px;border-radius:6px;font-size:12px;font-weight:bold">27 eng</span></div>
-      <div style="font-size:13px;line-height:1.6;margin-bottom:8px">🎉 BIG Motor Show ที่ BIG C นครพนม 🎉
-📅 วันที่ 11 - 14 กรกฎาคม 2569
-
-รวมรถยนต์ Nissan รุ่นฮิต พร้อมโปรแรงที่สุดแห่งปี! 💥
-
-⚡ ส่วนลดสูงสุด 270,000 บาท
-⚡ ดาวน์เริ่มต้นเพียง 5,555 บาท
-⚡ ดอกเบี้ยพิเศษ 0% นาน 48 เดือน
-🎁 ฟรี! ประกันภัยชั้น 1
-🎁 ฟรี! ชุดแต่ง แล...</div>
-      <div style="font-size:11px;color:var(--ink-500);margin-bottom:8px">👍 26 · 💬 0 · 🔁 1 · 2026-07-09 · <a href="https://www.facebook.com/NissanNKP/posts/pfbid02XCsgokv4f29H1iwnRX82iMCHNGpoxJd8vsJSGgXeEAU2icuhnAr1fovZjki5NbEJl" target="_blank">Link</a></div>
-      <div style="background:var(--ink-50);padding:8px 12px;border-radius:6px;margin-top:8px">
-        <strong style="font-size:12px;color:var(--ink-700)">💡 ทำไมประสบความสำเร็จ:</strong>
-        <ul style="margin:6px 0 0 16px;padding:0"><li style="margin:2px 0;font-size:13px">• ตัวเลขดึงดูด</li><li style="margin:2px 0;font-size:13px">• Major event brand recall</li><li style="margin:2px 0;font-size:13px">• Cash flow friendly</li></ul></div></div><div style="border:1px solid var(--border);padding:14px;border-radius:8px;margin:10px 0;background:var(--bg-surface);border-left:4px solid var(--nmt-red)">
-      <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px">
-        <strong style="color:var(--nmt-red)">#3 · Isuzu</strong>
-        <span style="background:var(--nmt-red);color:white;padding:3px 10px;border-radius:6px;font-size:12px;font-weight:bold">18 eng</span></div>
-      <div style="font-size:13px;line-height:1.6;margin-bottom:8px">🚘 ใหม่! ISUZU MU-X ELEGANT 2026
-ความหรูที่พร้อมพาคุณไปทุกเส้นทาง
-✨ รับรถเพียง 99,000 บาท
-💥 ดอกเบี้ยพิเศษ 0.89%
-👉รับบัตรน้ำมันสูงสุด 5,000 บาท
-
-👉รีบจองก่อนโปรฯ หมด!😍
-👍ปรึกษาฟรี ไม่มีค่าใช้จ่าย 👍
-🏘️อยู่บ้านก็ซื้อรถได้🤳
-🛻 บริการทดลองขับถึงบ้าน ฟรี❗️
-📝รั...</div>
-      <div style="font-size:11px;color:var(--ink-500);margin-bottom:8px">👍 12 · 💬 0 · 🔁 6 · 2026-07-08 · <a href="https://www.facebook.com/isuzunakhonphanom/posts/pfbid02xBf2XasNF8SPVTdMfngecAd7AQCBae8f2Z1vi9mtBXe8Sgp85Dw4CmoQJkUxWPjSl" target="_blank">Link</a></div>
-      <div style="background:var(--ink-50);padding:8px 12px;border-radius:6px;margin-top:8px">
-        <strong style="font-size:12px;color:var(--ink-700)">💡 ทำไมประสบความสำเร็จ:</strong>
-        <ul style="margin:6px 0 0 16px;padding:0"><li style="margin:2px 0;font-size:13px">• ตัวเลขดึงดูด</li><li style="margin:2px 0;font-size:13px">• สินค้าใหม่/รุ่นฮิต</li><li style="margin:2px 0;font-size:13px">• Shareable (6 shares)</li><li style="margin:2px 0;font-size:13px">• Cash flow friendly</li></ul></div></div><div style="border:1px solid var(--border);padding:14px;border-radius:8px;margin:10px 0;background:var(--bg-surface);border-left:4px solid var(--nmt-red)">
-      <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px">
-        <strong style="color:var(--nmt-red)">#4 · Isuzu</strong>
-        <span style="background:var(--nmt-red);color:white;padding:3px 10px;border-radius:6px;font-size:12px;font-weight:bold">14 eng</span></div>
-      <div style="font-size:13px;line-height:1.6;margin-bottom:8px">📣 พบกับบูธโชว์รถอีซูซุนครพนม ที่ ปตท.ปริญนครพนม 🚗
-📍วันที่ 13 กรกฎาคม 2569
-
-👉พร้อมแจกโปรโมชั่นดีๆให้อีกเพียบ!
-🚩อีซูซุใช้ดี บริการดี ต้องอีซูซุนครพนม 🚩
-
-🚩 จองได้แล้ววันนี้ ที่อีซูซุนครพนม
-เงื่อนไขเป็นไปตามบริษัทฯกำหนด
-สอบถามข้อมูลเพิ่มเติมได้ที่
-☎️ สำน...</div>
-      <div style="font-size:11px;color:var(--ink-500);margin-bottom:8px">👍 10 · 💬 0 · 🔁 4 · 2026-07-13 · <a href="https://www.facebook.com/isuzunakhonphanom/posts/pfbid025ZS6Sf4k6thmGnzVSNDehn7E2cwcbEc12AH1NtniZWPF2BQTv7rFFWDVRJU4mefHl" target="_blank">Link</a></div>
-      <div style="background:var(--ink-50);padding:8px 12px;border-radius:6px;margin-top:8px">
-        <strong style="font-size:12px;color:var(--ink-700)">💡 ทำไมประสบความสำเร็จ:</strong>
-        <ul style="margin:6px 0 0 16px;padding:0"><li style="margin:2px 0;font-size:13px">• Event จับต้องได้</li><li style="margin:2px 0;font-size:13px">• ตัวเลขดึงดูด</li><li style="margin:2px 0;font-size:13px">• Shareable (4 shares)</li></ul></div></div><div style="border:1px solid var(--border);padding:14px;border-radius:8px;margin:10px 0;background:var(--bg-surface);border-left:4px solid var(--nmt-red)">
-      <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px">
-        <strong style="color:var(--nmt-red)">#5 · Mitsubishi</strong>
-        <span style="background:var(--nmt-red);color:white;padding:3px 10px;border-radius:6px;font-size:12px;font-weight:bold">12 eng</span></div>
-      <div style="font-size:13px;line-height:1.6;margin-bottom:8px">โปรดี ผ่อนชิล ดีลคุ้ม ออกรถง่ายทุกรุ่น รับดอกเบี้ยพิเศษเริ่มต้นเพียง 0%* ห้ามพลาด ข้อเสนอแรงขนาดนี้ รีบจองเลย!
-
-🗓 วันที่ 1 – 31 กรกฎาคม  2569
-
-📍 ที่ โชว์รูม มิตซูที เค ที นครพนม
-.
-.
-.
-*เงื่อนไขเป็นไปตามที่บริษัทฯ กำหนด
-------------------------------
-...</div>
-      <div style="font-size:11px;color:var(--ink-500);margin-bottom:8px">👍 5 · 💬 0 · 🔁 7 · 2026-07-08 · <a href="https://www.facebook.com/MitsuTKTNakhonPhanom/posts/pfbid02XXsqR2ErC4pGeeXR8nmXZZCKrA9jfTbYvedbNiz8pmddek7knSEax6Sbv3VrVYKdl" target="_blank">Link</a></div>
-      <div style="background:var(--ink-50);padding:8px 12px;border-radius:6px;margin-top:8px">
-        <strong style="font-size:12px;color:var(--ink-700)">💡 ทำไมประสบความสำเร็จ:</strong>
-        <ul style="margin:6px 0 0 16px;padding:0"><li style="margin:2px 0;font-size:13px">• Event จับต้องได้</li><li style="margin:2px 0;font-size:13px">• ตัวเลขดึงดูด</li><li style="margin:2px 0;font-size:13px">• Shareable (7 shares)</li><li style="margin:2px 0;font-size:13px">• Cash flow friendly</li></ul></div></div>
-    </div>
-    <div class="section-card" id="sec-7">
-      <div class="section-card-header"><span class="section-num">7</span><h2>💡 Key Insights</h2></div>
-      <div class="headline"><span class="headline-label">🔖 Headline:</span> สิ่งที่ควรรู้จาก data สัปดาห์นี้<br>
-      <span class="headline-label">🎯 เพื่ออะไร:</span> สรุป actionable insight</div>
-      <div style="background:var(--nmt-red-soft);padding:14px 16px;border-radius:8px;border-left:4px solid var(--nmt-red)">
-        <p style="font-size:13px;margin:0"><strong>Nissan อยู่ #3</strong> (Eng/Post: 4.0, 10 posts). คู่แข่งนำ TOYOTA (Eng/Post: 3.9, 23 posts). โพสต์ viral: 🎉 BIG Motor Show ที่ BIG C นครพนม 🎉
-📅 วันที่ 11 - 14 กรกฎาคม 2569
-
-รวมรถยนต์ Nissan รุ่นฮิต พร้อมโปร...</p>
+        <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px">
+          <strong style="color:var(--nmt-red)">#1 · TOYOTA</strong>
+          <span style="background:var(--nmt-red);color:white;padding:3px 10px;border-radius:6px;font-size:12px;font-weight:bold">34 eng</span>
+        </div>
+        <div style="font-size:13px;line-height:1.6;margin-bottom:8px">กระบะแค็บ หรือ กระบะ 4 ประตู ? แบบไหนก็ดี เราพร้อมจัดให้ #โตโยต้าเจริญศรี</div>
+        <div style="font-size:11px;color:var(--ink-500);margin-bottom:8px">
+          👍 28 · 💬 3 · 🔁 3 · 2026-07-07 ·
+          <a href="https://www.facebook.com/reel/1321359623500989/" target="_blank">Link</a>
+        </div>
+        <div style="background:var(--ink-50);padding:8px 12px;border-radius:6px;margin-top:8px">
+          <strong style="font-size:12px;color:var(--ink-700)">💡 ทำไมประสบความสำเร็จ:</strong>
+          <ul style="margin:6px 0 0 16px;padding:0">
+            <li style="margin:2px 0;font-size:13px"><strong>คำถาม interactive</strong> — "กระบะแค็บ หรือ กระบะ 4 ประตู?" กระตุ้นให้คนตอบแสดงความเห็น (3 comments)</li>
+            <li style="margin:2px 0;font-size:13px"><strong>Local brand voice</strong> — โตโยต้าเจริญศรีเป็น dealer ที่คนในนครพนมรู้จัก → คนไว้ใจ</li>
+            <li style="margin:2px 0;font-size:13px"><strong>ไม่ hard-sell</strong> — ไม่มีตัวเลขราคา → คนตอบสนองด้าน emotion ไม่ใช่คำนวณ</li>
+          </ul>
+        </div>
+      </div>
+      <div style="border:1px solid var(--border);padding:14px;border-radius:8px;margin:10px 0;background:var(--bg-surface);border-left:4px solid var(--nmt-red)">
+        <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px">
+          <strong style="color:var(--nmt-red)">#2 · Nissan</strong>
+          <span style="background:var(--nmt-red);color:white;padding:3px 10px;border-radius:6px;font-size:12px;font-weight:bold">27 eng</span>
+        </div>
+        <div style="font-size:13px;line-height:1.6;margin-bottom:8px">🎉 BIG Motor Show ที่ BIG C นครพนม 🎉 วันที่ 11 - 14 กรกฎาคม 2569 รวมรถยนต์ Nissan รุ่นฮิต พร้อมโปรแรงที่สุดแห่งปี! 💥 ส่วนลดสูงสุด 270,000 บาท ดาวน์เริ่มต้นเพียง 5,555 บาท ดอกเบี้ยพิเศษ 0% นาน 48 เดือน ฟรี! ประกันภัยชั้น 1...</div>
+        <div style="font-size:11px;color:var(--ink-500);margin-bottom:8px">
+          👍 26 · 💬 0 · 🔁 1 · 2026-07-09 ·
+          <a href="https://www.facebook.com/NissanNKP/posts/pfbid02XCsgokv4f29H1iwnRX82iMCHNGpoxJd8vsJSGgXeEAU2icuhnAr1fovZjki5NbEJl" target="_blank">Link</a>
+        </div>
+        <div style="background:var(--ink-50);padding:8px 12px;border-radius:6px;margin-top:8px">
+          <strong style="font-size:12px;color:var(--ink-700)">💡 ทำไมประสบความสำเร็จ:</strong>
+          <ul style="margin:6px 0 0 16px;padding:0">
+            <li style="margin:2px 0;font-size:13px"><strong>Major event brand recall</strong> — "BIG Motor Show @ BIG C" เป็น flagship campaign ที่ผูกกับสถานที่คนรู้จัก</li>
+            <li style="margin:2px 0;font-size:13px"><strong>ตัวเลขดึงดูด</strong> — ส่วนลด 270K / ดาวน์ 5,555 / ผ่อน 0% — ครบทุก angle ที่ลูกค้าอยากรู้</li>
+            <li style="margin:2px 0;font-size:13px"><strong>Event จับต้องได้</strong> — มีสถานที่ (BIG C) + วันที่ (11-14 ก.ค.) ชัดเจน → คนแชร์ต่อให้เพื่อน</li>
+            <li style="margin:2px 0;font-size:13px"><strong>Cash flow friendly</strong> — ผ่อน 0% + ดาวน์ถูก → barrier to entry ต่ำ</li>
+            <li style="margin:2px 0;font-size:13px"><strong>Emoji + urgency</strong> — 🎉💥 ดึงสายตา + สร้าง FOMO</li>
+          </ul>
+        </div>
+      </div>
+      <div style="border:1px solid var(--border);padding:14px;border-radius:8px;margin:10px 0;background:var(--bg-surface);border-left:4px solid var(--nmt-red)">
+        <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px">
+          <strong style="color:var(--nmt-red)">#3 · Isuzu</strong>
+          <span style="background:var(--nmt-red);color:white;padding:3px 10px;border-radius:6px;font-size:12px;font-weight:bold">18 eng</span>
+        </div>
+        <div style="font-size:13px;line-height:1.6;margin-bottom:8px">🚘 ใหม่! ISUZU MU-X ELEGANT 2026 ความหรูที่พร้อมพาคุณไปทุกเส้นทาง ✨ รับรถเพียง 99,000 บาท 💥 ดอกเบี้ยพิเศษ 0.89% รับบัตรน้ำมันสูงสุด 5,000 บาท รีบจองก่อนโปรฯ หมด!...</div>
+        <div style="font-size:11px;color:var(--ink-500);margin-bottom:8px">
+          👍 12 · 💬 0 · 🔁 6 · 2026-07-08 ·
+          <a href="https://www.facebook.com/isuzunakhonphanom/posts/pfbid02xBf2XasNF8SPVTdMfngecAd7AQCBae8f2Z1vi9mtBXe8Sgp85Dw4CmoQJkUxWPjSl" target="_blank">Link</a>
+        </div>
+        <div style="background:var(--ink-50);padding:8px 12px;border-radius:6px;margin-top:8px">
+          <strong style="font-size:12px;color:var(--ink-700)">💡 ทำไมประสบความสำเร็จ:</strong>
+          <ul style="margin:6px 0 0 16px;padding:0">
+            <li style="margin:2px 0;font-size:13px"><strong>Shareable สูง</strong> — 6 shares (vs avg 0.4) — คนส่งต่อให้เพื่อน/ครอบครัว</li>
+            <li style="margin:2px 0;font-size:13px"><strong>สินค้าใหม่</strong> — "MU-X ELEGANT 2026" = curiosity + scarcity</li>
+            <li style="margin:2px 0;font-size:13px"><strong>ตัวเลขหลายชั้น</strong> — รับรถ 99K + ดอก 0.89% + บัตรน้ำมัน 5K → ครบทุก pain point</li>
+            <li style="margin:2px 0;font-size:13px"><strong>Urgency</strong> — "รีบจองก่อนโปรฯ หมด!" สร้าง FOMO</li>
+          </ul>
+        </div>
+      </div>
+      <div style="border:1px solid var(--border);padding:14px;border-radius:8px;margin:10px 0;background:var(--bg-surface);border-left:4px solid var(--nmt-red)">
+        <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px">
+          <strong style="color:var(--nmt-red)">#4 · Isuzu</strong>
+          <span style="background:var(--nmt-red);color:white;padding:3px 10px;border-radius:6px;font-size:12px;font-weight:bold">14 eng</span>
+        </div>
+        <div style="font-size:13px;line-height:1.6;margin-bottom:8px">📣 พบกับบูธโชว์รถอีซูซุนครพนม ที่ ปตท.ปริญนครพนม 🚗 วันที่ 13 กรกฎาคม 2569 พร้อมแจกโปรโมชั่นดีๆให้อีกเพียบ! 🚩อีซูซุใช้ดี บริการดี ต้องอีซูซุ</div>
+        <div style="font-size:11px;color:var(--ink-500);margin-bottom:8px">
+          👍 10 · 💬 0 · 🔁 4 · 2026-07-13 ·
+          <a href="https://www.facebook.com/isuzunakhonphanom/posts/pfbid025ZS6Sf4k6thmGnzVSNDehn7E2cwcbEc12AH1NtniZWPF2BQTv7rFFWDVRJU4mefHl" target="_blank">Link</a>
+        </div>
+        <div style="background:var(--ink-50);padding:8px 12px;border-radius:6px;margin-top:8px">
+          <strong style="font-size:12px;color:var(--ink-700)">💡 ทำไมประสบความสำเร็จ:</strong>
+          <ul style="margin:6px 0 0 16px;padding:0">
+            <li style="margin:2px 0;font-size:13px"><strong>Local mobile booth</strong> — เข้าถึงชุมชนที่ปั๊ม ปตท. — คนเห็นในพื้นที่</li>
+            <li style="margin:2px 0;font-size:13px"><strong>Event จับต้องได้</strong> — สถานที่+วันที่ชัด → 4 shares (สูงกว่าค่าเฉลี่ย)</li>
+            <li style="margin:2px 0;font-size:13px"><strong>Tagline จำง่าย</strong> — "อีซูซุใช้ดี บริการดี ต้องอีซูซุ" — มี rhyme</li>
+          </ul>
+        </div>
+      </div>
+      <div style="border:1px solid var(--border);padding:14px;border-radius:8px;margin:10px 0;background:var(--bg-surface);border-left:4px solid var(--nmt-red)">
+        <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px">
+          <strong style="color:var(--nmt-red)">#5 · Mitsubishi</strong>
+          <span style="background:var(--nmt-red);color:white;padding:3px 10px;border-radius:6px;font-size:12px;font-weight:bold">12 eng</span>
+        </div>
+        <div style="font-size:13px;line-height:1.6;margin-bottom:8px">โปรดี ผ่อนชิล ดีลคุ้ม ออกรถง่ายทุกรุ่น รับดอกเบี้ยพิเศษเริ่มต้นเพียง 0%* ห้ามพลาด ข้อเสนอแรงขนาดนี้ รีบจองเลย! 🗓 วันที่ 1 – 31 กรกฎาคม 2569...</div>
+        <div style="font-size:11px;color:var(--ink-500);margin-bottom:8px">
+          👍 5 · 💬 0 · 🔁 7 · 2026-07-08 ·
+          <a href="https://www.facebook.com/MitsuTKTNakhonPhanom/posts/pfbid02XXsqR2ErC4pGeeXR8nmXZZCKrA9jfTbYvedbNiz8pmddek7knSEax6Sbv3VrVYKdl" target="_blank">Link</a>
+        </div>
+        <div style="background:var(--ink-50);padding:8px 12px;border-radius:6px;margin-top:8px">
+          <strong style="font-size:12px;color:var(--ink-700)">💡 ทำไมประสบความสำเร็จ:</strong>
+          <ul style="margin:6px 0 0 16px;padding:0">
+            <li style="margin:2px 0;font-size:13px"><strong>Share leader</strong> — 7 shares (สูงสุดของ week!) — คนส่งต่อให้เพื่อน/ครอบครัว</li>
+            <li style="margin:2px 0;font-size:13px"><strong>Triple hook</strong> — "โปรดี / ผ่อนชิล / ดีลคุ้ม" 3 คำจำง่าย ใช้ rhyme</li>
+            <li style="margin:2px 0;font-size:13px"><strong>Time-bound urgency</strong> — "วันที่ 1-31 ก.ค." มี deadline ชัด</li>
+            <li style="margin:2px 0;font-size:13px"><strong>Cash flow friendly</strong> — ดอก 0% + ออกรถง่าย → barrier ต่ำ</li>
+          </ul>
+        </div>
       </div>
     </div>
-    <div class="section-card" id="sec-8">
-      <div class="section-card-header"><span class="section-num">8</span><h2>🎯 Action Items</h2></div>
-      <div class="headline"><span class="headline-label">🔖 Headline:</span> สิ่งที่ Nissan ควรทำสัปดาห์หน้า<br>
-      <span class="headline-label">📋 คืออะไร:</span> Prioritized actions (High / Med / Low)<br>
-      <span class="headline-label">🎯 เพื่ออะไร:</span> เปลี่ยน data → action</div>
-      <div class="priority-card high"><span class="badge">HIGH</span><div><strong style="color:var(--nmt-red);font-size:15px">📱 Amplify Viral Post</strong><p style="font-size:13px;margin-top:6px">โพสต์ที่มี engagement สูงสุดของ Nissan ควรทำ recap/thank-you post + boost ด้วย paid media</p></div></div>
-      <div class="priority-card high"><span class="badge">HIGH</span><div><strong style="color:var(--nmt-red);font-size:15px">🚚 ทดลอง Mobile Booth</strong><p style="font-size:13px;margin-top:6px">Isuzu ทำ mobile booth ที่ ปตท. + ชุมชน ได้ shares สูง — Nissan ควรลอง</p></div></div>
-      <div class="priority-card med"><span class="badge">MED</span><div><strong style="color:var(--nmt-red);font-size:15px">⚡ Content: e-POWER vs Hybrid</strong><p style="font-size:13px;margin-top:6px">ทำ 2 content: (A) e-POWER vs Hybrid ทั่วไป (B) e-POWER vs e-4ORCE</p></div></div>
-      <div class="priority-card med"><span class="badge">MED</span><div><strong style="color:var(--nmt-red);font-size:15px">🔄 เพิ่มความถี่ Reel</strong><p style="font-size:13px;margin-top:6px">คู่แข่งใช้ Reel 60% — Nissan ใช้ 50% — เพิ่มเป็น 60%+ ในสัปดาห์หน้า</p></div></div>
+
+    <div class="section-card" id="sec-7">
+      <div class="section-card-header"><span class="section-num">7</span><h2>⚠️ โอกาสและภัยคุกคาม</h2></div>
+      <div class="headline"><span class="headline-label">🔖 Headline:</span> โอกาสที่ Nissan ควรใช้ + ภัยที่ต้องระวัง<br><span class="headline-label">📋 คืออะไร:</span> SWOT — จาก competitor data<br><span class="headline-label">🎯 เพื่ออะไร:</span> Prioritize action items</div>
+
+      <div class="priority-card high">
+        <span class="badge">HIGH</span>
+        <div>
+          <strong style="color:var(--nmt-red);font-size:15px">🔥 ภัย: Isuzu ทำ local community engagement เก่งมาก</strong>
+          <p style="font-size:13px;margin-top:4px">Isuzu ใช้ Booth mobile ตามปั๊ม+ร้านอาหาร — ได้ 86 eng (7.8/โพส) สูงกว่า Nissan (4.0) เกือบ 2 เท่า — Nissan ต้องเพิ่ม <strong>grassroots activity</strong> นอกเหนือจาก Motor Show</p>
+        </div>
+      </div>
+
+      <div class="priority-card high">
+        <span class="badge">HIGH</span>
+        <div>
+          <strong style="color:var(--nmt-red);font-size:15px">⚠️ ภัย: TOYOTA เจริญศรี content quality สูง</strong>
+          <p style="font-size:13px;margin-top:4px">โพส Hilux Travo ได้ 34 eng (สูงสุดของสัปดาห์) — Eng/Post = 15.7 สูงที่สุดในจังหวัด — Nissan ต้องทำ lifestyle content เปรียบเทียบ ไม่ใช่แค่ promo</p>
+        </div>
+      </div>
+
+      <div class="priority-card med">
+        <span class="badge">MED</span>
+        <div>
+          <strong style="color:#f57c00;font-size:15px">💡 โอกาส: Nissan BIG Motor Show ได้ 27 eng (สูงสุดของ Nissan)</strong>
+          <p style="font-size:13px;margin-top:4px">Nissan Motor Show ที่ BIG C ได้ engagement สูงสุดของ Nissan ใน 7 วัน — แสดงว่า <strong>event ที่จับต้องได้</strong> works — ทำซ้ำในจังหวัดอื่นได้</p>
+        </div>
+      </div>
+
+      <div class="priority-card low">
+        <span class="badge">LOW</span>
+        <div>
+          <strong style="color:#7b1fa2;font-size:15px">📊 โอกาส: Mitsubishi มี 2 โพส แต่ efficiency สูง</strong>
+          <p style="font-size:13px;margin-top:6px">Mitsubishi โพสแค่ 2 แต่ Eng/Post = 9.5 (สูงสุด) — หมายความว่า <strong>คุณภาพมากกว่าปริมาณ</strong> — Nissan ควร focus content quality ไม่ใช่ spam</p>
+        </div>
+      </div>
     </div>
+
+    <div class="section-card" id="sec-8">
+      <div class="section-card-header"><span class="section-num">8</span><h2>🎯 ข้อเสนอแนะสำหรับ NISSAN NKP</h2></div>
+      <div class="headline"><span class="headline-label">🔖 Headline:</span> 4 actions ที่ทำได้ทันที — specific + actionable<br><span class="headline-label">📋 คืออะไร:</span> Action items เชื่อมกับ competitor insights<br><span class="headline-label">🎯 เพื่ออะไร:</span> ปิด gap และ seize โอกาส</div>
+
+      <div class="priority-card high">
+        <span class="badge">HIGH</span>
+        <div>
+          <strong style="color:var(--nmt-red);font-size:15px">🚗 Action 1: ใช้ Mobile Booth ตามแบบ Isuzu</strong>
+          <p style="font-size:13px;margin-top:6px">Isuzu ใช้ booth mobile ไปปั๊ม+ร้านอาหาร ได้ engagement สูง — Nissan ควรทำ <strong>"Nissan Connect Roadshow"</strong> ไปตาม Big C Mini, Tesco Lotus Express, Makro ในอำเภอรอบนอก (ธาตุพนม, ปลาปาก, ศรีสงคราม)</p>
+        </div>
+      </div>
+
+      <div class="priority-card high">
+        <span class="badge">HIGH</span>
+        <div>
+          <strong style="color:var(--nmt-red);font-size:15px">📱 Action 2: ทำ 2 content เปรียบเทียบระบบ Hybrid (ไม่มี KICKS Hybrid ในไทย)</strong>
+          <p style="font-size:13px;margin-top:6px"><strong>Content A: "Nissan e-POWER vs Hybrid ทั่วไป" (ข้ามแบรนด์)</strong> — เปรียบเทียบระบบขับเคลื่อน:</p>
+          <ul style="margin:4px 0 8px 24px;font-size:12px;line-height:1.6">
+            <li><strong>e-POWER</strong>: เครื่องยนต์ปั่นไฟ → มอเตอร์ไฟฟ้า 100% ขับเคลื่อน (ขับนิ่มเหมือน EV)</li>
+            <li><strong>Hybrid ทั่วไป</strong> (Toyota/Honda): เครื่องยนต์ + มอเตอร์ สลับกันขับ (ขับคนละฟิล)</li>
+            <li><strong>จุดขาย Nissan</strong>: ขับนิ่มเหมือน EV แต่ไม่ต้องชาร์จ — เหมาะคนอยากลอง EV แต่กลัวไม่มีที่ชาร์จ</li>
+          </ul>
+          <p style="font-size:13px;margin-top:6px"><strong>Content B: "Nissan e-POWER vs e-4ORCE" (ภายใน Nissan)</strong> — เทียบ 2 ระบบใน Nissan lineup:</p>
+          <ul style="margin:4px 0 8px 24px;font-size:12px;line-height:1.6">
+            <li><strong>e-POWER</strong> (KICKS, X-TRAIL): ขับล้อหน้า เน้นประหยัดน้ำมัน (city car / SUV)</li>
+            <li><strong>e-4ORCE</strong> (X-TRAIL): ขับ 4 ล้อ + torque vectoring เน้นสมรรถนะ (off-road / snow)</li>
+            <li><strong>จุดขาย Nissan</strong>: ครอบคลุมทุก segment — ลูกค้าเลือกได้ตาม lifestyle</li>
+          </ul>
+          <p style="font-size:12px;color:var(--ink-500);margin-top:4px"><strong>โพส Nissan ที่มีอยู่แล้ว (1 eng):</strong> "ถ้าอยากได้ฟีลการขับแบบรถ EV แต่ยังใช้งานได้สะดวกทุกวัน... e-POWER คือคำตอบ!" — ต้อง amplify ด้วย visual comparison</p>
+          <p style="font-size:12px;color:var(--ink-500);margin-top:4px"><strong>ขอจาก Dealer:</strong> รถจริงให้ photographer ถ่าย infographic เปรียบเทียบ 2 ระบบ + ข้อมูลทางเทคนิคจากทีมผลิตภัณฑ์</p>
+        </div>
+      </div>
+
+      <div class="priority-card med">
+        <span class="badge">MED</span>
+        <div>
+          <strong style="color:#f57c00;font-size:15px">🔁 Action 3: Replicate BIG Motor Show success</strong>
+          <p style="font-size:13px;margin-top:6px">Nissan BIG Motor Show ที่ BIG C 11-14 ก.ค. ได้ 27 eng — หลังงานจบ (15 ก.ค.) ควร <strong>post recap video</strong> + ขอบคุณลูกค้า + แชร์ภาพบรรยากาศ เพื่อ sustain momentum</p>
+        </div>
+      </div>
+
+      <div class="priority-card med">
+        <span class="badge">MED</span>
+        <div>
+          <strong style="color:#f57c00;font-size:15px">⚽ Action 4: Nissan Big Motor Show วันสุดท้าย (14 ก.ค.) — เพิ่ม Live + Exclusive deal</strong>
+          <p style="font-size:13px;margin-top:6px">วันนี้และพรุ่งนี้ (13-14 ก.ค.) เป็น <strong>2 วันสุดท้าย</strong> ของ Motor Show — ควรเพิ่มโพสสั้นๆ + Live สด บอกโปรโมชั่นพิเศษเฉพาะวันสุดท้าย เพื่อกระตุ้น walk-in</p>
+        </div>
+      </div>
+    </div>
+
     <div class="section-card" id="sec-9">
       <div class="section-card-header"><span class="section-num">9</span><h2>📈 กราฟวิเคราะห์ Engagement และ Positioning</h2></div>
-      <div class="headline"><span class="headline-label">🔖 Headline:</span> กราฟ 9.1-9.6 (Nissan (Self) แยก bar สุดท้าย)<br>
-      <span class="headline-label">🎯 เพื่ออะไร:</span> Identify จุดแข็ง-จุดอ่อน</div>
-      <h3 style="margin-top:24px">9.1 Total Engagement</h3>
+      <div class="headline">
+        <span class="headline-label">🔖 Headline:</span> กราฟวิเคราะห์ Engagement และ Positioning — 7 มิติเปรียบเทียบ Nissan กับคู่แข่ง<br>
+        <span class="headline-label">📋 คืออะไร:</span> กราฟ 9.1-9.7 (Nissan (Self) แยก bar สุดท้าย)<br>
+        <span class="headline-label">🎯 เพื่ออะไร:</span> Identify จุดแข็ง-จุดอ่อน
+      </div>
+
+      <h3 style="margin-top:24px">9.1 Total Engagement — ใครครอง engagement สูงสุด</h3>
       <div class="chart-container"><div class="chart-title">📊 9.1 Total Engagement</div><canvas id="chartTotalEngagement"></canvas></div>
+
       <h3 style="margin-top:24px">9.2 Engagement per Post (Efficiency)</h3>
       <div class="chart-container"><div class="chart-title">📊 9.2 Engagement per Post</div><canvas id="chartEngagementPerPost"></canvas></div>
-      <h3 style="margin-top:24px">9.3 Engagement Breakdown</h3>
+
+      <h3 style="margin-top:24px">9.3 Engagement Breakdown — Likes/Comments/Shares</h3>
       <div class="chart-container"><div class="chart-title">📊 9.3 Engagement Breakdown</div><canvas id="chartEngagementBreakdown"></canvas></div>
-      <h3 style="margin-top:24px">9.4 Bubble Chart: Posts vs Engagement</h3>
-      <div class="chart-container"><div class="chart-title">📊 9.4 Engagement Bubble</div><canvas id="chartBubble"></canvas></div>
-      <h3 style="margin-top:24px">9.5 Topic Mix</h3>
+
+      <h3 style="margin-top:24px">9.4 Bubble Chart: Posts vs Engagement — ใครทำ engagement ต่อโพสได้ดีที่สุด?</h3>
+      <div class="headline">
+        <span class="headline-label">📋 คืออะไร:</span> Posts (X) vs Engagement (Y) ขนาดฟอง = engagement per post (eng ÷ posts)<br>
+        <span class="headline-label">📐 วิธีอ่าน:</span> แกน X = Posts, แกน Y = Engagement · <strong>ขนาดฟอง = engagement per post</strong><br>
+        <span class="headline-label">🎯 เพื่ออะไร:</span> หา "scale winner" — brand ที่ใช้ทุกโพสได้คุ้มค่า
+      </div>
+      <div class="chart-container"><div class="chart-title">📊 9.4 Bubble Chart (ขนาดฟอง = Engagement per Post)</div><canvas id="chartBubble"></canvas></div>
+
+      <h3 style="margin-top:24px">9.5 Topic Mix — แต่ละ brand พูดเรื่องอะไร</h3>
       <div class="chart-container"><div class="chart-title">📊 9.5 Topic Mix</div><canvas id="chartTopicMix"></canvas></div>
-      <h3 style="margin-top:24px">9.6 Content Format — Reel vs Photo vs Video</h3>
+
+      <h3 style="margin-top:24px">9.6 Content Format Performance — Reel vs Photo vs Video</h3>
       <div class="chart-container"><div class="chart-title">📊 9.6 Content Format</div><canvas id="chartFormat"></canvas></div>
+
       <div style="margin-top:24px;padding:16px;background:var(--nmt-red-soft);border-radius:8px;border-left:4px solid var(--nmt-red)">
-        <strong style="color:var(--nmt-red);font-size:14px">📌 Self-positioning insight:</strong>
-        <p style="font-size:13px;margin-top:8px">Nissan อยู่ใน cluster "moderate efficiency" — ปริมาณ OK แต่ efficiency ต่ำ — โอกาสเติบโตคือ (1) ทำ mobile booth (2) lifestyle comparison content (3) amplify Motor Show recap</p>
+        <strong style="color:var(--nmt-red);font-size:14px">📌 Self-positioning insight (จากกราฟ 9.1-9.6):</strong>
+        <p style="font-size:13px;margin-top:8px">Nissan NKP อยู่ใน cluster "moderate efficiency" — ปริมาณ OK แต่ efficiency ต่ำ — โอกาสเติบโตคือ (1) ทำ mobile booth แบบ Isuzu (2) ทำ lifestyle comparison content (3) amplify Motor Show recap</p>
       </div>
     </div>
-
+  </main>
 </div>
 
-<button class="dark-mode-toggle" onclick="document.body.classList.toggle('dark-mode')">🌙</button>
+<div class="brief-footer">
+  <div><strong>👤 สร้างโดย:</strong> Tatchanon Wissawakornrungrot — Regional Marketing Manager, Nissan Motor (Thailand)</div>
+  <div style="margin-top:4px">📊 Nissan NakhonPhanom Weekly Competitor Brief · สัปดาห์ 06 - 13 ก.ค. 2569 · Premium Brief Tier C</div>
+</div>
 
 <script>
 /*!
@@ -628,14 +669,19 @@ e-POWER คือคำตอบ!
 
 </script>
 <script>
-
-const brandData = {"TOYOTA":{"posts":23,"likes":74,"comments":4,"shares":11,"reels":13,"photos":10,"videos":0,"pageNames":["โตโยต้า เจริญศรี นครพนม", "โตโยต้านครพนมจำกัด Toyota Nakhonphanom"],"topicCounts":{"Other": 6, "ราคา/ผ่อน": 7, "Service": 9, "Contest": 6, "EV/Electric": 3, "Event/Roadshow": 2, "Test Drive": 1},"promoCounts":{"None": 12, "ราคา/ผ่อน": 7, "Contest": 5, "EV/Electric": 3, "Test Drive": 1}},"Isuzu":{"posts":11,"likes":55,"comments":0,"shares":31,"reels":1,"photos":10,"videos":0,"pageNames":["อีซูซุนครพนม ISUZU Nakhon Phanom"],"topicCounts":{"Service": 3, "ราคา/ผ่อน": 8, "Contest": 3, "Event/Roadshow": 3, "Test Drive": 5},"promoCounts":{"None": 3, "Contest": 3, "ราคา/ผ่อน": 8, "Event/Roadshow": 3, "Test Drive": 5}},"Honda":{"posts":5,"likes":29,"comments":0,"shares":7,"reels":0,"photos":5,"videos":0,"pageNames":["บริษัท นครพนมฮอนด้าคาร์ส์ จำกัด"],"topicCounts":{"ราคา/ผ่อน": 4, "Test Drive": 2, "EV/Electric": 3, "Event/Roadshow": 1},"promoCounts":{"Test Drive": 2, "ราคา/ผ่อน": 4, "EV/Electric": 3, "Event/Roadshow": 1}},"Mitsubishi":{"posts":2,"likes":9,"comments":0,"shares":10,"reels":0,"photos":2,"videos":0,"pageNames":["มิตซู ทีเคที เจริญศรี นครพนม"],"topicCounts":{"ราคา/ผ่อน": 2, "Service": 2},"promoCounts":{"ราคา/ผ่อน": 2}},"Nissan":{"posts":10,"likes":39,"comments":0,"shares":1,"reels":5,"photos":5,"videos":0,"pageNames":["นิสสันนครพนม - Nissan Nakhon Phanom"],"topicCounts":{"ราคา/ผ่อน": 10, "Service": 10, "Event/Roadshow": 2, "Test Drive": 2, "EV/Electric": 3},"promoCounts":{"ราคา/ผ่อน": 10, "Event/Roadshow": 2, "Test Drive": 2, "EV/Electric": 3}}};
-const abr = Object.keys(brandData).filter(b => brandData[b].posts > 0);
-const oth = abr.filter(b => b !== 'Nissan').sort((a,b) => {const ea=brandData[a].likes+brandData[a].comments+brandData[a].shares;const eb=brandData[b].likes+brandData[b].comments+brandData[b].shares;return eb-ea;});
-const activeBrands = [...oth, 'Nissan'];
+const brandData = {"TOYOTA เจริญศรี": {"posts": 3, "likes": 38, "comments": 3, "shares": 6, "reels": 1, "photos": 2, "videos": 0, "pageNames": ["โตโยต้า เจริญศรี นครพนม"], "topicCounts": {"ราคา/ผ่อน": 1, "Test Drive": 0, "Other": 2, "Service": 1, "EV/Electric": 0, "Contest": 0, "Event/Roadshow": 0}, "promoCounts": {"Test Drive": 0, "Contest": 0, "ราคา/ผ่อน": 1, "EV/Electric": 0, "Event/Roadshow": 0, "None": 2}}, "TOYOTA-NKP": {"posts": 20, "likes": 36, "comments": 1, "shares": 5, "reels": 12, "photos": 8, "videos": 0, "pageNames": ["โตโยต้านครพนมจำกัด"], "topicCounts": {"ราคา/ผ่อน": 6, "Test Drive": 1, "Other": 3, "Service": 8, "EV/Electric": 3, "Contest": 6, "Event/Roadshow": 5}, "promoCounts": {"Test Drive": 1, "Contest": 6, "ราคา/ผ่อน": 6, "EV/Electric": 3, "Event/Roadshow": 0, "None": 10}}, "Isuzu": {"posts": 11, "likes": 55, "comments": 0, "shares": 31, "reels": 1, "photos": 10, "videos": 0, "pageNames": ["อีซูซุนครพนม"], "topicCounts": {"ราคา/ผ่อน": 8, "Test Drive": 5, "Other": 0, "Service": 3, "EV/Electric": 0, "Contest": 3, "Event/Roadshow": 8}, "promoCounts": {"Test Drive": 5, "Contest": 3, "ราคา/ผ่อน": 8, "EV/Electric": 0, "Event/Roadshow": 3, "None": 3}}, "Honda": {"posts": 5, "likes": 29, "comments": 0, "shares": 7, "reels": 0, "photos": 5, "videos": 0, "pageNames": ["นครพนมฮอนด้าคาร์ส์"], "topicCounts": {"ราคา/ผ่อน": 4, "Test Drive": 2, "Other": 0, "Service": 0, "EV/Electric": 3, "Contest": 0, "Event/Roadshow": 3}, "promoCounts": {"Test Drive": 2, "Contest": 0, "ราคา/ผ่อน": 4, "EV/Electric": 3, "Event/Roadshow": 1, "None": 0}}, "Mitsubishi": {"posts": 2, "likes": 9, "comments": 0, "shares": 10, "reels": 0, "photos": 2, "videos": 0, "pageNames": ["มิตซู ทีเคที เจริญศรี นครพนม"], "topicCounts": {"ราคา/ผ่อน": 2, "Test Drive": 0, "Other": 0, "Service": 2, "EV/Electric": 0, "Contest": 0, "Event/Roadshow": 0}, "promoCounts": {"Test Drive": 0, "Contest": 0, "ราคา/ผ่อน": 2, "EV/Electric": 0, "Event/Roadshow": 0, "None": 0}}, "MG": {"posts": 4, "likes": 13, "comments": 3, "shares": 0, "reels": 1, "photos": 3, "videos": 0, "pageNames": ["MG สกลนคร (มีบูธบริการนครพนม)"], "topicCounts": {"ราคา/ผ่อน": 2, "Test Drive": 1, "Other": 0, "Service": 0, "EV/Electric": 3, "Contest": 3, "Event/Roadshow": 3}, "promoCounts": {"Test Drive": 1, "Contest": 3, "ราคา/ผ่อน": 2, "EV/Electric": 3, "Event/Roadshow": 0, "None": 0}}, "Nissan": {"posts": 10, "likes": 39, "comments": 0, "shares": 1, "reels": 5, "photos": 5, "videos": 0, "pageNames": ["นิสสันนครพนม"], "topicCounts": {"ราคา/ผ่อน": 10, "Test Drive": 2, "Other": 0, "Service": 10, "EV/Electric": 3, "Contest": 0, "Event/Roadshow": 10}, "promoCounts": {"Test Drive": 2, "Contest": 0, "ราคา/ผ่อน": 10, "EV/Electric": 3, "Event/Roadshow": 2, "None": 0}}}
+// Exclude brands with 0 posts (Pitfall 52 — avoid empty bubbles)
+// Order: by totalEng DESC, but Nissan always LAST (rightmost)
+const activeBrandsRaw = Object.keys(brandData).filter(b => brandData[b].posts > 0);
+const others = activeBrandsRaw.filter(b => b !== 'Nissan').sort((a, b) => {
+  const ea = brandData[a].likes + brandData[a].comments + brandData[a].shares;
+  const eb = brandData[b].likes + brandData[b].comments + brandData[b].shares;
+  return eb - ea;
+});
+const activeBrands = [...others, 'Nissan'];
 const brands = activeBrands;
-const te = activeBrands.map(b => brandData[b].likes + brandData[b].comments + brandData[b].shares);
-const epp = activeBrands.map((b,i) => Math.round((te[i]/brandData[b].posts)*10)/10);
+const totalEng = activeBrands.map(b => brandData[b].likes + brandData[b].comments + brandData[b].shares);
+const engPerPost = activeBrands.map((b, i) => Math.round((totalEng[i] / brandData[b].posts) * 10) / 10);
 const likes = activeBrands.map(b => brandData[b].likes);
 const comments = activeBrands.map(b => brandData[b].comments);
 const shares = activeBrands.map(b => brandData[b].shares);
@@ -643,21 +689,156 @@ const posts = activeBrands.map(b => brandData[b].posts);
 const reels = activeBrands.map(b => brandData[b].reels);
 const photos = activeBrands.map(b => brandData[b].photos);
 const videos = activeBrands.map(b => brandData[b].videos);
-const td = activeBrands.map(b => {const a=["ราคา/ผ่อน","Test Drive","Other","Service","EV/Electric","Contest","Event/Roadshow"];return a.map(t => (brandData[b].topicCounts[t]||0));});
-const tl = ["ราคา/ผ่อน","Test Drive","Other","Service","EV/Electric","Contest","Event/Roadshow"];
-const palette = ["#C3002F", "#1976D2", "#388E3C", "#F57C00", "#7B1FA2", "#0097A7", "#5D4037", "#E91E63", "#FBC02D", "#0D47A1", "#827717", "#4E342E", "#BF360C", "#1B5E20", "#3E2723"];
+const topicsData = activeBrands.map(b => {
+  const allTopics = ["ราคา/ผ่อน", "Test Drive", "Other", "Service", "EV/Electric", "Contest", "Event/Roadshow"];
+  return allTopics.map(t => brandData[b].topicCounts[t] || 0);
+});
+const topicLabels = ["ราคา/ผ่อน", "Test Drive", "Other", "Service", "EV/Electric", "Contest", "Event/Roadshow"];
+const promoData = activeBrands.map(b => {
+  const allPromos = ["Test Drive", "Contest", "ราคา/ผ่อน", "EV/Electric", "Event/Roadshow", "None"];
+  return allPromos.map(p => brandData[b].promoCounts[p] || 0);
+});
+const promoLabels = ["Test Drive", "Contest", "ราคา/ผ่อน", "EV/Electric", "Event/Roadshow", "None"];
 
-const c1=document.getElementById('chartTotalEngagement')?.getContext('2d');if(c1)new Chart(c1,{type:'bar',data:{labels:brands,datasets:[{label:'TE',data:te,backgroundColor:palette}]},options:{responsive:true,plugins:{legend:{display:false}}}});
-const c2=document.getElementById('chartEngagementPerPost')?.getContext('2d');if(c2)new Chart(c2,{type:'bar',data:{labels:brands,datasets:[{label:'EPP',data:epp,backgroundColor:palette}]},options:{responsive:true,plugins:{legend:{display:false}}}});
-const c3=document.getElementById('chartEngagementBreakdown')?.getContext('2d');if(c3)new Chart(c3,{type:'bar',data:{labels:brands,datasets:[{label:'Likes',data:likes,backgroundColor:'#C3002F'},{label:'Comments',data:comments,backgroundColor:'#1976D2'},{label:'Shares',data:shares,backgroundColor:'#388E3C'}]},options:{responsive:true,scales:{x:{stacked:true},y:{stacked:true}}}});
-const c4=document.getElementById('chartBubble')?.getContext('2d');if(c4){const maxEpp=Math.max(...epp);const cappedEpp=epp.map(e=>Math.min(e,maxEpp/2));new Chart(c4,{type:'bubble',data:{datasets:activeBrands.map((b,i)=>({label:b+' ('+epp[i].toFixed(1)+' eng/post)',data:[{x:posts[i],y:te[i],r:Math.sqrt(cappedEpp[i])*5+6}],backgroundColor:palette[i]+'80',borderColor:palette[i],borderWidth:2}))},options:{responsive:true,scales:{x:{title:{display:true,text:'Posts'}},y:{title:{display:true,text:'Total Engagement'}}}}});}
-const c5=document.getElementById('chartTopicMix')?.getContext('2d');if(c5)new Chart(c5,{type:'bar',data:{labels:brands,datasets:tl.map((t,i)=>({label:t,data:td.map(r=>r[i]),backgroundColor:palette[i]}))},options:{responsive:true,scales:{x:{stacked:true},y:{stacked:true}}}});
-const c6=document.getElementById('chartFormat')?.getContext('2d');if(c6)new Chart(c6,{type:'bar',data:{labels:brands,datasets:[{label:'Reel',data:reels,backgroundColor:'#E91E63'},{label:'Photo',data:photos,backgroundColor:'#1976D2'},{label:'Video',data:videos,backgroundColor:'#F57C00'}]},options:{responsive:true,scales:{x:{stacked:true},y:{stacked:true}}}});
-(function(){var t=document.querySelector('.dark-mode-toggle');if(t)t.onclick=function(){document.body.classList.toggle('dark-mode');};if(window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches)document.body.classList.add('dark-mode');})();
+const colors = ['#c3002f', '#1976d2', '#388e3c', '#f57c00', '#7b1fa2', '#0097a7', '#5d4037', '#e91e63', '#fbc02d', '#0d47a1', '#827717', '#4e342e', '#bf360c', '#1b5e20', '#3e2723'];
+
+
+
+new Chart(document.getElementById('chartTotalEngagement'), {
+  type: 'bar',
+  data: { labels: brands, datasets: [{ label: 'Total Engagement', data: totalEng, backgroundColor: colors[0] }] },
+  options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true } } }
+});
+
+new Chart(document.getElementById('chartEngagementPerPost'), {
+  type: 'bar',
+  data: { labels: brands, datasets: [{ label: 'Eng/Post', data: engPerPost, backgroundColor: colors[3] }] },
+  options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true } } }
+});
+
+new Chart(document.getElementById('chartEngagementBreakdown'), {
+  type: 'bar',
+  data: { labels: brands, datasets: [
+    { label: 'Likes', data: likes, backgroundColor: '#c3002f' },
+    { label: 'Comments', data: comments, backgroundColor: '#f57c00' },
+    { label: 'Shares', data: shares, backgroundColor: '#1976d2' }
+  ]},
+  options: { responsive: true, scales: { x: { stacked: true }, y: { stacked: true } } }
+});
+
+const palette = colors.slice(0, brands.length);
+new Chart(document.getElementById('chartBubble'), {
+  type: 'bubble',
+  data: { datasets: brands.map(function(b, i) {
+    const epp = engPerPost[i];
+    return {
+      label: b + ' (' + epp.toFixed(1) + ' eng/post)',
+      data: [{ x: posts[i], y: totalEng[i], r: Math.sqrt(epp) * 6 + 8 }],
+      backgroundColor: palette[i % palette.length] + '80',
+      borderColor: palette[i % palette.length],
+      borderWidth: 2
+    };
+  })},
+  options: { responsive: true, plugins: { legend: { position: 'right' } }, scales: {
+    x: { title: { display: true, text: 'Posts' }, beginAtZero: true },
+    y: { title: { display: true, text: 'Total Engagement' }, beginAtZero: true }
+  } }
+});
+
+const topicColors = ['#c3002f', '#1976d2', '#388e3c', '#f57c00', '#7b1fa2', '#0097a7', '#5d4037'];
+new Chart(document.getElementById('chartTopicMix'), {
+  type: 'bar',
+  data: { labels: brands, datasets: topicLabels.map(function(t, i) {
+    return { label: t, data: topicsData.map(row => row[i]), backgroundColor: topicColors[i % topicColors.length] };
+  })},
+  options: { responsive: true, scales: { x: { stacked: true }, y: { stacked: true } } }
+});
+
+new Chart(document.getElementById('chartFormat'), {
+  type: 'bar',
+  data: { labels: brands, datasets: [
+    { label: 'Reel', data: reels, backgroundColor: '#c3002f' },
+    { label: 'Photo', data: photos, backgroundColor: '#1976d2' },
+    { label: 'Video', data: videos, backgroundColor: '#7b1fa2' }
+  ]},
+  options: { responsive: true, scales: { x: { stacked: true }, y: { stacked: true } } }
+});
+
+const promoColors = ['#c3002f','#f57c00','#1976d2','#388e3c','#7b1fa2'];
+
+
+// Dark mode
+(function() {
+  const STORAGE_KEY = 'nissan-report-theme';
+  const html = document.documentElement;
+  const btn = document.getElementById('themeToggle');
+  if (!btn) return;
+  const saved = localStorage.getItem(STORAGE_KEY);
+  function apply(state) {
+    html.classList.toggle('dark', state === 'dark');
+    html.classList.toggle('light', state === 'light');
+    html.dataset.theme = state;
+  }
+  apply(saved || 'auto');
+  btn.addEventListener('click', () => {
+    const cur = html.dataset.theme || 'auto';
+    const next = cur === 'auto' ? 'light' : cur === 'light' ? 'dark' : 'auto';
+    apply(next);
+    localStorage.setItem(STORAGE_KEY, next);
+  });
+})();
+
+// Scroll-spy
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.id;
+      document.querySelectorAll('.toc a').forEach(l => {
+        l.classList.toggle('active', l.getAttribute('href') === '#' + id);
+      });
+    }
+  });
+}, { rootMargin: '-20% 0px -70% 0px', threshold: 0 });
+document.querySelectorAll('.section-card[id]').forEach(s => observer.observe(s));
+
+// Sortable tables (Pitfall 49 — scope per-table + parseNum)
+document.querySelectorAll('.section-card > table').forEach((table) => {
+  table.querySelectorAll('thead th').forEach((th, colIdx) => {
+    th.addEventListener('click', () => {
+      const tbody = table.querySelector('tbody');
+      const rows = Array.from(tbody.querySelectorAll('tr'));
+      const sorted = rows.sort((a, b) => {
+        const ac = a.cells[colIdx];
+        const bc = b.cells[colIdx];
+        if (!ac || !bc) return 0;
+        const av = ac.innerText || '';
+        const bv = bc.innerText || '';
+        function parseNum(s) {
+          if (!s) return NaN;
+          const cleaned = String(s).replace(/[^0-9.\-]/g, '');
+          const firstDot = cleaned.indexOf('.');
+          if (firstDot >= 0) {
+            return parseFloat(cleaned.slice(0, firstDot + 1) + cleaned.slice(firstDot + 1).replace(/\./g, ''));
+          }
+          return parseFloat(cleaned);
+        }
+        const an = parseNum(av);
+        const bn = parseNum(bv);
+        if (!isNaN(an) && !isNaN(bn) && av.trim() !== '' && bv.trim() !== '') return an - bn;
+        return av.localeCompare(bv, 'th');
+      });
+      if (th.classList.contains('sorted-asc')) {
+        sorted.reverse();
+        th.classList.remove('sorted-asc');
+        th.classList.add('sorted-desc');
+      } else {
+        th.classList.remove('sorted-desc');
+        th.classList.add('sorted-asc');
+      }
+      sorted.forEach(r => tbody.appendChild(r));
+    });
+  });
+});
 </script>
-<script>
-
-</script>
-
 </body>
 </html>
