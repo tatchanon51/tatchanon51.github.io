@@ -638,11 +638,8 @@ html.dark { --bg-page: #0a0e1a; --bg-surface: #131826; --ink-900: #f5f7fa; --ink
       <h3 style="margin-top:24px">9.6 Content Format Performance — Reel vs Photo vs Video</h3>
       <div class="chart-container"><div class="chart-title">📊 9.6 Content Format</div><canvas id="chartFormat"></canvas></div>
 
-      <h3 style="margin-top:24px">9.7 Promotional Type Coverage</h3>
-      <div class="chart-container"><div class="chart-title">📊 9.7 Promo Type</div><canvas id="chartPromo"></canvas></div>
-
       <div style="margin-top:24px;padding:16px;background:var(--nmt-red-soft);border-radius:8px;border-left:4px solid var(--nmt-red)">
-        <strong style="color:var(--nmt-red);font-size:14px">📌 Self-positioning insight (จากกราฟ 9.1-9.7):</strong>
+        <strong style="color:var(--nmt-red);font-size:14px">📌 Self-positioning insight (จากกราฟ 9.1-9.6):</strong>
         <p style="font-size:13px;margin-top:8px">Nissan NKP อยู่ใน cluster "moderate efficiency" — ปริมาณ OK แต่ efficiency ต่ำ — โอกาสเติบโตคือ (1) ทำ mobile booth แบบ Isuzu (2) ทำ lifestyle comparison content (3) amplify Motor Show recap</p>
       </div>
     </div>
@@ -768,13 +765,7 @@ new Chart(document.getElementById('chartFormat'), {
 });
 
 const promoColors = ['#c3002f','#f57c00','#1976d2','#388e3c','#7b1fa2'];
-new Chart(document.getElementById('chartPromo'), {
-  type: 'bar',
-  data: { labels: brands, datasets: promoLabels.map(function(t, i) {
-    return { label: t, data: promoData.map(row => row[i]), backgroundColor: promoColors[i] };
-  })},
-  options: { responsive: true, scales: { x: { stacked: true }, y: { stacked: true } } }
-});
+
 
 // Dark mode
 (function() {
