@@ -123,7 +123,7 @@ canvas { max-width: 100%; }
       <h1>📊 Monthly Dealer Report v2 <span class="tier-badge">Dealer 92058 | Tier 4</span></h1>
       <div class="hero-meta"><strong>Dealer 92058</strong> — <strong>มิถุนายน 2569</strong> · v2 with MoM + Charts + Salesperson + Tier</div>
       <div class="hero-chips">
-        <div class="hero-chip">Leads <strong>42</strong></div>
+        <div class="hero-chip">Prospect <strong>41</strong></div>
         <div class="hero-chip">Test Drive <strong>35</strong></div>
         <div class="hero-chip">Booking <strong>5</strong></div>
         <div class="hero-chip">Retail <strong>5</strong></div>
@@ -158,26 +158,19 @@ canvas { max-width: 100%; }
 <div class="section-card" id="sec-0">
   <div class="section-card-header"><span class="section-num">0</span><h2>📈 Year-to-Date Trend (Jan–Jun 2026)</h2></div>
   <div class="headline">
-    <span class="headline-label">🔖 Headline:</span> ดูแนวโน้มรายเดือน — Leads มาทางไหน  Retail/Booking ขึ้นหรือลง<br>
-    <span class="headline-label">ℹ️ วิธีอ่าน:</span> <strong>บน (Leads)</strong> = Line chart — ดูแนวโน้มความสนใจของลูกค้าแต่ละเดือน ตัวเลขมาก=ลูกค้าสนใจเยอะ | <strong>ล่าง (Retail+Booking)</strong> = Bar chart — เปรียบเทียบยอดจอง vs ปิดการขาย ตัวเลขน้อยแต่เห็น trend ได้ชัด
+    <span class="headline-label">🔖 Headline:</span> ดูแนวโน้มรายเดือน — Retail (ปิดการขาย) vs Booking (ยอดจอง) — ขึ้นหรือลง<br>
+    <span class="headline-label">ℹ️ วิธีอ่าน:</span> แท่งส้ม = จำนวนจอง, แท่งแดง = ปิดการขาย ยิ่งสูง=ยิ่งดี แนวโน้มขาขึ้น=เติบโต
   </div>
-  <div class="chart-grid-2">
-    <div class="chart-container" style="padding:16px;flex:1;height:320px">
-      <h3 style="margin-top:0;font-size:13px;color:var(--ink-500);font-weight:700">📞 Leads — จำนวน Lead แต่ละเดือน</h3>
-      <canvas id="chartYTD_Leads" width="1536" height="576" style="width:100%;height:260px"></canvas>
-    </div>
-    <div class="chart-container" style="padding:16px;flex:1;height:320px">
-      <h3 style="margin-top:0;font-size:13px;color:var(--ink-500);font-weight:700">🚗 Retail vs Booking — ปิดการขาย vs จอง</h3>
-      <canvas id="chartYTD_BK_RS" width="1536" height="576" style="width:100%;height:260px"></canvas>
-    </div>
+  <div class="chart-container" style="padding:16px;height:360px">
+    <canvas id="chartYTD_BK_RS" width="1536" height="576" style="width:100%;height:300px"></canvas>
   </div>
 </div>
 <div class="section-card" id="sec-1">
   <div class="section-card-header"><span class="section-num">1</span><h2>📸 Snapshot</h2></div>
   <div class="headline">
     <span class="headline-label">🔖 Headline:</span> เดือน มิถุนายน 2569 — ปิดได้ 5 คัน · Lead → Won เฉลี่ย <strong>19.4 วัน</strong> (จาก 5 retail)<br>
-    <span class="headline-label">📋 คืออะไร:</span> ภาพรวม Leads → TD → BK → Won<br>
-    <span class="headline-label">🎯 เพื่ออะไร:</span> เห็นทันทีว่า 'lead ได้' vs 'ปิดได้'
+    <span class="headline-label">📋 คืออะไร:</span> ภาพรวม Prospect → TD → BK → Won<br>
+    <span class="headline-label">🎯 เพื่ออะไร:</span> เห็นทันทีว่า 'prospect ได้' vs 'ปิดได้'
   </div>
   
   <div class="summary-stat">
@@ -191,15 +184,9 @@ canvas { max-width: 100%; }
   <div class="section-card-header"><span class="section-num">2</span><h2>📈 KPIs + Month-over-Month</h2></div>
   <div class="headline">
     <span class="headline-label">🔖 Headline:</span> ✅ MoM data loaded<br>
-    <span class="headline-label">📋 คืออะไร:</span> 5 KPI + ↑↓ trend เทียบเดือนก่อน
+    <span class="headline-label">📋 คืออะไร:</span> 4 KPI + ↑↓ trend + Prospect Pipeline
   </div>
   <div class="kpi-grid">
-    <div class="kpi-card">
-            <div class="kpi-icon">📞</div>
-            <div class="kpi-label">Leads</div>
-            <div class="kpi-value blue">42 <span class="trend-arrow trend-down">↓</span></div>
-            <div class="kpi-sub">MoM: 53 (-21%)</div>
-        </div>
     <div class="kpi-card">
                 <div class="kpi-icon">🛣️</div>
                 <div class="kpi-label">Test Drive</div>
@@ -219,6 +206,12 @@ canvas { max-width: 100%; }
             <div class="kpi-sub">MoM: 6 (-17%)</div>
         </div>
     <div class="kpi-card">
+      <div class="kpi-icon">🎯</div>
+      <div class="kpi-label">Prospect</div>
+      <div class="kpi-value blue">41</div>
+      <div class="kpi-sub">Hot 9 · Warm 4 · Cold 28</div>
+    </div>
+    <div class="kpi-card">
       <div class="kpi-icon">💰</div>
       <div class="kpi-label">DACT งบแผน</div>
       <div class="kpi-value orange">52K</div>
@@ -230,9 +223,9 @@ canvas { max-width: 100%; }
 <div class="section-card" id="sec-3">
   <div class="section-card-header"><span class="section-num">3</span><h2>🌊 Sales Funnel</h2></div>
   <div class="funnel">
-    <div class="funnel-step"><div class="step-num">1</div><div class="step-label">📞 Leads</div><div class="step-value">42</div><div class="step-rate">100%</div></div>
+    <div class="funnel-step"><div class="step-num">1</div><div class="step-label">🎯 Prospect</div><div class="step-value">41</div><div class="step-rate">100%</div></div>
     <div class="funnel-arrow">→</div>
-    <div class="funnel-step"><div class="step-num">2</div><div class="step-label">🛣️ Test Drive</div><div class="step-value">35</div><div class="step-rate">83.3%</div></div>
+    <div class="funnel-step"><div class="step-num">2</div><div class="step-label">🛣️ Test Drive</div><div class="step-value">35</div><div class="step-rate">85.4%</div></div>
     <div class="funnel-arrow">→</div>
     <div class="funnel-step"><div class="step-num">3</div><div class="step-label">📋 Booking</div><div class="step-value">5</div><div class="step-rate">14.3%</div></div>
     <div class="funnel-arrow">→</div>
@@ -248,48 +241,48 @@ canvas { max-width: 100%; }
     <canvas id="chartModels" width="1536" height="768" style="min-height:320px"></canvas>
   </div>
   <table>
-    <thead><tr><th>Model</th><th style="text-align:center">Leads</th><th style="text-align:center">Test Drive</th><th style="text-align:center">Booking</th><th style="text-align:center">Prospect</th><th style="text-align:center">Retail</th></tr></thead>
+    <thead><tr><th>Model</th><th style="text-align:center">Prospect</th><th style="text-align:center">Test Drive</th><th style="text-align:center">Booking</th><th style="text-align:center">Leads</th><th style="text-align:center">Retail</th></tr></thead>
     <tbody><tr>
             <td><strong>X-TRAIL</strong></td>
-            <td style="text-align:center">0</td>
+            <td style="text-align:center;font-weight:bold;color:var(--nmt-red)">17</td>
             <td style="text-align:center;font-weight:bold">17</td>
             <td style="text-align:center;font-weight:bold">0</td>
-            <td style="text-align:center;font-weight:bold;color:var(--nmt-red)">17</td>
+            <td style="text-align:center">0</td>
             <td style="text-align:center">0</td>
         </tr><tr>
             <td><strong>KICKS</strong></td>
-            <td style="text-align:center">17</td>
+            <td style="text-align:center;font-weight:bold;color:var(--nmt-red)">14</td>
             <td style="text-align:center;font-weight:bold">12</td>
             <td style="text-align:center;font-weight:bold">2</td>
-            <td style="text-align:center;font-weight:bold;color:var(--nmt-red)">14</td>
+            <td style="text-align:center">17</td>
             <td style="text-align:center">3</td>
         </tr><tr>
             <td><strong>ALMERA</strong></td>
-            <td style="text-align:center">5</td>
+            <td style="text-align:center;font-weight:bold;color:var(--nmt-red)">5</td>
             <td style="text-align:center;font-weight:bold">3</td>
             <td style="text-align:center;font-weight:bold">1</td>
-            <td style="text-align:center;font-weight:bold;color:var(--nmt-red)">5</td>
+            <td style="text-align:center">5</td>
             <td style="text-align:center">1</td>
         </tr><tr>
             <td><strong>Serena e-POWER</strong></td>
-            <td style="text-align:center">3</td>
+            <td style="text-align:center;font-weight:bold;color:var(--nmt-red)">3</td>
             <td style="text-align:center;font-weight:bold">2</td>
             <td style="text-align:center;font-weight:bold">1</td>
-            <td style="text-align:center;font-weight:bold;color:var(--nmt-red)">3</td>
+            <td style="text-align:center">3</td>
             <td style="text-align:center">1</td>
         </tr><tr>
             <td><strong>Serena</strong></td>
-            <td style="text-align:center">1</td>
-            <td style="text-align:center;font-weight:bold">1</td>
-            <td style="text-align:center;font-weight:bold">1</td>
             <td style="text-align:center;font-weight:bold;color:var(--nmt-red)">1</td>
+            <td style="text-align:center;font-weight:bold">1</td>
+            <td style="text-align:center;font-weight:bold">1</td>
+            <td style="text-align:center">1</td>
             <td style="text-align:center">0</td>
         </tr><tr>
             <td><strong>NAVARA</strong></td>
-            <td style="text-align:center">0</td>
-            <td style="text-align:center;font-weight:bold">0</td>
-            <td style="text-align:center;font-weight:bold">0</td>
             <td style="text-align:center;font-weight:bold;color:var(--nmt-red)">1</td>
+            <td style="text-align:center;font-weight:bold">0</td>
+            <td style="text-align:center;font-weight:bold">0</td>
+            <td style="text-align:center">0</td>
             <td style="text-align:center">0</td>
         </tr></tbody>
   </table>
@@ -550,41 +543,10 @@ sections.forEach(s => observer.observe(s));
 <script>
 const palette = ['#C3002F', '#1976D2', '#388E3C', '#F57C00', '#7B1FA2', '#0097A7'];
 
-// YTD Trend Charts (Section 0) — แยก Leads (line) และ Retail+Booking (bar)
+// YTD Trend Chart (Section 0) — Retail vs Booking Bar chart
 const ytdLabels = ['ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.', 'พ.ค.', 'มิ.ย.'];
 
-// Chart 1: Leads Line chart
-const ytdLeadsCtx = document.getElementById('chartYTD_Leads');
-if (ytdLeadsCtx) {
-  new Chart(ytdLeadsCtx, {
-    type: 'line',
-    data: {
-      labels: ytdLabels,
-      datasets: [{
-        label: 'Leads',
-        data: [51, 43, 37, 52, 53, 42],
-        borderColor: '#1976D2',
-        backgroundColor: '#1976D220',
-        fill: true,
-        tension: 0.3,
-        pointRadius: 5,
-        pointBackgroundColor: '#1976D2',
-        borderWidth: 3
-      }]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      plugins: { legend: { display: false } },
-      scales: {
-        y: { beginAtZero: false, min: 30, title: { display: true, text: 'จำนวน Leads' } },
-        x: { title: { display: true, text: 'เดือน' } }
-      }
-    }
-  });
-}
-
-// Chart 2: Retail + Booking Bar chart
+// Chart: Retail + Booking Bar chart (full width)
 const ytdBkRsCtx = document.getElementById('chartYTD_BK_RS');
 if (ytdBkRsCtx) {
   new Chart(ytdBkRsCtx, {
@@ -615,10 +577,10 @@ if (ctx) {
     data: {
       labels: ['X-TRAIL', 'KICKS', 'ALMERA', 'Serena e-POWER', 'Serena', 'NAVARA'],
       datasets: [
-        { label: 'Leads', data: [0, 17, 5, 3, 1, 0], backgroundColor: palette[1] },
+        { label: 'Prospect', data: [17, 14, 5, 3, 1, 1], backgroundColor: palette[0] },
         { label: 'Test Drive', data: [17, 12, 3, 2, 1, 0], backgroundColor: palette[2] },
         { label: 'Booking', data: [0, 2, 1, 1, 1, 0], backgroundColor: palette[3] },
-        { label: 'Prospect', data: [17, 14, 5, 3, 1, 1], backgroundColor: palette[0] },
+        { label: 'Leads', data: [0, 17, 5, 3, 1, 0], backgroundColor: palette[1] },
         { label: 'Retail', data: [0, 3, 1, 1, 0, 0], backgroundColor: palette[4] },
       ]
     },
