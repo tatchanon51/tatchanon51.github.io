@@ -13,7 +13,6 @@
     color: #1a1a2e;
     line-height: 1.7;
   }
-  /* Cover */
   .cover {
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 40%, #0f3460 100%);
     color: white;
@@ -65,6 +64,7 @@
     font-size: 14px;
     color: rgba(255,255,255,0.5);
     position: relative;
+    flex-wrap: wrap;
   }
   .cover-line {
     width: 60px;
@@ -78,7 +78,6 @@
     margin: 0 auto;
     padding: 0 24px;
   }
-  /* TOC */
   .toc {
     background: white;
     border-radius: 12px;
@@ -116,7 +115,6 @@
     font-weight: 700;
     margin-right: 8px;
   }
-  /* Sections */
   .section {
     margin: 48px 0;
     background: white;
@@ -151,7 +149,6 @@
     font-weight: 700;
     color: #1a1a2e;
   }
-  .section-header .emoji-big { font-size: 28px; }
   h3 {
     font-size: 16px;
     font-weight: 700;
@@ -168,8 +165,6 @@
   ul, ol { margin: 10px 0 10px 20px; font-size: 14px; color: #555; }
   li { margin-bottom: 6px; }
   strong { color: #1a1a2e; font-weight: 600; }
-  .highlight-red { color: #C3002F; font-weight: 600; }
-  /* Cards */
   .card-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -198,7 +193,6 @@
   .badge-individual { background: #E3F2FD; color: #1565C0; }
   .badge-team { background: #FFF3E0; color: #E65100; }
   .badge-free { background: #E8F5E9; color: #2E7D32; }
-  /* Prize Table */
   .prize-table {
     width: 100%;
     border-collapse: separate;
@@ -228,12 +222,7 @@
   .prize-1st td:first-child { border-left: 3px solid #FFD700; }
   .prize-2nd td:first-child { border-left: 3px solid #C0C0C0; }
   .prize-3rd td:first-child { border-left: 3px solid #CD7F32; }
-  .prize-amt {
-    font-size: 18px;
-    font-weight: 700;
-    color: #C3002F;
-  }
-  /* Timeline */
+  .prize-amt { font-size: 18px; font-weight: 700; color: #C3002F; }
   .timeline {
     position: relative;
     padding-left: 30px;
@@ -271,7 +260,6 @@
   .timeline-item .week { font-size: 12px; color: #C3002F; font-weight: 700; }
   .timeline-item h4 { margin: 4px 0; }
   .timeline-item p { font-size: 13px; margin: 4px 0 0; }
-  /* Quote */
   .tip-box {
     background: #fff8e1;
     border-left: 4px solid #FFA000;
@@ -291,7 +279,6 @@
     border-left-color: #2E7D32;
   }
   .tip-box.green h4 { color: #2E7D32; }
-  /* KPI row */
   .kpi-row {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -306,7 +293,6 @@
   }
   .kpi-box .num { font-size: 28px; font-weight: 800; color: #C3002F; }
   .kpi-box .label { font-size: 12px; color: #888; margin-top: 4px; }
-  /* Footer */
   .footer {
     text-align: center;
     padding: 40px;
@@ -314,9 +300,170 @@
     font-size: 13px;
   }
   .footer .nmt-red { color: #C3002F; font-weight: 600; }
+
+  /* Mockup: Trophy + Certificate */
+  .mockup-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin: 20px 0;
+  }
+  .mockup-card {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 24px;
+    border: 1px solid #eee;
+    text-align: center;
+  }
+  .mockup-card h4 { margin: 0 0 12px; }
+  .mockup-trophy {
+    margin: 10px auto;
+    position: relative;
+  }
+  .mockup-trophy .base {
+    width: 100px;
+    height: 12px;
+    background: linear-gradient(180deg, #8B6914, #D4AF37);
+    border-radius: 2px;
+    margin: 0 auto;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  }
+  .mockup-trophy .stem {
+    width: 16px;
+    height: 50px;
+    background: linear-gradient(90deg, #8B6914, #D4AF37, #8B6914);
+    margin: 0 auto;
+  }
+  .mockup-trophy .cup {
+    width: 70px;
+    height: 60px;
+    background: linear-gradient(135deg, #D4AF37, #FFD700, #D4AF37);
+    margin: 0 auto 0;
+    border-radius: 0 0 10px 10px;
+    position: relative;
+    top: 0;
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+  }
+  .mockup-trophy .cup::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 4px solid #D4AF37;
+    border-radius: 50%;
+    top: -18px;
+    left: 21px;
+  }
+  .mockup-trophy .cup::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 20px;
+    border: 4px solid #D4AF37;
+    border-bottom: none;
+    border-radius: 0 10px 0 0;
+    top: -10px;
+    right: -12px;
+  }
+  .mockup-trophy .cup-left {
+    position: absolute;
+    width: 10px;
+    height: 20px;
+    border: 4px solid #D4AF37;
+    border-bottom: none;
+    border-radius: 10px 0 0 0;
+    top: -10px;
+    left: -12px;
+  }
+  .mockup-trophy-label {
+    font-size: 11px;
+    color: #888;
+    margin-top: 6px;
+  }
+
+  .mockup-cert {
+    width: 200px;
+    height: 140px;
+    margin: 10px auto;
+    background: white;
+    border: 2px solid #C3002F;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+  .mockup-cert .cert-top {
+    height: 28px;
+    background: linear-gradient(90deg, #C3002F, #8B0020);
+  }
+  .mockup-cert .cert-body {
+    padding: 8px 12px;
+    text-align: center;
+  }
+  .mockup-cert .cert-body .cert-title {
+    font-size: 9px;
+    font-weight: 700;
+    color: #C3002F;
+    letter-spacing: 1px;
+  }
+  .mockup-cert .cert-body .cert-line {
+    width: 50px;
+    height: 1px;
+    background: #ddd;
+    margin: 4px auto;
+  }
+  .mockup-cert .cert-body .cert-name {
+    font-size: 10px;
+    font-weight: 700;
+    color: #333;
+    margin: 4px 0;
+  }
+  .mockup-cert .cert-body .cert-text {
+    font-size: 7px;
+    color: #888;
+    margin: 2px 0;
+  }
+  .mockup-cert .cert-body .cert-seal {
+    width: 20px;
+    height: 20px;
+    margin: 4px auto;
+    border: 2px solid #C3002F;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    color: #C3002F;
+  }
+  .mockup-cert .cert-footer {
+    height: 6px;
+    background: linear-gradient(90deg, #ddd, #eee, #ddd);
+  }
+
+  .voucher-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 12px 0;
+  }
+  .voucher-item {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 12px 14px;
+    border: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .voucher-item .v-icon { font-size: 24px; }
+  .voucher-item .v-info { font-size: 13px; flex: 1; }
+  .voucher-item .v-info .v-name { font-weight: 600; color: #1a1a2e; }
+  .voucher-item .v-info .v-detail { font-size: 12px; color: #888; }
+  .voucher-item.selected { border-color: #C3002F; background: #fff5f5; }
+
   @media (max-width: 700px) {
     .cover h1 { font-size: 28px; }
-    .card-grid { grid-template-columns: 1fr; }
+    .card-grid, .mockup-row, .voucher-options { grid-template-columns: 1fr; }
     .kpi-row { grid-template-columns: 1fr 1fr; }
     .toc-grid { grid-template-columns: 1fr; }
     .section { padding: 24px 20px; }
@@ -331,9 +478,9 @@
   <div class="cover-badge">🏎️ e-POWER CONTENT BATTLE</div>
   <h1>ขับเคลื่อน e-POWER<br>ด้วย <span>Content</span></h1>
   <div class="cover-line"></div>
-  <div class="subtitle">Online Content Contest สำหรับผู้จำหน่ายนิสสันภาคอีสาน</div>
+  <div class="subtitle">Online Content Contest สำหรับผู้จำหน่ายนิสสันทั่วประเทศ</div>
   <div class="cover-meta">
-    <span>📍 ภาคอีสาน (R2 + R3)</span>
+    <span>🏢 <strong>112 โชว์รูม</strong> ทั่วประเทศ</span>
     <span>📅 เสนอเมื่อ: 15 ก.ค. 2569</span>
     <span>👤 เสนอโดย: Tatchanon W.</span>
   </div>
@@ -344,11 +491,12 @@
   <h3>📑 สารบัญ</h3>
   <div class="toc-grid">
     <a href="#s1"><span class="toc-num">1</span> ภาพรวม + วัตถุประสงค์</a>
-    <a href="#s4"><span class="toc-num">4</span> Timeline + กติกา</a>
+    <a href="#s5"><span class="toc-num">5</span> Timeline + กติกา</a>
     <a href="#s2"><span class="toc-num">2</span> 3 ประเภทการแข่งขัน</a>
-    <a href="#s5"><span class="toc-num">5</span> งบประมาณ</a>
-    <a href="#s3"><span class="toc-num">3</span> รางวัล</a>
-    <a href="#s6"><span class="toc-num">6</span> Dashboard + การวัดผล</a>
+    <a href="#s6"><span class="toc-num">6</span> งบประมาณ</a>
+    <a href="#s3"><span class="toc-num">3</span> รางวัล + ตัวอย่าง</a>
+    <a href="#s7"><span class="toc-num">7</span> Dashboard + การวัดผล</a>
+    <a href="#s4"><span class="toc-num">4</span> ตัวเลือกรูปแบบบัตรกำนัล</a>
   </div>
 </div>
 
@@ -363,6 +511,10 @@
 
   <div class="kpi-row">
     <div class="kpi-box">
+      <div class="num">112</div>
+      <div class="label">โชว์รูมทั่วประเทศ<br>ทุกเขต ทุกภูมิภาค</div>
+    </div>
+    <div class="kpi-box">
       <div class="num">3</div>
       <div class="label">รุ่น e-POWER หลัก<br>KICKS · SERENA · X-TRAIL</div>
     </div>
@@ -374,16 +526,12 @@
       <div class="num">4</div>
       <div class="label">สัปดาห์ / รอบ<br>Kick-off → ประกาศผล</div>
     </div>
-    <div class="kpi-box">
-      <div class="num">~300</div>
-      <div class="label">ที่ปรึกษาการขาย<br>ที่เข้าร่วมได้ (3 จังหวัด)</div>
-    </div>
   </div>
 
   <h3>วัตถุประสงค์ 3 ข้อ</h3>
   <ol>
     <li><strong>🎯 กระตุ้นให้ผู้จำหน่าย + Sales Active ออนไลน์</strong> — สร้าง Content ใน 3 รุ่นหลัก (KICKS e-POWER / SERENA e-POWER / X-TRAIL e-POWER) อย่างสม่ำเสมอ</li>
-    <li><strong>🎨 ยกระดับคุณภาพ Content ของ Nissan ในระดับ Dealer</strong> — จากโพสต์ genric สู่ Content ที่น่าสนใจ มียอด Engagement</li>
+    <li><strong>🎨 ยกระดับคุณภาพ Content ของ Nissan ในระดับ Dealer</strong> — จากโพสต์ generic สู่ Content ที่น่าสนใจ มียอด Engagement</li>
     <li><strong>📈 เพิ่มการรับรู้ + Lead ของ 3 รุ่น e-POWER</strong> — วัดผลจากจำนวน Lead จริงที่มาจาก Online Content</li>
   </ol>
 
@@ -439,10 +587,10 @@
 <div class="section" id="s3">
   <div class="section-header">
     <div class="section-num">3</div>
-    <h2>🎁 รางวัล</h2>
+    <h2>🎁 รางวัล + ตัวอย่าง</h2>
   </div>
 
-  <h3>👤 รางวัลรายบุคคล (Type A + B)</h3>
+  <h3>👤 รางวัลรายบุคคล (Type A: Content Creator + Type B: Lead Generator)</h3>
   <table class="prize-table">
     <thead>
       <tr>
@@ -456,21 +604,21 @@
     <tbody>
       <tr class="prize-1st">
         <td><strong>🥇 ที่ 1</strong></td>
-        <td>บัตรกำนัลน้ำมัน + โล่รางวัล "Nissan e-POWER Creator of the Month"</td>
+        <td>โล่รางวัล "Nissan e-POWER Creator of the Month" + Gift Voucher</td>
         <td class="prize-amt">5,000 ฿</td>
         <td>× 2 (A+B)</td>
         <td>10,000 ฿</td>
       </tr>
       <tr class="prize-2nd">
         <td><strong>🥈 ที่ 2</strong></td>
-        <td>Voucher Central/Lotus + Certificate</td>
+        <td>Gift Voucher + Certificate</td>
         <td class="prize-amt">3,000 ฿</td>
         <td>× 2 (A+B)</td>
         <td>6,000 ฿</td>
       </tr>
       <tr class="prize-3rd">
         <td><strong>🥉 ที่ 3</strong></td>
-        <td>Voucher หนัง/คาเฟ่ + Certificate</td>
+        <td>Gift Voucher + Certificate</td>
         <td class="prize-amt">1,500 ฿</td>
         <td>× 2 (A+B)</td>
         <td>3,000 ฿</td>
@@ -496,14 +644,14 @@
     <tbody>
       <tr class="prize-1st">
         <td><strong>🏆 ทีมชนะเลิศ</strong></td>
-        <td>งบ DACT เพิ่มเติมสำหรับกิจกรรมเดือนถัดไป + โล่รางวัล</td>
+        <td>งบสนับสนุนกิจกรรมการตลาด สนับสนุน 100% ผ่านการเขียน Memo + โล่รางวัล</td>
         <td class="prize-amt">20,000 ฿</td>
         <td>× 1</td>
         <td>20,000 ฿</td>
       </tr>
       <tr class="prize-2nd">
         <td><strong>🥈 รองชนะเลิศ</strong></td>
-        <td>งบ DACT เพิ่มเติม</td>
+        <td>งบสนับสนุนกิจกรรมการตลาด สนับสนุน 100% ผ่านการเขียน Memo</td>
         <td class="prize-amt">10,000 ฿</td>
         <td>× 1</td>
         <td>10,000 ฿</td>
@@ -515,12 +663,43 @@
     </tbody>
   </table>
 
+  <h3>🏅 ตัวอย่างโล่รางวัล + ประกาศนียบัตร</h3>
+  <div class="mockup-row">
+    <div class="mockup-card">
+      <h4>🏆 โล่รางวัล</h4>
+      <div class="mockup-trophy">
+        <div class="cup">
+          <div class="cup-left"></div>
+        </div>
+        <div class="stem"></div>
+        <div class="base"></div>
+      </div>
+      <p style="font-size:12px;font-weight:600;margin-top:8px">Nissan e-POWER<br>Creator of the Month</p>
+      <p style="font-size:11px;color:#888">โล่แก้วใส พิมพ์ชื่อ+เดือนรางวัล<br>ขนาดประมาณ 20 ซม. พร้อมฐาน</p>
+    </div>
+    <div class="mockup-card">
+      <h4>📜 ประกาศนียบัตร (Certificate)</h4>
+      <div class="mockup-cert">
+        <div class="cert-top"></div>
+        <div class="cert-body">
+          <div class="cert-title">NISSAN</div>
+          <div class="cert-line"></div>
+          <div class="cert-name">e-POWER CONTENT<br>BATTLE 2026</div>
+          <div class="cert-text">มอบให้เพื่อแสดงว่า</div>
+          <div style="font-size:9px;font-weight:700;color:#C3002F;margin:2px 0">[ชื่อผู้ชนะ]</div>
+          <div class="cert-text">ได้รับรางวัลชนะเลิศ<br>Best Content Creator</div>
+          <div class="cert-seal">N</div>
+        </div>
+        <div class="cert-footer"></div>
+      </div>
+      <p style="font-size:11px;color:#888;margin-top:6px">พิมพ์บนกระดาษอาร์ตมัน 200 แกรม<br>กรอบสวย พร้อมซีลกันปลอม</p>
+    </div>
+  </div>
   <div class="tip-box">
-    <h4>💡 ทำไมถึงเลือกของแบบนี้?</h4>
-    <p>📌 <strong>บัตรน้ำมัน</strong> — Sales ใช้จริงทุกวัน จับต้องได้<br>
-    📌 <strong>Voucher ห้าง</strong> — ครอบครัวได้ประโยชน์ กระตุ้นคู่สมรสให้สนับสนุน<br>
-    📌 <strong>งบ DACT เพิ่ม</strong> — ไม่ต้องใช้เงินนอกงบประมาณ ผู้จัดการมีอำนาจใช้ได้เลย<br>
-    📌 <strong>โล่รางวัล</strong> — ตั้งโชว์ในโชว์รูม สร้างความภาคภูมิใจ + กระตุ้นคนอื่น</p>
+    <h4>💡 ข้อแนะนำโล่ + ประกาศนียบัตร</h4>
+    <p>✅ <strong>โล่รางวัล</strong> — แนะนำเป็นโล่แก้วใสรูปทรงโมเดิร์น พิมพ์ชื่อ + เดือนรางวัล ราคาประมาณ 500-800 บาท/ใบ (ทำครั้งเดียว ใช้ซ้ำได้ทุกเดือน แค่เปลี่ยนเดือน)<br>
+    ✅ <strong>ประกาศนียบัตร</strong> — ออกแบบ Template เดียว ปรับชื่อผู้รับเดือนต่อเดือน พิมพ์สีที่ศูนย์บริการของ Nisaan ได้ ราคาประมาณ 30-50 บาท/ใบ<br>
+    ✅ ทั้งโล่และ Certificate ใช้ถ่ายรูปลง Social ได้ สร้างกระแสต่อเนื่อง</p>
   </div>
 </div>
 
@@ -528,6 +707,68 @@
 <div class="section" id="s4">
   <div class="section-header">
     <div class="section-num">4</div>
+    <h2>🎫 ตัวเลือกรูปแบบบัตรกำนัล</h2>
+  </div>
+
+  <p>รางวัลรายบุคคลระบุเป็น <strong>Gift Voucher</strong> โดยมีตัวเลือกบัตรกำนัลดังนี้ให้ผู้บริหารเลือก:</p>
+
+  <div class="voucher-options">
+    <div class="voucher-item selected">
+      <div class="v-icon">⛽</div>
+      <div class="v-info">
+        <div class="v-name">บัตรกำนัลน้ำมัน</div>
+        <div class="v-detail">PTT / Shell / Esso — Sales ใช้จริงทุกวัน</div>
+      </div>
+    </div>
+    <div class="voucher-item">
+      <div class="v-icon">🛍️</div>
+      <div class="v-info">
+        <div class="v-name">Voucher ห้างสรรพสินค้า</div>
+        <div class="v-detail">Central / Robinson / The Mall</div>
+      </div>
+    </div>
+    <div class="voucher-item">
+      <div class="v-icon">🛒</div>
+      <div class="v-info">
+        <div class="v-name">Voucher ไฮเปอร์มาร์เก็ต</div>
+        <div class="v-detail">Lotus / Big C / Tops</div>
+      </div>
+    </div>
+    <div class="voucher-item">
+      <div class="v-icon">🎬</div>
+      <div class="v-info">
+        <div class="v-name">Voucher บันเทิง</div>
+        <div class="v-detail">Major Cineplex / SF Cinema / Amazon Café</div>
+      </div>
+    </div>
+    <div class="voucher-item">
+      <div class="v-icon">🔄</div>
+      <div class="v-info">
+        <div class="v-name">Multi-purpose Gift Card</div>
+        <div class="v-detail">ONE Gift / Anywhere Card — ใช้ได้ทุกร้าน</div>
+      </div>
+    </div>
+    <div class="voucher-item">
+      <div class="v-icon">☕</div>
+      <div class="v-info">
+        <div class="v-name">Coffee Chain Voucher</div>
+        <div class="v-detail">Amazon Café / Starbucks / Punthai</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tip-box red">
+    <h4>📌 ข้อเสนอแนะ</h4>
+    <p><strong>แนะนำ: บัตรกำนัลน้ำมัน (อันดับ 1) + Voucher ห้าง (อันดับ 2)</strong><br>
+    เพราะ Sales ใช้รถทุกวัน — บัตรน้ำมันเป็นของที่มีคุณค่าจับต้องได้ และ Voucher ห้างให้เลือกใช้ตามความต้องการของครอบครัว<br>
+    ส่วน Voucher บันเทิง (อันดับ 3, 4) เหมาะเป็นรางวัลที่ 3 หรือ consolation</p>
+  </div>
+</div>
+
+<!-- ===== SECTION 5 ===== -->
+<div class="section" id="s5">
+  <div class="section-header">
+    <div class="section-num">5</div>
     <h2>📅 Timeline + กติกา</h2>
   </div>
 
@@ -556,7 +797,7 @@
       <h4>🏆 สรุป + ให้รางวัล</h4>
       <p>✅ รวบรวมคะแนนทั้งหมด<br>
       ✅ ประกาศผลผ่าน LINE Group + รายงาน HTML สรุป<br>
-      ✅ มอบโล่ + บัตรกำนัล (ถ่ายรูปลง Social)<br>
+      ✅ มอบโล่ + Gift Voucher (ถ่ายรูปลง Social)<br>
       ✅ <strong>#1 Top Creator</strong> ได้ทำ Content อย่างเป็นทางการกับทีม Nissan Thailand</p>
     </div>
   </div>
@@ -571,10 +812,10 @@
   </ul>
 </div>
 
-<!-- ===== SECTION 5 ===== -->
-<div class="section" id="s5">
+<!-- ===== SECTION 6 ===== -->
+<div class="section" id="s6">
   <div class="section-header">
-    <div class="section-num">5</div>
+    <div class="section-num">6</div>
     <h2>💰 งบประมาณ</h2>
   </div>
 
@@ -589,41 +830,47 @@
     <tbody>
       <tr>
         <td><strong>🏆 รางวัลรายบุคคล</strong></td>
-        <td>Type A (Content Creator) + Type B (Lead Gen) — ที่ 1-3 × 2 ประเภท</td>
+        <td>Type A (Content Creator) + Type B (Lead Gen) — ที่ 1-3 × 2 ประเภท — Gift Voucher</td>
         <td style="text-align:right;font-weight:700">19,000 ฿</td>
       </tr>
       <tr>
-        <td><strong>🏢 รางวัลทีม (DACT)</strong></td>
-        <td>Type C — งบ DACT เพิ่มเติมให้ทีมชนะเลิศ</td>
+        <td><strong>🏢 รางวัลทีม (Memo)</strong></td>
+        <td>Type C — งบสนับสนุนกิจกรรมการตลาด สนับสนุน 100% ผ่านการเขียน Memo</td>
         <td style="text-align:right;font-weight:700">30,000 ฿</td>
       </tr>
       <tr>
+        <td><strong>🏅 โล่รางวัล</strong></td>
+        <td>โล่แก้วใส 6 ใบ + Certificate 6 ใบ (ใช้ซ้ำทุกเดือน)</td>
+        <td style="text-align:right;font-weight:700">3,000 ฿</td>
+      </tr>
+      <tr>
         <td><strong>🎨 Content Kit</strong></td>
-        <td>ออกแบบ Template / ตัวอย่าง Content / Canva Template</td>
+        <td>ออกแบบ Template / ตัวอย่าง Content / Canva Template — ทำเองได้</td>
         <td style="text-align:right;font-weight:700">—</td>
       </tr>
       <tr>
         <td><strong>📊 Dashboard</strong></td>
-        <td>HTML Live Leaderboard (หนูทำได้เอง)</td>
+        <td>HTML Live Leaderboard — ทำเองได้ ไม่มีค่าใช้จ่าย</td>
         <td style="text-align:right;font-weight:700">—</td>
       </tr>
       <tr style="background:#fff5f5">
         <td colspan="2"><strong>รวมงบประมาณทั้งโครงการ</strong></td>
-        <td style="text-align:right;font-size:20px;font-weight:800;color:#C3002F">49,000 ฿</td>
+        <td style="text-align:right;font-size:20px;font-weight:800;color:#C3002F">52,000 ฿</td>
       </tr>
     </tbody>
   </table>
 
   <div class="tip-box red">
     <h4>📌 หมายเหตุ</h4>
-    <p>งบ DACT สำหรับทีม 30,000 บาท <strong>เป็นงบที่มีอยู่แล้ว</strong> ในระบบ DACT ของผู้จำหน่าย — แค่จัดสรรให้ทีมชนะเป็น priority ในการใช้เดือนถัดไป ไม่ต้องขออนุมัติเพิ่ม</p>
+    <p><strong>งบรางวัลทีม (Type C) วงเงิน 30,000 บาท</strong> เป็นงบสนับสนุนกิจกรรมการตลาดที่ดำเนินการผ่านระบบ Memo — ไม่ต้องขออนุมัติงบใหม่ เพียงเขียน Memo เพื่อจัดสรร priority ให้ทีมชนะใช้เดือนถัดไป<br>
+    <strong>โล่รางวัลและ Certificate 3,000 บาท</strong> เป็นค่าใช้จ่ายครั้งเดียว ทำแม่พิมพ์ Template แล้วปรับชื่อได้ทุกเดือน</p>
   </div>
 </div>
 
-<!-- ===== SECTION 6 ===== -->
-<div class="section" id="s6">
+<!-- ===== SECTION 7 ===== -->
+<div class="section" id="s7">
   <div class="section-header">
-    <div class="section-num">6</div>
+    <div class="section-num">7</div>
     <h2>📊 Dashboard + การวัดผล</h2>
   </div>
 
@@ -684,20 +931,20 @@
   <div class="tip-box green">
     <h4>💡 แนะนำเพิ่มเติม</h4>
     <p>📌 <strong>Easy Win Template</strong> — ทำ Canva Template ให้ Sales แค่เปลี่ยนรูป + ชื่อ ก็โพสต์ได้เลย ลด Barrier ของคนที่ไม่ถนัดตัดต่อ<br>
-    📌 <strong>ตัวอย่างดีๆ แชร์ทุกสัปดาห์</strong> — ใน LINE Group Regional โพสต์ที่ Engagement สูงสุดประจำสัปดาห์ ให้คนอื่นเห็นว่า "แบบนี้ถึงเวิร์ค"<br>
+    📌 <strong>ตัวอย่างดีๆ แชร์ทุกสัปดาห์</strong> — ใน LINE Group โพสต์ที่ Engagement สูงสุดประจำสัปดาห์ ให้คนอื่นเห็นว่า "แบบนี้ถึงเวิร์ค"<br>
     📌 <strong>ของแถมให้ลูกค้า</strong> — คูปอง "ทดลองขับ e-POWER ฟรี + รับแก้วน้ำ Nissan" ให้ Sales แนบไปกับโพสต์ — เพิ่ม Lead โดยตรง</p>
   </div>
-
 </div>
 
-<!-- ===== SUMMARY BOX ===== -->
+<!-- ===== SUMMARY ===== -->
 <div class="section" style="background:linear-gradient(135deg,#1a1a2e,#16213e);color:white;border:none;">
   <div style="text-align:center;padding:10px 0">
     <div style="font-size:40px;margin-bottom:10px">🏎️</div>
     <h2 style="color:white;font-size:24px;border:none;margin:0">e-POWER Content Battle</h2>
-    <p style="color:rgba(255,255,255,0.6);margin:10px 0 20px;font-size:14px">Online Content Contest สำหรับผู้จำหน่ายนิสสันภาคอีสาน</p>
+    <p style="color:rgba(255,255,255,0.6);margin:10px 0 20px;font-size:14px">Online Content Contest สำหรับผู้จำหน่ายนิสสันทั่วประเทศ | 112 โชว์รูม</p>
     <div style="display:flex;justify-content:center;gap:30px;flex-wrap:wrap;font-size:13px">
-      <span>💰 งบรวม <strong style="color:#C3002F;font-size:18px">49,000 ฿</strong></span>
+      <span>🏢 <strong style="color:#C3002F;font-size:18px">112</strong> โชว์รูม</span>
+      <span>💰 งบรวม <strong style="color:#C3002F;font-size:18px">52,000 ฿</strong></span>
       <span>🏆 <strong style="color:#C3002F;font-size:18px">3</strong> ประเภท</span>
       <span>📅 <strong style="color:#C3002F;font-size:18px">4</strong> สัปดาห์/รอบ</span>
       <span>🎯 เป้าหมาย <strong style="color:#C3002F;font-size:18px">500+</strong> โพสต์</span>
