@@ -316,129 +316,7 @@
     text-align: center;
   }
   .mockup-card h4 { margin: 0 0 12px; }
-  .mockup-trophy {
-    margin: 10px auto;
-    position: relative;
-  }
-  .mockup-trophy .base {
-    width: 100px;
-    height: 12px;
-    background: linear-gradient(180deg, #8B6914, #D4AF37);
-    border-radius: 2px;
-    margin: 0 auto;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-  }
-  .mockup-trophy .stem {
-    width: 16px;
-    height: 50px;
-    background: linear-gradient(90deg, #8B6914, #D4AF37, #8B6914);
-    margin: 0 auto;
-  }
-  .mockup-trophy .cup {
-    width: 70px;
-    height: 60px;
-    background: linear-gradient(135deg, #D4AF37, #FFD700, #D4AF37);
-    margin: 0 auto 0;
-    border-radius: 0 0 10px 10px;
-    position: relative;
-    top: 0;
-    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
-  }
-  .mockup-trophy .cup::before {
-    content: '';
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    border: 4px solid #D4AF37;
-    border-radius: 50%;
-    top: -18px;
-    left: 21px;
-  }
-  .mockup-trophy .cup::after {
-    content: '';
-    position: absolute;
-    width: 10px;
-    height: 20px;
-    border: 4px solid #D4AF37;
-    border-bottom: none;
-    border-radius: 0 10px 0 0;
-    top: -10px;
-    right: -12px;
-  }
-  .mockup-trophy .cup-left {
-    position: absolute;
-    width: 10px;
-    height: 20px;
-    border: 4px solid #D4AF37;
-    border-bottom: none;
-    border-radius: 10px 0 0 0;
-    top: -10px;
-    left: -12px;
-  }
-  .mockup-trophy-label {
-    font-size: 11px;
-    color: #888;
-    margin-top: 6px;
-  }
-
-  .mockup-cert {
-    width: 200px;
-    height: 140px;
-    margin: 10px auto;
-    background: white;
-    border: 2px solid #C3002F;
-    border-radius: 8px;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  }
-  .mockup-cert .cert-top {
-    height: 28px;
-    background: linear-gradient(90deg, #C3002F, #8B0020);
-  }
-  .mockup-cert .cert-body {
-    padding: 8px 12px;
-    text-align: center;
-  }
-  .mockup-cert .cert-body .cert-title {
-    font-size: 9px;
-    font-weight: 700;
-    color: #C3002F;
-    letter-spacing: 1px;
-  }
-  .mockup-cert .cert-body .cert-line {
-    width: 50px;
-    height: 1px;
-    background: #ddd;
-    margin: 4px auto;
-  }
-  .mockup-cert .cert-body .cert-name {
-    font-size: 10px;
-    font-weight: 700;
-    color: #333;
-    margin: 4px 0;
-  }
-  .mockup-cert .cert-body .cert-text {
-    font-size: 7px;
-    color: #888;
-    margin: 2px 0;
-  }
-  .mockup-cert .cert-body .cert-seal {
-    width: 20px;
-    height: 20px;
-    margin: 4px auto;
-    border: 2px solid #C3002F;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 10px;
-    color: #C3002F;
-  }
-  .mockup-cert .cert-footer {
-    height: 6px;
-    background: linear-gradient(90deg, #ddd, #eee, #ddd);
-  }
+  /* SVG-based mockups - no CSS needed, all inline */
 
   .voucher-options {
     display: grid;
@@ -667,32 +545,91 @@
   <div class="mockup-row">
     <div class="mockup-card">
       <h4>🏆 โล่รางวัล</h4>
-      <div class="mockup-trophy">
-        <div class="cup">
-          <div class="cup-left"></div>
-        </div>
-        <div class="stem"></div>
-        <div class="base"></div>
-      </div>
+      <svg viewBox="0 0 200 220" style="width:160px;height:176px;margin:10px auto;display:block">
+        <defs>
+          <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#F9D976"/>
+            <stop offset="50%" style="stop-color:#F39C12"/>
+            <stop offset="100%" style="stop-color:#E67E22"/>
+          </linearGradient>
+          <linearGradient id="glass" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.6"/>
+            <stop offset="40%" style="stop-color:#ffffff;stop-opacity:0.1"/>
+            <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0.3"/>
+          </linearGradient>
+          <linearGradient id="baseGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:#333"/>
+            <stop offset="100%" style="stop-color:#111"/>
+          </linearGradient>
+        </defs>
+        <!-- Trophy cup body -->
+        <path d="M60,40 Q60,15 100,15 Q140,15 140,40 L145,50 Q145,75 135,85 Q120,100 100,105 Q80,100 65,85 Q55,75 55,50 Z" fill="url(#gold)" stroke="#C68A0C" stroke-width="1.5"/>
+        <!-- Inner highlight -->
+        <path d="M72,38 Q72,25 100,25 Q128,25 128,38 L132,48 Q132,65 125,72 Q115,82 100,85 Q85,82 75,72 Q68,65 68,48 Z" fill="url(#glass)" stroke="none"/>
+        <!-- Left handle -->
+        <path d="M55,55 Q25,50 20,40 Q15,30 22,25 Q30,22 35,32 Q40,42 55,48" fill="none" stroke="#C68A0C" stroke-width="3" stroke-linecap="round"/>
+        <!-- Right handle -->
+        <path d="M145,55 Q175,50 180,40 Q185,30 178,25 Q170,22 165,32 Q160,42 145,48" fill="none" stroke="#C68A0C" stroke-width="3" stroke-linecap="round"/>
+        <!-- Stem -->
+        <rect x="93" y="105" width="14" height="45" rx="2" fill="url(#gold)" stroke="#C68A0C" stroke-width="1"/>
+        <!-- Base -->
+        <rect x="58" y="150" width="84" height="10" rx="3" fill="url(#baseGrad)" stroke="#222" stroke-width="1"/>
+        <rect x="68" y="160" width="64" height="6" rx="2" fill="#222" stroke="#333" stroke-width="0.5"/>
+        <!-- Engraving plate -->
+        <rect x="73" y="153" width="54" height="4" rx="1" fill="#D4AF37" opacity="0.6"/>
+        <!-- Shine -->
+        <ellipse cx="92" cy="42" rx="8" ry="18" fill="white" opacity="0.3" transform="rotate(-15,92,42)"/>
+      </svg>
       <p style="font-size:12px;font-weight:600;margin-top:8px">Nissan e-POWER<br>Creator of the Month</p>
-      <p style="font-size:11px;color:#888">โล่แก้วใส พิมพ์ชื่อ+เดือนรางวัล<br>ขนาดประมาณ 20 ซม. พร้อมฐาน</p>
+      <p style="font-size:11px;color:#888">โล่แก้วใส+ฐานดำ พิมพ์ชื่อรางวัล<br>ขนาดประมาณ 20 ซม. พร้อมแผ่นป้ายทอง</p>
     </div>
     <div class="mockup-card">
       <h4>📜 ประกาศนียบัตร (Certificate)</h4>
-      <div class="mockup-cert">
-        <div class="cert-top"></div>
-        <div class="cert-body">
-          <div class="cert-title">NISSAN</div>
-          <div class="cert-line"></div>
-          <div class="cert-name">e-POWER CONTENT<br>BATTLE 2026</div>
-          <div class="cert-text">มอบให้เพื่อแสดงว่า</div>
-          <div style="font-size:9px;font-weight:700;color:#C3002F;margin:2px 0">[ชื่อผู้ชนะ]</div>
-          <div class="cert-text">ได้รับรางวัลชนะเลิศ<br>Best Content Creator</div>
-          <div class="cert-seal">N</div>
-        </div>
-        <div class="cert-footer"></div>
-      </div>
-      <p style="font-size:11px;color:#888;margin-top:6px">พิมพ์บนกระดาษอาร์ตมัน 200 แกรม<br>กรอบสวย พร้อมซีลกันปลอม</p>
+      <svg viewBox="0 0 300 210" style="width:260px;height:182px;margin:10px auto;display:block">
+        <defs>
+          <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#C3002F"/>
+            <stop offset="100%" style="stop-color:#8B0020"/>
+          </linearGradient>
+        </defs>
+        <!-- Outer border → red frame -->
+        <rect x="0" y="0" width="300" height="210" rx="6" fill="url(#borderGrad)"/>
+        <!-- Inner white area -->
+        <rect x="8" y="8" width="284" height="194" rx="4" fill="white"/>
+        <!-- Decorative top accent -->
+        <rect x="8" y="8" width="284" height="22" rx="4" fill="#C3002F" opacity="0.08"/>
+        <rect x="8" y="28" width="284" height="2" fill="#C3002F" opacity="0.15"/>
+        <!-- Brand -->
+        <text x="150" y="32" text-anchor="middle" font-family="Georgia,serif" font-size="8" font-weight="bold" fill="#C3002F" letter-spacing="3">NISSAN MOTOR (THAILAND)</text>
+        <!-- Decorative line left -->
+        <line x1="30" y1="42" x2="120" y2="42" stroke="#ddd" stroke-width="0.5"/>
+        <text x="150" y="46" text-anchor="middle" font-family="Georgia,serif" font-size="7" fill="#999" letter-spacing="2">e-POWER CONTENT BATTLE 2026</text>
+        <line x1="180" y1="42" x2="270" y2="42" stroke="#ddd" stroke-width="0.5"/>
+        <!-- Trophy icon -->
+        <path d="M135,58 Q135,50 150,50 Q165,50 165,58 L168,63 Q168,70 163,74 Q157,80 150,82 Q143,80 137,74 Q132,70 132,63 Z" fill="#F39C12" stroke="#C68A0C" stroke-width="1"/>
+        <rect x="146" y="82" width="8" height="12" rx="1" fill="#F39C12"/>
+        <rect x="130" y="94" width="40" height="5" rx="1.5" fill="#333"/>
+        <!-- Left handle -->
+        <path d="M133,63 Q120,61 118,57 Q116,53 120,52 Q124,51 127,56 Q129,60 132,62" fill="none" stroke="#C68A0C" stroke-width="1.5"/>
+        <!-- Right handle -->
+        <path d="M167,63 Q180,61 182,57 Q184,53 180,52 Q176,51 173,56 Q171,60 168,62" fill="none" stroke="#C68A0C" stroke-width="1.5"/>
+        <!-- Title -->
+        <text x="150" y="115" text-anchor="middle" font-family="Georgia,serif" font-size="9" font-weight="bold" fill="#333">ประกาศนียบัตร</text>
+        <text x="150" y="126" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#999">Certificate of Achievement</text>
+        <!-- Line + name placeholder -->
+        <line x1="90" y1="132" x2="210" y2="132" stroke="#C3002F" stroke-width="0.5" opacity="0.5"/>
+        <text x="150" y="140" text-anchor="middle" font-family="serif" font-size="8" font-weight="bold" fill="#C3002F">[ชื่อผู้ชนะ]</text>
+        <line x1="90" y1="144" x2="210" y2="144" stroke="#C3002F" stroke-width="0.5" opacity="0.5"/>
+        <!-- Body text -->
+        <text x="150" y="155" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#666">ได้รับรางวัลชนะเลิศ</text>
+        <text x="150" y="165" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#666">Best Content Creator · e-POWER Content Battle 2026</text>
+        <!-- Seal -->
+        <circle cx="150" cy="182" r="10" fill="none" stroke="#C3002F" stroke-width="1.5"/>
+        <text x="150" y="186" text-anchor="middle" font-family="Georgia,serif" font-size="9" font-weight="bold" fill="#C3002F">N</text>
+        <!-- Bottom bar -->
+        <rect x="8" y="198" width="284" height="4" rx="2" fill="#C3002F" opacity="0.1"/>
+      </svg>
+      <p style="font-size:11px;color:#888;margin-top:6px">พิมพ์บนกระดาษอาร์ตมัน 200 แกรม กรอบสวย<br>พร้อมซีลตรา Nissan — ราคาประมาณ 30-50 บาท/ใบ</p>
     </div>
   </div>
   <div class="tip-box">
