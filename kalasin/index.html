@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="th"><head>
+<!DOCTYPE html><html lang="th"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>📊 รายงานคู่แข่ง — Nissan Kalasin</title>
 <style>
@@ -8,7 +7,7 @@ h1{color:#C3002F;border-bottom:3px solid #C3002F;padding-bottom:10px}
 h2{color:#C3002F;margin-top:30px;border-left:4px solid #C3002F;padding-left:10px}
 table{width:100%;border-collapse:separate;border-spacing:0;margin:15px 0;font-size:13px;border:1px solid #e0e0e0;border-radius:8px;overflow:hidden}
 th{background:linear-gradient(180deg,#C3002F,#8B0020);color:white;padding:12px 10px;text-align:left;font-weight:600;font-size:12px}
-td{padding:10px;border-bottom:1px solid #f0f0f0}
+td{padding:10px;border-bottom:1px solid #f0f0f0;vertical-align:top}
 tr:hover{background:#fff8e1}
 .stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin:15px 0}
 .stat-box{background:white;padding:14px;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,0.06)}
@@ -26,159 +25,130 @@ blockquote{background:#fff5f5;padding:10px 14px;border-left:3px solid #C3002F;ma
 .priority-low{background:#F3E5F5;padding:12px;border-left:4px solid #7B1FA2;margin:10px 0;border-radius:4px;font-size:13px}
 .footer{margin-top:40px;padding-top:20px;border-top:1px solid #ddd;color:#888;font-size:11px}
 .chart-container{background:white;padding:20px;border-radius:8px;margin:20px 0;box-shadow:0 1px 3px rgba(0,0,0,0.08)}
-.chart-title{font-size:14px;font-weight:bold;color:#C3002F;margin-bottom:10px}@media(max-width:700px){.stat-grid{grid-template-columns:repeat(2,1fr)}}
+.chart-title{font-size:14px;font-weight:bold;color:#C3002F;margin-bottom:10px}
+.rs-venue{font-weight:500;font-size:12px}.rs-date-confirmed{font-weight:600;color:#C3002F;font-size:12px;white-space:nowrap}
+.rs-date-missing{color:#888;font-style:italic;font-size:12px}.rs-venue-missing{color:#888;font-style:italic;font-size:12px}
+.rs-self{background:#E3F2FD!important;border-left:3px solid #1976D2}
+@media(max-width:700px){.stat-grid{grid-template-columns:repeat(2,1fr)}}
 </style>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </head><body>
 <h1>📊 รายงานคู่แข่ง — <span style="color:#C3002F">Nissan Kalasin</span></h1>
 <p><strong>🗓️ สัปดาห์:</strong> 07-14 ก.ค. 2569</p>
-<blockquote>💡 วิเคราะห์เมื่อ: 15/07/2026 10:39 | <strong>68 โพส</strong> จาก 7 แบรนด์คู่แข่ง + Nissan (Self)</blockquote>
-<h2>⚡ 1. Quick Stats</h2>
-<div class="stat-grid">
+<blockquote>💡 วิเคราะห์เมื่อ: 15/07/2026 10:42 | <strong>68 โพส</strong> จาก 7 แบรนด์คู่แข่ง + Nissan (Self)</blockquote>
+<h2>⚡ 1. Quick Stats</h2><div class="stat-grid">
 <div class="stat-box"><div class="stat-label">โพสทั้งหมด</div><div class="stat-value">68</div></div>
 <div class="stat-box"><div class="stat-label">แบรนด์</div><div class="stat-value">7</div></div>
 <div class="stat-box"><div class="stat-label">Engagement รวม</div><div class="stat-value">673</div></div>
 <div class="stat-box"><div class="stat-label">โพสต์มากสุด</div><div class="stat-value sm">ISUZU</div><div style="font-size:11px">14 โพสต์</div></div>
-<div class="stat-box"><div class="stat-label">Top Eng/Post</div><div class="stat-value sm">3.3</div><div style="font-size:11px">ISUZU</div></div>
+<div class="stat-box"><div class="stat-label">Top Eng/Post</div><div class="stat-value sm">39.0</div><div style="font-size:11px">TOYOTA</div></div>
 <div class="stat-box"><div class="stat-label">🎯 Nissan Self</div><div class="stat-value">17</div><div style="font-size:11px">160 eng (9.4/post)</div></div>
 </div>
 <h2>🌐 2. ภาพรวมความเคลื่อนไหว</h2><ul>
-<li><strong>ISUZU</strong> โพสต์มากสุด (14 โพสต์) — เน้นปริมาณ โต้ตอบต่ำ</li>
-<li><strong>TOYOTA</strong> เองเกจ/โพสต์สูงสุด (39.0/post) — ควรศึกษารูปแบบเนื้อหา</li>
-<li><strong>NISSAN Kalasin</strong> โพสต์ 17 โพสต์, Eng 160 (9.4/post) — Active ดี</li>
-<li>พบ <strong>10 กิจกรรม Roadshow</strong> — HONDA, NISSAN, GWM มีบูธในกาฬสินธุ์</li>
-<li><strong>BYD+GWM</strong> EV/Crossover เริ่มมีบทบาท ต้องจับตา</li>
+<li><strong>ISUZU</strong> โพสต์มากสุด (14 โพสต์) — เน้นปริมาณ</li>
+<li><strong>TOYOTA</strong> เองเกจ/โพสต์สูงสุด (39/post) — ควรศึกษาเนื้อหาที่คนกาฬสินธุ์ชอบ</li>
+<li><strong>HONDA</strong> จัด Roadshow ที่กาฬสินธุ์พลาซ่า 9-11 ก.ค. — ต้องจับตากิจกรรม</li>
+<li><strong>NISSAN</strong> จัดบูธที่โลตัสกาฬสินธุ์ 8-11 ก.ค. (4 โพสต์ 80 eng) — Active ดี</li>
+<li><strong>GWM</strong> จัดบูธกาฬสินธุ์พลาซ่า 13-16 ก.ค. — EV/Crossover เริ่มมาแรง</li>
+<li><strong>BYD+GWM</strong> EV/Crossover เริ่มมีบทบาทในกาฬสินธุ์ ต้องจับตา</li>
 </ul>
 <h2>🎪 3. กิจกรรม Roadshow / อีเวนต์</h2>
+<p style="font-size:12px;color:#666;margin-bottom:8px">โพสที่มี event keyword + venue + วันที่ จริง — <strong>4</strong> งาน, <strong>7</strong> โพสต์</p>
 <table><thead><tr><th>แบรนด์</th><th>FB Page</th><th>กิจกรรม</th><th>วันที่จัด</th><th>สถานที่</th><th style="text-align:center">Eng</th><th>URL</th></tr></thead><tbody>
-<tr><td><strong>NISSAN (Self)</strong></td><td style="font-size:11px">Nissankalasin.sale</td>
-<td>ชาวกาฬสินธุ์ห้ามพลาด! พบกับบูธ นิสสันกาฬสินธุ์ (Nissan </td><td style="font-weight:600;color:#C3002F;font-size:12px;white-space:nowrap">11 ก.ค. 2569</td>
-<td style="font-weight:500;font-size:12px">โลตัส</td><td style="text-align:center;font-weight:bold">24</td>
+<tr class="rs-self"><td><span class="badge-self">NISSAN (Self)</span></td>
+<td style="font-size:11px">Nissankalasin.sale</td>
+<td>ชาวกาฬสินธุ์ห้ามพลาด! พบกับบูธ นิสสันกาฬสินธุ์ (Nissan </td>
+<td class="rs-date-confirmed">8-11 ก.ค. 2569</td>
+<td class="rs-venue">ห้างโลตัส</td>
+<td style="text-align:center;font-weight:bold">24</td>
 <td><a href="https://www.facebook.com/reel/1008920178406255/" target="_blank" style="font-size:12px;font-weight:bold;color:#C3002F;text-decoration:none">🔗 Link</a></td></tr>
-<tr><td><strong>NISSAN (Self)</strong></td><td style="font-size:11px">Nissankalasin.sale</td>
-<td>มาสัมผัสรถยนต์นิสสันรุ่นใหม่ พร้อมทดลองขับด้วยตัวเอง แล</td><td style="font-weight:600;color:#C3002F;font-size:12px;white-space:nowrap">11 ก.ค. 2569</td>
-<td style="font-weight:500;font-size:12px">กาฬสินธุ์พลาซ่า</td><td style="text-align:center;font-weight:bold">22</td>
-<td><a href="https://www.facebook.com/Nissankalasin.sale/posts/pfbid033wqfLyzptngZhUWHBq3P6gz8zhGCkCU4EQSpZxo5eqkpN7vq1S8PRyVrMch4k9oVl" target="_blank" style="font-size:12px;font-weight:bold;color:#C3002F;text-decoration:none">🔗 Link</a></td></tr>
-<tr><td><strong>HONDA</strong></td><td style="font-size:11px">kalasinhondacars</td>
-<td>🚗 เปิดบูธแล้ววันนี้!</td><td style="font-weight:600;color:#C3002F;font-size:12px;white-space:nowrap">11 ก.ค. 2569</td>
-<td style="font-weight:500;font-size:12px">กาฬสินธุ์พลาซ่า</td><td style="text-align:center;font-weight:bold">19</td>
+<tr ><td><span class="badge-brand">HONDA</span></td>
+<td style="font-size:11px">kalasinhondacars</td>
+<td>🚗 เปิดบูธแล้ววันนี้!</td>
+<td class="rs-date-confirmed">9-11 ก.ค. 2569</td>
+<td class="rs-venue">กาฬสินธุ์พลาซ่า</td>
+<td style="text-align:center;font-weight:bold">19</td>
 <td><a href="https://www.facebook.com/kalasinhondacars/posts/pfbid06msjFqQeAj95iArJRga5MAmVWJ5zSW2jhqiYwRQN78Syd7iTXQGReL31YhcXX8wSl" target="_blank" style="font-size:12px;font-weight:bold;color:#C3002F;text-decoration:none">🔗 Link</a></td></tr>
-<tr><td><strong>NISSAN (Self)</strong></td><td style="font-size:11px">Nissankalasin.sale</td>
-<td>📍 วันนี้ 10 กรกฎาคม 2569 พบกับ นิสสันกาฬสินธุ์ ที่ ห้าง</td><td style="font-weight:600;color:#C3002F;font-size:12px;white-space:nowrap">10 ก.ค. 2569</td>
-<td style="font-weight:500;font-size:12px">โลตัส</td><td style="text-align:center;font-weight:bold">18</td>
+<tr class="rs-self"><td><span class="badge-self">NISSAN (Self)</span></td>
+<td style="font-size:11px">Nissankalasin.sale</td>
+<td>🔥 เหลืออีกเพียง 2 วัน! โปรแรงแบบนี้ ห้ามพลาด! 🚗✨
+
+📍 วัน</td>
+<td class="rs-date-confirmed">10 ก.ค. 2569</td>
+<td class="rs-venue">ห้างโลตัส</td>
+<td style="text-align:center;font-weight:bold">18</td>
 <td><a href="https://www.facebook.com/Nissankalasin.sale/posts/pfbid02SJAWhsbp5EdqkUXKbKBijuV4EJVN6bEhBJMRBkuemM8dqDGh7czf3kgrdeLFo6TZl" target="_blank" style="font-size:12px;font-weight:bold;color:#C3002F;text-decoration:none">🔗 Link</a></td></tr>
-<tr><td><strong>NISSAN (Self)</strong></td><td style="font-size:11px">Nissankalasin.sale</td>
-<td>วันนี้เป็น วันสุดท้าย ที่จะได้พบกับ นิสสันกาฬสินธุ์ ณ ห</td><td style="font-weight:600;color:#C3002F;font-size:12px;white-space:nowrap">11 ก.ค. 2569</td>
-<td style="font-weight:500;font-size:12px">โลตัส</td><td style="text-align:center;font-weight:bold">16</td>
-<td><a href="https://www.facebook.com/Nissankalasin.sale/posts/pfbid02y5e9cXQHpy2jVbwVxa7fsFAS7Xn8T6GDJhsGopTCxmtbPwzh4qzCSXXi2QZqzrhUl" target="_blank" style="font-size:12px;font-weight:bold;color:#C3002F;text-decoration:none">🔗 Link</a></td></tr>
-<tr><td><strong>HONDA</strong></td><td style="font-size:11px">kalasinhondacars</td>
-<td>🚗 วันที่สองคึกครื้นน
-พรุ่งนี้วันสุดท้าย พบกันที่ลานหน้า</td><td style="font-weight:600;color:#C3002F;font-size:12px;white-space:nowrap">11 ก.ค. 2569</td>
-<td style="font-weight:500;font-size:12px">กาฬสินธุ์พลาซ่า</td><td style="text-align:center;font-weight:bold">14</td>
-<td><a href="https://www.facebook.com/kalasinhondacars/posts/pfbid0PEvDKQCrboXeQAgbhoq6sF8HVKAk9AGvhQ56xhY47aQu4BUeB6X4wa1cDCF4Tjwwl" target="_blank" style="font-size:12px;font-weight:bold;color:#C3002F;text-decoration:none">🔗 Link</a></td></tr>
-<tr><td><strong>GWM</strong></td><td style="font-size:11px">GWMKALASI</td>
-<td>🚘 พบกับบูธ GWM ใจกลางเมืองกาฬสินธุ์!</td><td style="font-weight:600;color:#C3002F;font-size:12px;white-space:nowrap">16 ก.ค. 2569</td>
-<td style="font-weight:500;font-size:12px">กาฬสินธุ์พลาซ่า</td><td style="text-align:center;font-weight:bold">3</td>
+<tr ><td><span class="badge-brand">GWM</span></td>
+<td style="font-size:11px">GWMKALASI</td>
+<td>🚘 พบกับบูธ GWM ใจกลางเมืองกาฬสินธุ์!</td>
+<td class="rs-date-confirmed">13-16 ก.ค. 2569</td>
+<td class="rs-venue">กาฬสินธุ์พลาซ่า</td>
+<td style="text-align:center;font-weight:bold">3</td>
 <td><a href="https://www.facebook.com/GWMKALASI/posts/pfbid0biSCQ5Km3qh3rw1ZCKnowzfnxSS3c4Sxyn7KZ36QvEb7iqyHw2PNNrzm6zueyNqbl" target="_blank" style="font-size:12px;font-weight:bold;color:#C3002F;text-decoration:none">🔗 Link</a></td></tr>
-<tr><td><strong>HONDA</strong></td><td style="font-size:11px">kalasinhondacars</td>
-<td>🚗 สุดสัปดาห์นี้เจอกัน! พบกับ New Honda City และ Honda H</td><td style="font-weight:600;color:#C3002F;font-size:12px;white-space:nowrap">11 ก.ค. 2569</td>
-<td style="font-weight:500;font-size:12px">กาฬสินธุ์พลาซ่า</td><td style="text-align:center;font-weight:bold">3</td>
-<td><a href="https://www.facebook.com/kalasinhondacars/posts/pfbid0ohLdBehiGTyU23qeGTMfqYGyBp8QwB3ciUtFwFG6wJ87Sw7a8NFeD9DYKRmYTgs7l" target="_blank" style="font-size:12px;font-weight:bold;color:#C3002F;text-decoration:none">🔗 Link</a></td></tr>
-<tr><td><strong>GWM</strong></td><td style="font-size:11px">GWMKALASI</td>
-<td>🎡 สนุกกับบรรยากาศงานวัด พร้อมสัมผัสประสบการณ์การขับขี่จ</td><td style="color:#888;font-style:italic;font-size:12px">(ไม่ระบุ)</td>
-<td style="color:#888;font-style:italic;font-size:12px">(ไม่ระบุ)</td><td style="text-align:center;font-weight:bold">1</td>
-<td><a href="https://www.facebook.com/GWMKALASI/posts/pfbid02kHEMJniNmea9qC9fUnQS7C82nHXkKGTTzynq52aLoJDrNSZs9bvG3hqghnVfEmd7l" target="_blank" style="font-size:12px;font-weight:bold;color:#C3002F;text-decoration:none">🔗 Link</a></td></tr>
-<tr><td><strong>ISUZU</strong></td><td style="font-size:11px">IsuzuKalasinHNM</td>
-<td>มั่นใจมาตรฐานการตรวจเช็กโดยช่างอีซูซุ เพื่อการวิ่งงานที</td><td style="color:#888;font-style:italic;font-size:12px">(ไม่ระบุ)</td>
-<td style="color:#888;font-style:italic;font-size:12px">(ไม่ระบุ)</td><td style="text-align:center;font-weight:bold">1</td>
-<td><a href="https://www.facebook.com/IsuzuKalasinHNM/posts/pfbid0fsMQsAGb2sSYp1btdUorazBaQQSRDqU3QNMgSgRVLS3VaHZHNkP2YUZjuhws8Bqal" target="_blank" style="font-size:12px;font-weight:bold;color:#C3002F;text-decoration:none">🔗 Link</a></td></tr>
 </tbody></table>
-<p style="font-size:11px;color:#888;margin-top:6px"><em>ตัวกรอง: event keyword + venue + วันที่ — 10 รายการ</em></p>
+<p style="font-size:11px;color:#888;margin-top:6px"><em>ตัวกรอง: event keyword + venue + วันที่ — ตัด service/delivery/festival — ผ่าน 4 งาน, 7 โพสต์</em></p>
 <h2>📊 4. ตารางคู่แข่งรายแบรนด์</h2>
 <table><thead><tr><th>แบรนด์</th><th>FB Page</th><th style="text-align:center">โพสต์</th><th style="text-align:center">Engagement</th><th style="text-align:center">Eng/Post</th><th style="text-align:center">L/C/S</th></tr></thead><tbody>
-<tr><td><strong>ISUZU</strong></td><td style="font-size:11px">IsuzuKalasinHNM</td>
-<td style="text-align:center">14</td><td style="text-align:center">46</td>
-<td style="text-align:center">3.3</td><td style="text-align:center;font-size:11px">36/0/10</td></tr>
-<tr><td><strong>GWM</strong></td><td style="font-size:11px">GWMKALASI</td>
-<td style="text-align:center">9</td><td style="text-align:center">36</td>
-<td style="text-align:center">4.0</td><td style="text-align:center;font-size:11px">29/1/6</td></tr>
-<tr><td><strong>HONDA</strong></td><td style="font-size:11px">kalasinhondacars</td>
-<td style="text-align:center">9</td><td style="text-align:center">92</td>
-<td style="text-align:center">10.2</td><td style="text-align:center;font-size:11px">73/6/13</td></tr>
-<tr><td><strong>MAZDA</strong></td><td style="font-size:11px">areemitmazdakalasin</td>
-<td style="text-align:center">7</td><td style="text-align:center">92</td>
-<td style="text-align:center">13.1</td><td style="text-align:center;font-size:11px">74/3/15</td></tr>
-<tr><td><strong>BYD</strong></td><td style="font-size:11px">bydprideautokalasin</td>
-<td style="text-align:center">5</td><td style="text-align:center">52</td>
-<td style="text-align:center">10.4</td><td style="text-align:center;font-size:11px">36/9/7</td></tr>
-<tr><td><strong>TOYOTA</strong></td><td style="font-size:11px">Toyotakalasin</td>
-<td style="text-align:center">5</td><td style="text-align:center">195</td>
-<td style="text-align:center">39.0</td><td style="text-align:center;font-size:11px">169/10/16</td></tr>
-<tr><td><strong>UNKNOWN</strong></td><td style="font-size:11px">UNKNOWN</td>
-<td style="text-align:center">2</td><td style="text-align:center">0</td>
-<td style="text-align:center">0.0</td><td style="text-align:center;font-size:11px">0/0/0</td></tr>
+<tr><td><strong>ISUZU</strong></td><td style="font-size:11px">IsuzuKalasinHNM</td><td style="text-align:center">14</td><td style="text-align:center">46</td><td style="text-align:center">3.3</td><td style="text-align:center;font-size:11px">36/0/10</td></tr>
+<tr><td><strong>GWM</strong></td><td style="font-size:11px">GWMKALASI</td><td style="text-align:center">9</td><td style="text-align:center">36</td><td style="text-align:center">4.0</td><td style="text-align:center;font-size:11px">29/1/6</td></tr>
+<tr><td><strong>HONDA</strong></td><td style="font-size:11px">kalasinhondacars</td><td style="text-align:center">9</td><td style="text-align:center">92</td><td style="text-align:center">10.2</td><td style="text-align:center;font-size:11px">73/6/13</td></tr>
+<tr><td><strong>MAZDA</strong></td><td style="font-size:11px">areemitmazdakalasin</td><td style="text-align:center">7</td><td style="text-align:center">92</td><td style="text-align:center">13.1</td><td style="text-align:center;font-size:11px">74/3/15</td></tr>
+<tr><td><strong>BYD</strong></td><td style="font-size:11px">bydprideautokalasin</td><td style="text-align:center">5</td><td style="text-align:center">52</td><td style="text-align:center">10.4</td><td style="text-align:center;font-size:11px">36/9/7</td></tr>
+<tr><td><strong>TOYOTA</strong></td><td style="font-size:11px">Toyotakalasin</td><td style="text-align:center">5</td><td style="text-align:center">195</td><td style="text-align:center">39.0</td><td style="text-align:center;font-size:11px">169/10/16</td></tr>
+<tr><td><strong>UNKNOWN</strong></td><td style="font-size:11px">UNKNOWN</td><td style="text-align:center">2</td><td style="text-align:center">0</td><td style="text-align:center">0.0</td><td style="text-align:center;font-size:11px">0/0/0</td></tr>
 </tbody></table>
 <h2>🪞 5. Self Posts (Nissan Kalasin)</h2>
 <table><thead><tr><th>สาขา</th><th>FB Page</th><th style="text-align:center">โพสต์</th><th style="text-align:center">Engagement</th><th style="text-align:center">L/C/S</th><th>สถานะ</th></tr></thead><tbody>
-<tr><td>นิสสันกาฬสินธุ์</td><td style="font-size:11px">Nissankalasin.sale</td>
-<td style="text-align:center">17</td><td style="text-align:center">160</td>
-<td style="text-align:center;font-size:11px">140/11/9</td>
-<td><span class="badge-active">Active</span></td></tr>
+<tr><td>นิสสันกาฬสินธุ์</td><td style="font-size:11px">Nissankalasin.sale</td><td style="text-align:center">17</td><td style="text-align:center">160</td><td style="text-align:center;font-size:11px">140/11/9</td><td><span class="badge-active">Active</span></td></tr>
 </tbody></table>
 <h2>🔥 6. โพสต์เด่น Top 3</h2>
-<div class="post-card">
-<span class="badge-brand">TOYOTA</span> <span style="font-size:11px;color:#888">(Toyotakalasin)</span><br>ปัดน้ำฝนได้ แต่ปัดน้ำตาไม่ได้
+<div class="post-card"><span class="badge-brand">TOYOTA</span> <span style="font-size:11px;color:#888">(Toyotakalasin)</span><br>ปัดน้ำฝนได้ แต่ปัดน้ำตาไม่ได้
 🎁 ส่วนลดพิเศษ 15%* อะไหล่แท้จากโตโยต้า 
 เฉพาะกลุ่มเบรก โช้ค และใบปัดน้ำฝน
 .
 นัดหมายเข้ารับ...
-<div class="post-meta">❤️ 69 · 💬 2 · ↪️ 11 | รวม 82 · <a href="https://www.facebook.com/reel/1554982989492150/" target="_blank" style="color:#C3002F">🔗 ดูโพสต์</a></div>
-</div>
-<div class="post-card">
-<span class="badge-brand">MAZDA</span> <span style="font-size:11px;color:#888">(areemitmazdakalasin)</span><br>ขอขอบพระคุณ นายแพทย์ทวีศักดิ์ พลหงษ์ และครอบครัว
+<div class="post-meta">❤️ 69 · 💬 2 · ↪️ 11 | รวม 82 · <a href="https://www.facebook.com/reel/1554982989492150/" target="_blank" style="color:#C3002F">🔗 ดูโพสต์</a></div></div>
+<div class="post-card"><span class="badge-brand">MAZDA</span> <span style="font-size:11px;color:#888">(areemitmazdakalasin)</span><br>ขอขอบพระคุณ นายแพทย์ทวีศักดิ์ พลหงษ์ และครอบครัว
 ที่ไว้วางใจเลือก THE ALL-ELECTRIC MAZDA6e กับ มาสด้า อารีมิตร
 
 ยินดีต้อ...
-<div class="post-meta">❤️ 28 · 💬 3 · ↪️ 10 | รวม 41 · <a href="https://www.facebook.com/areemitmazdakalasin/posts/pfbid02BRQSYoCFxDeb7tQBJyoR7awRoPuZk8qHNpMawd37f4HESBC58EGpXtZTeHpGKaw6l" target="_blank" style="color:#C3002F">🔗 ดูโพสต์</a></div>
-</div>
-<div class="post-card">
-<span class="badge-brand">TOYOTA</span> <span style="font-size:11px;color:#888">(Toyotakalasin)</span><br>🏆TOP SALE เดือน มิถุนายน 69 (สาขา สำนักงานใหญ่)
+<div class="post-meta">❤️ 28 · 💬 3 · ↪️ 10 | รวม 41 · <a href="https://www.facebook.com/areemitmazdakalasin/posts/pfbid02BRQSYoCFxDeb7tQBJyoR7awRoPuZk8qHNpMawd37f4HESBC58EGpXtZTeHpGKaw6l" target="_blank" style="color:#C3002F">🔗 ดูโพสต์</a></div></div>
+<div class="post-card"><span class="badge-brand">TOYOTA</span> <span style="font-size:11px;color:#888">(Toyotakalasin)</span><br>🏆TOP SALE เดือน มิถุนายน 69 (สาขา สำนักงานใหญ่)
 สำหรับลูกค้าท่านใดที่สนใจรถยนต์โตโยต้า 
 สามารถติดต่อสอบถามรายละเอียด
 และ...
-<div class="post-meta">❤️ 28 · 💬 4 · ↪️ 0 | รวม 32 · <a href="https://www.facebook.com/Toyotakalasin/posts/pfbid02mSwYeSeeMoYo3MvU7ZpVRuYTXZ7pspMEurmQSi9pxGQpzhMoTrGPHdiUXeqBaW8zl" target="_blank" style="color:#C3002F">🔗 ดูโพสต์</a></div>
-</div>
+<div class="post-meta">❤️ 28 · 💬 4 · ↪️ 0 | รวม 32 · <a href="https://www.facebook.com/Toyotakalasin/posts/pfbid02mSwYeSeeMoYo3MvU7ZpVRuYTXZ7pspMEurmQSi9pxGQpzhMoTrGPHdiUXeqBaW8zl" target="_blank" style="color:#C3002F">🔗 ดูโพสต์</a></div></div>
 <h2>⚠️ 7. โอกาสและภัยคุกคาม</h2>
 <h3 style="color:#C3002F">🚨 ภัยคุกคาม</h3><ul>
-<li><strong>TOYOTA</strong> เองเกจ/โพสต์สูงสุด (39/post) — ถ้ามีแคมเปญใหญ่ ดึงความสนใจไปหมด</li>
-<li><strong>ISUZU</strong> โพสต์ 14 โพสต์ — ครองฟีด ต้องแข่งดึงความสนใจ</li>
-<li><strong>BYD+GWM</strong> EV/Crossover เริ่มมาแรง — เสียลูกค้ากลุ่มใหม่ถ้าไม่ปรับแคมเปญ</li>
+<li><strong>TOYOTA</strong> เองเกจ/โพสต์ 39 — สูงสุดในกาฬสินธุ์ ถ้ามีแคมเปญใหญ่ดึงลูกค้าหมด</li>
+<li><strong>ISUZU</strong> 14 โพสต์ — ครองฟีด เน้นปริมาณ Nissan ต้องสู้ด้วยคุณภาพ</li>
+<li><strong>HONDA</strong> มี Roadshow ที่กาฬสินธุ์พลาซ่า 9-11 ก.ค. — ขายหน้าร้านออนไลน์+ออฟไลน์</li>
+<li><strong>BYD+GWM</strong> EV/Crossover มาแรง — เสียลูกค้ากลุ่มใหม่ถ้าไม่ปรับแคมเปญ</li>
 </ul>
 <h3 style="color:#2E7D32">💡 โอกาส</h3><ul>
-<li><strong>Nissan ทำเองเกจดี</strong> (9.4/post สูงกว่าคู่แข่งหลายราย) — ใช้ KICKS e-POWER เป็นจุดขาย</li>
+<li><strong>Nissan ทำเองเกจดี</strong> (9.4/post สูงกว่าค่าเฉลี่ย) — ใช้ KICKS e-POWER เป็นจุดขาย</li>
 <li><strong>HONDA/MAZDA เองเกจต่อโพสต์ดี</strong> (10-13/post) — ศึกษาเทคนิคคอนเทนต์ของพวกเขา</li>
-<li><strong>ตลาด EV/Crossover ยังเปิด</strong> — KICKS e-POWER, X-TRAIL e-POWER มีโอกาสสูง</li>
+<li><strong>ตลาด EV/Crossover เปิด</strong> — KICKS e-POWER, X-TRAIL e-POWER มีโอกาสสูง</li>
+<li><strong>Roadshow ที่โลตัส</strong> ทำเองเกจดี (24/โพสต์) — ควรทำต่อเนื่องทุกเดือน</li>
 </ul>
 <h2>🎯 8. ข้อเสนอแนะ</h2>
-<div class="priority-high"><strong>🔴 HIGH:</strong> เพิ่มโพสต์ KICKS e-POWER + X-TRAIL e-POWER — ISUZU ครองฟีดด้วยปริมาณ ต้องสู้ด้วยเนื้อหาคุณภาพ</div>
-<div class="priority-med"><strong>🟡 MED:</strong> ใช้ข้อมูล TOYOTA (39/post) มาวิเคราะห์เนื้อหาที่คนกาฬสินธุ์ชอบ — เอามาปรับใช้</div>
-<div class="priority-low"><strong>🟢 LOW:</strong> ทำ Roadshow ที่กาฬสินธุ์พลาซ่า — HONDA, GWM, NISSAN ทำแล้ว ควรทำต่อเนื่อง</div>
+<div class="priority-high"><strong>🔴 HIGH:</strong> เพิ่ม Content KICKS e-POWER + X-TRAIL e-POWER — ISUZU ครองฟีดด้วยปริมาณ ต้องสู้ด้วยคุณภาพ</div>
+<div class="priority-med"><strong>🟡 MED:</strong> วิเคราะห์ TOYOTA (39/post) + HONDA Roadshow พลาซ่า — ศึกษาว่าคนกาฬสินธุ์ชอบเนื้อหาแบบไหน</div>
+<div class="priority-low"><strong>🟢 LOW:</strong> จัด Roadshow กาฬสินธุ์พลาซ่าทุกเดือน — HONDA, GWM, NISSAN (โลตัส) ทำแล้ว ต้องมี Nissan ที่พลาซ่าบ้าง</div>
 <h2>📈 9. กราฟวิเคราะห์</h2>
 <div class="chart-container"><div class="chart-title">9.1 Total Engagement รายแบรนด์</div><canvas id="c1" style="height:300px"></canvas></div>
 <div class="chart-container"><div class="chart-title">9.2 Engagement ต่อ Post (เฉลี่ย)</div><canvas id="c2" style="height:300px"></canvas></div>
 <div class="chart-container"><div class="chart-title">9.3 Breakdown Likes/Comments/Shares</div><canvas id="c3" style="height:300px"></canvas></div>
-<div class="chart-container"><div class="chart-title">9.4 Bubble (โพสต์ vs Eng ขนาดฟอง=Eng/Post)</div><canvas id="c4" style="height:350px"></canvas></div>
+<div class="chart-container"><div class="chart-title">9.4 Bubble (โพสต์ vs Eng)</div><canvas id="c4" style="height:300px"></canvas></div>
 <script>
-const b=["ISUZU", "GWM", "HONDA", "MAZDA", "BYD", "TOYOTA", "UNKNOWN"],te=[46, 36, 92, 92, 52, 195, 0],ep=[3.3, 4.0, 10.2, 13.1, 10.4, 39.0, 0.0],lk=[36, 29, 73, 74, 36, 169, 0],cm=[0, 1, 6, 3, 9, 10, 0],sh=[10, 6, 13, 15, 7, 16, 0],po=[14, 9, 9, 7, 5, 5, 2]
-const p=['#C3002F','#1976D2','#388E3C','#F57C00','#7B1FA2','#0097A7','#5D4037']
-new Chart(document.getElementById("c1"),{type:"bar",data:{labels:b,datasets:[{label:"Engagement",data:te,backgroundColor:b.map((_,i)=>p[i%p.length])}]},options:{responsive:true,plugins:{legend:{display:false}}}})
+const b=["ISUZU", "GWM", "HONDA", "MAZDA", "BYD", "TOYOTA", "UNKNOWN"],te=[46, 36, 92, 92, 52, 195, 0],ep=[3.3, 4.0, 10.2, 13.1, 10.4, 39.0, 0.0],lk=[36, 29, 73, 74, 36, 169, 0],cm=[0, 1, 6, 3, 9, 10, 0],sh=[10, 6, 13, 15, 7, 16, 0],po=[14, 9, 9, 7, 5, 5, 2],pa=['#C3002F','#1976D2','#388E3C','#F57C00','#7B1FA2','#0097A7','#5D4037']
+new Chart(document.getElementById("c1"),{type:"bar",data:{labels:b,datasets:[{label:"Engagement",data:te,backgroundColor:b.map((_,i)=>pa[i%pa.length])}]},options:{responsive:true,plugins:{legend:{display:false}}}})
 new Chart(document.getElementById("c2"),{type:"bar",data:{labels:b,datasets:[{label:"Eng/Post",data:ep,backgroundColor:"#1976D2",borderRadius:4}]},options:{responsive:true,plugins:{legend:{display:false}}}})
 new Chart(document.getElementById("c3"),{type:"bar",data:{labels:b,datasets:[{label:"Likes",data:lk,backgroundColor:"#C3002F"},{label:"Comments",data:cm,backgroundColor:"#F57C00"},{label:"Shares",data:sh,backgroundColor:"#388E3C"}]},options:{responsive:true,plugins:{legend:{position:"top"}}}})
-const bd=b.map((x,i)=>({label:x,data:[{x:po[i],y:te[i],r:Math.max(Math.sqrt(ep[i]*4),8)}],backgroundColor:p[i%p.length]+"80",borderColor:p[i%p.length]}))
-new Chart(document.getElementById("c4"),{type:"bubble",data:{datasets:bd},options:{responsive:true,scales:{x:{title:{display:true,text:"Posts"}},y:{title:{display:true,text:"Total Engagement"}}}}})
+new Chart(document.getElementById("c4"),{type:"bubble",data:{datasets:b.map((x,i)=>({label:x,data:[{x:po[i],y:te[i],r:Math.max(Math.sqrt(ep[i]*4),8)}],backgroundColor:pa[i%pa.length]+"80",borderColor:pa[i%pa.length]}))}},options:{responsive:true,scales:{x:{title:{display:true,text:"Posts"}},y:{title:{display:true,text:"Total Engagement"}}}}})
 </script>
 <div class="footer">
 <p>📊 รายงาน Nissan Kalasin สัปดาห์ 07-14 ก.ค. 2569</p>
-<p>🕐 เวลาวิเคราะห์: 15/07/2026 10:39</p>
+<p>🕐 เวลาวิเคราะห์: 15/07/2026 10:42</p>
 <p>👤 สร้างโดย: Tatchanon Wissawakornrungrot, Regional Marketing Manager at Nissan Motor (Thailand)</p>
 </div></body></html>
