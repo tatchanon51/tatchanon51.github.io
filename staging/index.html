@@ -107,6 +107,8 @@ tbody td { padding: 9px 12px; border-bottom: 1px solid var(--border); }
 .stat-mini-value { font-size: 18px; font-weight: 700; margin-top: 2px; }
 .stat-mini-sub { font-size: 10px; color: var(--ink-500); }
 .chart-container { background: var(--ink-50); padding: 16px; border-radius: 8px; border: 1px solid var(--border); margin: 12px 0; }
+.chart-grid-2 { display: flex; gap: 16px; }
+.chart-grid-2 .chart-container { flex: 1; min-width: 0; }
 canvas { max-width: 100%; }
 .dark-mode { --bg-page: #0F1419; --bg-surface: #1A1F26; --ink-50: #232930; --ink-100: #2A313A; --ink-200: #3A434E; --ink-500: #8B96A3; --ink-700: #C5CDD6; --ink-900: #E8EDF2; --border: #2F3742; --nmt-red-soft: rgba(195, 0, 47, 0.15); --green-soft: rgba(56, 142, 60, 0.15); --orange-soft: rgba(245, 124, 0, 0.15); --blue-soft: rgba(25, 118, 210, 0.15); }
 .dark-mode-toggle { position: fixed; bottom: 20px; right: 20px; background: var(--nmt-red); color: white; border: none; width: 44px; height: 44px; border-radius: 50%; font-size: 18px; cursor: pointer; box-shadow: var(--shadow-md); z-index: 200; }
@@ -156,12 +158,18 @@ canvas { max-width: 100%; }
 <div class="section-card" id="sec-0">
   <div class="section-card-header"><span class="section-num">0</span><h2>📈 Year-to-Date Trend (Jan–Jun 2026)</h2></div>
   <div class="headline">
-    <span class="headline-label">🔖 Headline:</span> ดูแนวโน้มรายเดือน — Leads, Booking, Retail, Test Drive — อะไรดีขึ้น/แย่ลง<br>
-    <span class="headline-label">📋 คืออะไร:</span> ข้อมูลรายเดือนตั้งแต่ ม.ค. 2026 จนถึงเดือนปัจจุบัน<br>
-    <span class="headline-label">🎯 เพื่ออะไร:</span> เห็น Macro trend — Seasonal pattern / โตขึ้น / ตกต่ำ
+    <span class="headline-label">🔖 Headline:</span> ดูแนวโน้มรายเดือน — Leads มาทางไหน  Retail/Booking ขึ้นหรือลง<br>
+    <span class="headline-label">ℹ️ วิธีอ่าน:</span> <strong>บน (Leads)</strong> = Line chart — ดูแนวโน้มความสนใจของลูกค้าแต่ละเดือน ตัวเลขมาก=ลูกค้าสนใจเยอะ | <strong>ล่าง (Retail+Booking)</strong> = Bar chart — เปรียบเทียบยอดจอง vs ปิดการขาย ตัวเลขน้อยแต่เห็น trend ได้ชัด
   </div>
-  <div class="chart-container" style="padding:20px">
-    <canvas id="chartYTD" width="1536" height="576"></canvas>
+  <div class="chart-grid-2">
+    <div class="chart-container" style="padding:16px;flex:1">
+      <h3 style="margin-top:0;font-size:13px;color:var(--ink-500);font-weight:700">📞 Leads — จำนวน Lead แต่ละเดือน</h3>
+      <canvas id="chartYTD_Leads" width="1536" height="576" style="min-height:260px"></canvas>
+    </div>
+    <div class="chart-container" style="padding:16px;flex:1">
+      <h3 style="margin-top:0;font-size:13px;color:var(--ink-500);font-weight:700">🚗 Retail vs Booking — ปิดการขาย vs จอง</h3>
+      <canvas id="chartYTD_BK_RS" width="1536" height="576" style="min-height:260px"></canvas>
+    </div>
   </div>
 </div>
 <div class="section-card" id="sec-1">
@@ -237,7 +245,7 @@ canvas { max-width: 100%; }
   <div class="section-card-header"><span class="section-num">4</span><h2>🚙 Model Performance + Chart</h2></div>
   <div class="headline"><span class="headline-label">🔖 Headline:</span> ดู demand + conversion ของแต่ละรุ่น</div>
   <div class="chart-container">
-    <canvas id="chartModels" width="1536" height="768"></canvas>
+    <canvas id="chartModels" width="1536" height="768" style="min-height:320px"></canvas>
   </div>
   <table>
     <thead><tr><th>Model</th><th style="text-align:center">Leads</th><th style="text-align:center">Test Drive</th><th style="text-align:center">Booking</th><th style="text-align:center">Prospect</th><th style="text-align:center">Retail</th></tr></thead>
@@ -542,23 +550,60 @@ sections.forEach(s => observer.observe(s));
 <script>
 const palette = ['#C3002F', '#1976D2', '#388E3C', '#F57C00', '#7B1FA2', '#0097A7'];
 
-// YTD Trend Chart (Section 0)
-const ytdCtx = document.getElementById('chartYTD');
-if (ytdCtx) {
-  new Chart(ytdCtx, {
+// YTD Trend Charts (Section 0) — แยก Leads (line) และ Retail+Booking (bar)
+const ytdLabels = ['ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.', 'พ.ค.', 'มิ.ย.'];
+
+// Chart 1: Leads Line chart
+const ytdLeadsCtx = document.getElementById('chartYTD_Leads');
+if (ytdLeadsCtx) {
+  new Chart(ytdLeadsCtx, {
     type: 'line',
     data: {
-      labels: ['ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.', 'พ.ค.', 'มิ.ย.'],
+      labels: ytdLabels,
+      datasets: [{
+        label: 'Leads',
+        data: [51, 43, 37, 52, 53, 42],
+        borderColor: '#1976D2',
+        backgroundColor: '#1976D220',
+        fill: true,
+        tension: 0.3,
+        pointRadius: 5,
+        pointBackgroundColor: '#1976D2',
+        borderWidth: 3
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        y: { beginAtZero: false, min: 30, title: { display: true, text: 'จำนวน Leads' } },
+        x: { title: { display: true, text: 'เดือน' } }
+      }
+    }
+  });
+}
+
+// Chart 2: Retail + Booking Bar chart
+const ytdBkRsCtx = document.getElementById('chartYTD_BK_RS');
+if (ytdBkRsCtx) {
+  new Chart(ytdBkRsCtx, {
+    type: 'bar',
+    data: {
+      labels: ytdLabels,
       datasets: [
-        { label: 'Leads', data: [51, 43, 37, 52, 53, 42], borderColor: palette[1], backgroundColor: palette[1]+'20', fill: true, tension: 0.3, pointRadius: 4 },
-        { label: 'Retail', data: [1, 2, 0, 2, 6, 5], borderColor: palette[0], backgroundColor: palette[0]+'20', fill: true, tension: 0.3, pointRadius: 4 },
-        { label: 'Booking', data: [2, 6, 0, 4, 9, 5], borderColor: palette[3], backgroundColor: palette[3]+'20', fill: true, tension: 0.3, pointRadius: 4 },
+        { label: 'Booking', data: [2, 6, 0, 4, 9, 5], backgroundColor: '#F57C00', borderRadius: 4 },
+        { label: 'Retail (Won)', data: [1, 2, 0, 2, 6, 5], backgroundColor: '#C3002F', borderRadius: 4 }
       ]
     },
     options: {
       responsive: true,
-      plugins: { legend: { position: 'top' }, title: { display: true, text: '📈 MoM Trend (Lead / Booking / Retail)' } },
-      scales: { y: { beginAtZero: true, title: { display: true, text: 'จำนวน' } } }
+      maintainAspectRatio: false,
+      plugins: { legend: { position: 'top' } },
+      scales: {
+        y: { beginAtZero: true, title: { display: true, text: 'จำนวน' } },
+        x: { title: { display: true, text: 'เดือน' } }
+      }
     }
   });
 }
