@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nissan e-POWER Content Battle — Proposal</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700;800&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Noto Sans Thai', -apple-system, sans-serif;
+    background: #f8f9fa;
+    color: #1a1a2e;
+    line-height: 1.7;
+  }
+  /* Cover */
+  .cover {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 40%, #0f3460 100%);
+    color: white;
+    padding: 80px 40px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 70% 30%, rgba(195, 0, 47, 0.15) 0%, transparent 50%);
+  }
+  .cover-badge {
+    display: inline-block;
+    background: #C3002F;
+    color: white;
+    padding: 6px 20px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 24px;
+    position: relative;
+  }
+  .cover h1 {
+    font-size: 42px;
+    font-weight: 800;
+    margin-bottom: 10px;
+    position: relative;
+    letter-spacing: -0.5px;
+  }
+  .cover h1 span { color: #C3002F; }
+  .cover .subtitle {
+    font-size: 18px;
+    color: rgba(255,255,255,0.7);
+    font-weight: 300;
+    margin-bottom: 30px;
+    position: relative;
+  }
+  .cover-meta {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.5);
+    position: relative;
+  }
+  .cover-line {
+    width: 60px;
+    height: 3px;
+    background: #C3002F;
+    margin: 20px auto;
+    position: relative;
+  }
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  /* TOC */
+  .toc {
+    background: white;
+    border-radius: 12px;
+    padding: 28px 32px;
+    margin: -40px auto 40px;
+    max-width: 800px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    position: relative;
+  }
+  .toc h3 { font-size: 14px; color: #C3002F; margin-bottom: 14px; }
+  .toc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    font-size: 14px;
+  }
+  .toc-grid a {
+    color: #333;
+    text-decoration: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+    transition: all 0.2s;
+  }
+  .toc-grid a:hover { background: #fff5f5; color: #C3002F; }
+  .toc-num {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    background: #C3002F;
+    color: white;
+    border-radius: 6px;
+    text-align: center;
+    line-height: 22px;
+    font-size: 11px;
+    font-weight: 700;
+    margin-right: 8px;
+  }
+  /* Sections */
+  .section {
+    margin: 48px 0;
+    background: white;
+    border-radius: 16px;
+    padding: 36px 40px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    border: 1px solid #f0f0f0;
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid #f0f0f0;
+  }
+  .section-num {
+    width: 40px;
+    height: 40px;
+    background: #C3002F;
+    color: white;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+  .section-header h2 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1a1a2e;
+  }
+  .section-header .emoji-big { font-size: 28px; }
+  h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #C3002F;
+    margin: 20px 0 10px;
+  }
+  h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    margin: 16px 0 8px;
+  }
+  p { font-size: 14px; color: #555; margin-bottom: 12px; }
+  ul, ol { margin: 10px 0 10px 20px; font-size: 14px; color: #555; }
+  li { margin-bottom: 6px; }
+  strong { color: #1a1a2e; font-weight: 600; }
+  .highlight-red { color: #C3002F; font-weight: 600; }
+  /* Cards */
+  .card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    margin: 20px 0;
+  }
+  .card {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid #eee;
+    transition: all 0.2s;
+  }
+  .card:hover { border-color: #C3002F; box-shadow: 0 4px 12px rgba(195,0,47,0.1); }
+  .card-icon { font-size: 32px; margin-bottom: 10px; }
+  .card h4 { margin: 0 0 6px; color: #1a1a2e; }
+  .card p { font-size: 13px; margin: 0; color: #666; }
+  .card .badge {
+    display: inline-block;
+    font-size: 11px;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-weight: 600;
+    margin-top: 8px;
+  }
+  .badge-individual { background: #E3F2FD; color: #1565C0; }
+  .badge-team { background: #FFF3E0; color: #E65100; }
+  .badge-free { background: #E8F5E9; color: #2E7D32; }
+  /* Prize Table */
+  .prize-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 16px 0;
+    font-size: 13px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #e0e0e0;
+  }
+  .prize-table th {
+    background: linear-gradient(180deg, #C3002F, #8B0020);
+    color: white;
+    padding: 12px 14px;
+    font-weight: 600;
+    font-size: 12px;
+    text-align: left;
+  }
+  .prize-table td {
+    padding: 12px 14px;
+    border-bottom: 1px solid #f0f0f0;
+    vertical-align: top;
+  }
+  .prize-table tr:last-child td { border-bottom: none; }
+  .prize-table tr:hover { background: #fff8f8; }
+  .prize-1st { background: #FFF8E1; }
+  .prize-1st td:first-child { border-left: 3px solid #FFD700; }
+  .prize-2nd td:first-child { border-left: 3px solid #C0C0C0; }
+  .prize-3rd td:first-child { border-left: 3px solid #CD7F32; }
+  .prize-amt {
+    font-size: 18px;
+    font-weight: 700;
+    color: #C3002F;
+  }
+  /* Timeline */
+  .timeline {
+    position: relative;
+    padding-left: 30px;
+    margin: 20px 0;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #e0e0e0;
+  }
+  .timeline-item {
+    position: relative;
+    padding: 16px 20px;
+    margin-bottom: 8px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border: 1px solid #eee;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -26px;
+    top: 20px;
+    width: 12px;
+    height: 12px;
+    background: #C3002F;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 0 0 2px #C3002F;
+  }
+  .timeline-item .week { font-size: 12px; color: #C3002F; font-weight: 700; }
+  .timeline-item h4 { margin: 4px 0; }
+  .timeline-item p { font-size: 13px; margin: 4px 0 0; }
+  /* Quote */
+  .tip-box {
+    background: #fff8e1;
+    border-left: 4px solid #FFA000;
+    padding: 16px 20px;
+    border-radius: 8px;
+    margin: 16px 0;
+  }
+  .tip-box h4 { color: #E65100; margin: 0 0 6px; }
+  .tip-box p { margin: 0; font-size: 13px; }
+  .tip-box.red {
+    background: #fff5f5;
+    border-left-color: #C3002F;
+  }
+  .tip-box.red h4 { color: #C3002F; }
+  .tip-box.green {
+    background: #E8F5E9;
+    border-left-color: #2E7D32;
+  }
+  .tip-box.green h4 { color: #2E7D32; }
+  /* KPI row */
+  .kpi-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .kpi-box {
+    text-align: center;
+    padding: 16px;
+    background: #f8f9fa;
+    border-radius: 10px;
+  }
+  .kpi-box .num { font-size: 28px; font-weight: 800; color: #C3002F; }
+  .kpi-box .label { font-size: 12px; color: #888; margin-top: 4px; }
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 40px;
+    color: #888;
+    font-size: 13px;
+  }
+  .footer .nmt-red { color: #C3002F; font-weight: 600; }
+  @media (max-width: 700px) {
+    .cover h1 { font-size: 28px; }
+    .card-grid { grid-template-columns: 1fr; }
+    .kpi-row { grid-template-columns: 1fr 1fr; }
+    .toc-grid { grid-template-columns: 1fr; }
+    .section { padding: 24px 20px; }
+    .cover-meta { flex-direction: column; gap: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== COVER ===== -->
+<div class="cover">
+  <div class="cover-badge">🏎️ e-POWER CONTENT BATTLE</div>
+  <h1>ขับเคลื่อน e-POWER<br>ด้วย <span>Content</span></h1>
+  <div class="cover-line"></div>
+  <div class="subtitle">Online Content Contest สำหรับผู้จำหน่ายนิสสันภาคอีสาน</div>
+  <div class="cover-meta">
+    <span>📍 ภาคอีสาน (R2 + R3)</span>
+    <span>📅 เสนอเมื่อ: 15 ก.ค. 2569</span>
+    <span>👤 เสนอโดย: Tatchanon W.</span>
+  </div>
+</div>
+
+<!-- ===== TOC ===== -->
+<div class="toc">
+  <h3>📑 สารบัญ</h3>
+  <div class="toc-grid">
+    <a href="#s1"><span class="toc-num">1</span> ภาพรวม + วัตถุประสงค์</a>
+    <a href="#s4"><span class="toc-num">4</span> Timeline + กติกา</a>
+    <a href="#s2"><span class="toc-num">2</span> 3 ประเภทการแข่งขัน</a>
+    <a href="#s5"><span class="toc-num">5</span> งบประมาณ</a>
+    <a href="#s3"><span class="toc-num">3</span> รางวัล</a>
+    <a href="#s6"><span class="toc-num">6</span> Dashboard + การวัดผล</a>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- ===== SECTION 1 ===== -->
+<div class="section" id="s1">
+  <div class="section-header">
+    <div class="section-num">1</div>
+    <h2>🎯 ภาพรวม + วัตถุประสงค์</h2>
+  </div>
+
+  <div class="kpi-row">
+    <div class="kpi-box">
+      <div class="num">3</div>
+      <div class="label">รุ่น e-POWER หลัก<br>KICKS · SERENA · X-TRAIL</div>
+    </div>
+    <div class="kpi-box">
+      <div class="num">3</div>
+      <div class="label">ประเภทรางวัล<br>รายบุคคล + ทีม</div>
+    </div>
+    <div class="kpi-box">
+      <div class="num">4</div>
+      <div class="label">สัปดาห์ / รอบ<br>Kick-off → ประกาศผล</div>
+    </div>
+    <div class="kpi-box">
+      <div class="num">~300</div>
+      <div class="label">ที่ปรึกษาการขาย<br>ที่เข้าร่วมได้ (3 จังหวัด)</div>
+    </div>
+  </div>
+
+  <h3>วัตถุประสงค์ 3 ข้อ</h3>
+  <ol>
+    <li><strong>🎯 กระตุ้นให้ผู้จำหน่าย + Sales Active ออนไลน์</strong> — สร้าง Content ใน 3 รุ่นหลัก (KICKS e-POWER / SERENA e-POWER / X-TRAIL e-POWER) อย่างสม่ำเสมอ</li>
+    <li><strong>🎨 ยกระดับคุณภาพ Content ของ Nissan ในระดับ Dealer</strong> — จากโพสต์ genric สู่ Content ที่น่าสนใจ มียอด Engagement</li>
+    <li><strong>📈 เพิ่มการรับรู้ + Lead ของ 3 รุ่น e-POWER</strong> — วัดผลจากจำนวน Lead จริงที่มาจาก Online Content</li>
+  </ol>
+
+  <div class="tip-box red">
+    <h4>🎯 เป้าหมายตัวเลข (Target)</h4>
+    <p>✅ <strong>500+ โพสต์</strong> ตลอดแคมเปญ (3 รุ่นหลัก) · ✅ <strong>Engagement รวม 10,000+</strong> · ✅ <strong>Lead จาก Online เพิ่ม 20%</strong> เมื่อเทียบกับเดือนก่อนหน้า</p>
+  </div>
+</div>
+
+<!-- ===== SECTION 2 ===== -->
+<div class="section" id="s2">
+  <div class="section-header">
+    <div class="section-num">2</div>
+    <h2>🏆 3 ประเภทการแข่งขัน</h2>
+  </div>
+
+  <p>แบ่งเป็น <strong>3 ประเภท</strong> เพื่อให้โอกาสทั้งคนทำ Content เก่งและคนขายเก่ง รวมถึงกระตุ้นทีมเวิร์ค:</p>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-icon">🎬</div>
+      <h4>Type A: Best Content Creator</h4>
+      <p>ผู้เข้าแข่งขันรายบุคคล — Sales แต่ละคนสร้าง Reels / โพสต์ อย่างน้อย 2 โพสต์/สัปดาห์ เกี่ยวกับ 3 รุ่น e-POWER</p>
+      <span class="badge badge-individual">👤 รายบุคคล</span>
+      <p style="margin-top:10px;font-size:12px;color:#888"><strong>วัดจาก:</strong> Engagement Rate (Likes+Comments+Shares / Reach)</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">📊</div>
+      <h4>Type B: Best Lead Generator</h4>
+      <p>ผู้เข้าแข่งขันรายบุคคล — แนบลิงก์ / CTA ในทุกโพสต์ วัด Conversion → Prospect / Lead จริงที่เข้ามา</p>
+      <span class="badge badge-individual">👤 รายบุคคล</span>
+      <p style="margin-top:10px;font-size:12px;color:#888"><strong>วัดจาก:</strong> จำนวน Prospect ที่เกิดจาก Online Content</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🏅</div>
+      <h4>Type C: Best Dealer Team</h4>
+      <p>ผู้เข้าแข่งขันระดับผู้จำหน่าย — ผลรวมของทีมทั้งหมด (Engagement × Lead × Consistency)</p>
+      <span class="badge badge-team">🏢 รายทีม</span>
+      <p style="margin-top:10px;font-size:12px;color:#888"><strong>วัดจาก:</strong> Overall Score = Eng × Lead Count × Participation Rate</p>
+    </div>
+  </div>
+
+  <h3>ทำไมถึงแบ่ง 3 ประเภท?</h3>
+  <div class="tip-box green">
+    <p>✅ <strong>Type A</strong> = คนครีเอทีฟ — บางคนทำ Content สวย แต่ปิด Lead ไม่เก่ง ก็ได้รางวัล<br>
+    ✅ <strong>Type B</strong> = คนขายเก่ง — บางคนขายดี แต่ Content ไม่แฟนซี ก็มีสิทธิ์ลุ้น<br>
+    ✅ <strong>Type C</strong> = กระตุ้นทีมเวิร์ค — เดือนนั้นคนขายดีคนเดียวไม่พอ คนในทีมต้องช่วยกัน</p>
+  </div>
+
+</div>
+
+<!-- ===== SECTION 3 ===== -->
+<div class="section" id="s3">
+  <div class="section-header">
+    <div class="section-num">3</div>
+    <h2>🎁 รางวัล</h2>
+  </div>
+
+  <h3>👤 รางวัลรายบุคคล (Type A + B)</h3>
+  <table class="prize-table">
+    <thead>
+      <tr>
+        <th>ลำดับ</th>
+        <th>รางวัล</th>
+        <th>มูลค่า</th>
+        <th>จำนวน</th>
+        <th>รวม</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="prize-1st">
+        <td><strong>🥇 ที่ 1</strong></td>
+        <td>บัตรกำนัลน้ำมัน + โล่รางวัล "Nissan e-POWER Creator of the Month"</td>
+        <td class="prize-amt">5,000 ฿</td>
+        <td>× 2 (A+B)</td>
+        <td>10,000 ฿</td>
+      </tr>
+      <tr class="prize-2nd">
+        <td><strong>🥈 ที่ 2</strong></td>
+        <td>Voucher Central/Lotus + Certificate</td>
+        <td class="prize-amt">3,000 ฿</td>
+        <td>× 2 (A+B)</td>
+        <td>6,000 ฿</td>
+      </tr>
+      <tr class="prize-3rd">
+        <td><strong>🥉 ที่ 3</strong></td>
+        <td>Voucher หนัง/คาเฟ่ + Certificate</td>
+        <td class="prize-amt">1,500 ฿</td>
+        <td>× 2 (A+B)</td>
+        <td>3,000 ฿</td>
+      </tr>
+      <tr>
+        <td colspan="4" style="text-align:right;font-weight:600">รวมรางวัลรายบุคคล</td>
+        <td style="font-weight:700;color:#C3002F"><strong>19,000 ฿</strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>🏢 รางวัลทีม (Type C — Dealer)</h3>
+  <table class="prize-table">
+    <thead>
+      <tr>
+        <th>ลำดับ</th>
+        <th>รางวัล</th>
+        <th>มูลค่า</th>
+        <th>จำนวน</th>
+        <th>รวม</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="prize-1st">
+        <td><strong>🏆 ทีมชนะเลิศ</strong></td>
+        <td>งบ DACT เพิ่มเติมสำหรับกิจกรรมเดือนถัดไป + โล่รางวัล</td>
+        <td class="prize-amt">20,000 ฿</td>
+        <td>× 1</td>
+        <td>20,000 ฿</td>
+      </tr>
+      <tr class="prize-2nd">
+        <td><strong>🥈 รองชนะเลิศ</strong></td>
+        <td>งบ DACT เพิ่มเติม</td>
+        <td class="prize-amt">10,000 ฿</td>
+        <td>× 1</td>
+        <td>10,000 ฿</td>
+      </tr>
+      <tr>
+        <td colspan="4" style="text-align:right;font-weight:600">รวมรางวัลทีม</td>
+        <td style="font-weight:700;color:#C3002F"><strong>30,000 ฿</strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="tip-box">
+    <h4>💡 ทำไมถึงเลือกของแบบนี้?</h4>
+    <p>📌 <strong>บัตรน้ำมัน</strong> — Sales ใช้จริงทุกวัน จับต้องได้<br>
+    📌 <strong>Voucher ห้าง</strong> — ครอบครัวได้ประโยชน์ กระตุ้นคู่สมรสให้สนับสนุน<br>
+    📌 <strong>งบ DACT เพิ่ม</strong> — ไม่ต้องใช้เงินนอกงบประมาณ ผู้จัดการมีอำนาจใช้ได้เลย<br>
+    📌 <strong>โล่รางวัล</strong> — ตั้งโชว์ในโชว์รูม สร้างความภาคภูมิใจ + กระตุ้นคนอื่น</p>
+  </div>
+</div>
+
+<!-- ===== SECTION 4 ===== -->
+<div class="section" id="s4">
+  <div class="section-header">
+    <div class="section-num">4</div>
+    <h2>📅 Timeline + กติกา</h2>
+  </div>
+
+  <h3>📆 ระยะเวลา: 4 สัปดาห์ต่อรอบ</h3>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="week">📌 สัปดาห์ที่ 1 — Kick-off & Brief</div>
+      <h4>🚀 เปิดแคมเปญ + แจก Content Kit</h4>
+      <p>ส่ง <strong>Template Content Pack</strong> ให้ Sales ทุกคน:<br>
+      ✅ ตัวอย่าง Reels Script (3 รุ่น e-POWER)<br>
+      ✅ แคปชั่น + Hashtag กลาง: <code>#NissanEKicks #NissanESerena #NissanEXTRAIL #ePOWERContentBattle</code><br>
+      ✅ รูปถ่ายสินค้าความละเอียดสูง + Canva Template<br>
+      ✅ Brief การแข่ง — กติกา + รางวัล</p>
+    </div>
+    <div class="timeline-item">
+      <div class="week">📌 สัปดาห์ที่ 2-3 — Content Sprint</div>
+      <h4>📸 ในสนามแข่ง</h4>
+      <p>✅ แต่ละคนโพสต์อย่างน้อย <strong>2 โพสต์/สัปดาห์</strong> (รวม 4 โพสต์ใน 2 สัปดาห์)<br>
+      ✅ ต้องมี #Hashtag กลาง + แนบลิงก์สอบถาม/ทดลองขับ<br>
+      ✅ ทีม Regional Marketing <strong>แชร์ Top 3 โพสต์</strong> ทุกสัปดาห์ใน LINE Group<br>
+      ✅ <strong>Mid-term Report</strong> — ส่งคะแนนกลางทางให้เห็นว่าใครนำ</p>
+    </div>
+    <div class="timeline-item">
+      <div class="week">📌 สัปดาห์ที่ 4 — ประกาศผล & มอบรางวัล</div>
+      <h4>🏆 สรุป + ให้รางวัล</h4>
+      <p>✅ รวบรวมคะแนนทั้งหมด<br>
+      ✅ ประกาศผลผ่าน LINE Group + รายงาน HTML สรุป<br>
+      ✅ มอบโล่ + บัตรกำนัล (ถ่ายรูปลง Social)<br>
+      ✅ <strong>#1 Top Creator</strong> ได้ทำ Content อย่างเป็นทางการกับทีม Nissan Thailand</p>
+    </div>
+  </div>
+
+  <h3>📋 กติกาหลัก</h3>
+  <ul>
+    <li>โพสต์ต้องเกี่ยวกับ <strong>KICKS e-POWER / SERENA e-POWER / X-TRAIL e-POWER</strong> เท่านั้น</li>
+    <li>ต้องมี <strong>Hashtag กลาง</strong> ทั้ง 4 แฮชแท็ก</li>
+    <li>ห้ามก็อปปี้ Content ซ้ำจาก Dealer อื่น / โพสต์เดิมซ้ำ</li>
+    <li>1 Content ที่แชร์บน Facebook + TikTok + Instagram = นับเป็น 1 โพสต์ (แจ้งยอดรวม)</li>
+    <li>ห้ามซื้อ Engagement (Bot / Likes ปลอม) — ถ้าจับได้ > ตัดสิทธิ์</li>
+  </ul>
+</div>
+
+<!-- ===== SECTION 5 ===== -->
+<div class="section" id="s5">
+  <div class="section-header">
+    <div class="section-num">5</div>
+    <h2>💰 งบประมาณ</h2>
+  </div>
+
+  <table class="prize-table">
+    <thead>
+      <tr>
+        <th>รายการ</th>
+        <th>รายละเอียด</th>
+        <th style="text-align:right">จำนวนเงิน</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>🏆 รางวัลรายบุคคล</strong></td>
+        <td>Type A (Content Creator) + Type B (Lead Gen) — ที่ 1-3 × 2 ประเภท</td>
+        <td style="text-align:right;font-weight:700">19,000 ฿</td>
+      </tr>
+      <tr>
+        <td><strong>🏢 รางวัลทีม (DACT)</strong></td>
+        <td>Type C — งบ DACT เพิ่มเติมให้ทีมชนะเลิศ</td>
+        <td style="text-align:right;font-weight:700">30,000 ฿</td>
+      </tr>
+      <tr>
+        <td><strong>🎨 Content Kit</strong></td>
+        <td>ออกแบบ Template / ตัวอย่าง Content / Canva Template</td>
+        <td style="text-align:right;font-weight:700">—</td>
+      </tr>
+      <tr>
+        <td><strong>📊 Dashboard</strong></td>
+        <td>HTML Live Leaderboard (หนูทำได้เอง)</td>
+        <td style="text-align:right;font-weight:700">—</td>
+      </tr>
+      <tr style="background:#fff5f5">
+        <td colspan="2"><strong>รวมงบประมาณทั้งโครงการ</strong></td>
+        <td style="text-align:right;font-size:20px;font-weight:800;color:#C3002F">49,000 ฿</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="tip-box red">
+    <h4>📌 หมายเหตุ</h4>
+    <p>งบ DACT สำหรับทีม 30,000 บาท <strong>เป็นงบที่มีอยู่แล้ว</strong> ในระบบ DACT ของผู้จำหน่าย — แค่จัดสรรให้ทีมชนะเป็น priority ในการใช้เดือนถัดไป ไม่ต้องขออนุมัติเพิ่ม</p>
+  </div>
+</div>
+
+<!-- ===== SECTION 6 ===== -->
+<div class="section" id="s6">
+  <div class="section-header">
+    <div class="section-num">6</div>
+    <h2>📊 Dashboard + การวัดผล</h2>
+  </div>
+
+  <h3>📈 Live Leaderboard</h3>
+  <p>หนูสามารถทำ <strong>HTML Dashboard</strong> แบบ Real-time ให้พี่มาร์ชได้ค่ะ โดยใช้ Apify ดึงข้อมูล Facebook Post ทุกเช้า:</p>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-icon">👑</div>
+      <h4>Leaderboard รายคน</h4>
+      <p>Top Sales แยก Type A (Engagement) และ Type B (Lead) — อัปเดตอัตโนมัติทุกวัน</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🏢</div>
+      <h4>Leaderboard รายทีม</h4>
+      <p>คะแนนรวมของผู้จำหน่ายแต่ละแห่ง ดูว่าใครนำอยู่</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">📊</div>
+      <h4>Insight Report</h4>
+      <p>Content ประเภทไหนเวิร์ค — รูป? วิดีโอ? รุ่นไหนมี Engagement สูงสุด</p>
+    </div>
+  </div>
+
+  <h3>📋 KPI ที่วัด</h3>
+  <table class="prize-table">
+    <thead>
+      <tr>
+        <th>KPI</th>
+        <th>วัดจาก</th>
+        <th>เป้าหมายต่อรอบ</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>📤 Post Volume</strong></td>
+        <td>จำนวนโพสต์ทั้งหมดของ 3 รุ่นหลัก</td>
+        <td>500+ โพสต์</td>
+      </tr>
+      <tr>
+        <td><strong>❤️ Engagement</strong></td>
+        <td>Likes + Comments + Shares รวม</td>
+        <td>10,000+</td>
+      </tr>
+      <tr>
+        <td><strong>📞 Online Leads</strong></td>
+        <td>Prospect ที่มาจาก Online Content (แนบลิงก์)</td>
+        <td>เพิ่ม 20% MoM</td>
+      </tr>
+      <tr>
+        <td><strong>👥 Participation Rate</strong></td>
+        <td>% ของ Sales ที่โพสต์อย่างน้อย 1 ครั้ง/สัปดาห์</td>
+        <td>70%+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="tip-box green">
+    <h4>💡 แนะนำเพิ่มเติม</h4>
+    <p>📌 <strong>Easy Win Template</strong> — ทำ Canva Template ให้ Sales แค่เปลี่ยนรูป + ชื่อ ก็โพสต์ได้เลย ลด Barrier ของคนที่ไม่ถนัดตัดต่อ<br>
+    📌 <strong>ตัวอย่างดีๆ แชร์ทุกสัปดาห์</strong> — ใน LINE Group Regional โพสต์ที่ Engagement สูงสุดประจำสัปดาห์ ให้คนอื่นเห็นว่า "แบบนี้ถึงเวิร์ค"<br>
+    📌 <strong>ของแถมให้ลูกค้า</strong> — คูปอง "ทดลองขับ e-POWER ฟรี + รับแก้วน้ำ Nissan" ให้ Sales แนบไปกับโพสต์ — เพิ่ม Lead โดยตรง</p>
+  </div>
+
+</div>
+
+<!-- ===== SUMMARY BOX ===== -->
+<div class="section" style="background:linear-gradient(135deg,#1a1a2e,#16213e);color:white;border:none;">
+  <div style="text-align:center;padding:10px 0">
+    <div style="font-size:40px;margin-bottom:10px">🏎️</div>
+    <h2 style="color:white;font-size:24px;border:none;margin:0">e-POWER Content Battle</h2>
+    <p style="color:rgba(255,255,255,0.6);margin:10px 0 20px;font-size:14px">Online Content Contest สำหรับผู้จำหน่ายนิสสันภาคอีสาน</p>
+    <div style="display:flex;justify-content:center;gap:30px;flex-wrap:wrap;font-size:13px">
+      <span>💰 งบรวม <strong style="color:#C3002F;font-size:18px">49,000 ฿</strong></span>
+      <span>🏆 <strong style="color:#C3002F;font-size:18px">3</strong> ประเภท</span>
+      <span>📅 <strong style="color:#C3002F;font-size:18px">4</strong> สัปดาห์/รอบ</span>
+      <span>🎯 เป้าหมาย <strong style="color:#C3002F;font-size:18px">500+</strong> โพสต์</span>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <p>📊 เสนอโดย <span class="nmt-red">Tatchanon Wissawakornrungrot</span> · Regional Marketing Manager · Nissan Motor (Thailand)</p>
+  <p style="margin-top:4px">15 กรกฎาคม 2569 · สำหรับพิจารณาแคมเปญ Q3 2569</p>
+</div>
+
+</div>
+</body>
+</html>
