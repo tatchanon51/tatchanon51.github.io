@@ -19,11 +19,7 @@ body {
   padding: 24px 28px 18px; position: relative;
   overflow: hidden;
 }
-
-/* Title */
 .title { font-size: 20px; font-weight: 700; color: #1A1A1A; margin-bottom: 14px; letter-spacing: -0.02em; }
-
-/* ── Calendar ── */
 .cal {
   border: 2px solid #C3002F; border-radius: 10px;
   overflow: hidden; display: inline-block;
@@ -38,7 +34,6 @@ body {
   border-right: 1px solid #E8EAEE;
 }
 .cal-header div:last-child { border-right: none; }
-
 .cal-body { display: grid; grid-template-columns: repeat(7, 1fr); position: relative; }
 .cal-cell {
   min-height: 82px; border-right: 1px solid #E8EAEE;
@@ -49,8 +44,6 @@ body {
 .cal-cell.off-month { background: #F9FAFB; }
 .cal-cell.off-month .date { color: #CCC; }
 .date { font-size: 11px; font-weight: 700; color: #1A1A1A; }
-
-/* ── Spanning bars (overlay) ── */
 .abs-bar {
   position: absolute; height: 8px; border-radius: 5px;
   font-size: 5.5px; color: #fff; line-height: 8px;
@@ -63,8 +56,6 @@ body {
 .abs-bar.R2 { background: linear-gradient(135deg, #F2A65A, #E88D3F); }
 .abs-bar.R3 { background: linear-gradient(135deg, #B86A54, #A04E3A); }
 .abs-bar.R4 { background: linear-gradient(135deg, #72B572, #5DA35D); }
-
-/* ── Right Panel ── */
 .right-panel { float: right; width: 280px; padding-left: 16px; }
 .region-box { margin-bottom: 12px; }
 .region-title { font-size: 12px; font-weight: 700; color: #1A1A1A; margin-bottom: 6px; }
@@ -74,7 +65,6 @@ body {
 .region-dot.R2 { background: #E88D3F; }
 .region-dot.R3 { background: #A04E3A; }
 .region-dot.R4 { background: #5DA35D; }
-
 .activity-list { margin-top: 4px; }
 .activity-title { font-size: 11px; font-weight: 700; color: #1A1A1A; margin-bottom: 4px; }
 .activity-row {
@@ -87,32 +77,20 @@ body {
 .activity-dot.R2 { background: #E88D3F; }
 .activity-dot.R3 { background: #A04E3A; }
 .activity-dot.R4 { background: #5DA35D; }
-
-/* ── Footer ── */
 .footer { clear: both; padding-top: 12px; display: flex; align-items: center; }
 .footer-brand { font-size: 13px; font-weight: 800; color: #1A1A1A; letter-spacing: 1px; }
 .footer-line { flex: 1; height: 3px; background: #C3002F; border-radius: 2px; margin-left: 14px; }
-
-/* ── Grid highlight lines (faint) ── */
-.cal-body-inner { position: relative; }
 </style>
 </head>
 <body>
-
 <div class="slide">
-
-<!-- Title -->
 <div class="title">Main Activities (Department Store) Calendar – Aug'26</div>
-
-<!-- Calendar -->
 <div class="cal" id="cal">
   <div class="cal-header">
     <div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div><div>Sun</div>
   </div>
   <div class="cal-body" id="calBody"></div>
 </div>
-
-<!-- Right Panel (positioned to align with calendar top) -->
 <div class="right-panel" id="rightPanel">
   <div class="region-box">
     <div class="region-title">Region</div>
@@ -123,17 +101,13 @@ body {
   </div>
   <div class="activity-list" id="activityList"></div>
 </div>
-
-<!-- Footer -->
 <div class="footer">
   <div class="footer-brand">YES! NISSAN</div>
   <div class="footer-line"></div>
 </div>
-
 </div>
 
 <script>
-// ── Activities Data ──
 const ACT = [
   {s:1, e:7,  v:"Central Chonburi", r:"R1"},
   {s:1, e:7,  v:"Central Korat", r:"R3"},
@@ -156,19 +130,15 @@ const ACT = [
   {s:29,e:4,  v:"Robinson Saraburi (29 Jul - 4 Aug)", r:"R1"},
 ];
 
-// ── Calendar grid ──
 const daysInMonth = 31;
-const firstDay = new Date(2026, 7, 1).getDay(); // 0=Sun...6=Sat
+const firstDay = new Date(2026, 7, 1).getDay();
 let startCol = firstDay - 1;
 if (startCol < 0) startCol = 6;
 
 const body = document.getElementById('calBody');
 let dayNum = 1;
-const prevDay = 31; // Jul 31
-
-// We need to track cell positions for absolute bar placement
-// Build cells first
-const cellData = []; // array of {element, week, col, day, month}
+const prevDay = 31;
+const cellData = [];
 
 for (let w = 0; w < 6; w++) {
   for (let d = 0; d < 7; d++) {
@@ -182,10 +152,9 @@ for (let w = 0; w < 6; w++) {
       displayDay = dayNum - daysInMonth; isAug = false; month = 'sep';
       dayNum++;
     }
-    
     const cell = document.createElement('div');
     cell.className = 'cal-cell' + (isAug ? '' : ' off-month');
-    cell.innerHTML = `<div class="date">${displayDay}</div>`;
+    cell.innerHTML = '<div class="date">' + displayDay + '</div>';
     cell.dataset.day = displayDay;
     cell.dataset.month = month;
     cell.dataset.week = w;
@@ -195,115 +164,87 @@ for (let w = 0; w < 6; w++) {
   }
 }
 
-// ── Compute cell positions (after DOM render) ──
-function getCellRect(week, col) {
-  for (let c of cellData) {
-    if (c.week === week && c.col === col) {
-      const rect = c.el.getBoundingClientRect();
-      const calRect = body.getBoundingClientRect();
-      return {
-        left: rect.left - calRect.left,
-        top: rect.top - calRect.top,
-        width: rect.width,
-        height: rect.height,
-        el: c.el
-      };
-    }
-  }
-  return null;
-}
-
-// ── Place spanning bars ──
-function getBarOffsetY(week) {
-  // Count existing bars in this week
-  let count = 0;
-  document.querySelectorAll('.abs-bar').forEach(b => {
-    const top = parseFloat(b.style.top);
-    const weekTop = getCellRect(week, 0)?.top || 0;
-    if (top >= weekTop + 12 && top < weekTop + 100) count++;
-  });
-  return count;
-}
-
-// Sort: longer duration first so they render behind
-const sortedAct = [...ACT].sort((a,b) => {
-  const durA = a.s > a.e ? (31 - a.s + a.e) : (a.e - a.s);
-  const durB = b.s > b.e ? (31 - b.s + b.e) : (b.e - b.s);
+const sortedAct = [...ACT].sort(function(a,b) {
+  var durA = a.s > a.e ? (31 - a.s + a.e) : (a.e - a.s);
+  var durB = b.s > b.e ? (31 - b.s + b.e) : (b.e - b.s);
   return durB - durA;
 });
 
-// Wait for layout then place bars
-requestAnimationFrame(() => {
-  requestAnimationFrame(() => {
-    // Per-week stack counter
-    const weekStack = {0:0, 1:0, 2:0, 3:0, 4:0, 5:0};
-    
-    sortedAct.forEach(act => {
-      const isCross = act.s > act.e;
-      
-      // Find which week(s) this activity occupies and the columns
-      const weekSpans = {}; // week -> {startCol, endCol}
-      
-      cellData.forEach(c => {
-        let match = false;
-        if (!isCross) {
-          if (c.month === 'aug' && c.day >= act.s && c.day <= act.e) match = true;
+function placeBars() {
+  var weekStack = {0:0, 1:0, 2:0, 3:0, 4:0, 5:0};
+  for (var ai = 0; ai < sortedAct.length; ai++) {
+    var act = sortedAct[ai];
+    var isCross = act.s > act.e;
+    var weekSpans = {};
+    for (var ci = 0; ci < cellData.length; ci++) {
+      var c = cellData[ci];
+      var match = false;
+      if (!isCross) {
+        if (c.month === 'aug' && c.day >= act.s && c.day <= act.e) match = true;
+      } else {
+        if (c.month === 'jul' && c.day >= act.s) match = true;
+        if (c.month === 'aug' && c.day <= act.e) match = true;
+      }
+      if (match) {
+        if (!weekSpans[c.week]) {
+          weekSpans[c.week] = {minCol: c.col, maxCol: c.col};
         } else {
-          if (c.month === 'jul' && c.day >= act.s) match = true;
-          if (c.month === 'aug' && c.day <= act.e) match = true;
+          if (c.col < weekSpans[c.week].minCol) weekSpans[c.week].minCol = c.col;
+          if (c.col > weekSpans[c.week].maxCol) weekSpans[c.week].maxCol = c.col;
         }
-        if (match) {
-          if (!weekSpans[c.week]) weekSpans[c.week] = {minCol: c.col, maxCol: c.col};
-          else {
-            weekSpans[c.week].minCol = Math.min(weekSpans[c.week].minCol, c.col);
-            weekSpans[c.week].maxCol = Math.max(weekSpans[c.week].maxCol, c.col);
-          }
+      }
+    }
+    var weekKeys = Object.keys(weekSpans);
+    for (var wi = 0; wi < weekKeys.length; wi++) {
+      var wk = parseInt(weekKeys[wi]);
+      var span = weekSpans[wk];
+      // Find cell rects
+      var firstCell = null, lastCell = null;
+      for (var ci2 = 0; ci2 < cellData.length; ci2++) {
+        if (cellData[ci2].week === wk && cellData[ci2].col === span.minCol) {
+          firstCell = cellData[ci2].el.getBoundingClientRect();
         }
-      });
-      
-      Object.keys(weekSpans).forEach(wk => {
-        const wkNum = parseInt(wk);
-        const span = weekSpans[wk];
-        const firstCell = getCellRect(wkNum, span.minCol);
-        const lastCell = getCellRect(wkNum, span.maxCol);
-        
-        if (!firstCell || !lastCell) return;
-        
-        const stackIdx = weekStack[wkNum];
-        weekStack[wkNum]++;
-        
-        const bar = document.createElement('div');
-        bar.className = `abs-bar ${act.r}`;
-        
-        // Position
-        const barTop = firstCell.top + 16 + stackIdx * 10;
-        const barLeft = firstCell.left + 1;
-        const barWidth = (lastCell.left + lastCell.width) - firstCell.left - 2;
-        
-        bar.style.top = barTop + 'px';
-        bar.style.left = barLeft + 'px';
-        bar.style.width = barWidth + 'px';
-        
-        // Label
-        const dateStr = isCross ? act.s+' Jul - '+act.e+' Aug' : act.s+'-'+act.e+' Aug\'26';
-        bar.textContent = act.v;
-        bar.title = act.v + ' (' + dateStr + ')';
-        
-        body.appendChild(bar);
-      });
-    });
-    
-    // ── Activity list (right panel) ──
-    const list = document.getElementById('activityList');
-    const sorted = [...ACT].sort((a,b) => a.s - b.s);
-    sorted.forEach(act => {
-      const dateStr = act.s > act.e ? act.s+' Jul - '+act.e+' Aug\'26' : act.s+'-'+act.e+' Aug\'26';
-      const row = document.createElement('div');
-      row.className = 'activity-row';
-      row.innerHTML = `<span class="activity-dot ${act.r}"></span> ${dateStr}  ${act.v}`;
-      list.appendChild(row);
-    });
-  });
+        if (cellData[ci2].week === wk && cellData[ci2].col === span.maxCol) {
+          lastCell = cellData[ci2].el.getBoundingClientRect();
+        }
+      }
+      if (!firstCell || !lastCell) continue;
+      var calRect = body.getBoundingClientRect();
+      var stackIdx = weekStack[wk];
+      weekStack[wk] = stackIdx + 1;
+      var barTop = (firstCell.top - calRect.top) + 16 + stackIdx * 10;
+      var barLeft = (firstCell.left - calRect.left) + 1;
+      var barWidth = (lastCell.left + lastCell.width - calRect.left) - (firstCell.left - calRect.left) - 2;
+      var bar = document.createElement('div');
+      bar.className = 'abs-bar ' + act.r;
+      bar.style.top = barTop + 'px';
+      bar.style.left = barLeft + 'px';
+      bar.style.width = barWidth + 'px';
+      bar.textContent = act.v;
+      var dateStr = isCross ? act.s + ' Jul - ' + act.e + " Aug'26" : act.s + '-' + act.e + " Aug'26";
+      bar.title = act.v + ' (' + dateStr + ')';
+      body.appendChild(bar);
+    }
+  }
+}
+
+function buildActivityList() {
+  var list = document.getElementById('activityList');
+  var sorted = [...ACT].sort(function(a,b) { return a.s - b.s; });
+  for (var i = 0; i < sorted.length; i++) {
+    var act = sorted[i];
+    var dateStr = act.s > act.e ? act.s + " Jul - " + act.e + " Aug'26" : act.s + "-" + act.e + " Aug'26";
+    var row = document.createElement('div');
+    row.className = 'activity-row';
+    row.innerHTML = '<span class="activity-dot ' + act.r + '"></span> ' + dateStr + '  ' + act.v;
+    list.appendChild(row);
+  }
+}
+
+// Wait for everything to render before positioning bars
+window.addEventListener('load', function() {
+  placeBars();
+  buildActivityList();
 });
 </script>
 
