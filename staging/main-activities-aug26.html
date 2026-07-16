@@ -4,123 +4,97 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=1280">
 <title>Main Activities (Department Store) Calendar – Aug'26</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+Thai:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
   background: #F0F3F7;
   display: flex; justify-content: center; align-items: center;
   min-height: 100vh; padding: 20px;
-  font-family: 'Inter', 'Noto Sans Thai', sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 .slide {
-  width: 1280px; background: #FFFFFF;
+  width: 1280px; height: 720px; background: #FFFFFF;
   border-radius: 16px; box-shadow: 0 8px 40px rgba(0,0,0,0.08);
-  padding: 28px 32px 24px; position: relative;
+  padding: 24px 28px 18px; position: relative;
   overflow: hidden;
 }
 
 /* Title */
-.title { font-size: 22px; font-weight: 700; color: #1A1A1A; margin-bottom: 18px; }
+.title { font-size: 20px; font-weight: 700; color: #1A1A1A; margin-bottom: 14px; letter-spacing: -0.02em; }
 
 /* ── Calendar ── */
 .cal {
   border: 2px solid #C3002F; border-radius: 10px;
   overflow: hidden; display: inline-block;
-  width: 956px; float: left;
+  width: 940px; float: left;
+  position: relative;
 }
 .cal-header { display: grid; grid-template-columns: repeat(7, 1fr); }
 .cal-header div {
-  background: #FAFAFA; padding: 8px 0; text-align: center;
-  font-size: 12px; font-weight: 700; color: #3F4750;
-  border-bottom: 1px solid #AAAFB8;
+  background: #FAFAFA; padding: 6px 0; text-align: center;
+  font-size: 11px; font-weight: 600; color: #3F4750;
+  border-bottom: 1.5px solid #AAAFB8;
   border-right: 1px solid #E8EAEE;
 }
 .cal-header div:last-child { border-right: none; }
 
-.cal-body { display: grid; grid-template-columns: repeat(7, 1fr); }
+.cal-body { display: grid; grid-template-columns: repeat(7, 1fr); position: relative; }
 .cal-cell {
-  min-height: 90px; border-right: 1px solid #E8EAEE;
-  border-bottom: 1px solid #E8EAEE; padding: 4px 6px 0;
-  position: relative; vertical-align: top;
-  background: #FFFFFF;
+  min-height: 82px; border-right: 1px solid #E8EAEE;
+  border-bottom: 1px solid #E8EAEE; padding: 3px 5px 0;
+  position: relative; background: #FFFFFF; z-index: 0;
 }
 .cal-cell:nth-child(7n) { border-right: none; }
 .cal-cell.off-month { background: #F9FAFB; }
 .cal-cell.off-month .date { color: #CCC; }
-.date { font-size: 12px; font-weight: 700; color: #1A1A1A; margin-bottom: 2px; }
+.date { font-size: 11px; font-weight: 700; color: #1A1A1A; }
 
-/* Activity bars inside cells */
-.bar-wrap { display: flex; flex-direction: column; gap: 2px; margin-top: 1px; }
-.bar {
-  display: inline-block; height: 10px; border-radius: 5px;
-  font-size: 6px; color: #fff; line-height: 10px;
-  padding: 0 4px; white-space: nowrap; overflow: hidden;
-  text-overflow: ellipsis; font-weight: 600;
-  margin-bottom: 1px; box-shadow: 0 1px 2px rgba(0,0,0,0.08);
-}
-.bar.R1 { background: linear-gradient(135deg, #6DC5E0, #4FB6D3); }
-.bar.R2 { background: linear-gradient(135deg, #F2A65A, #E88D3F); }
-.bar.R3 { background: linear-gradient(135deg, #B86A54, #A04E3A); }
-.bar.R4 { background: linear-gradient(135deg, #72B572, #5DA35D); }
-
-/* Span bars - use absolute positioning in the calendar body */
-.cal-body { position: relative; }
-
-/* Span bars as pseudo-overlay */
+/* ── Spanning bars (overlay) ── */
 .abs-bar {
-  position: absolute; height: 9px; border-radius: 5px;
-  font-size: 6px; color: #fff; line-height: 9px;
+  position: absolute; height: 8px; border-radius: 5px;
+  font-size: 5.5px; color: #fff; line-height: 8px;
   padding: 0 5px; white-space: nowrap; overflow: hidden;
-  text-overflow: ellipsis; font-weight: 600;
+  text-overflow: ellipsis; font-weight: 600; z-index: 2;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12);
-  z-index: 2; cursor: pointer;
-  transition: transform 0.15s, box-shadow 0.15s;
+  cursor: pointer;
 }
-.abs-bar:hover { transform: scaleY(1.8); box-shadow: 0 2px 8px rgba(0,0,0,0.2); z-index: 10; }
 .abs-bar.R1 { background: linear-gradient(135deg, #6DC5E0, #4FB6D3); }
 .abs-bar.R2 { background: linear-gradient(135deg, #F2A65A, #E88D3F); }
 .abs-bar.R3 { background: linear-gradient(135deg, #B86A54, #A04E3A); }
 .abs-bar.R4 { background: linear-gradient(135deg, #72B572, #5DA35D); }
 
 /* ── Right Panel ── */
-.right-panel { float: right; width: 270px; padding-left: 20px; }
-.region-box { margin-bottom: 16px; }
-.region-title { font-size: 13px; font-weight: 700; color: #1A1A1A; margin-bottom: 8px; }
-.region-item { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; font-size: 11px; color: #3F4750; }
-.region-dot { width: 14px; height: 14px; border-radius: 4px; flex-shrink: 0; }
+.right-panel { float: right; width: 280px; padding-left: 16px; }
+.region-box { margin-bottom: 12px; }
+.region-title { font-size: 12px; font-weight: 700; color: #1A1A1A; margin-bottom: 6px; }
+.region-item { display: flex; align-items: center; gap: 7px; margin-bottom: 3px; font-size: 10px; color: #3F4750; }
+.region-dot { width: 12px; height: 12px; border-radius: 3px; flex-shrink: 0; }
 .region-dot.R1 { background: #4FB6D3; }
 .region-dot.R2 { background: #E88D3F; }
 .region-dot.R3 { background: #A04E3A; }
 .region-dot.R4 { background: #5DA35D; }
 
 .activity-list { margin-top: 4px; }
-.activity-title { font-size: 12px; font-weight: 700; color: #1A1A1A; margin-bottom: 6px; }
+.activity-title { font-size: 11px; font-weight: 700; color: #1A1A1A; margin-bottom: 4px; }
 .activity-row {
-  display: flex; align-items: flex-start; gap: 6px;
-  font-size: 8.5px; color: #3F4750; margin-bottom: 3px;
-  line-height: 1.3;
+  display: flex; align-items: flex-start; gap: 5px;
+  font-size: 7.5px; color: #3F4750; margin-bottom: 2px;
+  line-height: 1.25;
 }
-.activity-dot { width: 8px; height: 8px; border-radius: 2px; margin-top: 3px; flex-shrink: 0; }
+.activity-dot { width: 7px; height: 7px; border-radius: 2px; margin-top: 2px; flex-shrink: 0; }
 .activity-dot.R1 { background: #4FB6D3; }
 .activity-dot.R2 { background: #E88D3F; }
 .activity-dot.R3 { background: #A04E3A; }
 .activity-dot.R4 { background: #5DA35D; }
 
 /* ── Footer ── */
-.footer { clear: both; padding-top: 16px; display: flex; align-items: center; justify-content: space-between; }
-.footer-brand { font-size: 15px; font-weight: 800; color: #1A1A1A; letter-spacing: 1px; }
-.footer-line { flex: 1; height: 3px; background: #C3002F; border-radius: 2px; margin-left: 16px; }
+.footer { clear: both; padding-top: 12px; display: flex; align-items: center; }
+.footer-brand { font-size: 13px; font-weight: 800; color: #1A1A1A; letter-spacing: 1px; }
+.footer-line { flex: 1; height: 3px; background: #C3002F; border-radius: 2px; margin-left: 14px; }
 
-/* Tooltip on hover */
-.abs-bar:hover::after {
-  content: attr(data-tooltip);
-  position: absolute; bottom: calc(100% + 4px); left: 50%;
-  transform: translateX(-50%);
-  background: #1A1A1A; color: #fff; font-size: 9px;
-  padding: 3px 8px; border-radius: 4px; white-space: nowrap;
-  z-index: 100; font-weight: 400;
-}
+/* ── Grid highlight lines (faint) ── */
+.cal-body-inner { position: relative; }
 </style>
 </head>
 <body>
@@ -138,8 +112,8 @@ body {
   <div class="cal-body" id="calBody"></div>
 </div>
 
-<!-- Right Panel -->
-<div class="right-panel">
+<!-- Right Panel (positioned to align with calendar top) -->
+<div class="right-panel" id="rightPanel">
   <div class="region-box">
     <div class="region-title">Region</div>
     <div class="region-item"><span class="region-dot R1"></span> R1: Central + BKK</div>
@@ -147,10 +121,7 @@ body {
     <div class="region-item"><span class="region-dot R3"></span> R3: Isan (Northeast)</div>
     <div class="region-item"><span class="region-dot R4"></span> R4: Southern</div>
   </div>
-  <div class="activity-list">
-    <div class="activity-title">Main activities</div>
-    <div id="activityList"></div>
-  </div>
+  <div class="activity-list" id="activityList"></div>
 </div>
 
 <!-- Footer -->
@@ -187,90 +158,152 @@ const ACT = [
 
 // ── Calendar grid ──
 const daysInMonth = 31;
-const firstDay = new Date(2026, 7, 1).getDay(); // 0=Sun, 1=Mon ... 6=Sat
-// Convert to Mon=0...Sun=6
+const firstDay = new Date(2026, 7, 1).getDay(); // 0=Sun...6=Sat
 let startCol = firstDay - 1;
 if (startCol < 0) startCol = 6;
 
 const body = document.getElementById('calBody');
-
-// Build weeks
 let dayNum = 1;
-let prevDay = new Date(2026, 6, 31).getDate(); // Jul 31
-let done = false;
+const prevDay = 31; // Jul 31
+
+// We need to track cell positions for absolute bar placement
+// Build cells first
+const cellData = []; // array of {element, week, col, day, month}
 
 for (let w = 0; w < 6; w++) {
   for (let d = 0; d < 7; d++) {
-    let displayDay, isAug;
+    let displayDay, isAug, month;
     if (w === 0 && d < startCol) {
-      // Previous month days
       displayDay = prevDay - startCol + d + 1;
-      isAug = false;
+      isAug = false; month = 'jul';
     } else if (dayNum <= daysInMonth) {
-      displayDay = dayNum++;
-      isAug = true;
+      displayDay = dayNum++; isAug = true; month = 'aug';
     } else {
-      displayDay = dayNum - daysInMonth;
-      isAug = false;
+      displayDay = dayNum - daysInMonth; isAug = false; month = 'sep';
       dayNum++;
     }
     
     const cell = document.createElement('div');
     cell.className = 'cal-cell' + (isAug ? '' : ' off-month');
-    cell.innerHTML = `<div class="date">${displayDay}</div><div class="bar-wrap"></div>`;
-    cell.dataset.isAug = isAug;
+    cell.innerHTML = `<div class="date">${displayDay}</div>`;
     cell.dataset.day = displayDay;
-    if (w === 0 && !isAug) cell.dataset.month = 'jul';
-    else if (isAug) cell.dataset.month = 'aug';
-    else cell.dataset.month = 'sep';
+    cell.dataset.month = month;
+    cell.dataset.week = w;
+    cell.dataset.col = d;
     body.appendChild(cell);
+    cellData.push({el: cell, week: w, col: d, day: displayDay, month: month});
   }
 }
 
-// ── Place activity bars ──
-const cells = body.querySelectorAll('.cal-cell');
+// ── Compute cell positions (after DOM render) ──
+function getCellRect(week, col) {
+  for (let c of cellData) {
+    if (c.week === week && c.col === col) {
+      const rect = c.el.getBoundingClientRect();
+      const calRect = body.getBoundingClientRect();
+      return {
+        left: rect.left - calRect.left,
+        top: rect.top - calRect.top,
+        width: rect.width,
+        height: rect.height,
+        el: c.el
+      };
+    }
+  }
+  return null;
+}
 
-ACT.forEach(act => {
-  // For cross-month: s=29, e=4 means 29 Jul - 4 Aug
-  // In calendar: cells with month=jul, day>=s OR month=aug, day<=e
-  const isCross = act.s > act.e;
-  
-  cells.forEach(cell => {
-    const cellDay = parseInt(cell.dataset.day);
-    const cellMonth = cell.dataset.month;
-    let match = false;
-    
-    if (!isCross) {
-      // Normal same-month activity
-      if (cellMonth === 'aug' && cellDay >= act.s && cellDay <= act.e) {
-        match = true;
-      }
-    } else {
-      // Cross-month (Jul→Aug)
-      if (cellMonth === 'jul' && cellDay >= act.s) match = true;
-      if (cellMonth === 'aug' && cellDay <= act.e) match = true;
-    }
-    
-    if (match) {
-      const wrap = cell.querySelector('.bar-wrap');
-      const bar = document.createElement('div');
-      bar.className = `bar ${act.r}`;
-      bar.textContent = act.v.length > 18 ? act.v.slice(0,16)+'…' : act.v;
-      bar.title = act.v + ' (' + (act.s > act.e ? act.s+' Jul - '+act.e+' Aug' : act.s+'-'+act.e+' Aug\'26') + ')';
-      wrap.appendChild(bar);
-    }
+// ── Place spanning bars ──
+function getBarOffsetY(week) {
+  // Count existing bars in this week
+  let count = 0;
+  document.querySelectorAll('.abs-bar').forEach(b => {
+    const top = parseFloat(b.style.top);
+    const weekTop = getCellRect(week, 0)?.top || 0;
+    if (top >= weekTop + 12 && top < weekTop + 100) count++;
   });
+  return count;
+}
+
+// Sort: longer duration first so they render behind
+const sortedAct = [...ACT].sort((a,b) => {
+  const durA = a.s > a.e ? (31 - a.s + a.e) : (a.e - a.s);
+  const durB = b.s > b.e ? (31 - b.s + b.e) : (b.e - b.s);
+  return durB - durA;
 });
 
-// ── Activity list (right panel) ──
-const list = document.getElementById('activityList');
-const sorted = [...ACT].sort((a,b) => a.s - b.s);
-sorted.forEach(act => {
-  const dateStr = act.s > act.e ? act.s+' Jul - '+act.e+' Aug\'26' : act.s+'-'+act.e+' Aug\'26';
-  const row = document.createElement('div');
-  row.className = 'activity-row';
-  row.innerHTML = `<span class="activity-dot ${act.r}"></span> ${dateStr}  ${act.v}`;
-  list.appendChild(row);
+// Wait for layout then place bars
+requestAnimationFrame(() => {
+  requestAnimationFrame(() => {
+    // Per-week stack counter
+    const weekStack = {0:0, 1:0, 2:0, 3:0, 4:0, 5:0};
+    
+    sortedAct.forEach(act => {
+      const isCross = act.s > act.e;
+      
+      // Find which week(s) this activity occupies and the columns
+      const weekSpans = {}; // week -> {startCol, endCol}
+      
+      cellData.forEach(c => {
+        let match = false;
+        if (!isCross) {
+          if (c.month === 'aug' && c.day >= act.s && c.day <= act.e) match = true;
+        } else {
+          if (c.month === 'jul' && c.day >= act.s) match = true;
+          if (c.month === 'aug' && c.day <= act.e) match = true;
+        }
+        if (match) {
+          if (!weekSpans[c.week]) weekSpans[c.week] = {minCol: c.col, maxCol: c.col};
+          else {
+            weekSpans[c.week].minCol = Math.min(weekSpans[c.week].minCol, c.col);
+            weekSpans[c.week].maxCol = Math.max(weekSpans[c.week].maxCol, c.col);
+          }
+        }
+      });
+      
+      Object.keys(weekSpans).forEach(wk => {
+        const wkNum = parseInt(wk);
+        const span = weekSpans[wk];
+        const firstCell = getCellRect(wkNum, span.minCol);
+        const lastCell = getCellRect(wkNum, span.maxCol);
+        
+        if (!firstCell || !lastCell) return;
+        
+        const stackIdx = weekStack[wkNum];
+        weekStack[wkNum]++;
+        
+        const bar = document.createElement('div');
+        bar.className = `abs-bar ${act.r}`;
+        
+        // Position
+        const barTop = firstCell.top + 16 + stackIdx * 10;
+        const barLeft = firstCell.left + 1;
+        const barWidth = (lastCell.left + lastCell.width) - firstCell.left - 2;
+        
+        bar.style.top = barTop + 'px';
+        bar.style.left = barLeft + 'px';
+        bar.style.width = barWidth + 'px';
+        
+        // Label
+        const dateStr = isCross ? act.s+' Jul - '+act.e+' Aug' : act.s+'-'+act.e+' Aug\'26';
+        bar.textContent = act.v;
+        bar.title = act.v + ' (' + dateStr + ')';
+        
+        body.appendChild(bar);
+      });
+    });
+    
+    // ── Activity list (right panel) ──
+    const list = document.getElementById('activityList');
+    const sorted = [...ACT].sort((a,b) => a.s - b.s);
+    sorted.forEach(act => {
+      const dateStr = act.s > act.e ? act.s+' Jul - '+act.e+' Aug\'26' : act.s+'-'+act.e+' Aug\'26';
+      const row = document.createElement('div');
+      row.className = 'activity-row';
+      row.innerHTML = `<span class="activity-dot ${act.r}"></span> ${dateStr}  ${act.v}`;
+      list.appendChild(row);
+    });
+  });
 });
 </script>
 
