@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=1280">
-<title>Main Activities Calendar – Aug'26</title>
+<title>Main Activities (Department Store) Calendar – Aug'26</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -52,6 +52,9 @@ body {
   box-shadow: 0 1px 3px rgba(0,0,0,0.12);
   cursor: pointer;
 }
+.abs-bar.cont-l  { border-radius: 5px 0 0 5px; }  /* flat right — continues to next week */
+.abs-bar.cont-r  { border-radius: 0 5px 5px 0; }  /* flat left — continues from previous week */
+.abs-bar.cont-lr { border-radius: 0; }            /* flat both */
 .abs-bar.R1 { background: linear-gradient(135deg, #6DC5E0, #4FB6D3); }
 .abs-bar.R2 { background: linear-gradient(135deg, #F2A65A, #E88D3F); }
 .abs-bar.R3 { background: linear-gradient(135deg, #B86A54, #A04E3A); }
@@ -84,7 +87,7 @@ body {
 </head>
 <body>
 <div class="slide">
-<div class="title">Main Activities Calendar – Aug'26</div>
+<div class="title">Main Activities (Department Store) Calendar – Aug'26</div>
 <div class="cal" id="cal">
   <div class="cal-header">
     <div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div><div>Sun</div>
@@ -129,7 +132,7 @@ const ACT = [
   {s:21,e:23, v:"Robinson Surin", r:"R3"},
   {s:22,e:31, v:"Robinson Phetchaburi", r:"R1"},
   {s:25,e:31, v:"Central Ubon Ratchathani", r:"R3"},
-  {s:29,e:4,  v:"Robinson Saraburi", r:"R1"},
+  {s:29,e:4,  v:"Robinson Saraburi (29 Jul - 4 Aug)", r:"R1"},
 ];
 
 const daysInMonth = 31;
@@ -222,15 +225,27 @@ function placeBars() {
       var calRect = body.getBoundingClientRect();
       var stackIdx = weekStack[wk];
       weekStack[wk] = stackIdx + 1;
+      
+      // Detect continuation across weeks
+      var hasPrev = wk > 0 && weekSpans[wk - 1] !== undefined;
+      var hasNext = weekSpans[wk + 1] !== undefined;
+      var contClass = '';
+      if (hasPrev && hasNext) contClass = 'cont-lr';
+      else if (hasPrev) contClass = 'cont-r';
+      else if (hasNext) contClass = 'cont-l';
+      
       var barTop = (firstCell.top - calRect.top) + 22 + stackIdx * 10;
       var barLeft = (firstCell.left - calRect.left) + 1;
       var barWidth = (lastCell.left + lastCell.width - calRect.left) - (firstCell.left - calRect.left) - 2;
       var bar = document.createElement('div');
-      bar.className = 'abs-bar ' + act.r;
+      bar.className = 'abs-bar ' + act.r + (contClass ? ' ' + contClass : '');
       bar.style.top = barTop + 'px';
       bar.style.left = barLeft + 'px';
       bar.style.width = barWidth + 'px';
-      bar.textContent = act.v;
+      // Add continuation arrows
+      var arrowL = hasPrev ? '\u203A ' : '';
+      var arrowR = hasNext ? ' \u203A' : '';
+      bar.textContent = arrowL + act.v + arrowR;
       var dateStr = isCross ? act.s + ' Jul - ' + act.e + " Aug'26" : act.s + '-' + act.e + " Aug'26";
       bar.title = act.v + ' (' + dateStr + ')';
       body.appendChild(bar);
