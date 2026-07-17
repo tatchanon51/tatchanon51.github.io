@@ -43,7 +43,7 @@ body {
 .cal-cell:nth-child(7n) { border-right: none; }
 .cal-cell.off-month { background: #F9FAFB; }
 .cal-cell.off-month .date { color: #CCC; }
-.date { font-size: 11px; font-weight: 700; color: #1A1A1A; }
+.date { font-size: 11px; font-weight: 700; color: #1A1A1A; background: #fff; display: inline-block; padding: 0 3px 2px 0; position: relative; z-index: 3; }
 .abs-bar {
   position: absolute; height: 8px; border-radius: 5px;
   font-size: 5.5px; color: #fff; line-height: 8px;
@@ -212,7 +212,7 @@ function placeBars() {
       var calRect = body.getBoundingClientRect();
       var stackIdx = weekStack[wk];
       weekStack[wk] = stackIdx + 1;
-      var barTop = (firstCell.top - calRect.top) + 16 + stackIdx * 10;
+      var barTop = (firstCell.top - calRect.top) + 22 + stackIdx * 10;
       var barLeft = (firstCell.left - calRect.left) + 1;
       var barWidth = (lastCell.left + lastCell.width - calRect.left) - (firstCell.left - calRect.left) - 2;
       var bar = document.createElement('div');
