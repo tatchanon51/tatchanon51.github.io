@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1280">
+<title>Main Activities Calendar – Aug'26 — All Views</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: #F0F3F7;
+  display: flex; justify-content: center; align-items: flex-start;
+  min-height: 100vh; padding: 24px;
+  font-family: 'Inter', -apple-system, sans-serif;
+  color: #1A1A1A;
+}
+.container { max-width: 1100px; width: 100%; }
+
+/* ── Page Header ── */
+.page-header {
+  text-align: center; margin-bottom: 32px;
+  padding: 32px 40px 24px;
+  background: linear-gradient(135deg, #C3002F 0%, #8B0020 100%);
+  border-radius: 14px; color: white;
+}
+.page-header h1 { font-size: 24px; font-weight: 800; margin-bottom: 4px; letter-spacing: -0.02em; }
+.page-header p { font-size: 13px; opacity: 0.85; }
+.page-header .date-badge {
+  display: inline-block; background: rgba(255,255,255,0.15);
+  padding: 3px 14px; border-radius: 20px; font-size: 11px; margin-top: 6px;
+}
+
+/* ── Section Title ── */
+.section { margin-bottom: 36px; background: #fff; border-radius: 14px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); overflow: hidden; }
+.section-header {
+  display: flex; align-items: center; gap: 10px;
+  padding: 16px 24px; border-bottom: 1px solid #E8EAEE;
+}
+.section-header .num {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: #C3002F; color: #fff; font-size: 13px;
+  font-weight: 700; display: flex; align-items: center; justify-content: center;
+}
+.section-header h2 { font-size: 16px; font-weight: 700; }
+.section-header .tag {
+  margin-left: auto; font-size: 10px; color: #94A0B3;
+  background: #F0F3F7; padding: 2px 10px; border-radius: 12px;
+}
+.section-body { padding: 20px 24px; }
+
+/* ════════════════════════════════════════ */
+/* SECTION A: CARD TIMELINE                */
+/* ════════════════════════════════════════ */
+.timeline { position: relative; }
+.timeline::before {
+  content: ''; position: absolute; left: 38px; top: 0; bottom: 0;
+  width: 2px; background: #DCDFE4; border-radius: 1px;
+}
+.week-block { position: relative; padding-left: 60px; margin-bottom: 20px; }
+.week-dot {
+  position: absolute; left: 29px; top: 4px;
+  width: 18px; height: 18px; border-radius: 50%;
+  background: #C3002F; border: 3px solid #FAFAFA;
+  box-shadow: 0 0 0 2px #C3002F;
+}
+.week-label {
+  font-size: 13px; font-weight: 700; color: #C3002F;
+  margin-bottom: 8px; letter-spacing: -0.01em;
+}
+.week-range { font-size: 11px; font-weight: 400; color: #6B7785; margin-left: 6px; }
+
+.week-cards { display: flex; flex-direction: column; gap: 4px; }
+.act-card {
+  display: flex; align-items: center; gap: 10px;
+  padding: 7px 12px; border-radius: 8px;
+  border-left: 4px solid; font-size: 12px;
+  background: #FAFBFC;
+}
+.act-card.R1 { border-left-color: #4FB6D3; }
+.act-card.R2 { border-left-color: #E88D3F; }
+.act-card.R3 { border-left-color: #A04E3A; }
+.act-card.R4 { border-left-color: #5DA35D; }
+.act-card .card-region {
+  font-size: 9px; font-weight: 700; padding: 1px 8px;
+  border-radius: 10px; color: #fff; flex-shrink: 0;
+}
+.card-region.R1 { background: #4FB6D3; }
+.card-region.R2 { background: #E88D3F; }
+.card-region.R3 { background: #A04E3A; }
+.card-region.R4 { background: #5DA35D; }
+.act-card .card-date { font-size: 10px; color: #6B7785; flex-shrink: 0; width: 130px; }
+.act-card .card-venue { flex: 1; font-weight: 500; }
+.act-card .card-dur {
+  font-size: 10px; color: #94A0B3; flex-shrink: 0;
+  background: #F0F3F7; padding: 1px 8px; border-radius: 8px;
+}
+
+/* ════════════════════════════════════════ */
+/* SECTION B: MAP VIEW                      */
+/* ════════════════════════════════════════ */
+.map-container { position: relative; }
+.map-row {
+  display: flex; gap: 24px; align-items: stretch;
+  margin-bottom: 16px;
+}
+.map-thailand {
+  flex: 0 0 400px; position: relative;
+  background: #F9FAFB; border-radius: 12px;
+  border: 1px solid #E8EAEE; padding: 24px;
+  min-height: 480px;
+}
+.map-title { font-size: 13px; font-weight: 700; margin-bottom: 16px; color: #3F4750; }
+
+/* Thailand regions simplified */
+.region-block {
+  padding: 14px 16px; border-radius: 10px; margin-bottom: 8px;
+  position: relative; overflow: hidden;
+}
+.region-block::before {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+}
+.region-block.r1 { background: #E8F6FB; }
+.region-block.r1::before { background: #4FB6D3; }
+.region-block.r2 { background: #FEF2E6; }
+.region-block.r2::before { background: #E88D3F; }
+.region-block.r3 { background: #F5EDEA; }
+.region-block.r3::before { background: #A04E3A; }
+.region-block.r4 { background: #EDF5ED; }
+.region-block.r4::before { background: #5DA35D; }
+
+.region-block .rb-name { font-size: 14px; font-weight: 700; }
+.region-block .rb-count { font-size: 11px; color: #6B7785; margin-top: 2px; }
+.region-block .rb-dot {
+  display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px;
+}
+
+.match-list { flex: 1; }
+.match-group { margin-bottom: 14px; }
+.match-group-title {
+  font-size: 11px; font-weight: 700; color: #6B7785;
+  text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px;
+}
+.match-item {
+  display: flex; align-items: center; gap: 8px;
+  padding: 5px 10px; border-radius: 6px; font-size: 11px;
+  margin-bottom: 3px; background: #FAFBFC;
+}
+.match-dot { width: 8px; height: 8px; border-radius: 2px; flex-shrink: 0; }
+.match-date { color: #6B7785; width: 120px; flex-shrink: 0; font-size: 10px; }
+
+/* ════════════════════════════════════════ */
+/* SECTION C: DASHBOARD                     */
+/* ════════════════════════════════════════ */
+.dashboard-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+  margin-bottom: 20px;
+}
+.stat-card {
+  text-align: center; padding: 16px 8px;
+  border-radius: 10px; border: 1px solid #E8EAEE;
+}
+.stat-card .stat-num { font-size: 28px; font-weight: 800; }
+.stat-card .stat-label { font-size: 11px; color: #6B7785; margin-top: 2px; }
+.stat-card.s1 .stat-num { color: #4FB6D3; }
+.stat-card.s2 .stat-num { color: #E88D3F; }
+.stat-card.s3 .stat-num { color: #A04E3A; }
+.stat-card.s4 .stat-num { color: #5DA35D; }
+
+.dashboard-table-wrap { overflow-x: auto; }
+.dashboard-table {
+  width: 100%; border-collapse: collapse; font-size: 11px;
+}
+.dashboard-table th {
+  text-align: left; padding: 8px 10px;
+  background: #F5F7FA; font-weight: 600; color: #3F4750;
+  border-bottom: 2px solid #DCDFE4; font-size: 10px;
+  text-transform: uppercase; letter-spacing: 0.03em;
+}
+.dashboard-table td {
+  padding: 7px 10px; border-bottom: 1px solid #E8EAEE;
+}
+.dashboard-table tr:last-child td { border-bottom: none; }
+.dashboard-table .tag-region {
+  font-size: 9px; font-weight: 600; padding: 2px 10px;
+  border-radius: 10px; color: #fff; display: inline-block;
+}
+.tag-region.R1 { background: #4FB6D3; }
+.tag-region.R2 { background: #E88D3F; }
+.tag-region.R3 { background: #A04E3A; }
+.tag-region.R4 { background: #5DA35D; }
+.dashboard-table .bar-cell { position: relative; }
+.dashboard-table .dur-bar {
+  height: 6px; border-radius: 3px; display: inline-block;
+  vertical-align: middle; position: relative; min-width: 4px;
+}
+.dur-bar.R1 { background: #4FB6D3; }
+.dur-bar.R2 { background: #E88D3F; }
+.dur-bar.R3 { background: #A04E3A; }
+.dur-bar.R4 { background: #5DA35D; }
+.dur-bar .bar-label {
+  position: absolute; left: 100%; margin-left: 6px;
+  white-space: nowrap; font-size: 9px; color: #6B7785;
+}
+
+/* ── Footer ── */
+.page-footer {
+  text-align: center; padding: 20px; font-size: 11px;
+  color: #94A0B3; border-top: 1px solid #E8EAEE; margin-top: 12px;
+}
+.page-footer strong { color: #3F4750; }
+
+/* ════════════════════════════════════════ */
+/* PRINT                                   */
+/* ════════════════════════════════════════ */
+@media print {
+  body { background: #fff; padding: 0; }
+  .page-header { border-radius: 0; }
+  .section { box-shadow: none; border: 1px solid #DCDFE4; page-break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- ═══════════════════ COVER ═══════════════════ -->
+<div class="page-header">
+  <h1>Main Activities (Department Store) Calendar – Aug'26</h1>
+  <p>Nissan Motor (Thailand) · Department Store Activities Overview</p>
+  <div class="date-badge">19 activities · 4 regions · August 2026</div>
+</div>
+
+<!-- ═══════════════════ SECTION A: CARD TIMELINE ═══════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <span class="num">A</span>
+    <h2>Card Timeline</h2>
+    <span class="tag">Print-friendly · Chronological</span>
+  </div>
+  <div class="section-body">
+    <div class="timeline">
+
+      <!-- Week 1: 29 Jul – 2 Aug -->
+      <div class="week-block">
+        <div class="week-dot"></div>
+        <div class="week-label">Week 1 <span class="week-range">Jul 29 – Aug 2</span></div>
+        <div class="week-cards">
+          <div class="act-card R1"><span class="card-region R1">R1</span><span class="card-date">1–31 Aug'26</span><span class="card-venue">Robinson Srisaman</span><span class="card-dur">31 days</span></div>
+          <div class="act-card R1"><span class="card-region R1">R1</span><span class="card-date">1–7 Aug'26</span><span class="card-venue">Central Chonburi</span><span class="card-dur">7 days</span></div>
+          <div class="act-card R3"><span class="card-region R3">R3</span><span class="card-date">1–7 Aug'26</span><span class="card-venue">Central Korat</span><span class="card-dur">7 days</span></div>
+          <div class="act-card R1"><span class="card-region R1">R1</span><span class="card-date">29 Jul – 4 Aug'26</span><span class="card-venue">Robinson Saraburi</span><span class="card-dur">7 days</span></div>
+        </div>
+      </div>
+
+      <!-- Week 2: 3–9 Aug -->
+      <div class="week-block">
+        <div class="week-dot"></div>
+        <div class="week-label">Week 2 <span class="week-range">Aug 3–9</span></div>
+        <div class="week-cards">
+          <div class="act-card R1"><span class="card-region R1">R1</span><span class="card-date">3–9 Aug'26</span><span class="card-venue">Central Westville</span><span class="card-dur">7 days</span></div>
+          <div class="act-card R2"><span class="card-region R2">R2</span><span class="card-date">6–12 Aug'26</span><span class="card-venue">Robinson Maesod, Tak</span><span class="card-dur">7 days</span></div>
+          <div class="act-card R3"><span class="card-region R3">R3</span><span class="card-date">7–13 Aug'26</span><span class="card-venue">Nissan Motor Show — Central Khonkaen Campus</span><span class="card-dur">7 days</span></div>
+          <div class="act-card R4"><span class="card-region R4">R4</span><span class="card-date">8–14 Aug'26</span><span class="card-venue">Central Nakhon Si Thammarat</span><span class="card-dur">7 days</span></div>
+          <div class="act-card R3"><span class="card-region R3">R3</span><span class="card-date">8–16 Aug'26</span><span class="card-venue">Korat Big Motorsale &amp; EV Show 2026</span><span class="card-dur">9 days</span></div>
+          <div class="act-card R1"><span class="card-region R1">R1</span><span class="card-date">8–17 Aug'26</span><span class="card-venue">ROBINSON Prachinburi</span><span class="card-dur">10 days</span></div>
+        </div>
+      </div>
+
+      <!-- Week 3: 10–16 Aug -->
+      <div class="week-block">
+        <div class="week-dot"></div>
+        <div class="week-label">Week 3 <span class="week-range">Aug 10–16</span></div>
+        <div class="week-cards">
+          <div class="act-card R1"><span class="card-region R1">R1</span><span class="card-date">15–31 Aug'26</span><span class="card-venue">Central Nakhonpathom</span><span class="card-dur">17 days</span></div>
+          <div class="act-card R1"><span class="card-region R1">R1</span><span class="card-date">15–31 Aug'26</span><span class="card-venue">Robinson Kanchanaburi</span><span class="card-dur">17 days</span></div>
+        </div>
+      </div>
+
+      <!-- Week 4: 17–23 Aug -->
+      <div class="week-block">
+        <div class="week-dot"></div>
+        <div class="week-label">Week 4 <span class="week-range">Aug 17–23</span></div>
+        <div class="week-cards">
+          <div class="act-card R1"><span class="card-region R1">R1</span><span class="card-date">17–23 Aug'26</span><span class="card-venue">Seacon Square Bangkhae</span><span class="card-dur">7 days</span></div>
+          <div class="act-card R1"><span class="card-region R1">R1</span><span class="card-date">17–23 Aug'26</span><span class="card-venue">Central Pinklao</span><span class="card-dur">7 days</span></div>
+          <div class="act-card R2"><span class="card-region R2">R2</span><span class="card-date">18–24 Aug'26</span><span class="card-venue">Central Festival Chiangmai</span><span class="card-dur">7 days</span></div>
+          <div class="act-card R3"><span class="card-region R3">R3</span><span class="card-date">21–23 Aug'26</span><span class="card-venue">Robinson Buriram</span><span class="card-dur">3 days</span></div>
+          <div class="act-card R3"><span class="card-region R3">R3</span><span class="card-date">21–23 Aug'26</span><span class="card-venue">Robinson Surin</span><span class="card-dur">3 days</span></div>
+          <div class="act-card R1"><span class="card-region R1">R1</span><span class="card-date">22–31 Aug'26</span><span class="card-venue">Robinson Phetchaburi</span><span class="card-dur">10 days</span></div>
+        </div>
+      </div>
+
+      <!-- Week 5: 24–31 Aug -->
+      <div class="week-block">
+        <div class="week-dot"></div>
+        <div class="week-label">Week 5 <span class="week-range">Aug 24–31</span></div>
+        <div class="week-cards">
+          <div class="act-card R3"><span class="card-region R3">R3</span><span class="card-date">25–31 Aug'26</span><span class="card-venue">Central Ubon Ratchathani</span><span class="card-dur">7 days</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ SECTION B: MAP VIEW ═══════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <span class="num">B</span>
+    <h2>Region Map View</h2>
+    <span class="tag">Geographic · Coverage overview</span>
+  </div>
+  <div class="section-body">
+    <div class="map-container">
+      <div class="map-row">
+
+        <!-- Thailand regions simplified -->
+        <div class="map-thailand">
+          <div class="map-title">📍 Thailand Coverage</div>
+
+          <div class="region-block r1">
+            <div class="rb-name"><span class="rb-dot" style="background:#4FB6D3"></span>R1: Central + BKK</div>
+            <div class="rb-count">9 locations · 124 total days coverage</div>
+            <div style="font-size:10px;color:#6B7785;margin-top:6px">
+              Chonburi · Westville · Srisaman · Saraburi · Prachinburi ·<br>
+              Nakhonpathom · Kanchanaburi · Bangkhae · Pinklao · Phetchaburi
+            </div>
+          </div>
+
+          <div class="region-block r2">
+            <div class="rb-name"><span class="rb-dot" style="background:#E88D3F"></span>R2: Northern</div>
+            <div class="rb-count">2 locations · 14 total days coverage</div>
+            <div style="font-size:10px;color:#6B7785;margin-top:6px">
+              Maesod · Chiangmai
+            </div>
+          </div>
+
+          <div class="region-block r3">
+            <div class="rb-name"><span class="rb-dot" style="background:#A04E3A"></span>R3: Isan (Northeast)</div>
+            <div class="rb-count">5 locations · 33 total days coverage</div>
+            <div style="font-size:10px;color:#6B7785;margin-top:6px">
+              Korat (x2) · Khonkaen · Buriram · Surin · Ubon
+            </div>
+          </div>
+
+          <div class="region-block r4">
+            <div class="rb-name"><span class="rb-dot" style="background:#5DA35D"></span>R4: Southern</div>
+            <div class="rb-count">1 location · 7 total days coverage</div>
+            <div style="font-size:10px;color:#6B7785;margin-top:6px">
+              Nakhon Si Thammarat
+            </div>
+          </div>
+
+          <div style="margin-top:12px;padding:8px 12px;background:#FAFAFA;border-radius:8px;font-size:10px;color:#6B7785">
+            <strong style="color:#1A1A1A">Total:</strong> 19 activities across 17 locations · 178 activity-days
+          </div>
+        </div>
+
+        <!-- Location list by region -->
+        <div class="match-list">
+          <div class="match-group">
+            <div class="match-group-title">🔵 R1: Central + BKK</div>
+            <div class="match-item"><span class="match-dot" style="background:#4FB6D3"></span><span class="match-date">1–31 Aug</span>Robinson Srisaman</div>
+            <div class="match-item"><span class="match-dot" style="background:#4FB6D3"></span><span class="match-date">1–7 Aug</span>Central Chonburi</div>
+            <div class="match-item"><span class="match-dot" style="background:#4FB6D3"></span><span class="match-date">3–9 Aug</span>Central Westville</div>
+            <div class="match-item"><span class="match-dot" style="background:#4FB6D3"></span><span class="match-date">29 Jul – 4 Aug</span>Robinson Saraburi</div>
+            <div class="match-item"><span class="match-dot" style="background:#4FB6D3"></span><span class="match-date">8–17 Aug</span>ROBINSON Prachinburi</div>
+            <div class="match-item"><span class="match-dot" style="background:#4FB6D3"></span><span class="match-date">15–31 Aug</span>Central Nakhonpathom</div>
+            <div class="match-item"><span class="match-dot" style="background:#4FB6D3"></span><span class="match-date">15–31 Aug</span>Robinson Kanchanaburi</div>
+            <div class="match-item"><span class="match-dot" style="background:#4FB6D3"></span><span class="match-date">17–23 Aug</span>Seacon Square Bangkhae</div>
+            <div class="match-item"><span class="match-dot" style="background:#4FB6D3"></span><span class="match-date">17–23 Aug</span>Central Pinklao</div>
+            <div class="match-item"><span class="match-dot" style="background:#4FB6D3"></span><span class="match-date">22–31 Aug</span>Robinson Phetchaburi</div>
+          </div>
+          <div class="match-group">
+            <div class="match-group-title">🟠 R2: Northern</div>
+            <div class="match-item"><span class="match-dot" style="background:#E88D3F"></span><span class="match-date">6–12 Aug</span>Robinson Maesod, Tak</div>
+            <div class="match-item"><span class="match-dot" style="background:#E88D3F"></span><span class="match-date">18–24 Aug</span>Central Festival Chiangmai</div>
+          </div>
+          <div class="match-group">
+            <div class="match-group-title">🟤 R3: Isan (Northeast)</div>
+            <div class="match-item"><span class="match-dot" style="background:#A04E3A"></span><span class="match-date">1–7 Aug</span>Central Korat</div>
+            <div class="match-item"><span class="match-dot" style="background:#A04E3A"></span><span class="match-date">7–13 Aug</span>Nissan Motor Show — Central Khonkaen Campus</div>
+            <div class="match-item"><span class="match-dot" style="background:#A04E3A"></span><span class="match-date">8–16 Aug</span>Korat Big Motorsale &amp; EV Show 2026</div>
+            <div class="match-item"><span class="match-dot" style="background:#A04E3A"></span><span class="match-date">21–23 Aug</span>Robinson Buriram</div>
+            <div class="match-item"><span class="match-dot" style="background:#A04E3A"></span><span class="match-date">21–23 Aug</span>Robinson Surin</div>
+            <div class="match-item"><span class="match-dot" style="background:#A04E3A"></span><span class="match-date">25–31 Aug</span>Central Ubon Ratchathani</div>
+          </div>
+          <div class="match-group">
+            <div class="match-group-title">🟢 R4: Southern</div>
+            <div class="match-item"><span class="match-dot" style="background:#5DA35D"></span><span class="match-date">8–14 Aug</span>Central Nakhon Si Thammarat</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ SECTION C: DASHBOARD ═══════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <span class="num">C</span>
+    <h2>Dashboard Summary</h2>
+    <span class="tag">Statistics · Table view</span>
+  </div>
+  <div class="section-body">
+
+    <!-- Stats Cards -->
+    <div class="dashboard-grid">
+      <div class="stat-card s1">
+        <div class="stat-num">10</div>
+        <div class="stat-label">R1: Central + BKK</div>
+      </div>
+      <div class="stat-card s2">
+        <div class="stat-num">2</div>
+        <div class="stat-label">R2: Northern</div>
+      </div>
+      <div class="stat-card s3">
+        <div class="stat-num">6</div>
+        <div class="stat-label">R3: Isan (Northeast)</div>
+      </div>
+      <div class="stat-card s4">
+        <div class="stat-num">1</div>
+        <div class="stat-label">R4: Southern</div>
+      </div>
+    </div>
+
+    <!-- Table -->
+    <div class="dashboard-table-wrap">
+      <table class="dashboard-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Region</th>
+            <th>Venue</th>
+            <th>Start</th>
+            <th>End</th>
+            <th>Duration</th>
+            <th>Gantt</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td><span class="tag-region R1">R1</span></td><td>Robinson Srisaman</td><td>1 Aug</td><td>31 Aug</td><td>31</td><td class="bar-cell"><span class="dur-bar R1" style="width:310px"><span class="bar-label">31 days</span></span></td></tr>
+          <tr><td>2</td><td><span class="tag-region R1">R1</span></td><td>Central Chonburi</td><td>1 Aug</td><td>7 Aug</td><td>7</td><td class="bar-cell"><span class="dur-bar R1" style="width:70px"><span class="bar-label">7 days</span></span></td></tr>
+          <tr><td>3</td><td><span class="tag-region R3">R3</span></td><td>Central Korat</td><td>1 Aug</td><td>7 Aug</td><td>7</td><td class="bar-cell"><span class="dur-bar R3" style="width:70px"><span class="bar-label">7 days</span></span></td></tr>
+          <tr><td>4</td><td><span class="tag-region R1">R1</span></td><td>Central Westville</td><td>3 Aug</td><td>9 Aug</td><td>7</td><td class="bar-cell"><span class="dur-bar R1" style="width:70px"><span class="bar-label">7 days</span></span></td></tr>
+          <tr><td>5</td><td><span class="tag-region R2">R2</span></td><td>Robinson Maesod, Tak</td><td>6 Aug</td><td>12 Aug</td><td>7</td><td class="bar-cell"><span class="dur-bar R2" style="width:70px"><span class="bar-label">7 days</span></span></td></tr>
+          <tr><td>6</td><td><span class="tag-region R3">R3</span></td><td>Nissan Motor Show — Central Khonkaen Campus</td><td>7 Aug</td><td>13 Aug</td><td>7</td><td class="bar-cell"><span class="dur-bar R3" style="width:70px"><span class="bar-label">7 days</span></span></td></tr>
+          <tr><td>7</td><td><span class="tag-region R4">R4</span></td><td>Central Nakhon Si Thammarat</td><td>8 Aug</td><td>14 Aug</td><td>7</td><td class="bar-cell"><span class="dur-bar R4" style="width:70px"><span class="bar-label">7 days</span></span></td></tr>
+          <tr><td>8</td><td><span class="tag-region R3">R3</span></td><td>Korat Big Motorsale &amp; EV Show 2026</td><td>8 Aug</td><td>16 Aug</td><td>9</td><td class="bar-cell"><span class="dur-bar R3" style="width:90px"><span class="bar-label">9 days</span></span></td></tr>
+          <tr><td>9</td><td><span class="tag-region R1">R1</span></td><td>ROBINSON Prachinburi</td><td>8 Aug</td><td>17 Aug</td><td>10</td><td class="bar-cell"><span class="dur-bar R1" style="width:100px"><span class="bar-label">10 days</span></span></td></tr>
+          <tr><td>10</td><td><span class="tag-region R1">R1</span></td><td>Central Nakhonpathom</td><td>15 Aug</td><td>31 Aug</td><td>17</td><td class="bar-cell"><span class="dur-bar R1" style="width:170px"><span class="bar-label">17 days</span></span></td></tr>
+          <tr><td>11</td><td><span class="tag-region R1">R1</span></td><td>Robinson Kanchanaburi</td><td>15 Aug</td><td>31 Aug</td><td>17</td><td class="bar-cell"><span class="dur-bar R1" style="width:170px"><span class="bar-label">17 days</span></span></td></tr>
+          <tr><td>12</td><td><span class="tag-region R1">R1</span></td><td>Seacon Square Bangkhae</td><td>17 Aug</td><td>23 Aug</td><td>7</td><td class="bar-cell"><span class="dur-bar R1" style="width:70px"><span class="bar-label">7 days</span></span></td></tr>
+          <tr><td>13</td><td><span class="tag-region R1">R1</span></td><td>Central Pinklao</td><td>17 Aug</td><td>23 Aug</td><td>7</td><td class="bar-cell"><span class="dur-bar R1" style="width:70px"><span class="bar-label">7 days</span></span></td></tr>
+          <tr><td>14</td><td><span class="tag-region R2">R2</span></td><td>Central Festival Chiangmai</td><td>18 Aug</td><td>24 Aug</td><td>7</td><td class="bar-cell"><span class="dur-bar R2" style="width:70px"><span class="bar-label">7 days</span></span></td></tr>
+          <tr><td>15</td><td><span class="tag-region R3">R3</span></td><td>Robinson Buriram</td><td>21 Aug</td><td>23 Aug</td><td>3</td><td class="bar-cell"><span class="dur-bar R3" style="width:30px"><span class="bar-label">3 days</span></span></td></tr>
+          <tr><td>16</td><td><span class="tag-region R3">R3</span></td><td>Robinson Surin</td><td>21 Aug</td><td>23 Aug</td><td>3</td><td class="bar-cell"><span class="dur-bar R3" style="width:30px"><span class="bar-label">3 days</span></span></td></tr>
+          <tr><td>17</td><td><span class="tag-region R1">R1</span></td><td>Robinson Phetchaburi</td><td>22 Aug</td><td>31 Aug</td><td>10</td><td class="bar-cell"><span class="dur-bar R1" style="width:100px"><span class="bar-label">10 days</span></span></td></tr>
+          <tr><td>18</td><td><span class="tag-region R3">R3</span></td><td>Central Ubon Ratchathani</td><td>25 Aug</td><td>31 Aug</td><td>7</td><td class="bar-cell"><span class="dur-bar R3" style="width:70px"><span class="bar-label">7 days</span></span></td></tr>
+          <tr><td>19</td><td><span class="tag-region R1">R1</span></td><td>Robinson Saraburi</td><td>29 Jul</td><td>4 Aug</td><td>7</td><td class="bar-cell"><span class="dur-bar R1" style="width:70px"><span class="bar-label">7 days</span></span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<div class="page-footer">
+  👤 สร้างโดย: Tatchanon Wissawakornrungrot, Regional Marketing Manager at Nissan Motor (Thailand) · August 2026
+</div>
+
+</div>
+</body>
+</html>
