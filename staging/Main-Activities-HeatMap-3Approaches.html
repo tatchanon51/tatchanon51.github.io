@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1280">
+<title>Heat Map Calendar – Aug'26 — 3 Approaches</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: #F0F3F7;
+  display: flex; flex-direction: column; align-items: center;
+  padding: 20px; font-family: 'Inter', sans-serif;
+  color: #1A1A1A; gap: 20px;
+}
+.page {
+  width: 1280px; height: 720px; background: #fff;
+  border-radius: 14px; box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  padding: 20px 24px 14px; position: relative;
+  overflow: hidden; flex-shrink: 0;
+}
+.page-title { font-size: 17px; font-weight: 700; margin-bottom: 10px; }
+.page-sub { font-size: 10px; color: #94A0B3; font-weight: 500; }
+
+/* ── Calendar Grid ── */
+.cal { border: 2px solid #C3002F; border-radius: 8px; overflow: hidden; display: inline-block; width: 880px; }
+.cal-hdr { display: grid; grid-template-columns: repeat(7, 1fr); }
+.cal-hdr div {
+  background: #FAFAFA; padding: 5px 0; text-align: center;
+  font-size: 10px; font-weight: 600; color: #3F4750;
+  border-bottom: 1.5px solid #AAAFB8; border-right: 1px solid #E8EAEE;
+}
+.cal-hdr div:last-child { border-right: none; }
+.cal-body { display: grid; grid-template-columns: repeat(7, 1fr); }
+.cell {
+  min-height: 78px; border-right: 1px solid #E8EAEE;
+  border-bottom: 1px solid #E8EAEE; padding: 3px 4px 0;
+  position: relative; font-size: 10px;
+}
+.cell:nth-child(7n) { border-right: none; }
+.cell.off { background: #FAFBFC; }
+.cell.off .date { color: #CCC; }
+.date { font-weight: 700; font-size: 10px; position: relative; z-index: 2; }
+.cell.off .date { color: #CCC; }
+
+/* ── Right side ── */
+.right { float: right; width: 340px; padding-left: 14px; }
+.legend-box { margin-bottom: 10px; }
+.legend-title { font-size: 10px; font-weight: 700; color: #3F4750; margin-bottom: 5px; }
+.legend-row { display: flex; align-items: center; gap: 5px; font-size: 9px; color: #3F4750; margin-bottom: 2px; }
+.swatch { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+.swatch-sm { width: 7px; height: 7px; border-radius: 2px; flex-shrink: 0; }
+.footer-text { font-size: 8px; color: #94A0B3; margin-top: 6px; }
+
+/* ════════════════════════════════════════ */
+/* APPROACH 1: Intensity Heat Map          */
+/* ════════════════════════════════════════ */
+.cell.intensity {
+  transition: none;
+}
+.int-0 { background: #FFFFFF; }
+.int-1 { background: #FFF0F0; }
+.int-2 { background: #FFD0D0; }
+.int-3 { background: #FFA0A0; }
+.int-4 { background: #FF7070; }
+.int-5 { background: #FF4040; }
+.int-6 { background: #E03030; }
+.int-7 { background: #C02020; }
+.int-num {
+  font-size: 14px; font-weight: 800; text-align: center;
+  display: block; margin-top: 10px;
+}
+.int-label { font-size: 8px; color: #6B7785; text-align: center; display: block; }
+
+/* ════════════════════════════════════════ */
+/* APPROACH 2: Region Color Heat           */
+/* ════════════════════════════════════════ */
+.rheat-box { display: flex; gap: 1px; margin-top: 2px; flex-wrap: wrap; }
+.rheat-px { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+.rheat-0 { background: #F5F5F5; }
+.rheat-R1 { background: #4FB6D3; }
+.rheat-R2 { background: #E88D3F; }
+.rheat-R3 { background: #A04E3A; }
+.rheat-R4 { background: #5DA35D; }
+.rheat-count {
+  font-size: 8px; color: #6B7785;
+  display: block; margin-top: 1px;
+}
+
+/* ════════════════════════════════════════ */
+/* APPROACH 3: Dot Density                 */
+/* ════════════════════════════════════════ */
+.dots { display: flex; flex-wrap: wrap; gap: 2px; margin-top: 2px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; }
+.dot.R1 { background: #4FB6D3; }
+.dot.R2 { background: #E88D3F; }
+.dot.R3 { background: #A04E3A; }
+.dot.R4 { background: #5DA35D; }
+
+/* ── Footer ── */
+.footer { clear: both; padding-top: 8px; display: flex; align-items: center; }
+.footer-brand { font-size: 11px; font-weight: 800; letter-spacing: 0.5px; }
+.footer-line { flex: 1; height: 2px; background: #C3002F; border-radius: 2px; margin-left: 12px; }
+.footer-page { font-size: 9px; color: #94A0B3; margin-left: 12px; }
+
+/* ── Color samples ── */
+.samples { display: flex; gap: 6px; margin: 3px 0; }
+.sample { width: 16px; height: 12px; border-radius: 2px; border: 1px solid #DCDFE4; }
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════ -->
+<!-- APPROACH 1: INTENSITY HEAT MAP           -->
+<!-- ════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-title">🔥 Approach 1: Intensity Heat Map <span class="page-sub">— Color intensity = number of activities per day</span></div>
+  <div class="cal" id="cal1"></div>
+  <div class="right">
+    <div class="legend-box">
+      <div class="legend-title">Activity density</div>
+      <div class="samples">
+        <div><div class="sample" style="background:#fff"></div><div style="font-size:7px;text-align:center">0</div></div>
+        <div><div class="sample" style="background:#FFF0F0"></div><div style="font-size:7px;text-align:center">1</div></div>
+        <div><div class="sample" style="background:#FFD0D0"></div><div style="font-size:7px;text-align:center">2</div></div>
+        <div><div class="sample" style="background:#FFA0A0"></div><div style="font-size:7px;text-align:center">3</div></div>
+        <div><div class="sample" style="background:#FF7070"></div><div style="font-size:7px;text-align:center">4</div></div>
+        <div><div class="sample" style="background:#FF4040"></div><div style="font-size:7px;text-align:center">5</div></div>
+        <div><div class="sample" style="background:#E03030"></div><div style="font-size:7px;text-align:center">6</div></div>
+        <div><div class="sample" style="background:#C02020"></div><div style="font-size:7px;text-align:center">7+</div></div>
+      </div>
+      <div style="font-size:8px;color:#6B7785;margin-top:1px">Darker red = busier day</div>
+    </div>
+    <div class="legend-box" style="margin-top:50px">
+      <div class="legend-title">Key insight</div>
+      <div style="font-size:9px;color:#3F4750;line-height:1.5">
+        <strong style="color:#C3002F">Peak:</strong> Aug 8, 12–23<br>
+        <strong style="color:#6B7785">Quiet:</strong> Early month, after Aug 25<br>
+        <strong style="color:#6B7785">Avg:</strong> 3.5 activities/day
+      </div>
+    </div>
+    <div class="legend-box" style="margin-top:40px">
+      <div class="legend-title">Region legend</div>
+      <div class="legend-row"><span class="swatch" style="background:#4FB6D3"></span>R1: Central + BKK</div>
+      <div class="legend-row"><span class="swatch" style="background:#E88D3F"></span>R2: Northern</div>
+      <div class="legend-row"><span class="swatch" style="background:#A04E3A"></span>R3: Isan</div>
+      <div class="legend-row"><span class="swatch" style="background:#5DA35D"></span>R4: Southern</div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="footer-brand">YES! NISSAN</div>
+    <div class="footer-line"></div>
+    <div class="footer-page">Approach 1 · Intensity Heat Map</div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════ -->
+<!-- APPROACH 2: REGION COLOR HEAT            -->
+<!-- ════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-title">🎨 Approach 2: Region Color Heat <span class="page-sub">— Each colored tile = one region active on that day</span></div>
+  <div class="cal" id="cal2"></div>
+  <div class="right">
+    <div class="legend-box">
+      <div class="legend-title">How to read</div>
+      <div style="font-size:9px;color:#3F4750;line-height:1.5">
+        Each day shows <strong>colored squares</strong> for each active region.<br>
+        R1 = 🔵 Central, R2 = 🟠 North, R3 = 🟤 Isan, R4 = 🟢 South<br>
+        More squares = more regions active on that day.
+      </div>
+    </div>
+    <div class="legend-box" style="margin-top:30px">
+      <div class="legend-title">Daily region count</div>
+      <table style="font-size:8px;color:#3F4750;width:100%;border-collapse:collapse">
+        <tr><th style="text-align:left;padding:2px 4px;border-bottom:1px solid #DCDFE4">Range</th><th style="text-align:center;padding:2px 4px;border-bottom:1px solid #DCDFE4">R1</th><th style="text-align:center;padding:2px 4px;border-bottom:1px solid #DCDFE4">R2</th><th style="text-align:center;padding:2px 4px;border-bottom:1px solid #DCDFE4">R3</th><th style="text-align:center;padding:2px 4px;border-bottom:1px solid #DCDFE4">R4</th></tr>
+        <tr><td style="padding:2px 4px">Aug 1–7</td><td style="text-align:center;padding:2px 4px">3</td><td style="text-align:center;padding:2px 4px">1</td><td style="text-align:center;padding:2px 4px">1</td><td style="text-align:center;padding:2px 4px">0</td></tr>
+        <tr><td style="padding:2px 4px">Aug 8–14</td><td style="text-align:center;padding:2px 4px">2</td><td style="text-align:center;padding:2px 4px">1</td><td style="text-align:center;padding:2px 4px">2</td><td style="text-align:center;padding:2px 4px">1</td></tr>
+        <tr><td style="padding:2px 4px">Aug 15–23</td><td style="text-align:center;padding:2px 4px">6</td><td style="text-align:center;padding:2px 4px">1</td><td style="text-align:center;padding:2px 4px">2</td><td style="text-align:center;padding:2px 4px">0</td></tr>
+        <tr><td style="padding:2px 4px">Aug 24–31</td><td style="text-align:center;padding:2px 4px">2</td><td style="text-align:center;padding:2px 4px">0</td><td style="text-align:center;padding:2px 4px">1</td><td style="text-align:center;padding:2px 4px">0</td></tr>
+      </table>
+    </div>
+    <div class="legend-box" style="margin-top:20px">
+      <div class="legend-title">Region legend</div>
+      <div class="legend-row"><span class="swatch" style="background:#4FB6D3"></span>R1: Central + BKK (10 acts)</div>
+      <div class="legend-row"><span class="swatch" style="background:#E88D3F"></span>R2: Northern (2 acts)</div>
+      <div class="legend-row"><span class="swatch" style="background:#A04E3A"></span>R3: Isan (6 acts)</div>
+      <div class="legend-row"><span class="swatch" style="background:#5DA35D"></span>R4: Southern (1 act)</div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="footer-brand">YES! NISSAN</div>
+    <div class="footer-line"></div>
+    <div class="footer-page">Approach 2 · Region Color Heat</div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════ -->
+<!-- APPROACH 3: DOT DENSITY BUBBLE           -->
+<!-- ════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-title">⚫ Approach 3: Dot Density <span class="page-sub">— Each dot = one activity, colored by region</span></div>
+  <div class="cal" id="cal3"></div>
+  <div class="right">
+    <div class="legend-box">
+      <div class="legend-title">How to read</div>
+      <div style="font-size:9px;color:#3F4750;line-height:1.5">
+        Each <strong>dot</strong> = 1 activity on that day.<br>
+        More dots = busier day.<br>
+        Dot color = region of the activity.<br>
+        <span style="font-size:8px;color:#6B7785;display:block;margin-top:4px">
+          Example: A day with 🔵🔵🟤 = 2 R1 + 1 R3 activities
+        </span>
+      </div>
+    </div>
+    <div class="legend-box" style="margin-top:22px">
+      <div class="legend-title">Busiest days</div>
+      <div style="font-size:9px;color:#3F4750;line-height:1.6">
+        <strong>Aug 8:</strong> 🔵🟠🟤🟢 = 4 regions, 6 acts<br>
+        <strong>Aug 12–14:</strong> 🔵🟠🟤 = 3 regions every day<br>
+        <strong>Aug 17:</strong> 🔵🟤 = 4 new activities start<br>
+        <strong>Aug 22:</strong> 🔵🟤 = 5 concurrent activities
+      </div>
+    </div>
+    <div class="legend-box" style="margin-top:26px">
+      <div class="legend-title">Region legend</div>
+      <div class="legend-row"><span class="swatch" style="background:#4FB6D3"></span>R1: Central + BKK</div>
+      <div class="legend-row"><span class="swatch" style="background:#E88D3F"></span>R2: Northern</div>
+      <div class="legend-row"><span class="swatch" style="background:#A04E3A"></span>R3: Isan</div>
+      <div class="legend-row"><span class="swatch" style="background:#5DA35D"></span>R4: Southern</div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="footer-brand">YES! NISSAN</div>
+    <div class="footer-line"></div>
+    <div class="footer-page">Approach 3 · Dot Density</div>
+  </div>
+</div>
+
+<script>
+// ── Data ──
+const ACT = [
+  {s:1, e:7,  r:"R1"},{s:1, e:7,  r:"R3"},{s:1, e:31, r:"R1"},{s:3, e:9,  r:"R1"},
+  {s:6, e:12, r:"R2"},{s:7, e:13, r:"R3"},{s:8, e:14, r:"R4"},{s:8, e:16, r:"R3"},
+  {s:8, e:17, r:"R1"},{s:15,e:31, r:"R1"},{s:15,e:31, r:"R1"},{s:17,e:23, r:"R1"},
+  {s:17,e:23, r:"R1"},{s:18,e:24, r:"R2"},{s:21,e:23, r:"R3"},{s:21,e:23, r:"R3"},
+  {s:22,e:31, r:"R1"},{s:25,e:31, r:"R3"},{s:29,e:4,  r:"R1"}
+];
+
+const VENUES = [
+  "Central Chonburi","Central Korat","Robinson Srisaman","Central Westville",
+  "Robinson Maesod, Tak","Nissan Motor Show — Khonkaen","Central Nakhon Si Thammarat",
+  "Korat Big Motorsale","ROBINSON Prachinburi","Central Nakhonpathom",
+  "Robinson Kanchanaburi","Seacon Square Bangkhae","Central Pinklao",
+  "Central Festival Chiangmai","Robinson Buriram","Robinson Surin",
+  "Robinson Phetchaburi","Central Ubon Ratchathani","Robinson Saraburi"
+];
+const ACT_VENUES = ACT.map((a,i) => ({...a, v: VENUES[i]}));
+
+// Calendar helper
+const daysInMonth = 31;
+const firstDay = new Date(2026, 7, 1).getDay(); // 6=Sat
+let startCol = firstDay - 1;
+if (startCol < 0) startCol = 6;
+
+function buildCalendar(containerId, approach) {
+  const body = document.getElementById(containerId);
+  body.innerHTML = `
+    <div class="cal-hdr">${['Mon','Tue','Wed','Thu','Fri','Sat','Sun'].map(d=>'<div>'+d+'</div>').join('')}</div>
+    <div class="cal-body"></div>
+  `;
+  const grid = body.querySelector('.cal-body');
+  let dayNum = 1;
+  const prevDay = 31;
+  const cellData = [];
+
+  for (let w = 0; w < 6; w++) {
+    for (let d = 0; d < 7; d++) {
+      let displayDay, isAug, month;
+      if (w === 0 && d < startCol) {
+        displayDay = prevDay - startCol + d + 1;
+        isAug = false; month = 'jul';
+      } else if (dayNum <= daysInMonth) {
+        displayDay = dayNum++; isAug = true; month = 'aug';
+      } else {
+        displayDay = dayNum - daysInMonth; isAug = false; month = 'sep';
+        dayNum++;
+      }
+      const cell = document.createElement('div');
+      cell.className = 'cell' + (isAug ? '' : ' off');
+      cell.dataset.day = displayDay; cell.dataset.month = month;
+      
+      // Count activities for this day
+      let count = 0;
+      let regions = [];
+      ACT_VENUES.forEach(act => {
+        const isCross = act.s > act.e;
+        let match = false;
+        if (!isCross) { if (month==='aug' && displayDay>=act.s && displayDay<=act.e) match=true; }
+        else { if (month==='jul' && displayDay>=act.s) match=true; if (month==='aug' && displayDay<=act.e) match=true; }
+        if (match) { count++; regions.push(act.r); }
+      });
+
+      if (approach === 1) {
+        // Intensity: bg color based on count
+        let cls = 'int-';
+        if (!isAug) cls += '0';
+        else if (count >= 7) cls += '7';
+        else cls += count;
+        cell.classList.add(cls);
+        if (isAug && count > 0) {
+          cell.innerHTML = '<div class="date">'+displayDay+'</div><span class="int-num">'+count+'</span><span class="int-label">activities</span>';
+        } else {
+          cell.innerHTML = '<div class="date">'+displayDay+'</div>';
+        }
+      } else if (approach === 2) {
+        // Region color squares
+        cell.innerHTML = '<div class="date">'+displayDay+'</div><div class="rheat-box">';
+        if (isAug) {
+          ['R1','R2','R3','R4'].forEach(r => {
+            const active = regions.includes(r);
+            cell.innerHTML += '<div class="rheat-px '+(active?'rheat-'+r:'rheat-0')+'"></div>';
+          });
+          if (count > 0) cell.innerHTML += '<span class="rheat-count">'+count+' acts</span>';
+        }
+        cell.innerHTML += '</div>';
+      } else if (approach === 3) {
+        // Dot density
+        cell.innerHTML = '<div class="date">'+displayDay+'</div><div class="dots">';
+        if (isAug) {
+          regions.forEach(r => {
+            cell.innerHTML += '<div class="dot '+r+'"></div>';
+          });
+        }
+        cell.innerHTML += '</div>';
+      }
+      
+      grid.appendChild(cell);
+      cellData.push({el:cell,week:w,col:d,day:displayDay,month:month});
+    }
+  }
+}
+
+buildCalendar('cal1', 1);
+buildCalendar('cal2', 2);
+buildCalendar('cal3', 3);
+</script>
+</body>
+</html>
