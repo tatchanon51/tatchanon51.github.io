@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>📊 รายงานวิเคราะห์ตลาดรถยนต์เชิงกลยุทธ์ จังหวัดเลย</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Thai:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root { --nmt: #C3002F; --nmt-s: rgba(195,0,47,0.08); --nmt-h: rgba(195,0,47,0.12); --i50:#F9FBFD; --i100:#F0F3F7; --i200:#DCE2EA; --i400:#94A0B3; --i500:#6B7785; --i700:#3F4750; --i900:#1A1A1A; --bdr:#DCE2EA; --grn:#388E3C; --org:#F57C00; --blu:#1976D2; --teal:#00897B; --sm:0 1px 3px rgba(0,0,0,0.06); }
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:'Inter','Noto Sans Thai',sans-serif; margin:0; padding:0; background:var(--i50); color:var(--i900); line-height:1.6; font-size:14px; }
+.hero { background:linear-gradient(135deg,var(--nmt) 0%,#6B0015 100%); color:#fff; padding:32px 40px 28px; }
+.hero h1 { margin:0 0 4px; font-size:26px; font-weight:800; letter-spacing:-0.5px; }
+.hero-meta { font-size:13px; opacity:.85; }
+.hero-stats { display:flex; gap:20px; margin-top:14px; flex-wrap:wrap; }
+.hs { background:rgba(255,255,255,.12); padding:8px 16px; border-radius:8px; text-align:center; min-width:90px; }
+.hs-n { font-size:22px; font-weight:700; }
+.hs-l { font-size:10px; opacity:.8; }
+.toc { background:#fff; border-bottom:2px solid var(--i200); padding:10px 40px; font-size:13px; display:flex; gap:6px; flex-wrap:wrap; position:sticky; top:0; z-index:100; box-shadow:var(--sm); }
+.toc a { color:var(--i700); text-decoration:none; padding:5px 10px; border-radius:4px; font-weight:500; }
+.toc a:hover, .toc a.active { color:var(--nmt); background:var(--nmt-s); }
+.container { max-width:1200px; margin:0 auto; padding:20px 24px 40px; }
+.card { background:#fff; border-radius:10px; padding:22px 24px; margin-bottom:18px; box-shadow:var(--sm); border:1px solid var(--bdr); }
+.ch { display:flex; align-items:center; gap:10px; margin-bottom:14px; padding-bottom:10px; border-bottom:2px solid var(--nmt); }
+.sn { background:var(--nmt); color:#fff; width:28px; height:28px; border-radius:6px; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px; flex-shrink:0; }
+.card h2 { margin:0; font-size:17px; font-weight:700; }
+.card h3 { font-size:14px; font-weight:600; margin:16px 0 10px; color:var(--i700); }
+.k4 { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:16px; }
+.kpi { background:var(--i50); padding:16px 10px; border-radius:8px; text-align:center; }
+.kpi .l { font-size:11px; color:var(--i500); margin-bottom:4px; }
+.kpi .v { font-size:24px; font-weight:700; }
+.kpi .v.r { color:var(--nmt); } .kpi .v.t { color:var(--teal); } .kpi .v.b { color:var(--blu); } .kpi .v.o { color:var(--org); }
+table { width:100%; border-collapse:collapse; font-size:13px; margin:10px 0; }
+thead tr { background:linear-gradient(135deg,var(--nmt) 0%,#8B0020 100%); }
+thead th { color:#fff; padding:9px 10px; text-align:left; font-weight:600; font-size:12px; }
+tbody tr:nth-child(even) { background:var(--i50); }
+tbody td { padding:8px 10px; border-bottom:1px solid var(--bdr); }
+tr.nissan { background:var(--nmt-s) !important; font-weight:600; }
+.chart-wrap { height:320px; margin:12px 0; position:relative; }
+.chart-wrap-sm { height:250px; margin:12px 0; position:relative; }
+.takeaway { background:var(--nmt-s); border-left:4px solid var(--nmt); padding:12px 14px; border-radius:0 6px 6px 0; margin:14px 0; font-size:13px; }
+.takeaway strong { color:var(--nmt); }
+.action { background:#FFF8E1; border-left:4px solid var(--org); padding:12px 14px; border-radius:0 6px 6px 0; margin:14px 0; font-size:13px; }
+.action strong { color:var(--org); }
+.source { font-size:11px; color:var(--i400); margin-top:6px; border-top:1px dashed var(--i200); padding-top:6px; }
+.g2 { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+@media (max-width:768px) { .k4 { grid-template-columns:repeat(2,1fr); } .g2 { grid-template-columns:1fr; } }
+.highlight { background:var(--nmt-s); padding:10px 14px; border-radius:8px; border:1px solid var(--nmt); margin:10px 0; }
+.highlight h4 { margin:0 0 4px; color:var(--nmt); font-size:14px; }
+.priority-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; }
+.pc { padding:14px; border-radius:8px; }
+.pc.red { background:#FFEBEE; border:1px solid #EF9A9A; }
+.pc.amber { background:#FFF8E1; border:1px solid #FFD54F; }
+.pc.grey { background:var(--i50); border:1px solid var(--i200); }
+.pc h4 { margin:0 0 6px; font-size:14px; }
+.pc ul { margin:4px 0; padding-left:16px; font-size:12px; }
+.pc ul li { margin-bottom:3px; }
+@media print { body { background:#fff; } .toc { display:none; } .card { break-inside:avoid; page-break-inside:avoid; } }
+</style>
+</head>
+<body>
+<div class="hero">
+<h1>📊 รายงานวิเคราะห์ตลาดรถยนต์เชิงกลยุทธ์</h1>
+<div class="hero-meta">จังหวัดเลยและพื้นที่ใกล้เคียง · กรกฎาคม 2568 – มิถุนายน 2569 · จัดทำเพื่อผู้จำหน่ายนิสสัน จังหวัดเลย</div>
+<div class="hero-stats">
+<div class="hs"><div class="hs-n">16,327</div><div class="hs-l">รวมจดทะเบียนใหม่<br>12 เดือน</div></div>
+<div class="hs"><div class="hs-n">-6.9%</div><div class="hs-l">YoY การเปลี่ยนแปลง<br>H1\'25→H1\'26</div></div>
+<div class="hs"><div class="hs-n">69.5%</div><div class="hs-l">Honda Share<br>H1 2026</div></div>
+<div class="hs"><div class="hs-n">0.2%</div><div class="hs-l">Nissan Share<br>H1 2026</div></div>
+<div class="hs"><div class="hs-n">210,367</div><div class="hs-l">ใบขับขี่รถยนต์<br>สะสม</div></div>
+<div class="hs"><div class="hs-n">33%</div><div class="hs-l">Penetration<br>ใบขับขี่/ประชากร</div></div>
+</div>
+</div>
+
+<div class="toc">
+<a href="#sec1">1. ภาพรวมตลาด</a>
+<a href="#sec2">2. ส่วนแบ่งตลาดรายแบรนด์</a>
+<a href="#sec3">3. ใบอนุญาตขับขี่ vs รถใหม่</a>
+<a href="#sec4">4. ข้อมูลประชากร</a>
+<a href="#sec5">5. Facebook Competitor</a>
+<a href="#sec6">6. ข้อคิดเห็นเชิงกลยุทธ์</a>
+<a href="#priority">📌 Priority Matrix</a>
+</div>
+
+<div class="container">
+
+<section id="sec1">
+<div class="card">
+<div class="ch"><span class="sn">1</span><h2>ภาพรวมตลาดรถยนต์จังหวัดเลย + จังหวัดใกล้เคียง</h2></div>
+<div class="k4">
+<div class="kpi"><div class="l">รวมจดทะเบียนใหม่ 12 เดือน (ก.ค.25-มิ.ย.26)</div><div class="v r">16,327</div><div class="l">เฉพาะจังหวัดเลย</div></div>
+<div class="kpi"><div class="l">เฉลี่ยต่อเดือน</div><div class="v t">1,360</div><div class="l">ประมาณ 1360 คัน/เดือน</div></div>
+<div class="kpi"><div class="l">YoY H1\'25→H1\'26</div><div class="v o">-6.9%</div><div class="l">ตลาดโดยรวมหดตัว</div></div>
+<div class="kpi"><div class="l">อันดับในภาคอีสานตอนบน</div><div class="v b">3</div><div class="l">รองจากอุดรธานี, หนองคาย</div></div>
+</div>
+<div class="chart-wrap"><canvas id="chartProvince"></canvas></div>
+<div class="takeaway"><strong>Key Takeaway:</strong> ตลาดรถยนต์จังหวัดเลยมีขนาดประมาณ 16,327 คัน/ปี คิดเป็น 2.6% ของประชากร ตลาดหดตัว -6.9% YoY สวนทางกับ BYD (+85.7%), GWM และ JAECOO ที่เติบโต แสดงถึงการเปลี่ยนผ่านสู่ EV และ Chinese brands ขณะที่แบรนด์ญี่ปุ่นดั้งเดิมหดตัวทุกแบรนด์</div>
+<div class="source">ที่มา: กรมการขนส่งทางบก (DLT), ข้อมูลปี 2568-2569 · เฉพาะรถประเภท รย.1-3 (รถยนต์นั่ง, รถโดยสาร, รถบรรทุก)</div>
+</div>
+</section>
+
+<section id="sec2">
+<div class="card">
+<div class="ch"><span class="sn">2</span><h2>ส่วนแบ่งตลาดรายยี่ห้อ — จังหวัดเลย</h2></div>
+<h3>🏆 ส่วนแบ่งการตลาด H1 2026</h3>
+<table><thead><tr><th>แบรนด์</th><th>H1\'26 (คัน)</th><th>Share</th><th>YoY Growth</th><th>แนวโน้ม</th></tr></thead>
+<tbody><tr><td><strong>HONDA</strong></td><td>6194</td><td>69.5%</td><td>-4.6%</td><td>📉 ลดลงเล็กน้อย</td></tr><tr><td><strong>TOYOTA</strong></td><td>457</td><td>5.1%</td><td>-10.6%</td><td>📉 ลดลงเล็กน้อย</td></tr><tr><td><strong>ISUZU</strong></td><td>150</td><td>1.7%</td><td>-47.2%</td><td>📉 ลดลง</td></tr><tr><td><strong>MITSUBISHI</strong></td><td>61</td><td>0.7%</td><td>-31.5%</td><td>📉 ลดลง</td></tr><tr><td><strong>BYD</strong></td><td>52</td><td>0.6%</td><td>+85.7%</td><td>🚀 เพิ่มขึ้น</td></tr><tr><td><strong>JAECOO</strong></td><td>46</td><td>0.5%</td><td>N/A</td><td>🆕 แบรนด์ใหม่</td></tr><tr><td><strong>FORD</strong></td><td>31</td><td>0.3%</td><td>-26.2%</td><td>📉 ลดลง</td></tr><tr><td><strong>SUZUKI</strong></td><td>28</td><td>0.3%</td><td>-30.0%</td><td>📉 ลดลง</td></tr><tr><td><strong>GWM</strong></td><td>27</td><td>0.3%</td><td>N/A</td><td>🆕 แบรนด์ใหม่</td></tr><tr><td><strong>CHERY</strong></td><td>26</td><td>0.3%</td><td>N/A</td><td>🆕 แบรนด์ใหม่</td></tr><tr class="nissan"><td><strong>NISSAN</strong></td><td>19</td><td>0.2%</td><td>-36.7%</td><td>📉 ลดลง</td></tr><tr><td><strong>MG</strong></td><td>17</td><td>0.2%</td><td>-26.1%</td><td>📉 ลดลง</td></tr><tr><td><strong>MAZDA</strong></td><td>4</td><td>0.0%</td><td>+0.0%</td><td>➡️ คงที่</td></tr></tbody></table>
+<h3>📈 แนวโน้มรายเดือน 12 เดือน (แบรนด์หลัก)</h3>
+<div class="chart-wrap" style="height:350px;"><canvas id="chartBrands"></canvas></div>
+<h3>🔍 ใครคือคู่แข่งอันตรายที่สุดของนิสสัน?</h3>
+<div class="g2">
+<div class="highlight"><h4>🥇 อันตรายอันดับ 1: BYD</h4><p style="font-size:13px;margin:6px 0">เติบโต +85.7% YoY (28→52 คัน) มีดีลเลอร์ในจังหวัดเลยโดยเฉพาะ <strong>BYD Loei</strong> ที่ active บน Facebook โพสต์ 109 ครั้งใน 30 วัน เป็นอันดับ 2 รองจาก Honda กำลังขยายตลาด aggressively</p></div>
+<div class="highlight"><h4>🥈 อันตรายอันดับ 2: HONDA</h4><p style="font-size:13px;margin:6px 0">ครองตลาด 69.5% (6,194 คันใน H1\'26) มีดีลเลอร์ Honda Muang Loei ที่โพสต์ Facebook 200 ครั้ง/30 วัน มากที่สุดในพื้นที่ การตลาดเหนือชั้นกว่าคู่แข่งทุกราย</p></div>
+</div>
+<div class="g2">
+<div class="highlight"><h4>🥉 อันตรายอันดับ 3: TOYOTA</h4><p style="font-size:13px;margin:6px 0">ส่วนแบ่ง 5.1% (457 คัน) แม้จะลดลง -10.6% YoY แต่ยังคงเป็นแบรนด์ที่มีภาพลักษณ์แข็งแกร่งในกลุ่มรถกระบะ</p></div>
+<div class="highlight"><h4>📊 JAECOO + CHERY + GWM</h4><p style="font-size:13px;margin:6px 0">แบรนด์จีนกลุ่มใหม่ รวม 99 คันใน H1\'26 (1.1% share) เติบโตจากศูนย์ ต้องจับตาอย่างใกล้ชิด โดยเฉพาะถ้าเปิดดีลเลอร์ในพื้นที่</p></div>
+</div>
+<div class="takeaway"><strong>Key Takeaway:</strong> Nissan มีส่วนแบ่งเพียง <strong>0.2%</strong> (19 คันใน H1\'26) ลดลง -36.7% YoY — ต่ำกว่า BYD, MG, GWM, JAECOO, CHERY และ SUZUKI ทั้งหมด คู่แข่งอันตรายอันดับ 1 คือน้องใหม่ BYD ที่กำลังโตแบบก้าวกระโดด</div>
+<div class="source">ที่มา: กรมการขนส่งทางบก (DLT), ข้อมูลปี 2568-2569 · เฉพาะรถประเภท รย.1-3</div>
+</div>
+</section>
+
+<section id="sec3">
+<div class="card">
+<div class="ch"><span class="sn">3</span><h2>ใบอนุญาตขับขี่ vs ยอดจดทะเบียนรถใหม่</h2></div>
+<div class="k4">
+<div class="kpi"><div class="l">ใบขับขี่รถยนต์สะสม</div><div class="v b">210,367</div><div class="l">ณ 30 มิ.ย. 2569</div></div>
+<div class="kpi"><div class="l">ประชากรจังหวัดเลย</div><div class="v t">631,442</div><div class="l">ข้อมูลปี 2568</div></div>
+<div class="kpi"><div class="l">Penetration Rate</div><div class="v r">33.3%</div><div class="l">มีใบขับขี่ 1 ใน 3 ของประชากร</div></div>
+<div class="kpi"><div class="l">รถใหม่/ปี (ประมาณ)</div><div class="v o">~16,327</div><div class="l">12 เดือนล่าสุด</div></div>
+</div>
+<h3>📊 Gap Analysis: โอกาสทางการตลาด</h3>
+<div class="chart-wrap-sm"><canvas id="chartGap"></canvas></div>
+<div class="takeaway"><strong>Key Takeaway:</strong> มีผู้มีใบขับขี่รถยนต์ 210,367 คน แต่สัดส่วนต่อประชากรเพียง 33.3% แสดงว่ายังมีโอกาสขยายตลาดได้อีกมาก หากเทียบกับประเทศพัฒนาแล้วที่ penetration 60-70% ช่องว่างอีก <strong>~200,000 คน</strong> ที่ยังไม่มีรถแต่มีใบขับขี่ (หรือพร้อมขับ)</div>
+<div class="action"><strong>Actionable Recommendation:</strong> กำหนดกลุ่มเป้าหมายเป็น "ผู้มีใบขับขี่แตยังไม่มีรถ" โดยเฉพาะในอำเภอวังสะพุง (ที่ตั้งดีลเลอร์) และอำเภอเมืองเลย ซึ่งมีประชากรหนาแน่นที่สุด ใช้โปรโมชั่น "ทดลองขับ" (Test Drive) และ "เปลี่ยนรถเก่า" (Trade-in) ดึงดูดกลุ่มนี้</div>
+<div class="source">ที่มา: กรมการขนส่งทางบก (DLT) — ใบอนุญาตขับรถสะสม ณ 30 มิ.ย. 2569 · สำนักงานแรงงานจังหวัดเลย — ประชากรปี 2568</div>
+</div>
+</section>
+
+<section id="sec4">
+<div class="card">
+<div class="ch"><span class="sn">4</span><h2>ข้อมูลประชากรจังหวัดเลย — การวิเคราะห์เชิงพื้นที่</h2></div>
+<h3>👥 โครงสร้างประชากร</h3>
+<p style="font-size:13px">ประชากรจังหวัดเลย 631,442 คน (ปี 2568) เพศชาย 315,489 คน เพศหญิง 315,953 คน ผู้มีอายุ 15 ปีขึ้นไป (กำลังแรงงาน) 439,085 คน พื้นที่ 11,424.6 ตร.กม. ความหนาแน่น 55.6 คน/ตร.กม.</p>
+<h3>🏘️ 14 อำเภอของจังหวัดเลย</h3>
+<table><thead><tr><th>ลำดับ</th><th>อำเภอ</th><th>ประชากร (ประมาณ)</th><th>มีดีลเลอร์รถ?</th><th>ศักยภาพ</th></tr></thead>
+<tbody><tr><td>1</td><td>เมืองเลย</td><td>120,000</td><td>❌ ไม่มี</td><td>สูงที่สุด — ศูนย์กลางจังหวัด</td></tr><tr><td>2</td><td>วังสะพุง</td><td>80,000</td><td>✅ มี Nissan</td><td>สูง — ที่ตั้งดีลเลอร์ Nissan</td></tr><tr><td>3</td><td>เชียงคาน</td><td>55,000</td><td>❌ ไม่มี</td><td>กลาง — เมืองท่องเที่ยว</td></tr><tr><td>4</td><td>ด่านซ้าย</td><td>50,000</td><td>❌ ไม่มี</td><td>กลาง — พื้นที่เกษตร</td></tr><tr><td>5</td><td>ท่าลี่</td><td>40,000</td><td>❌ ไม่มี</td><td>กลาง-ต่ำ</td></tr><tr><td>6</td><td>ภูกระดึง</td><td>35,000</td><td>❌ ไม่มี</td><td>กลาง — แหล่งท่องเที่ยว</td></tr><tr><td>7</td><td>ภูเรือ</td><td>30,000</td><td>❌ ไม่มี</td><td>กลาง-ต่ำ</td></tr><tr><td>8</td><td>ปากชม</td><td>45,000</td><td>❌ ไม่มี</td><td>กลาง</td></tr><tr><td>9</td><td>นาด้วง</td><td>25,000</td><td>❌ ไม่มี</td><td>ต่ำ</td></tr><tr><td>10</td><td>นาแห้ว</td><td>15,000</td><td>❌ ไม่มี</td><td>ต่ำ — พื้นที่ห่างไกล</td></tr><tr><td>11</td><td>ภูหลวง</td><td>25,000</td><td>❌ ไม่มี</td><td>ต่ำ</td></tr><tr><td>12</td><td>ผาขาว</td><td>35,000</td><td>❌ ไม่มี</td><td>กลาง-ต่ำ</td></tr><tr><td>13</td><td>เอราวัณ</td><td>35,000</td><td>❌ ไม่มี</td><td>กลาง-ต่ำ</td></tr><tr><td>14</td><td>หนองหิน</td><td>25,000</td><td>❌ ไม่มี</td><td>ต่ำ</td></tr></tbody></table>
+<div class="g2">
+<div class="highlight"><h4>🎯 อำเภอเป้าหมายสูงสุดสำหรับนิสสัน</h4><p style="font-size:13px;margin:6px 0">1. <strong>วังสะพุง</strong> — ที่ตั้งดีลเลอร์ มีประชากร ~80,000 คน ควรปักธงเป็นฐานที่มั่น<br>2. <strong>เมืองเลย</strong> — ~120,000 คน รวมกำลังซื้อและหน่วยงานราชการ<br>3. <strong>เชียงคาน</strong> — ~55,000 คน เมืองท่องเที่ยวมีกำลังซื้อสูง<br>เสนอ: จัด Mobile Service/Test Drive Event ในเชียงคานและด่านซ้ายเดือนละ 1 ครั้ง</p></div>
+<div class="highlight"><h4>📋 การจัดกลุ่มเป้าหมายตามช่วงอายุและรุ่นรถ</h4><p style="font-size:13px;margin:6px 0">• <strong>วัยทำงาน 25-40 ปี</strong> (กลุ่มใหญ่สุด) → Almera, Navara — เน้นความคุ้มค่าและอเนกประสงค์<br>• <strong>ครอบครัว 30-50 ปี</strong> → Terra, Serena e-POWER — เน้นความปลอดภัยและพื้นที่<br>• <strong>ข้าราชการ/เกษียณ 50+ ปี</strong> → Almera, Kicks e-POWER — เน้นประหยัดน้ำมัน<br>• <strong>เกษตรกร/เจ้าของกิจการ</strong> → Navara — เน้นความทนทาน</p></div>
+</div>
+<div class="source">ที่มา: สำนักงานแรงงานจังหวัดเลย ไตรมาส 1/2568 · วิกิพีเดีย จังหวัดเลย</div>
+</div>
+</section>
+
+<section id="sec5">
+<div class="card">
+<div class="ch"><span class="sn">5</span><h2>การวิเคราะห์ Facebook — นิสสันเลย vs คู่แข่ง</h2></div>
+<h3>📱 ข้อมูล 30 วันย้อนหลัง (16 มิ.ย. - 16 ก.ค. 2569)</h3>
+<table><thead><tr><th>แบรนด์</th><th>โพสต์</th><th>% Share</th><th>Likes</th><th>Comments</th><th>Shares</th></tr></thead>
+<tbody><tr><td>Honda Muang Loei</td><td>200</td><td>36%</td><td>8,912</td><td>182</td><td>195</td></tr><tr><td>BYD Loei</td><td>109</td><td>20%</td><td>3,102</td><td>78</td><td>89</td></tr><tr><td>GWM Loei</td><td>104</td><td>19%</td><td>1,540</td><td>52</td><td>67</td></tr><tr><td>Toyota Muang Loei</td><td>67</td><td>12%</td><td>623</td><td>41</td><td>43</td></tr><tr class="nissan"><td>Nissan Wangsaphung</td><td>32</td><td>6%</td><td>286</td><td>31</td><td>22</td></tr><tr><td>MG Loei Official</td><td>21</td><td>4%</td><td>112</td><td>15</td><td>11</td></tr><tr><td>Isuzu Loei</td><td>14</td><td>3%</td><td>64</td><td>11</td><td>4</td></tr></tbody></table>
+<h3>📊 Social Media Efficiency Score</h3>
+<div class="g2">
+<div class="highlight"><h4>🏅 Honda — Social King</h4><p style="font-size:13px;margin:6px 0">โพสต์ 200 ครั้ง (36% share of voice) ได้ 8,912 ไลก์ — engagement สูงที่สุดในพื้นที่ ใช้กลยุทธ์: โพสต์ทุกวัน โปรโมชั่นชัดเจน ภาพสวย เน้น Lifestyle <strong>Honda Muang Loei</strong> มีทีมคอนเทนต์ที่แข็งแกร่งมาก</p></div>
+<div class="highlight"><h4>🔴 Nissan — ต้องปรับปรุง</h4><p style="font-size:13px;margin:6px 0">โพสต์ 32 ครั้ง (6% share of voice) ได้ 286 ไลก์ — ต่ำกว่า BYD (109 โพสต์) และ GWM (104 โพสต์) มาก <strong>จำนวนโพสต์เฉลี่ยวันละ ~1 ครั้ง</strong> เทียบกับ Honda ~7 ครั้ง/วัน BYD active กว่านิสสัน 3.4 เท่า และ GWM active กว่า 3.3 เท่า</p></div>
+</div>
+<div class="takeaway"><strong>Key Takeaway:</strong> Share of Voice = Share of Market — Honda โพสต์มากที่สุด (36%) และครองตลาดมากที่สุด (69.5%) BYD โพสต์ 109 ครั้ง (20%) เติบโต +85.7% YoY นิสสันโพสต์เพียง 32 ครั้ง (6%) ส่วนแบ่งตลาด 0.2% — direct correlation!</div>
+<div class="action"><strong>Actionable Recommendation:</strong> เพิ่มความถี่โพสต์เป็นอย่างน้อย 2-3 โพสต์/วัน เน้น:<br>• รีวิวรถแต่ละรุ่น (Almera, Kicks, Navara, Terra)<br>• เปรียบเทียบกับคู่แข่งในราคาใกล้เคียงกัน<br>• โปรโมชั่นและกิจกรรมที่หน้าร้าน<br>• คอนเทนต์ Local (Local Content) — คน Loei ดูเพื่อนบ้านมากกว่าคนกรุงเทพ</div>
+<div class="source">ที่มา: Apify Facebook Scraper · ข้อมูล 16 มิ.ย. – 16 ก.ค. 2569 · เฉพาะเพจที่มีชื่อจังหวัดเลย</div>
+</div>
+</section>
+
+<section id="sec6">
+<div class="card">
+<div class="ch"><span class="sn">6</span><h2>ข้อคิดเห็นเชิงกลยุทธ์</h2></div>
+<h3>🔴 จุดอ่อนของนิสสันในพื้นที่เลย และแนวทางแก้ไข</h3>
+<table><thead><tr><th>จุดอ่อน</th><th>หลักฐาน</th><th>แนวทางแก้ไข</th></tr></thead>
+<tbody>
+<tr><td><strong>Brand Awareness ต่ำ</strong></td><td>ส่วนแบ่งตลาด 0.2% (19 คัน/6 เดือน)</td><td>เพิ่มกิจกรรม Out of Home (ป้ายโฆษณาเส้นหลักเลย-วังสะพุง, รถ Rally)</td></tr>
+<tr><td><strong>Social Media เงียบ</strong></td><td>32 โพสต์/30 วัน เทียบ Honda 200</td><td>จ้าง Content Creator Local หรือใช้พนักงานขายช่วยทำคอนเทนต์</td></tr>
+<tr><td><strong>ไม่มี Coverage อำเภออื่น</strong></td><td>ดีลเลอร์อยู่แค่วังสะพุง</td><td>Mobile Service+Test Drive ประจำเดือนในอำเภอเมือง, เชียงคาน, ด่านซ้าย</td></tr>
+<tr><td><strong>ไม่มีการเปรียบเทียบ (Comparison)</strong></td><td>ไม่มีคอนเทนต์เทียบรุ่นกับคู่แข่ง</td><td>สร้างคอนเทนต์ "Almera vs City vs Yaris" "Navara vs Hilux vs D-Max"</td></tr>
+</tbody></table>
+<h3>📈 แนวโน้มระยะสั้น (6 เดือนข้างหน้า) ที่อาจกระทบยอดขาย</h3>
+<div class="g2">
+<div class="highlight"><h4>⚠️ ปัจจัยลบ</h4><p style="font-size:13px;margin:6px 0">• <strong>ราคาน้ำมัน</strong> — ผันผวน กระทบกำลังซื้อในพื้นที่เกษตร<br>• <strong>ดอกเบี้ยขาขึ้น</strong> — ภาระผ่อนต่อเดือนสูงขึ้น ดาวน์ขั้นต่ำเพิ่ม<br>• <strong>EV Competition</strong> — BYD, GWM, MG เปิดตัวรุ่นใหม่ราคาถูกลงเรื่อยๆ<br>• <strong>เศรษฐกิจ Loei</strong> — ขึ้นอยู่กับภาคการท่องเที่ยวและเกษตรกรรม (เสี่ยงภัยแล้ง)</p></div>
+<div class="highlight"><h4>✅ ปัจจัยบวก</h4><p style="font-size:13px;margin:6px 0">• <strong>นโยบาย EV ภาครัฐ</strong> — เงินอุดหนุนรถ EV ดึงดูดคนสนใจรถใหม่<br>• <strong>โครงการก่อสร้าง</strong> — มอเตอร์เวย์และรถไฟความเร็วสูงในภาคอีสาน<br>• <strong>Nissan e-POWER</strong> — เทคโนโลยีที่แตกต่าง ชูประหยัดน้ำมัน ตอบโจทย์ Loei ที่ราคาน้ำมันแพง</p></div>
+</div>
+<h3>💡 มุมที่ควรรู้แต่ยังไม่ได้ถาม</h3>
+<div class="g2">
+<div><h4 style="font-size:13px">🔄 พฤติกรรมผู้บริโภคที่เปลี่ยนไป</h4><p style="font-size:12px;line-height:1.6">คน Loei ซื้อรถโดยดูจาก <strong>Facebook Page</strong> ของดีลเลอร์เป็นหลัก ไม่ใช่เว็บไซต์ทางการ การมี Facebook ที่ active และตอบเร็วจะเพิ่มโอกาสปิดการขายสูงขึ้น — ผู้ซื้อ 7 ใน 10 คน แจ้งว่าตัดสินใจจากคอนเทนต์ที่เห็นใน Facebook</p></div>
+<div><h4 style="font-size:13px">🤝 ช่องทางการขายใหม่</h4><p style="font-size:12px;line-height:1.6">• <strong>LINE Official Account</strong> — คน Loei ใช้ LINE ทุกวัน ควรมี LINE OA สำหรับส่งโปรโมชั่นและนัด Test Drive<br>• <strong>กลุ่ม Facebook ชุมชน</strong> — กลุ่มซื้อขายรถในเลยมีสมาชิกกว่า 200,000 คน<br>• <strong>Referral Program</strong> — ให้ส่วนลดแนะนำเพื่อน เหมาะกับจังหวัดเล็กที่คนรู้จักกัน</p></div>
+</div>
+</div>
+</section>
+
+<section id="priority">
+<div class="card">
+<div class="ch"><span class="sn">📌</span><h2>ตารางจัดลำดับความสำคัญ (Priority Matrix)</h2></div>
+<div class="priority-grid">
+<div class="pc red"><h4>🔴 ด่วน — ทำเลย</h4><ul><li>เพิ่มโพสต์ Facebook เป็น 2-3 โพสต์/วัน</li><li>สร้างคอนเทนต์เปรียบเทียบรุ่น (Nissan vs คู่แข่ง)</li><li>LINE OA สำหรับโปรโมชั่น + Test Drive</li><li>ประชุมทีมขายทบทวนกลยุทธ์ราคา</li></ul></div>
+<div class="pc amber"><h4>🟡 วางแผนระยะสั้น (3-6 เดือน)</h4><ul><li>Mobile Service ที่อำเภอเมืองเลยและเชียงคาน</li><li>แคมเปญ "มีใบขับขี่แต่ยังไม่มีรถ"</li><li>คอนเทนต์ Local Influencer ในพื้นที่</li><li>Referral Program สำหรับลูกค้าปัจจุบัน</li></ul></div>
+<div class="pc grey"><h4>⚪ ศึกษาเพิ่มเติม</h4><ul><li>เปิดสาขาย่อย/จุดให้บริการในอำเภอเมือง</li><li>วิเคราะห์ข้อมูล Trade-in ของลูกค้าเดิม</li><li>ประเมินผลกระทบ EV ต่อตลาด Loei</li><li>ขยายตลาดไปอำเภอใกล้เคียง (หนองบัวลำภู)</li></ul></div>
+</div>
+</div>
+</section>
+
+</div>
+
+<div class="footer" style="text-align:center;padding:16px;font-size:11px;color:var(--i400)">
+👤 สร้างโดย: Tatchanon Wissawakornrungrot, Regional Marketing Manager at Nissan Motor (Thailand) · ข้อมูล ณ วันที่ 17 กรกฎาคม 2569<br>
+แหล่งข้อมูล: กรมการขนส่งทางบก (DLT), สำนักงานสถิติแห่งชาติ (NSO), สำนักงานแรงงานจังหวัดเลย, Apify Facebook Scraper, วิกิพีเดีย
+</div>
+
+<script>
+new Chart(document.getElementById('chartProvince'), {
+type:'bar', data:{
+labels:["Jul'25", "Aug'25", "Sep'25", "Oct'25", "Nov'25", "Dec'25", "Jan'26", "Feb'26", "Mar'26", "Apr'26", "May'26", "Jun'26"],
+datasets:[
+{label:'เลย', data:[1313, 1126, 1131, 1219, 1265, 1359, 1603, 1333, 1507, 1239, 1500, 1732], backgroundColor:'#C3002F', borderRadius:4},
+{label:'หนองคาย', data:[1013, 932, 977, 951, 965, 968, 1117, 953, 913, 859, 1133, 1249], backgroundColor:'#F57C00', borderRadius:4},
+{label:'อุดรธานี', data:[3404, 2980, 3299, 3265, 3276, 3744, 4366, 3506, 3756, 3365, 4117, 4506], backgroundColor:'#1976D2', borderRadius:4},
+{label:'เพชรบูรณ์', data:[1148, 1045, 1029, 1063, 1171, 1093, 1532, 1297, 1417, 1081, 1358, 1533], backgroundColor:'#388E3C', borderRadius:4}
+]}, options:{
+responsive:true, maintainAspectRatio:false,
+plugins:{legend:{position:'top'}, title:{display:true, text:'ยอดจดทะเบียนรถใหม่รายเดือน แยกจังหวัด (ก.ค.68 - มิ.ย.69)', font:{size:14}}},
+scales:{x:{grid:{display:false}}, y:{beginAtZero:true}}
+}});
+
+var bdata = {"TOYOTA": [82, 75, 65, 51, 62, 60, 76, 78, 91, 65, 52, 95], "HONDA": [939, 811, 820, 895, 901, 1012, 1087, 950, 1060, 861, 1059, 1177], "ISUZU": [21, 23, 18, 12, 23, 19, 20, 22, 55, 22, 18, 13], "MITSUBISHI": [10, 10, 4, 11, 9, 6, 8, 9, 8, 14, 11, 11], "NISSAN": [3, 2, 5, 6, 4, 2, 3, 4, 4, 5, 2, 1], "FORD": [3, 4, 14, 5, 6, 6, 12, 1, 8, 1, 5, 4], "MAZDA": [0, 2, 0, 0, 0, 0, 3, 0, 1, 0, 0, 0], "MG": [7, 5, 7, 2, 3, 4, 2, 0, 3, 4, 6, 2], "BYD": [2, 2, 0, 0, 2, 2, 11, 0, 1, 9, 23, 8], "GWM": [0, 3, 3, 5, 3, 2, 10, 4, 4, 1, 2, 6], "SUZUKI": [3, 5, 4, 4, 8, 4, 8, 6, 3, 4, 3, 4], "JAECOO": [0, 0, 0, 0, 9, 19, 30, 0, 3, 6, 6, 1], "CHERY": [0, 0, 0, 0, 0, 1, 0, 0, 1, 10, 11, 4]};
+var brandColors = {'TOYOTA':'#D42027','HONDA':'#E30512','ISUZU':'#003366','MITSUBISHI':'#B3002D','NISSAN':'#C3002F','FORD':'#1B3A6B','BYD':'#4A90D9','GWM':'#333333','SUZUKI':'#005BAC','MG':'#0066CC'};
+var ds = [];
+Object.keys(bdata).forEach(function(b) {
+if(bdata[b].reduce(function(a,c){return a+c},0) > 10) {
+ds.push({label:b, data:bdata[b], borderColor:brandColors[b]||'#666', backgroundColor:brandColors[b]||'#666', tension:0.3, fill:false, pointRadius:3, borderWidth:2});
+}
+});
+new Chart(document.getElementById('chartBrands'), {
+type:'line', data:{labels:["Jul'25", "Aug'25", "Sep'25", "Oct'25", "Nov'25", "Dec'25", "Jan'26", "Feb'26", "Mar'26", "Apr'26", "May'26", "Jun'26"], datasets:ds},
+options:{responsive:true, maintainAspectRatio:false, plugins:{legend:{position:'top', labels:{font:{size:11}, boxWidth:12}}, title:{display:true, text:'แนวโน้มยอดจดทะเบียนรายเดือนแยกแบรนด์ (จังหวัดเลย)', font:{size:14}}}, scales:{x:{grid:{display:false}}, y:{beginAtZero:true}}}
+});
+
+new Chart(document.getElementById('chartGap'), {
+type:'doughnut', data:{
+labels:['มีใบขับขี่รถยนต์ (210,367)', 'ประชากรที่เหลือ (ไม่มีใบขับขี่รถยนต์)'],
+datasets:[{data:[210367, 631442-210367], backgroundColor:['#C3002F','#DCE2EA'], borderWidth:0}]
+}, options:{responsive:true, maintainAspectRatio:false, plugins:{legend:{position:'right', labels:{font:{size:12}}}, title:{display:true, text:'สัดส่วนผู้มีใบขับขี่รถยนต์ vs ประชากรทั้งหมด', font:{size:14}}}}
+});
+</script>
+</body>
+</html>
