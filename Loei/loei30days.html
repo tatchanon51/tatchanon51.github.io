@@ -3,89 +3,122 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>📊 Loei 30-Day Competitor Report – June 2026</title>
+<title>📊 รายงานคู่แข่งจังหวัดเลย — 30 วัน (16 มิ.ย.–16 ก.ค. 2569)</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Thai:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-:root { --nmt-red: #C3002F; --nmt-red-soft: rgba(195,0,47,0.08); --ink-50: #F9FBFD; --ink-100: #F0F3F7; --ink-200: #DCE2EA; --ink-400: #94A0B3; --ink-500: #6B7785; --ink-700: #3F4750; --ink-900: #1A1A1A; --border: #DCE2EA; --green: #388E3C; --orange: #F57C00; --blue: #1976D2; --teal: #00897B; --shadow-sm: 0 1px 2px rgba(0,0,0,0.04); --shadow-md: 0 2px 8px rgba(0,0,0,0.06); }
-* { box-sizing: border-box; }
-body { font-family: 'Inter','Noto Sans Thai',sans-serif; margin:0; padding:0; background:var(--ink-50); color:var(--ink-900); line-height:1.55; font-size:13px; }
-.hero { background:linear-gradient(135deg,var(--nmt-red) 0%,#8B0020 100%); color:#fff; padding:22px 32px 18px; }
-.hero h1 { margin:0; font-size:20px; font-weight:700; }
-.hero-meta { font-size:11px; opacity:.9; margin-top:3px; }
-.hero-stats { display:flex; gap:16px; margin-top:10px; flex-wrap:wrap; }
-.hero-stat { background:rgba(255,255,255,.12); padding:6px 12px; border-radius:6px; text-align:center; min-width:70px; }
-.hero-stat-num { font-size:18px; font-weight:700; }
-.hero-stat-label { font-size:9px; opacity:.8; }
-.container { max-width:1100px; margin:0 auto; padding:14px 20px 32px; }
-.card { background:#fff; border-radius:10px; padding:18px 20px; margin-bottom:14px; box-shadow:var(--shadow-sm); border:1px solid var(--border); }
-.card-hdr { display:flex; align-items:center; gap:8px; margin-bottom:12px; padding-bottom:8px; border-bottom:1px solid var(--border); }
-.snum { background:var(--nmt-red); color:#fff; width:22px; height:22px; border-radius:4px; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:11px; }
-.card h2 { margin:0; font-size:14px; font-weight:700; }
-.kpi-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
-.kpi { background:var(--ink-50); padding:12px 8px; border-radius:6px; text-align:center; }
-.kpi .lbl { font-size:10px; color:var(--ink-500); }
-.kpi .val { font-size:20px; font-weight:700; }
-.kpi .val.r { color:var(--nmt-red); }
-.kpi .val.t { color:var(--teal); }
-.kpi .val.b { color:var(--blue); }
-.kpi .val.o { color:var(--orange); }
-table { width:100%; border-collapse:collapse; font-size:11px; }
-thead tr { background:linear-gradient(135deg,var(--nmt-red) 0%,#8B0020 100%); }
-thead th { color:#fff; padding:7px 8px; text-align:left; font-weight:600; font-size:10px; }
-tbody tr:nth-child(even) { background:var(--ink-50); }
-tbody td { padding:6px 8px; border-bottom:1px solid var(--border); }
-.td-bar { min-width:80px; }
-.bar { height:14px; border-radius:3px; display:inline-block; }
-.dot { display:inline-block; width:8px; height:8px; border-radius:2px; margin-right:4px; }
+:root { --nmt: #C3002F; --nmt-s: rgba(195,0,47,0.08); --i50: #F9FBFD; --i100: #F0F3F7; --i200: #DCE2EA; --i400: #94A0B3; --i500: #6B7785; --i700: #3F4750; --i900: #1A1A1A; --bdr: #DCE2EA; --grn: #388E3C; --org: #F57C00; --blu: #1976D2; --teal: #00897B; --sm: 0 1px 2px rgba(0,0,0,0.04); }
+* { box-sizing:border-box; }
+body { font-family:'Inter','Noto Sans Thai',sans-serif; margin:0; padding:0; background:var(--i50); color:var(--i900); line-height:1.55; }
+.hero { background:linear-gradient(135deg,var(--nmt) 0%,#8B0020 100%); color:#fff; padding:24px 32px 18px; }
+.hero h1 { margin:0; font-size:22px; font-weight:700; }
+.hero-meta { font-size:12px; opacity:.87; margin-top:3px; }
+.hero-stats { display:flex; gap:16px; margin-top:12px; flex-wrap:wrap; }
+.hero-stat { background:rgba(255,255,255,.12); padding:7px 14px; border-radius:6px; text-align:center; min-width:80px; }
+.hsn { font-size:20px; font-weight:700; }
+.hsl { font-size:10px; opacity:.82; }
+.container { max-width:1100px; margin:0 auto; padding:16px 20px 32px; }
+.card { background:#fff; border-radius:10px; padding:18px 20px; margin-bottom:14px; box-shadow:var(--sm); border:1px solid var(--bdr); }
+.ch { display:flex; align-items:center; gap:8px; margin-bottom:12px; padding-bottom:8px; border-bottom:1px solid var(--bdr); }
+.sn { background:var(--nmt); color:#fff; width:22px; height:22px; border-radius:4px; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:11px; flex-shrink:0; }
+.card h2 { margin:0; font-size:15px; font-weight:700; }
+.k4 { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
+.kpi { background:var(--i50); padding:14px 8px; border-radius:6px; text-align:center; }
+.kpi .l { font-size:10px; color:var(--i500); }
+.kpi .v { font-size:22px; font-weight:700; }
+.kpi .v.r { color:var(--nmt); } .kpi .v.t { color:var(--teal); } .kpi .v.b { color:var(--blu); } .kpi .v.o { color:var(--org); }
+table { width:100%; border-collapse:collapse; font-size:12px; }
+thead tr { background:linear-gradient(135deg,var(--nmt) 0%,#8B0020 100%); }
+thead th { color:#fff; padding:8px; text-align:left; font-weight:600; font-size:11px; }
+tbody tr:nth-child(even) { background:var(--i50); }
+tbody td { padding:7px 8px; border-bottom:1px solid var(--bdr); }
+.nissan-row { background:var(--nmt-s) !important; font-weight:600; }
+.dot { display:inline-block; width:9px; height:9px; border-radius:2px; margin-right:5px; }
+.spotlight { background:var(--nmt-s); border:2px solid var(--nmt); border-radius:8px; padding:12px 14px; margin-bottom:10px; }
+.spotlight h3 { margin:0 0 6px; font-size:14px; color:var(--nmt); }
+.spotlight p { margin:0; font-size:12px; line-height:1.6; }
+.insight { padding:10px 12px; background:var(--i50); border-radius:6px; border-left:3px solid var(--nmt); margin-bottom:6px; font-size:12px; }
+.insight strong { color:var(--nmt); }
+.week-grid { display:grid; grid-template-columns:repeat(6,1fr); gap:6px; }
+.wc { background:var(--i50); padding:8px 4px; text-align:center; border-radius:5px; }
+.wc .wl { font-size:10px; color:var(--i500); }
+.wc .wn { font-size:16px; font-weight:700; }
+.wc .wb { height:4px; background:var(--nmt); border-radius:2px; margin:4px auto 0; }
 .g2 { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
-.wd-grid { display:grid; grid-template-columns:repeat(7,1fr); gap:4px; }
-.wd-cell { background:var(--ink-50); padding:8px 4px; text-align:center; border-radius:5px; }
-.wd-cell .d { font-size:9px; color:var(--ink-500); }
-.wd-cell .c { font-size:16px; font-weight:700; }
-.wd-cell .mini { height:3px; background:var(--nmt-red); border-radius:2px; margin:3px auto 0; }
+.post-card { padding:8px 10px; border-radius:5px; background:var(--i50); margin-bottom:5px; font-size:11px; }
+.pm { font-size:9px; color:var(--i500); margin-top:3px; display:flex; gap:8px; }
+.footer { text-align:center; padding:14px; font-size:10px; color:var(--i400); }
 .hash-list { display:flex; flex-wrap:wrap; gap:4px; }
-.hash-item { background:var(--nmt-red-soft); padding:3px 8px; border-radius:10px; font-size:10px; color:var(--nmt-red); }
-.post-card { padding:8px 10px; border-radius:5px; background:var(--ink-50); margin-bottom:5px; font-size:11px; }
-.post-meta { font-size:9px; color:var(--ink-500); margin-top:3px; display:flex; gap:8px; }
-.brand-box { margin-bottom:8px; padding:8px 10px; background:var(--ink-50); border-radius:5px; border-left:3px solid; font-size:11px; }
-.footer { text-align:center; padding:12px; font-size:10px; color:var(--ink-400); }
+.hash { background:var(--nmt-s); padding:3px 8px; border-radius:10px; font-size:10px; color:var(--nmt); }
 </style>
 </head>
 <body>
 <div class="hero">
-<h1>📊 Loei 30-Day Competitor Report</h1>
-<div class="hero-meta">2026-06-16 – 2026-07-16 · 8 brands · 550 posts</div>
+<h1>📊 รายงานคู่แข่งจังหวัดเลย</h1>
+<div class="hero-meta">2026-06-16 – 2026-07-16 · 8 แบรนด์ · 550 โพสต์</div>
 <div class="hero-stats">
-<div class="hero-stat"><div class="hero-stat-num">550</div><div class="hero-stat-label">Posts</div></div>
-<div class="hero-stat"><div class="hero-stat-num">8</div><div class="hero-stat-label">Brands</div></div>
-<div class="hero-stat"><div class="hero-stat-num">18</div><div class="hero-stat-label">Posts/Day</div></div>
-<div class="hero-stat"><div class="hero-stat-num">14639</div><div class="hero-stat-label">Likes</div></div>
+<div class="hero-stat"><div class="hsn">550</div><div class="hsl">โพสต์รวม</div></div>
+<div class="hero-stat"><div class="hsn">8</div><div class="hsl">แบรนด์ที่ active</div></div>
+<div class="hero-stat"><div class="hsn">18</div><div class="hsl">โพสต์/วัน</div></div>
+<div class="hero-stat"><div class="hsn">14639</div><div class="hsl">ไลก์รวม</div></div>
 </div>
 </div>
 <div class="container">
 
+<!-- Nissan Spotlight -->
+<div class="spotlight">
+<h3>🔴 สถานะของนิสสัน วังสะพุง</h3>
+<p>
+นิสสัน วังสะพุง อยู่ในอันดับที่ <strong>5</strong> จาก 8 แบรนด์ 
+มี <strong>32 โพสต์</strong> ในรอบ 30 วัน (6% ของทั้งหมด)
+ได้รับ <strong>143 ไลก์</strong> 
+และ <strong>12 คอมเมนต์</strong>
+คิดเป็นค่าเฉลี่ย <strong>1.1 โพสต์/วัน</strong>
+</p>
+</div>
+
+<!-- Executive Summary -->
 <div class="card">
-<div class="card-hdr"><span class="snum">1</span><h2>Executive Summary</h2></div>
-<div class="kpi-grid">
-<div class="kpi"><div class="lbl">Total Posts (30d)</div><div class="val r">550</div><div class="lbl">avg 18/day</div></div>
-<div class="kpi"><div class="lbl">Total Engagement</div><div class="val t">15480</div><div class="lbl">likes+comments+shares</div></div>
-<div class="kpi"><div class="lbl">Avg Likes/Post</div><div class="val b">26</div><div class="lbl">engagement indicator</div></div>
-<div class="kpi"><div class="lbl">Media Posts</div><div class="val o">510</div><div class="lbl">93% with media</div></div>
+<div class="ch"><span class="sn">1</span><h2>ภาพรวม</h2></div>
+<div class="k4">
+<div class="kpi"><div class="l">โพสต์ทั้งหมด (30 วัน)</div><div class="v r">550</div><div class="l">เฉลี่ย 18 โพสต์/วัน</div></div>
+<div class="kpi"><div class="l">การมีส่วนร่วมรวม</div><div class="v t">15480</div><div class="l">ไลก์ 14639 · คอมเมนต์ 410</div></div>
+<div class="kpi"><div class="l">เฉลี่ยไลก์/โพสต์</div><div class="v b">26</div><div class="l">ตัวชี้วัดการมีส่วนร่วม</div></div>
+<div class="kpi"><div class="l">โพสต์ที่มีรูป/วิดีโอ</div><div class="v o">510</div><div class="l">93% ของทั้งหมด</div></div>
 </div>
 </div>
 
+<!-- Brand Table -->
 <div class="card">
-<div class="card-hdr"><span class="snum">2</span><h2>Brand Activity</h2></div>
+<div class="ch"><span class="sn">2</span><h2>เปรียบเทียบกิจกรรมแบรนด์</h2></div>
 <table>
-<thead><tr><th>Brand</th><th>Posts</th><th>% Share</th><th>Likes</th><th>Comments</th><th>Shares</th><th>Media</th><th>Eng/Post</th><th>Bar</th></tr></thead>
+<thead><tr><th>แบรนด์</th><th>โพสต์</th><th>% ส่วนแบ่ง</th><th>ไลก์</th><th>คอมเมนต์</th><th>แชร์</th><th>สื่อ</th><th>Eng/โพสต์</th></tr></thead>
 <tbody>
-<tr><td><span class="dot" style="background:#E30512"></span>Honda Muang Loei</td><td>200</td><td>36%</td><td>9879</td><td>220</td><td>144</td><td>188</td><td>51.2</td><td class="td-bar"><div class="bar" style="width:100px;background:#E30512"></div></td></tr><tr><td><span class="dot" style="background:#4A90D9"></span>BYD Loei</td><td>109</td><td>20%</td><td>1182</td><td>82</td><td>77</td><td>106</td><td>12.3</td><td class="td-bar"><div class="bar" style="width:55px;background:#4A90D9"></div></td></tr><tr><td><span class="dot" style="background:#333333"></span>GWM Loei</td><td>104</td><td>19%</td><td>1324</td><td>26</td><td>51</td><td>89</td><td>13.5</td><td class="td-bar"><div class="bar" style="width:52px;background:#333333"></div></td></tr><tr><td><span class="dot" style="background:#D42027"></span>Toyota Muang Loei</td><td>67</td><td>12%</td><td>1024</td><td>24</td><td>80</td><td>59</td><td>16.8</td><td class="td-bar"><div class="bar" style="width:34px;background:#D42027"></div></td></tr><tr><td><span class="dot" style="background:#C3002F"></span>Nissan Wangsaphung</td><td>32</td><td>6%</td><td>143</td><td>12</td><td>3</td><td>32</td><td>4.9</td><td class="td-bar"><div class="bar" style="width:16px;background:#C3002F"></div></td></tr><tr><td><span class="dot" style="background:#0066CC"></span>MG Loei Official</td><td>21</td><td>4%</td><td>895</td><td>43</td><td>72</td><td>19</td><td>48.1</td><td class="td-bar"><div class="bar" style="width:10px;background:#0066CC"></div></td></tr><tr><td><span class="dot" style="background:#666"></span>isuzukyh.loei</td><td>14</td><td>3%</td><td>183</td><td>0</td><td>1</td><td>14</td><td>13.1</td><td class="td-bar"><div class="bar" style="width:7px;background:#666"></div></td></tr><tr><td><span class="dot" style="background:#666"></span>fordrattanayon</td><td>3</td><td>1%</td><td>9</td><td>3</td><td>3</td><td>3</td><td>5.0</td><td class="td-bar"><div class="bar" style="width:4px;background:#666"></div></td></tr>
+<tr><td><span class="dot" style="background:#E30512"></span>Honda เมืองเลย</td><td>200</td><td>36%</td><td>9879</td><td>220</td><td>144</td><td>188</td><td>51.2</td></tr><tr><td><span class="dot" style="background:#4A90D9"></span>BYD เลย</td><td>109</td><td>20%</td><td>1182</td><td>82</td><td>77</td><td>106</td><td>12.3</td></tr><tr><td><span class="dot" style="background:#333333"></span>GWM เลย</td><td>104</td><td>19%</td><td>1324</td><td>26</td><td>51</td><td>89</td><td>13.5</td></tr><tr><td><span class="dot" style="background:#D42027"></span>โตโยต้า เมืองเลย</td><td>67</td><td>12%</td><td>1024</td><td>24</td><td>80</td><td>59</td><td>16.8</td></tr><tr class="nissan-row"><td><span class="dot" style="background:#C3002F"></span>นิสสัน วังสะพุง</td><td>32</td><td>6%</td><td>143</td><td>12</td><td>3</td><td>32</td><td>4.9</td></tr><tr><td><span class="dot" style="background:#0066CC"></span>MG เลย</td><td>21</td><td>4%</td><td>895</td><td>43</td><td>72</td><td>19</td><td>48.1</td></tr><tr><td><span class="dot" style="background:#666"></span>isuzukyh.loei</td><td>14</td><td>3%</td><td>183</td><td>0</td><td>1</td><td>14</td><td>13.1</td></tr><tr><td><span class="dot" style="background:#666"></span>fordrattanayon</td><td>3</td><td>1%</td><td>9</td><td>3</td><td>3</td><td>3</td><td>5.0</td></tr>
 </tbody></table>
 </div>
 
+<!-- Weekly Trend + Hashtags -->
 <div class="card">
-<div class="card-hdr"><span class="snum">3</span><h2>Posting Pattern</h2></div>
+<div class="ch"><span class="sn">3</span><h2>แนวโน้มรายสัปดาห์</h2></div>
 <div class="g2">
-<div><h3 style="font-size:12px;font-weight:600;margin:0 0 8px">📅 By Day of Week</h3>
-<div class="wd-grid">
-<div class="wd-cell"><div class="d">Mon</div><div class="c">80</div><div class="mini" style="width:72%"></div></div><div class="wd-cell"><div class="d">Tue</div><div class="c">111</div><div class="mini" style="width:100%"></div></div><div class="wd-cell"><div class="d">Wed</div><div class="c">72</div><div class="mini" style="width:65%"></div></div><div class="wd-cell"><div class="d">Thu</div><div class="c">76</div><div class="mini" style="width:68%"></div></div><div class="wd-cell"><div class="d">Fri</div><div class="c">97</div><div class="mini" style="width:87%"></div></div><div class="wd-cell"><div class="d">Sat</div><div class="c">107</div><div class="mini" style="width:96%"></div></div><div class="wd-cell"><div class="d">Sun</div><div class="c">7</div><div class="mini" style="width:6%"></div></div></div></div><div><h3 style="font-size:12px;font-weight:600;margin:0 0 8px">🏷️ Top Hashtags</h3><div class="hash-list"><span class="hash-item">#น (249)</span><span class="hash-item">#พ (164)</span><span class="hash-item">#ฮอนด (160)</span><span class="hash-item">#honda (115)</span><span class="hash-item">#เอ (104)</span><span class="hash-item">#ส (103)</span><span class="hash-item">#ค (91)</span><span class="hash-item">#รถจ (81)</span><span class="hash-item">#อ (64)</span><span class="hash-item">#siamnissanloei (64)</span><span class="hash-item">#nissanloei (64)</span><span class="hash-item">#สยามน (64)</span></div></div></div></div><div class="card"><div class="card-hdr"><span class="snum">4</span><h2>Top Posts by Engagement</h2></div><div class="post-card"><div class="post-text"><strong>#1</strong> สนใจทักแชทด่วน!!😁😁 Honda CRF300L แต่ง สนใจติดต่อเรา ฮอนด้าเมืองเลย วงเวียนน้ำพุ ใจกลางเมืองเลย เบอร์ร้าน : 042-830719 FB...</div><div class="post-meta"><span>Honda Muang Loei</span><span>❤️ 1138</span><span>💬 18</span><span>🔄 10</span><span>📅 27 Jun</span><span>Score: 1204</span></div></div><div class="post-card"><div class="post-text"><strong>#2</strong> บอกได้คำเดียวครับ สวยยยยย!! แอดมินอยากได้🤣🤣🎉</div><div class="post-meta"><span>Honda Muang Loei</span><span>❤️ 761</span><span>💬 4</span><span>🔄 9</span><span>📅 11 Jul</span><span>Score: 796</span></div></div><div class="post-card"><div class="post-text"><strong>#3</strong> 🚙 YARIS CROSS ตอบโจทย์ทุกไลฟ์สไตล์ ในแบบของคุณ✨ 💥แคมเปญพิเศษเฉพาะคุณ ✅ ผ่อนเริ่มต้น 6,958 บาท ✅ ฟรี! ประกันภัยชั้น 1 📍รั...</div><div class="post-meta"><span>Toyota Muang Loei</span><span>❤️ 441</span><span>💬 11</span><span>🔄 12</span><span>📅 16 Jun</span><span>Score: 499</span></div></div><div class="post-card"><div class="post-text"><strong>#4</strong> หล่อไม่ไหว ยอดขายก็ถล่มทลายไปเลยดิคร้าบบ !! สนใจติดต่อเรา ฮอนด้าเมืองเลย วงเวียนน้ำพุ ใจกลางเมืองเลย เบอร์ร้าน : 042-830...</div><div class="post-meta"><span>Honda Muang Loei</span><span>❤️ 375</span><span>💬 10</span><span>🔄 6</span><span>📅 02 Jul</span><span>Score: 413</span></div></div><div class="post-card"><div class="post-text"><strong>#5</strong> ไม่หลงทาง ก็ไม่เจอเส้นทางใหม่ๆ😎 พร้อมลุยด่านซ้าย Honda CRF300L คุณบุญนอง จากด่านซ้าย🙏🎉 สนใจติดต่อเรา ฮอนด้าเมืองเลย วงเว...</div><div class="post-meta"><span>Honda Muang Loei</span><span>❤️ 339</span><span>💬 15</span><span>🔄 9</span><span>📅 09 Jul</span><span>Score: 396</span></div></div><div class="post-card"><div class="post-text"><strong>#6</strong> ลุยได้ทุกที่ ขับได้ทุกหน้า จองออนไลน์รับบัตรน้ำมันมูลค่า 500.- . อยากได้ CRF300L แต่งเท่ๆ ต้องที่ฮอนด้าเมืองเลย ยืนยันด้...</div><div class="post-meta"><span>Honda Muang Loei</span><span>❤️ 356</span><span>💬 3</span><span>🔄 3</span><span>📅 13 Jul</span><span>Score: 371</span></div></div><div class="post-card"><div class="post-text"><strong>#7</strong> ดีลดี ครบรอบ 2 ปี โรงงาน BYD ในไทย 2 ปี ของโรงงาน BYD ในไทย คืออีกก้าวสำคัญของการสร้างอนาคตการเดินทางที่ดีขึ้น . ✅️ รับฟ...</div><div class="post-meta"><span>BYD Loei</span><span>❤️ 327</span><span>💬 3</span><span>🔄 8</span><span>📅 20 Jun</span><span>Score: 357</span></div></div><div class="post-card"><div class="post-text"><strong>#8</strong> คิดถึงรถแต่ง คิดถึงเรา พัฒนชัยยนต์ Pro Shop ยืนยันด้วยด้วยยอดขายอันดับ 1 ในภาคอีสาน แต่งครบจบจากโชว์รูม ขับไปลุยได้เลย ไ...</div><div class="post-meta"><span>Honda Muang Loei</span><span>❤️ 354</span><span>💬 1</span><span>🔄 0</span><span>📅 03 Jul</span><span>Score: 356</span></div></div><div class="post-card"><div class="post-text"><strong>#9</strong> พร้อมลุยอีก1ลำ CRF300Lพัฒนชัยยนต์ 😎🎉</div><div class="post-meta"><span>Honda Muang Loei</span><span>❤️ 339</span><span>💬 3</span><span>🔄 3</span><span>📅 24 Jun</span><span>Score: 354</span></div></div><div class="post-card"><div class="post-text"><strong>#10</strong> 🎉 พร้อมส่งมอบ Honda CRF300L ให้กับลูกค้าจังหวัดหนองคายครับ 🏍️✨ ขอขอบพระคุณลูกค้าจากจังหวัดหนองคายเป็นอย่างยิ่ง ที่ไว้วาง...</div><div class="post-meta"><span>Honda Muang Loei</span><span>❤️ 290</span><span>💬 3</span><span>🔄 3</span><span>📅 07 Jul</span><span>Score: 305</span></div></div></div><div class="card"><div class="card-hdr"><span class="snum">5</span><h2>Top Competitor Details</h2></div><div class="brand-box" style="border-left-color:#E30512"><div style="font-weight:600;font-size:12px">Honda Muang Loei</div><div style="font-size:10px;color:var(--ink-500);margin-top:2px;display:flex;gap:12px;flex-wrap:wrap"><span>200 posts (6.7/day)</span><span>❤️ 9879</span><span>💬 220</span><span>📸 188 media</span><span>Avg 49.4 likes/post</span></div></div><div class="brand-box" style="border-left-color:#4A90D9"><div style="font-weight:600;font-size:12px">BYD Loei</div><div style="font-size:10px;color:var(--ink-500);margin-top:2px;display:flex;gap:12px;flex-wrap:wrap"><span>109 posts (3.6/day)</span><span>❤️ 1182</span><span>💬 82</span><span>📸 106 media</span><span>Avg 10.8 likes/post</span></div></div><div class="brand-box" style="border-left-color:#333333"><div style="font-weight:600;font-size:12px">GWM Loei</div><div style="font-size:10px;color:var(--ink-500);margin-top:2px;display:flex;gap:12px;flex-wrap:wrap"><span>104 posts (3.5/day)</span><span>❤️ 1324</span><span>💬 26</span><span>📸 89 media</span><span>Avg 12.7 likes/post</span></div></div><div class="brand-box" style="border-left-color:#D42027"><div style="font-weight:600;font-size:12px">Toyota Muang Loei</div><div style="font-size:10px;color:var(--ink-500);margin-top:2px;display:flex;gap:12px;flex-wrap:wrap"><span>67 posts (2.2/day)</span><span>❤️ 1024</span><span>💬 24</span><span>📸 59 media</span><span>Avg 15.3 likes/post</span></div></div><div class="brand-box" style="border-left-color:#C3002F"><div style="font-weight:600;font-size:12px">Nissan Wangsaphung</div><div style="font-size:10px;color:var(--ink-500);margin-top:2px;display:flex;gap:12px;flex-wrap:wrap"><span>32 posts (1.1/day)</span><span>❤️ 143</span><span>💬 12</span><span>📸 32 media</span><span>Avg 4.5 likes/post</span></div></div></div></div><div class="footer">👤 สร้างโดย: Tatchanon Wissawakornrungrot, Regional Marketing Manager at Nissan Motor (Thailand) · Data: Apify Facebook Scraper<br>{min_dt.date()} – {max_dt.date()}</div></body></html>
+<div>
+<h3 style="font-size:13px;font-weight:600;margin:0 0 8px">📈 โพสต์แยกสัปดาห์</h3>
+<div class="week-grid">
+<div class="wc"><div class="wl">06 Jul</div><div class="wn">137</div><div class="wb" style="width:100%"></div><div class="wl">8 แบรนด์</div></div><div class="wc"><div class="wl">13 Jul</div><div class="wn">76</div><div class="wb" style="width:55%"></div><div class="wl">6 แบรนด์</div></div><div class="wc"><div class="wl">15 Jun</div><div class="wn">77</div><div class="wb" style="width:56%"></div><div class="wl">6 แบรนด์</div></div><div class="wc"><div class="wl">22 Jun</div><div class="wn">135</div><div class="wb" style="width:99%"></div><div class="wl">7 แบรนด์</div></div><div class="wc"><div class="wl">29 Jun</div><div class="wn">125</div><div class="wb" style="width:91%"></div><div class="wl">7 แบรนด์</div></div>
+</div>
+</div>
+<div>
+<h3 style="font-size:13px;font-weight:600;margin:0 0 8px">🏷️ แฮชแท็กยอดนิยม</h3>
+<div class="hash-list">
+<span class="hash">#น (249)</span><span class="hash">#พ (164)</span><span class="hash">#ฮอนด (160)</span><span class="hash">#honda (115)</span><span class="hash">#เอ (104)</span><span class="hash">#ส (103)</span><span class="hash">#ค (91)</span><span class="hash">#รถจ (81)</span><span class="hash">#อ (64)</span><span class="hash">#siamnissanloei (64)</span><span class="hash">#nissanloei (64)</span><span class="hash">#สยามน (64)</span></div></div></div></div>
+<div class="card">
+<div class="ch"><span class="sn">4</span><h2>สรุป Insight</h2></div>
+<div class="insight"><strong>🔴 ความเคลื่อนไหวรายสัปดาห์</strong><br>สัปดาห์ 06 Jul มี 137 โพสต์ จาก 8 แบรนด์<br>สัปดาห์ 29 Jun มี 125 โพสต์ จาก 7 แบรนด์</div><div class="insight"><strong>📊 แบรนด์ที่ active มากที่สุด</strong><br>Honda เมืองเลย โพสต์ 200 โพสต์ใน 30 วัน (เฉลี่ย 6.7 โพสต์/วัน) มากเป็นอันดับ 1 ในพื้นที่</div><div class="insight"><strong>🔵 จุดสังเกตของนิสสัน วังสะพุง</strong><br>อยู่ในอันดับ 5 จาก 8 แบรนด์ มี 32 โพสต์ในรอบ 30 วัน (6% share of voice) ได้รับ 143 ไลก์ — ควรเพิ่มความถี่ในการโพสต์เพื่อเพิ่ม share of voice</div></div><div class="card">
+<div class="ch"><span class="sn">5</span><h2>10 โพสต์ที่มี Engagement สูงสุด</h2></div>
+<div class="post-card"><div><strong>#1</strong> สนใจทักแชทด่วน!!😁😁 Honda CRF300L แต่ง สนใจติดต่อเรา ฮอนด้าเมืองเลย วงเวียนน้ำพุ ใจกลางเมือ...</div><div class="pm"><span>Honda เมืองเลย</span><span>❤️ 1138</span><span>💬 18</span><span>🔄 10</span><span>📅 27 Jun</span><span>คะแนน: 1204</span></div></div><div class="post-card"><div><strong>#2</strong> บอกได้คำเดียวครับ สวยยยยย!! แอดมินอยากได้🤣🤣🎉</div><div class="pm"><span>Honda เมืองเลย</span><span>❤️ 761</span><span>💬 4</span><span>🔄 9</span><span>📅 11 Jul</span><span>คะแนน: 796</span></div></div><div class="post-card"><div><strong>#3</strong> 🚙 YARIS CROSS ตอบโจทย์ทุกไลฟ์สไตล์ ในแบบของคุณ✨ 💥แคมเปญพิเศษเฉพาะคุณ ✅ ผ่อนเริ่มต้น 6,958 ...</div><div class="pm"><span>โตโยต้า เมืองเลย</span><span>❤️ 441</span><span>💬 11</span><span>🔄 12</span><span>📅 16 Jun</span><span>คะแนน: 499</span></div></div><div class="post-card"><div><strong>#4</strong> หล่อไม่ไหว ยอดขายก็ถล่มทลายไปเลยดิคร้าบบ !! สนใจติดต่อเรา ฮอนด้าเมืองเลย วงเวียนน้ำพุ ใจกล...</div><div class="pm"><span>Honda เมืองเลย</span><span>❤️ 375</span><span>💬 10</span><span>🔄 6</span><span>📅 02 Jul</span><span>คะแนน: 413</span></div></div><div class="post-card"><div><strong>#5</strong> ไม่หลงทาง ก็ไม่เจอเส้นทางใหม่ๆ😎 พร้อมลุยด่านซ้าย Honda CRF300L คุณบุญนอง จากด่านซ้าย🙏🎉 สนใ...</div><div class="pm"><span>Honda เมืองเลย</span><span>❤️ 339</span><span>💬 15</span><span>🔄 9</span><span>📅 09 Jul</span><span>คะแนน: 396</span></div></div><div class="post-card"><div><strong>#6</strong> ลุยได้ทุกที่ ขับได้ทุกหน้า จองออนไลน์รับบัตรน้ำมันมูลค่า 500.- . อยากได้ CRF300L แต่งเท่ๆ ...</div><div class="pm"><span>Honda เมืองเลย</span><span>❤️ 356</span><span>💬 3</span><span>🔄 3</span><span>📅 13 Jul</span><span>คะแนน: 371</span></div></div><div class="post-card"><div><strong>#7</strong> ดีลดี ครบรอบ 2 ปี โรงงาน BYD ในไทย 2 ปี ของโรงงาน BYD ในไทย คืออีกก้าวสำคัญของการสร้างอนาค...</div><div class="pm"><span>BYD เลย</span><span>❤️ 327</span><span>💬 3</span><span>🔄 8</span><span>📅 20 Jun</span><span>คะแนน: 357</span></div></div><div class="post-card"><div><strong>#8</strong> คิดถึงรถแต่ง คิดถึงเรา พัฒนชัยยนต์ Pro Shop ยืนยันด้วยด้วยยอดขายอันดับ 1 ในภาคอีสาน แต่งคร...</div><div class="pm"><span>Honda เมืองเลย</span><span>❤️ 354</span><span>💬 1</span><span>🔄 0</span><span>📅 03 Jul</span><span>คะแนน: 356</span></div></div><div class="post-card"><div><strong>#9</strong> พร้อมลุยอีก1ลำ CRF300Lพัฒนชัยยนต์ 😎🎉</div><div class="pm"><span>Honda เมืองเลย</span><span>❤️ 339</span><span>💬 3</span><span>🔄 3</span><span>📅 24 Jun</span><span>คะแนน: 354</span></div></div><div class="post-card"><div><strong>#10</strong> 🎉 พร้อมส่งมอบ Honda CRF300L ให้กับลูกค้าจังหวัดหนองคายครับ 🏍️✨ ขอขอบพระคุณลูกค้าจากจังหวัด...</div><div class="pm"><span>Honda เมืองเลย</span><span>❤️ 290</span><span>💬 3</span><span>🔄 3</span><span>📅 07 Jul</span><span>คะแนน: 305</span></div></div></div>
+</div>
+<div class="footer">
+👤 สร้างโดย: Tatchanon Wissawakornrungrot, Regional Marketing Manager at Nissan Motor (Thailand) · ข้อมูล 30 วัน (2026-06-16 – 2026-07-16)
+</div>
+</body>
+</html>
