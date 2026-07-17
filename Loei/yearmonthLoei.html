@@ -642,116 +642,116 @@ tr:hover { background: #f5f6fa; }
 Chart.defaults.font.family = 'Sarabun';
 
 // Province totals bar
-new Chart(document.getElementById('chart_province_totals'), {{
+new Chart(document.getElementById('chart_province_totals'), {
   type: 'bar',
-  data: {{
+  data: {
     labels: ["เลย", "หนองคาย", "อุดรธานี", "เพชรบูรณ์"],
-    datasets: [{{
+    datasets: [{
       label: 'รวมจดทะเบียน รย.1-3 (ม.ค.68-มิ.ย.69)',
-      data: [3006, 1791, 10797, 3409],
+      data: [3006, 1735, 10285, 2586],
       backgroundColor: ['#e74c3c','#3498db','#2ecc71','#f39c12'],
       borderRadius: 6
-    }}]
-  }},
-  options: {{
+    }]
+  },
+  options: {
     responsive: true, maintainAspectRatio: false,
-    plugins: {{ legend: {{ display: false }} }},
-    scales: {{ y: {{ beginAtZero: true, title: {{ display: true, text: 'คัน' }} }} }}
-  }}
-}});
+    plugins: { legend: { display: false } },
+    scales: { y: { beginAtZero: true, title: { display: true, text: 'คัน' } } }
+  }
+});
 
 // Monthly trend line
 const months = ["ม.ค.68", "ก.พ.68", "มี.ค.68", "เม.ย.68", "พ.ค.68", "มิ.ย.68", "ก.ค.68", "ส.ค.68", "ก.ย.68", "ต.ค.68", "พ.ย.68", "ธ.ค.68", "ม.ค.69", "ก.พ.69", "มี.ค.69", "เม.ย.69", "พ.ค.69", "มิ.ย.69"];
-new Chart(document.getElementById('chart_monthly_trend'), {{
+new Chart(document.getElementById('chart_monthly_trend'), {
   type: 'line',
-  data: {{
+  data: {
     labels: months,
     datasets: [
-      {{ label: 'เลย', data: [1795, 1606, 1571, 1499, 1622, 1481, 1313, 1126, 1131, 1219, 1265, 1359, 1603, 1333, 1507, 1239, 1500, 1732], borderColor: '#e74c3c', backgroundColor: 'rgba(231,76,60,0.1)', fill: true, tension: 0.3 }},
-      {{ label: 'หนองคาย', data: [1279, 951, 1019, 1036, 1192, 1096, 1013, 932, 977, 951, 965, 968, 1117, 953, 913, 859, 1133, 1249], borderColor: '#3498db', backgroundColor: 'rgba(52,152,219,0.1)', fill: true, tension: 0.3 }},
-      {{ label: 'อุดรธานี', data: [4481, 3823, 3966, 3891, 4293, 3877, 3404, 2980, 3299, 3265, 3276, 3744, 4366, 3506, 3756, 3365, 4117, 4506], borderColor: '#2ecc71', backgroundColor: 'rgba(46,204,113,0.1)', fill: true, tension: 0.3 }},
-      {{ label: 'เพชรบูรณ์', data: [1620, 1337, 1368, 1266, 1433, 1452, 1148, 1045, 1029, 1063, 1171, 1093, 1532, 1297, 1417, 1081, 1358, 1533], borderColor: '#f39c12', backgroundColor: 'rgba(243,156,18,0.1)', fill: true, tension: 0.3 }}
+      { label: 'เลย', data: [271, 150, 226, 157, 184, 147, 151, 143, 131, 111, 136, 142, 240, 133, 201, 155, 164, 164], borderColor: '#e74c3c', backgroundColor: 'rgba(231,76,60,0.1)', fill: true, tension: 0.3 },
+      { label: 'หนองคาย', data: [157, 105, 115, 98, 105, 98, 95, 85, 89, 81, 84, 79, 104, 82, 72, 72, 101, 113], borderColor: '#3498db', backgroundColor: 'rgba(52,152,219,0.1)', fill: true, tension: 0.3 },
+      { label: 'อุดรธานี', data: [651, 506, 583, 572, 644, 565, 519, 441, 493, 513, 552, 601, 681, 552, 577, 516, 646, 673], borderColor: '#2ecc71', backgroundColor: 'rgba(46,204,113,0.1)', fill: true, tension: 0.3 },
+      { label: 'เพชรบูรณ์', data: [181, 141, 159, 144, 159, 146, 126, 119, 105, 110, 118, 122, 178, 151, 165, 121, 160, 181], borderColor: '#f39c12', backgroundColor: 'rgba(243,156,18,0.1)', fill: true, tension: 0.3 }
     ]
-  }},
-  options: {{
+  },
+  options: {
     responsive: true, maintainAspectRatio: false,
-    plugins: {{ legend: {{ position: 'top' }} }},
-    scales: {{ y: {{ beginAtZero: true, title: {{ display: true, text: 'คัน' }} }} }}
-  }}
-}});
+    plugins: { legend: { position: 'top' } },
+    scales: { y: { beginAtZero: true, title: { display: true, text: 'คัน' } } }
+  }
+});
 
 // Brand Pie
 const brandLabels = ["TOYOTA", "ISUZU", "MITSUBISHI", "FORD", "BYD", "JAECOO", "NISSAN", "MG"];
-const brandValues = [1363, 550, 199, 109, 88, 74, 71, 68];
+const brandValues = [1363, 550, 200, 111, 88, 74, 71, 68];
 const brandColors = ["#dc2626", "#2563eb", "#db2777", "#1d4ed8", "#059669", "#7c3aed", "#e74c3c", "#0891b2"];
-new Chart(document.getElementById('chart_brand_pie'), {{
+new Chart(document.getElementById('chart_brand_pie'), {
   type: 'doughnut',
-  data: {{
+  data: {
     labels: brandLabels.slice(0,10),
-    datasets: [{{ data: brandValues.slice(0,10), backgroundColor: brandColors.slice(0,10) }}]
-  }},
-  options: {{
+    datasets: [{ data: brandValues.slice(0,10), backgroundColor: brandColors.slice(0,10) }]
+  },
+  options: {
     responsive: true, maintainAspectRatio: false,
-    plugins: {{ legend: {{ position: 'right', labels: {{ font: {{ size: 11 }} }} }} }}
-  }}
-}});
+    plugins: { legend: { position: 'right', labels: { font: { size: 11 } } } }
+  }
+});
 
 // Brand Bar
-new Chart(document.getElementById('chart_brand_bar'), {{
+new Chart(document.getElementById('chart_brand_bar'), {
   type: 'bar',
-  data: {{
+  data: {
     labels: brandLabels,
-    datasets: [{{
+    datasets: [{
       label: 'จำนวน (คัน)',
       data: brandValues,
       backgroundColor: brandColors,
       borderRadius: 4
-    }}]
-  }},
-  options: {{
+    }]
+  },
+  options: {
     indexAxis: 'y',
     responsive: true, maintainAspectRatio: false,
-    plugins: {{ legend: {{ display: false }} }},
-    scales: {{ x: {{ beginAtZero: true, title: {{ display: true, text: 'คัน' }} }} }}
-  }}
-}});
+    plugins: { legend: { display: false } },
+    scales: { x: { beginAtZero: true, title: { display: true, text: 'คัน' } } }
+  }
+});
 
 // Nissan Monthly
-new Chart(document.getElementById('chart_nissan_monthly'), {{
+new Chart(document.getElementById('chart_nissan_monthly'), {
   type: 'bar',
-  data: {{
+  data: {
     labels: months,
-    datasets: [{{
+    datasets: [{
       label: 'NISSAN เลย (คัน)',
       data: [5, 6, 7, 3, 4, 5, 3, 2, 5, 6, 4, 2, 3, 4, 4, 5, 2, 1],
       backgroundColor: '#c0392b',
       borderRadius: 4
-    }}]
-  }},
-  options: {{
+    }]
+  },
+  options: {
     responsive: true, maintainAspectRatio: false,
-    plugins: {{ legend: {{ display: false }} }},
-    scales: {{ y: {{ beginAtZero: true, title: {{ display: true, text: 'คัน' }} }} }}
-  }}
-}});
+    plugins: { legend: { display: false } },
+    scales: { y: { beginAtZero: true, title: { display: true, text: 'คัน' } } }
+  }
+});
 
 // Licenses
-new Chart(document.getElementById('chart_licenses'), {{
+new Chart(document.getElementById('chart_licenses'), {
   type: 'doughnut',
-  data: {{
+  data: {
     labels: ['ชั่วคราว (Temporary)', '5 ปี (Five Years)', 'ตลอดชีพ (Life)'],
-    datasets: [{{
+    datasets: [{
       data: [46223, 59430, 26413],
       backgroundColor: ['#f39c12', '#3498db', '#2ecc71']
-    }}]
-  }},
-  options: {{
+    }]
+  },
+  options: {
     responsive: true, maintainAspectRatio: false,
-    plugins: {{
-      legend: {{ position: 'right' }}
-    }}
-  }}
-}});
+    plugins: {
+      legend: { position: 'right' }
+    }
+  }
+});
 
 // Facebook Engagement
 const fbBrands = ['HONDA','MG','TOYOTA','GWM','ISUZU','BYD','MITSUBISHI','FORD','NISSAN'];
@@ -776,24 +776,24 @@ new Chart(document.getElementById('chart_fb_engagement'), {
 });
 
 // District population
-new Chart(document.getElementById('chart_district_pop'), {{
+new Chart(document.getElementById('chart_district_pop'), {
   type: 'bar',
-  data: {{
+  data: {
     labels: ["เมืองเลย", "วังสะพุง", "เชียงคาน", "ด่านซ้าย", "ปากชม", "ผาขาว", "ภูกระดึง", "เอราวัณ", "ท่าลี่", "นาด้วง", "ภูหลวง", "หนองหิน", "ภูเรือ", "นาแห้ว"],
-    datasets: [{{
+    datasets: [{
       label: 'ประชากร',
       data: [123560, 111116, 60828, 51693, 42276, 42055, 34526, 34004, 27932, 26432, 25046, 24988, 22587, 11689],
       backgroundColor: ["#e74c3c", "#e74c3c", "#3498db", "#3498db", "#3498db", "#3498db", "#3498db", "#3498db", "#3498db", "#3498db", "#3498db", "#3498db", "#3498db", "#3498db"],
       borderRadius: 4
-    }}]
-  }},
-  options: {{
+    }]
+  },
+  options: {
     indexAxis: 'y',
     responsive: true, maintainAspectRatio: false,
-    plugins: {{ legend: {{ display: false }} }},
-    scales: {{ x: {{ beginAtZero: true, title: {{ display: true, text: 'คน' }} }} }}
-  }}
-}});
+    plugins: { legend: { display: false } },
+    scales: { x: { beginAtZero: true, title: { display: true, text: 'คน' } } }
+  }
+});
 </script>
 
 </body>
