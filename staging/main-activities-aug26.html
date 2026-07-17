@@ -69,7 +69,7 @@ body {
 .activity-title { font-size: 11px; font-weight: 700; color: #1A1A1A; margin-bottom: 4px; }
 .activity-row {
   display: flex; align-items: flex-start; gap: 5px;
-  font-size: 8px; color: #3F4750; margin-bottom: 2px;
+  font-size: 9px; color: #3F4750; margin-bottom: 2px;
   line-height: 1.25;
 }
 .activity-dot { width: 7px; height: 7px; border-radius: 2px; margin-top: 2px; flex-shrink: 0; }
@@ -99,7 +99,9 @@ body {
     <div class="region-item"><span class="region-dot R3"></span> R3: Isan (Northeast)</div>
     <div class="region-item"><span class="region-dot R4"></span> R4: Southern</div>
   </div>
-  <div class="activity-list" id="activityList"></div>
+  <div class="activity-list" id="activityList">
+    <div class="activity-title">Activity List</div>
+  </div>
 </div>
 <div class="footer">
   <div class="footer-brand">YES! NISSAN</div>
@@ -165,6 +167,10 @@ for (let w = 0; w < 6; w++) {
 }
 
 const sortedAct = [...ACT].sort(function(a,b) {
+  // R2 (Northern) activities get priority — always show in calendar
+  if (a.r === 'R2' && b.r !== 'R2') return -1;
+  if (a.r !== 'R2' && b.r === 'R2') return 1;
+  // Then sort by duration descending
   var durA = a.s > a.e ? (31 - a.s + a.e) : (a.e - a.s);
   var durB = b.s > b.e ? (31 - b.s + b.e) : (b.e - b.s);
   return durB - durA;
