@@ -52,9 +52,15 @@ body {
   box-shadow: 0 1px 3px rgba(0,0,0,0.12);
   cursor: pointer;
 }
-.abs-bar.cont-l  { border-radius: 5px 0 0 5px; }  /* flat right — continues to next week */
-.abs-bar.cont-r  { border-radius: 0 5px 5px 0; }  /* flat left — continues from previous week */
-.abs-bar.cont-lr { border-radius: 0; }            /* flat both */
+.abs-bar.cont-l  { border-radius: 5px 0 0 5px; padding-right: 14px; }  /* flat right — room for arrow */
+.abs-bar.cont-r  { border-radius: 0 5px 5px 0; }  /* flat left */
+.abs-bar.cont-lr { border-radius: 0; padding-right: 14px; }            /* flat both — room for arrow */
+.abs-bar.cont-l::after,
+.abs-bar.cont-lr::after {
+  content: '\203A';
+  position: absolute; right: 3px; top: 0;
+  line-height: 8px; font-size: 7px; font-weight: 700;
+}
 .abs-bar.R1 { background: linear-gradient(135deg, #6DC5E0, #4FB6D3); }
 .abs-bar.R2 { background: linear-gradient(135deg, #F2A65A, #E88D3F); }
 .abs-bar.R3 { background: linear-gradient(135deg, #B86A54, #A04E3A); }
@@ -87,7 +93,7 @@ body {
 </head>
 <body>
 <div class="slide">
-<div class="title">Main Activities (Department Store) Calendar – Aug'26</div>
+<div class="title">Main Activities Calendar – Aug'26</div>
 <div class="cal" id="cal">
   <div class="cal-header">
     <div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div><div>Sun</div>
@@ -132,7 +138,7 @@ const ACT = [
   {s:21,e:23, v:"Robinson Surin", r:"R3"},
   {s:22,e:31, v:"Robinson Phetchaburi", r:"R1"},
   {s:25,e:31, v:"Central Ubon Ratchathani", r:"R3"},
-  {s:29,e:4,  v:"Robinson Saraburi (29 Jul - 4 Aug)", r:"R1"},
+  {s:29,e:4,  v:"Robinson Saraburi", r:"R1"},
 ];
 
 const daysInMonth = 31;
@@ -242,10 +248,9 @@ function placeBars() {
       bar.style.top = barTop + 'px';
       bar.style.left = barLeft + 'px';
       bar.style.width = barWidth + 'px';
-      // Add continuation arrows
-      var arrowL = hasPrev ? '\u203A ' : '';
-      var arrowR = hasNext ? ' \u203A' : '';
-      bar.textContent = arrowL + act.v + arrowR;
+      // Add continuation arrows (left side via text, right side via CSS ::after)
+      var arrowL = (hasPrev) ? '\u203A ' : '';
+      bar.textContent = arrowL + act.v;
       var dateStr = isCross ? act.s + ' Jul - ' + act.e + " Aug'26" : act.s + '-' + act.e + " Aug'26";
       bar.title = act.v + ' (' + dateStr + ')';
       body.appendChild(bar);
