@@ -171,6 +171,7 @@ const sortedAct = [...ACT].sort(function(a,b) {
 });
 
 function placeBars() {
+  var MAX_BARS_PER_WEEK = 5;
   var weekStack = {0:0, 1:0, 2:0, 3:0, 4:0, 5:0};
   for (var ai = 0; ai < sortedAct.length; ai++) {
     var act = sortedAct[ai];
@@ -197,8 +198,11 @@ function placeBars() {
     var weekKeys = Object.keys(weekSpans);
     for (var wi = 0; wi < weekKeys.length; wi++) {
       var wk = parseInt(weekKeys[wi]);
+      
+      // SKIP if this week already has MAX_BARS_PER_WEEK bars
+      if (weekStack[wk] >= MAX_BARS_PER_WEEK) continue;
+      
       var span = weekSpans[wk];
-      // Find cell rects
       var firstCell = null, lastCell = null;
       for (var ci2 = 0; ci2 < cellData.length; ci2++) {
         if (cellData[ci2].week === wk && cellData[ci2].col === span.minCol) {
