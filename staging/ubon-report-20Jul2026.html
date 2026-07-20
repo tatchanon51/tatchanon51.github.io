@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>รายงานคู่แข่ง Nissan อุบลราชธานี — 13 Jul 2026 - 19 Jul 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans Thai", sans-serif; max-width: 1100px; margin: 20px auto; padding: 20px; color: #333; background: #fafafa; }
+  h1 { color: #c3002f; border-bottom: 3px solid #c3002f; padding-bottom: 10px; margin-bottom: 12px; font-size: 22px; }
+  h2 { color: #c3002f; margin-top: 28px; border-left: 4px solid #c3002f; padding-left: 10px; font-size: 18px; }
+  h3 { margin-top: 16px; font-size: 15px; }
+  table { width: 100%; border-collapse: separate; border-spacing: 0; margin: 12px 0; font-size: 13px; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden; }
+  th { background: linear-gradient(180deg, #c3002f, #8b0020); color: white; padding: 10px 8px; text-align: left; font-weight: 600; font-size: 12px; white-space: nowrap; }
+  td { padding: 8px; border-bottom: 1px solid #f0f0f0; vertical-align: middle; }
+  tr:hover { background: #fff8e1; }
+  tr:nth-child(even) { background: #fafafa; }
+  .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin: 12px 0; }
+  .stat-box { background: white; padding: 14px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+  .stat-label { font-size: 11px; color: #888; }
+  .stat-value { font-size: 22px; font-weight: bold; color: #c3002f; }
+  .stat-value.sm { font-size: 14px; }
+  .chart-container { background: white; padding: 20px; border-radius: 8px; margin: 20px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+  .chart-title { font-size: 14px; font-weight: bold; color: #c3002f; margin-bottom: 10px; }
+  canvas { max-height: 380px; width: 100% !important; }
+  .post-card { background: white; padding: 14px; border-radius: 8px; margin: 10px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.06); font-size: 13px; line-height: 1.5; }
+  .post-meta { font-size: 11px; color: #666; margin-top: 6px; }
+  .badge-brand { display: inline-block; background: #c3002f; color: white; padding: 1px 7px; border-radius: 3px; font-size: 11px; font-weight: 600; }
+  blockquote { background: #fff5f5; padding: 10px 14px; border-left: 3px solid #c3002f; margin: 10px 0; border-radius: 4px; font-size: 13px; line-height: 1.6; }
+  .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid #ddd; color: #888; font-size: 11px; }
+  @media (max-width: 700px) { .stat-grid { grid-template-columns: repeat(2, 1fr); } table { font-size: 11px; } th { font-size: 10px; padding: 6px 4px; } td { padding: 6px 4px; } body { padding: 10px; } }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script>
+if (typeof Chart === 'undefined') {
+  console.error('Chart.js failed to load');
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.chart-container').forEach(c => {
+      c.innerHTML = '<p style="color:#999;text-align:center;padding:20px">📊 ข้อมูลกราฟไม่พร้อมใช้งาน (Chart.js โหลดไม่สําเร็จ)</p>';
+    });
+  });
+}
+</script>
+</head>
+<body>
+
+<h1>📊 รายงานคู่แข่งประจำสัปดาห์ — อุบลราชธานี</h1>
+<p><strong>🗓️ สัปดาห์:</strong> 13 Jul 2026 - 19 Jul 2026</p>
+<blockquote>💡 วิเคราะห์เมื่อ: 20 Jul 2026 07:51 | <strong>98 โพส</strong> จาก 13 แบรนด์คู่แข่ง + Nissan (Self)</blockquote>
+
+<h2>⚡ 1. Quick Stats</h2>
+<div class="stat-grid">
+  <div class="stat-box"><div class="stat-label">โพสทั้งหมด</div><div class="stat-value">98</div></div>
+  <div class="stat-box"><div class="stat-label">แบรนด์คู่แข่ง</div><div class="stat-value">13</div></div>
+  <div class="stat-box"><div class="stat-label">Engagement รวม</div><div class="stat-value">2,465</div></div>
+  <div class="stat-box"><div class="stat-label">โพสต์มากสุด</div><div class="stat-value sm">TOYOTA</div><div style="font-size:11px">15 โพสต์</div></div>
+  <div class="stat-box"><div class="stat-label">Top Eng/Post</div><div class="stat-value sm">TOYOTA</div><div style="font-size:11px">98.8</div></div>
+  <div class="stat-box"><div class="stat-label">🎯 Nissan Self</div><div class="stat-value">6</div><div style="font-size:11px">101 eng</div></div>
+</div>
+
+<h2>🌐 2. ภาพรวมความเคลือนไหว</h2>
+<ul style="margin-left:20px;line-height:1.8"><li><strong>TOYOTA</strong> โพสต์มากที่สุด (15 โพสต์) ครอง Engagement รวมสูงสุด 1,482 — จัด 2 กิจกรรมใหญ่ที่เซ็นทรัล อุบล พร้อมแคมเปญทายผลบอลโลกที่มียอด Eng 882</li><li><strong>TOYOTA</strong> ลง 4x4 Adventure Track และ Hilux Festival ที่เซ็นทรัล อุบล (20-26 ก.ค.) — ดึงลูกค้าสายลุยและครอบครัวในพื้นที่เดียว</li><li><strong>BYD</strong> 6 โพสต์ (36 eng) — เน้นโปร SEALION 6 DM-i และ SEAL 5 DM-i พร้อม Lifetime Warranty</li><li><strong>GWM</strong> 8 โพสต์ (105 eng) — มีบูธที่เซ็นทรัล อุบล + โปร TANK 300 พร้อมโปรแกรมช่วยผ่อน</li><li><strong>AION</strong> โพสต์มากเป็นอันดับ 2 (12 โพสต์, 131 eng) — เน้นโปรดอกเบี้ย + เปิดกิจกรรม GAC 30 Million</li><li><strong>Geely</strong> จัด GEELY Roadshow ที่โรบินสัน บุรีรัมย์ (13-19 ก.ค.) — 3 โพสต์ (32 eng)</li><li><strong>OMODA & JAECOO</strong> 6 โพสต์ (130 eng) — เปิดตัว JAECOO 6T REEV + ลงทะเบียน Test Drive 17-18 ก.ค.</li></ul>
+
+<h2>🎪 3. กิจกรรม Roadshow / อีเวนต์</h2>
+<table>
+  <thead><tr>
+    <th>แบรนด์</th><th>Facebook Page</th><th>กิจกรรม</th><th>วันที่จัด</th><th>สถานที่</th><th style="text-align:center">Eng</th><th>URL</th>
+  </tr></thead>
+  <tbody>
+  <tr>
+    <td>TOYOTA</td>
+    <td style="font-size:11px">toyota.ubn</td>
+    <td style="font-size:12px">Toyota 4x4 Adventure Track</td>
+    <td style="font-weight:600;color:#c3002f">20-26 ก.ค. 2569</td>
+    <td>เซ็นทรัล อุบล</td>
+    <td style="text-align:center;font-weight:bold">7</td>
+    <td><a href="https://www.facebook.com/toyota.ubn/posts/pfbid02XoVsWMZdLuMAUjzKM6hH8E8HQLUe58kGTqhifYcYMbnNuJy1qnq8qrCdM7seVcK9l" target="_blank" style="color:#c3002f;font-weight:bold;text-decoration:none;font-size:12px">🔗 Link</a></td>
+  </tr>
+  <tr>
+    <td>TOYOTA</td>
+    <td style="font-size:11px">toyota.ubn</td>
+    <td style="font-size:12px">Hilux Festival</td>
+    <td style="font-weight:600;color:#c3002f">20-26 ก.ค. 2569</td>
+    <td>เซ็นทรัล อุบล (ลานอะควาเรียม)</td>
+    <td style="text-align:center;font-weight:bold">25</td>
+    <td><a href="https://www.facebook.com/toyota.ubn/posts/pfbid022NSBTDfLAFoCyNWFeRukWXXCvZuh6t76SGpy2VzMfHQQ6XFhKRjXtsFr7nqiwPWql" target="_blank" style="color:#c3002f;font-weight:bold;text-decoration:none;font-size:12px">🔗 Link</a></td>
+  </tr>
+  <tr>
+    <td>TOYOTA</td>
+    <td style="font-size:11px">toyota.ubn</td>
+    <td style="font-size:12px">โตโยต้าดีลักซ์ On Tour</td>
+    <td style="font-weight:600;color:#c3002f">15 ก.ค. 2569</td>
+    <td>ตลาดสดเทศบาลนาส่วง</td>
+    <td style="text-align:center;font-weight:bold">18</td>
+    <td><a href="https://www.facebook.com/toyota.ubn/posts/pfbid0G87AMxnUF5QkRnx6L6wRjRggkuTJKSWYyNwuUtviH2iPbDUUXpZxmSbmFmX9enaLl" target="_blank" style="color:#c3002f;font-weight:bold;text-decoration:none;font-size:12px">🔗 Link</a></td>
+  </tr>
+  <tr>
+    <td>TOYOTA</td>
+    <td style="font-size:11px">deeyiamtoyota</td>
+    <td style="font-size:12px">ดีลสุดคุ้มที่โชว์รูม</td>
+    <td style="font-weight:600;color:#c3002f">18-19 ก.ค. 2569</td>
+    <td>โชว์รูม โตโยต้าดีเยี่ยม อุบล</td>
+    <td style="text-align:center;font-weight:bold">5</td>
+    <td><a href="https://www.facebook.com/deeyiamtoyota/posts/pfbid0LgcY5b7WutH7NYNadoiRGN5G9QGNdoMs3C9aVXDv9EDnQtCQ83bLL7DfQHue1Wpbl" target="_blank" style="color:#c3002f;font-weight:bold;text-decoration:none;font-size:12px">🔗 Link</a></td>
+  </tr>
+  <tr>
+    <td>GWM</td>
+    <td style="font-size:11px">GwmUbon</td>
+    <td style="font-size:12px">บูธเซ็นทรัลอุบล (2 วันสุดท้าย)</td>
+    <td style="font-weight:600;color:#c3002f">18-19 ก.ค. 2569</td>
+    <td>เซ็นทรัล อุบล</td>
+    <td style="text-align:center;font-weight:bold">9</td>
+    <td><a href="https://www.facebook.com/GwmUbon/videos/1828088511931110/" target="_blank" style="color:#c3002f;font-weight:bold;text-decoration:none;font-size:12px">🔗 Link</a></td>
+  </tr>
+  <tr>
+    <td>Hyundai</td>
+    <td style="font-size:11px">HyundaiDautoUbonratchathani</td>
+    <td style="font-size:12px">Hyundai Drive Experience</td>
+    <td style="font-weight:600;color:#c3002f">17-18 ก.ค. 2569</td>
+    <td>โชว์รูม Hyundai D-Auto อุบล</td>
+    <td style="text-align:center;font-weight:bold">12</td>
+    <td><a href="https://www.facebook.com/reel/1763978091425595/" target="_blank" style="color:#c3002f;font-weight:bold;text-decoration:none;font-size:12px">🔗 Link</a></td>
+  </tr>
+  <tr>
+    <td>Geely</td>
+    <td style="font-size:11px">GEELYTTCEUbon</td>
+    <td style="font-size:12px">GEELY Roadshow</td>
+    <td style="font-weight:600;color:#c3002f">13-19 ก.ค. 2569</td>
+    <td>โรบินสัน ไลฟ์สไตล์ บุรีรัมย์</td>
+    <td style="text-align:center;font-weight:bold">8</td>
+    <td><a href="https://www.facebook.com/GEELYTTCEUbon/posts/pfbid02fTyz5yhFyBRzDYTSJHPYA6tjt8e69U7ycZRHvhfcdBf4WURKgUSADcbn71wdhAd5l" target="_blank" style="color:#c3002f;font-weight:bold;text-decoration:none;font-size:12px">🔗 Link</a></td>
+  </tr></tbody>
+</table>
+<p style="font-size:11px;color:#888;margin-top:6px"><em>ตัวกรอง: event keyword + venue + วันที่ — 7 รายการ</em></p>
+
+<h2>📊 4. ตารางคู่แข่งรายแบรนด์</h2>
+<table>
+  <thead><tr>
+    <th>แบรนด์</th><th>Facebook Page(s)</th><th style="text-align:center">โพสต์</th><th style="text-align:center">Engagement</th><th style="text-align:center">Eng/Post</th><th style="text-align:center">L/C/S</th>
+  </tr></thead>
+  <tbody><tr><td>TOYOTA</td><td style='font-size:11px'>deeyiamtoyota, toyota.ubn</td><td style='text-align:center'>15</td><td style='text-align:center'>1,482</td><td style='text-align:center'>98.8</td><td style='font-size:11px;text-align:center'>718/293/471</td></tr>
+<tr><td>AION</td><td style='font-size:11px'>aiongiubonratchathani</td><td style='text-align:center'>12</td><td style='text-align:center'>131</td><td style='text-align:center'>10.9</td><td style='font-size:11px;text-align:center'>105/8/18</td></tr>
+<tr><td>Isuzu</td><td style='font-size:11px'>isuzutp</td><td style='text-align:center'>9</td><td style='text-align:center'>146</td><td style='text-align:center'>16.2</td><td style='font-size:11px;text-align:center'>85/5/56</td></tr>
+<tr><td>Mitsubishi</td><td style='font-size:11px'>mitsuthaiyontUbonRatchathaniHeadOffice</td><td style='text-align:center'>9</td><td style='text-align:center'>45</td><td style='text-align:center'>5.0</td><td style='font-size:11px;text-align:center'>28/4/13</td></tr>
+<tr><td>GWM</td><td style='font-size:11px'>GwmUbon</td><td style='text-align:center'>8</td><td style='text-align:center'>105</td><td style='text-align:center'>13.1</td><td style='font-size:11px;text-align:center'>88/14/3</td></tr>
+<tr><td>BYD</td><td style='font-size:11px'>bydubon</td><td style='text-align:center'>6</td><td style='text-align:center'>36</td><td style='text-align:center'>6.0</td><td style='font-size:11px;text-align:center'>31/0/5</td></tr>
+<tr><td>MG</td><td style='font-size:11px'>MGM2MotorsportUbonratchathani</td><td style='text-align:center'>6</td><td style='text-align:center'>49</td><td style='text-align:center'>8.2</td><td style='font-size:11px;text-align:center'>32/11/6</td></tr>
+<tr><td>Deepal</td><td style='font-size:11px'>DeepalMongkolUbon</td><td style='text-align:center'>6</td><td style='text-align:center'>139</td><td style='text-align:center'>23.2</td><td style='font-size:11px;text-align:center'>114/6/19</td></tr>
+<tr><td>OMODA&JAECOO</td><td style='font-size:11px'>OmodaUbon</td><td style='text-align:center'>6</td><td style='text-align:center'>130</td><td style='text-align:center'>21.7</td><td style='font-size:11px;text-align:center'>123/5/2</td></tr>
+<tr><td>Hyundai</td><td style='font-size:11px'>HyundaiDautoUbonratchathani</td><td style='text-align:center'>5</td><td style='text-align:center'>93</td><td style='text-align:center'>18.6</td><td style='font-size:11px;text-align:center'>47/3/43</td></tr>
+<tr><td>Suzuki</td><td style='font-size:11px'>SuzukiUbonRatchathani</td><td style='text-align:center'>4</td><td style='text-align:center'>63</td><td style='text-align:center'>15.8</td><td style='font-size:11px;text-align:center'>53/3/7</td></tr>
+<tr><td>Mazda</td><td style='font-size:11px'>pjpmazdaubon</td><td style='text-align:center'>3</td><td style='text-align:center'>14</td><td style='text-align:center'>4.7</td><td style='font-size:11px;text-align:center'>10/0/4</td></tr>
+<tr><td>Geely</td><td style='font-size:11px'>GEELYTTCEUbon</td><td style='text-align:center'>3</td><td style='text-align:center'>32</td><td style='text-align:center'>10.7</td><td style='font-size:11px;text-align:center'>29/2/1</td></tr>
+</tbody>
+</table>
+
+<h2>🪞 5. Self Analysis (Nissan อุบลราชธานี)</h2>
+
+<h3>5.1 Self Posts (Dealer Regular Activity)</h3>
+<table>
+  <thead><tr>
+    <th>สาขา</th><th>Facebook Page</th><th style="text-align:center">โพสต์</th><th style="text-align:center">Engagement</th><th style="text-align:center">L/C/S</th><th>สถานะ</th>
+  </tr></thead>
+  <tbody><tr><td>อุบล</td><td style='font-size:11px'>siamnissanubondautogroup</td><td style='text-align:center'>6</td><td style='text-align:center'>101</td><td style='text-align:center'>74/8/19</td><td><span style='color:#2e7d32'>✓ ใช้งานปกติ</span></td></tr>
+</tbody>
+</table>
+
+<h3>5.1.5 🚗 Nissan Roadshow (Self)</h3>
+<blockquote style="background:#f0f8ff;border-left-color:#1976d2"><em>ไม่มีกิจกรรม Roadshow ของ Nissan (Self) ในช่วงสัปดาห์นี้ — ดู Section 3 สำหรับคู่แข่ง หรือ Section 5.1 สำหรับโพสต์กิจกรรมทั่วไป</em></blockquote>
+
+<h3>5.2 Self vs Top 3 Benchmark</h3>
+<table>
+  <thead><tr>
+    <th>แบรนด์</th><th>Facebook Page(s)</th><th style="text-align:center">โพสต์</th><th style="text-align:center">Engagement</th><th style="text-align:center">Eng/Post</th>
+  </tr></thead>
+  <tbody><tr><td>TOYOTA</td><td style='font-size:11px'>deeyiamtoyota, toyota.ubn</td><td style='text-align:center'>15</td><td style='text-align:center'>1,482</td><td style='text-align:center'>98.8</td></tr>
+<tr><td>AION</td><td style='font-size:11px'>aiongiubonratchathani</td><td style='text-align:center'>12</td><td style='text-align:center'>131</td><td style='text-align:center'>10.9</td></tr>
+<tr><td>Isuzu</td><td style='font-size:11px'>isuzutp</td><td style='text-align:center'>9</td><td style='text-align:center'>146</td><td style='text-align:center'>16.2</td></tr>
+<tr style='border-left:3px solid #c3002f'><td><strong>Nissan (Self)</strong></td><td style='font-size:11px'>siamnissanubondautogroup</td><td style='text-align:center'>6</td><td style='text-align:center'><strong>101</strong></td><td style='text-align:center'><strong>16.8</strong></td></tr>
+</tbody>
+</table>
+
+<h3>5.3 Actionable Insight</h3>
+
+<blockquote>
+<strong>📌 สรุปภาพรวมสัปดาห์นี้:</strong> Toyota ครองพื้นที่การตลาดมากที่สุดด้วย 2 กิจกรรมใหญ่ที่เซ็นทรัล อุบล (4x4 Adventure Track + Hilux Festival) ขณะที่ Hyundai, Geely และ GWM กระจายกิจกรรมทดลองขับทั่วพื้นที่<br><br>
+Nissan (Self) มี 6 โพสต์ (101 Engagement) เน้นแคมเปญ Serena e-POWER/S-Hybrid ส่วนลด 270,000 บาท แต่ยังไม่มีกิจกรรม Roadshow ในช่วงนี้ — ควรพิจารณาจัด e-POWER Experience Zone ที่ห้างสรรพสินค้าเพื่อเพิ่ม Brand Presence
+</blockquote>
+
+
+<h2>🔥 6. โพสต์เด่น Top 3</h2>
+
+<div class="post-card">
+  <div style="display:flex;justify-content:space-between;margin-bottom:6px">
+    <span><span class="badge-brand">TOYOTA</span> <strong style="color:#c3002f">Eng 882</strong></span>
+    <span style="font-size:11px;color:#888">toyota.ubn</span>
+  </div>
+  <div>ร่วมสนุกทายผล แชมป์ฟุตบอลโลก 2026 ⚽
+ 🇪🇸 สเปน 𝙑𝙎 อาร์เจนติน่า 🇦🇷
+.
+คุณเชียร์ทีมไหน? คิดว่าสกอร์จะจบเท่าไหร่?
+คอมเมนต์มาลุ้นของรางวัลกัน
+.
+🎁 ลุ้นรับของรางวัล จำนวน 10 รางวัล
+สำหรับผู...</div>
+  <div class="post-meta">👍 325 💬 283 🔄 274 | <a href="https://www.facebook.com/toyota.ubn/posts/pfbid02tJU8fZitfXGgLD5zH7t8kYaxwHEZFgBQ79MDdsFgo1cMcX1vhtCUNPiAxCAKAhUHl" target="_blank" style="color:#c3002f;font-weight:bold;text-decoration:none">🔗 Link</a></div>
+</div>
+<div class="post-card">
+  <div style="display:flex;justify-content:space-between;margin-bottom:6px">
+    <span><span class="badge-brand">TOYOTA</span> <strong style="color:#c3002f">Eng 221</strong></span>
+    <span style="font-size:11px;color:#888">deeyiamtoyota</span>
+  </div>
+  <div>ใครหล่อที่สุดในบริษัท 😱✨🤴🏻#โตโยต้าดีเยี่ยมอุบลราชธานี #ใครหล่อที่สุด #toyota #โตโยต้า</div>
+  <div class="post-meta">👍 150 💬 7 🔄 64 | <a href="https://www.facebook.com/reel/1759034441763797/" target="_blank" style="color:#c3002f;font-weight:bold;text-decoration:none">🔗 Link</a></div>
+</div>
+<div class="post-card">
+  <div style="display:flex;justify-content:space-between;margin-bottom:6px">
+    <span><span class="badge-brand">TOYOTA</span> <strong style="color:#c3002f">Eng 145</strong></span>
+    <span style="font-size:11px;color:#888">deeyiamtoyota</span>
+  </div>
+  <div>ใครหล่อที่สุดในบริษัท ?? 
+MDJ จะหล่อขนาดไหน ไปดูกันเลย🫣🤴🏻✨ #ใครหล่อที่สุด #โตโยต้าดีเยี่ยมอุบลราชธานี #toyota #โตโยต้า</div>
+  <div class="post-meta">👍 93 💬 0 🔄 52 | <a href="https://www.facebook.com/reel/1358503569561316/" target="_blank" style="color:#c3002f;font-weight:bold;text-decoration:none">🔗 Link</a></div>
+</div>
+
+<h2>⚠️ 7. โอกาสและภัยคุกคาม</h2>
+<h3 style="color:#c3002f;font-size:14px">🚨 ภัยคุกคาม</h3>
+<ul style="margin-left:20px;line-height:1.8"><li><strong>TOYOTA จัดกิจกรรมใหญ่ 2 รายการพร้อมกันที่เซ็นทรัล อุบล</strong> — 4x4 Adventure Track และ Hilux Festival (20-26 ก.ค.) ดึงลูกค้าสายลุยและครอบครัว พร้อมแคมเปญทายผลบอลโลก (882 Eng)</li><li><strong>Hyundai + Geely + GWM กระจายกิจกรรมกลางเดือน</strong> — หลายแบรนด์จัด Test Drive และบูธในพื้นที่ใกล้เคียงกัน แย่งความสนใจกลุ่มลูกค้า</li><li><strong>BYD เน้นโปร Lifetime Warranty ต่อเนื่อง</strong> — จุดขายที่แข็งแกร่งในกลุ่ม EV โดยเฉพาะ SEALION 6 DM-i</li></ul>
+<h3 style="color:#2e7d32;font-size:14px">💡 โอกาส</h3>
+<ul style="margin-left:20px;line-height:1.8"><li><strong>เซ็นทรัล อุบล มีกิจกรรมคึกคัก</strong> — มีผู้จัดงาน 2 ราย (TOYOTA+GWM) แสดงว่ามี Traffic สูง — Nissan ควรพิจารณาจัด e-POWER Experience Zone</li><li><strong>แบรนด์ใหม่อย่าง OMODA, AION, Deepal ยังเน้นสร้างการรับรู้</strong> — Nissan มีความได้เปรียบด้าน Brand Trust และเครือข่ายศูนย์บริการที่แข็งแกร่งกว่า</li><li><strong>Nissan Kicks e-POWER และ Serena e-POWER</strong> มีจุดขายที่ไม่เหมือนใครในตลาด — การทำ Test Drive Event ที่ศูนย์การค้าจะช่วยเพิ่มการรับรู้และ Lead Generation</li></ul>
+
+<h2>🎯 8. ข้อเสนอแนะ</h2>
+<h3 style='color:#c3002f'>🔴 สูง</h3>
+<ul style='margin-left:20px;line-height:1.8'>
+  <li>พิจารณาจัดกิจกรรม Nissan e-POWER Experience Zone ที่เซ็นทรัล อุบล หรือโรบินสัน — เล่นช่วงเวลาใกล้เคียงกับ TOYOTA (20-26 ก.ค.) เพื่อดึงกลุ่มลูกค้า</li>
+  <li>เปิดแคมเปญ Test Drive Kicks e-POWER / Serena e-POWER พร้อมโปรโมตผ่าน Facebook Page siamnissanubondautogroup</li>
+</ul>
+<h3 style='color:#f57c00'>🟡 ปานกลาง</h3>
+<ul style='margin-left:20px;line-height:1.8'>
+  <li>เร่งสื่อสารแคมเปญ Serena e-POWER และ Serena S-Hybrid ส่วนลด 270,000 บาท + ดอกเบี้ย 0%</li>
+  <li>เพิ่ม Video Content รีวิว Test Drive / การใช้งานจริง เพื่อแข่งกับ AION และ OMODA ที่ลง Test Drive Content</li>
+</ul>
+<h3 style='color:#7b1fa2'>🟢 ต่ำ</h3>
+<ul style='margin-left:20px;line-height:1.8'>
+  <li>ติดตามผลตอบรับ JAECOO 6T REEV ในตลาดอุบล — หากมียอดจองสูง ควรเตรียมกลยุทธ์</li>
+  <li>วิเคราะห์ผล Geely Roadshow ที่โรบินสัน บุรีรัมย์ — อาจเป็นพื้นที่ที่ Nissan ควรขยาย</li>
+</ul>
+
+
+<h2>📈 9. กราฟวิเคราะห์</h2>
+
+<div class="chart-container">
+  <div class="chart-title">9.1 Total Engagement รายแบรนด์</div>
+  <canvas id="chartTotalEngagement"></canvas>
+</div>
+<div class="chart-container">
+  <div class="chart-title">9.2 Engagement ต่อ Post (เฉลี่ย)</div>
+  <canvas id="chartEngagementPerPost"></canvas>
+</div>
+<div class="chart-container">
+  <div class="chart-title">9.3 Breakdown: Likes / Comments / Shares</div>
+  <canvas id="chartEngagementBreakdown"></canvas>
+</div>
+<div class="chart-container">
+  <div class="chart-title">9.4 Bubble: จำนวนโพสต์ vs Engagement (ขนาดฟอง = โพสต์)</div>
+  <canvas id="chartBubble"></canvas>
+</div>
+
+<script>
+
+  const brandLabels = ['TOYOTA', 'AION', 'Isuzu', 'Mitsubishi', 'GWM', 'BYD', 'MG', 'Deepal', 'OMODA&JAECOO', 'Hyundai', 'Suzuki', 'Mazda', 'Geely'];
+  const totalEng = {'TOYOTA':1482, 'AION':131, 'Isuzu':146, 'Mitsubishi':45, 'GWM':105, 'BYD':36, 'MG':49, 'Deepal':139, 'OMODA&JAECOO':130, 'Hyundai':93, 'Suzuki':63, 'Mazda':14, 'Geely':32};
+  const postsCt = {'TOYOTA':15, 'AION':12, 'Isuzu':9, 'Mitsubishi':9, 'GWM':8, 'BYD':6, 'MG':6, 'Deepal':6, 'OMODA&JAECOO':6, 'Hyundai':5, 'Suzuki':4, 'Mazda':3, 'Geely':3};
+  const engPerPost = {'TOYOTA':98.8, 'AION':10.9, 'Isuzu':16.2, 'Mitsubishi':5.0, 'GWM':13.1, 'BYD':6.0, 'MG':8.2, 'Deepal':23.2, 'OMODA&JAECOO':21.7, 'Hyundai':18.6, 'Suzuki':15.8, 'Mazda':4.7, 'Geely':10.7};
+  const likesCt = {'TOYOTA':718, 'AION':105, 'Isuzu':85, 'Mitsubishi':28, 'GWM':88, 'BYD':31, 'MG':32, 'Deepal':114, 'OMODA&JAECOO':123, 'Hyundai':47, 'Suzuki':53, 'Mazda':10, 'Geely':29};
+  const commentsCt = {'TOYOTA':293, 'AION':8, 'Isuzu':5, 'Mitsubishi':4, 'GWM':14, 'BYD':0, 'MG':11, 'Deepal':6, 'OMODA&JAECOO':5, 'Hyundai':3, 'Suzuki':3, 'Mazda':0, 'Geely':2};
+  const sharesCt = {'TOYOTA':471, 'AION':18, 'Isuzu':56, 'Mitsubishi':13, 'GWM':3, 'BYD':5, 'MG':6, 'Deepal':19, 'OMODA&JAECOO':2, 'Hyundai':43, 'Suzuki':7, 'Mazda':4, 'Geely':1};
+  const chartColors = ['#c3002f', '#1565c0', '#2e7d32', '#f57c00', '#7b1fa2', '#00838f', '#5d4037', '#c62828', '#283593', '#00695c', '#e65100', '#4a148c', '#37474f'];
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    new Chart(document.getElementById('chartTotalEngagement'), {
+      type: 'bar',
+      data: { labels: brandLabels, datasets: [{ label: 'Total Engagement', data: brandLabels.map(b => totalEng[b]||0), backgroundColor: chartColors, borderRadius: 4 }] },
+      options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true, ticks: { callback: v => v.toLocaleString() } } } }
+    });
+    new Chart(document.getElementById('chartEngagementPerPost'), {
+      type: 'bar',
+      data: { labels: brandLabels, datasets: [{ label: 'Eng/Post', data: brandLabels.map(b => parseFloat(engPerPost[b])||0), backgroundColor: chartColors.map(c => c + 'CC'), borderRadius: 4 }] },
+      options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true } } }
+    });
+    new Chart(document.getElementById('chartEngagementBreakdown'), {
+      type: 'bar',
+      data: { labels: brandLabels, datasets: [
+        { label: 'Likes', data: brandLabels.map(b => likesCt[b]||0), backgroundColor: '#c3002f' },
+        { label: 'Comments', data: brandLabels.map(b => commentsCt[b]||0), backgroundColor: '#1976d2' },
+        { label: 'Shares', data: brandLabels.map(b => sharesCt[b]||0), backgroundColor: '#2e7d32' }
+      ] },
+      options: { responsive: true, plugins: { legend: { position: 'top' } }, scales: { x: { stacked: true }, y: { stacked: true, beginAtZero: true, ticks: { callback: v => v.toLocaleString() } } } }
+    });
+    new Chart(document.getElementById('chartBubble'), {
+      type: 'bubble',
+      data: { datasets: [
+    {label:'TOYOTA',data:[{x:15,y:1482,r:37.5}],backgroundColor:'#c3002f88',borderColor:'#c3002f',borderWidth:2},
+    {label:'AION',data:[{x:12,y:131,r:30.0}],backgroundColor:'#1565c088',borderColor:'#1565c0',borderWidth:2},
+    {label:'Isuzu',data:[{x:9,y:146,r:22.5}],backgroundColor:'#2e7d3288',borderColor:'#2e7d32',borderWidth:2},
+    {label:'Mitsubishi',data:[{x:9,y:45,r:22.5}],backgroundColor:'#f57c0088',borderColor:'#f57c00',borderWidth:2},
+    {label:'GWM',data:[{x:8,y:105,r:20.0}],backgroundColor:'#7b1fa288',borderColor:'#7b1fa2',borderWidth:2},
+    {label:'BYD',data:[{x:6,y:36,r:15.0}],backgroundColor:'#00838f88',borderColor:'#00838f',borderWidth:2},
+    {label:'MG',data:[{x:6,y:49,r:15.0}],backgroundColor:'#5d403788',borderColor:'#5d4037',borderWidth:2},
+    {label:'Deepal',data:[{x:6,y:139,r:15.0}],backgroundColor:'#c6282888',borderColor:'#c62828',borderWidth:2},
+    {label:'OMODA&JAECOO',data:[{x:6,y:130,r:15.0}],backgroundColor:'#28359388',borderColor:'#283593',borderWidth:2},
+    {label:'Hyundai',data:[{x:5,y:93,r:12.5}],backgroundColor:'#00695c88',borderColor:'#00695c',borderWidth:2},
+    {label:'Suzuki',data:[{x:4,y:63,r:10.0}],backgroundColor:'#e6510088',borderColor:'#e65100',borderWidth:2},
+    {label:'Mazda',data:[{x:3,y:14,r:8}],backgroundColor:'#4a148c88',borderColor:'#4a148c',borderWidth:2},
+    {label:'Geely',data:[{x:3,y:32,r:8}],backgroundColor:'#37474f88',borderColor:'#37474f',borderWidth:2}
+      ] },
+      options: { responsive: true, plugins: { legend: { position: 'top', labels: { font: { size: 11 } } } },
+        scales: { x: { title: { display: true, text: 'จำนวนโพสต์' }, beginAtZero: true },
+                y: { title: { display: true, text: 'Engagement รวม' }, beginAtZero: true, ticks: { callback: v => v.toLocaleString() } } }
+        }});
+      });
+</script>
+
+<div class="footer">
+  <p>📊 รายงาน Nissan อุบลราชธานี สัปดาห์ 13 Jul 2026 - 19 Jul 2026</p>
+  <p>🕐 เวลาวิเคราะห์: 20 Jul 2026 07:51</p>
+  <p>👤 สร้างโดย: Tatchanon Wissawakornrungrot, Regional Marketing Manager at Nissan Motor (Thailand)</p>
+</div>
+
+</body>
+</html>
