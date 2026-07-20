@@ -29,6 +29,19 @@
   blockquote { background: #fff5f5; padding: 10px 14px; border-left: 3px solid #c3002f; margin: 10px 0; border-radius: 4px; font-size: 13px; line-height: 1.6; }
   .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid #ddd; color: #888; font-size: 11px; }
   @media (max-width: 700px) { .stat-grid { grid-template-columns: repeat(2, 1fr); } table { font-size: 11px; } th { font-size: 10px; padding: 6px 4px; } td { padding: 6px 4px; } body { padding: 10px; } }
+
+  @media (prefers-color-scheme: dark) {
+    body { background: #1a1a2e; color: #e0e0e0; }
+    h1, h2 { color: #ff6b6b; }
+    table { border-color: #333; }
+    td { border-bottom-color: #333; color: #ddd; }
+    tr:hover { background: #2a2a3e; }
+    .stat-box { background: #16213e; }
+    .stat-value { color: #ff6b6b; }
+    .chart-container { background: #16213e; }
+    .chart-title { color: #ff6b6b; }
+    .footer { border-top-color: #333; color: #aaa; }
+  }
 </style>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <script>
@@ -134,9 +147,9 @@ if (typeof Chart === 'undefined') {
 <p style="font-size:11px;color:#888;margin-top:6px"><em>ตัวกรอง: event keyword + venue + วันที่ — 7 รายการ</em></p>
 
 <h2>📊 4. ตารางคู่แข่งรายแบรนด์</h2>
-<table>
+<table id="table4">
   <thead><tr>
-    <th>แบรนด์</th><th>Facebook Page(s)</th><th style="text-align:center">โพสต์</th><th style="text-align:center">Engagement</th><th style="text-align:center">Eng/Post</th><th style="text-align:center">L/C/S</th>
+    <th data-sort="brand">แบรนด์<span class="sort-indicator">⇅</span></th><th data-sort="pages">Facebook Page(s)<span class="sort-indicator">⇅</span></th><th data-sort="posts" style="text-align:center">โพสต์<span class="sort-indicator">⇅</span></th><th data-sort="eng" style="text-align:center">Engagement<span class="sort-indicator">⇅</span></th><th data-sort="engperpost" style="text-align:center">Eng/Post<span class="sort-indicator">⇅</span></th><th style="text-align:center">L/C/S</th>
   </tr></thead>
   <tbody><tr><td>TOYOTA</td><td style='font-size:11px'>deeyiamtoyota, toyota.ubn</td><td style='text-align:center'>15</td><td style='text-align:center'>1,482</td><td style='text-align:center'>98.8</td><td style='font-size:11px;text-align:center'>718/293/471</td></tr>
 <tr><td>AION</td><td style='font-size:11px'>aiongiubonratchathani</td><td style='text-align:center'>12</td><td style='text-align:center'>131</td><td style='text-align:center'>10.9</td><td style='font-size:11px;text-align:center'>105/8/18</td></tr>
@@ -321,6 +334,51 @@ MDJ จะหล่อขนาดไหน ไปดูกันเลย🫣�
       });
 </script>
 
+<script>
+function initSortable(tId, dSort) {
+  const t = document.getElementById(tId);
+  if (!t) return;
+  const b = t.querySelector('tbody');
+  if (!b) return;
+  const r = Array.from(b.querySelectorAll('tr'));
+  let cSort = { col: null, dir: null };
+  function apply() {
+    if (!cSort.col) return;
+    r.sort(function(a, b1) {
+      let va = a.dataset[cSort.col] || '', vb = b1.dataset[cSort.col] || '';
+      const isN = !isNaN(parseFloat(va)) && !isNaN(parseFloat(vb));
+      if (isN) { va = parseFloat(va); vb = parseFloat(vb); }
+      else { va = va.toLowerCase(); vb = vb.toLowerCase(); }
+      if (va < vb) return cSort.dir === 'asc' ? -1 : 1;
+      if (va > vb) return cSort.dir === 'asc' ? 1 : -1;
+      return 0;
+    });
+    r.forEach(function(x) { b.appendChild(x); });
+  }
+  function hSort(e) {
+    const th = e.currentTarget, col = th.dataset.sort;
+    if (!col) return;
+    e.preventDefault();
+    if (cSort.col === col) cSort.dir = cSort.dir === 'asc' ? 'desc' : 'asc';
+    else { cSort.col = col; cSort.dir = 'desc'; }
+    t.querySelectorAll('thead th').forEach(function(h) { h.classList.remove('sorted-asc', 'sorted-desc'); });
+    th.classList.add(cSort.dir === 'asc' ? 'sorted-asc' : 'sorted-desc');
+    apply();
+  }
+  t.querySelectorAll('thead th[data-sort]').forEach(function(th) {
+    var th2 = false;
+    th.addEventListener('touchend', function(e) { th2 = true; hSort(e); }, { passive: false });
+    th.addEventListener('click', function(e) { if (th2) { th2 = false; return; } hSort(e); });
+  });
+  if (dSort) {
+    cSort = { col: dSort.col, dir: dSort.dir };
+    var h = t.querySelector('thead th[data-sort="' + dSort.col + '"]');
+    if (h) h.classList.add('sorted-desc');
+    apply();
+  }
+}
+initSortable('table4', { col: 'posts', dir: 'desc' });
+</script>
 <div class="footer">
   <p>📊 รายงาน Nissan อุบลราชธานี สัปดาห์ 13 Jul 2026 - 19 Jul 2026</p>
   <p>🕐 เวลาวิเคราะห์: 20 Jul 2026 07:51</p>

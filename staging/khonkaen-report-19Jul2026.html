@@ -263,6 +263,21 @@
     .tier2-table thead th { font-size: 10px; padding: 8px 6px; }
     .tier2-table tbody td { padding: 8px 6px; }
   }
+
+  @media (prefers-color-scheme: dark) {
+    body { background: #1a1a2e; color: #e0e0e0; }
+    h1, h2 { color: #ff6b6b; border-bottom-color: #ff6b6b; }
+    h2 { border-left-color: #ff6b6b; }
+    table { border-color: #333; }
+    td { border-bottom-color: #333; color: #ddd; }
+    tr:hover { background: #2a2a3e; }
+    .stat-box { background: #16213e; }
+    .stat-value, .stat-value.sm { color: #ff6b6b; }
+    .stat-label { color: #aaa; }
+    .chart-card, .chart-container { background: #16213e !important; }
+    .kpi-card, .post-card { background: #16213e !important; }
+    .footer { border-top-color: #333; color: #aaa; }
+  }
 </style>
 <script>
 /**
@@ -441,7 +456,7 @@
 <!-- ===== SECTION 4: Brand Table ===== -->
 <h2>📊 4. สรุปกิจกรรมแบรนด์คู่แข่ง</h2>
 <div class="section-card">
-  <table class="tier2-table">
+  <table class="tier2-table" id="table4">
     <thead>
       <tr>
         <th style="width:13%">แบรนด์</th>
@@ -610,15 +625,15 @@
 
 <div class="section-card">
   <h3>5.2 Self vs Top 3 — Benchmark</h3>
-  <table class="tier2-table">
+  <table class="tier2-table" id="table5">
     <thead>
       <tr>
-        <th>แบรนด์</th>
-        <th>โพส</th>
-        <th>รวม Eng</th>
-        <th>Eng/Post</th>
-        <th>Likes/Post</th>
-        <th>Shares/Post</th>
+        <th data-sort="brand">แบรนด์<span class="sort-indicator">⇅</span></th>
+        <th data-sort="posts" style="text-align:center">โพส<span class="sort-indicator">⇅</span></th>
+        <th data-sort="eng" style="text-align:center">รวม Eng<span class="sort-indicator">⇅</span></th>
+        <th data-sort="engperpost" style="text-align:center">Eng/Post<span class="sort-indicator">⇅</span></th>
+        <th data-sort="likes" style="text-align:center">Likes/Post<span class="sort-indicator">⇅</span></th>
+        <th data-sort="shares" style="text-align:center">Shares/Post<span class="sort-indicator">⇅</span></th>
         <th>จุดแข็ง</th>
       </tr>
     </thead>
@@ -763,6 +778,52 @@
 </div>
 
 <!-- Footer -->
+<script>
+function initSortable(tId, dSort) {
+  const t = document.getElementById(tId);
+  if (!t) return;
+  const b = t.querySelector('tbody');
+  if (!b) return;
+  const r = Array.from(b.querySelectorAll('tr'));
+  let cSort = { col: null, dir: null };
+  function apply() {
+    if (!cSort.col) return;
+    r.sort(function(a, b1) {
+      let va = a.dataset[cSort.col] || '', vb = b1.dataset[cSort.col] || '';
+      const isN = !isNaN(parseFloat(va)) && !isNaN(parseFloat(vb));
+      if (isN) { va = parseFloat(va); vb = parseFloat(vb); }
+      else { va = va.toLowerCase(); vb = vb.toLowerCase(); }
+      if (va < vb) return cSort.dir === 'asc' ? -1 : 1;
+      if (va > vb) return cSort.dir === 'asc' ? 1 : -1;
+      return 0;
+    });
+    r.forEach(function(x) { b.appendChild(x); });
+  }
+  function hSort(e) {
+    const th = e.currentTarget, col = th.dataset.sort;
+    if (!col) return;
+    e.preventDefault();
+    if (cSort.col === col) cSort.dir = cSort.dir === 'asc' ? 'desc' : 'asc';
+    else { cSort.col = col; cSort.dir = 'desc'; }
+    t.querySelectorAll('thead th').forEach(function(h) { h.classList.remove('sorted-asc', 'sorted-desc'); });
+    th.classList.add(cSort.dir === 'asc' ? 'sorted-asc' : 'sorted-desc');
+    apply();
+  }
+  t.querySelectorAll('thead th[data-sort]').forEach(function(th) {
+    var th2 = false;
+    th.addEventListener('touchend', function(e) { th2 = true; hSort(e); }, { passive: false });
+    th.addEventListener('click', function(e) { if (th2) { th2 = false; return; } hSort(e); });
+  });
+  if (dSort) {
+    cSort = { col: dSort.col, dir: dSort.dir };
+    var h = t.querySelector('thead th[data-sort="' + dSort.col + '"]');
+    if (h) h.classList.add('sorted-desc');
+    apply();
+  }
+}
+initSortable('table4', { col: 'posts', dir: 'desc' });
+initSortable('table5', { col: 'eng', dir: 'desc' });
+</script>
 <div class="footer">
   <p>📊 รายงาน Nissan KKT ขอนแก่น สัปดาห์ 13 – 19 ก.ค. 2569</p>
   <p>🕐 เวลาวิเคราะห์: 20 กรกฎาคม 2569 06:00 น.</p>
