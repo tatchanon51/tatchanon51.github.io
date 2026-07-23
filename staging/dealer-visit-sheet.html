@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dealer Visit Sheet — Nissan</title>
+<title>Dealer Visit Sheet — Nissan Motor (Thailand)</title>
 <style>
   @page { size: A4; margin: 12mm 15mm; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -11,82 +11,128 @@
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Sarabun", sans-serif;
     color: #222;
-    background: #f0f0f0;
-    padding: 20px;
+    background: #e8e8e8;
+    padding: 30px 20px;
   }
 
-  /* A4 card */
   .sheet {
     max-width: 210mm;
     margin: 0 auto;
     background: #fff;
-    padding: 28px 32px 24px;
-    border-radius: 6px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 24px 28px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
     position: relative;
   }
 
-  /* ---- HEADER ---- */
+  /* ===== HEADER ===== */
   .header {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     border-bottom: 3px solid #c3002f;
-    padding-bottom: 12px;
-    margin-bottom: 16px;
+    padding-bottom: 10px;
+    margin-bottom: 14px;
   }
   .header-left h1 {
     font-size: 20px;
     color: #c3002f;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.3px;
   }
   .header-left .sub {
     font-size: 11px;
-    color: #888;
-    margin-top: 2px;
+    color: #999;
   }
   .header-right {
     text-align: right;
     font-size: 12px;
-    color: #444;
-    line-height: 1.6;
+    color: #555;
+    line-height: 1.7;
   }
   .header-right .label {
-    color: #888;
+    color: #999;
     font-size: 10px;
-    text-transform: uppercase;
   }
 
-  /* ---- METADATA ROW ---- */
-  .meta {
+  /* ===== INPUT STYLES (global) ===== */
+  input, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    color: #222;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 5px 7px;
+    background: #fffdf5;
+    outline: none;
+    transition: border-color 0.15s;
+    width: 100%;
+  }
+  input:focus, textarea:focus {
+    border-color: #c3002f;
+    background: #fff;
+    box-shadow: 0 0 0 2px rgba(195,0,47,0.08);
+  }
+  input::placeholder, textarea::placeholder {
+    color: #bbb;
+    font-size: 11px;
+  }
+
+  /* Inline inputs (short fields) */
+  .input-inline {
+    display: inline-block;
+    width: auto;
+    min-width: 80px;
+    max-width: 200px;
+    border: none;
+    border-bottom: 2px dashed #ccc;
+    border-radius: 0;
+    background: transparent;
+    padding: 1px 3px;
+    font-weight: 600;
+  }
+  .input-inline:focus {
+    border-bottom-color: #c3002f;
+    background: #fffdf5;
+  }
+
+  /* ===== META ROW ===== */
+  .meta-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 8px;
-    margin-bottom: 18px;
+    margin-bottom: 16px;
   }
   .meta-item {
     background: #fafafa;
-    padding: 8px 10px;
+    padding: 7px 10px 9px;
     border-radius: 4px;
     border-left: 3px solid #c3002f;
-    font-size: 12px;
   }
   .meta-item .label {
-    color: #888;
+    color: #999;
     font-size: 9px;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.3px;
+    display: block;
+    margin-bottom: 3px;
   }
-  .meta-item .value {
+  .meta-item input {
     font-weight: 700;
-    color: #222;
-    margin-top: 1px;
+    font-size: 13px;
+    border: none;
+    border-bottom: 2px dashed #ccc;
+    border-radius: 0;
+    background: transparent;
+    padding: 1px 2px;
   }
-  .meta-item .value.red { color: #c3002f; }
+  .meta-item input:focus {
+    border-bottom-color: #c3002f;
+    background: #fffdf5;
+  }
 
-  /* ---- SECTION ---- */
+  /* ===== SECTION ===== */
   .section {
-    margin-bottom: 16px;
+    margin-bottom: 14px;
   }
   .section-title {
     font-size: 13px;
@@ -97,7 +143,7 @@
     margin-bottom: 8px;
   }
 
-  /* ---- TARGET vs ACTUAL ---- */
+  /* ===== TARGET vs ACTUAL ===== */
   .target-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -112,66 +158,112 @@
   }
   .target-card .label {
     font-size: 9px;
-    color: #888;
+    color: #999;
     text-transform: uppercase;
   }
-  .target-card .num {
-    font-size: 18px;
+  .target-card .big {
+    font-size: 20px;
     font-weight: 800;
-    margin-top: 2px;
+    margin: 2px 0;
   }
-  .target-card .num.green { color: #2e7d32; }
-  .target-card .num.red { color: #c3002f; }
-  .target-card .num.orange { color: #e65100; }
+  .target-card .big.red { color: #c3002f; }
+  .target-card .big.orange { color: #e65100; }
+  .target-card .big.green { color: #2e7d32; }
   .target-card .sub {
     font-size: 10px;
-    color: #666;
-    margin-top: 1px;
+    color: #888;
   }
+  .target-card input {
+    font-size: 20px;
+    font-weight: 800;
+    text-align: center;
+    border: none;
+    border-bottom: 2px dashed #ccc;
+    border-radius: 0;
+    background: transparent;
+    width: 80%;
+    max-width: 100px;
+    display: inline-block;
+    color: #c3002f;
+  }
+  .target-card input:focus { border-bottom-color: #c3002f; }
 
-  .gap-bar-wrap {
+  .progress-wrap {
     background: #f0f0f0;
     border-radius: 4px;
     height: 8px;
-    margin: 6px 0 2px;
+    margin: 4px 0 2px;
     overflow: hidden;
   }
-  .gap-bar-fill {
+  .progress-fill {
     height: 100%;
     border-radius: 4px;
     background: linear-gradient(90deg, #2e7d32, #f57c00, #c3002f);
+    width: 0%;
+  }
+  .ytd-row {
+    display: flex;
+    gap: 12px;
+    font-size: 10px;
+    color: #999;
+    margin-top: 4px;
+    flex-wrap: wrap;
+  }
+  .ytd-row input {
+    font-size: 10px;
+    width: 60px;
+    border: none;
+    border-bottom: 1px dashed #ccc;
+    border-radius: 0;
+    background: transparent;
+    padding: 0 3px;
+    display: inline;
+    font-weight: 600;
+    color: #555;
   }
 
-  /* ---- FOCUS MODELS ---- */
+  /* ===== FOCUS MODELS ===== */
   .models-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 6px;
   }
-  .model-item {
+  .model-row {
     display: flex;
     align-items: center;
     gap: 8px;
     background: #fafafa;
-    padding: 8px 10px;
+    padding: 6px 10px;
     border-radius: 4px;
     font-size: 12px;
   }
   .model-badge {
     background: #c3002f;
     color: #fff;
-    font-size: 10px;
+    font-size: 9px;
     font-weight: 700;
-    padding: 2px 8px;
+    padding: 2px 7px;
     border-radius: 3px;
     white-space: nowrap;
+    flex-shrink: 0;
   }
-  .model-badge.blue { background: #1976d2; }
+  .model-badge.blue  { background: #1976d2; }
   .model-badge.green { background: #2e7d32; }
-  .model-name { flex: 1; font-weight: 600; }
-  .model-promo { font-size: 10px; color: #666; }
+  .model-badge.purple{ background: #7b1fa2; }
+  .model-row input {
+    border: none;
+    border-bottom: 1px dashed #ccc;
+    border-radius: 0;
+    background: transparent;
+    padding: 2px 4px;
+    font-weight: 600;
+    font-size: 12px;
+  }
+  .model-row input:focus { border-bottom-color: #c3002f; background: #fffdf5; }
+  .model-name { flex: 1; min-width: 80px; }
+  .model-promo { flex: 1.2; min-width: 80px; }
 
-  /* ---- COMPETITOR ---- */
+  /* ===== COMPETITOR ===== */
   .comp-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -179,102 +271,212 @@
   }
   .comp-item {
     background: #fafafa;
-    padding: 8px 10px;
+    padding: 7px 10px;
     border-radius: 4px;
-    font-size: 11px;
+    font-size: 12px;
     border-left: 3px solid #bbb;
   }
-  .comp-item .brand { font-weight: 700; color: #333; }
-  .comp-item .detail { color: #666; margin-top: 2px; }
-  .comp-item.threat { border-left-color: #c3002f; background: #fff5f5; }
-  .comp-item.opp { border-left-color: #2e7d32; background: #f1f8e9; }
-
-  /* ---- ACTION ITEMS ---- */
-  .action-list { list-style: none; }
-  .action-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 8px 0;
-    border-bottom: 1px solid #f0f0f0;
-    font-size: 12px;
-  }
-  .action-item:last-child { border-bottom: none; }
-  .action-num {
-    width: 22px; height: 22px;
-    background: #c3002f;
-    color: #fff;
-    border-radius: 50%;
+  .comp-item .brand-row {
     display: flex;
     align-items: center;
-    justify-content: center;
-    font-size: 11px;
-    font-weight: 700;
-    flex-shrink: 0;
-    margin-top: 1px;
+    gap: 6px;
+    margin-bottom: 2px;
   }
-  .action-content { flex: 1; }
-  .action-title { font-weight: 600; color: #222; }
-  .action-detail { color: #666; margin-top: 2px; }
-  .action-star {
-    font-size: 9px;
-    background: #ffecb3;
-    color: #c3002f;
-    padding: 1px 6px;
-    border-radius: 3px;
-    font-weight: 700;
-    margin-left: 6px;
+  .comp-item .brand-row .brand-name { font-weight: 700; font-size: 12px; }
+  .comp-item .brand-row .badge-danger {
+    background: #ffebee; color: #c3002f;
+    font-size: 9px; font-weight: 700;
+    padding: 1px 6px; border-radius: 3px;
+  }
+  .comp-item .brand-row .badge-safe {
+    background: #e8f5e9; color: #2e7d32;
+    font-size: 9px; font-weight: 700;
+    padding: 1px 6px; border-radius: 3px;
+  }
+  .comp-item input {
+    border: none;
+    border-bottom: 1px dashed #ccc;
+    border-radius: 0;
+    background: transparent;
+    padding: 1px 3px;
+    font-size: 12px;
+    width: 100%;
+  }
+  .comp-item input:focus { border-bottom-color: #c3002f; }
+  .comp-item.threat { border-left-color: #c3002f; background: #fff5f5; }
+  .comp-item.opp   { border-left-color: #2e7d32; background: #f1f8e9; }
+
+  .legend-tip {
+    font-size: 10px;
+    color: #999;
+    margin-top: 5px;
   }
 
-  /* ---- NOTES ---- */
-  .notes-area {
-    margin-top: 8px;
+  /* ===== ACTION ITEMS ===== */
+  .action-table {
+    width: 100%;
+    border-collapse: collapse;
   }
+  .action-table td {
+    padding: 7px 0;
+    border-bottom: 1px solid #f0f0f0;
+    vertical-align: top;
+    font-size: 12px;
+  }
+  .action-table td:first-child {
+    width: 24px;
+    text-align: center;
+    font-weight: 700;
+    color: #c3002f;
+    font-size: 14px;
+  }
+  .action-table td:last-child { padding-left: 6px; }
+  .action-table tr:last-child td { border-bottom: none; }
+  .action-table .alabel {
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+  .action-table input {
+    border: none;
+    border-bottom: 1px dashed #ccc;
+    border-radius: 0;
+    background: transparent;
+    padding: 1px 3px;
+    font-size: 12px;
+    width: 100%;
+  }
+  .action-table input:focus { border-bottom-color: #c3002f; }
+  .action-table .prio-tag {
+    display: inline-block;
+    background: #ffebee;
+    color: #c3002f;
+    font-size: 9px;
+    font-weight: 700;
+    padding: 1px 6px;
+    border-radius: 3px;
+    margin-left: 4px;
+  }
+
+  /* ===== NOTES ===== */
   .notes-area textarea {
     width: 100%;
-    height: 52px;
+    height: 56px;
     border: 1px solid #ddd;
     border-radius: 4px;
     padding: 8px;
     font-size: 12px;
-    font-family: inherit;
     resize: vertical;
-    outline: none;
+    background: #fffdf5;
   }
   .notes-area textarea:focus { border-color: #c3002f; }
 
-  /* ---- FOOTER ---- */
+  .next-row {
+    display: flex;
+    gap: 14px;
+    margin-top: 8px;
+    font-size: 12px;
+    color: #888;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .next-row input {
+    display: inline;
+    width: auto;
+    border: none;
+    border-bottom: 1px dashed #ccc;
+    border-radius: 0;
+    background: transparent;
+    padding: 0 4px;
+    font-weight: 600;
+    font-size: 12px;
+  }
+  .next-row input:focus { border-bottom-color: #c3002f; }
+
+  /* ===== BUTTONS ===== */
+  .toolbar {
+    text-align: right;
+    margin-bottom: 12px;
+  }
+  .btn {
+    display: inline-block;
+    padding: 7px 18px;
+    font-size: 12px;
+    font-weight: 600;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background: #c3002f;
+    color: #fff;
+    transition: background 0.15s;
+  }
+  .btn:hover { background: #a00028; }
+  .btn-outline {
+    background: transparent;
+    color: #c3002f;
+    border: 1px solid #c3002f;
+  }
+  .btn-outline:hover { background: #fff5f5; }
+  .btn + .btn { margin-left: 6px; }
+
+  /* ===== FOOTER ===== */
   .footer {
-    margin-top: 16px;
-    padding-top: 10px;
+    margin-top: 14px;
+    padding-top: 8px;
     border-top: 1px solid #eee;
     display: flex;
     justify-content: space-between;
     font-size: 10px;
-    color: #999;
+    color: #bbb;
   }
 
-  /* ---- PRINT ---- */
+  /* ===== PRINT ===== */
   @media print {
     body { background: #fff; padding: 0; }
-    .sheet { box-shadow: none; border-radius: 0; padding: 20px 24px; max-width: 100%; }
-    textarea { border: 1px dashed #ccc; }
+    .sheet { box-shadow: none; border-radius: 0; padding: 16px 20px; max-width: 100%; }
+    .toolbar { display: none; }
+
+    /* Hide input borders & backgrounds on print */
+    input, textarea {
+      border: none !important;
+      background: transparent !important;
+      box-shadow: none !important;
+      color: #222 !important;
+    }
+    .input-inline, .meta-item input,
+    .target-card input, .ytd-row input,
+    .model-row input, .comp-item input,
+    .action-table input, .next-row input {
+      border: none !important;
+      border-bottom: 1px solid #ddd !important;
+      background: transparent !important;
+    }
+    textarea {
+      border: 1px solid #eee !important;
+      min-height: 40px;
+    }
+    .progress-fill { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+    .model-badge { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
   }
 
-  /* ---- RESPONSIVE ---- */
   @media (max-width: 600px) {
-    .meta { grid-template-columns: 1fr 1fr; }
+    .meta-grid { grid-template-columns: 1fr 1fr; }
     .target-grid { grid-template-columns: 1fr; }
     .models-grid { grid-template-columns: 1fr; }
     .comp-grid { grid-template-columns: 1fr; }
     .header { flex-direction: column; }
-    .header-right { text-align: left; margin-top: 6px; }
+    .header-right { text-align: left; margin-top: 4px; }
   }
 </style>
 </head>
 <body>
 
 <div class="sheet" id="visitSheet">
+
+  <!-- Toolbar -->
+  <div class="toolbar">
+    <button class="btn" onclick="window.print()">🖨️ ปริ้นท์ / Save PDF</button>
+    <button class="btn btn-outline" onclick="resetForm()">↺ ล้างฟอร์ม</button>
+  </div>
 
   <!-- HEADER -->
   <div class="header">
@@ -283,143 +485,185 @@
       <div class="sub">Nissan Motor (Thailand) · Regional Marketing · 1-Pager</div>
     </div>
     <div class="header-right">
-      <div><span class="label">Visit Date</span><br><strong contenteditable="true">___ ก.ค. 2569</strong></div>
-      <div style="margin-top:4px"><span class="label">RM Name</span><br><strong contenteditable="true">__________________</strong></div>
+      <div><span class="label">วันที่เข้าพบ</span><br><input class="input-inline" type="text" placeholder="___ ก.ค. 2569" style="min-width:100px"></div>
+      <div style="margin-top:2px"><span class="label">ชื่อ RM</span><br><input class="input-inline" type="text" placeholder="ชื่อ-นามสกุล" style="min-width:140px"></div>
     </div>
   </div>
 
   <!-- DEALER INFO -->
-  <div class="meta">
-    <div class="meta-item"><div class="label">Dealer</div><div class="value" contenteditable="true">__________________</div></div>
-    <div class="meta-item"><div class="label">Province</div><div class="value" contenteditable="true">__________________</div></div>
-    <div class="meta-item"><div class="label">Month Focus</div><div class="value" contenteditable="true">_____________</div></div>
-    <div class="meta-item"><div class="label">Sales Target</div><div class="value red" contenteditable="true">___________ คัน</div></div>
+  <div class="meta-grid">
+    <div class="meta-item">
+      <span class="label">🏢 ผู้จำหน่าย (Dealer)</span>
+      <input type="text" placeholder="ชื่อดีลเลอร์">
+    </div>
+    <div class="meta-item">
+      <span class="label">📍 จังหวัด</span>
+      <input type="text" placeholder="จังหวัด">
+    </div>
+    <div class="meta-item">
+      <span class="label">📅 เดือนที่ Focus</span>
+      <input type="text" placeholder="ก.ค. 2569">
+    </div>
+    <div class="meta-item">
+      <span class="label">🎯 เป้าขายเดือนนี้</span>
+      <input type="text" placeholder="_____ คัน">
+    </div>
   </div>
 
   <!-- 1. TARGET vs ACTUAL -->
   <div class="section">
-    <div class="section-title">📊 1. Target vs Actual (เดือนนี้)</div>
+    <div class="section-title">📊 1. ยอดขายเดือนนี้ — เป้า vs จริง</div>
     <div class="target-grid">
       <div class="target-card">
-        <div class="label">Target</div>
-        <div class="num red" contenteditable="true">___</div>
+        <div class="label">🎯 เป้า (Target)</div>
+        <input class="big red" type="text" placeholder="___" oninput="updateProgress()">
         <div class="sub">คัน</div>
       </div>
       <div class="target-card">
-        <div class="label">Actual (ปัจจุบัน)</div>
-        <div class="num orange" contenteditable="true">___</div>
-        <div class="sub">คัน · คิดเป็น __%</div>
+        <div class="label">✅ ทำได้จริง (Actual)</div>
+        <input class="big orange" type="text" placeholder="___" oninput="updateProgress()">
+        <div class="sub">คัน</div>
       </div>
       <div class="target-card">
-        <div class="label">Gap</div>
-        <div class="num red" contenteditable="true">___</div>
-        <div class="sub">คันที่เหลือ</div>
+        <div class="label">📉 เหลือ (Gap)</div>
+        <div class="big red" id="gapDisplay">—</div>
+        <div class="sub">คันที่ต้องทำให้ได้</div>
       </div>
     </div>
-    <div class="gap-bar-wrap"><div class="gap-bar-fill" style="width:45%"></div></div>
-    <div style="font-size:10px;color:#888;margin-top:4px">▸ YTD: ___ คัน | Stock: ___ คัน | Stock-to-Sales: ___ เดือน</div>
+    <div class="progress-wrap"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+    <div class="ytd-row">
+      <span>📆 YTD รวม: <input type="text" placeholder="___"> คัน</span>
+      <span>📦 Stock คงเหลือ: <input type="text" placeholder="___"> คัน</span>
+      <span>⏱ Stock-to-Sales: <input type="text" placeholder="___"> เดือน</span>
+    </div>
   </div>
 
-  <!-- 2. FOCUS MODELS + PROMOTION -->
+  <!-- 2. FOCUS MODELS -->
   <div class="section">
-    <div class="section-title">🎯 2. Focus Models &amp; Campaign</div>
+    <div class="section-title">🎯 2. รุ่นที่ต้องผลักดัน + แคมเปญ</div>
     <div class="models-grid">
-      <div class="model-item">
+      <div class="model-row">
         <span class="model-badge blue">Focus</span>
-        <span class="model-name" contenteditable="true">Kicks e-POWER</span>
-        <span class="model-promo" contenteditable="true">ดอกเบี้ย 0.99% · จอง 5,000</span>
+        <input class="model-name" type="text" placeholder="ชื่อรุ่น">
+        <input class="model-promo" type="text" placeholder="โปรโมชั่น / ส่วนลด">
       </div>
-      <div class="model-item">
+      <div class="model-row">
         <span class="model-badge green">Stock</span>
-        <span class="model-name" contenteditable="true">Almera VL</span>
-        <span class="model-promo" contenteditable="true">คงเหลือ 12 คัน · ส่วนลดเพิ่ม 10,000</span>
+        <input class="model-name" type="text" placeholder="ชื่อรุ่น">
+        <input class="model-promo" type="text" placeholder="จำนวนคงเหลือ / แคมเปญ">
       </div>
-      <div class="model-item">
+      <div class="model-row">
         <span class="model-badge">Push</span>
-        <span class="model-name" contenteditable="true">Navara Pro-4X</span>
-        <span class="model-promo" contenteditable="true">ของแถมกระบะแคป + ฟรีประกัน 1 ปี</span>
+        <input class="model-name" type="text" placeholder="ชื่อรุ่น">
+        <input class="model-promo" type="text" placeholder="ของแถม / เงื่อนไข">
       </div>
-      <div class="model-item">
-        <span class="model-badge">New</span>
-        <span class="model-name" contenteditable="true">Serena e-POWER</span>
-        <span class="model-promo" contenteditable="true">เปิดตัว มิ.ย. · ทดลองขับฟรี</span>
+      <div class="model-row">
+        <span class="model-badge purple">New</span>
+        <input class="model-name" type="text" placeholder="ชื่อรุ่น">
+        <input class="model-promo" type="text" placeholder="วันเปิดตัว / โปร">
       </div>
     </div>
   </div>
 
-  <!-- 3. COMPETITOR ACTIVITY -->
+  <!-- 3. COMPETITOR -->
   <div class="section">
     <div class="section-title">👀 3. คู่แข่งในพื้นที่ — สัปดาห์นี้</div>
     <div class="comp-grid">
       <div class="comp-item threat">
-        <div class="brand">Toyota 🔴</div>
-        <div class="detail" contenteditable="true">Mini Motor Show @เซ็นทรัลขอนแก่น ดึงลูกค้าหน้าใหม่</div>
+        <div class="brand-row"><span class="brand-name">Toyota</span><span class="badge-danger">🔴 ภัย</span></div>
+        <input type="text" placeholder="กิจกรรม / โปรเด่นของคู่แข่ง">
       </div>
       <div class="comp-item threat">
-        <div class="brand">BYD 🔴</div>
-        <div class="detail" contenteditable="true">โปร DM-i Test Drive พร้อมรับส่วนลดทันที 50,000</div>
+        <div class="brand-row"><span class="brand-name">BYD</span><span class="badge-danger">🔴 ภัย</span></div>
+        <input type="text" placeholder="กิจกรรม / โปรเด่นของคู่แข่ง">
       </div>
       <div class="comp-item opp">
-        <div class="brand">Isuzu 🟢</div>
-        <div class="detail" contenteditable="true">D-MAX เงียบเดือนนี้ — โอกาสดึงลูกค้ากลับมา</div>
+        <div class="brand-row"><span class="brand-name">Isuzu</span><span class="badge-safe">🟢 โอกาส</span></div>
+        <input type="text" placeholder="จุดอ่อน / ช่องว่างที่เราได้เปรียบ">
       </div>
       <div class="comp-item">
-        <div class="brand">MG</div>
-        <div class="detail" contenteditable="true">Extended Warranty 10 ปี — ต้องมีคำตอบให้เซลล์</div>
+        <div class="brand-row"><span class="brand-name">อื่นๆ</span></div>
+        <input type="text" placeholder="Honda / MG / GWM / อื่นๆ">
       </div>
     </div>
-    <div style="font-size:10px;color:#888;margin-top:6px">▸ 🔴 = ภัยคุกคาม 🟢 = โอกาส</div>
+    <div class="legend-tip">🔴 = ภัยคุกคาม (ต้องระวัง) · 🟢 = โอกาส (เราได้เปรียบ)</div>
   </div>
 
   <!-- 4. ACTION ITEMS -->
   <div class="section">
-    <div class="section-title">✅ 4. Action Items เดือนนี้</div>
-    <ul class="action-list">
-      <li class="action-item">
-        <span class="action-num">1</span>
-        <div class="action-content">
-          <div class="action-title" contenteditable="true">เคลียร์สต็อก Almera VL คงเหลือ 12 คัน <span class="action-star">🔥 High Priority</span></div>
-          <div class="action-detail" contenteditable="true">เพิ่ม Commission อีก 2,000/คัน · จัด Staff Sale สิ้นเดือน · ใช้ Budget Co-op 50,000</div>
-        </div>
-      </li>
-      <li class="action-item">
-        <span class="action-num">2</span>
-        <div class="action-content">
-          <div class="action-title" contenteditable="true">เปิดจุด Test Drive Kicks e-POWER เพิ่ม</div>
-          <div class="action-detail" contenteditable="true">ประสานห้างสรรพสินค้าในตัวเมือง · จัดเจ้าหน้าที่ 2 คน · งบ 30,000</div>
-        </div>
-      </li>
-      <li class="action-item">
-        <span class="action-num">3</span>
-        <div class="action-content">
-          <div class="action-title" contenteditable="true">ติดตาม Lead เก่า 15 รายที่ยังไม่ปิด</div>
-          <div class="action-detail" contenteditable="true">โทร Nurture รายวัน · ใช้ Script ล่าสุด · รายงานผลทุกวันศุกร์</div>
-        </div>
-      </li>
-    </ul>
+    <div class="section-title">✅ 4. Action Items — เดือนนี้ต้องทำให้ได้</div>
+    <table class="action-table">
+      <tr>
+        <td>1</td>
+        <td>
+          <div class="alabel"><input type="text" placeholder="Action Item #1 — เช่น เคลียร์สต็อก Almera"><span class="prio-tag">🔥 High</span></div>
+          <input type="text" placeholder="รายละเอียด — เพิ่ม Commission / จัด Staff Sale / ใช้ Budget">
+        </td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>
+          <div class="alabel"><input type="text" placeholder="Action Item #2"></div>
+          <input type="text" placeholder="รายละเอียด">
+        </td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>
+          <div class="alabel"><input type="text" placeholder="Action Item #3"></div>
+          <input type="text" placeholder="รายละเอียด">
+        </td>
+      </tr>
+    </table>
   </div>
 
-  <!-- 5. NOTES + NEXT VISIT -->
+  <!-- 5. NOTES -->
   <div class="section">
-    <div class="section-title">📝 5. Notes &amp; Next Visit</div>
+    <div class="section-title">📝 5. บันทึกเพิ่มเติม &amp; วันนัดครั้งหน้า</div>
     <div class="notes-area">
-      <textarea placeholder="บันทึกเพิ่มเติม — สิ่งที่ผู้จัดการดีลเลอร์พูด, ปัญหาที่เจอ, การบ้านที่ต้องทำ...">• ผู้จัดการดีลเลอร์แจ้งว่าอยากได้ Support Event เพิ่ม
-• พนักงานขายใหม่ 2 คน — ต้องจัด Product Training
-• ครั้งหน้าสรุป Proposal Co-op Q4 ให้ด้วย</textarea>
+      <textarea placeholder="บันทึกสิ่งที่ผู้จัดการดีลเลอร์พูด — ปัญหา, ข้อเสนอ, ข้อร้องเรียน, การบ้านที่ต้องกลับไปทำให้"></textarea>
     </div>
-    <div style="display:flex;gap:10px;margin-top:8px;font-size:12px;color:#888">
-      <span>📅 <strong contenteditable="true">ครั้งต่อไป:</strong> <span contenteditable="true">___ ส.ค. 2569</span></span>
-      <span>⏰ <span contenteditable="true">09:00 น.</span></span>
+    <div class="next-row">
+      <span>📅 <strong>ครั้งต่อไป:</strong> <input type="text" placeholder="__ ส.ค. 2569" style="min-width:100px"></span>
+      <span>⏰ เวลา: <input type="text" placeholder="09:00 น." style="min-width:70px"></span>
+      <span>📍 <input type="text" placeholder="สถานที่นัดหมาย" style="min-width:160px"></span>
     </div>
   </div>
 
   <!-- FOOTER -->
   <div class="footer">
     <span>Nissan Motor (Thailand) — Regional Marketing</span>
-    <span>เวอร์ชัน 1.0 · Dealer Visit Sheet</span>
+    <span>เวอร์ชัน 1.1 · Dealer Visit Sheet</span>
   </div>
 
 </div>
+
+<script>
+/* Auto-calculate Gap */
+function updateProgress() {
+  const cards = document.querySelectorAll('.target-card');
+  const targetInp = cards[0].querySelector('input');
+  const actualInp = cards[1].querySelector('input');
+  const gapDisplay = document.getElementById('gapDisplay');
+  const progressFill = document.getElementById('progressFill');
+
+  const t = parseFloat(targetInp.value) || 0;
+  const a = parseFloat(actualInp.value) || 0;
+  const gap = Math.max(0, t - a);
+  gapDisplay.textContent = gap.toLocaleString();
+
+  const pct = t > 0 ? Math.min(100, (a / t) * 100) : 0;
+  progressFill.style.width = pct + '%';
+}
+
+/* Reset all fields */
+function resetForm() {
+  if (!confirm('ล้างข้อมูลทั้งหมดในฟอร์ม? ข้อมูลที่กรอกไว้จะหาย')) return;
+  document.querySelectorAll('input, textarea').forEach(el => el.value = '');
+  document.getElementById('gapDisplay').textContent = '—';
+  document.getElementById('progressFill').style.width = '0%';
+}
+</script>
 
 </body>
 </html>
