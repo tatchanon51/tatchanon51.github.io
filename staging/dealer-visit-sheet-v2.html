@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dealer Visit Sheet v2 — Nissan Motor (Thailand)</title>
+<style>
+  @page { size: A4; margin: 10mm 14mm; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Sarabun", sans-serif;
+    color: #222;
+    background: #e8e8e8;
+    padding: 30px 20px;
+  }
+
+  .sheet {
+    max-width: 210mm;
+    margin: 0 auto;
+    background: #fff;
+    padding: 22px 26px 18px;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    position: relative;
+  }
+
+  /* ===== TOOLBAR ===== */
+  .toolbar {
+    text-align: right;
+    margin-bottom: 10px;
+  }
+  .btn {
+    display: inline-block;
+    padding: 6px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background: #c3002f;
+    color: #fff;
+    transition: background 0.15s;
+  }
+  .btn:hover { background: #a00028; }
+  .btn-outline {
+    background: transparent;
+    color: #c3002f;
+    border: 1px solid #c3002f;
+  }
+  .btn-outline:hover { background: #fff5f5; }
+  .btn-sm {
+    padding: 3px 10px;
+    font-size: 11px;
+  }
+  .btn + .btn { margin-left: 5px; }
+
+  .btn-add {
+    background: #2e7d32;
+    color: #fff;
+    padding: 2px 10px;
+    font-size: 11px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  .btn-add:hover { background: #1b5e20; }
+  .btn-del {
+    background: transparent;
+    color: #c3002f;
+    border: 1px solid #c3002f;
+    padding: 1px 7px;
+    font-size: 11px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-weight: 700;
+  }
+  .btn-del:hover { background: #fff5f5; }
+
+  /* ===== HEADER ===== */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 3px solid #c3002f;
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+  }
+  .header-left h1 {
+    font-size: 18px;
+    color: #c3002f;
+    letter-spacing: 0.3px;
+  }
+  .header-left .sub {
+    font-size: 10px;
+    color: #aaa;
+  }
+  .header-right {
+    text-align: right;
+    font-size: 12px;
+    color: #555;
+    line-height: 1.7;
+  }
+  .header-right .label {
+    color: #aaa;
+    font-size: 9px;
+  }
+
+  /* ===== INPUTS ===== */
+  input, textarea, select {
+    font-family: inherit;
+    font-size: inherit;
+    color: #222;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 4px 6px;
+    background: #fffdf5;
+    outline: none;
+    transition: border-color 0.15s;
+    width: 100%;
+  }
+  input:focus, textarea:focus, select:focus {
+    border-color: #c3002f;
+    background: #fff;
+    box-shadow: 0 0 0 2px rgba(195,0,47,0.08);
+  }
+  input::placeholder, textarea::placeholder { color: #ccc; font-size: 11px; }
+  select { cursor: pointer; appearance: auto; }
+
+  .input-i {
+    display: inline-block;
+    width: auto;
+    min-width: 80px;
+    border: none;
+    border-bottom: 2px dashed #ccc;
+    border-radius: 0;
+    background: transparent;
+    padding: 1px 3px;
+    font-weight: 600;
+  }
+  .input-i:focus { border-bottom-color: #c3002f; background: #fffdf5; }
+
+  /* ===== META ===== */
+  .meta-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 7px;
+    margin-bottom: 14px;
+  }
+  .meta-item {
+    background: #fafafa;
+    padding: 6px 10px 8px;
+    border-radius: 4px;
+    border-left: 3px solid #c3002f;
+  }
+  .meta-item .label {
+    color: #aaa;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    display: block;
+    margin-bottom: 2px;
+  }
+  .meta-item input {
+    font-weight: 700;
+    font-size: 13px;
+    border: none;
+    border-bottom: 2px dashed #ccc;
+    border-radius: 0;
+    background: transparent;
+    padding: 1px 2px;
+  }
+  .meta-item input:focus { border-bottom-color: #c3002f; background: #fffdf5; }
+
+  /* ===== SECTION ===== */
+  .section {
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #c3002f;
+    border-left: 3px solid #c3002f;
+    padding-left: 8px;
+    margin-bottom: 7px;
+  }
+  .section-hbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 7px;
+  }
+  .section-hbar .section-title { margin-bottom: 0; }
+
+  /* ===== TARGET ===== */
+  .target-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 6px;
+    margin-bottom: 5px;
+  }
+  .target-card {
+    background: #fafafa;
+    border-radius: 4px;
+    padding: 7px 10px;
+    text-align: center;
+  }
+  .target-card .label {
+    font-size: 9px;
+    color: #aaa;
+    text-transform: uppercase;
+  }
+  .target-card .big {
+    font-size: 20px;
+    font-weight: 800;
+    margin: 2px 0;
+  }
+  .target-card .big.red    { color: #c3002f; }
+  .target-card .big.orange { color: #e65100; }
+  .target-card .big.green  { color: #2e7d32; }
+  .target-card .sub { font-size: 10px; color: #888; }
+  .target-card input.big {
+    font-size: 20px; font-weight: 800;
+    text-align: center;
+    border: none; border-bottom: 2px dashed #ccc;
+    border-radius: 0; background: transparent;
+    width: 70%; max-width: 100px;
+    display: inline-block;
+    color: #c3002f;
+  }
+  .target-card input.big:focus { border-bottom-color: #c3002f; }
+
+  .progress-wrap {
+    background: #f0f0f0;
+    border-radius: 4px;
+    height: 7px;
+    margin: 4px 0 2px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    border-radius: 4px;
+    background: linear-gradient(90deg, #2e7d32, #f57c00, #c3002f);
+    width: 0%;
+  }
+  .ytd-row {
+    display: flex;
+    gap: 10px;
+    font-size: 10px;
+    color: #aaa;
+    margin-top: 4px;
+    flex-wrap: wrap;
+  }
+  .ytd-row input {
+    font-size: 10px; width: 55px;
+    border: none; border-bottom: 1px dashed #ccc;
+    border-radius: 0; background: transparent;
+    padding: 0 3px; display: inline; font-weight: 600;
+    color: #555;
+  }
+
+  /* ===== MODELS (Dynamic Rows) ===== */
+  .dynamic-list { list-style: none; }
+  .dynamic-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #fafafa;
+    padding: 5px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    margin-bottom: 5px;
+  }
+  .dynamic-row select {
+    width: auto;
+    min-width: 70px;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 4px;
+    background: #fff;
+    border: 1px solid #ddd;
+  }
+  .dynamic-row .fld-name {
+    flex: 1;
+    min-width: 80px;
+  }
+  .dynamic-row .fld-detail {
+    flex: 1.2;
+    min-width: 80px;
+  }
+  .dynamic-row input {
+    border: none;
+    border-bottom: 1px dashed #ccc;
+    border-radius: 0;
+    background: transparent;
+    padding: 2px 4px;
+    font-size: 12px;
+  }
+  .dynamic-row input:focus { border-bottom-color: #c3002f; background: #fffdf5; }
+
+  /* Badge colors for select */
+  .badge-sample {
+    display: inline-block;
+    padding: 1px 7px;
+    border-radius: 3px;
+    font-size: 9px;
+    font-weight: 700;
+    white-space: nowrap;
+    color: #fff;
+  }
+  .badge-Focus  { background: #1976d2; }
+  .badge-Stock  { background: #2e7d32; }
+  .badge-Push   { background: #c3002f; }
+  .badge-New    { background: #7b1fa2; }
+  .badge-Other  { background: #888; }
+
+  /* ===== COMPETITOR (Dynamic Rows) ===== */
+  .comp-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    margin-bottom: 5px;
+    border-left: 3px solid #bbb;
+    background: #fafafa;
+  }
+  .comp-row .sel-brand { width: 110px; min-width: 90px; }
+  .comp-row .sel-threat { width: 80px; min-width: 70px; }
+  .comp-row .fld-action {
+    flex: 1;
+  }
+  .comp-row input {
+    border: none;
+    border-bottom: 1px dashed #ccc;
+    border-radius: 0;
+    background: transparent;
+    padding: 2px 4px;
+    font-size: 12px;
+  }
+  .comp-row input:focus { border-bottom-color: #c3002f; }
+  .comp-row select { font-size: 11px; padding: 2px 4px; background: #fff; border: 1px solid #ddd; }
+
+  .comp-row.threat-red    { border-left-color: #c3002f; background: #fff5f5; }
+  .comp-row.threat-green  { border-left-color: #2e7d32; background: #f1f8e9; }
+  .comp-row.threat-gray   { border-left-color: #999; }
+
+  /* ===== ACTION ITEMS (Dynamic) ===== */
+  .action-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 6px 0;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 12px;
+  }
+  .action-row:last-child { border-bottom: none; }
+  .action-num {
+    width: 22px; height: 22px;
+    background: #c3002f;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .action-body { flex: 1; }
+  .action-body .top-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 2px;
+  }
+  .action-body .top-row .fld-title { flex: 1; }
+  .action-body .top-row input {
+    border: none;
+    border-bottom: 1px dashed #ccc;
+    border-radius: 0;
+    background: transparent;
+    padding: 1px 3px;
+    font-size: 12px;
+    width: 100%;
+  }
+  .action-body .top-row input:focus { border-bottom-color: #c3002f; }
+  .action-body .fld-detail {
+    border: none;
+    border-bottom: 1px dashed #ccc;
+    border-radius: 0;
+    background: transparent;
+    padding: 1px 3px;
+    font-size: 12px;
+    width: 100%;
+  }
+  .action-body .fld-detail:focus { border-bottom-color: #c3002f; }
+
+  /* Toggle switch for High Priority */
+  .prio-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    font-size: 11px;
+    user-select: none;
+    flex-shrink: 0;
+  }
+  .prio-toggle input { display: none; }
+  .prio-label {
+    padding: 1px 8px;
+    border-radius: 3px;
+    font-weight: 700;
+    border: 1px solid #ccc;
+    color: #aaa;
+    font-size: 10px;
+    transition: all 0.15s;
+  }
+  .prio-toggle input:checked + .prio-label {
+    background: #ffebee;
+    color: #c3002f;
+    border-color: #c3002f;
+  }
+
+  /* ===== NOTES ===== */
+  .notes-area textarea {
+    width: 100%;
+    height: 50px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 7px;
+    font-size: 12px;
+    resize: vertical;
+    background: #fffdf5;
+  }
+  .notes-area textarea:focus { border-color: #c3002f; }
+
+  .next-row {
+    display: flex;
+    gap: 12px;
+    margin-top: 7px;
+    font-size: 12px;
+    color: #888;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .next-row input {
+    display: inline;
+    width: auto;
+    border: none;
+    border-bottom: 1px dashed #ccc;
+    border-radius: 0;
+    background: transparent;
+    padding: 0 4px;
+    font-weight: 600;
+    font-size: 12px;
+  }
+  .next-row input:focus { border-bottom-color: #c3002f; }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    margin-top: 12px;
+    padding-top: 7px;
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    color: #ccc;
+  }
+
+  /* ===== PRINT ===== */
+  @media print {
+    body { background: #fff; padding: 0; }
+    .sheet { box-shadow: none; border-radius: 0; padding: 14px 18px; max-width: 100%; }
+    .toolbar { display: none; }
+    .btn-add, .btn-del { display: none; }
+
+    input, textarea, select {
+      border: none !important;
+      background: transparent !important;
+      box-shadow: none !important;
+      color: #222 !important;
+      appearance: none !important;
+      -webkit-appearance: none !important;
+      padding: 0 !important;
+    }
+    select { padding-right: 0 !important; }
+    select option { display: inline; }
+    select option:not(:checked) { display: none; }
+
+    .input-i, .meta-item input, .target-card input.big,
+    .ytd-row input, .dynamic-row input, .comp-row input,
+    .action-body input, .next-row input,
+    .dynamic-row select, .comp-row select {
+      border: none !important;
+      border-bottom: 1px solid #ddd !important;
+      background: transparent !important;
+    }
+    textarea {
+      border: 1px solid #eee !important;
+      min-height: 35px;
+    }
+    .progress-fill { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+    .btn-del { display: none !important; }
+    .btn-add { display: none !important; }
+  }
+
+  @media (max-width: 600px) {
+    .meta-grid { grid-template-columns: 1fr 1fr; }
+    .target-grid { grid-template-columns: 1fr; }
+    .header { flex-direction: column; }
+    .header-right { text-align: left; margin-top: 4px; }
+    .dynamic-row { flex-wrap: wrap; }
+    .comp-row { flex-wrap: wrap; }
+  }
+</style>
+</head>
+<body>
+
+<div class="sheet" id="visitSheet">
+
+  <!-- Toolbar -->
+  <div class="toolbar">
+    <button class="btn" onclick="window.print()">🖨️ ปริ้นท์ / PDF</button>
+    <button class="btn btn-outline" onclick="if(confirm('ล้างฟอร์มทั้งหมด?'))resetForm()">↺ ล้างฟอร์ม</button>
+  </div>
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-left">
+      <h1>🚗 Dealer Visit Sheet v2</h1>
+      <div class="sub">Nissan Motor (Thailand) · Regional Marketing · 1-Pager</div>
+    </div>
+    <div class="header-right">
+      <div><span class="label">วันที่เข้าพบ</span><br><input class="input-i" type="text" placeholder="___ ก.ค. 2569" style="min-width:95px"></div>
+      <div style="margin-top:2px"><span class="label">ชื่อ RM</span><br><input class="input-i" type="text" placeholder="ชื่อ-นามสกุล" style="min-width:130px"></div>
+    </div>
+  </div>
+
+  <!-- DEALER INFO (3 ช่อง — เอาค่า Target ออก) -->
+  <div class="meta-grid">
+    <div class="meta-item">
+      <span class="label">🏢 ผู้จำหน่าย (Dealer)</span>
+      <input type="text" placeholder="ชื่อดีลเลอร์">
+    </div>
+    <div class="meta-item">
+      <span class="label">📍 จังหวัด</span>
+      <input type="text" placeholder="จังหวัด">
+    </div>
+    <div class="meta-item">
+      <span class="label">📅 เดือนที่ Focus</span>
+      <input type="text" placeholder="ก.ค. 2569">
+    </div>
+  </div>
+
+  <!-- 1. TARGET vs ACTUAL -->
+  <div class="section">
+    <div class="section-title">📊 1. ยอดขายเดือนนี้ — เป้า vs จริง</div>
+    <div class="target-grid">
+      <div class="target-card">
+        <div class="label">🎯 เป้าขายเดือนนี้</div>
+        <input class="big" type="text" placeholder="___" oninput="updateProgress()">
+        <div class="sub">คัน</div>
+      </div>
+      <div class="target-card">
+        <div class="label">✅ ทำได้แล้ว</div>
+        <input class="big" type="text" placeholder="___" style="color:#e65100" oninput="updateProgress()">
+        <div class="sub">คัน</div>
+      </div>
+      <div class="target-card">
+        <div class="label">📉 ต้องทำให้ได้อีก</div>
+        <div class="big red" id="gapDisplay">—</div>
+        <div class="sub">คัน</div>
+      </div>
+    </div>
+    <div class="progress-wrap"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+    <div class="ytd-row">
+      <span>📆 YTD: <input type="text" placeholder="___"> คัน</span>
+      <span>📦 Stock: <input type="text" placeholder="___"> คัน</span>
+      <span>⏱ S2S: <input type="text" placeholder="___"> เดือน</span>
+    </div>
+  </div>
+
+  <!-- 2. FOCUS MODELS (Dynamic — Add/Remove Row) -->
+  <div class="section">
+    <div class="section-hbar">
+      <span class="section-title">🎯 2. รุ่นที่ต้องผลักดัน + แคมเปญ</span>
+      <button class="btn-add" onclick="addModelRow()">+ เพิ่มแถว</button>
+    </div>
+    <ul class="dynamic-list" id="modelList">
+      <!-- Rows injected by JS -->
+    </ul>
+  </div>
+
+  <!-- 3. COMPETITOR (Dynamic — Add/Remove Row) -->
+  <div class="section">
+    <div class="section-hbar">
+      <span class="section-title">👀 3. คู่แข่งในพื้นที่</span>
+      <button class="btn-add" onclick="addCompRow()">+ เพิ่มแถว</button>
+    </div>
+    <ul class="dynamic-list" id="compList">
+      <!-- Rows injected by JS -->
+    </ul>
+    <div style="font-size:10px;color:#bbb;margin-top:4px">🔴=ภัยคุกคาม  🟢=โอกาส  ⚪=ดูเฉยๆ</div>
+  </div>
+
+  <!-- 4. ACTION ITEMS (Dynamic — Add/Remove + Toggle Priority) -->
+  <div class="section">
+    <div class="section-hbar">
+      <span class="section-title">✅ 4. Action Items — เดือนนี้ต้องทำให้ได้</span>
+      <button class="btn-add" onclick="addActionRow()">+ เพิ่ม</button>
+    </div>
+    <ul class="dynamic-list" id="actionList">
+      <!-- Rows injected by JS -->
+    </ul>
+  </div>
+
+  <!-- 5. NOTES -->
+  <div class="section">
+    <div class="section-title">📝 5. บันทึก &amp; วันนัดครั้งหน้า</div>
+    <div class="notes-area">
+      <textarea placeholder="บันทึกสิ่งที่ผู้จัดการดีลเลอร์พูด — ปัญหา, ข้อเสนอ, ข้อร้องเรียน, การบ้านที่ต้องกลับไปทำให้"></textarea>
+    </div>
+    <div class="next-row">
+      <span>📅 ครั้งต่อไป: <input type="text" placeholder="__ ส.ค. 2569" style="min-width:95px"></span>
+      <span>⏰ <input type="text" placeholder="09:00 น." style="min-width:65px"></span>
+      <span>📍 <input type="text" placeholder="สถานที่" style="min-width:140px"></span>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <span>Nissan Motor (Thailand) — Regional Marketing</span>
+    <span>v2.0 · Dynamic Dealer Visit Sheet</span>
+  </div>
+
+</div>
+
+<script>
+/* ===== MATH ===== */
+function updateProgress() {
+  const cards = document.querySelectorAll('.target-card');
+  const t = parseFloat(cards[0].querySelector('input').value) || 0;
+  const a = parseFloat(cards[1].querySelector('input').value) || 0;
+  document.getElementById('gapDisplay').textContent = Math.max(0, t - a).toLocaleString();
+  document.getElementById('progressFill').style.width = (t > 0 ? Math.min(100, (a/t)*100) : 0) + '%';
+}
+
+/* ===== DYNAMIC ROWS — Focus Models ===== */
+let modelId = 0;
+function addModelRow(data) {
+  data = data || { badge: 'Focus', name: '', promo: '' };
+  const id = ++modelId;
+  const html = `<li class="dynamic-row" data-id="${id}">
+    <select onchange="updateBadge(this)">
+      <option value="Focus" ${data.badge==='Focus'?'selected':''}>🔵 Focus</option>
+      <option value="Stock" ${data.badge==='Stock'?'selected':''}>🟢 Stock</option>
+      <option value="Push"  ${data.badge==='Push'?'selected':''}>🔴 Push</option>
+      <option value="New"   ${data.badge==='New'?'selected':''}>🟣 New</option>
+      <option value="Other" ${data.badge==='Other'?'selected':''}>⚪ Other</option>
+    </select>
+    <input class="fld-name" type="text" placeholder="ชื่อรุ่น" value="${data.name}">
+    <input class="fld-detail" type="text" placeholder="โปรโมชั่น / จำนวน / รายละเอียด" value="${data.promo}">
+    <button class="btn-del" onclick="this.closest('li').remove()">✕</button>
+  </li>`;
+  document.getElementById('modelList').insertAdjacentHTML('beforeend', html);
+}
+function updateBadge(sel) {
+  const row = sel.closest('.dynamic-row');
+  row.querySelectorAll('.badge-sample').forEach(e => e.remove());
+  const v = sel.value;
+  const span = document.createElement('span');
+  span.className = 'badge-sample badge-' + v;
+  span.textContent = v;
+  sel.parentNode.insertBefore(span, sel);
+}
+
+/* ===== DYNAMIC ROWS — Competitors ===== */
+const BRANDS = ['Toyota','BYD','Isuzu','Honda','MG','GWM','Mitsubishi','Mazda','Hyundai','Suzuki','Geely','AION','Deepal','OMODA&JAECOO','Chery','Neta','Changan','อื่นๆ'];
+let compId = 0;
+function addCompRow(data) {
+  data = data || { brand: 'Toyota', threat: 'red', detail: '' };
+  const id = ++compId;
+  const brandOpts = BRANDS.map(b => `<option ${b===data.brand?'selected':''}>${b}</option>`).join('');
+  const threatOpts = [
+    {v:'red',l:'🔴 ภัยคุกคาม'},{v:'green',l:'🟢 โอกาส'},{v:'gray',l:'⚪ ดูเฉยๆ'}
+  ].map(o => `<option value="${o.v}" ${o.v===data.threat?'selected':''}>${o.l}</option>`).join('');
+  const html = `<li class="comp-row threat-${data.threat}" data-id="${id}">
+    <select class="sel-brand">${brandOpts}</select>
+    <select class="sel-threat" onchange="updateCompThreat(this)">${threatOpts}</select>
+    <input class="fld-action" type="text" placeholder="กิจกรรม / ความเคลื่อนไหว" value="${data.detail}">
+    <button class="btn-del" onclick="this.closest('li').remove()">✕</button>
+  </li>`;
+  document.getElementById('compList').insertAdjacentHTML('beforeend', html);
+}
+function updateCompThreat(sel) {
+  const row = sel.closest('.comp-row');
+  row.className = row.className.replace(/threat-\w+/g, '') + ' threat-' + sel.value;
+}
+
+/* ===== DYNAMIC ROWS — Action Items ===== */
+let actionId = 0;
+function addActionRow(data) {
+  data = data || { title: '', detail: '', high: false };
+  const id = ++actionId;
+  const chk = data.high ? 'checked' : '';
+  const html = `<li class="action-row" data-id="${id}">
+    <span class="action-num">${id}</span>
+    <div class="action-body">
+      <div class="top-row">
+        <input class="fld-title" type="text" placeholder="Action Item" value="${data.title}">
+        <label class="prio-toggle">
+          <input type="checkbox" ${chk} onchange="updateActionNums()">
+          <span class="prio-label">🔥 High</span>
+        </label>
+      </div>
+      <input class="fld-detail" type="text" placeholder="รายละเอียด — งบประมาณ / วิธีการ / วันที่" value="${data.detail}">
+    </div>
+    <button class="btn-del" onclick="this.closest('li').remove();updateActionNums()">✕</button>
+  </li>`;
+  document.getElementById('actionList').insertAdjacentHTML('beforeend', html);
+  updateActionNums();
+}
+function updateActionNums() {
+  const items = document.querySelectorAll('#actionList .action-row');
+  items.forEach((li, i) => {
+    li.querySelector('.action-num').textContent = i + 1;
+  });
+}
+
+/* ===== INIT ===== */
+function initDefault() {
+  addModelRow({badge:'Focus', name:'Kicks e-POWER', promo:'ดอกเบี้ย 0.99%'});
+  addModelRow({badge:'Stock', name:'Almera VL', promo:'คงเหลือ 12 คัน'});
+  addModelRow({badge:'Push', name:'Navara Pro-4X', promo:'ของแถม + ประกัน'});
+
+  addCompRow({brand:'Toyota', threat:'red', detail:'Mini Motor Show เซ็นทรัลขอนแก่น'});
+  addCompRow({brand:'BYD', threat:'red', detail:'โปร DM-i Test Drive'});
+  addCompRow({brand:'Isuzu', threat:'green', detail:'D-MAX เงียบเดือนนี้'});
+
+  addActionRow({title:'เคลียร์สต็อก Almera VL', detail:'เพิ่ม Commission 2,000/คัน · Staff Sale', high:true});
+  addActionRow({title:'เปิดจุด Test Drive Kicks', detail:'ประสานห้างสรรพสินค้า · งบ 30,000'});
+  addActionRow({title:'ติดตาม Lead เก่า 15 ราย', detail:'โทร Nurture รายวัน · รายงานศุกร์'});
+}
+initDefault();
+
+/* ===== RESET ===== */
+function resetForm() {
+  document.querySelectorAll('input, textarea').forEach(el => { if (el.type !== 'checkbox') el.value = ''; });
+  document.querySelectorAll('input[type=checkbox]').forEach(el => el.checked = false);
+  document.getElementById('gapDisplay').textContent = '—';
+  document.getElementById('progressFill').style.width = '0%';
+  document.getElementById('modelList').innerHTML = '';
+  document.getElementById('compList').innerHTML = '';
+  document.getElementById('actionList').innerHTML = '';
+  addModelRow(); addModelRow(); addModelRow();
+  addCompRow(); addCompRow();
+  addActionRow(); addActionRow();
+  updateActionNums();
+}
+</script>
+
+</body>
+</html>
