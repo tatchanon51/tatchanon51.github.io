@@ -347,6 +347,21 @@
   .comp-row.threat-green  { border-left-color: #2e7d32; background: #f1f8e9; }
   .comp-row.threat-gray   { border-left-color: #999; }
 
+  /* Threat tag (Section 3) */
+  .threat-tag {
+    display: inline-block;
+    padding: 1px 8px;
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: 700;
+    white-space: nowrap;
+    border: 1px solid #ccc;
+    color: #aaa;
+  }
+  .threat-tag.threat-red   { background: #ffebee; color: #c3002f; border-color: #c3002f; }
+  .threat-tag.threat-green { background: #e8f5e9; color: #2e7d32; border-color: #2e7d32; }
+  .threat-tag.threat-gray  { background: #f5f5f5; color: #666; border-color: #ccc; }
+
   /* ===== ACTION ITEMS (Dynamic) ===== */
   .action-row {
     display: flex;
@@ -655,12 +670,13 @@ function addModelRow(data) {
   data = data || { badge: 'Focus', name: '', promo: '' };
   const id = ++modelId;
   const html = `<li class="dynamic-row" data-id="${id}">
-    <select onchange="updateBadge(this)">
-      <option value="Focus" ${data.badge==='Focus'?'selected':''}>🔵 Focus</option>
-      <option value="Stock" ${data.badge==='Stock'?'selected':''}>🟢 Stock</option>
-      <option value="Push"  ${data.badge==='Push'?'selected':''}>🔴 Push</option>
-      <option value="New"   ${data.badge==='New'?'selected':''}>🟣 New</option>
-      <option value="Other" ${data.badge==='Other'?'selected':''}>⚪ Other</option>
+    <span class="badge-sample badge-${data.badge} sel-display">${data.badge}</span>
+    <select class="sel-badge" onchange="updateBadge(this)">
+      <option value="Focus" ${data.badge==='Focus'?'selected':''}>Focus</option>
+      <option value="Stock" ${data.badge==='Stock'?'selected':''}>Stock</option>
+      <option value="Push"  ${data.badge==='Push'?'selected':''}>Push</option>
+      <option value="New"   ${data.badge==='New'?'selected':''}>New</option>
+      <option value="Other" ${data.badge==='Other'?'selected':''}>Other</option>
     </select>
     <input class="fld-name" type="text" placeholder="ชื่อรุ่น" value="${data.name}">
     <input class="fld-detail" type="text" placeholder="โปรโมชั่น / จำนวน / รายละเอียด" value="${data.promo}">
@@ -670,12 +686,11 @@ function addModelRow(data) {
 }
 function updateBadge(sel) {
   const row = sel.closest('.dynamic-row');
-  row.querySelectorAll('.badge-sample').forEach(e => e.remove());
-  const v = sel.value;
-  const span = document.createElement('span');
-  span.className = 'badge-sample badge-' + v;
-  span.textContent = v;
-  sel.parentNode.insertBefore(span, sel);
+  const display = row.querySelector('.sel-display');
+  if (display) {
+    display.className = 'badge-sample badge-' + sel.value + ' sel-display';
+    display.textContent = sel.value;
+  }
 }
 
 /* ===== DYNAMIC ROWS — Competitors ===== */
@@ -685,11 +700,11 @@ function addCompRow(data) {
   data = data || { brand: 'Toyota', threat: 'red', detail: '' };
   const id = ++compId;
   const brandOpts = BRANDS.map(b => `<option ${b===data.brand?'selected':''}>${b}</option>`).join('');
-  const threatOpts = [
-    {v:'red',l:'🔴 ภัยคุกคาม'},{v:'green',l:'🟢 โอกาส'},{v:'gray',l:'⚪ ดูเฉยๆ'}
-  ].map(o => `<option value="${o.v}" ${o.v===data.threat?'selected':''}>${o.l}</option>`).join('');
+  const threatLabels = {red:'ภัยคุกคาม', green:'โอกาส', gray:'ดูเฉยๆ'};
+  const threatOpts = ['red','green','gray'].map(v => `<option value="${v}" ${v===data.threat?'selected':''}>${threatLabels[v]}</option>`).join('');
   const html = `<li class="comp-row threat-${data.threat}" data-id="${id}">
     <select class="sel-brand">${brandOpts}</select>
+    <span class="threat-tag threat-${data.threat} sel-threat-display">${threatLabels[data.threat]}</span>
     <select class="sel-threat" onchange="updateCompThreat(this)">${threatOpts}</select>
     <input class="fld-action" type="text" placeholder="กิจกรรม / ความเคลื่อนไหว" value="${data.detail}">
     <button class="btn-del" onclick="this.closest('li').remove()">✕</button>
@@ -698,7 +713,14 @@ function addCompRow(data) {
 }
 function updateCompThreat(sel) {
   const row = sel.closest('.comp-row');
-  row.className = row.className.replace(/threat-\w+/g, '') + ' threat-' + sel.value;
+  const newThreat = sel.value;
+  row.className = row.className.replace(/threat-\w+/g, '') + ' threat-' + newThreat;
+  const display = row.querySelector('.sel-threat-display');
+  if (display) {
+    display.className = 'threat-tag threat-' + newThreat + ' sel-threat-display';
+    const threatLabels = {red:'ภัยคุกคาม', green:'โอกาส', gray:'ดูเฉยๆ'};
+    display.textContent = threatLabels[newThreat];
+  }
 }
 
 /* ===== DYNAMIC ROWS — Action Items ===== */
