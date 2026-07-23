@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dealer Visit Sheet v2 — Nissan Motor (Thailand)</title>
+<title>Dealer Visit Checklist — Nissan Motor (Thailand)</title>
 <style>
   @page { size: A4; margin: 10mm 14mm; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -531,6 +531,50 @@
     .dynamic-row { flex-wrap: wrap; }
     .comp-row { flex-wrap: wrap; }
   }
+
+  /* Toast notification */
+  .toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #2e7d32;
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-size: 13px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.25s, transform 0.25s;
+    z-index: 1000;
+    pointer-events: none;
+  }
+  .toast.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .toast.error {
+    background: #c3002f;
+  }
+  .toast.warn {
+    background: #e65100;
+  }
+
+  /* Auto-save indicator */
+  .autosave-dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #2e7d32;
+    margin-right: 4px;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
 </style>
 </head>
 <body>
@@ -540,13 +584,21 @@
   <!-- Toolbar -->
   <div class="toolbar">
     <button class="btn" onclick="window.print()">🖨️ ปริ้นท์ / PDF</button>
+    <button class="btn btn-outline" onclick="exportJSON()">📥 Export JSON</button>
+    <label class="btn btn-outline" style="cursor:pointer">📤 Import
+      <input type="file" accept=".json" onchange="importJSON(event)" style="display:none">
+    </label>
     <button class="btn btn-outline" onclick="if(confirm('ล้างฟอร์มทั้งหมด?'))resetForm()">↺ ล้างฟอร์ม</button>
   </div>
+
+  <!-- Auto-save Toast -->
+  <div id="toast" class="toast"></div>
 
   <!-- HEADER -->
   <div class="header">
     <div class="header-left">
-      <h1>🚗 Dealer Visit Sheet v2</h1>
+      <h1>✅ Dealer Visit Checklist</h1>
+      <div class="sub" style="font-size:11px;color:#999;margin-top:2px">เตรียมข้อมูลให้พร้อมก่อนลงพื้นที่</div>
       <div class="sub">Nissan Motor (Thailand) · Regional Marketing · 1-Pager</div>
     </div>
     <div class="header-right">
@@ -577,12 +629,12 @@
     <div class="target-grid">
       <div class="target-card">
         <div class="label">🎯 เป้าขายเดือนนี้</div>
-        <input class="big" type="text" placeholder="___" oninput="updateProgress()">
+        <input class="big" type="number" min="0" step="1" placeholder="___" oninput="updateProgress();saveState()">
         <div class="sub">คัน</div>
       </div>
       <div class="target-card">
         <div class="label">✅ ทำได้แล้ว</div>
-        <input class="big" type="text" placeholder="___" style="color:#e65100" oninput="updateProgress()">
+        <input class="big" type="number" min="0" step="1" placeholder="___" style="color:#e65100" oninput="updateProgress();saveState()">
         <div class="sub">คัน</div>
       </div>
       <div class="target-card">
@@ -593,9 +645,9 @@
     </div>
     <div class="progress-wrap"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
     <div class="ytd-row">
-      <span>📆 YTD: <input type="text" placeholder="___"> คัน</span>
-      <span>📦 Stock: <input type="text" placeholder="___"> คัน</span>
-      <span>⏱ S2S: <input type="text" placeholder="___"> เดือน</span>
+      <span>📆 YTD: <input type="number" min="0" placeholder="___"> คัน</span>
+      <span>📦 Stock: <input type="number" min="0" placeholder="___"> คัน</span>
+      <span>⏱ S2S: <input type="number" min="0" step="0.1" placeholder="___"> เดือน</span>
     </div>
   </div>
 
@@ -613,7 +665,7 @@
   <!-- 3. COMPETITOR (Dynamic — Add/Remove Row) -->
   <div class="section">
     <div class="section-hbar">
-      <span class="section-title">👀 3. คู่แข่งในพื้นที่</span>
+      <span class="section-title">👀 3. คาดการณ์คู่แข่งในพื้นที่ (ก่อนเข้าพบ)</span>
       <button class="btn-add" onclick="addCompRow()">+ เพิ่มแถว</button>
     </div>
     <ul class="dynamic-list" id="compList">
@@ -633,11 +685,20 @@
     </ul>
   </div>
 
-  <!-- 5. NOTES -->
+  <!-- 5. SPECIAL TRACKING + NOTES -->
   <div class="section">
-    <div class="section-title">📝 5. บันทึก &amp; วันนัดครั้งหน้า</div>
+    <div class="section-title">⚠️ 5. ประเด็นที่ต้องติดตามพิเศษ (ก่อนเข้าพบ)</div>
     <div class="notes-area">
-      <textarea placeholder="บันทึกสิ่งที่ผู้จัดการดีลเลอร์พูด — ปัญหา, ข้อเสนอ, ข้อร้องเรียน, การบ้านที่ต้องกลับไปทำให้"></textarea>
+      <textarea id="specialTracking" placeholder="เช่น: ดีลเลอร์มีปัญหาสต็อกขาดรุ่น Kicks, ลูกค้าร้องเรียน Service, เซลล์ขาด Performance, ต้องประสาน HO...">• ติดตามสต็อก Kicks e-POWER — ศูนย์บอกขาด 2 สัปดาห์
+• ดีลเลอร์แจ้งปัญหา Service จากลูกค้า 3 ราย — ต้องตามให้
+• เซลล์ใหม่ 2 คน ยังไม่ผ่าน Product Training</textarea>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">📝 6. บันทึกเพิ่มเติม &amp; วันนัดครั้งหน้า</div>
+    <div class="notes-area">
+      <textarea placeholder="บันทึกสิ่งที่ผู้จัดการดีลเลอร์พูดหลังเข้าพบ — ปัญหา, ข้อเสนอ, ข้อร้องเรียน, การบ้านที่ต้องกลับไปทำให้"></textarea>
     </div>
     <div class="next-row">
       <span>📅 ครั้งต่อไป: <input type="text" placeholder="__ ส.ค. 2569" style="min-width:95px"></span>
@@ -649,25 +710,209 @@
   <!-- FOOTER -->
   <div class="footer">
     <span>Nissan Motor (Thailand) — Regional Marketing</span>
-    <span>v2.0 · Dynamic Dealer Visit Sheet</span>
+    <span>v3.0 · Auto-save + Export JSON</span>
   </div>
 
 </div>
 
 <script>
+const SAVE_KEY = "dvc_nissan_v3";
+
 /* ===== MATH ===== */
 function updateProgress() {
-  const cards = document.querySelectorAll('.target-card');
-  const t = parseFloat(cards[0].querySelector('input').value) || 0;
-  const a = parseFloat(cards[1].querySelector('input').value) || 0;
-  document.getElementById('gapDisplay').textContent = Math.max(0, t - a).toLocaleString();
-  document.getElementById('progressFill').style.width = (t > 0 ? Math.min(100, (a/t)*100) : 0) + '%';
+  const cards = document.querySelectorAll(".target-card");
+  const t = parseFloat(cards[0].querySelector("input").value) || 0;
+  const a = parseFloat(cards[1].querySelector("input").value) || 0;
+  document.getElementById("gapDisplay").textContent = Math.max(0, t - a).toLocaleString();
+  document.getElementById("progressFill").style.width = (t > 0 ? Math.min(100, (a/t)*100) : 0) + "%";
+}
+
+/* ===== TOAST ===== */
+function toast(msg, type) {
+  const t = document.getElementById("toast");
+  t.textContent = msg;
+  t.className = "toast show" + (type ? " " + type : "");
+  clearTimeout(t._timer);
+  t._timer = setTimeout(() => t.className = "toast", 1800);
+}
+
+/* ===== AUTO-SAVE ===== */
+let _saveTimer = null;
+function saveState() {
+  clearTimeout(_saveTimer);
+  _saveTimer = setTimeout(() => {
+    try {
+      const data = collectData();
+      localStorage.setItem(SAVE_KEY, JSON.stringify(data));
+      // Silent — no toast on every keystroke
+      // But show a small indicator after 1.5s of inactivity
+      toast("💾 บันทึกอัตโนมัติแล้ว");
+    } catch (e) {
+      toast("⚠️ บันทึกไม่สำเร็จ", "warn");
+    }
+  }, 1500);
+}
+
+/* ===== COLLECT DATA ===== */
+function collectData() {
+  const data = {
+    header: {},
+    dealer: {},
+    targets: { target: "", actual: "", ytd: "", stock: "", s2s: "" },
+    models: [],
+    competitors: [],
+    actions: [],
+    notes: { specialTracking: "", notes: "", nextDate: "", nextTime: "", nextPlace: "" },
+    savedAt: new Date().toISOString()
+  };
+  const hdr = document.querySelector(".header-right");
+  const hdrInputs = hdr.querySelectorAll("input");
+  data.header.visitDate = hdrInputs[0].value || "";
+  data.header.rmName = hdrInputs[1].value || "";
+  data.dealer.dealerName = document.querySelectorAll(".meta-item input")[0].value || "";
+  data.dealer.province = document.querySelectorAll(".meta-item input")[1].value || "";
+  data.dealer.monthFocus = document.querySelectorAll(".meta-item input")[2].value || "";
+  data.targets.target = document.querySelector(".target-card input.big").value || "";
+  data.targets.actual = document.querySelectorAll(".target-card input.big")[1].value || "";
+  const ytdRow = document.querySelectorAll(".ytd-row input");
+  data.targets.ytd = ytdRow[0].value || "";
+  data.targets.stock = ytdRow[1].value || "";
+  data.targets.s2s = ytdRow[2].value || "";
+  document.querySelectorAll("#modelList .dynamic-row").forEach(r => {
+    const badge = r.querySelector(".sel-display");
+    data.models.push({
+      badge: badge ? badge.textContent.trim() : "",
+      name: r.querySelector(".fld-name").value || "",
+      promo: r.querySelector(".fld-detail").value || ""
+    });
+  });
+  document.querySelectorAll("#compList .comp-row").forEach(r => {
+    const tag = r.querySelector(".sel-threat-display");
+    data.competitors.push({
+      brand: r.querySelector(".sel-brand").value || "",
+      threat: tag ? tag.textContent.trim() : "",
+      detail: r.querySelector(".fld-action").value || ""
+    });
+  });
+  document.querySelectorAll("#actionList .action-row").forEach(r => {
+    const cb = r.querySelector('input[type="checkbox"]');
+    data.actions.push({
+      title: r.querySelector(".fld-title").value || "",
+      high: cb ? cb.checked : false,
+      detail: r.querySelector(".fld-detail").value || ""
+    });
+  });
+  data.notes.specialTracking = document.getElementById("specialTracking").value || "";
+  const notesAreas = document.querySelectorAll(".notes-area textarea");
+  data.notes.notes = notesAreas[1] ? notesAreas[1].value : "";
+  const nextRow = document.querySelectorAll(".next-row input");
+  data.notes.nextDate = nextRow[0] ? nextRow[0].value : "";
+  data.notes.nextTime = nextRow[1] ? nextRow[1].value : "";
+  data.notes.nextPlace = nextRow[2] ? nextRow[2].value : "";
+  return data;
+}
+
+/* ===== RESTORE DATA ===== */
+function restoreState() {
+  try {
+    const raw = localStorage.getItem(SAVE_KEY);
+    if (!raw) return;
+    const d = JSON.parse(raw);
+    
+    // Header
+    const hdrInputs = document.querySelectorAll(".header-right input");
+    hdrInputs[0].value = d.header?.visitDate || "";
+    hdrInputs[1].value = d.header?.rmName || "";
+    
+    // Dealer
+    const dealerInputs = document.querySelectorAll(".meta-item input");
+    dealerInputs[0].value = d.dealer?.dealerName || "";
+    dealerInputs[1].value = d.dealer?.province || "";
+    dealerInputs[2].value = d.dealer?.monthFocus || "";
+    
+    // Targets
+    const tInputs = document.querySelectorAll(".target-card input.big");
+    tInputs[0].value = d.targets?.target || "";
+    tInputs[1].value = d.targets?.actual || "";
+    const ytdRow = document.querySelectorAll(".ytd-row input");
+    if (ytdRow[0]) ytdRow[0].value = d.targets?.ytd || "";
+    if (ytdRow[1]) ytdRow[1].value = d.targets?.stock || "";
+    if (ytdRow[2]) ytdRow[2].value = d.targets?.s2s || "";
+    
+    // Models
+    if (d.models && d.models.length) {
+      document.getElementById("modelList").innerHTML = "";
+      d.models.forEach(m => addModelRow({ badge: m.badge, name: m.name, promo: m.promo }));
+    }
+    
+    // Competitors
+    if (d.competitors && d.competitors.length) {
+      document.getElementById("compList").innerHTML = "";
+      const threatMap = { "ภัยคุกคาม": "red", "โอกาส": "green", "ดูเฉยๆ": "gray" };
+      d.competitors.forEach(c => addCompRow({
+        brand: c.brand, threat: threatMap[c.threat] || "red", detail: c.detail
+      }));
+    }
+    
+    // Actions
+    if (d.actions && d.actions.length) {
+      document.getElementById("actionList").innerHTML = "";
+      d.actions.forEach(a => addActionRow({ title: a.title, detail: a.detail, high: a.high }));
+    }
+    
+    // Notes
+    const sp = document.getElementById("specialTracking");
+    if (sp) sp.value = d.notes?.specialTracking || "";
+    const notesAreas = document.querySelectorAll(".notes-area textarea");
+    if (notesAreas[1]) notesAreas[1].value = d.notes?.notes || "";
+    const nextRow = document.querySelectorAll(".next-row input");
+    if (nextRow[0]) nextRow[0].value = d.notes?.nextDate || "";
+    if (nextRow[1]) nextRow[1].value = d.notes?.nextTime || "";
+    if (nextRow[2]) nextRow[2].value = d.notes?.nextPlace || "";
+    
+    updateProgress();
+    toast("✅ โหลดข้อมูลครั้งก่อนอัตโนมัติ");
+  } catch (e) {
+    console.error("Restore failed:", e);
+  }
+}
+
+/* ===== EXPORT JSON ===== */
+function exportJSON() {
+  const data = collectData();
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+  const a = document.createElement("a");
+  const stamp = new Date().toISOString().slice(0,10);
+  const dl = data.dealer.dealerName || "dealer";
+  a.href = URL.createObjectURL(blob);
+  a.download = `dealer-visit-${dl.replace(/\s+/g,"-")}-${stamp}.json`;
+  a.click();
+  toast("📥 Export JSON สำเร็จ");
+}
+
+/* ===== IMPORT JSON ===== */
+function importJSON(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    try {
+      const d = JSON.parse(e.target.result);
+      localStorage.setItem(SAVE_KEY, JSON.stringify(d));
+      restoreState();
+      toast("📤 Import สำเร็จ — โหลดข้อมูลเข้าฟอร์ม");
+    } catch (err) {
+      toast("❌ ไฟล์ไม่ถูกต้อง", "error");
+    }
+  };
+  reader.readAsText(file);
+  event.target.value = "";
 }
 
 /* ===== DYNAMIC ROWS — Focus Models ===== */
 let modelId = 0;
 function addModelRow(data) {
-  data = data || { badge: 'Focus', name: '', promo: '' };
+  data = data || { badge: "Focus", name: "", promo: "" };
   const id = ++modelId;
   const html = `<li class="dynamic-row" data-id="${id}">
     <span class="badge-sample badge-${data.badge} sel-display">${data.badge}</span>
@@ -678,110 +923,125 @@ function addModelRow(data) {
       <option value="New"   ${data.badge==='New'?'selected':''}>New</option>
       <option value="Other" ${data.badge==='Other'?'selected':''}>Other</option>
     </select>
-    <input class="fld-name" type="text" placeholder="ชื่อรุ่น" value="${data.name}">
-    <input class="fld-detail" type="text" placeholder="โปรโมชั่น / จำนวน / รายละเอียด" value="${data.promo}">
-    <button class="btn-del" onclick="this.closest('li').remove()">✕</button>
+    <input class="fld-name" type="text" placeholder="ชื่อรุ่น" value="${data.name}" oninput="saveState()">
+    <input class="fld-detail" type="text" placeholder="โปรโมชั่น / จำนวน / รายละเอียด" value="${data.promo}" oninput="saveState()">
+    <button class="btn-del" onclick="this.closest('li').remove();saveState()">✕</button>
   </li>`;
-  document.getElementById('modelList').insertAdjacentHTML('beforeend', html);
+  document.getElementById("modelList").insertAdjacentHTML("beforeend", html);
 }
 function updateBadge(sel) {
-  const row = sel.closest('.dynamic-row');
-  const display = row.querySelector('.sel-display');
+  const row = sel.closest(".dynamic-row");
+  const display = row.querySelector(".sel-display");
   if (display) {
-    display.className = 'badge-sample badge-' + sel.value + ' sel-display';
+    display.className = "badge-sample badge-" + sel.value + " sel-display";
     display.textContent = sel.value;
   }
+  saveState();
 }
 
 /* ===== DYNAMIC ROWS — Competitors ===== */
-const BRANDS = ['Toyota','BYD','Isuzu','Honda','MG','GWM','Mitsubishi','Mazda','Hyundai','Suzuki','Geely','AION','Deepal','OMODA&JAECOO','Chery','Neta','Changan','อื่นๆ'];
+const BRANDS = ["Toyota","BYD","Isuzu","Honda","MG","GWM","Mitsubishi","Mazda","Hyundai","Suzuki","Geely","AION","Deepal","OMODA&JAECOO","Chery","Neta","Changan","อื่นๆ"];
 let compId = 0;
 function addCompRow(data) {
-  data = data || { brand: 'Toyota', threat: 'red', detail: '' };
+  data = data || { brand: "Toyota", threat: "red", detail: "" };
   const id = ++compId;
-  const brandOpts = BRANDS.map(b => `<option ${b===data.brand?'selected':''}>${b}</option>`).join('');
-  const threatLabels = {red:'ภัยคุกคาม', green:'โอกาส', gray:'ดูเฉยๆ'};
-  const threatOpts = ['red','green','gray'].map(v => `<option value="${v}" ${v===data.threat?'selected':''}>${threatLabels[v]}</option>`).join('');
+  const brandOpts = BRANDS.map(b => `<option ${b===data.brand?'selected':''}>${b}</option>`).join("");
+  const threatLabels = {red:"ภัยคุกคาม", green:"โอกาส", gray:"ดูเฉยๆ"};
+  const threatOpts = ["red","green","gray"].map(v => `<option value="${v}" ${v===data.threat?'selected':''}>${threatLabels[v]}</option>`).join("");
   const html = `<li class="comp-row threat-${data.threat}" data-id="${id}">
-    <select class="sel-brand">${brandOpts}</select>
+    <select class="sel-brand" onchange="saveState()">${brandOpts}</select>
     <span class="threat-tag threat-${data.threat} sel-threat-display">${threatLabels[data.threat]}</span>
     <select class="sel-threat" onchange="updateCompThreat(this)">${threatOpts}</select>
-    <input class="fld-action" type="text" placeholder="กิจกรรม / ความเคลื่อนไหว" value="${data.detail}">
-    <button class="btn-del" onclick="this.closest('li').remove()">✕</button>
+    <input class="fld-action" type="text" placeholder="กิจกรรม / ความเคลื่อนไหว" value="${data.detail}" oninput="saveState()">
+    <button class="btn-del" onclick="this.closest('li').remove();saveState()">✕</button>
   </li>`;
-  document.getElementById('compList').insertAdjacentHTML('beforeend', html);
+  document.getElementById("compList").insertAdjacentHTML("beforeend", html);
 }
 function updateCompThreat(sel) {
-  const row = sel.closest('.comp-row');
+  const row = sel.closest(".comp-row");
   const newThreat = sel.value;
-  row.className = row.className.replace(/threat-\w+/g, '') + ' threat-' + newThreat;
-  const display = row.querySelector('.sel-threat-display');
+  row.className = row.className.replace(/threat-\w+/g, "") + " threat-" + newThreat;
+  const display = row.querySelector(".sel-threat-display");
   if (display) {
-    display.className = 'threat-tag threat-' + newThreat + ' sel-threat-display';
-    const threatLabels = {red:'ภัยคุกคาม', green:'โอกาส', gray:'ดูเฉยๆ'};
+    display.className = "threat-tag threat-" + newThreat + " sel-threat-display";
+    const threatLabels = {red:"ภัยคุกคาม", green:"โอกาส", gray:"ดูเฉยๆ"};
     display.textContent = threatLabels[newThreat];
   }
+  saveState();
 }
 
 /* ===== DYNAMIC ROWS — Action Items ===== */
 let actionId = 0;
 function addActionRow(data) {
-  data = data || { title: '', detail: '', high: false };
+  data = data || { title: "", detail: "", high: false };
   const id = ++actionId;
-  const chk = data.high ? 'checked' : '';
+  const chk = data.high ? "checked" : "";
   const html = `<li class="action-row" data-id="${id}">
     <span class="action-num">${id}</span>
     <div class="action-body">
       <div class="top-row">
-        <input class="fld-title" type="text" placeholder="Action Item" value="${data.title}">
+        <input class="fld-title" type="text" placeholder="Action Item" value="${data.title}" oninput="saveState()">
         <label class="prio-toggle">
-          <input type="checkbox" ${chk} onchange="updateActionNums()">
+          <input type="checkbox" ${chk} onchange="updateActionNums();saveState()">
           <span class="prio-label">🔥 High</span>
         </label>
       </div>
-      <input class="fld-detail" type="text" placeholder="รายละเอียด — งบประมาณ / วิธีการ / วันที่" value="${data.detail}">
+      <input class="fld-detail" type="text" placeholder="รายละเอียด — งบประมาณ / วิธีการ / วันที่" value="${data.detail}" oninput="saveState()">
     </div>
-    <button class="btn-del" onclick="this.closest('li').remove();updateActionNums()">✕</button>
+    <button class="btn-del" onclick="this.closest('li').remove();updateActionNums();saveState()">✕</button>
   </li>`;
-  document.getElementById('actionList').insertAdjacentHTML('beforeend', html);
+  document.getElementById("actionList").insertAdjacentHTML("beforeend", html);
   updateActionNums();
 }
 function updateActionNums() {
-  const items = document.querySelectorAll('#actionList .action-row');
+  const items = document.querySelectorAll("#actionList .action-row");
   items.forEach((li, i) => {
-    li.querySelector('.action-num').textContent = i + 1;
+    li.querySelector(".action-num").textContent = i + 1;
   });
 }
 
 /* ===== INIT ===== */
 function initDefault() {
-  addModelRow({badge:'Focus', name:'Kicks e-POWER', promo:'ดอกเบี้ย 0.99%'});
-  addModelRow({badge:'Stock', name:'Almera VL', promo:'คงเหลือ 12 คัน'});
-  addModelRow({badge:'Push', name:'Navara Pro-4X', promo:'ของแถม + ประกัน'});
+  addModelRow({badge:"Focus", name:"Kicks e-POWER", promo:"ดอกเบี้ย 0.99%"});
+  addModelRow({badge:"Stock", name:"Almera VL", promo:"คงเหลือ 12 คัน"});
+  addModelRow({badge:"Push", name:"Navara Pro-4X", promo:"ของแถม + ประกัน"});
 
-  addCompRow({brand:'Toyota', threat:'red', detail:'Mini Motor Show เซ็นทรัลขอนแก่น'});
-  addCompRow({brand:'BYD', threat:'red', detail:'โปร DM-i Test Drive'});
-  addCompRow({brand:'Isuzu', threat:'green', detail:'D-MAX เงียบเดือนนี้'});
+  addCompRow({brand:"Toyota", threat:"red", detail:"Mini Motor Show เซ็นทรัลขอนแก่น"});
+  addCompRow({brand:"BYD", threat:"red", detail:"โปร DM-i Test Drive"});
+  addCompRow({brand:"Isuzu", threat:"green", detail:"D-MAX เงียบเดือนนี้"});
 
-  addActionRow({title:'เคลียร์สต็อก Almera VL', detail:'เพิ่ม Commission 2,000/คัน · Staff Sale', high:true});
-  addActionRow({title:'เปิดจุด Test Drive Kicks', detail:'ประสานห้างสรรพสินค้า · งบ 30,000'});
-  addActionRow({title:'ติดตาม Lead เก่า 15 ราย', detail:'โทร Nurture รายวัน · รายงานศุกร์'});
+  addActionRow({title:"เคลียร์สต็อก Almera VL", detail:"เพิ่ม Commission 2,000/คัน · Staff Sale", high:true});
+  addActionRow({title:"เปิดจุด Test Drive Kicks", detail:"ประสานห้างสรรพสินค้า · งบ 30,000"});
+  addActionRow({title:"ติดตาม Lead เก่า 15 ราย", detail:"โทร Nurture รายวัน · รายงานศุกร์"});
 }
-initDefault();
+
+// Try restore first, otherwise init default
+const had = !!localStorage.getItem(SAVE_KEY);
+if (had) {
+  initDefault();  // Build DOM structure
+  restoreState(); // Then restore values from saved
+} else {
+  initDefault();
+  updateProgress();
+}
 
 /* ===== RESET ===== */
 function resetForm() {
-  document.querySelectorAll('input, textarea').forEach(el => { if (el.type !== 'checkbox') el.value = ''; });
-  document.querySelectorAll('input[type=checkbox]').forEach(el => el.checked = false);
-  document.getElementById('gapDisplay').textContent = '—';
-  document.getElementById('progressFill').style.width = '0%';
-  document.getElementById('modelList').innerHTML = '';
-  document.getElementById('compList').innerHTML = '';
-  document.getElementById('actionList').innerHTML = '';
+  document.querySelectorAll("input, textarea").forEach(el => {
+    if (el.type !== "checkbox" && el.type !== "file") el.value = "";
+  });
+  document.querySelectorAll("input[type=checkbox]").forEach(el => el.checked = false);
+  document.getElementById("gapDisplay").textContent = "—";
+  document.getElementById("progressFill").style.width = "0%";
+  document.getElementById("modelList").innerHTML = "";
+  document.getElementById("compList").innerHTML = "";
+  document.getElementById("actionList").innerHTML = "";
   addModelRow(); addModelRow(); addModelRow();
   addCompRow(); addCompRow();
   addActionRow(); addActionRow();
   updateActionNums();
+  localStorage.removeItem(SAVE_KEY);
+  toast("🗑️ ล้างฟอร์มเรียบร้อย");
 }
 </script>
 
