@@ -850,7 +850,7 @@
       <input type="text" placeholder="ชื่อผู้จัดการ / ผู้ติดต่อ">
     </div>
     <div class="meta-item">
-      <span class="label">📅 เดือนที่ Focus</span>
+      <span class="label">📅 เดือนที่</span>
       <input type="text" placeholder="ก.ค. 2569">
     </div>
   </div>
@@ -1226,7 +1226,7 @@ function addActivityRow(data) {
     const orderVal = (data.modelOrders && data.modelOrders[m]) ? data.modelOrders[m] : '';
     return `<div class="model-order-row">
       <span class="model-tag">${m}</span>
-      <input class="fld-model-order" type="text" data-model="${m}" placeholder="เป้า ___ คัน" value="${orderVal}" oninput="saveState()">
+      <input class="fld-model-order" type="text" data-model="${m}" placeholder="เป้า ___ คัน" value="${orderVal}" oninput="saveState();recalcOrder(this)">
     </div>`;
   }).join('');
   const html = `<li class="act-row act-${data.type}" data-id="${id}">
@@ -1240,7 +1240,7 @@ function addActivityRow(data) {
         <span>👥 เป้าลูกค้ามุ่งหวัง</span>
         <input class="fld-cust" type="text" placeholder="___ คน" value="${data.customersTarget||''}" oninput="saveState()">
         <span>📋 เป้าจองรวม</span>
-        <input class="fld-orders" type="text" placeholder="___ คัน" value="${data.ordersTarget||''}" oninput="saveState()">
+        <input class="fld-orders" type="text" placeholder="auto" value="${data.ordersTarget||''}" oninput="saveState()" style="background:#fffdf5;color:#c3002f;font-weight:700">
       </div>
       <div class="model-orders-grid">
         <div class="model-orders-title">🎯 เป้าจองแยกรุ่น:</div>
@@ -1258,6 +1258,32 @@ function updateActType(sel) {
   row.classList.add("act-" + v);
   saveState();
 }
+
+/* Auto-calculate Total orders from model breakdown */
+function recalcOrder(input) {
+  const row = input.closest(".act-row");
+  if (!row) return;
+  const ordersInput = row.querySelector(".fld-orders");
+  if (!ordersInput) return;
+  // Only auto-fill if user hasn't manually edited it, OR if currently empty
+  let total = 0;
+  let anyFilled = false;
+  row.querySelectorAll(".fld-model-order").forEach(inp => {
+    const v = parseFloat(inp.value) || 0;
+    total += v;
+    if (inp.value && inp.value.trim() !== "") anyFilled = true;
+  });
+  // If user has typed in orders total manually (non-empty), don't overwrite
+  // But still update color hint
+  if (anyFilled && (ordersInput.value === "" || ordersInput.dataset.autocalc === "true")) {
+    ordersInput.value = total > 0 ? total : "";
+    ordersInput.dataset.autocalc = "true";
+  }
+  // Mark as user-edited if user types in orders total
+  ordersInput.addEventListener("focus", () => { ordersInput.dataset.autocalc = "false"; }, { once: true });
+}
+
+
 
 /* ===== DYNAMIC ROWS — Special Tracking ===== */
 let trackId = 0;
