@@ -903,8 +903,7 @@
     <ul class="dynamic-list" id="activityList">
       <!-- Rows injected by JS -->
     </ul>
-    <div style="font-size:10px;color:#bbb;margin-top:4px">🔴=ภัยคุกคาม  🟢=โอกาส  ⚪=ดูเฉยๆ</div>
-  </div>
+    </div>
 
   <!-- 4. ACTION ITEMS (Dynamic — Add/Remove + Toggle Priority) -->
   <div class="section">
@@ -1099,15 +1098,28 @@ function restoreState() {
       d.models.forEach(m => addModelRow({ badge: m.badge, name: m.name, promo: m.promo }));
     }
     
-    // Competitors
-    if (d.competitors && d.competitors.length) {
+    // Activities (v4 section)
+    if (d.activities && d.activities.length) {
       document.getElementById("activityList").innerHTML = "";
-      const threatMap = { "ภัยคุกคาม": "red", "โอกาส": "green", "ดูเฉยๆ": "gray" };
-      d.competitors.forEach(c => addActivityRow({
-        brand: c.brand, threat: threatMap[c.threat] || "red", detail: c.detail
+      d.activities.forEach(a => addActivityRow({
+        type: a.type || "dept",
+        venue: a.venue || "",
+        customersTarget: a.customersTarget || "",
+        ordersTarget: a.ordersTarget || "",
+        modelOrders: a.modelOrders || {}
+      }));
+    } else if (d.competitors && d.competitors.length) {
+      // Backward compat: migrate old competitor data
+      document.getElementById("activityList").innerHTML = "";
+      d.competitors.forEach(x => addActivityRow({
+        type: "other",
+        venue: (x.brand || "") + ": " + (x.detail || ""),
+        customersTarget: "",
+        ordersTarget: "",
+        modelOrders: {}
       }));
     }
-    
+
     // Actions
     if (d.actions && d.actions.length) {
       document.getElementById("actionList").innerHTML = "";
@@ -1324,9 +1336,9 @@ function initDefault() {
   addModelRow({badge:"Stock", name:"Almera VL", promo:"คงเหลือ 12 คัน"});
   addModelRow({badge:"Push", name:"Navara Pro-4X", promo:"ของแถม + ประกัน"});
 
-  addActivityRow({type:"dept", venue:"Mini Motor Show เซ็นทรัลขอนแก่น", customersTarget:"80", ordersTarget:"15", modelOrders:{ALMERA:"5",KICKS:"6",SERENA:"2",X-TRAIL:"1",NAVARA:"1"}});
-  addActivityRow({type:"hyper", venue:"Hyper Market Lotus ขอนแก่น", customersTarget:"50", ordersTarget:"8", modelOrders:{ALMERA:"3",KICKS:"3",SERENA:"1",X-TRAIL:"",NAVARA:"1"}});
-  addActivityRow({type:"hot", venue:"Hot Market ถนนคนเดิน อุดร", customersTarget:"120", ordersTarget:"20", modelOrders:{ALMERA:"8",KICKS:"7",SERENA:"2",X-TRAIL:"1",NAVARA:"2"}});
+  addActivityRow({type:"dept", venue:"Mini Motor Show เซ็นทรัลขอนแก่น", customersTarget:"80", ordersTarget:"15", modelOrders:{ALMERA:"5",KICKS:"6",SERENA:"2","X-TRAIL":"1",NAVARA:"1"}});
+  addActivityRow({type:"hyper", venue:"Hyper Market Lotus ขอนแก่น", customersTarget:"50", ordersTarget:"8", modelOrders:{ALMERA:"3",KICKS:"3",SERENA:"1","X-TRAIL":"",NAVARA:"1"}});
+  addActivityRow({type:"hot", venue:"Hot Market ถนนคนเดิน อุดร", customersTarget:"120", ordersTarget:"20", modelOrders:{ALMERA:"8",KICKS:"7",SERENA:"2","X-TRAIL":"1",NAVARA:"2"}});
 
   addActionRow({title:"เคลียร์สต็อก Almera VL", detail:"เพิ่ม Commission 2,000/คัน · Staff Sale", high:true, due:"31 ก.ค.", owner:"ผจก.ดีลเลอร์"});
   addActionRow({title:"เปิดจุด Test Drive Kicks", detail:"ประสานห้างสรรพสินค้า · งบ 30,000", due:"15 ก.ค.", owner:"Sales"});
