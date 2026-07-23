@@ -1,0 +1,1372 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dealer Visit Sheet v4 — Nissan Motor (Thailand)</title>
+<style>
+  @page { size: A4; margin: 10mm 14mm; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Sarabun", sans-serif;
+    color: #222;
+    background: #e8e8e8;
+    padding: 30px 20px;
+  }
+
+  .sheet {
+    max-width: 210mm;
+    margin: 0 auto;
+    background: #fff;
+    padding: 22px 26px 18px;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    position: relative;
+  }
+
+  /* ===== TOOLBAR ===== */
+  .toolbar {
+    text-align: right;
+    margin-bottom: 10px;
+  }
+  .btn {
+    display: inline-block;
+    padding: 6px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background: #c3002f;
+    color: #fff;
+    transition: background 0.15s;
+  }
+  .btn:hover { background: #a00028; }
+  .btn-outline {
+    background: transparent;
+    color: #c3002f;
+    border: 1px solid #c3002f;
+  }
+  .btn-outline:hover { background: #fff5f5; }
+  .btn-sm {
+    padding: 3px 10px;
+    font-size: 11px;
+  }
+  .btn + .btn { margin-left: 5px; }
+
+  .btn-add {
+    background: #2e7d32;
+    color: #fff;
+    padding: 2px 10px;
+    font-size: 11px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  .btn-add:hover { background: #1b5e20; }
+  .btn-del {
+    background: transparent;
+    color: #c3002f;
+    border: 1px solid #c3002f;
+    padding: 1px 7px;
+    font-size: 11px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-weight: 700;
+  }
+  .btn-del:hover { background: #fff5f5; }
+
+  /* ===== HEADER ===== */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 3px solid #c3002f;
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+  }
+  .header-left h1 {
+    font-size: 18px;
+    color: #c3002f;
+    letter-spacing: 0.3px;
+  }
+  .header-left .sub {
+    font-size: 10px;
+    color: #aaa;
+  }
+  .header-right {
+    text-align: right;
+    font-size: 12px;
+    color: #555;
+    line-height: 1.7;
+  }
+  .header-right .label {
+    color: #aaa;
+    font-size: 9px;
+  }
+
+  /* ===== INPUTS ===== */
+  input, textarea, select {
+    font-family: inherit;
+    font-size: inherit;
+    color: #222;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 4px 6px;
+    background: #fffdf5;
+    outline: none;
+    transition: border-color 0.15s;
+    width: 100%;
+  }
+  input:focus, textarea:focus, select:focus {
+    border-color: #c3002f;
+    background: #fff;
+    box-shadow: 0 0 0 2px rgba(195,0,47,0.08);
+  }
+  input::placeholder, textarea::placeholder { color: #ccc; font-size: 11px; }
+  select { cursor: pointer; appearance: auto; }
+
+  .input-i {
+    display: inline-block;
+    width: auto;
+    min-width: 80px;
+    border: none;
+    border-bottom: 2px dashed #ccc;
+    border-radius: 0;
+    background: transparent;
+    padding: 1px 3px;
+    font-weight: 600;
+  }
+  .input-i:focus { border-bottom-color: #c3002f; background: #fffdf5; }
+
+  /* ===== META ===== */
+  .meta-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 7px;
+    margin-bottom: 14px;
+  }
+  .meta-item {
+    background: #fafafa;
+    padding: 6px 10px 8px;
+    border-radius: 4px;
+    border-left: 3px solid #c3002f;
+  }
+  .meta-item .label {
+    color: #aaa;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    display: block;
+    margin-bottom: 2px;
+  }
+  .meta-item input {
+    font-weight: 700;
+    font-size: 13px;
+    border: none;
+    border-bottom: 2px dashed #ccc;
+    border-radius: 0;
+    background: transparent;
+    padding: 1px 2px;
+  }
+  .meta-item input:focus { border-bottom-color: #c3002f; background: #fffdf5; }
+
+  /* ===== SECTION ===== */
+  .section {
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #c3002f;
+    border-left: 3px solid #c3002f;
+    padding-left: 8px;
+    margin-bottom: 7px;
+  }
+  .section-hbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 7px;
+  }
+  .section-hbar .section-title { margin-bottom: 0; }
+
+  /* ===== TARGET ===== */
+  .target-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 6px;
+    margin-bottom: 5px;
+  }
+  .target-card {
+    background: #fafafa;
+    border-radius: 4px;
+    padding: 7px 10px;
+    text-align: center;
+  }
+  .target-card .label {
+    font-size: 9px;
+    color: #aaa;
+    text-transform: uppercase;
+  }
+  .target-card .big {
+    font-size: 20px;
+    font-weight: 800;
+    margin: 2px 0;
+  }
+  .target-card .big.red    { color: #c3002f; }
+  .target-card .big.orange { color: #e65100; }
+  .target-card .big.green  { color: #2e7d32; }
+  .target-card .sub { font-size: 10px; color: #888; }
+  .target-card input.big {
+    font-size: 20px; font-weight: 800;
+    text-align: center;
+    border: none; border-bottom: 2px dashed #ccc;
+    border-radius: 0; background: transparent;
+    width: 70%; max-width: 100px;
+    display: inline-block;
+    color: #c3002f;
+  }
+  .target-card input.big:focus { border-bottom-color: #c3002f; }
+
+  .progress-wrap {
+    background: #f0f0f0;
+    border-radius: 4px;
+    height: 7px;
+    margin: 4px 0 2px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    border-radius: 4px;
+    background: linear-gradient(90deg, #2e7d32, #f57c00, #c3002f);
+    width: 0%;
+  }
+  .ytd-row {
+    display: flex;
+    gap: 10px;
+    font-size: 10px;
+    color: #aaa;
+    margin-top: 4px;
+    flex-wrap: wrap;
+  }
+  .ytd-row input {
+    font-size: 10px; width: 55px;
+    border: none; border-bottom: 1px dashed #ccc;
+    border-radius: 0; background: transparent;
+    padding: 0 3px; display: inline; font-weight: 600;
+    color: #555;
+  }
+
+  /* ===== MODELS (Dynamic Rows) ===== */
+  .dynamic-list { list-style: none; }
+  .dynamic-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #fafafa;
+    padding: 5px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    margin-bottom: 5px;
+  }
+  .dynamic-row select {
+    width: auto;
+    min-width: 70px;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 4px;
+    background: #fff;
+    border: 1px solid #ddd;
+  }
+  .dynamic-row .fld-name {
+    flex: 1;
+    min-width: 80px;
+  }
+  .dynamic-row .fld-detail {
+    flex: 1.2;
+    min-width: 80px;
+  }
+  .dynamic-row input {
+    border: none;
+    border-bottom: 1px dashed #ccc;
+    border-radius: 0;
+    background: transparent;
+    padding: 2px 4px;
+    font-size: 12px;
+  }
+  .dynamic-row input:focus { border-bottom-color: #c3002f; background: #fffdf5; }
+
+  /* Badge colors for select */
+  .badge-sample {
+    display: inline-block;
+    padding: 1px 7px;
+    border-radius: 3px;
+    font-size: 9px;
+    font-weight: 700;
+    white-space: nowrap;
+    color: #fff;
+  }
+  .badge-Focus  { background: #1976d2; }
+  .badge-Stock  { background: #2e7d32; }
+  .badge-Push   { background: #c3002f; }
+  .badge-New    { background: #7b1fa2; }
+  .badge-Other  { background: #888; }
+
+  /* ===== COMPETITOR (Dynamic Rows) ===== */
+  .comp-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    margin-bottom: 5px;
+    border-left: 3px solid #bbb;
+    background: #fafafa;
+  }
+  .comp-row .sel-brand { width: 110px; min-width: 90px; }
+  .comp-row .sel-threat { width: 80px; min-width: 70px; }
+  .comp-row .fld-action {
+    flex: 1;
+  }
+  .comp-row input {
+    border: none;
+    border-bottom: 1px dashed #ccc;
+    border-radius: 0;
+    background: transparent;
+    padding: 2px 4px;
+    font-size: 12px;
+  }
+  .comp-row input:focus { border-bottom-color: #c3002f; }
+  .comp-row select { font-size: 11px; padding: 2px 4px; background: #fff; border: 1px solid #ddd; }
+
+  .comp-row.threat-red    { border-left-color: #c3002f; background: #fff5f5; }
+  .comp-row.threat-green  { border-left-color: #2e7d32; background: #f1f8e9; }
+  .comp-row.threat-gray   { border-left-color: #999; }
+
+  /* Threat tag (Section 3) */
+  .threat-tag {
+    display: inline-block;
+    padding: 1px 8px;
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: 700;
+    white-space: nowrap;
+    border: 1px solid #ccc;
+    color: #aaa;
+  }
+  .threat-tag.threat-red   { background: #ffebee; color: #c3002f; border-color: #c3002f; }
+  .threat-tag.threat-green { background: #e8f5e9; color: #2e7d32; border-color: #2e7d32; }
+  .threat-tag.threat-gray  { background: #f5f5f5; color: #666; border-color: #ccc; }
+
+  /* ===== ACTION ITEMS (Dynamic) ===== */
+  .action-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 6px 0;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 12px;
+  }
+  .action-row:last-child { border-bottom: none; }
+  .action-num {
+    width: 22px; height: 22px;
+    background: #c3002f;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .action-body { flex: 1; }
+  .action-body .top-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 2px;
+  }
+  .action-body .top-row .fld-title { flex: 1; }
+  .action-body .top-row input {
+    border: none;
+    border-bottom: 1px dashed #ccc;
+    border-radius: 0;
+    background: transparent;
+    padding: 1px 3px;
+    font-size: 12px;
+    width: 100%;
+  }
+  .action-body .top-row input:focus { border-bottom-color: #c3002f; }
+  .action-body .fld-detail {
+    border: none;
+    border-bottom: 1px dashed #ccc;
+    border-radius: 0;
+    background: transparent;
+    padding: 1px 3px;
+    font-size: 12px;
+    width: 100%;
+  }
+  .action-body .fld-detail:focus { border-bottom-color: #c3002f; }
+
+  /* Action meta-row (Due date + Owner) */
+  .action-body .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin: 3px 0 5px;
+    flex-wrap: wrap;
+  }
+  .action-body .meta-lbl {
+    font-size: 10px;
+    color: #888;
+    font-weight: 600;
+  }
+  .action-body .meta-row input {
+    border: none;
+    border-bottom: 1px dashed #ccc;
+    border-radius: 0;
+    background: transparent;
+    padding: 1px 4px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #555;
+  }
+  .action-body .meta-row input:focus {
+    border-bottom-color: #c3002f;
+    background: #fffdf5;
+  }
+
+  /* Status pills for Special Tracking */
+  .status-pill {
+    display: inline-block;
+    padding: 1px 8px;
+    border-radius: 3px;
+    font-size: 9px;
+    font-weight: 700;
+    white-space: nowrap;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    user-select: none;
+  }
+  .status-pill[data-status="open"]      { background: #fff; color: #c3002f; border-color: #c3002f; }
+  .status-pill[data-status="progress"] { background: #fff3e0; color: #e65100; border-color: #e65100; }
+  .status-pill[data-status="pending"]  { background: #e3f2fd; color: #1976d2; border-color: #1976d2; }
+  .status-pill[data-status="closed"]   { background: #e8f5e9; color: #2e7d32; border-color: #2e7d32; }
+
+  /* Special tracking items (dynamic) */
+  .track-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 6px 0;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 12px;
+  }
+  .track-item:last-child { border-bottom: none; }
+  .track-status { flex-shrink: 0; margin-top: 2px; }
+  .track-body { flex: 1; }
+  .track-body input {
+    border: none;
+    border-bottom: 1px dashed #ccc;
+    border-radius: 0;
+    background: transparent;
+    padding: 1px 3px;
+    font-size: 12px;
+    width: 100%;
+  }
+  .track-body input:focus { border-bottom-color: #c3002f; }
+  .track-meta {
+    font-size: 10px;
+    color: #aaa;
+    margin-top: 2px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .track-meta input {
+    border: none;
+    border-bottom: 1px dashed #ccc;
+    border-radius: 0;
+    background: transparent;
+    padding: 0 3px;
+    font-size: 10px;
+    color: #555;
+    font-weight: 600;
+  }
+
+  /* Toggle switch for High Priority */
+  .prio-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    font-size: 11px;
+    user-select: none;
+    flex-shrink: 0;
+  }
+  .prio-toggle input { display: none; }
+  .prio-label {
+    padding: 1px 8px;
+    border-radius: 3px;
+    font-weight: 700;
+    border: 1px solid #ccc;
+    color: #aaa;
+    font-size: 10px;
+    transition: all 0.15s;
+  }
+  .prio-toggle input:checked + .prio-label {
+    background: #ffebee;
+    color: #c3002f;
+    border-color: #c3002f;
+  }
+
+  /* ===== NOTES ===== */
+  .notes-area textarea {
+    width: 100%;
+    height: 50px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 7px;
+    font-size: 12px;
+    resize: vertical;
+    background: #fffdf5;
+  }
+  .notes-area textarea:focus { border-color: #c3002f; }
+
+  .next-row {
+    display: flex;
+    gap: 12px;
+    margin-top: 7px;
+    font-size: 12px;
+    color: #888;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .next-row input {
+    display: inline;
+    width: auto;
+    border: none;
+    border-bottom: 1px dashed #ccc;
+    border-radius: 0;
+    background: transparent;
+    padding: 0 4px;
+    font-weight: 600;
+    font-size: 12px;
+  }
+  .next-row input:focus { border-bottom-color: #c3002f; }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    margin-top: 12px;
+    padding-top: 7px;
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    color: #ccc;
+  }
+
+  /* ===== PRINT ===== */
+  @media print {
+    body { background: #fff; padding: 0; }
+    .sheet { box-shadow: none; border-radius: 0; padding: 14px 18px; max-width: 100%; }
+    .toolbar { display: none; }
+    .btn-add, .btn-del { display: none; }
+
+    input, textarea, select {
+      border: none !important;
+      background: transparent !important;
+      box-shadow: none !important;
+      color: #222 !important;
+      appearance: none !important;
+      -webkit-appearance: none !important;
+      padding: 0 !important;
+    }
+    select { padding-right: 0 !important; }
+    select option { display: inline; }
+    select option:not(:checked) { display: none; }
+
+    .input-i, .meta-item input, .target-card input.big,
+    .ytd-row input, .dynamic-row input, .comp-row input,
+    .action-body input, .next-row input,
+    .dynamic-row select, .comp-row select {
+      border: none !important;
+      border-bottom: 1px solid #ddd !important;
+      background: transparent !important;
+    }
+    textarea {
+      border: 1px solid #eee !important;
+      min-height: 35px;
+    }
+    .progress-fill { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+    .btn-del { display: none !important; }
+    .btn-add { display: none !important; }
+  }
+
+  @media (max-width: 600px) {
+    .meta-grid { grid-template-columns: 1fr 1fr; }
+    .target-grid { grid-template-columns: 1fr; }
+    .meta-grid[style*="4"] { grid-template-columns: 1fr 1fr; }
+    .header { flex-direction: column; }
+    .header-right { text-align: left; margin-top: 4px; }
+    .dynamic-row { flex-wrap: wrap; }
+    .comp-row { flex-wrap: wrap; }
+  }
+
+
+  /* Color-coded select for Section 2 — Model badge */
+  .sel-badge {
+    font-weight: 700 !important;
+    font-size: 11px !important;
+    border-radius: 3px !important;
+    background: #fff !important;
+    border: 1px solid #ddd !important;
+    color: #333 !important;
+    padding: 2px 4px !important;
+  }
+  .sel-badge.sel-Focus  { background: #1976d2 !important; color: #fff !important; border-color: #1976d2 !important; }
+  .sel-badge.sel-Stock  { background: #2e7d32 !important; color: #fff !important; border-color: #2e7d32 !important; }
+  .sel-badge.sel-Push   { background: #c3002f !important; color: #fff !important; border-color: #c3002f !important; }
+  .sel-badge.sel-New    { background: #7b1fa2 !important; color: #fff !important; border-color: #7b1fa2 !important; }
+  .sel-badge.sel-Other  { background: #888 !important; color: #fff !important; border-color: #888 !important; }
+
+  /* Color-coded select for Section 3 — Threat */
+  .sel-threat {
+    font-weight: 700 !important;
+    font-size: 10px !important;
+    border-radius: 3px !important;
+    background: #fff !important;
+    border: 1px solid #ccc !important;
+    padding: 2px 8px !important;
+    min-width: 70px !important;
+  }
+  .sel-threat.sel-threat-red   { background: #ffebee !important; color: #c3002f !important; border-color: #c3002f !important; }
+  .sel-threat.sel-threat-green { background: #e8f5e9 !important; color: #2e7d32 !important; border-color: #2e7d32 !important; }
+  .sel-threat.sel-threat-gray  { background: #f5f5f5 !important; color: #666 !important; border-color: #ccc !important; }
+
+
+
+  /* Activity row (Section 3 - Marketing Activities) */
+  .act-row {
+    background: #fafafa;
+    border-radius: 4px;
+    padding: 6px 8px;
+    margin-bottom: 6px;
+    border-left: 3px solid #ccc;
+  }
+  .act-row.act-dept  { border-left-color: #c3002f; background: #fff5f5; }
+  .act-row.act-hyper { border-left-color: #1976d2; background: #f5f9ff; }
+  .act-row.act-hot   { border-left-color: #e65100; background: #fff8f1; }
+  .act-row.act-other { border-left-color: #888; }
+  .act-head {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    margin-bottom: 6px;
+  }
+  .sel-act-type {
+    background: #fff !important;
+    border: 1px solid #ddd;
+    color: #333 !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    border-radius: 3px !important;
+    padding: 2px 4px !important;
+    min-width: 110px;
+  }
+  .act-row.act-dept  .sel-act-type { background: #c3002f !important; color: #fff !important; border-color: #c3002f !important; }
+  .act-row.act-hyper .sel-act-type { background: #1976d2 !important; color: #fff !important; border-color: #1976d2 !important; }
+  .act-row.act-hot   .sel-act-type { background: #e65100 !important; color: #fff !important; border-color: #e65100 !important; }
+  .act-row.act-other .sel-act-type { background: #888 !important; color: #fff !important; border-color: #888 !important; }
+
+  .act-head .fld-venue {
+    flex: 1;
+    border: none;
+    border-bottom: 1px dashed #ccc;
+    background: transparent;
+    padding: 2px 4px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .act-head .fld-venue:focus { border-bottom-color: #c3002f; background: #fffdf5; }
+
+  .act-body { padding: 4px 2px 0; }
+  .act-summary {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 6px;
+    font-size: 11px;
+    color: #777;
+    flex-wrap: wrap;
+  }
+  .act-summary input {
+    border: none;
+    border-bottom: 1px dashed #ccc;
+    background: transparent;
+    padding: 1px 4px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #555;
+    width: 70px;
+  }
+  .act-summary input:focus { border-bottom-color: #c3002f; background: #fffdf5; }
+
+  .model-orders-grid {
+    background: #fff;
+    border-radius: 3px;
+    padding: 6px 8px;
+    border: 1px solid #eee;
+  }
+  .model-orders-title {
+    font-size: 10px;
+    font-weight: 700;
+    color: #c3002f;
+    margin-bottom: 4px;
+  }
+  .model-order-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    margin-bottom: 3px;
+  }
+  .model-order-row:last-child { margin-bottom: 0; }
+  .model-tag {
+    display: inline-block;
+    background: #1976d2;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 1px 8px;
+    border-radius: 3px;
+    min-width: 70px;
+    text-align: center;
+  }
+  .model-order-row input {
+    flex: 1;
+    border: none;
+    border-bottom: 1px dashed #ccc;
+    background: transparent;
+    padding: 1px 3px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #333;
+  }
+  .model-order-row input:focus { border-bottom-color: #c3002f; background: #fffdf5; }
+
+  /* Toast notification */
+  .toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #2e7d32;
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-size: 13px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.25s, transform 0.25s;
+    z-index: 1000;
+    pointer-events: none;
+  }
+  .toast.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .toast.error {
+    background: #c3002f;
+  }
+  .toast.warn {
+    background: #e65100;
+  }
+
+  /* Auto-save indicator */
+  .autosave-dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #2e7d32;
+    margin-right: 4px;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+</style>
+</head>
+<body>
+
+<div class="sheet" id="visitSheet">
+
+  <!-- Toolbar -->
+  <div class="toolbar">
+    <button class="btn" onclick="window.print()">🖨️ ปริ้นท์ / PDF</button>
+    <button class="btn btn-outline" onclick="exportJSON()">📥 Export JSON</button>
+    <label class="btn btn-outline" style="cursor:pointer">📤 Import
+      <input type="file" accept=".json" onchange="importJSON(event)" style="display:none">
+    </label>
+    <button class="btn btn-outline" onclick="if(confirm('ล้างฟอร์มทั้งหมด?'))resetForm()">↺ ล้างฟอร์ม</button>
+  </div>
+
+  <!-- Auto-save Toast -->
+  <div id="toast" class="toast"></div>
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-left">
+      <h1>🚗 Dealer Visit Sheet</h1>
+      <div class="sub">Nissan Motor (Thailand) · 1-Pager</div>
+    </div>
+    <div class="header-right">
+      <div><span class="label">📅 วันที่เข้าพบ</span><br><input class="input-i" type="text" placeholder="___ ก.ค. 2569" style="min-width:95px"></div>
+      <div style="margin-top:2px"><span class="label">👤 ชื่อ ASM/RMM</span><br><input class="input-i" type="text" placeholder="ชื่อ-นามสกุล" style="min-width:130px"></div>
+    </div>
+  </div>
+
+  <!-- DEALER INFO (3 ช่อง — เอาค่า Target ออก) -->
+  <div class="meta-grid">
+    <div class="meta-item">
+      <span class="label">🏢 ผู้จำหน่าย (Dealer)</span>
+      <input type="text" placeholder="ชื่อดีลเลอร์">
+    </div>
+    <div class="meta-item">
+      <span class="label">📍 จังหวัด</span>
+      <input type="text" placeholder="จังหวัด">
+    </div>
+    <div class="meta-item">
+      <span class="label">👔 ผู้จัดการดีลเลอร์</span>
+      <input type="text" placeholder="ชื่อผู้จัดการ / ผู้ติดต่อ">
+    </div>
+    <div class="meta-item">
+      <span class="label">📅 เดือนที่ Focus</span>
+      <input type="text" placeholder="ก.ค. 2569">
+    </div>
+  </div>
+
+  <!-- 1. TARGET vs ACTUAL -->
+  <div class="section">
+    <div class="section-title">📊 1. ยอดขายเดือนนี้ — เป้า vs จริง</div>
+    <div class="target-grid">
+      <div class="target-card">
+        <div class="label">🎯 เป้าขายเดือนนี้</div>
+        <input class="big" type="number" min="0" step="1" placeholder="___" oninput="updateProgress();saveState()">
+        <div class="sub">คัน</div>
+      </div>
+      <div class="target-card">
+        <div class="label">✅ ทำได้แล้ว</div>
+        <input class="big" type="number" min="0" step="1" placeholder="___" style="color:#e65100" oninput="updateProgress();saveState()">
+        <div class="sub">คัน</div>
+      </div>
+      <div class="target-card">
+        <div class="label">📉 ต้องทำให้ได้อีก</div>
+        <div class="big red" id="gapDisplay">—</div>
+        <div class="sub">คัน</div>
+      </div>
+    </div>
+    <div class="progress-wrap"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+    <div class="ytd-row">
+      <span>📆 YTD: <input type="number" min="0" placeholder="___"> คัน</span>
+      <span>📦 Stock: <input type="number" min="0" placeholder="___"> คัน</span>
+      <span>⏱ S2S: <input type="number" min="0" step="0.1" placeholder="___"> เดือน</span>
+    </div>
+  </div>
+
+  <!-- 2. FOCUS MODELS (Dynamic — Add/Remove Row) -->
+  <div class="section">
+    <div class="section-hbar">
+      <span class="section-title">🎯 2. รุ่นที่ต้องผลักดัน + แคมเปญ</span>
+      <button class="btn-add" onclick="addModelRow()">+ เพิ่มแถว</button>
+    </div>
+    <ul class="dynamic-list" id="modelList">
+      <!-- Rows injected by JS -->
+    </ul>
+  </div>
+
+  <!-- 3. COMPETITOR (Dynamic — Add/Remove Row) -->
+  <div class="section">
+    <div class="section-hbar">
+      <span class="section-title">📅 3. เป้าหมายกิจกรรมการตลาดประจำเดือน</span>
+      <button class="btn-add" onclick="addActivityRow()">+ เพิ่มแถว</button>
+    </div>
+    <ul class="dynamic-list" id="activityList">
+      <!-- Rows injected by JS -->
+    </ul>
+    <div style="font-size:10px;color:#bbb;margin-top:4px">🔴=ภัยคุกคาม  🟢=โอกาส  ⚪=ดูเฉยๆ</div>
+  </div>
+
+  <!-- 4. ACTION ITEMS (Dynamic — Add/Remove + Toggle Priority) -->
+  <div class="section">
+    <div class="section-hbar">
+      <span class="section-title">✅ 4. Action Items — เดือนนี้ต้องทำให้ได้</span>
+      <button class="btn-add" onclick="addActionRow()">+ เพิ่ม</button>
+    </div>
+    <ul class="dynamic-list" id="actionList">
+      <!-- Rows injected by JS -->
+    </ul>
+  </div>
+
+  <!-- 5. SPECIAL TRACKING + NOTES -->
+  <div class="section">
+    <div class="section-hbar">
+      <span class="section-title">⚠️ 5. ประเด็นที่ต้องติดตามพิเศษ</span>
+      <button class="btn-add" onclick="addTrackRow()">+ เพิ่มประเด็น</button>
+    </div>
+    <ul class="dynamic-list" id="trackList">
+      <!-- Rows injected by JS -->
+    </ul>
+    <div style="font-size:10px;color:#bbb;margin-top:4px">🔴 Open · 🟠 In Progress · 🔵 Pending · 🟢 Closed</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">📝 6. บันทึกเพิ่มเติม</div>
+    <div class="notes-area">
+      <textarea placeholder="บันทึกสิ่งที่ผู้จัดการดีลเลอร์พูดหลังเข้าพบ — ปัญหา, ข้อเสนอ, ข้อร้องเรียน, การบ้านที่ต้องกลับไปทำให้"></textarea>
+    </div>
+    <div class="next-row">
+      <span>📅 ครั้งต่อไป: <input type="text" placeholder="__ ส.ค. 2569" style="min-width:95px"></span>
+      <span>⏰ <input type="text" placeholder="09:00 น." style="min-width:65px"></span>
+      <span>📍 <input type="text" placeholder="สถานที่" style="min-width:140px"></span>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <span>Nissan Motor (Thailand)</span>
+    <span>v3.0 · Action Tracker + Status</span>
+  </div>
+
+</div>
+
+<script>
+const SAVE_KEY = "dvc_nissan_v3";
+
+/* ===== MATH ===== */
+function updateProgress() {
+  const cards = document.querySelectorAll(".target-card");
+  const t = parseFloat(cards[0].querySelector("input").value) || 0;
+  const a = parseFloat(cards[1].querySelector("input").value) || 0;
+  document.getElementById("gapDisplay").textContent = Math.max(0, t - a).toLocaleString();
+  document.getElementById("progressFill").style.width = (t > 0 ? Math.min(100, (a/t)*100) : 0) + "%";
+}
+
+/* ===== TOAST ===== */
+function toast(msg, type) {
+  const t = document.getElementById("toast");
+  t.textContent = msg;
+  t.className = "toast show" + (type ? " " + type : "");
+  clearTimeout(t._timer);
+  t._timer = setTimeout(() => t.className = "toast", 1800);
+}
+
+/* ===== AUTO-SAVE ===== */
+let _saveTimer = null;
+function saveState() {
+  clearTimeout(_saveTimer);
+  _saveTimer = setTimeout(() => {
+    try {
+      const data = collectData();
+      localStorage.setItem(SAVE_KEY, JSON.stringify(data));
+      // Silent — no toast on every keystroke
+      // But show a small indicator after 1.5s of inactivity
+      toast("💾 บันทึกอัตโนมัติแล้ว");
+    } catch (e) {
+      toast("⚠️ บันทึกไม่สำเร็จ", "warn");
+    }
+  }, 1500);
+}
+
+/* ===== COLLECT DATA ===== */
+function collectData() {
+  const data = {
+    header: {},
+    dealer: {},
+    targets: { target: "", actual: "", ytd: "", stock: "", s2s: "" },
+    models: [],
+    competitors: [],
+    activities: [],
+    actions: [],
+    notes: { specialTracking: "", notes: "", nextDate: "", nextTime: "", nextPlace: "" },
+    savedAt: new Date().toISOString()
+  };
+  const hdr = document.querySelector(".header-right");
+  const hdrInputs = hdr.querySelectorAll("input, select");
+  data.header.visitDate = hdrInputs[0] ? hdrInputs[0].value || "" : "";
+  data.header.rmName = hdrInputs[1] ? hdrInputs[1].value || "" : "";
+  const dmInputs = document.querySelectorAll(".meta-item input");
+  data.dealer.dealerName = dmInputs[0] ? dmInputs[0].value || "" : "";
+  data.dealer.province = dmInputs[1] ? dmInputs[1].value || "" : "";
+  data.dealer.dmName = dmInputs[2] ? dmInputs[2].value || "" : "";
+  data.dealer.monthFocus = dmInputs[3] ? dmInputs[3].value || "" : "";
+  data.targets.target = document.querySelector(".target-card input.big").value || "";
+  data.targets.actual = document.querySelectorAll(".target-card input.big")[1].value || "";
+  const ytdRow = document.querySelectorAll(".ytd-row input");
+  data.targets.ytd = ytdRow[0].value || "";
+  data.targets.stock = ytdRow[1].value || "";
+  data.targets.s2s = ytdRow[2].value || "";
+  document.querySelectorAll("#modelList .dynamic-row").forEach(r => {
+    data.models.push({
+      badge: r.querySelector(".sel-badge").value || "Focus",
+      name: r.querySelector(".fld-name").value || "",
+      promo: r.querySelector(".fld-detail").value || ""
+    });
+  });
+  document.querySelectorAll("#activityList .act-row").forEach(r => {
+    const modelOrders = {};
+    r.querySelectorAll(".fld-model-order").forEach(inp => {
+      const m = inp.dataset.model;
+      if (inp.value) modelOrders[m] = inp.value;
+    });
+    data.activities = data.activities || [];
+    data.activities.push({
+      type: r.querySelector(".sel-act-type").value || "dept",
+      venue: r.querySelector(".fld-venue").value || "",
+      customersTarget: r.querySelector(".fld-cust").value || "",
+      ordersTarget: r.querySelector(".fld-orders").value || "",
+      modelOrders: modelOrders
+    });
+  });
+  document.querySelectorAll("#actionList .action-row").forEach(r => {
+    const cb = r.querySelector('input[type="checkbox"]');
+    data.actions.push({
+      title: r.querySelector(".fld-title").value || "",
+      high: cb ? cb.checked : false,
+      due: r.querySelector(".fld-due") ? r.querySelector(".fld-due").value || "" : "",
+      owner: r.querySelector(".fld-owner") ? r.querySelector(".fld-owner").value || "" : "",
+      detail: r.querySelector(".fld-detail").value || ""
+    });
+  });
+  document.querySelectorAll("#trackList .track-item").forEach(r => {
+    const pill = r.querySelector(".status-pill");
+    data.trackings.push({
+      topic: r.querySelector(".fld-topic").value || "",
+      owner: r.querySelector(".track-meta input:nth-child(1)") ? r.querySelector(".track-meta input:nth-child(1)").value || "" : "",
+      due: r.querySelector(".track-meta input:nth-child(2)") ? r.querySelector(".track-meta input:nth-child(2)").value || "" : "",
+      status: pill ? pill.dataset.status : "open"
+    });
+  });
+  // Special tracking moved to trackings array
+  const notesAreas = document.querySelectorAll(".notes-area textarea");
+  data.notes.notes = notesAreas[0] ? notesAreas[0].value || "" : "";
+  const nextRow = document.querySelectorAll(".next-row input");
+  data.notes.nextDate = nextRow[0] ? nextRow[0].value : "";
+  data.notes.nextTime = nextRow[1] ? nextRow[1].value : "";
+  data.notes.nextPlace = nextRow[2] ? nextRow[2].value : "";
+  return data;
+}
+
+/* ===== RESTORE DATA ===== */
+function restoreState() {
+  try {
+    const raw = localStorage.getItem(SAVE_KEY);
+    if (!raw) return;
+    const d = JSON.parse(raw);
+    
+    // Header
+    const hdrInputs = document.querySelectorAll(".header-right input");
+    hdrInputs[0].value = d.header?.visitDate || "";
+    hdrInputs[1].value = d.header?.rmName || "";
+    
+    // Dealer
+    const dealerInputs = document.querySelectorAll(".meta-item input");
+    dealerInputs[0].value = d.dealer?.dealerName || "";
+    dealerInputs[1].value = d.dealer?.province || "";
+    dealerInputs[2].value = d.dealer?.monthFocus || "";
+    
+    // Targets
+    const tInputs = document.querySelectorAll(".target-card input.big");
+    tInputs[0].value = d.targets?.target || "";
+    tInputs[1].value = d.targets?.actual || "";
+    const ytdRow = document.querySelectorAll(".ytd-row input");
+    if (ytdRow[0]) ytdRow[0].value = d.targets?.ytd || "";
+    if (ytdRow[1]) ytdRow[1].value = d.targets?.stock || "";
+    if (ytdRow[2]) ytdRow[2].value = d.targets?.s2s || "";
+    
+    // Models
+    if (d.models && d.models.length) {
+      document.getElementById("modelList").innerHTML = "";
+      d.models.forEach(m => addModelRow({ badge: m.badge, name: m.name, promo: m.promo }));
+    }
+    
+    // Competitors
+    if (d.competitors && d.competitors.length) {
+      document.getElementById("activityList").innerHTML = "";
+      const threatMap = { "ภัยคุกคาม": "red", "โอกาส": "green", "ดูเฉยๆ": "gray" };
+      d.competitors.forEach(c => addActivityRow({
+        brand: c.brand, threat: threatMap[c.threat] || "red", detail: c.detail
+      }));
+    }
+    
+    // Actions
+    if (d.actions && d.actions.length) {
+      document.getElementById("actionList").innerHTML = "";
+      d.actions.forEach(a => addActionRow({ title: a.title, detail: a.detail, high: a.high, due: a.due || "", owner: a.owner || "" }));
+    }
+    // Trackings
+    if (d.trackings && d.trackings.length) {
+      document.getElementById("trackList").innerHTML = "";
+      d.trackings.forEach(t => addTrackRow({ topic: t.topic, owner: t.owner || "", due: t.due || "", status: t.status || "open" }));
+    }
+    
+    // Notes
+    const notesAreas = document.querySelectorAll(".notes-area textarea");
+    if (notesAreas[0]) notesAreas[0].value = d.notes?.notes || "";
+    const nextRow = document.querySelectorAll(".next-row input");
+    if (nextRow[0]) nextRow[0].value = d.notes?.nextDate || "";
+    if (nextRow[1]) nextRow[1].value = d.notes?.nextTime || "";
+    if (nextRow[2]) nextRow[2].value = d.notes?.nextPlace || "";
+    
+    updateProgress();
+    toast("✅ โหลดข้อมูลครั้งก่อนอัตโนมัติ");
+  } catch (e) {
+    console.error("Restore failed:", e);
+  }
+}
+
+/* ===== EXPORT JSON ===== */
+function exportJSON() {
+  const data = collectData();
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+  const a = document.createElement("a");
+  const stamp = new Date().toISOString().slice(0,10);
+  const dl = data.dealer.dealerName || "dealer";
+  a.href = URL.createObjectURL(blob);
+  a.download = `dealer-visit-${dl.replace(/\s+/g,"-")}-${stamp}.json`;
+  a.click();
+  toast("📥 Export JSON สำเร็จ");
+}
+
+/* ===== IMPORT JSON ===== */
+function importJSON(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    try {
+      const d = JSON.parse(e.target.result);
+      localStorage.setItem(SAVE_KEY, JSON.stringify(d));
+      restoreState();
+      toast("📤 Import สำเร็จ — โหลดข้อมูลเข้าฟอร์ม");
+    } catch (err) {
+      toast("❌ ไฟล์ไม่ถูกต้อง", "error");
+    }
+  };
+  reader.readAsText(file);
+  event.target.value = "";
+}
+
+/* ===== DYNAMIC ROWS — Focus Models ===== */
+let modelId = 0;
+function addModelRow(data) {
+  data = data || { badge: "Focus", name: "", promo: "" };
+  const id = ++modelId;
+  // Options with emoji INSIDE label - shows ONLY when dropdown is opened
+  // select itself shows clean text
+  const html = `<li class="dynamic-row" data-id="${id}">
+    <select class="sel-badge sel-${data.badge}" onchange="updateBadge(this)">
+      <option value="Focus">Focus</option>
+      <option value="Stock">Stock</option>
+      <option value="Push">Push</option>
+      <option value="New">New</option>
+      <option value="Other">Other</option>
+    </select>
+    <input class="fld-name" type="text" placeholder="ชื่อรุ่น" value="${data.name}" oninput="saveState()">
+    <input class="fld-detail" type="text" placeholder="โปรโมชั่น / จำนวน / รายละเอียด" value="${data.promo}" oninput="saveState()">
+    <button class="btn-del" onclick="this.closest('li').remove();saveState()">✕</button>
+  </li>`;
+  document.getElementById("modelList").insertAdjacentHTML("beforeend", html);
+  // After insertion, find the latest row and set its select value
+  const all = document.querySelectorAll("#modelList .sel-badge");
+  const sel = all[all.length - 1];
+  if (sel) { sel.value = data.badge; }
+}
+function updateBadge(sel) {
+  sel.className = "sel-badge sel-" + sel.value;
+  saveState();
+}
+
+/* ===== DYNAMIC ROWS — Activities (Section 3) ===== */
+const ACTIVITY_TYPES = [
+  { v: "dept",  label: "Department Store", color: "red" },
+  { v: "hyper", label: "Hyper Market",      color: "blue" },
+  { v: "hot",   label: "Hot Market",        color: "orange" },
+  { v: "other", label: "อื่นๆ",              color: "gray" }
+];
+const MODEL_LIST = ["ALMERA","KICKS","SERENA","X-TRAIL","NAVARA"];
+let actId = 0;
+function addActivityRow(data) {
+  data = data || { type: "dept", venue: "", customersTarget: "", ordersTarget: "", models: ["ALMERA"], modelOrders: {"ALMERA":""} };
+  const id = ++actId;
+  const typeOpts = ACTIVITY_TYPES.map(t => `<option value="${t.v}" ${t.v===data.type?'selected':''}>${t.label}</option>`).join('');
+  // Model order targets
+  const modelRows = MODEL_LIST.map(m => {
+    const orderVal = (data.modelOrders && data.modelOrders[m]) ? data.modelOrders[m] : '';
+    return `<div class="model-order-row">
+      <span class="model-tag">${m}</span>
+      <input class="fld-model-order" type="text" data-model="${m}" placeholder="เป้า ___ คัน" value="${orderVal}" oninput="saveState()">
+    </div>`;
+  }).join('');
+  const html = `<li class="act-row act-${data.type}" data-id="${id}">
+    <div class="act-head">
+      <select class="sel-act-type" onchange="updateActType(this)">${typeOpts}</select>
+      <input class="fld-venue" type="text" placeholder="สถานที่ / ชื่องาน" value="${data.venue||''}" oninput="saveState()">
+      <button class="btn-del" onclick="this.closest('li').remove();saveState()">✕</button>
+    </div>
+    <div class="act-body">
+      <div class="act-summary">
+        <span>👥 เป้าลูกค้ามุ่งหวัง</span>
+        <input class="fld-cust" type="text" placeholder="___ คน" value="${data.customersTarget||''}" oninput="saveState()">
+        <span>📋 เป้าจองรวม</span>
+        <input class="fld-orders" type="text" placeholder="___ คัน" value="${data.ordersTarget||''}" oninput="saveState()">
+      </div>
+      <div class="model-orders-grid">
+        <div class="model-orders-title">🎯 เป้าจองแยกรุ่น:</div>
+        ${modelRows}
+      </div>
+    </div>
+  </li>`;
+  document.getElementById("activityList").insertAdjacentHTML("beforeend", html);
+}
+function updateActType(sel) {
+  const row = sel.closest(".act-row");
+  const v = sel.value;
+  // Remove any existing act-XXX class
+  row.className = row.className.replace(/act-\w+/g, '').trim();
+  row.classList.add("act-" + v);
+  saveState();
+}
+
+/* ===== DYNAMIC ROWS — Special Tracking ===== */
+let trackId = 0;
+const STATUSES = [
+  { v: "open",      icon: "🔴", label: "Open" },
+  { v: "progress",  icon: "🟠", label: "In Progress" },
+  { v: "pending",   icon: "🔵", label: "Pending" },
+  { v: "closed",    icon: "🟢", label: "Closed" }
+];
+let statusOrder = ["open","progress","pending","closed"];
+
+function addTrackRow(data) {
+  data = data || { topic: "", owner: "", due: "", status: "open" };
+  const id = ++trackId;
+  const html = `<li class="track-item" data-id="${id}">
+    <span class="track-status status-pill" data-status="${data.status}" onclick="cycleStatus(this)">${STATUSES.find(s=>s.v===data.status).label}</span>
+    <div class="track-body">
+      <input class="fld-topic" type="text" placeholder="ประเด็นที่ต้องติดตาม..." value="${data.topic}" oninput="saveState()">
+      <div class="track-meta">
+        <span>👤 <input type="text" placeholder="ผู้รับ" value="${data.owner}" oninput="saveState()"></span>
+        <span>📅 <input type="text" placeholder="__ ก.ค." value="${data.due}" oninput="saveState()"></span>
+      </div>
+    </div>
+    <button class="btn-del" onclick="this.closest('li').remove();saveState()">✕</button>
+  </li>`;
+  document.getElementById("trackList").insertAdjacentHTML("beforeend", html);
+}
+function cycleStatus(pill) {
+  const cur = pill.dataset.status;
+  const idx = statusOrder.indexOf(cur);
+  const next = statusOrder[(idx + 1) % statusOrder.length];
+  pill.dataset.status = next;
+  pill.textContent = STATUSES.find(s=>s.v===next).label;
+  saveState();
+}
+
+/* ===== DYNAMIC ROWS — Action Items ===== */
+let actionId = 0;
+function addActionRow(data) {
+  data = data || { title: "", detail: "", high: false, due: "", owner: "" };
+  const id = ++actionId;
+  const chk = data.high ? "checked" : "";
+  const html = `<li class="action-row" data-id="${id}">
+    <span class="action-num">${id}</span>
+    <div class="action-body">
+      <div class="top-row">
+        <input class="fld-title" type="text" placeholder="Action Item" value="${data.title}" oninput="saveState()">
+        <label class="prio-toggle">
+          <input type="checkbox" ${chk} onchange="updateActionNums();saveState()">
+          <span class="prio-label">🔥 High</span>
+        </label>
+      </div>
+      <div class="meta-row">
+        <span class="meta-lbl">📅 กำหนดส่ง:</span>
+        <input class="fld-due" type="text" placeholder="__ ก.ค. 2569" value="${data.due}" oninput="saveState()" style="width:90px">
+        <span class="meta-lbl">👤 ผู้รับ:</span>
+        <input class="fld-owner" type="text" placeholder="ผู้รับผิดชอบ" value="${data.owner}" oninput="saveState()" style="width:120px">
+      </div>
+      <input class="fld-detail" type="text" placeholder="รายละเอียด — งบประมาณ / วิธีการ / ขั้นตอน" value="${data.detail}" oninput="saveState()">
+    </div>
+    <button class="btn-del" onclick="this.closest('li').remove();updateActionNums();saveState()">✕</button>
+  </li>`;
+  document.getElementById("actionList").insertAdjacentHTML("beforeend", html);
+  updateActionNums();
+}
+function updateActionNums() {
+  const items = document.querySelectorAll("#actionList .action-row");
+  items.forEach((li, i) => {
+    li.querySelector(".action-num").textContent = i + 1;
+  });
+}
+
+/* ===== INIT ===== */
+function initDefault() {
+  addModelRow({badge:"Focus", name:"Kicks e-POWER", promo:"ดอกเบี้ย 0.99%"});
+  addModelRow({badge:"Stock", name:"Almera VL", promo:"คงเหลือ 12 คัน"});
+  addModelRow({badge:"Push", name:"Navara Pro-4X", promo:"ของแถม + ประกัน"});
+
+  addActivityRow({type:"dept", venue:"Mini Motor Show เซ็นทรัลขอนแก่น", customersTarget:"80", ordersTarget:"15", modelOrders:{ALMERA:"5",KICKS:"6",SERENA:"2",X-TRAIL:"1",NAVARA:"1"}});
+  addActivityRow({type:"hyper", venue:"Hyper Market Lotus ขอนแก่น", customersTarget:"50", ordersTarget:"8", modelOrders:{ALMERA:"3",KICKS:"3",SERENA:"1",X-TRAIL:"",NAVARA:"1"}});
+  addActivityRow({type:"hot", venue:"Hot Market ถนนคนเดิน อุดร", customersTarget:"120", ordersTarget:"20", modelOrders:{ALMERA:"8",KICKS:"7",SERENA:"2",X-TRAIL:"1",NAVARA:"2"}});
+
+  addActionRow({title:"เคลียร์สต็อก Almera VL", detail:"เพิ่ม Commission 2,000/คัน · Staff Sale", high:true, due:"31 ก.ค.", owner:"ผจก.ดีลเลอร์"});
+  addActionRow({title:"เปิดจุด Test Drive Kicks", detail:"ประสานห้างสรรพสินค้า · งบ 30,000", due:"15 ก.ค.", owner:"Sales"});
+  addActionRow({title:"ติดตาม Lead เก่า 15 ราย", detail:"โทร Nurture รายวัน · รายงานศุกร์", due:"ทุกศุกร์", owner:"RM"});
+
+  addTrackRow({topic:"ติดตามสต็อก Kicks e-POWER — ศูนย์บอกขาด 2 สัปดาห์", owner:"ผจก.ดีลเลอร์", due:"15 ก.ค.", status:"progress"});
+  addTrackRow({topic:"ดีลเลอร์แจ้งปัญหา Service จากลูกค้า 3 ราย", owner:"Service Mgr", due:"20 ก.ค.", status:"pending"});
+  addTrackRow({topic:"เซลล์ใหม่ 2 คน ยังไม่ผ่าน Product Training", owner:"HR + RM", due:"25 ก.ค.", status:"open"});
+}
+
+// Try restore first, otherwise init default
+const had = !!localStorage.getItem(SAVE_KEY);
+if (had) {
+  initDefault();  // Build DOM structure
+  restoreState(); // Then restore values from saved
+} else {
+  initDefault();
+  updateProgress();
+}
+
+/* ===== RESET ===== */
+function resetForm() {
+  document.querySelectorAll("input, textarea").forEach(el => {
+    if (el.type !== "checkbox" && el.type !== "file") el.value = "";
+  });
+  document.querySelectorAll("input[type=checkbox]").forEach(el => el.checked = false);
+  document.getElementById("gapDisplay").textContent = "—";
+  document.getElementById("progressFill").style.width = "0%";
+  document.getElementById("modelList").innerHTML = "";
+  document.getElementById("activityList").innerHTML = "";
+  document.getElementById("actionList").innerHTML = "";
+  addModelRow(); addModelRow(); addModelRow();
+  addActivityRow(); addActivityRow();
+  addActionRow(); addActionRow(); addActionRow();
+  addTrackRow(); addTrackRow();
+  updateActionNums();
+  localStorage.removeItem(SAVE_KEY);
+  toast("🗑️ ล้างฟอร์มเรียบร้อย");
+}
+</script>
+
+</body>
+</html>
