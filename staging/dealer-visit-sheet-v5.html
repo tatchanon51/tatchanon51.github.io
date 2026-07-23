@@ -774,17 +774,7 @@
   }
 
   /* V5 — Venue select + activity meta row */
-  .sel-venue {
-    background: #fff !important;
-    border: 1px solid #ddd;
-    color: #333 !important;
-    font-size: 11px !important;
-    font-weight: 700 !important;
-    border-radius: 3px !important;
-    padding: 2px 4px !important;
-    min-width: 100px;
-  }
-  .act-head .fld-venue-name {
+.act-head .fld-venue-name {
     flex: 1;
     border: none;
     border-bottom: 1px dashed #ccc;
@@ -1099,7 +1089,6 @@ function collectData() {
     data.activities = data.activities || [];
     data.activities.push({
       type: r.querySelector(".sel-act-type").value || "dept",
-      venue: r.querySelector(".sel-venue") ? r.querySelector(".sel-venue").value || "" : "",
       venueName: r.querySelector(".fld-venue-name") ? r.querySelector(".fld-venue-name").value || "" : "",
       dateStart: r.querySelector(".fld-date-start") ? r.querySelector(".fld-date-start").value || "" : "",
       dateEnd: r.querySelector(".fld-date-end") ? r.querySelector(".fld-date-end").value || "" : "",
@@ -1294,14 +1283,6 @@ const ACTIVITY_TYPES = [
 const MODEL_LIST = ["ALMERA","KICKS","SERENA","X-TRAIL","NAVARA"];
 
 // V5 — Venues and Activity statuses
-const VENUES = [
-  "Central","Robinson","Big C","Lotus","Makro","Tops","HomePro","The Mall",
-  "CentralPlaza","CentralWorld","CentralFestival","Siam Paragon","EmQuartier","EmSphere",
-  "Central ขอนแก่น","Central อุดร","Central อุบลราชธานี","Robinson ขอนแก่น",
-  "Lotus ขอนแก่น","Big C ขอนแก่น","Makro ขอนแก่น","Tops ขอนแก่น",
-  "เซ็นทรัลพลาซ่า","โรบินสัน","บิ๊กซี","โลตัส","แมคโคร","ท็อปส์","โฮมโปร",
-  "งานกิจกรรมพิเศษ","ถนนคนเดิน","ตลาดนัด","อื่นๆ"
-];
 const ACT_STATUSES = [
   { v: "planned",   label: "📅 Planned",   color: "#888" },
   { v: "confirmed", label: "✅ Confirmed", color: "#1976d2" },
@@ -1317,7 +1298,6 @@ function addActivityRow(data) {
   };
   const id = ++actId;
   const typeOpts = ACTIVITY_TYPES.map(t => `<option value="${t.v}" ${t.v===data.type?'selected':''}>${t.label}</option>`).join('');
-  const venueOpts = VENUES.map(v => `<option ${v===data.venue?'selected':''}>${v}</option>`).join('');
   const statusOpts = ACT_STATUSES.map(s => `<option value="${s.v}" ${s.v===data.status?'selected':''}>${s.label}</option>`).join('');
 
   const modelRows = MODEL_LIST.map(m => {
@@ -1330,8 +1310,7 @@ function addActivityRow(data) {
   const html = `<li class="act-row act-${data.type}" data-id="${id}">
     <div class="act-head">
       <select class="sel-act-type" onchange="updateActType(this)">${typeOpts}</select>
-      <select class="sel-venue" onchange="saveState()">${venueOpts}</select>
-      <input class="fld-venue-name" type="text" placeholder="สาขา / ชื่องาน" value="${data.venueName||''}" oninput="saveState()">
+      <input class="fld-venue-name" type="text" placeholder="ชื่องาน" value="${data.venueName||''}" oninput="saveState()">
       <button class="btn-del" onclick="this.closest('li').remove();saveState()">✕</button>
     </div>
     <div class="act-body">
