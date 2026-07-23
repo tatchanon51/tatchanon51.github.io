@@ -532,6 +532,38 @@
     .comp-row { flex-wrap: wrap; }
   }
 
+
+  /* Color-coded select for Section 2 — Model badge */
+  .sel-badge {
+    font-weight: 700 !important;
+    font-size: 11px !important;
+    border-radius: 3px !important;
+    background: #fff !important;
+    border: 1px solid #ddd !important;
+    color: #333 !important;
+    padding: 2px 4px !important;
+  }
+  .sel-badge.sel-Focus  { background: #1976d2 !important; color: #fff !important; border-color: #1976d2 !important; }
+  .sel-badge.sel-Stock  { background: #2e7d32 !important; color: #fff !important; border-color: #2e7d32 !important; }
+  .sel-badge.sel-Push   { background: #c3002f !important; color: #fff !important; border-color: #c3002f !important; }
+  .sel-badge.sel-New    { background: #7b1fa2 !important; color: #fff !important; border-color: #7b1fa2 !important; }
+  .sel-badge.sel-Other  { background: #888 !important; color: #fff !important; border-color: #888 !important; }
+
+  /* Color-coded select for Section 3 — Threat */
+  .sel-threat {
+    font-weight: 700 !important;
+    font-size: 10px !important;
+    border-radius: 3px !important;
+    background: #fff !important;
+    border: 1px solid #ccc !important;
+    padding: 2px 8px !important;
+    min-width: 70px !important;
+  }
+  .sel-threat.sel-threat-red   { background: #ffebee !important; color: #c3002f !important; border-color: #c3002f !important; }
+  .sel-threat.sel-threat-green { background: #e8f5e9 !important; color: #2e7d32 !important; border-color: #2e7d32 !important; }
+  .sel-threat.sel-threat-gray  { background: #f5f5f5 !important; color: #666 !important; border-color: #ccc !important; }
+
+
   /* Toast notification */
   .toast {
     position: fixed;
@@ -778,18 +810,16 @@ function collectData() {
   data.targets.stock = ytdRow[1].value || "";
   data.targets.s2s = ytdRow[2].value || "";
   document.querySelectorAll("#modelList .dynamic-row").forEach(r => {
-    const badge = r.querySelector(".sel-display");
     data.models.push({
-      badge: badge ? badge.textContent.trim() : "",
+      badge: r.querySelector(".sel-badge").value || "Focus",
       name: r.querySelector(".fld-name").value || "",
       promo: r.querySelector(".fld-detail").value || ""
     });
   });
   document.querySelectorAll("#compList .comp-row").forEach(r => {
-    const tag = r.querySelector(".sel-threat-display");
     data.competitors.push({
       brand: r.querySelector(".sel-brand").value || "",
-      threat: tag ? tag.textContent.trim() : "",
+      threat: r.querySelector(".sel-threat").value || "red",
       detail: r.querySelector(".fld-action").value || ""
     });
   });
@@ -913,28 +943,28 @@ let modelId = 0;
 function addModelRow(data) {
   data = data || { badge: "Focus", name: "", promo: "" };
   const id = ++modelId;
+  // Options with emoji INSIDE label - shows ONLY when dropdown is opened
+  // select itself shows clean text
   const html = `<li class="dynamic-row" data-id="${id}">
-    <span class="badge-sample badge-${data.badge} sel-display">${data.badge}</span>
-    <select class="sel-badge" onchange="updateBadge(this)">
-      <option value="Focus" ${data.badge==='Focus'?'selected':''}>Focus</option>
-      <option value="Stock" ${data.badge==='Stock'?'selected':''}>Stock</option>
-      <option value="Push"  ${data.badge==='Push'?'selected':''}>Push</option>
-      <option value="New"   ${data.badge==='New'?'selected':''}>New</option>
-      <option value="Other" ${data.badge==='Other'?'selected':''}>Other</option>
+    <select class="sel-badge sel-${data.badge}" onchange="updateBadge(this)">
+      <option value="Focus">Focus</option>
+      <option value="Stock">Stock</option>
+      <option value="Push">Push</option>
+      <option value="New">New</option>
+      <option value="Other">Other</option>
     </select>
     <input class="fld-name" type="text" placeholder="ชื่อรุ่น" value="${data.name}" oninput="saveState()">
     <input class="fld-detail" type="text" placeholder="โปรโมชั่น / จำนวน / รายละเอียด" value="${data.promo}" oninput="saveState()">
     <button class="btn-del" onclick="this.closest('li').remove();saveState()">✕</button>
   </li>`;
   document.getElementById("modelList").insertAdjacentHTML("beforeend", html);
+  // After insertion, find the latest row and set its select value
+  const all = document.querySelectorAll("#modelList .sel-badge");
+  const sel = all[all.length - 1];
+  if (sel) { sel.value = data.badge; }
 }
 function updateBadge(sel) {
-  const row = sel.closest(".dynamic-row");
-  const display = row.querySelector(".sel-display");
-  if (display) {
-    display.className = "badge-sample badge-" + sel.value + " sel-display";
-    display.textContent = sel.value;
-  }
+  sel.className = "sel-badge sel-" + sel.value;
   saveState();
 }
 
@@ -949,23 +979,21 @@ function addCompRow(data) {
   const threatOpts = ["red","green","gray"].map(v => `<option value="${v}" ${v===data.threat?'selected':''}>${threatLabels[v]}</option>`).join("");
   const html = `<li class="comp-row threat-${data.threat}" data-id="${id}">
     <select class="sel-brand" onchange="saveState()">${brandOpts}</select>
-    <span class="threat-tag threat-${data.threat} sel-threat-display">${threatLabels[data.threat]}</span>
-    <select class="sel-threat" onchange="updateCompThreat(this)">${threatOpts}</select>
+    <select class="sel-threat sel-threat-${data.threat}" onchange="updateCompThreat(this)">${threatOpts}</select>
     <input class="fld-action" type="text" placeholder="กิจกรรม / ความเคลื่อนไหว" value="${data.detail}" oninput="saveState()">
     <button class="btn-del" onclick="this.closest('li').remove();saveState()">✕</button>
   </li>`;
   document.getElementById("compList").insertAdjacentHTML("beforeend", html);
+  // Set value on the threat select after insertion
+  const all = document.querySelectorAll("#compList .sel-threat");
+  const s = all[all.length - 1];
+  if (s) { s.value = data.threat; }
 }
 function updateCompThreat(sel) {
   const row = sel.closest(".comp-row");
   const newThreat = sel.value;
   row.className = row.className.replace(/threat-\w+/g, "") + " threat-" + newThreat;
-  const display = row.querySelector(".sel-threat-display");
-  if (display) {
-    display.className = "threat-tag threat-" + newThreat + " sel-threat-display";
-    const threatLabels = {red:"ภัยคุกคาม", green:"โอกาส", gray:"ดูเฉยๆ"};
-    display.textContent = threatLabels[newThreat];
-  }
+  sel.className = "sel-threat sel-threat-" + newThreat;
   saveState();
 }
 
