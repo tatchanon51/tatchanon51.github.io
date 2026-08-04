@@ -2,7 +2,7 @@
 <html lang="th">
 <head>
 <meta charset="UTF-8">
-<title>📊 รายงาน Nissan ขอนแก่น สัปดาห์ 28-3 ก.ค.-ส.ค. 2569 — Premium Brief</title>
+<title>📊 รายงาน Nissan ขอนแก่น สัปดาห์ 20-26 ก.ค. 2569 — Premium Brief</title>
 <style>
 :root {
   --nmt-red: #C3002F;
@@ -359,13 +359,13 @@ insight {
 <!-- HERO (Section 1) -->
 <div class="hero" id="sec-1">
   <h1>📊 รายงาน Nissan ขอนแก่น — Premium Brief</h1>
-  <div class="hero-meta">สัปดาห์ 28-3 ก.ค.-ส.ค. 2569 · อัปเดต 28 Jul 2026 - 03 Aug 2026</div>
+  <div class="hero-meta">สัปดาห์ 20-26 ก.ค. 2569 · อัปเดต 27 Jul 2026</div>
   <div class="hero-chips">
-    <div class="hero-chip">โพสต์รวม <strong>56</strong></div>
-    <div class="hero-chip">Engagement รวม <strong>501</strong></div>
-    <div class="hero-chip">เพจคู่แข่ง active <strong>8</strong></div>
-    <div class="hero-chip">Self Posts <strong>4</strong></div>
-    <div class="hero-chip">อัปเดต <strong>03 Aug 2026</strong></div>
+    <div class="hero-chip">โพสต์รวม <strong>75</strong></div>
+    <div class="hero-chip">Engagement รวม <strong>1185</strong></div>
+    <div class="hero-chip">เพจคู่แข่ง active <strong>6</strong></div>
+    <div class="hero-chip">Self Posts <strong>6</strong></div>
+    <div class="hero-chip">อัปเดต <strong>27 Jul 2026</strong></div>
   </div>
 </div>
 
@@ -393,20 +393,20 @@ insight {
   <div class="metric-grid">
     <div class="metric-card">
       <div class="metric-label">📊 Total Posts</div>
-      <div class="metric-value">56</div>
-      <div class="metric-sub">รวม 8 แบรนด์</div></div>
+      <div class="metric-value">75</div>
+      <div class="metric-sub">รวม 6 แบรนด์</div></div>
     <div class="metric-card">
       <div class="metric-label">⚡ Nissan Eng/Post</div>
-      <div class="metric-value">13.8</div>
-      <div class="metric-sub">55 eng / 4 posts</div></div>
+      <div class="metric-value">23.5</div>
+      <div class="metric-sub">141 eng / 6 posts</div></div>
     <div class="metric-card">
       <div class="metric-label">🏆 Top Brand (Eng)</div>
       <div class="metric-value" style="font-size:24px">Omoda&Jaecoo</div>
-      <div class="metric-sub">212 eng</div></div>
+      <div class="metric-sub">445 eng</div></div>
     <div class="metric-card">
       <div class="metric-label">🔥 Top Eng/Post</div>
       <div class="metric-value" style="font-size:24px">Omoda&Jaecoo</div>
-      <div class="metric-sub">53.0 eng/post</div></div>
+      <div class="metric-sub">148.3 eng/post</div></div>
   </div>
 </div>
 
@@ -414,15 +414,15 @@ insight {
 <div class="section-card" id="sec-3">
   <div class="section-card-header"><span class="section-num">3</span><h2>🌐 ภาพรวมความเคลื่อนไหว</h2></div>
   <div class="headline"><span class="headline-label">🎯 เพื่ออะไร:</span> ภาพรวมคู่แข่งใน 5-6 บรรทัด</div>
-  <ul style="margin-left:20px;line-height:1.8"><li><strong>OMODA&JAECOO</strong> ครอง Engagement รวมสูงสุด 212 แม้โพสต์น้อย (4 โพสต์, 53.0/post) — Tanasit เน้น Creative ที่ Viral</li>
-    <li><strong>MG ขอนแก่น</strong> 6 โพสต์ (42 eng, 7.0/post) — เน้นโปรโมชั่นและกิจกรรมในพื้นที่</li>
-    <li><strong>BYD</strong> 9 โพสต์ (16 eng, 1.8/post) — เน้นโปรโมตรถ EV + Roadshow ทดลองขับ DM-i</li>
-    <li><strong>Geely</strong> 8 โพสต์ (46 eng) — Content หลากหลาย ครอบคลุม EX5/EX2</li>
-    <li><strong>Deepal</strong> 5 โพสต์ (67 eng, 13.4/post) — คอนเทนต์สม่ำเสมอ</li>
-    <li><strong>OMODA&JAECOO</strong> 4 โพสต์ (212 eng) — Tanasit ลงทุกวัน</li>
-    <li><strong>Nissan (Self)</strong> 4 โพสต์ (55 eng, 13.8/post) — โพสต์เด่น: คนไทยเป็นอะไรกับคนเก่า 😘
+  <ul style="margin-left:20px;line-height:1.8"><li><strong>OMODA&JAECOO</strong> ครอง Engagement รวมสูงสุด 445 แม้โพสต์น้อย (3 โพสต์, 148.3/post) — Tanasit เน้น Creative ที่ Viral</li>
+    <li><strong>MG ขอนแก่น</strong> 16 โพสต์ (121 eng, 7.6/post) — เน้นโปรโมชั่นและกิจกรรมในพื้นที่</li>
+    <li><strong>BYD</strong> 11 โพสต์ (26 eng, 2.4/post) — เน้นโปรโมตรถ EV + Roadshow ทดลองขับ DM-i</li>
+    <li><strong>Geely</strong> 12 โพสต์ (135 eng) — Content หลากหลาย ครอบคลุม EX5/EX2</li>
+    <li><strong>Deepal</strong> 9 โพสต์ (88 eng, 9.8/post) — คอนเทนต์สม่ำเสมอ</li>
+    <li><strong>OMODA&JAECOO</strong> 3 โพสต์ (445 eng) — Tanasit ลงทุกวัน</li>
+    <li><strong>Nissan (Self)</strong> 6 โพสต์ (141 eng, 23.5/post) — โพสต์เด่น: เตรียมพบกับประสบการณ์เหนือระดับใน The All New NISSAN ELGRAND e-Power เร็วๆนี้
 
-เจ้าของรถนิสสันคันเก่า ซื้อคันใหม่รับส่วนลดเพิ่ม สูงสุ...</li></ul>
+#...</li></ul>
 </div>
 
 <!-- Section 4 -->
@@ -434,97 +434,79 @@ insight {
     <tbody>  <tr>
     <td>Omoda&Jaecoo</td>
     <td style="font-size:11px">Omoda & Jaecoo Tanasit Kh</td>
-    <td style="font-size:12px">กำลังมองหารถคันใหม่อยู่หรือเปล่า? 😊
-แวะมาพบทีม OMODA & JAECO</td>
-    <td style="font-weight:600;color:#c3002f;font-size:12px;white-space:nowrap">5 สิงหาคม</td>
+    <td style="font-size:12px">🚗✨ ชาวนครพนม ห้ามพลาด!
+มาสัมผัสนวัตกรรมยานยนต์แห่งอนาคตจาก O</td>
+    <td style="font-weight:600;color:#c3002f;font-size:12px;white-space:nowrap">1 – 5 สิงหาคม</td>
     <td style="">นครพนม</td>
-    <td style="text-align:center;font-weight:bold">203</td>
-    <td><a href="https://www.facebook.com/Omodajaecootanasitkhonkaen/posts/pfbid0rTnAQFQA2dx6d7cXanZL5TGd6yw5MTDdXWP75DLe4V5jjQ51DSCFw9k4WaBnDVfUl" target="_blank" style="color:#c3002f;font-weight:bold;text-decoration:none;font-size:12px">🔗 Link</a></td>
+    <td style="text-align:center;font-weight:bold">427</td>
+    <td><a href="https://www.facebook.com/Omodajaecootanasitkhonkaen/posts/pfbid028iuyPNXvsgkPQgaNhg1RaoJhFUim32vuygtgdQdVzRBCFxgADCh2q96HQenebriQl" target="_blank" style="color:#c3002f;font-weight:bold;text-decoration:none;font-size:12px">🔗 Link</a></td>
   </tr>  <tr>
     <td>TOYOTA KaenNakorn</td>
     <td style="font-size:11px">Toyota Kaennakorn โตโยต้า</td>
-    <td style="font-size:12px">ขอเชิญทุกท่าน ร่วมบริจาคโลหิต ครั้งที่ 71
-📅 วันพฤหัสบดีที่ 6</td>
-    <td style="font-weight:600;color:#c3002f;font-size:12px;white-space:nowrap">6 สิงหาคม 2569</td>
+    <td style="font-size:12px">พบกับงาน โตโยต้าฟูลฟิล ดีลสุดคุ้ม  🛻
+📍ที่โชว์รูม โตโยต้าแก่น</td>
+    <td style="font-weight:600;color:#c3002f;font-size:12px;white-space:nowrap">วันเสาร์ที่ 25 ก.ค.</td>
     <td style="">โชว์รูม</td>
-    <td style="text-align:center;font-weight:bold">18</td>
-    <td><a href="https://www.facebook.com/Toyotakaennakorn/posts/pfbid02kHgJiUizUYfqunz2xtMrZ9rHEwM4VjSwH6r4p8vQpc7ChbZdCUNtRffGukF6siP4l" target="_blank" style="color:#c3002f;font-weight:bold;text-decoration:none;font-size:12px">🔗 Link</a></td>
+    <td style="text-align:center;font-weight:bold">41</td>
+    <td><a href="https://www.facebook.com/Toyotakaennakorn/videos/1720968095889371/" target="_blank" style="color:#c3002f;font-weight:bold;text-decoration:none;font-size:12px">🔗 Link</a></td>
+  </tr>  <tr>
+    <td>Geely</td>
+    <td style="font-size:11px">GEELY Pijitphet Khonkaen</td>
+    <td style="font-size:12px">🎉 ฉลองความสำเร็จครั้งยิ่งใหญ่! ส่งมอบ Geely EX2 ไปแล้วกว่า 1</td>
+    <td style="font-weight:600;color:#c3002f;font-size:12px;white-space:nowrap">25 กรกฎาคม 2569</td>
+    <td style="">โชว์รูม</td>
+    <td style="text-align:center;font-weight:bold">17</td>
+    <td><a href="https://www.facebook.com/reel/2295869594282735/" target="_blank" style="color:#c3002f;font-weight:bold;text-decoration:none;font-size:12px">🔗 Link</a></td>
   </tr>  <tr>
     <td>Deepal</td>
     <td style="font-size:11px">Deepal As One Khon Kaen</td>
-    <td style="font-size:12px">🦉 DEEPAL AS ONE KHON KAEN พร้อมพบคุณที่ถนนคนเดินชุมแพ ขอนแก่</td>
-    <td style="font-weight:600;color:#c3002f;font-size:12px;white-space:nowrap">14 สิงหาคม 2569</td>
-    <td style="color:#94A0B3;font-style:italic">ไม่ระบุ</td>
-    <td style="text-align:center;font-weight:bold">13</td>
-    <td><a href="https://www.facebook.com/DeepalAsOneKhonKaen/posts/pfbid059rdyTDJg5HKuewv8hp8zedFXQoLJcvFyoDHoW2JSjqPbcdwAz2xr3zSCmj1Zr9Al" target="_blank" style="color:#c3002f;font-weight:bold;text-decoration:none;font-size:12px">🔗 Link</a></td>
+    <td style="font-size:12px">วันที่ 28 กรกฎาคม วันเฉลิมพระชนมพรรษาพระบาทสมเด็จพระวชิรเกล้</td>
+    <td style="font-weight:600;color:#c3002f;font-size:12px;white-space:nowrap">28 กรกฎาคม</td>
+    <td style="">BIG C ขอนแก่น</td>
+    <td style="text-align:center;font-weight:bold">11</td>
+    <td><a href="https://www.facebook.com/DeepalAsOneKhonKaen/posts/pfbid0Bv8nf5pkypnicd8Vc8gvGFX3ps9j524wxwvGnvCtgmjkfexFVHpdhdTmDVjwj9Kxl" target="_blank" style="color:#c3002f;font-weight:bold;text-decoration:none;font-size:12px">🔗 Link</a></td>
   </tr>  <tr>
     <td>Geely</td>
     <td style="font-size:11px">GEELY Pijitphet Khonkaen</td>
     <td style="font-size:12px">สัมผัสคันจริง GEELY EX2 และ GEELY EX5 รถยนต์ไฟฟ้าที่ตอบโจทย์</td>
     <td style="font-weight:600;color:#c3002f;font-size:12px;white-space:nowrap">27 กรกฎาคม</td>
     <td style="">เซ็นทรัล ขอนแก่น</td>
-    <td style="text-align:center;font-weight:bold">8</td>
-    <td><a href="https://www.facebook.com/permalink.php?story_fbid=pfbid08P9mV2anpqzH9HoqUJ4nsx7z9ymdkC3yvLonkZvj4jpFEsFsPZHcko5BNLmzS9xbl&id=61568642176912" target="_blank" style="color:#c3002f;font-weight:bold;text-decoration:none;font-size:12px">🔗 Link</a></td>
-  </tr>  <tr>
-    <td>Geely</td>
-    <td style="font-size:11px">GEELY Pijitphet Khonkaen</td>
-    <td style="font-size:12px">Geely EX2 มาแรง! ผงาดคว้าแชมป์ยอดขาย BEV ในจีนทะลุ 194,200 ค</td>
-    <td style="font-weight:600;color:#c3002f;font-size:12px;white-space:nowrap">29 กรกฎาคม 2569</td>
-    <td style="color:#94A0B3;font-style:italic">ไม่ระบุ</td>
     <td style="text-align:center;font-weight:bold">5</td>
-    <td><a href="https://www.facebook.com/permalink.php?story_fbid=pfbid033BjKSTMbWAywEJH7D6ErugUEcTaq8nvTGgcoDgdD8EbKjDcQEBGiLjKjmu6QQo7Ll&id=61568642176912" target="_blank" style="color:#c3002f;font-weight:bold;text-decoration:none;font-size:12px">🔗 Link</a></td>
-  </tr>  <tr>
-    <td>MG</td>
-    <td style="font-size:11px">MG ขอนแก่น อารีมิตร มะลิว</td>
-    <td style="font-size:12px">3 วันสุดท้ายแล้ว พบกับ อารีมิตร MG ขอนแก่น มะลิวัลย์
-MG URBA</td>
-    <td style="font-weight:600;color:#c3002f;font-size:12px;white-space:nowrap">2 ส.ค. 2569</td>
-    <td style="">เซ็นทรัล ขอนแก่น</td>
-    <td style="text-align:center;font-weight:bold">5</td>
-    <td><a href="https://www.facebook.com/MGKhonkaenAreemit/posts/pfbid02VRTvuejQqR5Zz8qSeCM1xC2D7hrbw3gDdWXazMoUczFjGzAKs1jcKu3WzVVcEKh1l" target="_blank" style="color:#c3002f;font-weight:bold;text-decoration:none;font-size:12px">🔗 Link</a></td>
-  </tr>  <tr>
-    <td>Deepal</td>
-    <td style="font-size:11px">Deepal As One Khon Kaen</td>
-    <td style="font-size:12px">28 กรกฎาคม วันเฉลิมพระชนมพรรษา 
-พระบาทสมเด็จพระปรเมนทรรามาธิ</td>
-    <td style="font-weight:600;color:#c3002f;font-size:12px;white-space:nowrap">28 กรกฎาคม</td>
-    <td style="color:#94A0B3;font-style:italic">ไม่ระบุ</td>
-    <td style="text-align:center;font-weight:bold">5</td>
-    <td><a href="https://www.facebook.com/DeepalAsOneKhonKaen/posts/pfbid037ZeH2RUW7xt955S11aDk7DfmGHAYdpxuJxt1uRusEp7fjwCNtCE6cjLAfynLFgTFl" target="_blank" style="color:#c3002f;font-weight:bold;text-decoration:none;font-size:12px">🔗 Link</a></td>
-  </tr>  <tr>
-    <td>Omoda&Jaecoo</td>
-    <td style="font-size:11px">Omoda & Jaecoo Tanasit Kh</td>
-    <td style="font-size:12px">🚗💙 ถึงเวลารวมตัวของชาว OMODA & JAECOO แล้ว!
-ชวนสมาชิก OJ USE</td>
-    <td style="font-weight:600;color:#c3002f;font-size:12px;white-space:nowrap">22 สิงหาคม</td>
-    <td style="color:#94A0B3;font-style:italic">ไม่ระบุ</td>
-    <td style="text-align:center;font-weight:bold">3</td>
-    <td><a href="https://www.facebook.com/Omodajaecootanasitkhonkaen/posts/pfbid062K2q5uBac6ZNQzKvSpLuUQgf2QK2w9iHF2VSofoFde62wtScHuBatqE9d89f1gFl" target="_blank" style="color:#c3002f;font-weight:bold;text-decoration:none;font-size:12px">🔗 Link</a></td>
+    <td><a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02bFMexMV6pFKta7YyKC8UAMD8qECd2BfYKJ9ecRhecYtYR485tpYUma9NdtjfTyLEl&id=61568642176912" target="_blank" style="color:#c3002f;font-weight:bold;text-decoration:none;font-size:12px">🔗 Link</a></td>
   </tr>  <tr>
     <td>BYD</td>
     <td style="font-size:11px">BYD Yonpiboon Khonkaen</td>
-    <td style="font-size:12px">📢 ประกาศแจ้งหยุดทำการ
-🗓️ วันพุธที่ 29 กรกฎาคม 2569 เนื่องในว</td>
-    <td style="font-weight:600;color:#c3002f;font-size:12px;white-space:nowrap">วันที่ 30 กรกฎาคม 2569</td>
-    <td style="color:#94A0B3;font-style:italic">ไม่ระบุ</td>
+    <td style="font-size:12px">สัปดาห์นี้ BYD มีนัดกับคุณ!
+
+มาพบกับทีมงาน BYD ยนต์ไพบูลย์ พ</td>
+    <td style="font-weight:600;color:#c3002f;font-size:12px;white-space:nowrap">21 กรกฎาคม 2569</td>
+    <td style="">โลตัส ขอนแก่น</td>
+    <td style="text-align:center;font-weight:bold">4</td>
+    <td><a href="https://www.facebook.com/reel/1780467736446741/" target="_blank" style="color:#c3002f;font-weight:bold;text-decoration:none;font-size:12px">🔗 Link</a></td>
+  </tr>  <tr>
+    <td>BYD</td>
+    <td style="font-size:11px">BYD Yonpiboon Khonkaen</td>
+    <td style="font-size:12px">🚗 เตรียมพบกับประสบการณ์การขับขี่แห่งอนาคต กับ BYD DM-i TEST </td>
+    <td style="font-weight:600;color:#c3002f;font-size:12px;white-space:nowrap">24 กรกฎาคม 2569</td>
+    <td style="">บ้านไผ่</td>
     <td style="text-align:center;font-weight:bold">0</td>
-    <td><a href="https://www.facebook.com/BYDYonpiboon/posts/pfbid0EXiumyS3nvBftb9iYQTPmm8D7uxDpkq7YPdsvZpa58iJXmokhjLnNyRPp9KYLY6kl" target="_blank" style="color:#c3002f;font-weight:bold;text-decoration:none;font-size:12px">🔗 Link</a></td>
+    <td><a href="https://www.facebook.com/BYDYonpiboon/posts/pfbid0deboVyfuvFefryV6Qrzw3xgZrbpPHPP8GW581qQZ4jJcDzhRXgbmBrYGyMBSktDcl" target="_blank" style="color:#c3002f;font-weight:bold;text-decoration:none;font-size:12px">🔗 Link</a></td>
   </tr></tbody>
   </table>
-  <p style="font-size:11px;color:#888;margin-top:6px"><em>ตัวกรอง: event keyword + venue + วันที่ — 9 รายการ (9 มีวันที่ชัดเจน · 0 โปรโมชันทั่วไป)</em></p>
+  <p style="font-size:11px;color:#888;margin-top:6px"><em>ตัวกรอง: event keyword + venue + วันที่ — 7 รายการ (7 มีวันที่ชัดเจน · 0 โปรโมชันทั่วไป)</em></p>
 </div>
 
 <!-- Section 5 -->
 <div class="section-card" id="sec-5">
   <div class="section-card-header"><span class="section-num">5</span><h2>📊 ตารางสรุปคู่แข่งรายแบรนด์</h2></div>
-  <div class="headline"><span class="headline-label">📋 คืออะไร:</span> Aggregate posts + engagement — 9 แบรนด์</div>
+  <div class="headline"><span class="headline-label">📋 คืออะไร:</span> Aggregate posts + engagement — 7 แบรนด์</div>
   <table id="table4">
     <thead><tr>
       <th data-sort="brand">แบรนด์<span class="sort-indicator">⇅</span></th><th data-sort="pages">Facebook Page(s)<span class="sort-indicator">⇅</span></th>
       <th data-sort="posts" style="text-align:center">โพสต์<span class="sort-indicator">⇅</span></th><th data-sort="eng" style="text-align:center">Engagement<span class="sort-indicator">⇅</span></th>
       <th data-sort="engperpost" style="text-align:center">Eng/Post<span class="sort-indicator">⇅</span></th><th style="text-align:center">L/C/S</th>
     </tr></thead>
-    <tbody><tr style=""><td><strong>Omoda&Jaecoo</strong></td><td style='font-size:11px'>Omoda & Jaecoo Tanasit Khonkaen</td><td style='text-align:center'>4</td><td style='text-align:center'>212</td><td style='text-align:center'>53.0</td><td style='font-size:11px;text-align:center'>210/1/1</td></tr><tr style=""><td><strong>Deepal</strong></td><td style='font-size:11px'>Deepal As One Khon Kaen</td><td style='text-align:center'>5</td><td style='text-align:center'>67</td><td style='text-align:center'>13.4</td><td style='font-size:11px;text-align:center'>54/4/9</td></tr><tr style=""><td><strong>TOYOTA KaenNakorn</strong></td><td style='font-size:11px'>Toyota Kaennakorn โตโยต้าแก่นนคร</td><td style='text-align:center'>9</td><td style='text-align:center'>52</td><td style='text-align:center'>5.8</td><td style='font-size:11px;text-align:center'>31/3/18</td></tr><tr style=""><td><strong>Geely</strong></td><td style='font-size:11px'>GEELY Pijitphet Khonkaen</td><td style='text-align:center'>8</td><td style='text-align:center'>46</td><td style='text-align:center'>5.8</td><td style='font-size:11px;text-align:center'>40/2/4</td></tr><tr style=""><td><strong>MG</strong></td><td style='font-size:11px'>MG ขอนแก่น อารีมิตร มะลิวัลย์</td><td style='text-align:center'>6</td><td style='text-align:center'>42</td><td style='text-align:center'>7.0</td><td style='font-size:11px;text-align:center'>38/1/3</td></tr><tr style=""><td><strong>BYD</strong></td><td style='font-size:11px'>BYD Yonpiboon Khonkaen</td><td style='text-align:center'>9</td><td style='text-align:center'>16</td><td style='text-align:center'>1.8</td><td style='font-size:11px;text-align:center'>15/0/1</td></tr><tr style=""><td><strong>Mitsubishi</strong></td><td style='font-size:11px'>มิตซูนครขอนแก่น Mitsu Nakorn Khon Kaen</td><td style='text-align:center'>10</td><td style='text-align:center'>9</td><td style='text-align:center'>0.9</td><td style='font-size:11px;text-align:center'>9/0/0</td></tr><tr style=""><td><strong>TOYOTA</strong></td><td style='font-size:11px'>โตโยต้าแก่นนคร สาขามัญจาคีรี</td><td style='text-align:center'>1</td><td style='text-align:center'>2</td><td style='text-align:center'>2.0</td><td style='font-size:11px;text-align:center'>2/0/0</td></tr><tr style="border-left:3px solid #c3002f"><td><strong>Nissan (Self)</strong></td><td style='font-size:11px'>นิสสันขอนแก่น-Nissan KKT Khonkaen</td><td style='text-align:center'>4</td><td style='text-align:center'>55</td><td style='text-align:center'>13.8</td><td style='font-size:11px;text-align:center'>44/5/6</td></tr></tbody>
+    <tbody><tr style=""><td><strong>Omoda&Jaecoo</strong></td><td style='font-size:11px'>Omoda & Jaecoo Tanasit Khonkaen</td><td style='text-align:center'>3</td><td style='text-align:center'>445</td><td style='text-align:center'>148.3</td><td style='font-size:11px;text-align:center'>435/2/8</td></tr><tr style=""><td><strong>TOYOTA KaenNakorn</strong></td><td style='font-size:11px'>Toyota Kaennakorn โตโยต้าแก่นนคร</td><td style='text-align:center'>18</td><td style='text-align:center'>229</td><td style='text-align:center'>12.7</td><td style='font-size:11px;text-align:center'>165/33/31</td></tr><tr style=""><td><strong>Geely</strong></td><td style='font-size:11px'>GEELY Pijitphet Khonkaen</td><td style='text-align:center'>12</td><td style='text-align:center'>135</td><td style='text-align:center'>11.2</td><td style='font-size:11px;text-align:center'>106/9/20</td></tr><tr style=""><td><strong>MG</strong></td><td style='font-size:11px'>MG ขอนแก่น อารีมิตร มะลิวัลย์</td><td style='text-align:center'>16</td><td style='text-align:center'>121</td><td style='text-align:center'>7.6</td><td style='font-size:11px;text-align:center'>117/0/4</td></tr><tr style=""><td><strong>Deepal</strong></td><td style='font-size:11px'>Deepal As One Khon Kaen</td><td style='text-align:center'>9</td><td style='text-align:center'>88</td><td style='text-align:center'>9.8</td><td style='font-size:11px;text-align:center'>79/4/5</td></tr><tr style=""><td><strong>BYD</strong></td><td style='font-size:11px'>BYD Yonpiboon Khonkaen</td><td style='text-align:center'>11</td><td style='text-align:center'>26</td><td style='text-align:center'>2.4</td><td style='font-size:11px;text-align:center'>25/0/1</td></tr><tr style="border-left:3px solid #c3002f"><td><strong>Nissan (Self)</strong></td><td style='font-size:11px'>นิสสันขอนแก่น-Nissan KKT Khonkaen</td><td style='text-align:center'>6</td><td style='text-align:center'>141</td><td style='text-align:center'>23.5</td><td style='font-size:11px;text-align:center'>112/6/23</td></tr></tbody>
   </table>
 </div>
 
@@ -536,27 +518,34 @@ MG URBA</td>
   <table>
     <thead><tr><th>สาขา</th><th>Facebook Page</th><th style="text-align:center">โพสต์</th><th style="text-align:center">Engagement</th><th style="text-align:center">L/C/S</th><th>สถานะ</th></tr></thead>
     <tbody><tr><td>ขอนแก่น (หลัก)</td><td style='font-size:11px'>นิสสันขอนแก่น-Nissan KKT Khonkaen</td>
-      <td style='text-align:center'>4</td><td style='text-align:center'>55</td>
-      <td style='font-size:11px;text-align:center'>44/5/6</td>
+      <td style='text-align:center'>6</td><td style='text-align:center'>141</td>
+      <td style='font-size:11px;text-align:center'>112/6/23</td>
       <td><span style='color:#2e7d32'>✓ ใช้งานปกติ</span></td></tr></tbody>
   </table>
 
   <h3>6.2 🚗 Nissan Roadshow (Self)</h3>
   <table>
     <thead><tr><th>แบรนด์</th><th>Facebook Page</th><th>กิจกรรม</th><th>วันที่จัด</th><th>สถานที่</th><th style="text-align:center">Eng</th><th>URL</th></tr></thead>
-    <tbody><tr><td>Nissan (Self)</td><td style="font-size:11px">นิสสันขอนแก่น-Nissan KKT </td><td style="font-size:12px">ชาวขอนแก่น 📢เตรียมพบกับงาน NISSAN MOTOR SHOW!
-📌 ณ Central Kh</td><td style="font-weight:600;color:#1976D2;font-size:12px;white-space:nowrap">7 - 13 ส.ค.</td><td>ไม่ระบุ</td><td style="text-align:center;font-weight:bold">11</td><td><a href="https://www.facebook.com/nissankktkhonkaen/posts/pfbid0ZT4nm9NQD84DUiaF8bbfkZuvF2RGoMdvpVbKurM5786bDMW1hA3LrRQGGRdeYkyml" target="_blank" style="color:#c3002f;font-weight:bold;text-decoration:none;font-size:12px">🔗 Link</a></td></tr><tr><td>Nissan (Self)</td><td style="font-size:11px">นิสสันขอนแก่น-Nissan KKT </td><td style="font-size:12px">เนื่องในโอกาสวันเฉลิมพระชนมพรรษา ​
-พระบาทสมเด็จพระปรเมนทรราม</td><td style="font-weight:600;color:#1976D2;font-size:12px;white-space:nowrap">๒๘ กรกฎาคม</td><td>ไม่ระบุ</td><td style="text-align:center;font-weight:bold">1</td><td><a href="https://www.facebook.com/nissankktkhonkaen/posts/pfbid02jRSadFYfRX2zRdpVcqY9SDk3b93VsZMjFjVAsK1t6iC3LReJm1DUh452S3743rfql" target="_blank" style="color:#c3002f;font-weight:bold;text-decoration:none;font-size:12px">🔗 Link</a></td></tr></tbody>
+    <tbody><tr><td>Nissan (Self)</td><td style="font-size:11px">นิสสันขอนแก่น-Nissan KKT </td><td style="font-size:12px">เตรียมพบกับประสบการณ์เหนือระดับใน The All New NISSAN ELGRAND</td><td style="color:#94A0B3;font-style:italic;font-size:12px">(ไม่ระบุ)</td><td>ไม่ระบุ</td><td style="text-align:center;font-weight:bold">57</td><td><a href="https://www.facebook.com/nissankktkhonkaen/posts/pfbid02DV78VvFxioFNRXjEje6yUpQMdL7VKni9A67EcLKDt5E4ZZciCYvHiZrqbwPGqXJ3l" target="_blank" style="color:#c3002f;font-weight:bold;text-decoration:none;font-size:12px">🔗 Link</a></td></tr><tr><td>Nissan (Self)</td><td style="font-size:11px">นิสสันขอนแก่น-Nissan KKT </td><td style="font-size:12px">มาสัมผัสความเนียนระดับ Ultra Smooth ⚡
+ขับขี่ที่ลื่นไหลกว่าเด</td><td style="color:#94A0B3;font-style:italic;font-size:12px">(ไม่ระบุ)</td><td>ไม่ระบุ</td><td style="text-align:center;font-weight:bold">22</td><td><a href="https://www.facebook.com/nissankktkhonkaen/posts/pfbid0ZRCtLanKsZwq3LaF6LQQ4JZKCu1uCM1idwYTVS4djaYEU6sd9HVRKPD4GX5HDRntl" target="_blank" style="color:#c3002f;font-weight:bold;text-decoration:none;font-size:12px">🔗 Link</a></td></tr><tr><td>Nissan (Self)</td><td style="font-size:11px">นิสสันขอนแก่น-Nissan KKT </td><td style="font-size:12px">ห๊ะ!! ที่เซ็นทรัลขอนแก่น มีอะไร???
+…
+…
+…
+….
+มีบูธนิสสัน เคเค</td><td style="font-weight:600;color:#1976D2;font-size:12px;white-space:nowrap">26 กรกฎาคม 2569</td><td>เซ็นทรัล ขอนแก่น</td><td style="text-align:center;font-weight:bold">20</td><td><a href="https://www.facebook.com/reel/27642705368720482/" target="_blank" style="color:#c3002f;font-weight:bold;text-decoration:none;font-size:12px">🔗 Link</a></td></tr><tr><td>Nissan (Self)</td><td style="font-size:11px">นิสสันขอนแก่น-Nissan KKT </td><td style="font-size:12px">เบื้องหลังความใส่ใจ ที่เราใส่ไว้ในรถ​
+ความตั้งใจในการออกแบบข</td><td style="color:#94A0B3;font-style:italic;font-size:12px">(ไม่ระบุ)</td><td>ไม่ระบุ</td><td style="text-align:center;font-weight:bold">6</td><td><a href="https://www.facebook.com/nissankktkhonkaen/posts/pfbid0DbzF5uhve4gjiHNFpQfonaWk4anCZFthrutZDkjCh7akiK8jtvpQzDHR8JpBek5zl" target="_blank" style="color:#c3002f;font-weight:bold;text-decoration:none;font-size:12px">🔗 Link</a></td></tr><tr><td>Nissan (Self)</td><td style="font-size:11px">นิสสันขอนแก่น-Nissan KKT </td><td style="font-size:12px">GAME ON. !!! 
+🚗 NISSAN KKT ON TOUR @ เซ็นทรัล ขอนแก่น
+📍 20 –</td><td style="font-weight:600;color:#1976D2;font-size:12px;white-space:nowrap">26 กรกฎาคม 2569</td><td>เซ็นทรัล ขอนแก่น</td><td style="text-align:center;font-weight:bold">12</td><td><a href="https://www.facebook.com/nissankktkhonkaen/posts/pfbid02vExZsRrfSYPsy9gMdXk9c3G3LyU24eZdBcGE9nduGoTKRSSsoRwaGsZuqPQw6LJ3l" target="_blank" style="color:#c3002f;font-weight:bold;text-decoration:none;font-size:12px">🔗 Link</a></td></tr></tbody>
   </table>
 
   <h3>6.3 Self vs Top 3 Benchmark</h3>
   <table>
     <thead><tr><th>แบรนด์</th><th>Facebook Page(s)</th><th style="text-align:center">โพสต์</th><th style="text-align:center">Engagement</th><th style="text-align:center">Eng/Post</th></tr></thead>
-    <tbody><tr><td>Omoda&Jaecoo</td><td style='font-size:11px'>Omoda & Jaecoo Tanasit Khonkaen</td><td style='text-align:center'>4</td><td style='text-align:center'>212</td><td style='text-align:center'>53.0</td></tr><tr><td>Deepal</td><td style='font-size:11px'>Deepal As One Khon Kaen</td><td style='text-align:center'>5</td><td style='text-align:center'>67</td><td style='text-align:center'>13.4</td></tr><tr><td>TOYOTA KaenNakorn</td><td style='font-size:11px'>Toyota Kaennakorn โตโยต้าแก่นนคร</td><td style='text-align:center'>9</td><td style='text-align:center'>52</td><td style='text-align:center'>5.8</td></tr><tr style='border-left:3px solid #c3002f'><td><strong>Nissan (Self)</strong></td><td style='font-size:11px'>นิสสันขอนแก่น-Nissan KKT Khonkaen</td><td style='text-align:center'>4</td><td style='text-align:center'><strong>55</strong></td><td style='text-align:center'><strong>13.8</strong></td></tr></tbody>
+    <tbody><tr><td>Omoda&Jaecoo</td><td style='font-size:11px'>Omoda & Jaecoo Tanasit Khonkaen</td><td style='text-align:center'>3</td><td style='text-align:center'>445</td><td style='text-align:center'>148.3</td></tr><tr><td>TOYOTA KaenNakorn</td><td style='font-size:11px'>Toyota Kaennakorn โตโยต้าแก่นนคร</td><td style='text-align:center'>18</td><td style='text-align:center'>229</td><td style='text-align:center'>12.7</td></tr><tr><td>Geely</td><td style='font-size:11px'>GEELY Pijitphet Khonkaen</td><td style='text-align:center'>12</td><td style='text-align:center'>135</td><td style='text-align:center'>11.2</td></tr><tr style='border-left:3px solid #c3002f'><td><strong>Nissan (Self)</strong></td><td style='font-size:11px'>นิสสันขอนแก่น-Nissan KKT Khonkaen</td><td style='text-align:center'>6</td><td style='text-align:center'><strong>141</strong></td><td style='text-align:center'><strong>23.5</strong></td></tr></tbody>
   </table>
 
   <blockquote style="background:#fff5f5;border-left-color:#c3002f;padding:10px 14px;border-left:3px solid #c3002f;margin:10px 0;border-radius:4px;font-size:13px;line-height:1.6">
-    <strong>📌 สรุปภาพรวมสัปดาห์นี้:</strong> Nissan มี 4 โพสต์ (55 Engagement) — เน้นส่งมอบรถและโปรโมชั่น
+    <strong>📌 สรุปภาพรวมสัปดาห์นี้:</strong> Nissan มี 6 โพสต์ (141 Engagement) — เน้นส่งมอบรถและโปรโมชั่น
   </blockquote>
 </div>
 
@@ -566,41 +555,47 @@ MG URBA</td>
   <div class="headline"><span class="headline-label">🎯 เพื่ออะไร:</span> ดู Content ที่ work</div>
     <div class="post-card">
     <div style="display:flex;justify-content:space-between;margin-bottom:6px">
-      <span><span class="badge-brand">Omoda&Jaecoo</span> <strong style="color:#c3002f">Eng 203</strong></span>
+      <span><span class="badge-brand">Omoda&Jaecoo</span> <strong style="color:#c3002f">Eng 427</strong></span>
       <span style="font-size:11px;color:#888">Omoda & Jaecoo Tanas</span>
     </div>
-    <div>กำลังมองหารถคันใหม่อยู่หรือเปล่า? 😊
-แวะมาพบทีม OMODA & JAECOO Tanasit Khon Kaen ได้ที่
-📍 Lotus's จ.นครพนม
-📅 ตั้งแต่วันนี้ - 5 สิงหาคมนี้
-มีทั้งรถให้ชม ทดลองขับ และข้อเสนอสุดพิเศษที่รอคุณอยู่
-แล้วเจอกันที่บูธค่ะ 🚗✨
-สอบถามเพิ่มเติม:
-📞 โทร : 081-710-750</div>
-    <div class="post-meta">👍 201 💬 1 🔄 1 | <a href="https://www.facebook.com/Omodajaecootanasitkhonkaen/posts/pfbid0rTnAQFQA2dx6d7cXanZL5TGd6yw5MTDdXWP75DLe4V5jjQ51DSCFw9k4WaBnDVfUl" target="_blank" style="color:#c3002f;font-weight:bold;text-decoration:none">🔗 Link</a></div>
+    <div>🚗✨ ชาวนครพนม ห้ามพลาด!
+มาสัมผัสนวัตกรรมยานยนต์แห่งอนาคตจาก OMODA & JAECOO ได้แล้วที่ Lotus's จ.นครพนม
+📅 1 – 5 สิงหาคมนี้
+📍 Lotus's จังหวัดนครพนม
+🔥 ทดลองขับรถรุ่นยอดนิยม
+• OMODA C5 EV
+• JAECOO 5 EV
+พร้อมรับข้อเสนอสุดพิเศษเฉพาะภายในงาน
+ลิ้งก์ลงทะเบียน:</div>
+    <div class="post-meta">👍 419 💬 2 🔄 6 | <a href="https://www.facebook.com/Omodajaecootanasitkhonkaen/posts/pfbid028iuyPNXvsgkPQgaNhg1RaoJhFUim32vuygtgdQdVzRBCFxgADCh2q96HQenebriQl" target="_blank" style="color:#c3002f;font-weight:bold;text-decoration:none">🔗 Link</a></div>
   </div>  <div class="post-card">
     <div style="display:flex;justify-content:space-between;margin-bottom:6px">
-      <span><span class="badge-brand">MG</span> <strong style="color:#c3002f">Eng 19</strong></span>
-      <span style="font-size:11px;color:#888">MG ขอนแก่น อารีมิตร </span>
+      <span><span class="badge-brand">TOYOTA KaenNakorn</span> <strong style="color:#c3002f">Eng 74</strong></span>
+      <span style="font-size:11px;color:#888">Toyota Kaennakorn โต</span>
     </div>
-    <div>เมื่อวันที่ 21 ก.ค. 69 ผู้ได้รับตำแหน่ง TOP 5 MISS UNIVERSE KHON KAEN 2026 เข้าเยี่ยมชม อารีมิตร กรุ๊ป ในโอกาสผู้สนับสนุนการประกวด
+    <div>ประมวลภาพกิจกรรม ทอดผ้าป่ามหากุศลเพื่อการศึกษาประจำปี 2569
+เพื่อพัฒนาการศึกษาและคุณภาพชีวิตของนักเรียนตาบอด 
+ณ โรงเรียนการศึกษาคนตาบอดขอนแก่น 
+เมื่อวันที่ 22 กรกฎาคม 2569 
 
-เรารู้สึกยินดีที่ได้เป็นส่วนหนึ่งในการสนับสนุนเวทีแห่งโอกาส ขอแสดงความยินดีกับผู้ได้รับตำแหน่งทุกท่าน และขอเป็นกำลังใจ</div>
-    <div class="post-meta">👍 15 💬 1 🔄 3 | <a href="https://www.facebook.com/MGKhonkaenAreemit/posts/pfbid02pQjqg7qeg4nnyFGkrBPAwV2So119Y5yxL2YN6snwyX3FfUq5bwBdS8ggh5G5SaJFl" target="_blank" style="color:#c3002f;font-weight:bold;text-decoration:none">🔗 Link</a></div>
+พลังศรัทธาหลั่งไหลท่วมท้น ยอดบริจาคสูงถึง 1,368,755.01 บาท 
+
+   พิธีการในครั้</div>
+    <div class="post-meta">👍 63 💬 10 🔄 1 | <a href="https://www.facebook.com/Toyotakaennakorn/posts/pfbid0SD3HaZuH9UPjC1CxUsX721FMS5iP76joRU3vA42L3uXTjkU2md3VXYCM9TP3f211l" target="_blank" style="color:#c3002f;font-weight:bold;text-decoration:none">🔗 Link</a></div>
   </div>  <div class="post-card">
     <div style="display:flex;justify-content:space-between;margin-bottom:6px">
-      <span><span class="badge-brand">Deepal</span> <strong style="color:#c3002f">Eng 18</strong></span>
-      <span style="font-size:11px;color:#888">Deepal As One Khon K</span>
+      <span><span class="badge-brand">TOYOTA KaenNakorn</span> <strong style="color:#c3002f">Eng 41</strong></span>
+      <span style="font-size:11px;color:#888">Toyota Kaennakorn โต</span>
     </div>
-    <div>💙 Thank you Big Family!
+    <div>พบกับงาน โตโยต้าฟูลฟิล ดีลสุดคุ้ม  🛻
+📍ที่โชว์รูม โตโยต้าแก่นนคร สำนักงานใหญ่
+⏰️ วันเสาร์ที่ 25 ก.ค. 69 เวลา 09.30 น. เป็นต้นไป
 
-ดีพอล แอส วัน ขอนแก่น ขอขอบคุณทุกท่านที่ไว้วางใจ เลือก DEEPAL และให้ดีพอล แอส วัน ขอนแก่น เป็นส่วนหนึ่งในเส้นทางของทุกคน 🚗✨
-
-เราจะดูแลทุกคนอย่างดีที่สุดเสมอ เพราะคุณคือครอบครัวของเรา 💙
-
-สอบถามข้อมูลเพิ่มเติม : 
-📍 โชว์รูม Deep</div>
-    <div class="post-meta">👍 14 💬 1 🔄 3 | <a href="https://www.facebook.com/DeepalAsOneKhonKaen/posts/pfbid02a2bKp9B3nhPoGd29aH8FnCUCUAtV9HTHpjkbN1pmBodeSL45oi6dMBeYYY7CAGR9l" target="_blank" style="color:#c3002f;font-weight:bold;text-decoration:none">🔗 Link</a></div>
+✨️จองรถในงาน รับคุ้ม 2 ต่อ*
+คุ้มต่อ 1️⃣ แค่สแกน เลือกรับทันที
+• บัตรกำนัลส่วนลด สูงสุด 10,000 บาท*
+• หรือ ส่วนลดดอกเบี้ย ส</div>
+    <div class="post-meta">👍 21 💬 8 🔄 12 | <a href="https://www.facebook.com/Toyotakaennakorn/videos/1720968095889371/" target="_blank" style="color:#c3002f;font-weight:bold;text-decoration:none">🔗 Link</a></div>
   </div>
 </div>
 
@@ -608,11 +603,11 @@ MG URBA</td>
 <div class="section-card" id="sec-8">
   <div class="section-card-header"><span class="section-num">8</span><h2>⚠️ โอกาสและภัยคุกคาม</h2></div>
   <h3 style="color:#c3002f;font-size:14px">🚨 ภัยคุกคาม</h3>
-  <ul style="margin-left:20px;line-height:1.8"><li><strong>Omoda&Jaecoo ครองอันดับ 1</strong> — 4 โพสต์ (212 eng, 53.0/post)</li>
-    <li><strong>หลายแบรนด์ Active หนัก</strong> — TOYOTA KaenNakorn, Geely, BYD, Mitsubishi ลงโพสต์ 8+ รายการ</li></ul>
+  <ul style="margin-left:20px;line-height:1.8"><li><strong>Omoda&Jaecoo ครองอันดับ 1</strong> — 3 โพสต์ (445 eng, 148.3/post)</li>
+    <li><strong>หลายแบรนด์ Active หนัก</strong> — TOYOTA KaenNakorn, Geely, MG, Deepal ลงโพสต์ 8+ รายการ</li></ul>
   <h3 style="color:#2e7d32;font-size:14px">💡 โอกาส</h3>
-  <ul style="margin-left:20px;line-height:1.8"><li><strong>Nissan มี Engagement เฉลี่ย 13.8/post</strong> — ใช้ Content ที่ work ไป Amplify ต่อ</li>
-    <li><strong>ห้างค้าปลีกคึกคัก</strong> — 2 รายการที่ เซ็นทรัล ขอนแก่น — Nissan ควรพิจารณาจัด e-POWER Experience Zone</li>
+  <ul style="margin-left:20px;line-height:1.8"><li><strong>Nissan มี Engagement เฉลี่ย 23.5/post</strong> — ใช้ Content ที่ work ไป Amplify ต่อ</li>
+    <li><strong>ห้างค้าปลีกคึกคัก</strong> — 3 รายการที่ BIG C ขอนแก่น, เซ็นทรัล ขอนแก่น, โลตัส ขอนแก่น — Nissan ควรพิจารณาจัด e-POWER Experience Zone</li>
     <li><strong>แบรนด์ EV/Crossover ยังเน้นสร้างการรับรู้</strong> — รวม BYD, Deepal, Geely, Omoda&Jaecoo — Nissan e-POWER ควรสื่อสารจุดแข็งที่แตกต่าง</li></ul>
 </div>
 
@@ -620,7 +615,7 @@ MG URBA</td>
 <div class="section-card" id="sec-9">
   <div class="section-card-header"><span class="section-num">9</span><h2>🎯 ข้อเสนอแนะ</h2></div>
   <h3 style='color:#c3002f'>🔴 สูง</h3>
-  <ul style='margin-left:20px;line-height:1.8'><li>พิจารณาจัด Nissan e-POWER Experience Zone ที่ เซ็นทรัล ขอนแก่น — สร้าง Brand Presence ตรงข้ามคู่แข่ง EV</li>
+  <ul style='margin-left:20px;line-height:1.8'><li>พิจารณาจัด Nissan e-POWER Experience Zone ที่ BIG C ขอนแก่น — สร้าง Brand Presence ตรงข้ามคู่แข่ง EV</li>
     <li>เปิดแคมเปญ Test Drive Kicks e-POWER / Almera Turbo พร้อมโปรโมตผ่าน Facebook Page Nissan KKT</li></ul>
   <h3 style='color:#f57c00'>🟡 ปานกลาง</h3>
   <ul style='margin-left:20px;line-height:1.8'><li>เร่งสื่อสารแคมเปญ Almera Turbo ส่วนลดพิเศษ + ดอกเบี้ยต่ำ เพื่อแข่งกับ MG/Geely</li>
@@ -677,14 +672,14 @@ MG URBA</td>
 </script>
 <script>
 
-  var brandLabels = ["Omoda&Jaecoo", "Deepal", "TOYOTA KaenNakorn", "Geely", "MG", "BYD", "Mitsubishi", "TOYOTA", "Nissan (Self)"];
-  var totalEng = [212, 67, 52, 46, 42, 16, 9, 2, 55];
-  var postsCt = [4, 5, 9, 8, 6, 9, 10, 1, 4];
-  var engPerPost = [53.0, 13.4, 5.8, 5.8, 7.0, 1.8, 0.9, 2.0, 13.8];
-  var likesCt = [210, 54, 31, 40, 38, 15, 9, 2, 44];
-  var commentsCt = [1, 4, 3, 2, 1, 0, 0, 0, 5];
-  var sharesCt = [1, 9, 18, 4, 3, 1, 0, 0, 6];
-  var chartColors = ["#c3002f", "#1565c0", "#2e7d32", "#f57c00", "#7b1fa2", "#00838f", "#5d4037", "#c62828", "#283593"];
+  var brandLabels = ["Omoda&Jaecoo", "TOYOTA KaenNakorn", "Geely", "MG", "Deepal", "BYD", "Nissan (Self)"];
+  var totalEng = [445, 229, 135, 121, 88, 26, 141];
+  var postsCt = [3, 18, 12, 16, 9, 11, 6];
+  var engPerPost = [148.3, 12.7, 11.2, 7.6, 9.8, 2.4, 23.5];
+  var likesCt = [435, 165, 106, 117, 79, 25, 112];
+  var commentsCt = [2, 33, 9, 0, 4, 0, 6];
+  var sharesCt = [8, 31, 20, 4, 5, 1, 23];
+  var chartColors = ["#c3002f", "#1565c0", "#2e7d32", "#f57c00", "#7b1fa2", "#00838f", "#5d4037"];
 
   document.addEventListener('DOMContentLoaded', function() {
     new Chart(document.getElementById('chartTotalEngagement'), {
@@ -772,8 +767,8 @@ initSortable('table4', { col: 'posts', dir: 'desc' });
 </script>
 
 <div class="footer">
-  <p>📊 รายงาน Nissan ขอนแก่น สัปดาห์ 28 ก.ค. 2569 - 3 ส.ค. 2569</p>
-  <p>🕐 เวลาวิเคราะห์: 03 Aug 2026 18:35 น.</p>
+  <p>📊 รายงาน Nissan ขอนแก่น สัปดาห์ 20 Jul 2026 - 26 Jul 2026</p>
+  <p>🕐 เวลาวิเคราะห์: 27 Jul 2026 06:00 น.</p>
   <p>👤 สร้างโดย: Tatchanon Wissawakornrungrot, Regional Marketing Manager — Nissan Motor (Thailand)</p>
 </div>
 
