@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>Nissan Dealer Online Marketing Guide — Prototype</title>
+<style>
+  :root {
+    --nissan-red: #C3002F;
+    --nissan-black: #000000;
+    --nissan-white: #FFFFFF;
+    --nissan-gray-50: #FAFAFA;
+    --nissan-gray-100: #F4F4F4;
+    --nissan-gray-200: #E0E0E0;
+    --nissan-gray-400: #9E9E9E;
+    --nissan-gray-600: #5C5C5C;
+    --nissan-gray-800: #2C2C2C;
+    --font-stack: 'Tahoma', 'PSL Display', 'Nissan Brand', Arial, sans-serif;
+    --slide-w: 1600px;
+    --slide-h: 900px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: var(--nissan-gray-100);
+    font-family: var(--font-stack);
+    color: var(--nissan-black);
+    line-height: 1.4;
+  }
+
+  body {
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--nissan-white);
+    width: 100%;
+    max-width: 1700px;
+    padding: 12px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .toolbar-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--nissan-black);
+  }
+
+  .toolbar-title span {
+    color: var(--nissan-red);
+  }
+
+  .toolbar-nav {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .toolbar-nav a {
+    background: var(--nissan-gray-100);
+    color: var(--nissan-black);
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 13px;
+    border: 1px solid var(--nissan-gray-200);
+  }
+
+  .toolbar-nav a:hover {
+    background: var(--nissan-red);
+    color: var(--nissan-white);
+  }
+
+  .slide {
+    width: var(--slide-w);
+    height: var(--slide-h);
+    background: var(--nissan-white);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.16);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    page-break-after: always;
+  }
+
+  .slide-header {
+    height: 72px;
+    background: var(--nissan-white);
+    border-bottom: 3px solid var(--nissan-red);
+    display: flex;
+    align-items: center;
+    padding: 0 48px;
+    justify-content: space-between;
+    flex-shrink: 0;
+  }
+
+  .slide-header-logo img {
+    height: 36px;
+  }
+
+  .slide-header-module {
+    font-size: 14px;
+    color: var(--nissan-gray-600);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .slide-header-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--nissan-black);
+    flex: 1;
+    text-align: center;
+    padding: 0 24px;
+  }
+
+  .slide-header-number {
+    font-size: 14px;
+    color: var(--nissan-red);
+    font-weight: bold;
+  }
+
+  .slide-body {
+    flex: 1;
+    padding: 48px 64px 32px 64px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    overflow: hidden;
+  }
+
+  .slide-footer {
+    height: 56px;
+    background: var(--nissan-gray-50);
+    border-top: 1px solid var(--nissan-gray-200);
+    display: flex;
+    align-items: center;
+    padding: 0 48px;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--nissan-gray-600);
+    flex-shrink: 0;
+  }
+
+  .slide-footer-source {
+    font-style: italic;
+  }
+
+  /* Layout primitives */
+  .title-xl {
+    font-size: 44px;
+    font-weight: bold;
+    line-height: 1.1;
+    color: var(--nissan-black);
+  }
+
+  .title-xl .accent {
+    color: var(--nissan-red);
+  }
+
+  .title-l {
+    font-size: 32px;
+    font-weight: bold;
+    line-height: 1.2;
+    color: var(--nissan-black);
+  }
+
+  .title-l .accent {
+    color: var(--nissan-red);
+  }
+
+  .title-m {
+    font-size: 22px;
+    font-weight: bold;
+    line-height: 1.2;
+    color: var(--nissan-black);
+  }
+
+  .body-text {
+    font-size: 18px;
+    color: var(--nissan-gray-800);
+    line-height: 1.5;
+  }
+
+  .small-text {
+    font-size: 14px;
+    color: var(--nissan-gray-600);
+    line-height: 1.4;
+  }
+
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    flex: 1;
+  }
+
+  .grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+    flex: 1;
+  }
+
+  .grid-4 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 20px;
+    flex: 1;
+  }
+
+  .grid-5 {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    flex: 1;
+  }
+
+  .grid-6 {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 16px;
+    flex: 1;
+  }
+
+  /* Cards */
+  .card {
+    background: var(--nissan-gray-50);
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid var(--nissan-gray-200);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .card-accent {
+    border-left: 4px solid var(--nissan-red);
+  }
+
+  .card-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--nissan-black);
+  }
+
+  .card-text {
+    font-size: 15px;
+    color: var(--nissan-gray-800);
+    line-height: 1.4;
+  }
+
+  .card-tag {
+    display: inline-block;
+    background: var(--nissan-red);
+    color: var(--nissan-white);
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: bold;
+    width: fit-content;
+  }
+
+  .card-tag-gray {
+    background: var(--nissan-gray-600);
+  }
+
+  /* Callout */
+  .callout {
+    background: var(--nissan-white);
+    border-left: 6px solid var(--nissan-red);
+    padding: 18px 24px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  .callout-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--nissan-red);
+    margin-bottom: 6px;
+  }
+
+  .callout-text {
+    font-size: 15px;
+    color: var(--nissan-gray-800);
+  }
+
+  /* Source box */
+  .source-box {
+    background: var(--nissan-gray-50);
+    border: 1px dashed var(--nissan-gray-400);
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 13px;
+    color: var(--nissan-gray-600);
+    font-style: italic;
+  }
+
+  /* Price / disclaimer note */
+  .price-note {
+    background: #FFF8E1;
+    border-left: 4px solid #FF9800;
+    padding: 12px 18px;
+    border-radius: 6px;
+    font-size: 14px;
+    color: var(--nissan-gray-800);
+  }
+
+  /* International reference label */
+  .intl-ref {
+    background: #FFF3E0;
+    border: 2px dashed #FF6F00;
+    color: #BF360C;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 14px;
+  }
+
+  /* Do / Don't grid */
+  .do-dont-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    flex: 1;
+  }
+
+  .do-block, .dont-block {
+    border-radius: 12px;
+    padding: 20px;
+  }
+
+  .do-block {
+    background: #E8F5E9;
+    border-left: 4px solid #2E7D32;
+  }
+
+  .dont-block {
+    background: #FFEBEE;
+    border-left: 4px solid #C62828;
+  }
+
+  .do-title, .dont-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+
+  .do-title { color: #2E7D32; }
+  .dont-title { color: #C62828; }
+
+  /* Cover specific */
+  .cover-body {
+    flex: 1;
+    padding: 64px 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 24px;
+    background: linear-gradient(135deg, var(--nissan-white) 0%, var(--nissan-gray-50) 100%);
+  }
+
+  .cover-logo img {
+    height: 64px;
+  }
+
+  .cover-eyebrow {
+    font-size: 14px;
+    color: var(--nissan-red);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: bold;
+  }
+
+  .cover-title {
+    font-size: 64px;
+    font-weight: bold;
+    line-height: 1.05;
+    color: var(--nissan-black);
+  }
+
+  .cover-title .accent {
+    color: var(--nissan-red);
+  }
+
+  .cover-subtitle {
+    font-size: 22px;
+    color: var(--nissan-gray-600);
+    line-height: 1.4;
+  }
+
+  .cover-meta {
+    display: flex;
+    gap: 32px;
+    margin-top: 16px;
+    font-size: 16px;
+    color: var(--nissan-gray-800);
+  }
+
+  .cover-meta-block {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cover-meta-label {
+    font-size: 12px;
+    color: var(--nissan-gray-600);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .cover-meta-value {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--nissan-black);
+  }
+
+  /* Funnel diagram */
+  .funnel-step {
+    background: var(--nissan-gray-50);
+    border: 1px solid var(--nissan-gray-200);
+    border-radius: 8px;
+    padding: 12px 16px;
+    text-align: center;
+    font-weight: bold;
+    position: relative;
+  }
+
+  .funnel-step.active {
+    background: var(--nissan-red);
+    color: var(--nissan-white);
+    border-color: var(--nissan-red);
+  }
+
+  .funnel-arrow {
+    text-align: center;
+    color: var(--nissan-red);
+    font-size: 20px;
+  }
+
+  /* Checklist */
+  .checklist {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .checklist li {
+    background: var(--nissan-gray-50);
+    border-radius: 8px;
+    padding: 12px 18px;
+    border-left: 4px solid var(--nissan-red);
+    font-size: 16px;
+  }
+
+  .checklist li.optional {
+    border-left-color: var(--nissan-gray-400);
+    background: var(--nissan-white);
+    color: var(--nissan-gray-600);
+  }
+
+  /* Print */
+  @media print {
+    body {
+      background: var(--nissan-white);
+      padding: 0;
+      gap: 0;
+    }
+
+    .toolbar {
+      display: none;
+    }
+
+    .slide {
+      box-shadow: none;
+      margin: 0;
+      width: 100%;
+      height: 100vh;
+      max-width: 100%;
+    }
+
+    @page {
+      size: 16in 9in;
+      margin: 0;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="toolbar-title">Nissan Dealer Online MKT Guide <span>— Visual Prototype (Stage 5)</span></div>
+  <nav class="toolbar-nav">
+    <a href="#slide-1">Slide 1</a>
+    <a href="#slide-2">Slide 2</a>
+    <a href="#slide-5">Slide 5</a>
+    <a href="#slide-15">Slide 15</a>
+    <a href="#slide-30">Slide 30</a>
+    <a href="#slide-39">Slide 39</a>
+  </nav>
+</div>
+
+<!-- Slide 1: Cover -->
+<section class="slide" id="slide-1">
+  <div class="slide-header">
+    <div class="slide-header-logo"><img src="assets/reference/nissan_logo_black.png" alt="Nissan Logo"></div>
+    <div class="slide-header-module">Module 1: Fundamentals</div>
+    <div class="slide-header-title">Nissan Dealer Online Marketing Guide</div>
+    <div class="slide-header-number">01 / 40</div>
+  </div>
+  <div class="cover-body">
+    <div class="cover-logo"><img src="assets/reference/nissan_logo_black.png" alt="Nissan Logo"></div>
+    <div class="cover-eyebrow">คู่มือการตลาดออนไลน์สำหรับผู้จำหน่ายนิสสัน</div>
+    <div class="cover-title">Facebook &amp; TikTok <span class="accent">Playbook</span></div>
+    <div class="cover-subtitle">ออกแบบมาเพื่อผู้จำหน่าย เพื่อสร้างความน่าเชื่อถือ ดึง Lead และปิดการขายได้จริง</div>
+    <div class="cover-meta">
+      <div class="cover-meta-block">
+        <div class="cover-meta-label">Audience</div>
+        <div class="cover-meta-value">Dealer Marketing &amp; Sales Managers</div>
+      </div>
+      <div class="cover-meta-block">
+        <div class="cover-meta-label">Platforms</div>
+        <div class="cover-meta-value">Facebook · TikTok</div>
+      </div>
+      <div class="cover-meta-block">
+        <div class="cover-meta-label">Last verified</div>
+        <div class="cover-meta-value">5 August 2026</div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="slide-footer-source">Source: Nissan Brand VI Guidelines E ver1.3 · nissan.co.th · nissanbrandceg.com</div>
+    <div>Prototype · Not for distribution</div>
+  </div>
+</section>
+
+<!-- Slide 2: Customer Journey (Module 1) -->
+<section class="slide" id="slide-2">
+  <div class="slide-header">
+    <div class="slide-header-logo"><img src="assets/reference/nissan_logo_black.png" alt="Nissan Logo"></div>
+    <div class="slide-header-module">Module 1: Fundamentals</div>
+    <div class="slide-header-title">Customer Journey: Awareness → Purchase</div>
+    <div class="slide-header-number">02 / 40</div>
+  </div>
+  <div class="slide-body">
+    <div class="title-l">ลูกค้าเดินทางจาก <span class="accent">รู้จัก</span> ไปสู่ <span class="accent">ซื้อ</span></div>
+    <div class="body-text">ทุก Touchpoint ต้องมี Content ที่ตรงกับจังหวะ และทุก Organic post ควรทดสอบว่าช่วยเลื่อนลูกค้าไปข้างหน้าได้หรือไม่</div>
+    <div style="display:grid; grid-template-columns: repeat(6, 1fr); gap: 12px; align-items: center; margin-top: 24px;">
+      <div class="funnel-step active">Awareness</div>
+      <div class="funnel-arrow">→</div>
+      <div class="funnel-step active">Consideration</div>
+      <div class="funnel-arrow">→</div>
+      <div class="funnel-step active">Lead</div>
+      <div class="funnel-arrow">→</div>
+      <div class="funnel-step active">Visit</div>
+      <div class="funnel-arrow">→</div>
+      <div class="funnel-step active">Test Drive</div>
+      <div class="funnel-arrow">→</div>
+      <div class="funnel-step active">Purchase</div>
+    </div>
+    <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 24px;">
+      <div class="card card-accent">
+        <span class="card-tag">Top of Funnel</span>
+        <div class="card-title">Facebook &amp; TikTok Organic</div>
+        <div class="card-text">Reach + Awareness post, Lifestyle content, เล่าเรื่องรถและแบรนด์</div>
+      </div>
+      <div class="card card-accent">
+        <span class="card-tag">Middle of Funnel</span>
+        <div class="card-title">Meta/TikTok Ads</div>
+        <div class="card-text">Engagement, Video Views, Lead Ads สำหรับจับ Lead และจัด Test Drive</div>
+      </div>
+      <div class="card card-accent">
+        <span class="card-tag">Bottom of Funnel</span>
+        <div class="card-title">Handover to Sales</div>
+        <div class="card-text">Lead qualification, Appointment, Test Drive booking และปิดการขาย</div>
+      </div>
+    </div>
+    <div class="callout">
+      <div class="callout-title">กุญแจสำคัญ</div>
+      <div class="callout-text">Content ที่ดีต้องช่วยเลื่อนลูกค้าจาก Touchpoint หนึ่งไปยังอีก Touchpoint หนึ่ง ไม่ใช่แค่เพิ่มยอด Like</div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="slide-footer-source">Source: Stage_1_Brief_v1.md · Nissan CEG</div>
+    <div>Module 1 — Online Marketing Fundamentals</div>
+  </div>
+</section>
+
+<!-- Slide 5: Platform Role Overview (Module 2) -->
+<section class="slide" id="slide-5">
+  <div class="slide-header">
+    <div class="slide-header-logo"><img src="assets/reference/nissan_logo_black.png" alt="Nissan Logo"></div>
+    <div class="slide-header-module">Module 2: Platform Strategy</div>
+    <div class="slide-header-title">Platform Role Overview</div>
+    <div class="slide-header-number">05 / 40</div>
+  </div>
+  <div class="slide-body">
+    <div class="title-l">Facebook และ TikTok เป็นแกน <span class="accent">Platform อื่นเสริม</span></div>
+    <div class="body-text">แต่ละ Platform มีบทบาทต่างกัน เลือกใช้ตามจุดประสงค์ ไม่ใช่ตามกระแส</div>
+    <div class="grid-5" style="margin-top: 16px;">
+      <div class="card card-accent">
+        <span class="card-tag">Primary</span>
+        <div class="card-title">Facebook</div>
+        <div class="card-text">ความน่าเชื่อถือ, Offer, Community, Lead Form, เหมาะกับการจับ Lead ที่มีคุณภาพ</div>
+      </div>
+      <div class="card card-accent">
+        <span class="card-tag">Primary</span>
+        <div class="card-title">TikTok</div>
+        <div class="card-text">Reach ใหม่, Short-form Video, ความบันเทิง + Co-creation, เหมาะกับการสร้าง Awareness ในวงกว้าง</div>
+      </div>
+      <div class="card">
+        <span class="card-tag card-tag-gray">Support</span>
+        <div class="card-title">LINE OA</div>
+        <div class="card-text">Follow-up, ปิดการขาย, ส่ง Offer, แจ้งเตือน Test Drive</div>
+      </div>
+      <div class="card">
+        <span class="card-tag card-tag-gray">Support</span>
+        <div class="card-title">Instagram</div>
+        <div class="card-text">Image และ Lifestyle Content, เหมาะกับ Brand Storytelling</div>
+      </div>
+      <div class="card">
+        <span class="card-tag card-tag-gray">Support</span>
+        <div class="card-title">YouTube</div>
+        <div class="card-text">รีวิวและข้อมูลเชิงลึก, Test Drive Video, SEO content</div>
+      </div>
+    </div>
+    <div class="callout">
+      <div class="callout-title">แนวปฏิบัติ</div>
+      <div class="callout-text">อย่าเปิด Account ใน Platform ที่ทีมจะดูแลไม่ไหว เริ่มจาก Facebook และ TikTok ก่อน แล้วค่อยขยายเมื่อ Workflow พร้อม</div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="slide-footer-source">Source: GUIDELINE.md · nissan.co.th social channels · Nissan CEG</div>
+    <div>Module 2 — Platform Strategy</div>
+  </div>
+</section>
+
+<!-- Slide 15: Meta Ads Objective Map (Module 3) -->
+<section class="slide" id="slide-15">
+  <div class="slide-header">
+    <div class="slide-header-logo"><img src="assets/reference/nissan_logo_black.png" alt="Nissan Logo"></div>
+    <div class="slide-header-module">Module 3: Facebook Playbook</div>
+    <div class="slide-header-title">Meta Ads: Objective Map</div>
+    <div class="slide-header-number">15 / 40</div>
+  </div>
+  <div class="slide-body">
+    <div class="title-l">เลือก Objective <span class="accent">ให้ตรงกับเป้าหมายทางธุรกิจ</span></div>
+    <div class="body-text">Meta Ads Manager ใช้ Outcome-Driven Ads (ODA) มี 6 Objective หลัก เลือกให้ตรงกับผลที่วัดได้จริง</div>
+    <div class="grid-6" style="margin-top: 16px;">
+      <div class="card card-accent">
+        <span class="card-tag">Awareness</span>
+        <div class="card-title">Awareness</div>
+        <div class="card-text">Reach + brand recall, ใช้สำหรับเปิดตัวรุ่นใหม่</div>
+      </div>
+      <div class="card">
+        <span class="card-tag card-tag-gray">Consideration</span>
+        <div class="card-title">Traffic</div>
+        <div class="card-text">ส่งคนเข้าเว็บไซต์ Nissan หรือ Landing Page</div>
+      </div>
+      <div class="card">
+        <span class="card-tag card-tag-gray">Consideration</span>
+        <div class="card-title">Engagement</div>
+        <div class="card-text">Boost post, Video Views, เพิ่ม Engagement</div>
+      </div>
+      <div class="card card-accent">
+        <span class="card-tag">Lead</span>
+        <div class="card-title">Leads</div>
+        <div class="card-text">จับ Lead ผ่าน Instant Forms, เหมาะกับ Test Drive</div>
+      </div>
+      <div class="card">
+        <span class="card-tag card-tag-gray">App</span>
+        <div class="card-title">App Promotion</div>
+        <div class="card-text">App install (ไม่ใช้กับ Dealer ทั่วไป)</div>
+      </div>
+      <div class="card card-accent">
+        <span class="card-tag">Sales</span>
+        <div class="card-title">Sales</div>
+        <div class="card-text">Conversion events, ต้องมี 50 conversions/week ก่อน</div>
+      </div>
+    </div>
+    <div class="callout">
+      <div class="callout-title">⚠️ Thailand KYC (mandatory from Nov 2026)</div>
+      <div class="callout-text">ผู้จำหน่ายต้องยืนยันตัวตน (KYC) ก่อนเปิด Paid Campaign ตาม พ.ร.บ. การโฆษณาออนไลน์ พ.ศ. 2569 (ราชกิจจานุเบกษา 5 พ.ค. 2026)</div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="slide-footer-source">Source: Meta_Policy_Verification.md (verified 5 Aug 2026) · Meta Ads Manager documentation</div>
+    <div>Module 3 — Facebook Marketing Playbook</div>
+  </div>
+</section>
+
+<!-- Slide 30: TikTok Ads Objective Map (Module 4) -->
+<section class="slide" id="slide-30">
+  <div class="slide-header">
+    <div class="slide-header-logo"><img src="assets/reference/nissan_logo_black.png" alt="Nissan Logo"></div>
+    <div class="slide-header-module">Module 4: TikTok Playbook</div>
+    <div class="slide-header-title">TikTok Ads: Objective Map</div>
+    <div class="slide-header-number">30 / 40</div>
+  </div>
+  <div class="slide-body">
+    <div class="title-l">TikTok Ads มี <span class="accent">3 Category</span> ให้เลือกตามเป้าหมาย</div>
+    <div class="body-text">TikTok Ads Manager จัด Objective เป็น 3 หมวด ตามลำดับขั้น Customer Journey</div>
+    <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-top: 16px;">
+      <div class="card card-accent" style="border-top: 4px solid var(--nissan-red);">
+        <span class="card-tag">Awareness</span>
+        <div class="card-title">Reach</div>
+        <div class="card-text">แสดงวิดีโอต่อผู้ชมจำนวนมากที่สุด เหมาะกับการเปิดตัวรุ่นใหม่</div>
+      </div>
+      <div class="card card-accent" style="border-top: 4px solid #FF9800;">
+        <span class="card-tag">Consideration</span>
+        <div class="card-title">Traffic · Video Views · Community · Branded Mission</div>
+        <div class="card-text">Traffic: ส่งคนเข้าเว็บ · Video Views: ดู Video · Community: Followers/Profile · Branded Mission: จำกัดการเข้าถึง</div>
+      </div>
+      <div class="card card-accent" style="border-top: 4px solid #2E7D32;">
+        <span class="card-tag">Conversion</span>
+        <div class="card-title">App · Lead Gen · Sales</div>
+        <div class="card-text">Lead Gen: Instant Form หรือ Website Form · Sales: TikTok Shop หรือ Pixel tracking</div>
+      </div>
+    </div>
+    <div class="callout">
+      <div class="callout-title">Lead Generation Best Practice</div>
+      <div class="callout-text">ใช้ Instant Form สำหรับจับ Lead เร็ว · ใช้ Website Form สำหรับคัดกรองละเอียด · งบประมาณแนะนำ 10x target CPA ต่อ ad group · launch 3-5 ad groups ทดสอบ</div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="slide-footer-source">Source: TikTok_Policy_Verification.md (verified 5 Aug 2026) · ads.tiktok.com/help</div>
+    <div>Module 4 — TikTok Marketing Playbook</div>
+  </div>
+</section>
+
+<!-- Slide 39: Pre-Publish Checklist (Module 6) -->
+<section class="slide" id="slide-39">
+  <div class="slide-header">
+    <div class="slide-header-logo"><img src="assets/reference/nissan_logo_black.png" alt="Nissan Logo"></div>
+    <div class="slide-header-module">Module 6: Governance</div>
+    <div class="slide-header-title">Pre-Publish Checklist</div>
+    <div class="slide-header-number">39 / 40</div>
+  </div>
+  <div class="slide-body">
+    <div class="title-l">ตรวจก่อน <span class="accent">กดโพสต์</span></div>
+    <div class="body-text">Checklist 4 หมวดที่ต้องผ่านทุกครั้งก่อนเผยแพร่ ไม่งั้นอาจเสียหายได้</div>
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 16px;">
+      <div>
+        <div class="title-m" style="color: var(--nissan-red); margin-bottom: 12px;">1. Source &amp; Claim</div>
+        <ul class="checklist">
+          <li>Model name ถูกต้อง</li>
+          <li>Product fact มี official source และ page</li>
+          <li>Grade/variant limitation ระบุชัด</li>
+          <li>Price/Offer/Warranty เป็นข้อมูลล่าสุด</li>
+          <li>International/Pre-launch content ติดป้ายชัด</li>
+          <li>Dealer dataset theme ติดป้ายว่า "Observed Theme"</li>
+        </ul>
+      </div>
+      <div>
+        <div class="title-m" style="color: var(--nissan-red); margin-bottom: 12px;">2. Brand</div>
+        <ul class="checklist">
+          <li>Approved Nissan Logo asset เท่านั้น</li>
+          <li>Clear space ถูกต้อง</li>
+          <li>Logo ไม่ถูก stretch, rotate, recolor หรือ filter</li>
+          <li>Contrast อ่านได้</li>
+          <li>ไม่วาง Logo บน background รก</li>
+        </ul>
+      </div>
+      <div>
+        <div class="title-m" style="color: var(--nissan-red); margin-bottom: 12px;">3. Platform</div>
+        <ul class="checklist">
+          <li>Format/aspect ratio ถูกต้อง</li>
+          <li>TikTok video safety area ตรวจแล้ว</li>
+          <li>Hashtag/legal clearance ผ่าน</li>
+          <li>Caption และ CTA ชัดเจน</li>
+          <li>Organic/Paid label และ objective ถูกต้อง</li>
+        </ul>
+      </div>
+      <div>
+        <div class="title-m" style="color: var(--nissan-red); margin-bottom: 12px;">4. Sales Follow-up</div>
+        <ul class="checklist">
+          <li>Lead/Message destination active</li>
+          <li>Sales owner assigned</li>
+          <li>Response expectation กำหนด</li>
+          <li>KPI ตรงกับ objective</li>
+          <li>Thailand KYC verified ก่อน Paid</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="slide-footer-source">Source: Pre_Publish_Checklist.md · Stage_2_Research_Summary.md</div>
+    <div>Module 6 — Measurement &amp; Governance</div>
+  </div>
+</section>
+
+<div style="margin-top: 40px; font-size: 14px; color: var(--nissan-gray-600); text-align: center; max-width: 800px;">
+  Visual Prototype — Stage 5 of 6.<br>
+  ส่งให้ March ตรวจและอนุมัติ Design Direction ก่อนสร้าง slides ที่เหลืออีก 34 slides
+</div>
+
+</body>
+</html>
