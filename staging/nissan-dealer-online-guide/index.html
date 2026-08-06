@@ -101,8 +101,8 @@
 
   .slide {
     width: 1280px;
-    height: 756px;
-    min-height: 756px;
+    height: 720px;
+    min-height: 720px;
     background: white;
     border-radius: 8px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
@@ -114,7 +114,7 @@
 
   /* === SLIDE HEADER — FIXED 64px === */
   .slide-header {
-    min-height: 64px;
+    height: 56px;
     flex-shrink: 0;
     display: flex;
     align-items: center;
@@ -122,8 +122,6 @@
     padding: 8px 16px;
     background: var(--nissan-white);
     border-bottom: 2px solid var(--nissan-red);
-    position: relative;
-    z-index: 10;
   }
   .slide-header-logo {
     width: 40px;
@@ -172,18 +170,20 @@
   /* === SLIDE BODY — FIXED 720-56-32=632px === */
   .slide-body {
     flex: 1 1 auto;
-    padding: 14px 20px 50px 20px;
+    padding: 14px 20px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     gap: 8px;
     justify-content: flex-start;
+    min-height: 0;
   }
 
   /* === SLIDE FOOTER — FIXED 32px === */
   .slide-footer {
-    height: 36px;
+    height: 32px;
     flex-shrink: 0;
+    margin-top: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -192,11 +192,6 @@
     border-top: 1px solid var(--nissan-gray-200);
     font-size: 10px;
     color: var(--nissan-gray-600);
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 5;
   }
   .slide-footer-source { font-style: italic; }
 
