@@ -4,6 +4,39 @@
 <meta charset="UTF-8">
 <title>Nissan Dealer Online Marketing Guide — Prototype</title>
 <style>
+  /* === NISSAN BRAND FONTS === */
+  @font-face {
+    font-family: 'Nissan Brand';
+    src: url('assets/fonts/nissan_brand_regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Nissan Brand';
+    src: url('assets/fonts/nissan_brand_bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'PSL Display';
+    src: url('assets/fonts/PSL031pro.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'PSL Display';
+    src: url('assets/fonts/PSL032pro.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  /* Google Fonts Backup */
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+Thai:wght@400;500;600;700;800;900&display=swap');
+
   :root {
     --nissan-red: #C3002F;
     --nissan-black: #000000;
@@ -11,10 +44,19 @@
     --nissan-gray-50: #FAFAFA;
     --nissan-gray-100: #F4F4F4;
     --nissan-gray-200: #E0E0E0;
+    --nissan-gray-300: #D4D4D4;
     --nissan-gray-400: #9E9E9E;
+    --nissan-gray-500: #7C7C7C;
     --nissan-gray-600: #5C5C5C;
     --nissan-gray-800: #2C2C2C;
-    --font-stack: 'Tahoma', 'PSL Display', 'Nissan Brand', Arial, sans-serif;
+    --nissan-red-soft: rgba(195, 0, 47, 0.08);
+    --nissan-red-mid: rgba(195, 0, 47, 0.4);
+    --nissan-red-dark: #8B0020;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.10);
+    --shadow-lg: 0 8px 32px rgba(0,0,0,0.16);
+    --shadow-xl: 0 16px 48px rgba(0,0,0,0.20);
+    --font-stack: 'Nissan Brand', 'PSL Display', 'Inter', 'Noto Sans Thai', 'Tahoma', Arial, sans-serif;
 
     /* Fixed 16:9 layout - lock to 900px height */
     --slide-w: 1600px;
@@ -43,19 +85,27 @@
 
   .toolbar {
     position: sticky;
-    top: 0;
+    top: 12px;
     z-index: 10;
-    background: var(--nissan-white);
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     width: 100%;
     max-width: 1700px;
-    padding: 12px 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    padding: 14px 24px;
+    border-radius: 14px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(255,255,255,0.3);
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 14px;
+    transition: all 0.3s ease;
+  }
+
+  .toolbar:hover {
+    box-shadow: var(--shadow-lg);
   }
 
   .toolbar-title {
@@ -75,18 +125,23 @@
   }
 
   .toolbar-nav a {
-    background: var(--nissan-gray-100);
+    background: var(--nissan-white);
     color: var(--nissan-black);
     text-decoration: none;
-    padding: 6px 12px;
+    padding: 7px 14px;
     border-radius: 999px;
     font-size: 13px;
+    font-weight: 600;
     border: 1px solid var(--nissan-gray-200);
+    transition: all 0.25s ease;
+    box-shadow: var(--shadow-sm);
   }
 
   .toolbar-nav a:hover {
     background: var(--nissan-red);
     color: var(--nissan-white);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
   }
 
   /* === SLIDE STRUCTURE: Fixed Grid === */
@@ -96,8 +151,14 @@
     aspect-ratio: 16 / 9;
     position: relative;
     overflow: hidden;
-    border-radius: 6px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.16);
+    border-radius: 14px;
+    box-shadow: var(--shadow-lg);
+    transition: all 0.3s ease;
+  }
+
+  .slide-wrap:hover {
+    box-shadow: var(--shadow-xl);
+    transform: translateY(-2px);
   }
 
   .slide {
@@ -130,7 +191,22 @@
     font-size: 13px;
     color: var(--nissan-gray-600);
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    position: relative;
+    padding-left: 12px;
+  }
+
+  .slide-header-module::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 16px;
+    background: var(--nissan-red);
+    border-radius: 2px;
   }
 
   .slide-header-title {
@@ -233,10 +309,10 @@
 
   .grow { min-height: 0; overflow: hidden; }
 
-  /* === CARDS (compact) === */
+  /* === CARDS (Modern + Hover) === */
   .card {
-    background: var(--nissan-gray-50);
-    border-radius: 8px;
+    background: var(--nissan-white);
+    border-radius: 10px;
     padding: 8px 10px;
     border: 1px solid var(--nissan-gray-200);
     display: flex;
@@ -244,10 +320,20 @@
     gap: 3px;
     min-height: 0;
     overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.25s ease;
+    position: relative;
+  }
+
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--nissan-red-mid);
   }
 
   .card-accent {
     border-left: 3px solid var(--nissan-red);
+    background: linear-gradient(90deg, rgba(195,0,47,0.04) 0%, var(--nissan-white) 30%);
   }
 
   .card-title {
@@ -287,13 +373,15 @@
     background: #2E7D32;
   }
 
-  /* === CALLOUT === */
+  /* === CALLOUT (Modern) === */
   .callout {
-    background: var(--nissan-white);
+    background: linear-gradient(135deg, var(--nissan-white) 0%, var(--nissan-gray-50) 100%);
     border-left: 4px solid var(--nissan-red);
     padding: 8px 12px;
-    border-radius: 6px;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--nissan-gray-200);
+    border-left-width: 4px;
   }
 
   .callout-title {
@@ -788,8 +876,37 @@
   }
   scaleSlides();
   window.addEventListener('resize', scaleSlides);
-  // Also re-scale after images load
   window.addEventListener('load', () => setTimeout(scaleSlides, 100));
+
+  // Smooth fade-in animation for slides
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.05 });
+
+  document.querySelectorAll('.slide-wrap').forEach((el, i) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.6s ease ' + (i * 0.05) + 's, transform 0.6s ease ' + (i * 0.05) + 's';
+    observer.observe(el);
+  });
+
+  // Better keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    const slides = Array.from(document.querySelectorAll('.slide-wrap'));
+    const current = slides.findIndex(s => s.getBoundingClientRect().top > 100);
+    const target = (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === ' ') ?
+      Math.min(current + 1, slides.length - 1) :
+      (e.key === 'ArrowUp' || e.key === 'ArrowLeft') ? Math.max(current - 1, 0) : -1;
+    if (target >= 0) {
+      slides[target].scrollIntoView({ behavior: 'smooth', block: 'start' });
+      e.preventDefault();
+    }
+  });
 </script>
 
 <style>
