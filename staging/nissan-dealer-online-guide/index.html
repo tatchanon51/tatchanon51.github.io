@@ -101,8 +101,8 @@
 
   .slide {
     width: 1280px;
-    height: 720px;
-    min-height: 720px;
+    min-height: 600px;
+    height: auto;
     background: white;
     border-radius: 8px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
@@ -169,25 +169,24 @@
 
   /* === SLIDE BODY — FIXED 720-56-32=632px === */
   .slide-body {
-    flex: 1 1 auto;
-    padding: 14px 20px;
-    overflow: hidden;
+    flex: 0 1 auto;
+    padding: 14px 20px 14px 20px;
+    overflow: visible;
     display: flex;
     flex-direction: column;
     gap: 8px;
     justify-content: flex-start;
-    min-height: 0;
   }
 
   /* === SLIDE FOOTER — FIXED 32px === */
   .slide-footer {
-    height: 32px;
+    min-height: 32px;
     flex-shrink: 0;
     margin-top: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 16px;
+    padding: 6px 16px;
     background: var(--nissan-gray-50);
     border-top: 1px solid var(--nissan-gray-200);
     font-size: 10px;
