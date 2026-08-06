@@ -278,7 +278,11 @@
   /* === GRID === */
   .grid {
     display: grid;
-    gap: 8px;
+    gap: 6px;
+    align-content: start;
+  }
+  .grid > .card {
+    align-self: start;
   }
   .grid-2 { grid-template-columns: 1fr 1fr; }
   .grid-3 { grid-template-columns: repeat(3, 1fr); }
@@ -286,7 +290,7 @@
   .grid-5 { grid-template-columns: repeat(5, 1fr); }
   .grid-6 { grid-template-columns: repeat(6, 1fr); }
   .grid-7 { grid-template-columns: repeat(7, 1fr); }
-  .grow { flex: 1; min-height: 0; }
+  .grow { flex: 1 1 auto; min-height: 0; max-height: 100%; }
 
   /* === CARD === */
   .card {
@@ -440,7 +444,7 @@
 
   /* === TABLE === */
   table { font-size: 11px; }
-  th, td { padding: 5px 7px; }
+  th, td { padding: 4px 6px; }
 
   /* === RESPONSIVE === */
   @media (max-width: 1320px) {
