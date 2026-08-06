@@ -458,25 +458,19 @@
   table { font-size: 11px; }
   th, td { padding: 5px 8px; }
 
-  /* === RESPONSIVE === */
+  /* === RESPONSIVE (no scale - use original 1280px) === */
   @media (max-width: 1320px) {
-    .slide {
-      transform: scale(0.85);
-      transform-origin: top center;
-    }
+    .slide-wrap { padding: 12px; }
   }
   @media (max-width: 1100px) {
-    .slide {
-      transform: scale(0.7);
-      transform-origin: top center;
-    }
+    .slide-wrap { padding: 8px; }
   }
   @media (max-width: 768px) {
-    .slide {
-      transform: scale(0.5);
-      transform-origin: top center;
-    }
-    .toolbar { flex-direction: column; align-items: flex-start; }
+    .slide-wrap { padding: 4px; overflow-x: auto; }
+    .slide { width: 95vw; height: auto; min-height: 540px; }
+    .toolbar { flex-direction: column; align-items: flex-start; padding: 8px 12px; }
+    .toolbar-nav { width: 100%; overflow-x: auto; flex-wrap: nowrap; }
+    .toolbar-nav a { white-space: nowrap; flex-shrink: 0; }
   }
 
   /* === PRINT === */
