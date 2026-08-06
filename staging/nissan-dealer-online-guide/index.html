@@ -34,10 +34,10 @@
   }
 
   body {
-    padding: 40px 20px;
+    padding: 20px 12px;
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 24px;
     align-items: center;
   }
 
@@ -90,15 +90,25 @@
   }
 
   /* === SLIDE STRUCTURE: Fixed Grid === */
+  .slide-wrap {
+    width: 100%;
+    max-width: 1600px;
+    aspect-ratio: 16 / 9;
+    position: relative;
+    overflow: hidden;
+    border-radius: 6px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.16);
+  }
+
   .slide {
     width: var(--slide-w);
     height: var(--slide-h);
     background: var(--nissan-white);
-    box-shadow: 0 8px 32px rgba(0,0,0,0.16);
     position: relative;
-    overflow: hidden;  /* Hard clip - nothing escapes */
+    overflow: hidden;
     display: grid;
     grid-template-rows: var(--slide-header-h) var(--slide-body-h) var(--slide-footer-h);
+    transform-origin: top left;
     page-break-after: always;
   }
 
@@ -464,7 +474,7 @@
 </div>
 
 <!-- Slide 1: Cover -->
-<section class="slide" id="slide-1">
+<div class="slide-wrap"><section class="slide" id="slide-1">
   <div class="slide-header">
     <div class="slide-header-logo"><img src="assets/nissan_logo_black.png" alt="Nissan Logo"></div>
     <div class="slide-header-module">Module 1: Fundamentals</div>
@@ -495,10 +505,10 @@
     <div class="slide-footer-source">Source: Nissan Brand VI Guidelines E ver1.3 · nissan.co.th · nissanbrandceg.com</div>
     <div>Prototype · Not for distribution</div>
   </div>
-</section>
+</section></div>
 
 <!-- Slide 2: Customer Journey -->
-<section class="slide" id="slide-2">
+<div class="slide-wrap"><section class="slide" id="slide-2">
   <div class="slide-header">
     <div class="slide-header-logo"><img src="assets/nissan_logo_black.png" alt="Nissan Logo"></div>
     <div class="slide-header-module">Module 1: Fundamentals</div>
@@ -548,10 +558,10 @@
     <div class="slide-footer-source">Source: Stage_1_Brief_v1.md · Nissan CEG</div>
     <div>Module 1 — Online Marketing Fundamentals</div>
   </div>
-</section>
+</section></div>
 
 <!-- Slide 5: Platform Role Overview -->
-<section class="slide" id="slide-5">
+<div class="slide-wrap"><section class="slide" id="slide-5">
   <div class="slide-header">
     <div class="slide-header-logo"><img src="assets/nissan_logo_black.png" alt="Nissan Logo"></div>
     <div class="slide-header-module">Module 2: Platform Strategy</div>
@@ -597,10 +607,10 @@
     <div class="slide-footer-source">Source: GUIDELINE.md · nissan.co.th social channels · Nissan CEG</div>
     <div>Module 2 — Platform Strategy</div>
   </div>
-</section>
+</section></div>
 
 <!-- Slide 15: Meta Ads Objective Map -->
-<section class="slide" id="slide-15">
+<div class="slide-wrap"><section class="slide" id="slide-15">
   <div class="slide-header">
     <div class="slide-header-logo"><img src="assets/nissan_logo_black.png" alt="Nissan Logo"></div>
     <div class="slide-header-module">Module 3: Facebook Playbook</div>
@@ -651,10 +661,10 @@
     <div class="slide-footer-source">Source: Meta_Policy_Verification.md (verified 5 Aug 2026) · Meta Ads Manager documentation</div>
     <div>Module 3 — Facebook Marketing Playbook</div>
   </div>
-</section>
+</section></div>
 
 <!-- Slide 30: TikTok Ads Objective Map -->
-<section class="slide" id="slide-30">
+<div class="slide-wrap"><section class="slide" id="slide-30">
   <div class="slide-header">
     <div class="slide-header-logo"><img src="assets/nissan_logo_black.png" alt="Nissan Logo"></div>
     <div class="slide-header-module">Module 4: TikTok Playbook</div>
@@ -690,10 +700,10 @@
     <div class="slide-footer-source">Source: TikTok_Policy_Verification.md (verified 5 Aug 2026) · ads.tiktok.com/help</div>
     <div>Module 4 — TikTok Marketing Playbook</div>
   </div>
-</section>
+</section></div>
 
 <!-- Slide 39: Pre-Publish Checklist -->
-<section class="slide" id="slide-39">
+<div class="slide-wrap"><section class="slide" id="slide-39">
   <div class="slide-header">
     <div class="slide-header-logo"><img src="assets/nissan_logo_black.png" alt="Nissan Logo"></div>
     <div class="slide-header-module">Module 6: Governance</div>
@@ -750,12 +760,67 @@
     <div class="slide-footer-source">Source: Pre_Publish_Checklist.md · Stage_2_Research_Summary.md</div>
     <div>Module 6 — Measurement &amp; Governance</div>
   </div>
-</section>
+</section></div>
 
 <div style="margin-top: 40px; font-size: 14px; color: var(--nissan-gray-600); text-align: center; max-width: 800px;">
-  Visual Prototype Reset Layout — Stage 5 of 6.<br>
+  Visual Prototype Reset Layout + Responsive — Stage 5 of 6.<br>
   ส่งให้ March ตรวจและอนุมัติ Design Direction ก่อนสร้าง slides ที่เหลืออีก 34 slides
 </div>
+
+<script>
+  // Responsive scaling: scale each slide to fit its container while keeping 16:9 aspect ratio
+  function scaleSlides() {
+    const slides = document.querySelectorAll('.slide-wrap');
+    slides.forEach(wrap => {
+      const slide = wrap.querySelector('.slide');
+      if (!slide) return;
+      const wrapW = wrap.clientWidth;
+      const wrapH = wrap.clientHeight;
+      // Target scale: fit within container
+      const scaleX = wrapW / 1600;
+      const scaleY = wrapH / 900;
+      const scale = Math.min(scaleX, scaleY);
+      slide.style.transform = 'scale(' + scale + ')';
+      slide.style.position = 'absolute';
+      slide.style.top = '0';
+      slide.style.left = '0';
+    });
+  }
+  scaleSlides();
+  window.addEventListener('resize', scaleSlides);
+  // Also re-scale after images load
+  window.addEventListener('load', () => setTimeout(scaleSlides, 100));
+</script>
+
+<style>
+  /* === RESPONSIVE BREAKPOINTS === */
+  @media (max-width: 1279px) {
+    body { gap: 16px; padding: 12px 8px; }
+    .toolbar-nav a { font-size: 11px; padding: 5px 10px; }
+  }
+  @media (max-width: 900px) {
+    .toolbar { flex-direction: column; align-items: stretch; padding: 10px 12px; }
+    .toolbar-nav { justify-content: center; }
+    .toolbar-nav a { font-size: 10px; padding: 4px 8px; }
+    body { gap: 12px; padding: 8px 4px; }
+  }
+  @media (max-width: 600px) {
+    .toolbar-title { font-size: 14px; }
+    .toolbar-nav a { font-size: 9px; padding: 3px 6px; }
+  }
+  /* For very narrow screens, reduce transform-origin to bottom-left */
+  @media (max-aspect-ratio: 1/1) {
+    .slide-wrap { aspect-ratio: auto; height: auto; min-height: 200px; }
+  }
+  /* === PRINT === */
+  @media print {
+    body { background: var(--nissan-white); padding: 0; gap: 0; }
+    .toolbar { display: none; }
+    .slide-wrap { box-shadow: none; width: 16in; height: 9in; max-width: 100%; page-break-after: always; }
+    .slide { transform: scale(1) !important; }
+    @page { size: 16in 9in; margin: 0; }
+  }
+</style>
 
 </body>
 </html>
