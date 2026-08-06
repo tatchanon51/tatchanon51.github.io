@@ -2362,33 +2362,32 @@
 </div>
 
 <script>
-  // Smooth scroll to hash target on load
   function scrollToHash() {
     const hash = window.location.hash;
     if (hash && hash.startsWith('#slide-')) {
       const el = document.querySelector(hash);
       if (el) {
-        const rect = el.getBoundingClientRect();
-        const targetY = window.pageYOffset + rect.top - 80;
-        window.scrollTo({top: targetY, behavior: 'instant'});
+        // Scroll so the slide is at the top of viewport, accounting for sticky toolbar
+        const toolbarH = 56; // approximate sticky toolbar height
+        const y = el.getBoundingClientRect().top + window.pageYOffset - toolbarH;
+        window.scrollTo({top: y, behavior: 'instant'});
       }
     }
   }
   window.addEventListener('load', scrollToHash);
   document.addEventListener('DOMContentLoaded', scrollToHash);
-  // Also try immediately
   setTimeout(scrollToHash, 100);
-  setTimeout(scrollToHash, 500);
+  setTimeout(scrollToHash, 300);
+  setTimeout(scrollToHash, 800);
   
-  // Toolbar nav click handler
   document.querySelectorAll('.toolbar-nav a').forEach(a => {
     a.addEventListener('click', (e) => {
       e.preventDefault();
       const target = document.querySelector(a.getAttribute('href'));
       if (target) {
-        const rect = target.getBoundingClientRect();
-        const targetY = window.pageYOffset + rect.top - 80;
-        window.scrollTo({top: targetY, behavior: 'smooth'});
+        const toolbarH = 56;
+        const y = target.getBoundingClientRect().top + window.pageYOffset - toolbarH;
+        window.scrollTo({top: y, behavior: 'smooth'});
       }
     });
   });
