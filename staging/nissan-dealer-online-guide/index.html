@@ -101,7 +101,8 @@
 
   .slide {
     width: 1280px;
-    height: 900px;
+    min-height: 600px;
+    height: auto;
     background: white;
     border-radius: 8px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
@@ -170,19 +171,21 @@
 
   /* === SLIDE BODY — FIXED 720-56-32=632px === */
   .slide-body {
-    flex: 1;
-    padding: 10px 18px;
-    overflow: auto;
+    flex: 0 1 auto;
+    padding: 14px 20px;
+    max-height: 720px;
+    overflow: hidden;
+    overflow: visible;
     display: flex;
     flex-direction: column;
-    gap: 5px;
-    min-height: 0;
+    gap: 8px;
   }
 
   /* === SLIDE FOOTER — FIXED 32px === */
   .slide-footer {
-    height: 40px;
+    height: 36px;
     flex-shrink: 0;
+    margin-top: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -263,8 +266,8 @@
   .title-l {
     font-family: var(--font-primary);
     font-weight: 700;
-    font-size: 18px;
-    line-height: 1.15;
+    font-size: 22px;
+    line-height: 1.2;
     color: var(--nissan-black);
     flex-shrink: 0;
   }
@@ -277,16 +280,16 @@
     color: var(--nissan-black);
   }
   .body-text {
-    font-size: 11px;
+    font-size: 12px;
     color: var(--nissan-gray-800);
-    line-height: 1.35;
+    line-height: 1.4;
     flex-shrink: 0;
   }
 
   /* === GRID === */
   .grid {
     display: grid;
-    gap: 6px;
+    gap: 8px;
     align-content: start;
   }
   .grid > .card {
@@ -298,18 +301,18 @@
   .grid-5 { grid-template-columns: repeat(5, 1fr); }
   .grid-6 { grid-template-columns: repeat(6, 1fr); }
   .grid-7 { grid-template-columns: repeat(7, 1fr); }
-  .grow { flex: 1 1 auto; min-height: 0; max-height: 100%; }
+  .grow { flex: 1 1 auto; min-height: 0; }
 
   /* === CARD === */
   .card {
     background: var(--nissan-gray-50);
     border-radius: 6px;
-    padding: 6px 8px;
+    padding: 8px 10px;
     border-left: 3px solid var(--nissan-gray-400);
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 4px;
   }
   .card-accent {
     background: var(--nissan-white);
@@ -319,23 +322,23 @@
   .card-title {
     font-family: var(--font-primary);
     font-weight: 700;
-    font-size: 12px;
+    font-size: 13px;
     color: var(--nissan-black);
-    line-height: 1.15;
+    line-height: 1.2;
   }
   .card-text {
-    font-size: 10px;
+    font-size: 11px;
     color: var(--nissan-gray-800);
-    line-height: 1.25;
+    line-height: 1.35;
   }
   .card-tag {
     display: inline-block;
     background: var(--nissan-red);
     color: white;
-    font-size: 9px;
+    font-size: 10px;
     font-weight: 700;
-    padding: 2px 6px;
-    border-radius: 8px;
+    padding: 2px 8px;
+    border-radius: 10px;
     letter-spacing: 0.3px;
     width: fit-content;
   }
@@ -452,7 +455,7 @@
 
   /* === TABLE === */
   table { font-size: 11px; }
-  th, td { padding: 4px 6px; }
+  th, td { padding: 5px 8px; }
 
   /* === RESPONSIVE === */
   @media (max-width: 1320px) {
