@@ -1,27 +1,70 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" width="600" height="300">
   <defs>
-    <linearGradient id="elgrandGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1E1E1E;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#C3002F;stop-opacity:1" />
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a1a2e"/>
+      <stop offset="100%" stop-color="#16213e"/>
+    </linearGradient>
+    <linearGradient id="body" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3a3a4e"/>
+      <stop offset="100%" stop-color="#1e1e2e"/>
+    </linearGradient>
+    <linearGradient id="window" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#4a5775"/>
+      <stop offset="100%" stop-color="#2a3550"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#C9A961"/>
+      <stop offset="100%" stop-color="#E5C785"/>
     </linearGradient>
   </defs>
-  <rect width="600" height="300" fill="#F8F8F8"/>
-  <!-- Car silhouette -->
-  <g transform="translate(80, 90)" fill="url(#elgrandGrad)">
-    <!-- Body -->
-    <rect x="0" y="40" width="440" height="80" rx="20"/>
-    <!-- Roof -->
-    <path d="M 80 40 L 130 0 L 310 0 L 360 40 Z"/>
-    <!-- Windows -->
-    <rect x="90" y="10" width="80" height="30" fill="#E0E0E0" opacity="0.7"/>
-    <rect x="180" y="10" width="120" height="30" fill="#E0E0E0" opacity="0.7"/>
+
+  <!-- Background -->
+  <rect width="600" height="300" fill="url(#bg)"/>
+
+  <!-- Subtle ground reflection -->
+  <ellipse cx="300" cy="240" rx="200" ry="8" fill="rgba(255,255,255,0.05)"/>
+
+  <!-- Car body - MPV silhouette -->
+  <g transform="translate(100, 90)">
+    <!-- Main body -->
+    <path d="M 0 110 L 0 80 Q 5 50 30 45 L 60 35 Q 90 15 150 15 L 280 15 Q 340 15 380 40 L 400 60 L 400 110 Z" fill="url(#body)" stroke="#0a0a14" stroke-width="2"/>
+
+    <!-- Window area -->
+    <path d="M 60 50 L 90 30 Q 110 20 150 20 L 280 20 Q 320 20 350 35 L 370 55 L 60 55 Z" fill="url(#window)" opacity="0.9"/>
+
+    <!-- Window divider -->
+    <line x1="170" y1="20" x2="170" y2="55" stroke="#1a1a2e" stroke-width="2"/>
+    <line x1="240" y1="20" x2="240" y2="55" stroke="#1a1a2e" stroke-width="2"/>
+
+    <!-- Side character line -->
+    <line x1="0" y1="80" x2="400" y2="80" stroke="#C9A961" stroke-width="1.5" opacity="0.6"/>
+
+    <!-- Front headlight -->
+    <rect x="390" y="65" width="12" height="15" fill="url(#gold)" rx="2"/>
+
+    <!-- Door handles -->
+    <rect x="120" y="85" width="14" height="3" fill="#C9A961" opacity="0.7"/>
+    <rect x="200" y="85" width="14" height="3" fill="#C9A961" opacity="0.7"/>
+    <rect x="280" y="85" width="14" height="3" fill="#C9A961" opacity="0.7"/>
+
     <!-- Wheels -->
-    <circle cx="80" cy="120" r="25" fill="#1E1E1E"/>
-    <circle cx="80" cy="120" r="12" fill="#666666"/>
-    <circle cx="360" cy="120" r="25" fill="#1E1E1E"/>
-    <circle cx="360" cy="120" r="12" fill="#666666"/>
+    <circle cx="80" cy="115" r="22" fill="#0a0a14" stroke="url(#gold)" stroke-width="2"/>
+    <circle cx="80" cy="115" r="10" fill="#1a1a2e" stroke="#3a3a4e" stroke-width="1"/>
+    <circle cx="80" cy="115" r="3" fill="#C9A961"/>
+
+    <circle cx="320" cy="115" r="22" fill="#0a0a14" stroke="url(#gold)" stroke-width="2"/>
+    <circle cx="320" cy="115" r="10" fill="#1a1a2e" stroke="#3a3a4e" stroke-width="1"/>
+    <circle cx="320" cy="115" r="3" fill="#C9A961"/>
+
+    <!-- Wheel arch highlights -->
+    <path d="M 55 110 Q 80 90 105 110" fill="none" stroke="#0a0a14" stroke-width="2"/>
+    <path d="M 295 110 Q 320 90 345 110" fill="none" stroke="#0a0a14" stroke-width="2"/>
+
+    <!-- Front grille hint -->
+    <rect x="395" y="80" width="8" height="20" fill="#C9A961" opacity="0.4" rx="2"/>
   </g>
-  <!-- Text -->
-  <text x="300" y="240" font-family="Nissan Brand, Arial, sans-serif" font-size="18" font-weight="700" fill="#1E1E1E" text-anchor="middle">ELGRAND</text>
-  <text x="300" y="265" font-family="Arial, sans-serif" font-size="11" fill="#666666" text-anchor="middle">Global Reference Only</text>
+
+  <!-- Branding label -->
+  <text x="300" y="270" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#C9A961" letter-spacing="3">ELGRAND</text>
+  <text x="300" y="285" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#8a8a9e" letter-spacing="2">PREMIUM MPV · GLOBAL REFERENCE</text>
 </svg>
