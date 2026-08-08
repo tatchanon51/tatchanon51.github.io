@@ -91,12 +91,11 @@ html, body {
   transform: translateY(-1px);
 }
 
-/* === SLIDE CONTAINER — FIXED 16:9 === */
-
+/* === SLIDE CONTAINER — FIXED 16:9 (1280×720) === */
 .slide {
   width: 1280px;
-  min-height: 400px;
-  height: auto;
+  height: 720px;
+  min-height: 720px;
   background: white;
   border-radius: 8px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
@@ -163,13 +162,14 @@ html, body {
 
 /* === SLIDE BODY — FIXED 720-56-32=632px === */
 .slide-body {
-  flex: 0 1 auto;
+  flex: 1 1 auto;
   padding: 14px 20px 14px 20px;
-  overflow: visible;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   gap: 8px;
   justify-content: flex-start;
+  min-height: 0;
 }
 
 /* === SLIDE FOOTER — FIXED 32px === */
