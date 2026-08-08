@@ -167,8 +167,8 @@ html, body {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  justify-content: flex-start;
+  gap: 12px;
+  justify-content: space-between;
   min-height: 0;
 }
 
