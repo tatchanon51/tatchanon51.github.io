@@ -93,8 +93,10 @@ html, body {
 
 /* === SLIDE CONTAINER — FIXED 16:9 (1280×720) === */
 .slide {
-  align-items: flex-start;
-  width: 1280px;  background: white;
+  width: 1280px;
+  height: 720px;
+  min-height: 720px;
+  background: white;
   border-radius: 8px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
   overflow: hidden;
@@ -174,7 +176,6 @@ html, body {
 .slide-footer {
   min-height: 32px;
   flex-shrink: 0;
-  margin-top: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
