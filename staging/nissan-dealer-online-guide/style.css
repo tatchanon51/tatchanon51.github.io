@@ -95,8 +95,7 @@ html, body {
 .slide {
   align-items: flex-start;
   width: 1280px;
-  height: 720px;
-  min-height: 720px;
+    min-height: 720px;
   background: white;
   border-radius: 8px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
