@@ -50,34 +50,40 @@ html, body {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-  padding: 12px 24px;
+  padding: 10px 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 12px;
+  flex-wrap: nowrap;
+  gap: 8px;
 }
 .toolbar-title {
   font-family: var(--font-primary);
   font-weight: 700;
-  font-size: 18px;
+  font-size: 15px;
   color: var(--nissan-black);
+  flex-shrink: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-.toolbar-title span { color: var(--nissan-gray-600); font-weight: 400; font-size: 14px; }
+.toolbar-title span { color: var(--nissan-gray-600); font-weight: 400; font-size: 12px; }
 .toolbar-nav {
   display: flex;
-  gap: 6px;
+  gap: 4px;
   flex-wrap: wrap;
+  justify-content: flex-end;
 }
 .toolbar-nav a {
-  padding: 8px 14px;
-  border-radius: 20px;
+  padding: 5px 10px;
+  border-radius: 16px;
   text-decoration: none;
   color: var(--nissan-gray-800);
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 500;
   transition: all 0.2s ease;
   background: var(--nissan-gray-50);
+  white-space: nowrap;
 }
 .toolbar-nav a:hover {
   background: var(--nissan-red);
