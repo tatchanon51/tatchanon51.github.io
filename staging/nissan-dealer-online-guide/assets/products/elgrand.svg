@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <linearGradient id="elgrandGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1E1E1E;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#C3002F;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="300" fill="#F8F8F8"/>
+  <!-- Car silhouette -->
+  <g transform="translate(80, 90)" fill="url(#elgrandGrad)">
+    <!-- Body -->
+    <rect x="0" y="40" width="440" height="80" rx="20"/>
+    <!-- Roof -->
+    <path d="M 80 40 L 130 0 L 310 0 L 360 40 Z"/>
+    <!-- Windows -->
+    <rect x="90" y="10" width="80" height="30" fill="#E0E0E0" opacity="0.7"/>
+    <rect x="180" y="10" width="120" height="30" fill="#E0E0E0" opacity="0.7"/>
+    <!-- Wheels -->
+    <circle cx="80" cy="120" r="25" fill="#1E1E1E"/>
+    <circle cx="80" cy="120" r="12" fill="#666666"/>
+    <circle cx="360" cy="120" r="25" fill="#1E1E1E"/>
+    <circle cx="360" cy="120" r="12" fill="#666666"/>
+  </g>
+  <!-- Text -->
+  <text x="300" y="240" font-family="Nissan Brand, Arial, sans-serif" font-size="18" font-weight="700" fill="#1E1E1E" text-anchor="middle">ELGRAND</text>
+  <text x="300" y="265" font-family="Arial, sans-serif" font-size="11" fill="#666666" text-anchor="middle">Global Reference Only</text>
+</svg>
