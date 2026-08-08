@@ -93,6 +93,7 @@ html, body {
 
 /* === SLIDE CONTAINER — FIXED 16:9 (1280×720) === */
 .slide {
+  align-items: flex-start;
   width: 1280px;
   height: 720px;
   min-height: 720px;
@@ -462,7 +463,8 @@ th, td { padding: 5px 8px; }
 @media (max-width: 1100px) {
 }
 @media (max-width: 768px) {
-  .slide { width: 95vw; height: auto; min-height: 540px; }
+  .slide {
+  align-items: flex-start; width: 95vw; height: auto; min-height: 540px; }
   .toolbar { flex-direction: column; align-items: flex-start; padding: 8px 12px; }
   .toolbar-nav { width: 100%; overflow-x: auto; flex-wrap: nowrap; }
   .toolbar-nav a { white-space: nowrap; flex-shrink: 0; }
@@ -473,6 +475,7 @@ th, td { padding: 5px 8px; }
   body { background: white; }
   .toolbar { display: none; }
   .slide {
+  align-items: flex-start;
     box-shadow: none;
     page-break-after: always;
   }
