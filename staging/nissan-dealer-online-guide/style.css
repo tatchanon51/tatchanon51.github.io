@@ -472,6 +472,97 @@ th, td { padding: 5px 8px; }
   .toolbar-nav a { white-space: nowrap; flex-shrink: 0; }
 }
 
+/* === INFOGRAPHIC BAR CHART === */
+.infographic {
+  background: linear-gradient(135deg, var(--nissan-white) 0%, var(--nissan-red-soft) 100%);
+  border-left: 4px solid var(--nissan-red);
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin-top: 6px;
+}
+.info-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--nissan-gray-800);
+  margin-bottom: 6px;
+}
+.info-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.info-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.info-bar-label {
+  width: 90px;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--nissan-gray-700);
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.info-bar-track {
+  flex: 1;
+  background: var(--nissan-gray-100);
+  border-radius: 4px;
+  height: 16px;
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+}
+.info-bar-fill {
+  height: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 4px;
+  color: white;
+  font-size: 9px;
+  font-weight: 700;
+  border-radius: 4px;
+  min-width: 26px;
+  white-space: nowrap;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* === HERO BANNER === */
+.hero-banner {
+  background: linear-gradient(135deg, var(--nissan-red) 0%, #8B0020 100%);
+  color: white;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 6px;
+}
+
+/* === STAT CARD === */
+.stat-card {
+  background: linear-gradient(135deg, var(--nissan-white) 0%, var(--nissan-red-soft) 100%);
+  border-left: 4px solid var(--nissan-red);
+  padding: 8px 12px;
+  border-radius: 6px;
+  text-align: center;
+}
+.stat-value {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--nissan-red);
+  line-height: 1;
+}
+.stat-label {
+  font-size: 9px;
+  font-weight: 600;
+  color: var(--nissan-gray-600);
+  margin-top: 2px;
+}
+
 /* === PRINT === */
 @media print {
   body { background: white; }
