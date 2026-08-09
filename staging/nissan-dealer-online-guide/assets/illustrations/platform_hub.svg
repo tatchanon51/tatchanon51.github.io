@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200" width="400" height="200">
+  <rect width="400" height="200" fill="#F8F8F8" rx="8"/>
+  
+  <!-- FB Center -->
+  <circle cx="130" cy="100" r="55" fill="#1877F2"/>
+  <text x="130" y="115" text-anchor="middle" font-family="Arial" font-size="32" font-weight="800" fill="white">f</text>
+  
+  <!-- Satellite platforms -->
+  <circle cx="280" cy="50" r="28" fill="#1DA1F2"/>
+  <text x="280" y="58" text-anchor="middle" font-size="16" fill="white">T</text>
+  
+  <circle cx="320" cy="100" r="28" fill="#06C755"/>
+  <text x="320" y="108" text-anchor="middle" font-size="16" fill="white">L</text>
+  
+  <circle cx="280" cy="150" r="28" fill="#FF0000"/>
+  <text x="280" y="158" text-anchor="middle" font-size="16" fill="white">▶</text>
+  
+  <circle cx="200" cy="160" r="22" fill="#E1306C"/>
+  <text x="200" y="167" text-anchor="middle" font-size="14" fill="white">IG</text>
+  
+  <!-- Lines -->
+  <line x1="180" y1="80" x2="252" y2="55" stroke="#C3002F" stroke-width="2" stroke-dasharray="4,3"/>
+  <line x1="180" y1="105" x2="292" y2="100" stroke="#C3002F" stroke-width="2" stroke-dasharray="4,3"/>
+  <line x1="180" y1="125" x2="252" y2="145" stroke="#C3002F" stroke-width="2" stroke-dasharray="4,3"/>
+  
+  <text x="200" y="30" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#1E1E1E">FB + TikTok Center, Others Support</text>
+</svg>

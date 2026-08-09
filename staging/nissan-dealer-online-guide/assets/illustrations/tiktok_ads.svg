@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200" width="400" height="200">
+  <rect width="400" height="200" fill="#F8F8F8" rx="8"/>
+  
+  <!-- 3 Categories stacked -->
+  <rect x="50" y="30" width="300" height="40" fill="#C3002F" rx="4"/>
+  <text x="200" y="55" text-anchor="middle" font-family="Arial" font-size="13" font-weight="700" fill="white">🎯 In-Feed Ads (Awareness)</text>
+  
+  <rect x="50" y="80" width="300" height="40" fill="#E55B30" rx="4"/>
+  <text x="200" y="105" text-anchor="middle" font-family="Arial" font-size="13" font-weight="700" fill="white">📹 Spark Ads (Boosted Organic)</text>
+  
+  <rect x="50" y="130" width="300" height="40" fill="#F57C00" rx="4"/>
+  <text x="200" y="155" text-anchor="middle" font-family="Arial" font-size="13" font-weight="700" fill="white">🔄 Lead Gen (Conversion)</text>
+  
+  <text x="200" y="20" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#1E1E1E">TikTok Ads — 3 Categories</text>
+</svg>

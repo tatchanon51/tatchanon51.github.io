@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200" width="400" height="200">
+  <rect width="400" height="200" fill="#F8F8F8" rx="8"/>
+  
+  <!-- A/B Test Setup -->
+  <rect x="30" y="60" width="100" height="80" fill="#1877F2" rx="6"/>
+  <text x="80" y="90" text-anchor="middle" font-size="22">🎨</text>
+  <text x="80" y="115" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="white">Creative A</text>
+  <text x="80" y="160" text-anchor="middle" font-family="Arial" font-size="10" fill="#1E1E1E">CTR 1.2%</text>
+  
+  <rect x="150" y="60" width="100" height="80" fill="#C3002F" rx="6"/>
+  <text x="200" y="90" text-anchor="middle" font-size="22">🎬</text>
+  <text x="200" y="115" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="white">Creative B</text>
+  <text x="200" y="160" text-anchor="middle" font-family="Arial" font-size="10" fill="#1E1E1E">CTR 2.4% ✓</text>
+  
+  <rect x="270" y="60" width="100" height="80" fill="#42B72A" rx="6"/>
+  <text x="320" y="90" text-anchor="middle" font-size="22">🏆</text>
+  <text x="320" y="115" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="white">Winner B</text>
+  <text x="320" y="160" text-anchor="middle" font-family="Arial" font-size="10" fill="#1E1E1E">+50% Boost</text>
+  
+  <text x="200" y="35" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#1E1E1E">🧪 A/B Creative Test Cycle</text>
+</svg>
