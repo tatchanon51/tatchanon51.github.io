@@ -165,6 +165,7 @@ html, body {
 /* === SLIDE BODY — FIXED 720-56-32=632px === */
 .slide-body {
   flex: 1 1 auto;
+  overflow: hidden;
   padding: 14px 20px 14px 20px;
   overflow: hidden;
   display: flex;
