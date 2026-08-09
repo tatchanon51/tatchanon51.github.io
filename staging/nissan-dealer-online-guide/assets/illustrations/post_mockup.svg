@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <rect width="400" height="300" fill="#F8F8F8" rx="8"/>
+  
+  <!-- Phone Frame -->
+  <rect x="130" y="30" width="140" height="240" fill="#1E1E1E" rx="14"/>
+  <rect x="138" y="50" width="124" height="200" fill="white" rx="4"/>
+  
+  <!-- Header -->
+  <rect x="138" y="50" width="124" height="30" fill="#1877F2" rx="4"/>
+  <text x="200" y="70" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="white">Facebook Page</text>
+  
+  <!-- Caption -->
+  <text x="148" y="100" font-family="Arial" font-size="9" font-weight="700" fill="#1E1E1E">🚗 ALMERA 2026</text>
+  <text x="148" y="115" font-family="Arial" font-size="8" fill="#666">ราคาเริ่มต้น 5XX,XXX บาท</text>
+  
+  <!-- Image placeholder -->
+  <rect x="148" y="125" width="104" height="60" fill="#C3002F" rx="3"/>
+  <text x="200" y="160" text-anchor="middle" font-family="Arial" font-size="22">🚗</text>
+  
+  <!-- CTA -->
+  <rect x="148" y="195" width="104" height="22" fill="#C3002F" rx="4"/>
+  <text x="200" y="210" text-anchor="middle" font-family="Arial" font-size="9" font-weight="700" fill="white">ลงทะเบียนทดลองขับ</text>
+  
+  <!-- Engagement -->
+  <text x="148" y="235" font-family="Arial" font-size="8" fill="#666">👍 245  💬 12  ↗️ 8</text>
+</svg>

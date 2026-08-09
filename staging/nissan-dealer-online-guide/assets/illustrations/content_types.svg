@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200" width="400" height="200">
+  <rect width="400" height="200" fill="#F8F8F8" rx="8"/>
+  
+  <!-- Content Type Cards -->
+  <rect x="20" y="40" width="80" height="100" fill="#C3002F" rx="6"/>
+  <text x="60" y="80" text-anchor="middle" font-size="32">📸</text>
+  <text x="60" y="115" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="white">PHOTO</text>
+  
+  <rect x="115" y="40" width="80" height="100" fill="#E55B30" rx="6"/>
+  <text x="155" y="80" text-anchor="middle" font-size="32">🎬</text>
+  <text x="155" y="115" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="white">VIDEO</text>
+  
+  <rect x="210" y="40" width="80" height="100" fill="#F57C00" rx="6"/>
+  <text x="250" y="80" text-anchor="middle" font-size="32">📑</text>
+  <text x="250" y="115" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="white">CAROUSEL</text>
+  
+  <rect x="305" y="40" width="80" height="100" fill="#FFA726" rx="6"/>
+  <text x="345" y="80" text-anchor="middle" font-size="32">⏱️</text>
+  <text x="345" y="115" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="white">STORY</text>
+  
+  <text x="200" y="25" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#1E1E1E">Content Types That Convert</text>
+  <text x="200" y="175" text-anchor="middle" font-family="Arial" font-size="10" fill="#666">Mix 7 Pillars × 4 Types = Unlimited Combos</text>
+</svg>
