@@ -563,6 +563,20 @@ th, td { padding: 5px 8px; }
   margin-top: 2px;
 }
 
+/* === SLIDE ANIMATIONS === */
+.slide-animated {
+  opacity: 0.7;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.slide-animated.slide-visible {
+  opacity: 1;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
 /* === PRINT === */
 @media print {
   body { background: white; }
