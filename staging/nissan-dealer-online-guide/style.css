@@ -94,6 +94,7 @@ html, body {
 /* === SLIDE CONTAINER — FIXED 16:9 (1280×720) === */
 .slide {
   width: 1280px;
+  min-width: 1280px;
   height: 720px;
   min-height: 720px;
   background: white;
@@ -102,6 +103,7 @@ html, body {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  align-items: stretch;
   position: relative;
 }
 
