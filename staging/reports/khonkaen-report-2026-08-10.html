@@ -455,7 +455,10 @@ insight {
 </tbody>
 </table>
 
-<p style="font-size:11px;color:#888;margin-top:6px"><em>ตัวกรอง: event keyword + venue + วันที่ — 5 รายการ (5 มีวันที่ชัดเจน · 0 โปรโมชันทั่วไป)</em></p><div class="section-card" id="sec-5">
+<p style="font-size:11px;color:#888;margin-top:6px"><em>ตัวกรอง: event keyword + venue + วันที่ — 5 รายการ (5 มีวันที่ชัดเจน · 0 โปรโมชันทั่วไป)</em></p>
+</div>
+
+<div class="section-card" id="sec-5">
   <div class="section-card-header"><span class="section-num">5</span><h2>📊 ตารางสรุปคู่แข่งรายแบรนด์</h2></div>
   <div class="headline"><span class="headline-label">📋 คืออะไร:</span> Aggregate posts + engagement — 8 แบรนด์</div>
   </div><table id="table4">
@@ -649,7 +652,7 @@ insight {
     new Chart(document.getElementById('chartBubble'), {
       type: 'bubble',
       data: { datasets: brandLabels.map(function(b, i) {
-        var r = Math.min(40, Math.max(8, Math.sqrt(postsCt[i]) * 8));
+        var r = Math.min(40, Math.max(6, Math.sqrt(engPerPost[i]) * 4));
         return {
           label: b + ' (' + engPerPost[i] + ' eng/post)',
           data: [{ x: postsCt[i], y: totalEng[i], r: r }],
