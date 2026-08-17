@@ -55,16 +55,14 @@ body {
 }
 .hero-chip strong { font-weight: 700; }
 .toc {
-  position: sticky;
-  top: 120px;
   background: var(--bg-surface);
   border-bottom: 1px solid var(--border);
   padding: 8px 40px;
-  z-index: 99;
   font-size: 12px;
   display: flex;
   gap: 14px;
   overflow-x: auto;
+  /* Menu bar unfrozen per user request (17 Aug 2026) — remove position:sticky */
 }
 .toc a {
   color: var(--ink-500);
