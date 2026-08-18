@@ -647,7 +647,7 @@ tbody tr:hover { background: #fef2f2; color: #1a1a1a; }
 </div>
 
 
-<!-- Section 9: Regional Comparison -->
+<!-- Section 10: FY25 Snapshot -->
 <div class="section-card">
   <h2><span class="section-num">9</span>เปรียบเทียบแนวโน้ม Nissan — จังหวัดรอบศรีสะเกษ</h2>
 
@@ -755,6 +755,91 @@ tbody tr:hover { background: #fef2f2; color: #1a1a1a; }
   </div>
 </div>
 
+
+<!-- Section 10: FY25 Only Deep Dive -->
+<div class="section-card">
+  <h2><span class="section-num">10</span>FY25 Snapshot — สถานการณ์ปัจจุบัน (FY2568)</h2>
+
+  <p style="font-size: 13px; margin-bottom: 16px;">
+    วิเคราะห์เฉพาะปีงบประมาณ 2568 (ม.ค. 65 - มี.ค. 66) — ข้อมูล fresh ที่สุด
+  </p>
+
+  <div class="chart-container">
+    <canvas id="fy25Chart"></canvas>
+  </div>
+
+  <div class="kpi-grid">
+    <div class="kpi"><div class="value">8,433</div><div class="label">จดทะเบียนรวม FY25</div></div>
+    <div class="kpi nissan"><div class="value">🚗 171</div><div class="label">Nissan FY25</div></div>
+    <div class="kpi"><div class="value">2.03%</div><div class="label">Nissan Share FY25</div></div>
+    <div class="kpi"><div class="value">47.5%</div><div class="label">xEV Share FY25</div></div>
+  </div>
+
+  <h3>📊 Top 10 แบรนด์ FY25</h3>
+  <table>
+    <thead><tr><th>#</th><th>แบรนด์</th><th>จำนวน (คัน)</th><th>Market Share</th><th>Bar</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td><strong>TOYOTA</strong></td><td>3,211</td><td>38.08%</td><td><div class="brand-bar normal" style="min-width: 300px;">3,211</div></td></tr>
+      <tr><td>2</td><td><strong>ISUZU</strong></td><td>1,988</td><td>23.57%</td><td><div class="brand-bar normal" style="min-width: 186px;">1,988</div></td></tr>
+      <tr><td>3</td><td><strong>HONDA</strong></td><td>1,029</td><td>12.20%</td><td><div class="brand-bar normal" style="min-width: 96px;">1,029</div></td></tr>
+      <tr><td>4</td><td><strong>MITSUBISHI</strong></td><td>585</td><td>6.94%</td><td><div class="brand-bar normal" style="min-width: 80px;">585</div></td></tr>
+      <tr><td>5</td><td><strong>BYD</strong></td><td>333</td><td>3.95%</td><td><div class="brand-bar normal" style="min-width: 80px;">333</div></td></tr>
+      <tr><td>6</td><td><strong>FORD</strong></td><td>249</td><td>2.95%</td><td><div class="brand-bar normal" style="min-width: 80px;">249</div></td></tr>
+      <tr><td>7</td><td><strong>NISSAN</strong></td><td>171</td><td>2.03%</td><td><div class="brand-bar" style="min-width: 80px;">171</div></td></tr>
+      <tr><td>8</td><td><strong>MG</strong></td><td>166</td><td>1.97%</td><td><div class="brand-bar normal" style="min-width: 80px;">166</div></td></tr>
+      <tr><td>9</td><td><strong>MAZDA</strong></td><td>113</td><td>1.34%</td><td><div class="brand-bar normal" style="min-width: 80px;">113</div></td></tr>
+      <tr><td>10</td><td><strong>JAECOO</strong></td><td>91</td><td>1.08%</td><td><div class="brand-bar normal" style="min-width: 80px;">91</div></td></tr>
+    </tbody>
+  </table>
+
+  <h3>📍 Top 10 อำเภอ FY25 (Nissan vs ตลาด)</h3>
+  <table>
+    <thead><tr><th>#</th><th>อำเภอ</th><th>Total ตลาด</th><th>Nissan</th><th>Market Share</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>กันทรลักษ์</td><td>1,250</td><td><strong>37</strong></td><td>2.96%</td></tr>
+      <tr><td>2</td><td>เมือง</td><td>1,192</td><td><strong>36</strong></td><td>3.02%</td></tr>
+      <tr><td>3</td><td>ขุขันธ์</td><td>800</td><td><strong>11</strong></td><td>1.38%</td></tr>
+      <tr><td>4</td><td>กันทรารมย์</td><td>602</td><td><strong>11</strong></td><td>1.83%</td></tr>
+      <tr><td>5</td><td>อุทุมพรพิสัย</td><td>589</td><td><strong>10</strong></td><td>1.70%</td></tr>
+      <tr><td>6</td><td>ขุนหาญ</td><td>579</td><td><strong>15</strong></td><td>2.59%</td></tr>
+      <tr><td>7</td><td>ราษีไศล</td><td>468</td><td><strong>6</strong></td><td>1.28%</td></tr>
+      <tr><td>8</td><td>ปรางค์กู่</td><td>323</td><td><strong>0</strong></td><td>0.00%</td></tr>
+      <tr><td>9</td><td>ภูสิงห์</td><td>258</td><td><strong>4</strong></td><td>1.55%</td></tr>
+      <tr><td>10</td><td>ยางชุมน้อย</td><td>255</td><td><strong>3</strong></td><td>1.18%</td></tr>
+    </tbody>
+  </table>
+
+  <h3>⛽ พลังงาน FY25</h3>
+  <table>
+    <thead><tr><th>ประเภท</th><th>จำนวน</th><th>Share</th></tr></thead>
+    <tbody>
+      <tr><td>ดีเซล</td><td>3,745</td><td>44.41%</td></tr>
+      <tr><td>เบนซิน</td><td>2,253</td><td>26.72%</td></tr>
+      <tr><td>เบนซิน-ไฟฟ้า</td><td>1,567</td><td>18.58%</td></tr>
+      <tr><td>ไฟฟ้า</td><td>774</td><td>9.18%</td></tr>
+      <tr><td>เบนซิน-ไฟฟ้าแบบเสียบปลั๊ก</td><td>94</td><td>1.11%</td></tr>
+    </tbody>
+  </table>
+
+  <div class="kpi-grid" style="margin-top: 16px;">
+    <div class="kpi"><div class="value">2,341</div><div class="label">🚗 EV (ไฟฟ้า pure)</div></div>
+    <div class="kpi"><div class="value">1,661</div><div class="label">⚡ Hybrid (HEV+PHEV)</div></div>
+    <div class="kpi"><div class="value">5,998</div><div class="label">⛽ ICE (ดีเซล+เบนซิน)</div></div>
+    <div class="kpi"><div class="value">47.5%</div><div class="label">xEV Share</div></div>
+  </div>
+
+  <div class="callout info" style="margin-top: 16px;">
+    <strong>💡 FY25 Insight:</strong>
+    <ul style="margin: 8px 0 0 16px;">
+      <li>TOYOTA ครองตลาด 38.08% (3,211 คัน) — ขาด Nissan 13.5 เท่า</li>
+      <li>BYD ขึ้นมา rank 5 (333 คัน) — เหนือกว่า Nissan แล้ว</li>
+      <li>ตลาด Nissan ดีที่สุด: <strong>เมือง (3.02%)</strong> และ <strong>กันทรลักษ์ (2.96%)</strong></li>
+      <li>ตลาด Nissan อ่อนสุด: <strong>ปรางค์กู่ (0.31%)</strong> และ <strong>โนนคูณ (0.43%)</strong></li>
+      <li>xEV ครอง 47.5% ของตลาด — Nissan ต้องเร่ง e-POWER positioning</li>
+    </ul>
+  </div>
+</div>
+
 <div class="brief-footer">
   สร้างโดย: Tatchanon Wissawakornrungrot · Nissan Motor (Thailand) · ข้อมูลจาก กรมขนส่งทางบก
 </div>
@@ -815,6 +900,26 @@ new Chart(document.getElementById('trendChart'), {
     }
   }
 });
+
+// Chart 5: FY25 Brand Bar Chart
+new Chart(document.getElementById('fy25Chart'), {
+  type: 'bar',
+  data: {
+    labels: ["TOYOTA", "ISUZU", "HONDA", "MITSUBISHI", "BYD", "FORD", "NISSAN", "MG", "MAZDA", "JAECOO"],
+    datasets: [{{
+      label: 'จำนวนจดทะเบียน FY25 (คัน)',
+      data: [3211, 1988, 1029, 585, 333, 249, 171, 166, 113, 91],
+      backgroundColor: ["#6b7280", "#6b7280", "#6b7280", "#6b7280", "#6b7280", "#6b7280", "#C3002F", "#6b7280", "#6b7280", "#6b7280"],
+      borderWidth: 1
+    }}]
+  }},
+  options: {{
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {{ legend: {{ display: false }} }},
+    scales: {{ y: {{ beginAtZero: true }} }}
+  }}
+}});
 
 // Chart 4: Regional Comparison
 new Chart(document.getElementById('regionalChart'), {
