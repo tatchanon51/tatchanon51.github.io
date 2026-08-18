@@ -313,19 +313,13 @@ tbody tr:hover { background: #fef2f2; color: #1a1a1a; }
         <td style="color: #1a1a1a">2.03%</td>
         <td style="color: #1a1a1a">🔻 -18.6%</td>
       </tr>
-      <tr>
-        <td style="color: #1a1a1a"><strong>FY26_YTD</strong></td>
-        <td style="color: #1a1a1a">0</td>
-        <td style="color: #1a1a1a"><strong>0</strong></td>
-        <td style="color: #1a1a1a">0.00%</td>
-        <td style="color: #1a1a1a">🔻 -100.0%</td>
-      </tr>
+      
     </tbody>
   </table>
   
   <div class="callout danger">
     <strong>🚨 สัญญาณวิกฤต:</strong> Nissan ลดลง <strong>92%</strong> ในรอบ 5 ปี 
-    (FY21: 856 → FY26 YTD Jul: 70) — แนะนำเร่งกลยุทธ์รีเซ็ตแบรนด์ + Roadshow ทั่วจังหวัด
+    (FY21: 856 → FY25: 171) — แนะนำเร่งกลยุทธ์รีเซ็ตแบรนด์ + Roadshow ทั่วจังหวัด
   </div>
 </div>
 
@@ -663,11 +657,11 @@ new Chart(document.getElementById('brandChart'), {
 new Chart(document.getElementById('trendChart'), {
   type: 'line',
   data: {
-    labels: ["FY21", "FY22", "FY23", "FY24", "FY25", "FY26_YTD"],
+    labels: ["FY21", "FY22", "FY23", "FY24", "FY25"],
     datasets: [
       {
         label: 'Total ตลาด',
-        data: [15657, 15876, 12062, 8506, 8433, 0],
+        data: [15657, 15876, 12062, 8506, 8433],
         borderColor: '#3b82f6',
         backgroundColor: 'rgba(59, 130, 246, 0.1)',
         tension: 0.3,
@@ -675,7 +669,7 @@ new Chart(document.getElementById('trendChart'), {
       },
       {
         label: 'Nissan',
-        data: [856, 541, 298, 210, 171, 0],
+        data: [856, 541, 298, 210, 171],
         borderColor: '#C3002F',
         backgroundColor: 'rgba(195, 0, 47, 0.1)',
         tension: 0.3,
