@@ -906,20 +906,20 @@ new Chart(document.getElementById('fy25Chart'), {
   type: 'bar',
   data: {
     labels: ["TOYOTA", "ISUZU", "HONDA", "MITSUBISHI", "BYD", "FORD", "NISSAN", "MG", "MAZDA", "JAECOO"],
-    datasets: [{{
+    datasets: [{
       label: 'จำนวนจดทะเบียน FY25 (คัน)',
       data: [3211, 1988, 1029, 585, 333, 249, 171, 166, 113, 91],
       backgroundColor: ["#6b7280", "#6b7280", "#6b7280", "#6b7280", "#6b7280", "#6b7280", "#C3002F", "#6b7280", "#6b7280", "#6b7280"],
       borderWidth: 1
-    }}]
-  }},
-  options: {{
+    }]
+  },
+  options: {
     responsive: true,
     maintainAspectRatio: false,
-    plugins: {{ legend: {{ display: false }} }},
-    scales: {{ y: {{ beginAtZero: true }} }}
-  }}
-}});
+    plugins: { legend: { display: false } },
+    scales: { y: { beginAtZero: true } }
+  }
+});
 
 // Chart 4: Regional Comparison
 new Chart(document.getElementById('regionalChart'), {
