@@ -646,6 +646,115 @@ tbody tr:hover { background: #fef2f2; color: #1a1a1a; }
   </div>
 </div>
 
+
+<!-- Section 9: Regional Comparison -->
+<div class="section-card">
+  <h2><span class="section-num">9</span>เปรียบเทียบแนวโน้ม Nissan — จังหวัดรอบศรีสะเกษ</h2>
+
+  <p style="font-size: 13px; margin-bottom: 16px;">
+    Nissan ลดลง <strong>80-90%</strong> ใน 5 ปี ในทุกจังหวัดอีสานใกล้เคียง ศรีสะเกษไม่ได้ outlier — เป็น <strong>regional phenomenon</strong>
+  </p>
+
+  <div class="chart-container">
+    <canvas id="regionalChart"></canvas>
+  </div>
+
+  <h3>Nissan Registrations แยกจังหวัด (FY21 → FY25)</h3>
+  <table>
+    <thead>
+      <tr><th>#</th><th>จังหวัด</th><th>FY21</th><th>FY22</th><th>FY23</th><th>FY24</th><th>FY25</th><th>เปลี่ยนแปลง</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td><strong>ศรีสะเกษ</strong> ← จังหวัดเป้าหมาย</td>
+        <td>856</td>
+        <td>541</td>
+        <td>298</td>
+        <td>210</td>
+        <td>171</td>
+        <td>🔻 -80.0%</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td><strong>อุบลราชธานี</strong></td>
+        <td>1,049</td>
+        <td>597</td>
+        <td>296</td>
+        <td>256</td>
+        <td>220</td>
+        <td>🔻 -79.0%</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td><strong>สุรินทร์</strong></td>
+        <td>610</td>
+        <td>421</td>
+        <td>198</td>
+        <td>119</td>
+        <td>77</td>
+        <td>🔻 -87.4%</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td><strong>ร้อยเอ็ด</strong></td>
+        <td>589</td>
+        <td>348</td>
+        <td>187</td>
+        <td>114</td>
+        <td>89</td>
+        <td>🔻 -84.9%</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td><strong>อำนาจเจริญ</strong></td>
+        <td>162</td>
+        <td>83</td>
+        <td>40</td>
+        <td>31</td>
+        <td>16</td>
+        <td>🔻 -90.1%</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td><strong>ยโสธร</strong></td>
+        <td>255</td>
+        <td>136</td>
+        <td>72</td>
+        <td>43</td>
+        <td>32</td>
+        <td>🔻 -87.5%</td>
+      </tr>
+      <tr style="background: linear-gradient(135deg, #C3002F, #8B0020); color: white; font-weight: 700;">
+        <td colspan="6" style="color: white; padding: 12px;">📊 <strong>ค่าเฉลี่ย 6 จังหวัด</strong></td>
+        <td style="color: white; padding: 12px;"><strong>-84.8%</strong></td>
+        <td style="color: white; padding: 12px;"></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout danger" style="margin-top: 16px;">
+    <strong>🚨 Insight สำคัญ:</strong>
+    <ul style="margin: 8px 0 0 16px;">
+      <li>Nissan ตกลง 79-90% ในทุกจังหวัดอีสานใกล้เคียงศรีสะเกษ</li>
+      <li>ค่าเฉลี่ย 6 จังหวัด: <strong>-84.8%</strong></li>
+      <li>ศรีสะเกษ (-80.0%) อยู่ในกลุ่มที่ดีกว่าค่าเฉลี่ย (ดีกว่า 5 จังหวัดจาก 6)</li>
+      <li>นี่ไม่ใช่ปัญหาเฉพาะ Sisaket — เป็น <strong>regional Nissan decline</strong> ทั่วอีสาน</li>
+      <li>Root cause: Nissan ไม่มี new model launch, คู่แข่ง (BYD/MG/Honda) เข้ามาแย่งตลาด</li>
+    </ul>
+  </div>
+
+  <div class="callout info">
+    <strong>💡 Strategic Recommendation (Regional):</strong>
+    <ul style="margin: 8px 0 0 16px;">
+      <li>Nissan ต้องวางแผน <strong>regional campaign</strong> ไม่ใช่ Sisaket-only</li>
+      <li>Focus: e-POWER positioning เพื่อฟื้น share</li>
+      <li>พื้นที่ที่ดีที่สุด: <strong>อุบลราชธานี</strong> (220 คัน FY25, market ใหญ่)</li>
+      <li>พื้นที่ที่ตกหนักสุด: <strong>อำนาจเจริญ</strong> (-90.1%) ต้อง monitor</li>
+    </ul>
+  </div>
+</div>
+
 <div class="brief-footer">
   สร้างโดย: Tatchanon Wissawakornrungrot · Nissan Motor (Thailand) · ข้อมูลจาก กรมขนส่งทางบก
 </div>
@@ -703,6 +812,81 @@ new Chart(document.getElementById('trendChart'), {
     scales: {
       y: { type: 'linear', position: 'left', beginAtZero: true, title: { display: true, text: 'Total ตลาด' } },
       y1: { type: 'linear', position: 'right', beginAtZero: true, title: { display: true, text: 'Nissan' }, grid: { drawOnChartArea: false } }
+    }
+  }
+});
+
+// Chart 4: Regional Comparison
+new Chart(document.getElementById('regionalChart'), {
+  type: 'line',
+  data: {
+    labels: ["FY21", "FY22", "FY23", "FY24", "FY25"],
+    datasets: [
+      {
+        label: 'ศรีสะเกษ',
+        data: [856, 541, 298, 210, 171],
+        borderColor: '#C3002F',
+        backgroundColor: '#C3002F20',
+        tension: 0.3,
+        borderWidth: 3
+      },
+      {
+        label: 'อุบลราชธานี',
+        data: [1049, 597, 296, 256, 220],
+        borderColor: '#1e3a8a',
+        backgroundColor: '#1e3a8a20',
+        tension: 0.3,
+        borderWidth: 2
+      },
+      {
+        label: 'สุรินทร์',
+        data: [610, 421, 198, 119, 77],
+        borderColor: '#047857',
+        backgroundColor: '#04785720',
+        tension: 0.3,
+        borderWidth: 2
+      },
+      {
+        label: 'ร้อยเอ็ด',
+        data: [589, 348, 187, 114, 89],
+        borderColor: '#b45309',
+        backgroundColor: '#b4530920',
+        tension: 0.3,
+        borderWidth: 2
+      },
+      {
+        label: 'อำนาจเจริญ',
+        data: [162, 83, 40, 31, 16],
+        borderColor: '#7c3aed',
+        backgroundColor: '#7c3aed20',
+        tension: 0.3,
+        borderWidth: 2
+      },
+      {
+        label: 'ยโสธร',
+        data: [255, 136, 72, 43, 32],
+        borderColor: '#0891b2',
+        backgroundColor: '#0891b220',
+        tension: 0.3,
+        borderWidth: 2
+      }
+
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { position: 'top' }
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        title: { display: true, text: 'Nissan Registrations (คัน)' }
+      },
+    x: {
+        title: { display: true, text: 'Fiscal Year' }
+      }
     }
   }
 });
