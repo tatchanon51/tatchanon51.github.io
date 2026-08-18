@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>Nissan ศรีสะเกษ — รายงานเชิงลึกตลาดรถยนต์ (FY21-FY26 YTD)</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Noto Sans Thai', sans-serif; background: #f5f6f8; color: #1a1a1a; line-height: 1.6; }
+
+.hero {
+  background: linear-gradient(135deg, #C3002F 0%, #8B0020 100%);
+  color: white;
+  padding: 32px 40px 28px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+.hero h1 { font-size: 26px; margin-bottom: 6px; }
+.hero-meta { font-size: 13px; opacity: 0.92; }
+.hero-chips { display: flex; gap: 12px; margin-top: 16px; flex-wrap: wrap; }
+.hero-chip {
+  background: rgba(255,255,255,0.15);
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  backdrop-filter: blur(8px);
+}
+.hero-chip strong { font-weight: 700; font-size: 18px; }
+
+.container { max-width: 1400px; margin: 24px auto; padding: 0 24px; }
+
+.section-card {
+  background: white;
+  border-radius: 12px;
+  padding: 24px 28px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  border: 1px solid #e5e7eb;
+}
+.section-card h2 {
+  font-size: 18px;
+  color: #1a1a1a;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #C3002F;
+  display: inline-block;
+}
+.section-card h3 { font-size: 14px; color: #4b5563; margin: 14px 0 8px; font-weight: 600; }
+
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin: 16px 0;
+}
+.kpi {
+  background: linear-gradient(135deg, #f9fafb, #f3f4f6);
+  padding: 16px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+}
+.kpi.nissan { background: linear-gradient(135deg, #C3002F, #8B0020); color: white; border: none; }
+.kpi .value { font-size: 28px; font-weight: 700; }
+.kpi.nissan .value { color: white; }
+.kpi .label { font-size: 12px; opacity: 0.7; margin-top: 4px; }
+.kpi.nissan .label { color: rgba(255,255,255,0.9); }
+
+.chart-container { height: 320px; margin: 16px 0; }
+
+table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13px; }
+thead { background: linear-gradient(135deg, #C3002F, #8B0020); color: white; }
+th { padding: 10px 12px; text-align: left; font-weight: 600; }
+td { padding: 8px 12px; border-bottom: 1px solid #e5e7eb; }
+tbody tr:nth-child(even) { background: #fafafa; }
+tbody tr:hover { background: #fef2f2; }
+
+.insights-box {
+  background: linear-gradient(135deg, #1e3a8a, #1976D2);
+  color: white;
+  padding: 20px 24px;
+  border-radius: 12px;
+  margin: 16px 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+.insights-box h3 { color: white; font-size: 16px; margin-bottom: 12px; }
+.insights-box p { margin: 8px 0; font-size: 14px; line-height: 1.7; }
+.insights-box strong { color: #fbbf24; font-weight: 700; }
+
+.callout {
+  background: #fef3c7;
+  border-left: 4px solid #f59e0b;
+  padding: 12px 16px;
+  border-radius: 4px;
+  margin: 12px 0;
+  font-size: 13px;
+}
+.callout.success { background: #d1fae5; border-color: #10b981; }
+.callout.danger { background: #fee2e2; border-color: #ef4444; }
+.callout.info { background: #dbeafe; border-color: #3b82f6; }
+
+.brand-bar { background: linear-gradient(90deg, #C3002F, #8B0020); color: white; padding: 8px 12px; border-radius: 4px; margin: 2px 0; display: flex; justify-content: space-between; }
+.brand-bar.normal { background: linear-gradient(90deg, #6b7280, #4b5563); }
+
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+@media (max-width: 768px) {
+  .two-col { grid-template-columns: 1fr; }
+  .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+.brief-footer {
+  text-align: center;
+  font-size: 12px;
+  color: #6b7280;
+  padding: 24px;
+  margin-top: 24px;
+}
+
+.section-num {
+  background: #C3002F;
+  color: white;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>🚗 Nissan ศรีสะเกษ — รายงานเชิงลึกตลา�รถยนต์</h1>
+  <div class="hero-meta">ข้อมูลจดทะเบียนรถใหม่ · FY2564-FY2569 YTD (ม.ค. 64 - �.ค. 69) · 9 ไฟล์ต้น�บับ</div>
+  <div class="hero-chips">
+    <div class="hero-chip"><strong>75,508</strong> คัน</div>
+    <div class="hero-chip"><strong>50</strong> แบรนด์</div>
+    <div class="hero-chip"><strong>22</strong> อำเภอ</div>
+    <div class="hero-chip"><strong>207</strong> �ำบล</div>
+    <div class="hero-chip"><strong>🚗 2,322</strong> Nissan (3.08%)</div>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- Section 1: Executive Summary -->
+<div class="section-card">
+  <h2><span class="section-num">1</span>สรุปผู้บริหาร (Executive Summary)</h2>
+  
+  <div class="kpi-grid">
+    <div class="kpi"><div class="value">75,508</div><div class="label">จดทะเบียนรวม 5 ปี</div></div>
+    <div class="kpi nissan"><div class="value">🚗 2,322</div><div class="label">Nissan ทั้งหมด</div></div>
+    <div class="kpi"><div class="value">3.08%</div><div class="label">Nissan Market Share เฉลี่ย</div></div>
+    <div class="kpi"><div class="value">0</div><div class="label">Nissan FY26 YTD Jul</div></div>
+  </div>
+
+  <div class="callout success">
+    <strong>✅ Insight เชิงบวก:</strong> Nissan ศรีสะเกษมี <strong>market share สูงเป็นอันดับ 2 ในกลุ่ม Isan</strong> (3.08%) 
+    เป็นรองเพียง TOYOTA (32.82%) และ ISUZU (30.23%) และแซงหน้า HONDA, MITSUBISHI, FORD
+  </div>
+  
+  <div class="callout danger">
+    <strong>⚠️ ความท้าทาย:</strong> Nissan trend ลดลงต่อเนื่อง — 
+    FY21: 856 → FY22: 541 → FY23: 298 → FY24: 210 → FY25: 171 → FY26 YTD Jul: 70
+    <strong>(↓ 92% ใน 5 ปี)</strong>
+  </div>
+  
+  <div class="callout info">
+    <strong>💡 โอกาส:</strong> ตลาด EV กำลังเติบโต — ไฟฟ้า pure 9,250 คัน + Hybrid 6,348 คัน = <strong>20.6% ของตลาด</strong>
+    Nissan ควรเร่ง e-POWER positioning (KICKS, SERENA e-POWER)
+  </div>
+</div>
+
+<!-- Section 2: Market Structure -->
+<div class="section-card">
+  <h2><span class="section-num">2</span>โครงสร้างตลาด — ใครครองตลาดศรีสะเกษ?</h2>
+  
+  <div class="chart-container">
+    <canvas id="brandChart"></canvas>
+  </div>
+  
+  <table>
+    <thead>
+      <tr><th>#</th><th>แบรนด์</th><th>จำนวน (คัน)</th><th>Market Share</th><th>Bar</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td><strong>TOYOTA</strong></td>
+        <td>24,783</td>
+        <td>32.82%</td>
+        <td><div class="brand-bar normal" style="width: 98.46506330455053px">24,783</div></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td><strong>ISUZU</strong></td>
+        <td>22,827</td>
+        <td>30.23%</td>
+        <td><div class="brand-bar normal" style="width: 90.69370132966044px">22,827</div></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td><strong>HONDA</strong></td>
+        <td>7,903</td>
+        <td>10.47%</td>
+        <td><div class="brand-bar normal" style="width: 31.39932192615352px">7,903</div></td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td><strong>MITSUBISHI</strong></td>
+        <td>5,805</td>
+        <td>7.69%</td>
+        <td><div class="brand-bar normal" style="width: 23.06378132118451px">5,805</div></td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td><strong>FORD</strong></td>
+        <td>3,230</td>
+        <td>4.28%</td>
+        <td><div class="brand-bar normal" style="width: 12.833077289823596px">3,230</div></td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td><strong>NISSAN</strong></td>
+        <td>2,322</td>
+        <td>3.08%</td>
+        <td><div class="brand-bar" style="width: 9.225512528473805px">2,322</div></td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td><strong>MAZDA</strong></td>
+        <td>1,811</td>
+        <td>2.40%</td>
+        <td><div class="brand-bar normal" style="width: 7.195264077978493px">1,811</div></td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td><strong>MG</strong></td>
+        <td>1,748</td>
+        <td>2.31%</td>
+        <td><div class="brand-bar normal" style="width: 6.9449594744927685px">1,748</div></td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td><strong>BYD</strong></td>
+        <td>1,278</td>
+        <td>1.69%</td>
+        <td><div class="brand-bar normal" style="width: 5.077607670710388px">1,278</div></td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td><strong>SUZUKI</strong></td>
+        <td>890</td>
+        <td>1.18%</td>
+        <td><div class="brand-bar normal" style="width: 3.53604916035387px">890</div></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Section 3: 5-Year Trend -->
+<div class="section-card">
+  <h2><span class="section-num">3</span>แนวโน้ม 5 �ี — ตลาดกำลังหดตัว?</h2>
+  
+  <div class="chart-container">
+    <canvas id="trendChart"></canvas>
+  </div>
+  
+  <h3>Nissan Market Share ต่อปี</h3>
+  <table>
+    <thead>
+      <tr><th>FY</th><th>Total ตลาด</th><th>Nissan</th><th>Market Share</th><th>YoY Change</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>FY21</strong></td>
+        <td>15,657</td>
+        <td><strong>856</strong></td>
+        <td>5.47%</td>
+        <td> —</td>
+      </tr>
+      <tr>
+        <td><strong>FY22</strong></td>
+        <td>15,876</td>
+        <td><strong>541</strong></td>
+        <td>3.41%</td>
+        <td>🔻 -36.8%</td>
+      </tr>
+      <tr>
+        <td><strong>FY23</strong></td>
+        <td>12,062</td>
+        <td><strong>298</strong></td>
+        <td>2.47%</td>
+        <td>🔻 -44.9%</td>
+      </tr>
+      <tr>
+        <td><strong>FY24</strong></td>
+        <td>8,506</td>
+        <td><strong>210</strong></td>
+        <td>2.47%</td>
+        <td>🔻 -29.5%</td>
+      </tr>
+      <tr>
+        <td><strong>FY25</strong></td>
+        <td>8,433</td>
+        <td><strong>171</strong></td>
+        <td>2.03%</td>
+        <td>🔻 -18.6%</td>
+      </tr>
+      <tr>
+        <td><strong>FY26_YTD</strong></td>
+        <td>0</td>
+        <td><strong>0</strong></td>
+        <td>0.00%</td>
+        <td>🔻 -100.0%</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <div class="callout danger">
+    <strong>🚨 สัญญาณวิกฤต:</strong> Nissan ลดลง <strong>92%</strong> ในรอบ 5 ปี 
+    (FY21: 856 → FY26 YTD Jul: 70) — แนะนำเร่งกลยุทธ์รีเ�็ตแบรนด์ + Roadshow ทั่วจังหวัด
+  </div>
+</div>
+
+<!-- Section 4: District Performance -->
+<div class="section-card">
+  <h2><span class="section-num">4</span>Top 15 อำเภอ — ตลาดใหญ่ที่ Nissan ต้องชนะ</h2>
+  
+  <div class="two-col">
+    <div>
+      <h3>📊 ตลาดรวม — Top 15 อำเภา</h3>
+      <table>
+        <thead><tr><th>#</th><th>อำเ�อ</th><th>คัน</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>กันทรลักษ์</td><td>10,882</td></tr>
+          <tr><td>2</td><td>เมือง</td><td>9,731</td></tr>
+          <tr><td>3</td><td>ขุขันธ์</td><td>7,212</td></tr>
+          <tr><td>4</td><td>กันทรารมย์</td><td>5,448</td></tr>
+          <tr><td>5</td><td>อุทุมพรพิสัย</td><td>5,286</td></tr>
+          <tr><td>6</td><td>ขุนหาญ</td><td>4,964</td></tr>
+          <tr><td>7</td><td>ราษีไศล</td><td>4,038</td></tr>
+          <tr><td>8</td><td>ปรางค์กู่</td><td>3,122</td></tr>
+          <tr><td>9</td><td>วังหิน</td><td>2,647</td></tr>
+          <tr><td>10</td><td>ภูสิงห์</td><td>2,467</td></tr>
+          <tr><td>11</td><td>ศรีรัตนะ</td><td>2,384</td></tr>
+          <tr><td>12</td><td>ยางชุมน้อย</td><td>2,215</td></tr>
+          <tr><td>13</td><td>น้ำเกลี้ยง</td><td>2,172</td></tr>
+          <tr><td>14</td><td>ไพรบึง</td><td>2,121</td></tr>
+          <tr><td>15</td><td>โนนคูณ</td><td>2,095</td></tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div>
+      <h3>🚗 Nissan — Top 15 อำเภา</h3>
+      <table>
+        <thead><tr><th>#</th><th>อำเภอ</th><th>Nissan</th><th>Share vs ตลาด</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>เมือง</td><td><strong>411</strong></td><td>4.22%</td></tr>
+          <tr><td>2</td><td>กันทรลักษ์</td><td><strong>405</strong></td><td>3.72%</td></tr>
+          <tr><td>3</td><td>ขุขันธ์</td><td><strong>219</strong></td><td>3.04%</td></tr>
+          <tr><td>4</td><td>ขุนหาญ</td><td><strong>165</strong></td><td>3.32%</td></tr>
+          <tr><td>5</td><td>อุทุมพรพิสัย</td><td><strong>162</strong></td><td>3.06%</td></tr>
+          <tr><td>6</td><td>กันทรารมย์</td><td><strong>130</strong></td><td>2.39%</td></tr>
+          <tr><td>7</td><td>ปรางค์กู่</td><td><strong>93</strong></td><td>2.98%</td></tr>
+          <tr><td>8</td><td>ราษีไศล</td><td><strong>88</strong></td><td>2.18%</td></tr>
+          <tr><td>9</td><td>ภูสิงห์</td><td><strong>67</strong></td><td>2.72%</td></tr>
+          <tr><td>10</td><td>วังหิน</td><td><strong>63</strong></td><td>2.38%</td></tr>
+          <tr><td>11</td><td>เบญจลักษ์</td><td><strong>63</strong></td><td>10.0%</td></tr>
+          <tr><td>12</td><td>โนนคูณ</td><td><strong>60</strong></td><td>2.86%</td></tr>
+          <tr><td>13</td><td>ไพรบึง</td><td><strong>59</strong></td><td>2.78%</td></tr>
+          <tr><td>14</td><td>ศรีรัตนะ</td><td><strong>57</strong></td><td>2.39%</td></tr>
+          <tr><td>15</td><td>น้ำเกลี้ยง</td><td><strong>53</strong></td><td>2.44%</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Section 5: Nissan Share by District -->
+<div class="section-card">
+  <h2><span class="section-num">5</span>Nissan Market Share แยกอำเ�อ — ใครครอง ใครอ่อน?</h2>
+  
+  <table>
+    <thead>
+      <tr><th>#</th><th>อำเภอ</th><th>Total ตลาด</th><th>Nissan</th><th>Market Share</th><th>Status</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>เมือง</td>
+        <td>9,731</td>
+        <td><strong>411</strong></td>
+        <td>4.22%</td>
+        <td>🟡 ปานกลาง</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>กันทรลักษ์</td>
+        <td>10,882</td>
+        <td><strong>405</strong></td>
+        <td>3.72%</td>
+        <td>🟡 ปานกลาง</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>ศิลาลาด</td>
+        <td>920</td>
+        <td><strong>31</strong></td>
+        <td>3.37%</td>
+        <td>🟡 ปานกลาง</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>ขุนหาญ</td>
+        <td>4,964</td>
+        <td><strong>165</strong></td>
+        <td>3.32%</td>
+        <td>🟡 ปานกลาง</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>เบญจลักษ์</td>
+        <td>1,983</td>
+        <td><strong>63</strong></td>
+        <td>3.18%</td>
+        <td>🟡 ปานกลาง</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>อุทุมพรพิสัย</td>
+        <td>5,286</td>
+        <td><strong>162</strong></td>
+        <td>3.06%</td>
+        <td>🟡 ปานกลาง</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>ขุขันธ์</td>
+        <td>7,212</td>
+        <td><strong>219</strong></td>
+        <td>3.04%</td>
+        <td>🟡 ปานกลาง</td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>ปรางค์กู่</td>
+        <td>3,122</td>
+        <td><strong>93</strong></td>
+        <td>2.98%</td>
+        <td>� อ่อน</td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>พยุห์</td>
+        <td>1,735</td>
+        <td><strong>50</strong></td>
+        <td>2.88%</td>
+        <td>� อ่อน</td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td>โนนคูณ</td>
+        <td>2,095</td>
+        <td><strong>60</strong></td>
+        <td>2.86%</td>
+        <td>� อ่อน</td>
+      </tr>
+      <tr>
+        <td>11</td>
+        <td>ไพรบึง</td>
+        <td>2,121</td>
+        <td><strong>59</strong></td>
+        <td>2.78%</td>
+        <td>� อ่อน</td>
+      </tr>
+      <tr>
+        <td>12</td>
+        <td>ภูสิงห์</td>
+        <td>2,467</td>
+        <td><strong>67</strong></td>
+        <td>2.72%</td>
+        <td>� อ่อน</td>
+      </tr>
+      <tr>
+        <td>13</td>
+        <td>น้ำเกลี้ยง</td>
+        <td>2,172</td>
+        <td><strong>53</strong></td>
+        <td>2.44%</td>
+        <td>� อ่อน</td>
+      </tr>
+      <tr>
+        <td>14</td>
+        <td>กันทรารมย์</td>
+        <td>5,448</td>
+        <td><strong>130</strong></td>
+        <td>2.39%</td>
+        <td>� อ่อน</td>
+      </tr>
+      <tr>
+        <td>15</td>
+        <td>ศรีรัตนะ</td>
+        <td>2,384</td>
+        <td><strong>57</strong></td>
+        <td>2.39%</td>
+        <td>� อ่อน</td>
+      </tr>
+      <tr>
+        <td>16</td>
+        <td>วังหิน</td>
+        <td>2,647</td>
+        <td><strong>63</strong></td>
+        <td>2.38%</td>
+        <td>� อ่อน</td>
+      </tr>
+      <tr>
+        <td>17</td>
+        <td>ห้วยทับทัน</td>
+        <td>1,782</td>
+        <td><strong>41</strong></td>
+        <td>2.3%</td>
+        <td>� อ่อน</td>
+      </tr>
+      <tr>
+        <td>18</td>
+        <td>ราษีไศล</td>
+        <td>4,038</td>
+        <td><strong>88</strong></td>
+        <td>2.18%</td>
+        <td>� อ่อน</td>
+      </tr>
+      <tr>
+        <td>19</td>
+        <td>ยางชุมน้อย</td>
+        <td>2,215</td>
+        <td><strong>47</strong></td>
+        <td>2.12%</td>
+        <td>� อ่อน</td>
+      </tr>
+      <tr>
+        <td>20</td>
+        <td>โพธิ์ศรีสุวรรณ</td>
+        <td>995</td>
+        <td><strong>20</strong></td>
+        <td>2.01%</td>
+        <td>� อ่อน</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Section 6: Fuel Type / EV Trend -->
+<div class="section-card">
+  <h2><span class="section-num">6</span>พลังงาน — EV/Hybrid กำลังมาแทน ICE</h2>
+  
+  <div class="chart-container">
+    <canvas id="fuelChart"></canvas>
+  </div>
+  
+  <div class="kpi-grid">
+    <div class="kpi"><div class="value">{ev:,}</div><div class="label">🚗 EV (ไฟฟ้า pure)</div></div>
+    <div class="kpi"><div class="value">{hybrid:,}</div><div class="label">⚡ Hybrid (HEV+PHEV)</div></div>
+    <div class="kpi"><div class="value">{ice:,}</div><div class="label">⛽ ICE (ดีเซล+เบน�ิน)</div></div>
+    <div class="kpi"><div class="value">{round((ev+hybrid)/total_all*100, 1)}%</div><div class="label">xEV Share</div></div>
+  </div>
+  
+  <div class="callout info">
+    <strong>💡 Strategic Recommendation:</strong> 
+    Nissan มี <strong>SERENA e-POWER + KICKS e-POWER</strong> พร้อมสู้ xEV ตลาด
+    ควรเพิ่มการสื่อสาร EV line-up ในจังหวัด
+  </div>
+</div>
+
+<!-- Section 7: Strategic Recommendations -->
+<div class="section-card">
+  <h2><span class="section-num">7</span>ข้อเสนอแนะเชิงกลยุทธ์ (3 ระดับ)</h2>
+  
+  <div class="insights-box">
+    <h3>🔴 Quick Win (0-3 เดือน)</h3>
+    <p>1. <strong>เปิด Roadshow Nissan e-POWER Tour</strong> ใน 3 อำเภอใหญ่: เมือง (411), กันทรลักษ์ (405), ขุขันธ์ (219) — รวม 1,035 คัน (45% ของ Nissan ทั้งหมด)</p>
+    <p>2. <strong>เ�าะกลุ่ม Toyota/Isuzu ที่เปลี่ยนใจ</strong> — TOYOTA 24,783 คัน, ISUZU 22,827 คัน = 47,610 คัน potential</p>
+    <p>3. <strong>Promo ดาวน์�ูก + ผ่อนยาว</strong> สำหรับ ALMERA (entry sedan) แข่งกับ Honda City</p>
+  </div>
+  
+  <div class="insights-box" style="background: linear-gradient(135deg, #b45309, #d97706);">
+    <h3>🟡 Hold (3-6 เดือน)</h3>
+    <p>1. <strong>ตลาดตำบลที่ Nissan ยังแข็งแกร่ง</strong> — โพธิ์ (เมือง), หนองหญ้าลาด (กันทรลักษ์) ทำ Roadshow รักษา Position</p>
+    <p>2. <strong>EV Test Drive Tour</strong> �ี่เซ็นทรัล / โรบินสันศรีสะเกษ — target กลุ่ม BYD 1,278 คันที่ซื้อ EV</p>
+    <p>3. <strong>Partner กับผู้จำหน่ายท้องถิ่น</strong> สร้าง awareness ระดับอำเภอ</p>
+  </div>
+  
+  <div class="insights-box" style="background: linear-gradient(135deg, #047857, #10b981);">
+    <h3>🟢 Preserve (6-12 เดือน)</h3>
+    <p>1. <strong>Long-term Brand Building</strong> — Nissan ในศรีสะเกษต้องลงทุน Brand recall อย่างต่อเนื่อง</p>
+    <p>2. <strong>Service Center Excellence</strong> — เน้น After-sales เพื่อรักษา 2,322 Nissan ที่มีอยู่</p>
+    <p>3. <strong>ตลาด xEV</strong> — Nissan e-POWER มีโอกาสเติบโตเมื่อตลาด EV โต</p>
+  </div>
+</div>
+
+<!-- Section 8: Key Takeaways -->
+<div class="section-card">
+  <h2><span class="section-num">8</span>Key Takeaways สำหรับ Dealer</h2>
+  
+  <div class="two-col">
+    <div class="callout success">
+      <strong>🟢 จุดแข็ง:</strong>
+      <ul style="margin: 8px 0 0 16px; font-size: 13px;">
+        <li>Market Share สูงเป็นอันดับ 6 (3.08%)</li>
+        <li>ทุกอำเภอมี Nissan registrations</li>
+        <li>Top 5 อำเภา = 1,392 คัน (60% ของ Nissan)</li>
+        <li>Brand "Nissan" คุ้นเคยกับคนอีสาน</li>
+      </ul>
+    </div>
+    
+    <div class="callout danger">
+      <strong>🔴 จุดอ่อน:</strong>
+      <ul style="margin: 8px 0 0 16px; font-size: 13px;">
+        <li>YoY ลดลง 92% ใน 5 ปี</li>
+        <li>Market share ต่ำกว่า TOYOTA 10 เท่า</li>
+        <li>Top districts (เมือง) Nissan share แค่ ~3.78%</li>
+        <li>xEV portfolio ยังไม่เป็นที่รู้จัก</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="brief-footer">
+  สร้างโดย: Tatchanon Wissawakornrungrot · Nissan Motor (Thailand) · ข้อมูลจาก กรมขนส่งทางบก
+</div>
+
+</div>
+
+<script>
+// Chart 1: Brand Market Share
+new Chart(document.getElementById('brandChart'), {
+  type: 'bar',
+  data: {
+    labels: ["TOYOTA", "ISUZU", "HONDA", "MITSUBISHI", "FORD", "NISSAN", "MAZDA", "MG", "BYD", "SUZUKI"],
+    datasets: [{
+      label: 'จำนวนจดทะเบียน (คัน)',
+      data: [24783, 22827, 7903, 5805, 3230, 2322, 1811, 1748, 1278, 890],
+      backgroundColor: ["#6b7280", "#6b7280", "#6b7280", "#6b7280", "#6b7280", "#C3002F", "#6b7280", "#6b7280", "#6b7280", "#6b7280"],
+      borderWidth: 1
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: { legend: { display: false } },
+    scales: { y: { beginAtZero: true } }
+  }
+});
+
+// Chart 2: 5-Year Trend
+new Chart(document.getElementById('trendChart'), {
+  type: 'line',
+  data: {
+    labels: ["FY21", "FY22", "FY23", "FY24", "FY25", "FY26_YTD"],
+    datasets: [
+      {
+        label: 'Total ตลาด',
+        data: [15657, 15876, 12062, 8506, 8433, 0],
+        borderColor: '#3b82f6',
+        backgroundColor: 'rgba(59, 130, 246, 0.1)',
+        tension: 0.3,
+        yAxisID: 'y'
+      },
+      {
+        label: 'Nissan',
+        data: [856, 541, 298, 210, 171, 0],
+        borderColor: '#C3002F',
+        backgroundColor: 'rgba(195, 0, 47, 0.1)',
+        tension: 0.3,
+        yAxisID: 'y1'
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      y: { type: 'linear', position: 'left', beginAtZero: true, title: { display: true, text: 'Total ตลาด' } },
+      y1: { type: 'linear', position: 'right', beginAtZero: true, title: { display: true, text: 'Nissan' }, grid: { drawOnChartArea: false } }
+    }
+  }
+});
+
+// Chart 3: Fuel Mix
+new Chart(document.getElementById('fuelChart'), {
+  type: 'doughnut',
+  data: {
+    labels: ["\u0e14\u0e35\u0e40\u0e0b\u0e25", "\u0e40\u0e1a\u0e19\u0e0b\u0e34\u0e19", "\u0e40\u0e1a\u0e19\u0e0b\u0e34\u0e19-\u0e44\u0e1f\u0e1f\u0e49\u0e32", "\u0e44\u0e1f\u0e1f\u0e49\u0e32", "\u0e40\u0e1a\u0e19\u0e0b\u0e34\u0e19-\u0e44\u0e1f\u0e1f\u0e49\u0e32\u0e41\u0e1a\u0e1a\u0e40\u0e2a\u0e35\u0e22\u0e1a\u0e1b\u0e25\u0e31\u0e4a\u0e01", "\u0e41\u0e01\u0e4a\u0e2a LPG +\u0e40\u0e1a\u0e19\u0e0b\u0e34\u0e19", "\u0e14\u0e35\u0e40\u0e0b\u0e25-\u0e44\u0e1f\u0e1f\u0e49\u0e32\u0e41\u0e1a\u0e1a\u0e40\u0e2a\u0e35\u0e22\u0e1a\u0e1b\u0e25\u0e31\u0e4a\u0e01", "\u0e44\u0e21\u0e48\u0e23\u0e30\u0e1a\u0e38"],
+    datasets: [{
+      data: [14514, 8147, 6070, 2902, 277, 1, 1, 1],
+      backgroundColor: ['#1e3a8a', '#3b82f6', '#10b981', '#84cc16', '#f59e0b', '#ef4444', '#6b7280', '#9ca3af']
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: { legend: { position: 'right' } }
+  }
+});
+</script>
+
+</body>
+</html>
