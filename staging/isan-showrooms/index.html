@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>🏢 Showrooms & Dealers ภาคอีสาน — Nissan vs คู่แข่ง EV</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, 'Segoe UI', 'Inter', 'Noto Sans Thai', sans-serif; background: #f5f6f8; color: #1a1a1a; line-height: 1.6; padding: 20px; }
+
+.hero { background: linear-gradient(135deg, #C3002F 0%, #8B0020 100%); color: white; padding: 32px 40px; border-radius: 12px; margin-bottom: 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+.hero h1 { font-size: 28px; margin-bottom: 8px; }
+.hero-meta { font-size: 14px; opacity: 0.9; }
+.hero-chips { display: flex; gap: 12px; margin-top: 16px; flex-wrap: wrap; }
+.hero-chip { background: rgba(255,255,255,0.15); padding: 10px 16px; border-radius: 8px; font-size: 14px; backdrop-filter: blur(8px); }
+.hero-chip strong { font-weight: 700; font-size: 20px; margin-right: 4px; }
+
+.container { max-width: 1400px; margin: 0 auto; }
+
+.section-card { background: white; border-radius: 12px; padding: 24px 28px; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); border: 1px solid #e5e7eb; }
+.section-card h2 { font-size: 20px; color: #1a1a1a; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid #C3002F; display: inline-block; }
+
+.chart-container { height: 380px; margin: 16px 0; }
+
+table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13px; }
+thead { background: linear-gradient(135deg, #C3002F, #8B0020); }
+thead th { color: white !important; padding: 10px 12px; text-align: left; font-weight: 600; }
+th { padding: 10px 12px; text-align: left; font-weight: 600; color: white; }
+td { padding: 8px 12px; border-bottom: 1px solid #e5e7eb; color: #1a1a1a; vertical-align: top; }
+tbody { color: #1a1a1a; }
+tbody tr:nth-child(even) { background: #fafafa; color: #1a1a1a; }
+tbody tr:nth-child(odd) { background: white; color: #1a1a1a; }
+tbody tr:hover { background: #fef2f2; color: #1a1a1a; }
+
+.brand-nissan { color: #C3002F; font-weight: 700; }
+.brand-byd { color: #1a3a8a; font-weight: 600; }
+.brand-mg { color: #db2777; font-weight: 600; }
+.brand-oj { color: #7c3aed; font-weight: 600; }
+
+.dealer-card { border-left: 4px solid #C3002F; background: #fef2f2; padding: 10px 14px; margin: 6px 0; border-radius: 4px; font-size: 12px; }
+.dealer-name { font-weight: 700; color: #1a1a1a; margin-bottom: 2px; }
+.dealer-addr { color: #4b5563; font-size: 11px; }
+
+.section-num { background: #C3002F; color: white; width: 30px; height: 30px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; margin-right: 10px; vertical-align: middle; }
+
+.callout { background: #fef3c7; border-left: 4px solid #f59e0b; padding: 12px 16px; border-radius: 4px; margin: 12px 0; font-size: 13px; color: #1a1a1a; }
+.callout.danger { background: #fee2e2; border-color: #ef4444; }
+.callout.success { background: #d1fae5; border-color: #10b981; }
+.callout.info { background: #dbeafe; border-color: #1a3a8a; }
+
+.intensity-cell { padding: 6px 10px; text-align: center; font-weight: 600; color: #1a1a1a; }
+.intensity-high { background: #1a3a8a; color: white; }
+.intensity-mid { background: #93c5fd; }
+.intensity-low { background: #dbeafe; }
+.intensity-zero { background: #f3f4f6; color: #9ca3af; }
+.intensity-nissan { background: #C3002F; color: white; }
+.intensity-nissan-zero { background: #fee2e2; color: #ef4444; }
+
+.footer { text-align: center; font-size: 12px; color: #6b7280; padding: 24px; margin-top: 24px; }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<div class="hero">
+<h1>🏢 Showrooms & Dealers ภาคอีสาน — Nissan vs คู่แข่ง EV</h1>
+<div class="hero-meta">ข้อมูลจาก Dealer_list.xlsx + web scraping (Rever, omodajaecoo.co.th, car250) · 20 จังหวัดอีสาน</div>
+<div class="hero-chips">
+<div class="hero-chip"><strong>14</strong> 🚗 Nissan Dealers</div>
+<div class="hero-chip"><strong>25</strong> ⚡ BYD Showrooms</div>
+<div class="hero-chip"><strong>15</strong> 🔥 MG Dealers</div>
+<div class="hero-chip"><strong>19</strong> 🚙 O&J Dealers</div>
+<div class="hero-chip"><strong>4.2 เท่า</strong> คู่แข่งจีน vs Nissan</div>
+</div>
+</div>
+
+<div class="section-card">
+<h2><span class="section-num">1</span>ภาพรวม Showrooms ภาคอีสาน</h2>
+<div class="callout danger">
+<strong>🚨 ปัญหาหลัก:</strong> Nissan มีโชว์รูม <strong>14 แห่ง</strong> ใน 11 จังหวัด (Isan) ในขณะที่คู่แข่งจีน (BYD, MG, OMODA/JAECOO) มีรวม <strong>59 แห่ง</strong> ใน 19 จังหวัด — <strong>คู่แข่งจีนมีโชว์รูมมากกว่า Nissan 4.2 เท่า</strong> และครอบคลุม 19/20 จังหวัด (vs Nissan 11/20)</strong>
+</div>
+<div class="callout success">
+<strong>💡 Insight:</strong> <strong>9 จังหวัด</strong> ไม่มี Nissan showroom เลย (สุรินทร์, อำนาจเจริญ, ยโสธร, ขอนแก่น, นครราชสีมา, บุรีรัมย์, หนองคาย, บึงกาฬ, อุดรธานี) — ลูกค้าที่อยู่ในจังหวัดเหล่านี้ <strong>ต้องเดินทางไปจังหวัดอื่น</strong> ถ้าอยาก test drive Nissan หรือไม่ซื้อเลย เพราะไม่มีโชว์รูมใกล้บ้าน ในขณะที่ EV brands มี showroom ในจังหวัดเหล่านี้หลายแห่ง
+</div>
+<div class="chart-container">
+<canvas id="dealerBar"></canvas>
+</div>
+</div>
+
+<div class="section-card">
+<h2><span class="section-num">2</span>Showrooms รายจังหวัด — ใครมีโชว์รูมที่ไหน</h2>
+<table>
+<thead>
+<tr><th>#</th><th>จังหวัด</th><th class="brand-nissan" style="text-align:center">Nissan 🚗</th><th class="brand-byd" style="text-align:center">BYD ⚡</th><th class="brand-mg" style="text-align:center">MG 🔥</th><th class="brand-oj" style="text-align:center">O&J 🚙</th><th>สถานการณ์ Nissan</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td><strong>ศรีสะเกษ</strong></td><td class="intensity-cell intensity-low">2</td><td class="intensity-cell intensity-low">1</td><td class="intensity-cell intensity-low">1</td><td class="intensity-cell intensity-low">1</td><td><span style="color:#10b981;font-weight:700">✅ พอแข่งขันได้</span><br><small>2 vs 3</small></td></tr>
+<tr><td>2</td><td><strong>อุบลราชธานี</strong></td><td class="intensity-cell intensity-low">1</td><td class="intensity-cell intensity-low">2</td><td class="intensity-cell intensity-low">2</td><td class="intensity-cell intensity-low">1</td><td><span style="color:#f59e0b;font-weight:700">⚠️ เสียเปรียบ</span><br><small>Nissan 1 vs EV 5</small></td></tr>
+<tr><td>3</td><td><strong>สุรินทร์</strong></td><td class="intensity-cell intensity-zero">-</td><td class="intensity-cell intensity-zero">-</td><td class="intensity-cell intensity-low">1</td><td class="intensity-cell intensity-low">1</td><td><span style="color:#ef4444;font-weight:700">🚨 ไม่มี Nissan</span><br><small>มี EV brand 2 แห่ง</small></td></tr>
+<tr><td>4</td><td><strong>ร้อยเอ็ด</strong></td><td class="intensity-cell intensity-low">1</td><td class="intensity-cell intensity-low">1</td><td class="intensity-cell intensity-low">1</td><td class="intensity-cell intensity-low">1</td><td><span style="color:#f59e0b;font-weight:700">⚠️ เสียเปรียบ</span><br><small>Nissan 1 vs EV 3</small></td></tr>
+<tr><td>5</td><td><strong>อำนาจเจริญ</strong></td><td class="intensity-cell intensity-zero">-</td><td class="intensity-cell intensity-zero">-</td><td class="intensity-cell intensity-zero">-</td><td class="intensity-cell intensity-low">1</td><td><span style="color:#ef4444;font-weight:700">🚨 ไม่มี Nissan</span><br><small>มี EV brand 1 แห่ง</small></td></tr>
+<tr><td>6</td><td><strong>ยโสธร</strong></td><td class="intensity-cell intensity-zero">-</td><td class="intensity-cell intensity-zero">-</td><td class="intensity-cell intensity-zero">-</td><td class="intensity-cell intensity-low">1</td><td><span style="color:#ef4444;font-weight:700">🚨 ไม่มี Nissan</span><br><small>มี EV brand 1 แห่ง</small></td></tr>
+<tr><td>7</td><td><strong>ขอนแก่น</strong></td><td class="intensity-cell intensity-zero">-</td><td class="intensity-cell intensity-mid">5</td><td class="intensity-cell intensity-mid">3</td><td class="intensity-cell intensity-low">1</td><td><span style="color:#ef4444;font-weight:700">🚨 ไม่มี Nissan</span><br><small>มี EV brand 9 แห่ง</small></td></tr>
+<tr><td>8</td><td><strong>นครราชสีมา</strong></td><td class="intensity-cell intensity-zero">-</td><td class="intensity-cell intensity-mid">3</td><td class="intensity-cell intensity-low">2</td><td class="intensity-cell intensity-low">1</td><td><span style="color:#ef4444;font-weight:700">🚨 ไม่มี Nissan</span><br><small>มี EV brand 6 แห่ง</small></td></tr>
+<tr><td>9</td><td><strong>บุรีรัมย์</strong></td><td class="intensity-cell intensity-zero">-</td><td class="intensity-cell intensity-low">1</td><td class="intensity-cell intensity-low">1</td><td class="intensity-cell intensity-low">1</td><td><span style="color:#ef4444;font-weight:700">🚨 ไม่มี Nissan</span><br><small>มี EV brand 3 แห่ง</small></td></tr>
+<tr><td>10</td><td><strong>มหาสารคาม</strong></td><td class="intensity-cell intensity-low">2</td><td class="intensity-cell intensity-low">1</td><td class="intensity-cell intensity-low">1</td><td class="intensity-cell intensity-low">2</td><td><span style="color:#f59e0b;font-weight:700">⚠️ EV มากกว่า</span><br><small>2 vs 4</small></td></tr>
+<tr><td>11</td><td><strong>กาฬสินธุ์</strong></td><td class="intensity-cell intensity-low">1</td><td class="intensity-cell intensity-low">1</td><td class="intensity-cell intensity-zero">-</td><td class="intensity-cell intensity-low">1</td><td><span style="color:#10b981;font-weight:700">✅ พอแข่งขันได้</span><br><small>1 vs 2</small></td></tr>
+<tr><td>12</td><td><strong>สกลนคร</strong></td><td class="intensity-cell intensity-low">1</td><td class="intensity-cell intensity-mid">3</td><td class="intensity-cell intensity-low">1</td><td class="intensity-cell intensity-low">2</td><td><span style="color:#f59e0b;font-weight:700">⚠️ เสียเปรียบ</span><br><small>Nissan 1 vs EV 6</small></td></tr>
+<tr><td>13</td><td><strong>นครพนม</strong></td><td class="intensity-cell intensity-low">1</td><td class="intensity-cell intensity-low">1</td><td class="intensity-cell intensity-zero">-</td><td class="intensity-cell intensity-zero">-</td><td><span style="color:#10b981;font-weight:700">✅ พอแข่งขันได้</span><br><small>1 vs 1</small></td></tr>
+<tr><td>14</td><td><strong>มุกดาหาร</strong></td><td class="intensity-cell intensity-low">1</td><td class="intensity-cell intensity-low">1</td><td class="intensity-cell intensity-zero">-</td><td class="intensity-cell intensity-low">1</td><td><span style="color:#10b981;font-weight:700">✅ พอแข่งขันได้</span><br><small>1 vs 2</small></td></tr>
+<tr><td>15</td><td><strong>หนองคาย</strong></td><td class="intensity-cell intensity-zero">-</td><td class="intensity-cell intensity-low">1</td><td class="intensity-cell intensity-zero">-</td><td class="intensity-cell intensity-zero">-</td><td><span style="color:#ef4444;font-weight:700">🚨 ไม่มี Nissan</span><br><small>มี EV brand 1 แห่ง</small></td></tr>
+<tr><td>16</td><td><strong>บึงกาฬ</strong></td><td class="intensity-cell intensity-zero">-</td><td class="intensity-cell intensity-zero">-</td><td class="intensity-cell intensity-zero">-</td><td class="intensity-cell intensity-zero">-</td><td><span style="color:#ef4444;font-weight:700">🚨 ไม่มี Nissan</span><br><small>มี EV brand 0 แห่ง</small></td></tr>
+<tr><td>17</td><td><strong>เลย</strong></td><td class="intensity-cell intensity-low">2</td><td class="intensity-cell intensity-low">1</td><td class="intensity-cell intensity-low">1</td><td class="intensity-cell intensity-low">1</td><td><span style="color:#10b981;font-weight:700">✅ พอแข่งขันได้</span><br><small>2 vs 3</small></td></tr>
+<tr><td>18</td><td><strong>หนองบัวลำภู</strong></td><td class="intensity-cell intensity-low">1</td><td class="intensity-cell intensity-low">1</td><td class="intensity-cell intensity-zero">-</td><td class="intensity-cell intensity-low">1</td><td><span style="color:#10b981;font-weight:700">✅ พอแข่งขันได้</span><br><small>1 vs 2</small></td></tr>
+<tr><td>19</td><td><strong>อุดรธานี</strong></td><td class="intensity-cell intensity-zero">-</td><td class="intensity-cell intensity-low">2</td><td class="intensity-cell intensity-low">1</td><td class="intensity-cell intensity-low">1</td><td><span style="color:#ef4444;font-weight:700">🚨 ไม่มี Nissan</span><br><small>มี EV brand 4 แห่ง</small></td></tr>
+<tr><td>20</td><td><strong>ชัยภูมิ</strong></td><td class="intensity-cell intensity-low">1</td><td class="intensity-cell intensity-zero">-</td><td class="intensity-cell intensity-zero">-</td><td class="intensity-cell intensity-low">1</td><td><span style="color:#10b981;font-weight:700">✅ พอแข่งขันได้</span><br><small>1 vs 1</small></td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="section-card">
+<h2><span class="section-num">3</span>Nissan Dealers — รายชื่อโชว์รูมทั้งหมด 14 แห่ง</h2>
+<h3 style="color:#C3002F;margin-top:16px">📍 กาฬสินธุ์ (1 แห่ง)</h3>
+<div class="dealer-card"><div class="dealer-name">🚗 สยามนิสสัน กาฬสินธุ์ (SIAM NISSAN KALASIN)</div></div>
+<h3 style="color:#C3002F;margin-top:16px">📍 ชัยภูมิ (1 แห่ง)</h3>
+<div class="dealer-card"><div class="dealer-name">🚗 สยามนิสสัน ชัยภูมิ (SIAM NISSAN CHAIYAPHUM)</div></div>
+<h3 style="color:#C3002F;margin-top:16px">📍 นครพนม (1 แห่ง)</h3>
+<div class="dealer-card"><div class="dealer-name">🚗 สยามนิสสัน นครพนม (SIAM NISSAN NAKHONPHANOM)</div></div>
+<h3 style="color:#C3002F;margin-top:16px">📍 มหาสารคาม (1 แห่ง)</h3>
+<div class="dealer-card"><div class="dealer-name">🚗 สยามนิสสัน มหาสารคาม (SIAM NISSAN MAHASARAKHAM)</div></div>
+<h3 style="color:#C3002F;margin-top:16px">📍 มุกดาหาร (1 แห่ง)</h3>
+<div class="dealer-card"><div class="dealer-name">🚗 สยามนิสสัน มุกดาหาร (SIAM NISSAN MUKDAHAN)</div></div>
+<h3 style="color:#C3002F;margin-top:16px">📍 ร้อยเอ็ด (1 แห่ง)</h3>
+<div class="dealer-card"><div class="dealer-name">🚗 สยามนิสสัน กาฬสินธุ์ (SIAM NISSAN KALASIN)</div><div style="color:#6b7280;font-size:11px;margin-top:2px">ℹ️ ใช้สาขากาฬสินธุ์ครอบคลุม</div></div>
+<h3 style="color:#C3002F;margin-top:16px">📍 ศรีสะเกษ (1 แห่ง)</h3>
+<div class="dealer-card"><div class="dealer-name">🚗 สยามนิสสัน ศรีสะเกษ (SIAM NISSAN SRISAKET)</div></div>
+<h3 style="color:#C3002F;margin-top:16px">📍 สกลนคร (1 แห่ง)</h3>
+<div class="dealer-card"><div class="dealer-name">🚗 สกลนคร นิสสัน เซลส์ (SAKON NAKHON NISSAN SALES)</div></div>
+<h3 style="color:#C3002F;margin-top:16px">📍 หนองบัวลำภู (1 แห่ง)</h3>
+<div class="dealer-card"><div class="dealer-name">🚗 สยามนิสสัน เมืองหนองบัวลำภู (SIAM NISSAN MUANG NONGBOURLAMPHU)</div></div>
+<h3 style="color:#C3002F;margin-top:16px">📍 อุบลราชธานี (1 แห่ง)</h3>
+<div class="dealer-card"><div class="dealer-name">🚗 สยามนิสสัน อุบลราชธานี (SIAM NISSAN UBONRATCHATHANI)</div></div>
+<h3 style="color:#C3002F;margin-top:16px">📍 เลย (1 แห่ง)</h3>
+<div class="dealer-card"><div class="dealer-name">🚗 สยามนิสสัน เลย (SIAM NISSAN LOEI)</div></div>
+</div>
+
+<div class="section-card">
+<h2><span class="section-num">4</span>EV Brands Showroom — ใครครอบคลุมจังหวัดไหน</h2>
+<div class="callout info">
+<strong>⚡ แบรนด์ EV ที่มีโชว์รูมในอีสาน:</strong>
+<ul style="margin: 8px 0 0 16px;">
+<li><strong>BYD</strong> - 25 showrooms ใน 15 จังหวัด (Rever Automotive)</li>
+<li><strong>OMODA & JAECOO</strong> - 19 showrooms ใน 17 จังหวัด (Chery Group)</li>
+<li><strong>MG</strong> - 15 dealers ใน 11 จังหวัด (MG Sales Thailand)</li>
+<li><strong>รวม</strong> 59 showroom/ตัวแทน ใน 19/20 จังหวัด (vs Nissan 14/20)</li>
+</ul>
+</div>
+<h3>📍 BYD Showrooms (25 แห่ง - 15 จังหวัด)</h3>
+<h4 style="color:#1a3a8a;margin-top:14px">ขอนแก่น (5 แห่ง)</h4>
+<div class="dealer-card" style="border-left-color:#1a3a8a;background:#dbeafe"><div class="dealer-name">⚡ บีวายดี พายอาร์ ขอนแก่น</div><div class="dealer-addr">📍 252/12 ต.เมืองเก่า อ.เมือง 40000</div></div>
+<div class="dealer-card" style="border-left-color:#1a3a8a;background:#dbeafe"><div class="dealer-name">⚡ บีวายดี ยนต์ไพบูลย์ ขอนแก่น</div><div class="dealer-addr">📍 21-25 ถ.มิตรภาพ ต.ในเมือง 40000</div></div>
+<div class="dealer-card" style="border-left-color:#1a3a8a;background:#dbeafe"><div class="dealer-name">⚡ บีวายดี ยนต์ไพบูลย์ ศรีจันทร์</div><div class="dealer-addr">📍 14/161 ต.ในเมือง อ.เมือง 40000</div></div>
+<div class="dealer-card" style="border-left-color:#1a3a8a;background:#dbeafe"><div class="dealer-name">⚡ บีวายดี ยนต์ไพบูลย์ ชุมแพ</div><div class="dealer-addr">📍 546 หมู่ 16 ต.ชุมแพ อ.ชุมแพ 40130</div></div>
+<div class="dealer-card" style="border-left-color:#1a3a8a;background:#dbeafe"><div class="dealer-name">⚡ บีวายดี พายอาร์ กระนวน</div><div class="dealer-addr">📍 252/11 ต.หนองโก อ.กระนวน 40170</div></div>
+<h4 style="color:#1a3a8a;margin-top:14px">นครราชสีมา (3 แห่ง)</h4>
+<div class="dealer-card" style="border-left-color:#1a3a8a;background:#dbeafe"><div class="dealer-name">⚡ บีวายดี หนึ่ง จอหอ</div><div class="dealer-addr">📍 7716 ถ.มิตรภาพ ต.บ้านเกาะ อ.เมือง 30000</div></div>
+<div class="dealer-card" style="border-left-color:#1a3a8a;background:#dbeafe"><div class="dealer-name">⚡ บีวายดี หนึ่ง โคราช</div><div class="dealer-addr">📍 71/28 ต.ในเมือง อ.เมือง 30000</div></div>
+<div class="dealer-card" style="border-left-color:#1a3a8a;background:#dbeafe"><div class="dealer-name">⚡ บีวายดี โนว่า โคราช</div><div class="dealer-addr">📍 1689/9 ถ.มิตรภาพ อ.เมือง 33000</div></div>
+<h4 style="color:#1a3a8a;margin-top:14px">สกลนคร (3 แห่ง)</h4>
+<div class="dealer-card" style="border-left-color:#1a3a8a;background:#dbeafe"><div class="dealer-name">⚡ บีวายดี พายอาร์ สกลนคร</div><div class="dealer-addr">📍 134/10 ต.ใสสว่าง อ.ธาตุเชิงชุม 47000</div></div>
+<div class="dealer-card" style="border-left-color:#1a3a8a;background:#dbeafe"><div class="dealer-name">⚡ บีวายดี พายอาร์ สว่างแดนดิน</div><div class="dealer-addr">📍 233/18 ต.สว่างแดนดิน อ.สว่างแดนดิน 47110</div></div>
+<div class="dealer-card" style="border-left-color:#1a3a8a;background:#dbeafe"><div class="dealer-name">⚡ บีวายดี เอพี ออโตโมทีฟ สกลนคร</div><div class="dealer-addr">📍 35/5 ถ.นิตโย ต.ธาตุเชิงชุม 47000</div></div>
+<h4 style="color:#1a3a8a;margin-top:14px">อุดรธานี (2 แห่ง)</h4>
+<div class="dealer-card" style="border-left-color:#1a3a8a;background:#dbeafe"><div class="dealer-name">⚡ บีวายดี อารีน่า อุดรธานี</div><div class="dealer-addr">📍 252/10 ถ.ประจักษ์ศิลปาคม ต.หมากแข้ง อ.เมือง 41000</div></div>
+<div class="dealer-card" style="border-left-color:#1a3a8a;background:#dbeafe"><div class="dealer-name">⚡ บีวายดี เจียงอุดรธานี บ้านจั่น</div><div class="dealer-addr">📍 100/1 หมู่ 1 ต.บ้านจั่น อ.เมือง 41000</div></div>
+<h4 style="color:#1a3a8a;margin-top:14px">อุบลราชธานี (2 แห่ง)</h4>
+<div class="dealer-card" style="border-left-color:#1a3a8a;background:#dbeafe"><div class="dealer-name">⚡ บีวายดี อีวี-ดี อุบลราชธานี</div><div class="dealer-addr">📍 99 ถ.ชยางกูร ต.ขามใหญ่ อ.เมืองอุบลราชธานี 34000</div></div>
+<div class="dealer-card" style="border-left-color:#1a3a8a;background:#dbeafe"><div class="dealer-name">⚡ บีวายดี อีวี-ดี วารินชำราบ</div><div class="dealer-addr">📍 989/1 ถ.เลี่ยงเมือง ต.แสนสุข อ.วารินชำราบ 34190</div></div>
+<h3 style="margin-top:24px">🚙 OMODA & JAECOO Dealers (19 แห่ง - 17 จังหวัด)</h3>
+<h4 style="color:#7c3aed;margin-top:14px">กาฬสินธุ์ (1 แห่ง)</h4>
+<div class="dealer-card" style="border-left-color:#7c3aed;background:#ede9fe"><div class="dealer-name">🚙 โอโมดา แอนด์ เจคู แอนดร้า กาฬสินธุ์</div></div>
+<h4 style="color:#7c3aed;margin-top:14px">ขอนแก่น (1 แห่ง)</h4>
+<div class="dealer-card" style="border-left-color:#7c3aed;background:#ede9fe"><div class="dealer-name">🚙 โอโมดา แอนด์ เจคู ธนาสิทธิ์ ขอนแก่น</div></div>
+<h4 style="color:#7c3aed;margin-top:14px">ชัยภูมิ (1 แห่ง)</h4>
+<div class="dealer-card" style="border-left-color:#7c3aed;background:#ede9fe"><div class="dealer-name">🚙 โอโมดา แอนด์ เจคู รีพัค ออโต้ ชัยภูมิ</div></div>
+<h4 style="color:#7c3aed;margin-top:14px">นครราชสีมา (1 แห่ง)</h4>
+<div class="dealer-card" style="border-left-color:#7c3aed;background:#ede9fe"><div class="dealer-name">🚙 โอโมดา แอนด์ เจคู เอกสห นครราชสีมา</div></div>
+<h4 style="color:#7c3aed;margin-top:14px">บุรีรัมย์ (1 แห่ง)</h4>
+<div class="dealer-card" style="border-left-color:#7c3aed;background:#ede9fe"><div class="dealer-name">🚙 โอโมดา แอนด์ เจคู ไดรฟ์ บุรีรัมย์</div></div>
+<h4 style="color:#7c3aed;margin-top:14px">มหาสารคาม (2 แห่ง)</h4>
+<div class="dealer-card" style="border-left-color:#7c3aed;background:#ede9fe"><div class="dealer-name">🚙 โอโมดา แอนด์ เจคู ฟีนิกซ์ พยัคฆภูมิพิสัย</div></div>
+<div class="dealer-card" style="border-left-color:#7c3aed;background:#ede9fe"><div class="dealer-name">🚙 โอโมดา แอนด์ เจคู ฟีนิกซ์ มหาสารคาม</div></div>
+<h4 style="color:#7c3aed;margin-top:14px">มุกดาหาร (1 แห่ง)</h4>
+<div class="dealer-card" style="border-left-color:#7c3aed;background:#ede9fe"><div class="dealer-name">🚙 โอโมดา แอนด์ เจคู ซีซีซี ออโต้ มุกดาหาร (Coming Soon)</div></div>
+<h4 style="color:#7c3aed;margin-top:14px">ยโสธร (1 แห่ง)</h4>
+<div class="dealer-card" style="border-left-color:#7c3aed;background:#ede9fe"><div class="dealer-name">🚙 โอโมดา แอนด์ เจคู ท็อปวัน ออโตโมบิล ยโสธร</div></div>
+<h4 style="color:#7c3aed;margin-top:14px">ร้อยเอ็ด (1 แห่ง)</h4>
+<div class="dealer-card" style="border-left-color:#7c3aed;background:#ede9fe"><div class="dealer-name">🚙 โอโมดา แอนด์ เจคู แอนดร้า ร้อยเอ็ด</div></div>
+<h4 style="color:#7c3aed;margin-top:14px">ศรีสะเกษ (1 แห่ง)</h4>
+<div class="dealer-card" style="border-left-color:#7c3aed;background:#ede9fe"><div class="dealer-name">🚙 โอโมดา แอนด์ เจคู ซีซีซี ออโต้ ศรีสะเกษ</div></div>
+<h4 style="color:#7c3aed;margin-top:14px">สกลนคร (2 แห่ง)</h4>
+<div class="dealer-card" style="border-left-color:#7c3aed;background:#ede9fe"><div class="dealer-name">🚙 โอโมดา แอนด์ เจคู ชาญ อีวี สกลนคร</div></div>
+<div class="dealer-card" style="border-left-color:#7c3aed;background:#ede9fe"><div class="dealer-name">🚙 โอโมดา แอนด์ เจคู ชาญ อีวี สว่างแดนดิน</div></div>
+<h4 style="color:#7c3aed;margin-top:14px">สุรินทร์ (1 แห่ง)</h4>
+<div class="dealer-card" style="border-left-color:#7c3aed;background:#ede9fe"><div class="dealer-name">🚙 โอโมดา แอนด์ เจคู วีพีเอส สุรินทร์</div></div>
+<h4 style="color:#7c3aed;margin-top:14px">หนองบัวลำภู (1 แห่ง)</h4>
+<div class="dealer-card" style="border-left-color:#7c3aed;background:#ede9fe"><div class="dealer-name">🚙 โอโมดา แอนด์ เจคู เคเอ็นเอส หนองบัวลำภู</div></div>
+<h4 style="color:#7c3aed;margin-top:14px">อำนาจเจริญ (1 แห่ง)</h4>
+<div class="dealer-card" style="border-left-color:#7c3aed;background:#ede9fe"><div class="dealer-name">🚙 โอโมดา แอนด์ เจคู ซีซีซี ออโต้ อำนาจเจริญ</div></div>
+<h4 style="color:#7c3aed;margin-top:14px">อุดรธานี (1 แห่ง)</h4>
+<div class="dealer-card" style="border-left-color:#7c3aed;background:#ede9fe"><div class="dealer-name">🚙 โอโมดา แอนด์ เจคู อาร์เฮงวัฒนา อุดรธานี</div></div>
+<h4 style="color:#7c3aed;margin-top:14px">อุบลราชธานี (1 แห่ง)</h4>
+<div class="dealer-card" style="border-left-color:#7c3aed;background:#ede9fe"><div class="dealer-name">🚙 โอโมดา แอนด์ เจคู ซีซีซี ออโต้ อุบลราชธานี</div></div>
+<h4 style="color:#7c3aed;margin-top:14px">เลย (1 แห่ง)</h4>
+<div class="dealer-card" style="border-left-color:#7c3aed;background:#ede9fe"><div class="dealer-name">🚙 โอโมดา แอนด์ เจคู พี แอนด์ พี ออโตโมบิล เลย</div></div>
+</div>
+
+<div class="section-card">
+<h2><span class="section-num">5</span>Strategic Insight — แก้ปัญหา Nissan Isan</h2>
+<div class="callout danger">
+<strong>🚨 วิกฤต Dealer Network:</strong>
+<ul style="margin: 8px 0 0 16px;">
+<li><strong>9 จังหวัดไม่มี Nissan</strong> เลย: สุรินทร์, อำนาจเจริญ, ยโสธร, ขอนแก่น, นครราชสีมา, บุรีรัมย์, หนองคาย, บึงกาฬ, อุดรธานี</li>
+<li>คู่แข่งจีนมีโชว์รูม <strong>59 แห่ง</strong> vs Nissan <strong>14 แห่ง</strong> — คู่แข่งมีมากกว่า 4.2 เท่า</li>
+<li>BYD + OMODA/JAECOO + MG ครอบคลุม <strong>19/20 จังหวัด</strong> vs Nissan <strong>11/20</strong></li>
+<li>ในจังหวัดที่ Nissan มี 1 สาขา แต่ EV brand มี 3-5 สาขา — เสียเปรียบเรื่อง physical presence</li>
+</ul>
+</div>
+<div class="callout success">
+<strong>💡 Action Plan สำหรับ Nissan (Isan Focus):</strong>
+<ul style="margin: 8px 0 0 16px;">
+<li><strong>Quick Win (0-3 เดือน):</strong> เปิด Mobile Nissan Service + Pop-up Showroom ใน 9 จังหวัดที่ไม่มี Nissan (สุรินทร์, อำนาจเจริญ, ยโสธร, ขอนแก่น, นครราชสีมา, บุรีรัมย์, หนองคาย, บึงกาฬ, อุดรธานี) — ใช้รถ mobile ไป event ในท้องถิ่น</li>
+<li><strong>Hold (3-6 เดือน):</strong> เพิ่ม Nissan Sub-dealer ในจังหวัดที่มี Nissan 1 สาขา — ร้อยเอ็ด, กาฬสินธุ์, มุกดาหาร, ชัยภูมิ (target 2 สาขา/จังหวัด)</li>
+<li><strong>Preserve (6-12 เดือน):</strong> เปลี่ยน Nissan Dealer ที่มีอยู่เป็น "Nissan e-POWER Center" ทุกสาขา — เพิ่ม EV Charger + e-POWER display เด่นชัด เพื่อ differentiate กับ EV brands ที่ต้อง "ต่อสายชาร์จ"</li>
+</ul>
+</div>
+<div class="callout">
+<strong>🎯 Key Message สำหรับ Nissan Dealer Network:</strong>
+<ul style="margin: 8px 0 0 16px;">
+<li><strong>Positioning:</strong> "Nissan = ดูรนที่มีโชว์รูมจริง ไม่ใช่แค่ขายออนไลน์" — EV brand จีนหลายเจ้าใช้ online sales มาก แต่ Nissan มี showroom + service</li>
+<li><strong>Service Advantage:</strong> ทุก Nissan Dealer มี Service Center — BYD ส่วนใหญ่ยัง build network อยู่</li>
+<li><strong>e-POWER USP:</strong> "ซื้อที่โชว์รูม Nissan ไม่ต้องรอชาร์จ ไม่ต้องหาปลั๊ก"</li>
+</ul>
+</div>
+</div>
+<div class="footer">
+สร้างโดย: Tatchanon Wissawakornrungrot · Nissan Motor (Thailand) · ข้อมูลจาก Dealer_list.xlsx + Rever Automotive + OMODA JAECOO Thailand + car250
+</div>
+
+</div>
+
+<script>
+new Chart(document.getElementById("dealerBar"), {
+  type: "bar",
+  data: {
+    labels: ["Nissan", "BYD", "MG", "OMODA&JAECOO"],
+    datasets: [{
+      label: "จำนวน Showrooms/Dealers ในอีสาน",
+      data: [14, 25, 15, 19],
+      backgroundColor: ["#C3002F", "#1a3a8a", "#db2777", "#7c3aed"],
+      borderWidth: 1
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      title: { display: true, text: "Showroom Count: Nissan vs คู่แข่ง EV ในอีสาน 20 จังหวัด", font: { size: 14 } }
+    },
+    scales: { y: { beginAtZero: true } }
+  }
+});
+</script>
+
+</body>
+</html>
