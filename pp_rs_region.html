@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>PP vs RS — Region Split (2024-2026)</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #f5f6f8;
+    margin: 0;
+    padding: 24px;
+    color: #222;
+  }
+  .container { max-width: 1280px; margin: 0 auto; }
+  h1 { font-size: 24px; margin: 0 0 8px; color: #C3002F; }
+  .subtitle { color: #777; font-size: 14px; margin-bottom: 24px; }
+  .section-header {
+    font-size: 18px;
+    font-weight: 600;
+    color: #C3002F;
+    margin: 32px 0 12px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #C3002F;
+  }
+  .chart-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+  .chart-title { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+  .chart-desc { color: #888; font-size: 12px; margin-bottom: 12px; }
+  .chart-wrap { height: 320px; position: relative; }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .stat-card {
+    background: white;
+    border-radius: 8px;
+    padding: 14px 18px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+  .stat-label { font-size: 11px; text-transform: uppercase; color: #888; letter-spacing: 0.5px; }
+  .stat-value { font-size: 22px; font-weight: 600; margin-top: 4px; color: #C3002F; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>📊 PP vs RS Monthly Volume — Region Split (2024-2026)</h1>
+  <p class="subtitle">Each region shown separately · Y-axis: row count · X-axis: Jan–Dec · Source: PP (Created Date) + RS (Retail Date)</p>
+
+  <div class="stats-grid" id="statsGrid"></div>
+
+  <!-- ===== PP SECTION ===== -->
+  <div class="section-header">📈 PP (Prospect) Section</div>
+
+  <div class="chart-card">
+    <div class="chart-title">PP All Region — Monthly Row Count by Year</div>
+    <div class="chart-desc">All 4 regions combined · 2024-2026</div>
+    <div class="chart-wrap"><canvas id="ppAllChart"></canvas></div>
+  </div>
+
+  <div class="chart-card">
+    <div class="chart-title">PP Region R1 — Monthly Row Count by Year</div>
+    <div class="chart-desc">R1: R1-1, R1-2, R1-3, R1-4 combined</div>
+    <div class="chart-wrap"><canvas id="ppR1Chart"></canvas></div>
+  </div>
+
+  <div class="chart-card">
+    <div class="chart-title">PP Region R2 — Monthly Row Count by Year</div>
+    <div class="chart-desc">R2: R2-1, R2-2, R2-3 combined</div>
+    <div class="chart-wrap"><canvas id="ppR2Chart"></canvas></div>
+  </div>
+
+  <div class="chart-card">
+    <div class="chart-title">PP Region R3 — Monthly Row Count by Year</div>
+    <div class="chart-desc">R3: R3-1, R3-2, R3-3 combined</div>
+    <div class="chart-wrap"><canvas id="ppR3Chart"></canvas></div>
+  </div>
+
+  <div class="chart-card">
+    <div class="chart-title">PP Region R4 — Monthly Row Count by Year</div>
+    <div class="chart-desc">R4: R4-1, R4-2 combined</div>
+    <div class="chart-wrap"><canvas id="ppR4Chart"></canvas></div>
+  </div>
+
+  <!-- ===== RS SECTION ===== -->
+  <div class="section-header">🚀 RS (Retail Sales) Section</div>
+
+  <div class="chart-card">
+    <div class="chart-title">RS All Region — Monthly Row Count by Year</div>
+    <div class="chart-desc">All 4 regions combined · 2024-2026</div>
+    <div class="chart-wrap"><canvas id="rsAllChart"></canvas></div>
+  </div>
+
+  <div class="chart-card">
+    <div class="chart-title">RS Region R1 — Monthly Row Count by Year</div>
+    <div class="chart-desc">R1: R1-1, R1-2, R1-3, R1-4 combined</div>
+    <div class="chart-wrap"><canvas id="rsR1Chart"></canvas></div>
+  </div>
+
+  <div class="chart-card">
+    <div class="chart-title">RS Region R2 — Monthly Row Count by Year</div>
+    <div class="chart-desc">R2: R2-1, R2-2, R2-3 combined</div>
+    <div class="chart-wrap"><canvas id="rsR2Chart"></canvas></div>
+  </div>
+
+  <div class="chart-card">
+    <div class="chart-title">RS Region R3 — Monthly Row Count by Year</div>
+    <div class="chart-desc">R3: R3-1, R3-2, R3-3 combined</div>
+    <div class="chart-wrap"><canvas id="rsR3Chart"></canvas></div>
+  </div>
+
+  <div class="chart-card">
+    <div class="chart-title">RS Region R4 — Monthly Row Count by Year</div>
+    <div class="chart-desc">R4: R4-1, R4-2 combined</div>
+    <div class="chart-wrap"><canvas id="rsR4Chart"></canvas></div>
+  </div>
+</div>
+
+<script>
+const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const YEARS = [2024, 2025, 2026];
+const COLORS = {2024: '#1E90FF', 2025: '#0066CC', 2026: '#C3002F'};
+
+const PP_DATA = {"R1": {"2024": {"3": 4726, "2": 3948, "7": 3665, "8": 4233, "10": 3910, "1": 4540, "5": 3312, "6": 3687, "9": 3442, "11": 3992, "4": 2522, "12": 5121}, "2025": {"1": 3421, "2": 3267, "3": 3957, "5": 3219, "4": 3641, "6": 3154, "7": 3062, "8": 2997, "9": 2815, "10": 2929, "11": 3211, "12": 4591}, "2026": {"1": 2799, "2": 2948, "3": 4046, "4": 2711, "5": 2997}}, "R2": {"2024": {"10": 1044, "11": 1287, "2": 1636, "3": 1519, "5": 1047, "1": 1213, "4": 1016, "6": 1128, "9": 834, "8": 1015, "7": 959, "12": 859}, "2025": {"1": 788, "2": 817, "3": 838, "5": 956, "4": 845, "6": 933, "7": 921, "8": 904, "9": 1063, "10": 1088, "11": 823, "12": 800}, "2026": {"1": 867, "2": 808, "3": 896, "4": 831, "5": 932}}, "R3": {"2024": {"3": 1637, "1": 1592, "5": 1232, "6": 1589, "8": 1583, "9": 1354, "11": 1596, "4": 628, "12": 1471, "7": 1469, "2": 1631, "10": 1791}, "2025": {"1": 1170, "2": 1178, "3": 1344, "4": 1018, "5": 985, "6": 984, "7": 1025, "8": 1084, "9": 1274, "10": 1086, "11": 1222, "12": 1109}, "2026": {"1": 1112, "2": 982, "3": 1006, "4": 944, "5": 1222}}, "R4": {"2024": {"4": 316, "5": 487, "6": 582, "1": 610, "7": 625, "11": 629, "8": 563, "3": 586, "10": 558, "2": 797, "9": 506, "12": 549}, "2025": {"1": 417, "2": 469, "3": 409, "6": 250, "4": 307, "7": 448, "5": 343, "8": 267, "9": 270, "11": 233, "12": 221, "10": 230}, "2026": {"1": 176, "2": 182, "3": 248, "4": 156, "5": 176}}};
+const RS_DATA = {"R1": {"2024": {"5": 328, "4": 271, "10": 157, "11": 205, "7": 245, "12": 314, "1": 325, "3": 265, "2": 268, "6": 290, "9": 197, "8": 186}, "2025": {"4": 204, "3": 183, "1": 257, "2": 204, "6": 324, "5": 172, "7": 420, "8": 423, "9": 357, "10": 149, "11": 195, "12": 490}, "2026": {"1": 221, "3": 247, "2": 193, "5": 278, "4": 69, "6": 146, "7": 160}}, "R2": {"2024": {"4": 45, "1": 86, "5": 69, "10": 59, "11": 52, "3": 62, "6": 63, "2": 84, "12": 54, "8": 49, "7": 54, "9": 52}, "2025": {"1": 48, "2": 43, "5": 46, "3": 45, "4": 38, "6": 95, "7": 63, "8": 86, "9": 63, "10": 47, "11": 57, "12": 65}, "2026": {"5": 67, "1": 42, "2": 53, "3": 31, "4": 17, "7": 34, "6": 20}}, "R3": {"2024": {"10": 126, "4": 119, "5": 168, "11": 117, "12": 142, "6": 159, "3": 175, "7": 119, "8": 133, "1": 143, "2": 148, "9": 120}, "2025": {"1": 112, "2": 123, "7": 99, "3": 115, "6": 165, "5": 107, "4": 107, "8": 122, "9": 147, "10": 94, "11": 84, "12": 127}, "2026": {"6": 48, "1": 75, "2": 106, "3": 57, "5": 92, "4": 45, "7": 46}}, "R4": {"2024": {"4": 58, "5": 85, "6": 65, "10": 55, "7": 57, "11": 49, "12": 70, "2": 71, "1": 74, "3": 98, "8": 67, "9": 64}, "2025": {"8": 81, "1": 66, "2": 48, "3": 66, "4": 48, "7": 81, "6": 71, "5": 41, "12": 112, "9": 67, "10": 30, "11": 56}, "2026": {"2": 30, "1": 38, "3": 33, "4": 19, "5": 68, "6": 27, "7": 20}}};
+
+function aggregateRegion(data, region) {
+  const out = {};
+  for (const y of YEARS) {
+    out[y] = {};
+    for (let m = 1; m <= 12; m++) {
+      out[y][m] = (data[region] && data[region][y] && data[region][y][m]) ? data[region][y][m] : 0;
+    }
+  }
+  return out;
+}
+
+function aggregateAll(data) {
+  const out = {};
+  for (const y of YEARS) {
+    out[y] = {};
+    for (let m = 1; m <= 12; m++) {
+      let total = 0;
+      for (const r of ['R1', 'R2', 'R3', 'R4']) {
+        if (data[r] && data[r][y] && data[r][y][m]) total += data[r][y][m];
+      }
+      out[y][m] = total;
+    }
+  }
+  return out;
+}
+
+function buildDatasets(agg) {
+  return YEARS.map(y => ({
+    label: String(y),
+    data: MONTHS.map((_, m) => agg[y][m+1] || 0),
+    borderColor: COLORS[y],
+    backgroundColor: COLORS[y],
+    borderWidth: 2.5,
+    tension: 0.2,
+    pointRadius: 3,
+    pointHoverRadius: 6,
+  }));
+}
+
+function totalOf(data) {
+  let t = 0;
+  for (const r of Object.keys(data)) {
+    for (const y of Object.keys(data[r])) {
+      for (const m of Object.keys(data[r][y])) t += data[r][y][m];
+    }
+  }
+  return t;
+}
+
+// Stats
+const ppTotal = totalOf(PP_DATA);
+const rsTotal = totalOf(RS_DATA);
+const stats = document.getElementById('statsGrid');
+const regions = ['R1', 'R2', 'R3', 'R4'];
+for (const r of regions) {
+  const ppR = totalOf({[r]: PP_DATA[r]});
+  const rsR = totalOf({[r]: RS_DATA[r]});
+  const div = document.createElement('div');
+  div.className = 'stat-card';
+  div.innerHTML = `
+    <div class="stat-label">${r}</div>
+    <div style="display:flex;justify-content:space-between;margin-top:6px;font-size:13px;">
+      <span>PP: <strong>${ppR.toLocaleString()}</strong></span>
+      <span>RS: <strong>${rsR.toLocaleString()}</strong></span>
+    </div>
+  `;
+  stats.appendChild(div);
+}
+
+const commonOpts = {
+  responsive: true,
+  maintainAspectRatio: false,
+  plugins: {
+    legend: { position: 'top', labels: { boxWidth: 12, font: { size: 11 } } },
+    tooltip: { mode: 'index', intersect: false },
+  },
+  scales: {
+    x: { grid: { display: false }, ticks: { font: { size: 10 } } },
+    y: {
+      beginAtZero: true,
+      grid: { color: '#f0f0f0' },
+      ticks: { font: { size: 10 }, callback: (v) => v.toLocaleString() },
+    },
+  },
+  interaction: { mode: 'nearest', axis: 'x', intersect: false },
+};
+
+function makeChart(canvasId, agg) {
+  new Chart(document.getElementById(canvasId), {
+    type: 'line',
+    data: { labels: MONTHS, datasets: buildDatasets(agg) },
+    options: commonOpts,
+  });
+}
+
+// PP Section
+makeChart('ppAllChart', aggregateAll(PP_DATA));
+makeChart('ppR1Chart', aggregateRegion(PP_DATA, 'R1'));
+makeChart('ppR2Chart', aggregateRegion(PP_DATA, 'R2'));
+makeChart('ppR3Chart', aggregateRegion(PP_DATA, 'R3'));
+makeChart('ppR4Chart', aggregateRegion(PP_DATA, 'R4'));
+
+// RS Section
+makeChart('rsAllChart', aggregateAll(RS_DATA));
+makeChart('rsR1Chart', aggregateRegion(RS_DATA, 'R1'));
+makeChart('rsR2Chart', aggregateRegion(RS_DATA, 'R2'));
+makeChart('rsR3Chart', aggregateRegion(RS_DATA, 'R3'));
+makeChart('rsR4Chart', aggregateRegion(RS_DATA, 'R4'));
+</script>
+</body>
+</html>
