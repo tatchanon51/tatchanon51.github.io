@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>PP vs RS — Row Count by Year & Month (2020-2026)</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #f5f6f8;
+    margin: 0;
+    padding: 24px;
+    color: #222;
+  }
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+  h1 {
+    font-size: 24px;
+    margin: 0 0 8px;
+    color: #C3002F;
+  }
+  .subtitle {
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+  .chart-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    padding: 24px;
+    margin-bottom: 24px;
+  }
+  .chart-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .chart-desc {
+    color: #888;
+    font-size: 13px;
+    margin-bottom: 16px;
+  }
+  .chart-wrap {
+    height: 420px;
+    position: relative;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+    font-size: 13px;
+  }
+  th, td {
+    padding: 8px 10px;
+    text-align: right;
+    border-bottom: 1px solid #eee;
+  }
+  th:first-child, td:first-child {
+    text-align: left;
+  }
+  thead th {
+    background: #fafafa;
+    color: #555;
+    font-weight: 600;
+  }
+  tbody tr:hover {
+    background: #fafbfc;
+  }
+  .total-row {
+    font-weight: 600;
+    background: #f8f9fa;
+  }
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .stat-card {
+    background: white;
+    border-radius: 8px;
+    padding: 16px 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+  .stat-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    color: #888;
+    letter-spacing: 0.5px;
+  }
+  .stat-value {
+    font-size: 24px;
+    font-weight: 600;
+    margin-top: 4px;
+    color: #C3002F;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>📊 PP vs RS — Monthly Volume by Year</h1>
+  <p class="subtitle">Source data: <code>~/workspace-MKT/Data/Data All time until Jul'26/</code> · Period: 2020-2026</p>
+
+  <div class="stats">
+    <div class="stat-card">
+      <div class="stat-label">PP Total Rows</div>
+      <div class="stat-value" id="pp-total">—</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">RS Total Rows</div>
+      <div class="stat-value" id="rs-total">—</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">PP:RS Ratio</div>
+      <div class="stat-value" id="ratio">—</div>
+    </div>
+  </div>
+
+  <div class="chart-card">
+    <div class="chart-title">PP (Prospect) — Monthly Row Count by Year</div>
+    <div class="chart-desc">Separated by year · X-axis: Jan–Dec · Y-axis: row count · Grouped by Create Date</div>
+    <div class="chart-wrap"><canvas id="ppChart"></canvas></div>
+    <table id="ppTable"></table>
+  </div>
+
+  <div class="chart-card">
+    <div class="chart-title">RS (Retail Sales) — Monthly Row Count by Year</div>
+    <div class="chart-desc">Separated by year · X-axis: Jan–Dec · Y-axis: row count · Grouped by Retail Date</div>
+    <div class="chart-wrap"><canvas id="rsChart"></canvas></div>
+    <table id="rsTable"></table>
+  </div>
+</div>
+
+<script>
+const YEARS = [2020, 2021, 2022, 2023, 2024, 2025, 2026];
+const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const COLORS = ['#E8E8E8', '#B0C4DE', '#87CEEB', '#4682B4', '#1E90FF', '#0066CC', '#C3002F'];
+
+const PP_DATA = {"2023": {"11": 576, "6": 646, "12": 11241, "4": 787, "5": 885, "7": 606, "8": 608, "9": 569, "10": 478}, "2024": {"3": 9060, "1": 8588, "2": 8714, "4": 4714, "5": 6494, "6": 7316, "7": 7064, "8": 7766, "9": 6418, "10": 7582, "11": 7822, "12": 8310}, "2025": {"1": 6082, "2": 6008, "3": 6862, "4": 6083, "5": 5702, "6": 5501, "7": 5636, "8": 5410, "9": 5570, "10": 5422, "11": 5537, "12": 6761}, "2026": {"1": 4965, "2": 4921, "3": 6196, "4": 4642, "5": 5327}};
+const RS_DATA = {"2024": {"10": 414, "4": 540, "11": 449, "5": 685, "6": 603, "3": 642, "12": 634, "8": 469, "1": 688, "2": 618, "7": 505, "9": 463}, "2025": {"8": 748, "4": 427, "1": 508, "2": 442, "3": 441, "7": 705, "5": 392, "6": 711, "9": 652, "10": 327, "11": 396, "12": 802}, "2023": {"12": 861, "5": 33, "6": 63, "8": 50, "9": 57, "7": 55, "4": 23, "11": 56, "10": 43, "1": 1}, "2026": {"1": 378, "5": 513, "3": 371, "2": 382, "4": 150}, "2022": {"7": 4}};
+
+// Stats
+function totalOf(data) {
+  let t = 0;
+  for (const y of Object.keys(data)) {
+    for (const m of Object.keys(data[y])) t += data[y][m];
+  }
+  return t;
+}
+const ppTotal = totalOf(PP_DATA);
+const rsTotal = totalOf(RS_DATA);
+document.getElementById('pp-total').textContent = ppTotal.toLocaleString();
+document.getElementById('rs-total').textContent = rsTotal.toLocaleString();
+document.getElementById('ratio').textContent = (ppTotal / rsTotal).toFixed(1) + ' : 1';
+
+function buildDatasets(data) {
+  return YEARS.map((y, i) => ({
+    label: String(y),
+    data: MONTHS.map((_, m) => (data[y] && data[y][m+1]) ? data[y][m+1] : 0),
+    borderColor: COLORS[i],
+    backgroundColor: COLORS[i],
+    borderWidth: 2,
+    tension: 0.2,
+    pointRadius: 3,
+    pointHoverRadius: 5,
+  }));
+}
+
+function buildTable(data, tableId) {
+  const tbl = document.getElementById(tableId);
+  let html = '<thead><tr><th>Year</th>';
+  for (const m of MONTHS) html += `<th>${m}</th>`;
+  html += '<th>Total</th></tr></thead><tbody>';
+  for (const y of YEARS) {
+    let rowTotal = 0;
+    html += `<tr><td>${y}</td>`;
+    for (let m = 1; m <= 12; m++) {
+      const v = (data[y] && data[y][m]) ? data[y][m] : 0;
+      rowTotal += v;
+      html += `<td>${v.toLocaleString()}</td>`;
+    }
+    html += `<td>${rowTotal.toLocaleString()}</td></tr>`;
+  }
+  // Total row
+  html += '<tr class="total-row"><td>Total</td>';
+  for (let m = 1; m <= 12; m++) {
+    let colTotal = 0;
+    for (const y of YEARS) {
+      if (data[y] && data[y][m]) colTotal += data[y][m];
+    }
+    html += `<td>${colTotal.toLocaleString()}</td>`;
+  }
+  let grandTotal = 0;
+  for (const y of YEARS) for (const m of Object.keys(data[y] || {})) grandTotal += data[y][m];
+  html += `<td>${grandTotal.toLocaleString()}</td></tr>`;
+  html += '</tbody>';
+  tbl.innerHTML = html;
+}
+
+const commonChartOpts = {
+  responsive: true,
+  maintainAspectRatio: false,
+  plugins: {
+    legend: { position: 'top', labels: { boxWidth: 12, font: { size: 12 } } },
+    tooltip: { mode: 'index', intersect: false },
+  },
+  scales: {
+    x: {
+      grid: { display: false },
+      ticks: { font: { size: 11 } },
+    },
+    y: {
+      beginAtZero: true,
+      grid: { color: '#f0f0f0' },
+      ticks: { font: { size: 11 }, callback: (v) => v.toLocaleString() },
+      title: { display: true, text: 'Row Count', font: { size: 12 } },
+    },
+  },
+  interaction: { mode: 'nearest', axis: 'x', intersect: false },
+};
+
+new Chart(document.getElementById('ppChart'), {
+  type: 'line',
+  data: { labels: MONTHS, datasets: buildDatasets(PP_DATA) },
+  options: commonChartOpts,
+});
+
+new Chart(document.getElementById('rsChart'), {
+  type: 'line',
+  data: { labels: MONTHS, datasets: buildDatasets(RS_DATA) },
+  options: commonChartOpts,
+});
+
+buildTable(PP_DATA, 'ppTable');
+buildTable(RS_DATA, 'rsTable');
+</script>
+</body>
+</html>
