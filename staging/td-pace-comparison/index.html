@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>📊 Test Drive Pace Comparison — May-Aug 2026 (1-20 days)</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, 'Segoe UI', 'Inter', 'Noto Sans Thai', sans-serif; background: #f5f6f8; color: #1a1a1a; line-height: 1.6; padding: 20px; }
+.hero { background: linear-gradient(135deg, #C3002F 0%, #8B0020 100%); color: white; padding: 32px 40px; border-radius: 12px; margin-bottom: 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+.hero h1 { font-size: 26px; margin-bottom: 8px; }
+.hero-meta { font-size: 14px; opacity: 0.9; }
+.container { max-width: 1400px; margin: 0 auto; }
+.section-card { background: white; border-radius: 12px; padding: 24px 28px; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); border: 1px solid #e5e7eb; }
+.section-card h2 { font-size: 20px; color: #1a1a1a; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid #C3002F; display: inline-block; }
+.chart-container { height: 360px; margin: 16px 0; }
+table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13px; }
+thead { background: linear-gradient(135deg, #C3002F, #8B0020); }
+thead th { color: white !important; padding: 10px 12px; text-align: left; font-weight: 600; }
+th { padding: 10px 12px; text-align: left; font-weight: 600; color: white; }
+td { padding: 8px 12px; border-bottom: 1px solid #e5e7eb; color: #1a1a1a; }
+tbody tr:nth-child(even) { background: #fafafa; }
+tbody tr:nth-child(odd) { background: white; }
+tbody tr:hover { background: #fef2f2; }
+.kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 16px 0; }
+.kpi { background: linear-gradient(135deg, #f9fafb, #f3f4f6); padding: 16px; border-radius: 10px; border: 1px solid #e5e7eb; }
+.kpi.nissan { background: linear-gradient(135deg, #C3002F, #8B0020); color: white; border: none; }
+.kpi.up { background: linear-gradient(135deg, #d1fae5, #a7f3d0); border-color: #10b981; }
+.kpi.down { background: linear-gradient(135deg, #fee2e2, #fecaca); border-color: #ef4444; }
+.kpi .value { font-size: 26px; font-weight: 700; color: #1a1a1a; }
+.kpi.nissan .value { color: white; }
+.kpi .label { font-size: 12px; opacity: 0.7; margin-top: 4px; color: #1a1a1a; }
+.kpi.nissan .label { color: rgba(255,255,255,0.9); }
+.section-num { background: #C3002F; color: white; width: 30px; height: 30px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; margin-right: 10px; vertical-align: middle; }
+.callout { background: #dbeafe; border-left: 4px solid #1a3a8a; padding: 12px 16px; border-radius: 4px; margin: 12px 0; font-size: 13px; color: #1a1a1a; }
+.callout.danger { background: #fee2e2; border-color: #ef4444; }
+.callout.success { background: #d1fae5; border-color: #10b981; }
+.callout.warning { background: #fef3c7; border-color: #f59e0b; }
+.footer { text-align: center; font-size: 12px; color: #6b7280; padding: 24px; margin-top: 24px; }
+
+</style>
+</head>
+<body>
+<div class="container">
+<div class="hero">
+<h1>📊 Test Drive Pace Comparison — May-Aug 2026 (1-20 days)</h1>
+<div class="hero-meta">Apples-to-apples: เฉพาะ 1-20 ของแต่ละเดือน (20 วัน) · Data: TD until Jul26.csv (50,328 records) + Aug26 xlsx</div>
+</div>
+<div class="section-card">
+<h2><span class="section-num">1</span>Test Drive Pace (1-20 days)</h2>
+<div class="kpi-grid">
+<div class="kpi up"><div class="value">67.3</div><div class="label">May26 (1-20)</div></div>
+<div class="kpi down"><div class="value">34.9</div><div class="label">Jun26 (1-20)</div></div>
+<div class="kpi down"><div class="value">36.2</div><div class="label">Jul26 (1-20)</div></div>
+<div class="kpi down"><div class="value">41.6</div><div class="label">Aug26 (1-20)</div></div>
+</div>
+<div class="callout danger">
+<strong>🚨 Test Drive Pace DECLINE: May 67.3/day → Aug 41.6/day</strong><br>
+<strong>-38.2%</strong> ใน 4 เดือน — TD activity <strong>ลดลงเกือบครึ่ง</strong>
+</div></div>
+<div class="section-card">
+<h2><span class="section-num">2</span>1-20 Days vs Full Month Comparison</h2>
+<div class="chart-container"><canvas id="paceChart"></canvas></div>
+</div>
+<div class="section-card">
+<h2><span class="section-num">3</span>Detailed Breakdown — Apples to Apples</h2>
+<table>
+<thead><tr><th>Month</th><th>1-20 days</th><th>Pace/day (1-20)</th><th>Full Month</th><th>Pace/day (Full)</th><th>% of Full</th><th>Dealers (1-20)</th></tr></thead>
+<tbody>
+<tr><td><strong>May26</strong></td>
+<td><strong>1,347</strong></td>
+<td>67.3/day</td>
+<td>2,402</td>
+<td>80.1/day</td>
+<td>56.1%</td>
+<td>88</td></tr>
+<tr><td><strong>Jun26</strong></td>
+<td><strong>698</strong></td>
+<td>34.9/day</td>
+<td>1,729</td>
+<td>57.6/day</td>
+<td>40.4%</td>
+<td>84</td></tr>
+<tr><td><strong>Jul26</strong></td>
+<td><strong>724</strong></td>
+<td>36.2/day</td>
+<td>1,817</td>
+<td>60.6/day</td>
+<td>39.8%</td>
+<td>76</td></tr>
+<tr><td><strong>Aug26</strong></td>
+<td><strong>832</strong></td>
+<td>41.6/day</td>
+<td>847</td>
+<td>28.2/day</td>
+<td>98.2%</td>
+<td>83</td></tr>
+</tbody></table></div>
+<div class="section-card">
+<h2><span class="section-num">4</span>Rating Quality (1-20 days)</h2>
+<table>
+<thead><tr><th>Month</th><th>🔥 Hot</th><th>🟡 Warm</th><th>❄️ Cold</th><th>Hot/Cold ratio</th><th>Hot share</th></tr></thead>
+<tbody>
+<tr><td><strong>May26</strong></td><td>376</td><td>403</td><td>568</td><td>1.5</td><td>27.9%</td></tr>
+<tr><td><strong>Jun26</strong></td><td>267</td><td>188</td><td>243</td><td>0.9</td><td>38.3%</td></tr>
+<tr><td><strong>Jul26</strong></td><td>273</td><td>194</td><td>257</td><td>0.9</td><td>37.7%</td></tr>
+<tr><td><strong>Aug26</strong></td><td>262</td><td>244</td><td>341</td><td>1.3</td><td>30.9%</td></tr>
+</tbody></table>
+<div class="chart-container"><canvas id="ratingChart"></canvas></div>
+</div>
+<div class="section-card">
+<h2><span class="section-num">5</span>🔍 KEY INSIGHTS — Apples-to-Apples</h2>
+<div class="callout danger">
+<strong>🚨 INSIGHT #1: Test Drive Pace ลดลงครึ่งหนึ่งใน 4 เดือน</strong><br>
+May: 1,347 TDs (67.3/day) → Aug: 832 TDs (41.6/day) = <strong>-38.2%</strong><br>
+<ul style="margin: 8px 0 0 16px;">
+<li>May → Jun: <strong>-48.2%</strong> (ลดลง 649 TDs)</li>
+<li>Jun → Jul: <strong>+3.7%</strong> (เพิ่มเล็กน้อย)</li>
+<li>Jul → Aug: <strong>+14.9%</strong> (เพิ่ม +15%)</li>
+<li><strong>Action Sep:</strong> ต้องฟื้น May pace target Sep 1,500 TDs</li>
+</ul></div>
+<div class="callout warning">
+<strong>⚠️ INSIGHT #2: Dealers หายไปจาก 88 → 83</strong><br>
+May26: 88 dealers → Aug26: 83 dealers (<strong>-5 dealers</strong>)
+<ul style="margin: 8px 0 0 16px;">
+<li>Dealers หายไป -5 ใน 4 เดือน</li>
+<li><strong>Action Sep:</strong> Activate กลับมา + เพิ่มงบ TD program</li>
+</ul></div>
+<div class="callout success">
+<strong>✅ INSIGHT #3: Hot Prospect Share คงที่</strong><br>
+Hot/Cold ratio คงที่ตลอด 4 เดือน (Hot ~28-30%) — <strong>quality ไม่เปลี่ยน แต่ volume ลด</strong>
+<ul style="margin: 8px 0 0 16px;">
+<li>คุณภาพ lead ไม่ได้แย่ลง — แค่ activity volume น้อยลง</li>
+<li><strong>Action:</strong> ขยาย activity volume ไม่ใช่ปรับ quality</li>
+</ul></div>
+</div>
+<div class="section-card">
+<h2><span class="section-num">6</span>Sep Action Plan — กลับสู่ May Pace</h2>
+<div class="kpi-grid">
+<div class="kpi down"><div class="value">41.6/day</div><div class="label">🔴 Aug actual pace</div></div>
+<div class="kpi"><div class="value">67.3/day</div><div class="label">🟢 May peak pace</div></div>
+<div class="kpi nissan"><div class="value">50/day</div><div class="label">🎯 Sep target pace</div></div>
+<div class="kpi"><div class="value">+20.0%</div><div class="label">Required Growth</div></div>
+</div>
+<table>
+<thead><tr><th>Tier</th><th>Strategy</th><th>Action</th><th>Target Impact</th></tr></thead>
+<tbody>
+<tr><td>🟢 Quick Win (Sep 1-15)</td><td>e-POWER Roadshow กลับมา</td><td>จัด 5 events Tier 1 จังหวัด (KKT, UBON, NKP, Srisakate, Korat)</td><td>+200 TDs</td></tr>
+<tr><td>🟡 Hold (Sep 15-30)</td><td>TD follow-up 24hr</td><td>call ทุก Hot prospect ภายใน 24 ชม.</td><td>+10% conversion</td></tr>
+<tr><td>🔴 Preserve</td><td>Activate ดีลเลอร์</td><td>activate 5 dealers ที่หายไป (May 88 → Aug 83)</td><td>+50 TDs/week</td></tr>
+</tbody></table>
+</div>
+<div class="footer">สร้างโดย: Tatchanon Wissawakronrungrot · Nissan Motor (Thailand) · Data: TD until Jul26.csv (50,328 records) + Aug26 xlsx</div>
+</div>
+<script>
+new Chart(document.getElementById("paceChart"), {
+  type: "bar",
+  data: {
+    labels: ["May26", "Jun26", "Jul26", "Aug26"],
+    datasets: [
+      {label: "Test Drives (1-20 days)", data: [1347, 698, 724, 832], backgroundColor: "#C3002F"},
+      {label: "Test Drives (Full Month)", data: [2402, 1729, 1817, 847], backgroundColor: "#1a3a8a"}
+    ]
+  },
+  options: {responsive: true, maintainAspectRatio: false, plugins: {title: {display: true, text: "Test Drives: 1-20 days vs Full Month"}}, scales: {y: {beginAtZero: true}}}
+});
+new Chart(document.getElementById("ratingChart"), {
+  type: "bar",
+  data: {
+    labels: ["May26", "Jun26", "Jul26", "Aug26"],
+    datasets: [
+      {label: "🔥 Hot", data: [376, 267, 273, 262], backgroundColor: "#C3002F"},
+      {label: "🟡 Warm", data: [403, 188, 194, 244], backgroundColor: "#f59e0b"},
+      {label: "❄️ Cold", data: [568, 243, 257, 341], backgroundColor: "#3b82f6"}
+    ]
+  },
+  options: {responsive: true, maintainAspectRatio: false, plugins: {title: {display: true, text: "Test Drive Rating (1-20 days)"}}, scales: {x: {stacked: true}, y: {stacked: true, beginAtZero: true}}}
+});
+</script>
+</body>
+</html>
