@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>🇹🇭 Nissan Nationwide Activity Report — September 2026</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, 'Segoe UI', 'Inter', 'Noto Sans Thai', sans-serif; background: #f5f6f8; color: #1a1a1a; line-height: 1.6; padding: 20px; }
+
+.hero { background: linear-gradient(135deg, #C3002F 0%, #8B0020 100%); color: white; padding: 32px 40px; border-radius: 12px; margin-bottom: 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+.hero h1 { font-size: 28px; margin-bottom: 8px; }
+.hero-meta { font-size: 14px; opacity: 0.9; }
+.hero-chips { display: flex; gap: 12px; margin-top: 16px; flex-wrap: wrap; }
+.hero-chip { background: rgba(255,255,255,0.15); padding: 10px 16px; border-radius: 8px; font-size: 14px; backdrop-filter: blur(8px); }
+.hero-chip strong { font-weight: 700; font-size: 20px; margin-right: 4px; }
+
+.container { max-width: 1400px; margin: 0 auto; }
+
+.section-card { background: white; border-radius: 12px; padding: 24px 28px; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); border:1px solid #e5e7eb; }
+.section-card h2 { font-size: 20px; color: #1a1a1a; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid #C3002F; display: inline-block; }
+
+.chart-container { height: 380px; margin: 16px 0; }
+
+table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13px; }
+thead { background: linear-gradient(135deg, #C3002F, #8B0020); }
+thead th { color: white !important; padding: 10px 12px; text-align: left; font-weight: 600; }
+th { padding: 10px 12px; text-align: left; font-weight: 600; color: white; }
+td { padding: 8px 12px; border-bottom: 1px solid #e5e7eb; color: #1a1a1a; vertical-align: top; }
+tbody tr:nth-child(even) { background: #fafafa; color: #1a1a1a; }
+tbody tr:nth-child(odd) { background: white; color: #1a1a1a; }
+tbody tr:hover { background: #fef2f2; color: #1a1a1a; }
+
+.kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 16px 0; }
+.kpi { background: linear-gradient(135deg, #f9fafb, #f3f4f6); padding: 16px; border-radius: 10px; border: 1px solid #e5e7eb; }
+.kpi.nissan { background: linear-gradient(135deg, #C3002F, #8B0020); color: white; border: none; }
+.kpi .value { font-size: 28px; font-weight: 700; color: #1a1a1a; }
+.kpi.nissan .value { color: white; }
+.kpi .label { font-size: 12px; opacity: 0.7; margin-top: 4px; color: #1a1a1a; }
+.kpi.nissan .label { color: rgba(255,255,255,0.9); }
+
+.section-num { background: #C3002F; color: white; width: 30px; height: 30px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; margin-right: 10px; vertical-align: middle; }
+
+.callout { background: #dbeafe; border-left: 4px solid #1a3a8a; padding: 12px 16px; border-radius: 4px; margin: 12px 0; font-size: 13px; color: #1a1a1a; }
+.callout.danger { background: #fee2e2; border-color: #ef4444; }
+.callout.success { background: #d1fae5; border-color: #10b981; }
+.callout.warning { background: #fef3c7; border-color: #f59e0b; }
+
+.intensity-cell { padding: 6px 10px; text-align: center; font-weight: 600; }
+.intensity-high { background: #1a3a8a; color: white; }
+.intensity-mid { background: #93c5fd; }
+.intensity-low { background: #dbeafe; }
+.intensity-zero { background: #f3f4f6; color: #9ca3af; }
+
+.action-card { border-left: 4px solid #10b981; background: #d1fae5; padding: 14px 18px; margin: 12px 0; border-radius: 4px; }
+.action-card.hold { border-left-color: #f59e0b; background: #fef3c7; }
+.action-card.preserve { border-left-color: #ef4444; background: #fee2e2; }
+
+.footer { text-align: center; font-size: 12px; color: #6b7280; padding: 24px; margin-top: 24px; }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<div class="hero">
+  <h1>🇹🇭 Nissan Nationwide Activity Report — September 2026</h1>
+  <div class="hero-meta">Projection จาก Jun26 baseline × 1.05 growth · ทั่วประเทศ (77 จังหวัด) · Nissan Motor (Thailand)</div>
+  <div class="hero-chips">
+    <div class="hero-chip"><strong>1813</strong> Test Drives</div>
+    <div class="hero-chip"><strong>4778</strong> Prospects</div>
+    <div class="hero-chip"><strong>5998</strong> Leads</div>
+    <div class="hero-chip"><strong>561</strong> Bookings</div>
+    <div class="hero-chip"><strong>256</strong> Retail Sales</div>
+  </div>
+</div>
+
+<!-- Section 1: HERO STATS -->
+<div class="section-card">
+  <h2><span class="section-num">1</span>Hero Stats — September 2026 Projection</h2>
+  
+  <div class="kpi-grid">
+    <div class="kpi"><div class="value">1813</div><div class="label">Test Drives Target</div></div>
+    <div class="kpi"><div class="value">4778</div><div class="label">Prospect Target</div></div>
+    <div class="kpi nissan"><div class="value">5998</div><div class="label">🚗 Leads Target</div></div>
+    <div class="kpi"><div class="value">561</div><div class="label">Bookings Target</div></div>
+  </div>
+
+  <div class="callout">
+    <strong>📊 Sep Projection (vs Jun26):</strong> ใช้ Jun 2026 เป็น baseline × 1.05 (5% growth assumption)
+    — Test Drives 1727 → 1813 · Prospects 4550 → 4778 · Retail Sales 244 → 256
+  </div>
+</div>
+
+<!-- Section 2: Activity Calendar -->
+<div class="section-card">
+  <h2><span class="section-num">2</span>Sep Activity Calendar — Plan & Gaps</h2>
+  
+  <div class="callout success">
+    <strong>📅 Key Events ที่ควรวางแผนใน Sep:</strong>
+    <ul style="margin: 8px 0 0 16px;">
+      <li>Week 1 (1-7 Sep): Back to School Campaign — target <strong>Family Sedan + SUV</strong></li>
+      <li>Week 2 (8-14 Sep): Nissan e-POWER Roadshow ใน 4 จังหวัด Tier 1</li>
+      <li>Week 3 (15-21 Sep): Mid-Month Big Sale — focus test drive conversion</li>
+      <li>Week 4 (22-30 Sep): End-of-Month Push ใน Hyper Market + Mall Event</li>
+    </ul>
+  </div>
+
+  <table>
+    <thead>
+      <tr><th>สัปดาห์</th><th>วันที่</th><th>Theme</th><th>Activity Type</th><th>Target</th><th>KPI</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Week 1</strong></td>
+        <td>1-7 Sep</td>
+        <td>🎒 Back to School + Family</td>
+        <td>Department Store + Online</td>
+        <td>Family Sedan (ALMERA, SERENA)</td>
+        <td>Test Drives 450</td>
+      </tr>
+      <tr>
+        <td><strong>Week 2</strong></td>
+        <td>8-14 Sep</td>
+        <td>⚡ e-POWER Roadshow</td>
+        <td>Roadshow + Hyper Market</td>
+        <td>KICKS e-POWER + X-TRAIL</td>
+        <td>Hot Prospects 500</td>
+      </tr>
+      <tr>
+        <td><strong>Week 3</strong></td>
+        <td>15-21 Sep</td>
+        <td>💰 Mid-Month Big Sale</td>
+        <td>Showroom Event + Special Promo</td>
+        <td>All Models</td>
+        <td>Bookings 150</td>
+      </tr>
+      <tr>
+        <td><strong>Week 4</strong></td>
+        <td>22-30 Sep</td>
+        <td>🎯 End-of-Month Push</td>
+        <td>Hyper Market + Hot Market</td>
+        <td>SUV + Pickup (NAVARA)</td>
+        <td>Retail 100</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Section 3: Top Event Types -->
+<div class="section-card">
+  <h2><span class="section-num">3</span>Top Activity Types (จาก Jun baseline)</h2>
+  
+  <div class="chart-container">
+    <canvas id="eventChart"></canvas>
+  </div>
+
+  <table>
+    <thead><tr><th>#</th><th>Activity Type</th><th>Test Drives</th><th>Share</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Online</td><td>236</td><td>38.5%</td></tr>
+      <tr><td>2</td><td>Department Store</td><td>189</td><td>30.8%</td></tr>
+      <tr><td>3</td><td>Other: Special Events by NMT</td><td>112</td><td>18.3%</td></tr>
+      <tr><td>4</td><td>Hyper Market</td><td>51</td><td>8.3%</td></tr>
+      <tr><td>5</td><td>Other: Showroom Event</td><td>25</td><td>4.1%</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <strong>💡 Top Event Types (5 อันดับ):</strong>
+    <ul style="margin: 8px 0 0 16px;">      <li><strong>Online</strong> - 236 Test Drives</li>
+      <li><strong>Department Store</strong> - 189 Test Drives</li>
+      <li><strong>Other: Special Events by NMT</strong> - 112 Test Drives</li>
+      <li><strong>Hyper Market</strong> - 51 Test Drives</li>
+      <li><strong>Other: Showroom Event</strong> - 25 Test Drives</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Section 4: Top Models -->
+<div class="section-card">
+  <h2><span class="section-num">4</span>Top Models Tested (Target Focus)</h2>
+  
+  <div class="chart-container">
+    <canvas id="modelChart"></canvas>
+  </div>
+
+  <table>
+    <thead><tr><th>#</th><th>Model</th><th>Test Drives</th><th>Focus Sep</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td><strong>KICKS</strong></td><td>889</td><td>🎯 Priority</td></tr>
+      <tr><td>2</td><td><strong>X-TRAIL</strong></td><td>365</td><td>🎯 Priority</td></tr>
+      <tr><td>3</td><td><strong>SERENA e-POWER</strong></td><td>218</td><td>🎯 Priority</td></tr>
+      <tr><td>4</td><td><strong>ALMERA</strong></td><td>114</td><td>🎯 Priority</td></tr>
+      <tr><td>5</td><td><strong>NAVARA</strong></td><td>98</td><td>🎯 Priority</td></tr>
+      <tr><td>6</td><td><strong>SERENA</strong></td><td>43</td><td>⚡ Keep</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Section 5: Prospect Breakdown -->
+<div class="section-card">
+  <h2><span class="section-num">5</span>Prospect Pipeline — Hot/Warm/Cold</h2>
+  
+  <div class="kpi-grid">
+    <div class="kpi nissan"><div class="value">1108</div><div class="label">🔥 Hot Prospects</div></div>
+    <div class="kpi"><div class="value">1427</div><div class="label">🟡 Warm Prospects</div></div>
+    <div class="kpi"><div class="value">2243</div><div class="label">❄️ Cold Prospects</div></div>
+    <div class="kpi"><div class="value">100%</div><div class="label">Conversion Target</div></div>
+  </div>
+  
+  <div class="chart-container">
+    <canvas id="prospectChart"></canvas>
+  </div>
+
+  <div class="callout success">
+    <strong>🎯 Prospect Quality Focus Sep:</strong>
+    <ul style="margin: 8px 0 0 16px;">
+      <li>Hot prospects จะมาจาก <strong>Roadshow + Showroom Event</strong> (high-intent customer)</li>
+      <li>Warm prospects จาก <strong>Department Store + Hyper Market</strong> (medium-intent)</li>
+      <li>Cold prospects จาก <strong>Online + Digital</strong> (low-intent, nurture campaigns)</li>
+      <li>Target conversion Hot→Retail: 23.2% → Sep target <strong>12-15%</strong></li>
+    </ul>
+  </div>
+</div>
+
+<!-- Section 6: Regional Distribution -->
+<div class="section-card">
+  <h2><span class="section-num">6</span>Regional Distribution (Retail Sales by Region)</h2>
+  
+  <div class="chart-container">
+    <canvas id="regionChart"></canvas>
+  </div>
+
+  <table>
+    <thead><tr><th>#</th><th>Region</th><th>Retail Sales (Jun)</th><th>Share</th><th>Sep Action</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>G.BANGKOK</td><td>112</td><td>45.9%</td><td>🎯 Focus</td></tr>
+      <tr><td>2</td><td>NORTH-EAST</td><td>37</td><td>15.2%</td><td>🎯 Focus</td></tr>
+      <tr><td>3</td><td>CENTRAL</td><td>32</td><td>13.1%</td><td>⚡ Hold</td></tr>
+      <tr><td>4</td><td>EAST</td><td>23</td><td>9.4%</td><td>⚡ Hold</td></tr>
+      <tr><td>5</td><td>NORTH</td><td>22</td><td>9.0%</td><td>⚡ Hold</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Section 7: Lead Sources -->
+<div class="section-card">
+  <h2><span class="section-num">7</span>Lead Sources — Where prospects come from</h2>
+  
+  <table>
+    <thead><tr><th>#</th><th>Source</th><th>Count</th><th>Share</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>ลูกค้าศูนย์บริการ/ลูกค้าเก่า</td><td>1,693</td><td>34.4%</td></tr>
+      <tr><td>2</td><td>กิจกรรมที่จัดโดยผู้จำหน่าย</td><td>1,413</td><td>28.7%</td></tr>
+      <tr><td>3</td><td>เยี่ยมชมที่โชว์รูม</td><td>845</td><td>17.2%</td></tr>
+      <tr><td>4</td><td>โทรศัพท์สอบถามข้อมูลที่ผู้จำหน่าย</td><td>523</td><td>10.6%</td></tr>
+      <tr><td>5</td><td>กิจกรรมที่จัดโดย นิสสัน มอเตอร์</td><td>448</td><td>9.1%</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout info">
+    <strong>💡 Top Lead Sources:</strong> Focus งบการตลาดใน top 5 channels ที่ทำ ROI สูงสุด
+    และตัดงบจาก low-ROI channels
+  </div>
+</div>
+
+<!-- Section 8: Gaps & Opportunities -->
+<div class="section-card">
+  <h2><span class="section-num">8</span>Gaps & Opportunities (Sep)</h2>
+  
+  <div class="callout danger">
+    <strong>🚨 Critical Gaps to Address in Sep:</strong>
+    <ul style="margin: 8px 0 0 16px;">
+      <li><strong>Conversion gap:</strong> Prospect → Retail ปัจจุบัน 5.4% — ต่ำกว่า target 12-15%</li>
+      <li><strong>Dealer activation:</strong> Only 78 of 411 dealers do retail (19.0%) — opportunity ที่ 333 dealers</li>
+      <li><strong>Test Drive to Prospect:</strong> 1727 TDs → 4550 Prospects — ratio 2.6 (target 3-4)</li>
+      <li><strong>Cold prospect dominance:</strong> 2136 Cold vs 1055 Hot — Cold:Hot ratio 2.0 (target 1.5)</li>
+    </ul>
+  </div>
+
+  <div class="callout success">
+    <strong>✅ Opportunities:</strong>
+    <ul style="margin: 8px 0 0 16px;">
+      <li>ทดสอบ ในจังหวัด <strong>9 จังหวัด Isan ที่ไม่มี Nissan Dealer</strong> (บึงกาฬ, สุรินทร์, หนองคาย, ยโสธร, อำนาจเจริญ, ชัยภูมิ, บุรีรัมย์, อุดรธานี, นครราชสีมา) — ใช้ Mobile showroom</li>
+      <li>e-POWER Roadshow ใน Tier 1 จังหวัด (KKT, UBON, NKP, Srisakate) — target Hot Prospects 500</li>
+      <li>Fleet program กับ Grab ใน 5 เมืองใหญ่ — BKK, KKT, UBON, Korat, Udon</li>
+      <li>Test Drive → Prospect conversion: เพิ่ม follow-up calls หลัง TD ภายใน 24 ชม.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Section 9: Action Plan -->
+<div class="section-card">
+  <h2><span class="section-num">9</span>Sep Action Plan — 3 Tier</h2>
+  
+  <div class="action-card">
+    <strong>🟢 Quick Win (Sep 1-15)</strong>
+    <ul style="margin: 8px 0 0 16px;">
+      <li>Roadshow <strong>"e-POWER ชีวิตไปต่อ"</strong> ใน KKT, UBON, NKP, Srisakate — target 100 TDs/จังหวัด</li>
+      <li>Hyper Market event ใน BKK + Tier 2 จังหวัด — target 300 TDs</li>
+      <li>Promo ดาวน์ 0% + ส่วนลด 50K สำหรับ ALMERA — drive Hot Prospect</li>
+      <li>Mobile showroom ใน 9 จังหวัดที่ไม่มี Nissan (3 จังหวัด/สัปดาห์)</li>
+    </ul>
+  </div>
+  
+  <div class="action-card hold">
+    <strong>🟡 Hold (Sep 15-30)</strong>
+    <ul style="margin: 8px 0 0 16px;">
+      <li>Mid-month Big Sale — flash promo 3 วัน target 150 bookings</li>
+      <li>Test Drive follow-up program — call ลูกค้าภายใน 24 ชม. หลัง TD</li>
+      <li>End-of-month push — focus conversion Hot→Retail target 12-15%</li>
+      <li>Top dealer activation — กระตุ้น 99 active dealers ให้ทำ retail</li>
+    </ul>
+  </div>
+  
+  <div class="action-card preserve">
+    <strong>🔴 Preserve (Sep 30 → Q4 FY26)</strong>
+    <ul style="margin: 8px 0 0 16px;">
+      <li>Loyalty program soft launch — 5 large dealers ใน BKK + KKT + UBON</li>
+      <li>Brand positioning campaign "ไม่ต้องชาร์จ ไม่ต้องหาปลั๊ก" — start in Oct</li>
+      <li>Dealer network expansion — เพิ่ม sub-dealer ในจังหวัดที่มี Nissan 1 สาขา</li>
+      <li>Prepare FY27 plan — focus e-POWER + B2B (Grab, taxi)</li>
+    </ul>
+  </div>
+</div>
+
+<div class="footer">
+  สร้างโดย: Tatchanon Wissawakornrungrot · Nissan Motor (Thailand) · Data จาก Jun26 baseline × 1.05
+</div>
+
+</div>
+
+<script>
+// Chart 1: Top Event Types
+new Chart(document.getElementById('eventChart'), {
+  type: 'bar',
+  data: {
+    labels: ["Online", "Department Store", "Other: Special Events by NMT", "Hyper Market", "Other: Showroom Event"],
+    datasets: [{
+      label: 'Test Drives',
+      data: [236, 189, 112, 51, 25],
+      backgroundColor: '#C3002F',
+      borderWidth: 1
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: { legend: { display: false } },
+    scales: { x: { beginAtZero: true } }
+  }
+});
+
+// Chart 2: Top Models
+new Chart(document.getElementById('modelChart'), {
+  type: 'bar',
+  data: {
+    labels: ["KICKS", "X-TRAIL", "SERENA e-POWER", "ALMERA", "NAVARA", "SERENA"],
+    datasets: [{
+      label: 'Test Drives',
+      data: [889, 365, 218, 114, 98, 43],
+      backgroundColor: ['#C3002F', '#8B0020', '#1a3a8a', '#7c3aed', '#db2777', '#059669', '#d97706', '#4b5563'],
+      borderWidth: 1
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: { legend: { display: false } },
+    scales: { y: { beginAtZero: true } }
+  }
+});
+
+// Chart 3: Prospect Breakdown
+new Chart(document.getElementById('prospectChart'), {
+  type: 'doughnut',
+  data: {
+    labels: ['🔥 Hot', '🟡 Warm', '❄️ Cold'],
+    datasets: [{
+      data: [1055, 1359, 2136],
+      backgroundColor: ['#C3002F', '#f59e0b', '#3b82f6'],
+      borderWidth: 1
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: { legend: { position: 'bottom' } }
+  }
+});
+
+// Chart 4: Regional
+new Chart(document.getElementById('regionChart'), {
+  type: 'bar',
+  data: {
+    labels: ["G.BANGKOK", "NORTH-EAST", "CENTRAL", "EAST", "NORTH"],
+    datasets: [{
+      label: 'Retail Sales',
+      data: [112, 37, 32, 23, 22],
+      backgroundColor: '#C3002F',
+      borderWidth: 1
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: { legend: { display: false } },
+    scales: { x: { beginAtZero: true } }
+  }
+});
+</script>
+
+</body>
+</html>
