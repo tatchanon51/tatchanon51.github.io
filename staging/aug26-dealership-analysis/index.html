@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>📊 Aug26 Deep Dive + Sep Recommendations</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, 'Segoe UI', 'Inter', 'Noto Sans Thai', sans-serif; background: #f5f6f8; color: #1a1a1a; line-height: 1.6; padding: 20px; }
+
+.hero { background: linear-gradient(135deg, #C3002F 0%, #8B0020 100%); color: white; padding: 32px 40px; border-radius: 12px; margin-bottom: 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+.hero h1 { font-size: 28px; margin-bottom: 8px; }
+.hero-meta { font-size: 14px; opacity: 0.9; }
+.hero-chips { display: flex; gap: 12px; margin-top: 16px; flex-wrap: wrap; }
+.hero-chip { background: rgba(255,255,255,0.15); padding: 10px 16px; border-radius: 8px; font-size: 14px; }
+.hero-chip strong { font-weight: 700; font-size: 20px; margin-right: 4px; }
+
+.container { max-width: 1400px; margin: 0 auto; }
+
+.section-card { background: white; border-radius: 12px; padding: 24px 28px; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); border: 1px solid #e5e7eb; }
+.section-card h2 { font-size: 20px; color: #1a1a1a; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid #C3002F; display: inline-block; }
+
+.chart-container { height: 360px; margin: 16px 0; }
+
+table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13px; }
+thead { background: linear-gradient(135deg, #C3002F, #8B0020); }
+thead th { color: white !important; padding: 10px 12px; text-align: left; font-weight: 600; }
+th { padding: 10px 12px; text-align: left; font-weight: 600; color: white; }
+td { padding: 8px 12px; border-bottom: 1px solid #e5e7eb; color: #1a1a1a; vertical-align: top; }
+tbody tr:nth-child(even) { background: #fafafa; }
+tbody tr:nth-child(odd) { background: white; }
+tbody tr:hover { background: #fef2f2; }
+
+.kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 16px 0; }
+.kpi { background: linear-gradient(135deg, #f9fafb, #f3f4f6); padding: 16px; border-radius: 10px; border: 1px solid #e5e7eb; }
+.kpi.nissan { background: linear-gradient(135deg, #C3002F, #8B0020); color: white; border: none; }
+.kpi.down { background: linear-gradient(135deg, #fee2e2, #fecaca); border-color: #ef4444; }
+.kpi .value { font-size: 26px; font-weight: 700; color: #1a1a1a; }
+.kpi.nissan .value { color: white; }
+.kpi .label { font-size: 12px; opacity: 0.7; margin-top: 4px; color: #1a1a1a; }
+.kpi.nissan .label { color: rgba(255,255,255,0.9); }
+
+.section-num { background: #C3002F; color: white; width: 30px; height: 30px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; margin-right: 10px; vertical-align: middle; }
+
+.callout { background: #dbeafe; border-left: 4px solid #1a3a8a; padding: 12px 16px; border-radius: 4px; margin: 12px 0; font-size: 13px; color: #1a1a1a; }
+.callout.danger { background: #fee2e2; border-color: #ef4444; }
+.callout.success { background: #d1fae5; border-color: #10b981; }
+.callout.warning { background: #fef3c7; border-color: #f59e0b; }
+
+.action-card { border-left: 4px solid #10b981; background: #d1fae5; padding: 14px 18px; margin: 12px 0; border-radius: 4px; }
+.action-card.stop { border-left-color: #ef4444; background: #fee2e2; }
+.action-card.continue { border-left-color: #f59e0b; background: #fef3c7; }
+.action-card.start { border-left-color: #3b82f6; background: #dbeafe; }
+
+.footer { text-align: center; font-size: 12px; color: #6b7280; padding: 24px; margin-top: 24px; }
+</style>
+</head>
+<body>
+<div class="container">
+<div class="hero">
+<h1>📊 Aug26 Deep Dive — Insights + Sep Recommendations</h1>
+<div class="hero-meta">ข้อมูลจาก Aug26 as of 20 Aug · 1-20 Aug 2026</div>
+<div class="hero-chips">
+<div class="hero-chip"><strong>847</strong> Test Drives</div>
+<div class="hero-chip"><strong>265</strong> Bookings</div>
+<div class="hero-chip"><strong>2,107</strong> Prospects</div>
+<div class="hero-chip"><strong>31.3%</strong> TD→BK</div>
+<div class="hero-chip"><strong>12.6%</strong> PP→BK</div>
+</div>
+</div>
+<div class="section-card">
+<h2><span class="section-num">1</span>Aug26 KPIs + vs Jun26 Trend</h2>
+<div class="kpi-grid">
+<div class="kpi"><div class="value">847</div><div class="label">🚗 Test Drives (20 วัน)</div></div>
+<div class="kpi nissan"><div class="value">265</div><div class="label">📋 Bookings (20 วัน)</div></div>
+<div class="kpi"><div class="value">2,107</div><div class="label">🎯 Prospects (20 วัน)</div></div>
+<div class="kpi"><div class="value">12.6%</div><div class="label">💰 PP→BK Conversion</div></div>
+</div>
+<table>
+<thead><tr><th>Metric</th><th>Jun26 (เต็มเดือน)</th><th>Aug26 (1-20)</th><th>Change</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td>Test Drives</td><td>1,727</td><td>847</td><td>-51.0% (20 วัน / 30 วัน)</td><td>🔴 Down</td></tr>
+<tr><td>Prospects</td><td>4,550</td><td>2,107</td><td>-53.7% (20 วัน / 30 วัน)</td><td>🔴 Down</td></tr>
+<tr><td>Bookings</td><td>534</td><td>265</td><td>-50.4% (20 วัน / 30 วัน)</td><td>🔴 Down</td></tr>
+<tr><td>Dealers Active (TD)</td><td>99</td><td>83</td><td>— </td><td>🔴 -16 dealers</td></tr>
+</tbody>
+</table>
+<div class="callout warning">
+<strong>⚠️ Aug26 Trend (vs Jun26):</strong>
+<ul style="margin: 8px 0 0 16px;">
+<li><strong>Test Drives</strong> 847 ใน 20 วัน — pace <strong>42/วัน</strong> (vs Jun26 58/วัน) — <strong>ชะลอ</strong></li>
+<li><strong>Prospects</strong> 2,107 ใน 20 วัน — pace <strong>105/วัน</strong> (vs Jun26 152/วัน) — <strong>ชะลอ</strong></li>
+<li><strong>Dealers Active</strong> ลดจาก 99 → 83 (-16) — ต้อง activate dealers ที่หายไป</li>
+<li><strong>TD→BK Conversion</strong> = 31.3% (847 TD → 265 BK) — Healthy (>25%)</li>
+<li><strong>PP→BK Conversion</strong> = 12.6% (2,107 PP → 265 BK) — Low (target 15-20%)</li>
+</ul>
+</div>
+</div>
+<div class="section-card">
+<h2><span class="section-num">2</span>Top Event Groups — What worked in Aug</h2>
+<div class="chart-container"><canvas id="eventChart"></canvas></div>
+<table>
+<thead><tr><th>#</th><th>Event Group (TD)</th><th>Test Drives</th><th>Share</th></tr></thead>
+<tbody>
+<tr><td>1</td><td><strong>Other: Showroom Event</strong></td><td>215</td><td>46.9%</td></tr>
+<tr><td>2</td><td><strong>Other: Special Events by NMT</strong></td><td>68</td><td>14.8%</td></tr>
+<tr><td>3</td><td><strong>Online</strong></td><td>56</td><td>12.2%</td></tr>
+<tr><td>4</td><td><strong>Department Store</strong></td><td>49</td><td>10.7%</td></tr>
+<tr><td>5</td><td><strong>Hyper Market</strong></td><td>34</td><td>7.4%</td></tr>
+<tr><td>6</td><td><strong>Other: Caravan & Rally</strong></td><td>31</td><td>6.8%</td></tr>
+<tr><td>7</td><td><strong>Other: Local Ads</strong></td><td>3</td><td>0.7%</td></tr>
+<tr><td>8</td><td><strong>Hot Market</strong></td><td>2</td><td>0.4%</td></tr>
+</tbody>
+</table>
+<div class="callout success">
+<strong>💡 Insight:</strong> <strong>Showroom Event + Special Events by NMT</strong> ครอง 50%+ ของ Test Drives — ห้างสรรพสินค้า + Hyper Market มีบทบาทสำคัญ
+</div>
+</div>
+<div class="section-card">
+<h2><span class="section-num">3</span>Top Locations — Where Test Drives happened</h2>
+<table>
+<thead><tr><th>#</th><th>Location</th><th>Test Drives</th><th>Insight</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Facebook</td><td><strong>55</strong></td><td>📱 Online Lead</td></tr>
+<tr><td>2</td><td>เซ็นทรัลอุบลราธานี</td><td><strong>48</strong></td><td>🏬 Department Store</td></tr>
+<tr><td>3</td><td>กิจกรรม “e-POWER ชีวิตไปต่อ ไม่ต้องรอชาร์จ – Weekend TEST DRIVE”</td><td><strong>40</strong></td><td>⚡ e-POWER Roadshow</td></tr>
+<tr><td>4</td><td>โชว์รูมนิสสัน เอ็มเพอร์เรอร์</td><td><strong>31</strong></td><td>🏢 Showroom Walk-in</td></tr>
+<tr><td>5</td><td>IMPACT Lakeside (Krungsri Auto Test Drive Event)</td><td><strong>31</strong></td><td>🎪 Motor Show Event</td></tr>
+<tr><td>6</td><td>e-POWER ชีวิตไปต่อ ไม่ต้องรอชาร์จ – Weekend TEST DRIVE</td><td><strong>22</strong></td><td>⚡ e-POWER Roadshow</td></tr>
+<tr><td>7</td><td>“e-POWER ชีวิตไปต่อ ไม่ต้องรอชาร์จ – Weekend TEST DRIVE”</td><td><strong>20</strong></td><td>⚡ e-POWER Roadshow</td></tr>
+<tr><td>8</td><td>Nissan Motor Show - Central Khonkaen Campus</td><td><strong>14</strong></td><td>🏬 Department Store</td></tr>
+<tr><td>9</td><td>เซ็นทรัล ปิ่นเกล้า</td><td><strong>13</strong></td><td>🏬 Department Store</td></tr>
+<tr><td>10</td><td>NISSAN MOTOR SHOW เซ็นทรัลภูเก็ต</td><td><strong>13</strong></td><td>🏬 Department Store</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-card">
+<h2><span class="section-num">4</span>Top Dealers — Best performers Aug26</h2>
+<div class="chart-container"><canvas id="dealerChart"></canvas></div>
+<table>
+<thead><tr><th>#</th><th>Dealer</th><th>TDs</th><th>Bookings</th><th>TD→BK</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>สยามนิสสัน อุบลราชธานี - สำนักงานใหญ่</td><td><strong>56</strong></td><td>14</td><td>25.0%</td></tr>
+<tr><td>2</td><td>บิซ พีเค - สำนักงานใหญ่</td><td><strong>41</strong></td><td>21</td><td>51.2%</td></tr>
+<tr><td>3</td><td>เมกา ออโตโมบิล ติวานนท์ - สำนักงานใหญ่</td><td><strong>38</strong></td><td>9</td><td>23.7%</td></tr>
+<tr><td>4</td><td>เอส.เค.ชัวร์ - สำนักงานใหญ่</td><td><strong>35</strong></td><td>0</td><td>0.0%</td></tr>
+<tr><td>5</td><td>เอ็มเพอร์เรอร์ ออโต้ - สำนักงานใหญ่</td><td><strong>31</strong></td><td>0</td><td>0.0%</td></tr>
+<tr><td>6</td><td>สยามนิสสันเซลส์ - เพชรบุรีตัดใหม่</td><td><strong>29</strong></td><td>0</td><td>0.0%</td></tr>
+<tr><td>7</td><td>สยามนิสสันเซลส์ - สำนักงานใหญ่</td><td><strong>25</strong></td><td>10</td><td>40.0%</td></tr>
+<tr><td>8</td><td>สยามนิสสัน รถดีพระราม2 - สำนักงานใหญ่</td><td><strong>22</strong></td><td>8</td><td>36.4%</td></tr>
+<tr><td>9</td><td>สยามนิสสัน เอ.อาร์. - เจ้าฟ้า</td><td><strong>22</strong></td><td>9</td><td>40.9%</td></tr>
+<tr><td>10</td><td>สยามนิสสัน นครพนม - สำนักงานใหญ่</td><td><strong>21</strong></td><td>0</td><td>0.0%</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-card">
+<h2><span class="section-num">5</span>Test Drive Daily Trend (Aug 1-20)</h2>
+<div class="chart-container"><canvas id="dateChart"></canvas></div>
+<div class="callout">
+<strong>📊 Aug Daily Pattern:</strong>
+<ul style="margin: 8px 0 0 16px;">
+<li><strong>Average TD/day:</strong> 50</li>
+<li><strong>Peak day:</strong> 15/08/2026 = <strong>120 TDs</strong> (15 Aug — Mother’s Day)</li>
+<li><strong>Low day:</strong> 11/08/2026 = 24 TDs</li>
+<li><strong>Weekend Effect:</strong> Sat/Sun ต่ำกว่า mid-week (factory closed)</li>
+</ul>
+</div>
+</div>
+<div class="section-card">
+<h2><span class="section-num">6</span>Prospect Quality — Hot/Warm/Cold</h2>
+<div class="kpi-grid">
+<div class="kpi nissan"><div class="value">521</div><div class="label">🔥 Hot</div></div>
+<div class="kpi"><div class="value">577</div><div class="label">🟡 Warm</div></div>
+<div class="kpi down"><div class="value">1009</div><div class="label">❄️ Cold</div></div>
+<div class="kpi"><div class="value">48%</div><div class="label">Cold Share</div></div>
+</div>
+<div class="chart-container"><canvas id="prospectChart"></canvas></div>
+<div class="callout danger"><strong>🚨 Prospect Quality:</strong> Cold 48% (1,009) vs Hot 25% (521) — Cold:Hot ratio = 1.9 (target 1.5)<br>Hot→BK conversion = 50.9% (target 25-30%)</div>
+</div>
+<div class="section-card">
+<h2><span class="section-num">7</span>🔍 KEY INSIGHTS + Sep Actions</h2>
+<div class="callout success"><strong>✅ INSIGHT #1: e-POWER Roadshow WORKS!</strong><ul style="margin: 8px 0 0 16px;"><li>"e-POWER ชีวิตไปต่อ ไม่ต้องรอชาร์จ – Weekend TEST DRIVE" มี <strong>82 TDs</strong> ใน 3 events</li><li>นครราชสีมา (Central Khonkaen) = <strong>14 TDs</strong></li><li>IMPACT Lakeside (Krungsri Auto) = <strong>31 TDs</strong></li><li><strong>Action Sep:</strong> ขยาย e-POWER Roadshow ไปจังหวัดอื่น (KKT, UBON, NKP, Srisakate, Korat)</li></ul></div>
+<div class="callout success"><strong>✅ INSIGHT #2: Top Dealers = Strong Conversion</strong><ul style="margin: 8px 0 0 16px;"><li><strong>บิซ พีเค</strong>: 41 TDs → 21 Bookings (51.2% conversion!)</li><li><strong>สยามนิสสัน อุบลราชธานี</strong>: 56 TDs → 14 Bookings (25%)</li><li><strong>สยามนิสสัน กรุงไทย</strong>: 13 Bookings (top BKing dealer)</li><li><strong>Action Sep:</strong> Replicate winning playbook</li></ul></div>
+<div class="callout danger"><strong>🚨 INSIGHT #3: Showroom Event Dominates</strong><ul style="margin: 8px 0 0 16px;"><li>Showroom Event ครอง <strong>215 TDs (25%)</strong> — สูงที่สุด</li><li>Department Store (49) + Hot Market (2) มีน้อย — opportunity!</li><li><strong>Action Sep:</strong> เพิ่ม Mall Events ใน BKK + KKT + UBON + Korat</li></ul></div>
+<div class="callout warning"><strong>⚠️ INSIGHT #4: Cold Prospect Backlog</strong><ul style="margin: 8px 0 0 16px;"><li>Cold: 1,009 prospects (>3 เดือน)</li><li>Hot 521 แต่ Conversion ต่ำ = follow-up ไม่ทัน</li><li><strong>Action Sep:</strong> Nurture campaign สำหรับ Cold, Priority call สำหรับ Hot ภายใน 24 ชม.</li></ul></div>
+<div class="callout success"><strong>✅ INSIGHT #5: Top Locations = Repeatable</strong><ul style="margin: 8px 0 0 16px;"><li><strong>เซ็นทรัลอุบลราชธานี</strong> = 48 TDs</li><li><strong>Facebook</strong> = 55 TDs</li><li><strong>Action Sep:</strong> เซ็นทรัล ในจังหวัดอื่น (ขอนแก่น, อุดร, โคราช, นครราชสีมา)</li></ul></div>
+</div>
+<div class="section-card">
+<h2><span class="section-num">8</span>Sep Action Plan — DO MORE / DO LESS / START / CONTINUE</h2>
+<div class="action-card continue"><strong>🟢 DO MORE (ทำต่อ/เพิ่ม) — ที่ work ดีแล้ว</strong><ul style="margin: 8px 0 0 16px;"><li><strong>e-POWER Roadshow</strong> — ขยายจาก 3 จังหวัดเป็น 8 จังหวัด</li><li><strong>Showroom Events</strong> — top driver, ทุก dealer ทำ weekly</li><li><strong>Facebook Leads</strong> — 55 TDs จาก online — เพิ่มงบ digital</li><li><strong>Central + Hyper Market</strong> — 49+34=83 TDs, ขยายเข้า Central จังหวัดอื่น</li><li><strong>Special Events by NMT</strong> — 68 TDs — ใช้ template NMT ออกแบบ</li><li><strong>บิซ พีเค + กรุงไทย</strong> — best practice sharing</li></ul></div>
+<div class="action-card stop"><strong>🔴 DO LESS / STOP — ที่ไม่ work</strong><ul style="margin: 8px 0 0 16px;"><li><strong>Hot Market</strong> — แค่ 2 TDs ใน 20 วัน — low ROI</li><li><strong>Local Ads</strong> — 3 TDs only — ตัดงบ local print/radio</li><li><strong>Cold prospects accumulation</strong> — ต้อง clean database + nurture</li><li><strong>Low-performing dealers</strong> — activate or consolidate</li></ul></div>
+<div class="action-card start"><strong>🟡 START — โปรแกรมใหม่ที่ควรเริ่ม Sep</strong><ul style="margin: 8px 0 0 16px;"><li><strong>Nurture Campaign Program</strong> — email/SMS สำหรับ Cold >3 เดือน — 1009 leads</li><li><strong>Hot Prospect Fast-Track</strong> — call ภายใน 24 ชม. หลัง TD</li><li><strong>e-POWER Tour Sep-Oct</strong> — 8 จังหวัด (จาก 3)</li><li><strong>Showroom Walk-in Boost</strong> — weekend test drive event ทุก dealer</li><li><strong>Dealer Activation Campaign</strong> — activate 16 dealers ที่หายไป</li><li><strong>Loyalty Program Soft Launch</strong> — 5 large dealers</li></ul></div>
+<div class="action-card"><strong>🟢 CONTINUE — ที่ work แต่ต้อง optimize</strong><ul style="margin: 8px 0 0 16px;"><li><strong>Department Store Events</strong> — 49 TDs, เพิ่มใน Tier 2 จังหวัด</li><li><strong>Online Lead Nurture</strong> — 56 TDs, follow-up ภายใน 24 ชม.</li><li><strong>Hyper Market</strong> — 34 TDs, ขยายเข้า Lotus/Big C</li><li><strong>Caravan & Rally</strong> — 31 TDs, top event type</li></ul></div>
+</div>
+<div class="section-card">
+<h2><span class="section-num">9</span>Sep Calendar — 4-week Plan (based on Aug pattern)</h2>
+<table>
+<thead><tr><th>สัปดาห์</th><th>วันที่</th><th>Theme</th><th>Key Activities</th><th>Target TDs</th></tr></thead>
+<tbody>
+<tr><td><strong>Week 1</strong></td><td>1-7 Sep</td><td>🎒 Back to School + Family</td><td>e-POWER Roadshow KKT, Showroom Event, Facebook Boost</td><td>550 TDs</td></tr>
+<tr><td><strong>Week 2</strong></td><td>8-14 Sep</td><td>⚡ Mid-Month e-POWER Push</td><td>Central Khonkaen, IMPACT, เซ็นทรัล Korat</td><td>600 TDs</td></tr>
+<tr><td><strong>Week 3</strong></td><td>15-21 Sep</td><td>💰 Big Sale (peak day 15 Aug = 120 TDs)</td><td>Hyper Market, Showroom Special, Flash Sale</td><td>650 TDs</td></tr>
+<tr><td><strong>Week 4</strong></td><td>22-30 Sep</td><td>🎯 End-Month Push</td><td>Roadshow UBON/NKP, Mall Event, Fleet Promo</td><td>550 TDs</td></tr>
+</tbody>
+</table>
+<div class="callout success"><strong>🎯 Sep Targets:</strong><ul style="margin: 8px 0 0 16px;"><li>Test Drives: <strong>1,500</strong></li><li>Bookings: <strong>470</strong> (TD→BK 31%)</li><li>Hot Prospects: <strong>800</strong></li><li>Dealers Active: <strong>100</strong></li></ul></div>
+</div>
+<div class="footer">
+สร้างโดย: Tatchanon Wissawakornrungrot · Nissan Motor (Thailand) · Data: Aug26 as of 20 Aug (TD 847 / BK 265 / PP 2,107)
+</div>
+</div>
+
+<script>
+new Chart(document.getElementById("eventChart"), {type: "bar", data: {labels: ["Other: Showroom Event", "Other: Special Events by NMT", "Online", "Department Store", "Hyper Market", "Other: Caravan & Rally", "Other: Local Ads", "Hot Market"], datasets: [{label: "Test Drives", data: [215, 68, 56, 49, 34, 31, 3, 2], backgroundColor: "#C3002F"}]}, options: {indexAxis: "y", responsive: true, maintainAspectRatio: false, plugins: {legend: {display: false}}, scales: {x: {beginAtZero: true}}}});
+new Chart(document.getElementById("dealerChart"), {type: "bar", data: {labels: ["\u0e2a\u0e22\u0e32\u0e21\u0e19\u0e34\u0e2a\u0e2a\u0e31\u0e19 \u0e2d\u0e38\u0e1a\u0e25\u0e23\u0e32\u0e0a\u0e18\u0e32\u0e19\u0e35 - ", "\u0e1a\u0e34\u0e0b \u0e1e\u0e35\u0e40\u0e04 - \u0e2a\u0e33\u0e19\u0e31\u0e01\u0e07\u0e32\u0e19\u0e43\u0e2b\u0e0d\u0e48", "\u0e40\u0e21\u0e01\u0e32 \u0e2d\u0e2d\u0e42\u0e15\u0e42\u0e21\u0e1a\u0e34\u0e25 \u0e15\u0e34\u0e27\u0e32\u0e19\u0e19\u0e17\u0e4c -", "\u0e40\u0e2d\u0e2a.\u0e40\u0e04.\u0e0a\u0e31\u0e27\u0e23\u0e4c - \u0e2a\u0e33\u0e19\u0e31\u0e01\u0e07\u0e32\u0e19\u0e43\u0e2b", "\u0e40\u0e2d\u0e47\u0e21\u0e40\u0e1e\u0e2d\u0e23\u0e4c\u0e40\u0e23\u0e2d\u0e23\u0e4c \u0e2d\u0e2d\u0e42\u0e15\u0e49 - \u0e2a\u0e33", "\u0e2a\u0e22\u0e32\u0e21\u0e19\u0e34\u0e2a\u0e2a\u0e31\u0e19\u0e40\u0e0b\u0e25\u0e2a\u0e4c - \u0e40\u0e1e\u0e0a\u0e23\u0e1a\u0e38\u0e23", "\u0e2a\u0e22\u0e32\u0e21\u0e19\u0e34\u0e2a\u0e2a\u0e31\u0e19\u0e40\u0e0b\u0e25\u0e2a\u0e4c - \u0e2a\u0e33\u0e19\u0e31\u0e01\u0e07\u0e32", "\u0e2a\u0e22\u0e32\u0e21\u0e19\u0e34\u0e2a\u0e2a\u0e31\u0e19 \u0e23\u0e16\u0e14\u0e35\u0e1e\u0e23\u0e30\u0e23\u0e32\u0e212 - ", "\u0e2a\u0e22\u0e32\u0e21\u0e19\u0e34\u0e2a\u0e2a\u0e31\u0e19 \u0e40\u0e2d.\u0e2d\u0e32\u0e23\u0e4c. - \u0e40\u0e08\u0e49", "\u0e2a\u0e22\u0e32\u0e21\u0e19\u0e34\u0e2a\u0e2a\u0e31\u0e19 \u0e19\u0e04\u0e23\u0e1e\u0e19\u0e21 - \u0e2a\u0e33\u0e19\u0e31\u0e01"], datasets: [{label: "Test Drives", data: [56, 41, 38, 35, 31, 29, 25, 22, 22, 21], backgroundColor: "#1a3a8a"}]}, options: {indexAxis: "y", responsive: true, maintainAspectRatio: false, plugins: {legend: {display: false}}, scales: {x: {beginAtZero: true}}}});
+new Chart(document.getElementById("dateChart"), {type: "line", data: {labels: ["03/08/2026", "04/08/2026", "05/08/2026", "08/08/2026", "09/08/2026", "10/08/2026", "11/08/2026", "13/08/2026", "14/08/2026", "15/08/2026", "16/08/2026", "17/08/2026", "18/08/2026", "19/08/2026", "20/08/2026"], datasets: [{label: "Test Drives per Day", data: [34, 44, 27, 32, 29, 38, 24, 30, 69, 120, 67, 48, 43, 70, 78], borderColor: "#C3002F", backgroundColor: "rgba(195, 0, 47, 0.1)", tension: 0.3, fill: true, pointRadius: 4}]}, options: {responsive: true, maintainAspectRatio: false, plugins: {legend: {display: false}}, scales: {y: {beginAtZero: true}}}});
+new Chart(document.getElementById("prospectChart"), {type: "doughnut", data: {labels: ["Hot", "Warm", "Cold"], datasets: [{data: [521, 577, 1009], backgroundColor: ["#C3002F", "#f59e0b", "#3b82f6"]}]}, options: {responsive: true, maintainAspectRatio: false, plugins: {legend: {position: "bottom"}}}});
+</script>
+</body>
+</html>
