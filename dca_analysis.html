@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>DCA Stock Analysis: EOSE / KEEL / RXT / TE — Aug 2026</title>
+<script src="https://cdn.jsdelivr.net/npm/[email protected]/dist/chart.umd.min.js"></script>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Sarabun', 'Inter', -apple-system, sans-serif; background: #f7f8fa; color: #1a202c; line-height: 1.6; padding: 20px; }
+.container { max-width: 1200px; margin: 0 auto; }
+h1 { font-size: 28px; margin-bottom: 8px; color: #0f172a; }
+.subtitle { color: #64748b; margin-bottom: 30px; font-size: 14px; }
+.stock-block { background: white; border-radius: 12px; padding: 24px; margin-bottom: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+.stock-header { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 2px solid #e2e8f0; padding-bottom: 12px; margin-bottom: 20px; flex-wrap: wrap; gap: 8px; }
+.stock-title { font-size: 22px; font-weight: 700; color: #0f172a; }
+.ticker { background: #1e293b; color: white; padding: 4px 10px; border-radius: 6px; font-size: 13px; font-weight: 600; margin-left: 8px; }
+.market { font-size: 12px; background: #e0f2fe; color: #075985; padding: 3px 8px; border-radius: 4px; }
+.section-title { font-size: 16px; font-weight: 700; color: #0f172a; margin-top: 20px; margin-bottom: 10px; padding-left: 12px; border-left: 4px solid #2563eb; }
+.section-title.warning { border-left-color: #ef4444; }
+.section-title.success { border-left-color: #10b981; }
+.section-title.neutral { border-left-color: #f59e0b; }
+table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 14px; }
+th, td { padding: 8px 12px; text-align: left; border-bottom: 1px solid #e2e8f0; }
+th { background: #f8fafc; font-weight: 600; color: #475569; font-size: 13px; }
+td { color: #1e293b; }
+.bull { color: #16a34a; font-weight: 600; }
+.bear { color: #dc2626; font-weight: 600; }
+.neutral-text { color: #64748b; }
+.summary-box { background: #f8fafc; border-left: 4px solid #2563eb; padding: 14px 18px; border-radius: 6px; margin: 14px 0; font-size: 14px; }
+.summary-box.bull { border-left-color: #10b981; }
+.summary-box.bear { border-left-color: #ef4444; }
+.summary-box.neutral { border-left-color: #f59e0b; }
+ul { padding-left: 22px; margin: 8px 0; }
+li { margin-bottom: 4px; font-size: 14px; }
+.metric-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin: 14px 0; }
+.metric-card { background: #f8fafc; border-radius: 8px; padding: 12px 14px; border: 1px solid #e2e8f0; }
+.metric-label { font-size: 11px; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+.metric-value { font-size: 18px; font-weight: 700; color: #0f172a; }
+.metric-value.bull { color: #16a34a; }
+.metric-value.bear { color: #dc2626; }
+.chart-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 18px 0; }
+.chart-card { background: #f8fafc; padding: 14px; border-radius: 8px; }
+.chart-title { font-size: 13px; font-weight: 600; color: #475569; margin-bottom: 10px; text-align: center; }
+canvas { max-height: 240px; }
+.disclaimer { background: #fef3c7; border: 1px solid #fbbf24; border-radius: 8px; padding: 14px 18px; margin-top: 30px; font-size: 13px; color: #78350f; }
+.disclaimer strong { color: #92400e; }
+.dca-verdict { display: inline-block; padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; margin-top: 8px; }
+.dca-verdict.bull { background: #d1fae5; color: #065f46; }
+.dca-verdict.bear { background: #fee2e2; color: #991b1b; }
+.dca-verdict.neutral { background: #fef3c7; color: #92400e; }
+.sources { font-size: 12px; color: #64748b; margin-top: 16px; padding-top: 12px; border-top: 1px dashed #cbd5e1; }
+.sources a { color: #2563eb; text-decoration: none; }
+.sources a:hover { text-decoration: underline; }
+@media (max-width: 768px) { .chart-row { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>📊 DCA Stock Analysis — EOSE / KEEL / RXT / TE</h1>
+<p class="subtitle">ข้อมูล Q2 2026 (รายงานล่าสุด) | DCA 5-year horizon | Updated 28 Aug 2026</p>
+
+<!-- ===== EOSE ===== -->
+<div class="stock-block">
+  <div class="stock-header">
+    <div>
+      <span class="stock-title">Eos Energy Enterprises</span>
+      <span class="ticker">EOSE</span>
+    </div>
+    <span class="market">NASDAQ · Long-Duration Energy Storage (Zinc-based)</span>
+  </div>
+
+  <h3 class="section-title">ภาพรวมธุรกิจ</h3>
+  <p>ผู้ผลิตระบบกักเก็บพลังงานระยะยาว (LDES) ด้วยเทคโนโลยี <strong>zinc-based battery</strong> ผลิตและจัดหาในสหรัฐอเมริกา ใช้กับ data center, defense, grid resilience. รายได้หลักมาจาก <strong>โครงการ LDES ขนาดใหญ่ + Frontier Power USA JV</strong> (ร่วมทุนกับ Cerberus Capital) ซึ่งทำให้ปัจจุบัน 80% ของรายได้ Q2 มาจาก project เดียว</p>
+
+  <h3 class="section-title">อุตสาหกรรม</h3>
+  <p><span class="bull">📈 กำลังเติบโตสูง</span> — ตลาด LDES คาดว่าเติบโต ~20-30% CAGR ปี 2025-2030 ขับเคลื่อนโดย AI data center (ต้องการไฟสำรอง 8-72 ชม.), IRA tax credit, และความต้องการกักเก็บพลังงานหมุนเวียน</p>
+
+  <h3 class="section-title">ความได้เปรียบ (Moat)</h3>
+  <ul>
+    <li><strong>เทคโนโลยี zinc-based</strong> ไม่ใช้ lithium/cobalt → supply chain สหรัฐฯ 100%, ปลอดภัยกว่า Li-ion (no thermal runaway)</li>
+    <li><strong>Eos Z3™</strong> patented, ลด cycle time 10-11% vs Line 1</li>
+    <li><strong>Contract กับ US Department of War</strong> (Golden Dome for America)</li>
+    <li><strong>ผู้เล่น US-based รายเดียวที่ scale ได้</strong> — มี Cerberus JV ที่ dedicated $1B+ project capital</li>
+  </ul>
+
+  <div class="metric-grid">
+    <div class="metric-card"><div class="metric-label">Revenue Q2 2026</div><div class="metric-value">$68.8M</div></div>
+    <div class="metric-card"><div class="metric-label">YoY Growth</div><div class="metric-value bull">+351%</div></div>
+    <div class="metric-card"><div class="metric-label">Gross Margin</div><div class="metric-value bear">-71%</div></div>
+    <div class="metric-card"><div class="metric-label">Net Loss</div><div class="metric-value bear">-$275.7M</div></div>
+    <div class="metric-card"><div class="metric-label">Backlog</div><div class="metric-value bull">$807M</div></div>
+    <div class="metric-card"><div class="metric-label">Opportunity Pipeline</div><div class="metric-value bull">$24.6B</div></div>
+    <div class="metric-card"><div class="metric-label">Cash + Restricted</div><div class="metric-value neutral">$364.1M</div></div>
+    <div class="metric-card"><div class="metric-label">2026 Revenue Guide</div><div class="metric-value">$300-350M</div></div>
+  </div>
+
+  <h3 class="section-title">สุขภาพการเงิน</h3>
+  <table>
+    <tr><th>Metric</th><th>Q2 2026</th><th>Q2 2025</th><th>Trend</th></tr>
+    <tr><td>Revenue</td><td>$68.8M</td><td>$15.3M</td><td class="bull">+351% YoY</td></tr>
+    <tr><td>Gross Loss</td><td>-$48.8M</td><td>deeply negative</td><td class="neutral-text">Improving</td></tr>
+    <tr><td>Adj. EBITDA</td><td>-$71.4M</td><td>-$51.6M</td><td class="bear">Worsening (pre-rev)</td></tr>
+    <tr><td>Cash</td><td>$364.1M</td><td>n/a</td><td>—</td></tr>
+  </table>
+  <p><strong>ปันผล:</strong> ไม่จ่าย | <strong>หนี้:</strong> มี convertible debt + warrants → dilution risk สูง (share count เพิ่ม 235% ใน 3 ปี)</p>
+
+  <h3 class="section-title warning">ปัจจัยเสี่ยง</h3>
+  <ul>
+    <li><span class="bear">Customer concentration:</span> 80% ของ Q2 revenue จาก project เดียว (Cerberus/FPUSA)</li>
+    <li><span class="bear">Cash burn:</span> $71M EBITDA loss/Q + ต้อง fund Thorn Hill ramp</li>
+    <li><span class="bear">Dilution:</span> warrants + convertibles ทำให้ EPS dilution ต่อเนื่อง</li>
+    <li><span class="bear">IRA/Trump policy risk:</span> ส่วนหนึ่งของ upside ผูกกับ tax credit + defense contract ที่อาจเปลี่ยน</li>
+    <li><span class="bear">Margin:</span> -71% gross margin → ต้อง scale ใหญ่มากถึง break-even</li>
+    <li><span class="neutral-text">คู่แข่ง LDES:</span> ESS Tech (ที่เพิ่ง delisting), Form Energy (private), Antora (private)</li>
+  </ul>
+
+  <h3 class="section-title success">มุมมอง 5 ปี (Bull/Base/Bear)</h3>
+  <table>
+    <tr><th>Scenario</th><th>Revenue 2030</th><th>Outcome</th></tr>
+    <tr><td><span class="bull">Bull</span></td><td>$2-3B</td><td>FPUSA JV ใช้ $1B เต็ม, defense contract scale, IRA ขยาย → gross margin positive 2030</td></tr>
+    <tr><td><span class="neutral-text">Base</span></td><td>$1B</td><td>Scale สำเร็จบางส่วน, gross margin ดีขึ้นเป็น -20% ภายใน 2030</td></tr>
+    <tr><td><span class="bear">Bear</span></td><td>$300-500M</td><td>Cash burn ฆ่าบริษัทก่อน break-even, dilution ทำลาย shareholder value</td></tr>
+  </table>
+
+  <h3 class="section-title">สรุปสมดุล</h3>
+  <div class="summary-box bull">
+    <strong>✓ เหตุผลสนับสนุน DCA:</strong> ตลาด LDES กำลังเติบโต 20-30% CAGR · Backlog $807M = 3-year revenue visibility · มี US-only moat + defense cash flow · FPUSA JV ลดบริษัทเงินทุนเดี่ยว risk · Trump energy policy หนุน fossil-alternative
+  </div>
+  <div class="summary-box bear">
+    <strong>✗ ข้อกังวล:</strong> Pre-revenue scale-up = ความเสี่ยงสูง · Cash burn ต่อเนื่อง · Dilution กัดกิน return · Gross margin ต้อง scale 7x กว่าจะถึง break-even · Concentration risk 80% = เปราะบางมาก
+  </div>
+  <p><strong>เหมาะกับ DCA?</strong> <span class="dca-verdict neutral">DCA ได้ แต่ต้องระวัง</span> — เป็น high-risk/high-reward เหมาะกับพอร์ต 5-10% DCA รายเดือน $200-500 ต่อเนื่อง 5 ปี ถ้า thesis เปลี่ยน (เช่น margin ไม่ดีขึ้นภายใน 2027) ต้อง review</p>
+
+  <div class="sources">
+    <strong>แหล่งที่มา:</strong>
+    <a href="https://investors.eose.com/news-releases/news-release-details/eos-energy-enterprises-reports-second-quarter-2026-financial" target="_blank">EOSE Q2 2026 Press Release</a> ·
+    <a href="https://www.stocktitan.net/sec-filings/EOSE/8-k-eos-energy-enterprises-inc-reports-material-event-0ddeb123fa2f.html" target="_blank">Stocktitan EOSE 8-K</a> ·
+    <a href="https://quartr.com/companies/eos-energy-enterprises-inc_11169" target="_blank">Quartr Summary</a>
+  </div>
+</div>
+
+<!-- ===== KEEL ===== -->
+<div class="stock-block">
+  <div class="stock-header">
+    <div>
+      <span class="stock-title">Keel Infrastructure Corp</span>
+      <span class="ticker">KEEL</span>
+    </div>
+    <span class="market">NASDAQ · HPC Infrastructure + Bitcoin Mining (Pivot)</span>
+  </div>
+
+  <h3 class="section-title">ภาพรวมธุรกิจ</h3>
+  <p>เริ่มต้นจาก Bitcoin mining + electrical services ใน Quebec และกำลัง <strong>pivot ไปสู่ HPC (High-Performance Computing) / AI infrastructure</strong> กลายเป็น data center สำหรับ AI workloads รายได้ปัจจุบันมาจาก Bitcoin mining + electricity services + HPC revenue ใหม่</p>
+
+  <h3 class="section-title">อุตสาหกรรม</h3>
+  <p><span class="bull">📈 HPC/AI data center กำลังเติบโตสูงมาก</span> — ตลาด AI infrastructure คาดว่าเติบโต 25-35% CAGR <br>
+  <span class="bear">📉 Bitcoin mining กำลังถดถอย</span> เพราะ halving + ค่าไฟแพง + คู่แข่ง industrial-scale เช่น Marathon Digital, Riot, CleanSpark</p>
+
+  <h3 class="section-title">ความได้เปรียบ (Moat)</h3>
+  <ul>
+    <li><strong>HPC pivot</strong> = เปลี่ยนเกม ใช้ไฟ/ที่ดิน/permit ที่มีอยู่แล้วรัน AI workloads (margin สูงกว่า BTC mining 2-3 เท่า)</li>
+    <li><strong>ที่ตั้งใน Quebec</strong> = ไฟถูก (hydro) + อากาศเย็น + tax incentive</li>
+    <li><strong>Liquidity $819M</strong> = มีเงินพอรอดพัฒนา sites (Panther Creek, Sharon, Moses Lake)</li>
+    <li><strong>Electrician services</strong> = รายได้ recurring</li>
+  </ul>
+
+  <div class="metric-grid">
+    <div class="metric-card"><div class="metric-label">Revenue Q2 2026</div><div class="metric-value">$30.0M</div></div>
+    <div class="metric-card"><div class="metric-label">YoY Growth</div><div class="metric-value bear">-50%</div></div>
+    <div class="metric-card"><div class="metric-label">Operating Loss</div><div class="metric-value bear">-$141M</div></div>
+    <div class="metric-card"><div class="metric-label">Adj. EBITDA</div><div class="metric-value bear">-$23.7M</div></div>
+    <div class="metric-card"><div class="metric-label">Liquidity</div><div class="metric-value bull">$819M</div></div>
+    <div class="metric-card"><div class="metric-label">EPS</div><div class="metric-value bear">-$0.11</div></div>
+    <div class="metric-card"><div class="metric-label">G&A (Q2)</div><div class="metric-value">$31.3M (+62%)</div></div>
+    <div class="metric-card"><div class="metric-label">Sites</div><div class="metric-value">Panther Creek, Sharon, Moses Lake</div></div>
+  </div>
+
+  <h3 class="section-title">สุขภาพการเงิน</h3>
+  <table>
+    <tr><th>Metric</th><th>Q2 2026</th><th>Q2 2025</th><th>Trend</th></tr>
+    <tr><td>Revenue</td><td>$30.0M</td><td>$60M</td><td class="bear">-50% YoY</td></tr>
+    <tr><td>Operating Loss</td><td>-$141M</td><td>+$11M</td><td class="bear">Loss again</td></tr>
+    <tr><td>Net Income</td><td>-$65M</td><td>+$13M</td><td class="bear">Reversed</td></tr>
+    <tr><td>Adj. EBITDA</td><td>-$23.7M</td><td>+$7M</td><td class="bear">Negative</td></tr>
+  </table>
+  <p><strong>ปันผล:</strong> ไม่จ่าย | <strong>หนี้:</strong> ไม่ชัด แต่ liquidity $819M = balance sheet แข็งแรงพอ site development</p>
+
+  <h3 class="section-title warning">ปัจจัยเสี่ยง</h3>
+  <ul>
+    <li><span class="bear">Execution risk:</span> HPC pivot ต้องสร้าง data center + หา AI customers ภายใน 18-24 เดือน</li>
+    <li><span class="bear">G&A explosion:</span> +62% YoY ($19M → $31M) = hire ramp หนัก ยังไม่มี revenue</li>
+    <li><span class="bear">Bitcoin price:</span> รายได้ BTC mining ผูกกับ BTC price (ถ้าร่วงรายได้หายไปอีก)</li>
+    <li><span class="bear">คู่แข่ง HPC:</span> Core Scientific, TeraWulf, Applied Digital, Bitdeer (ทุกตัวกำลัง pivot เช่นกัน)</li>
+    <li><span class="neutral-text">AI capex slowdown:</span> ถ้า AI training capex ลด → HPC demand drop</li>
+,>    <li><span class="neutral-text">หนี้:</span> ดูเหมือนไม่มาก แต่การ ramp ใหม่อาจต้องเพิ่มทุนอีก</li>
+  </ul>
+
+  <h3 class="section-title success">มุมมอง 5 ปี</h3>
+  <table>
+    <tr><th>Scenario</th><th>Revenue 2030</th><th>Outcome</th></tr>
+    <tr><td><span class="bull">Bull</span></td><td>$500M-1B</td><td>HPC sites เต็ม capacity, AI customer 3-5 ราย, EBITDA margin 30-40%</td></tr>
+    <tr><td><span class="neutral-text">Base</span></td><td>$200-300M</td><td>HPC pivot สำเร็จบางส่วน, ผสม BTC + HPC revenue</td></tr>
+    <tr><td><span class="bear">Bear</span></td><td>$100-200M</td><td>ไม่สามารถหา AI customer ได้, BTC ร่วง, cash burn</td></tr>
+  </table>
+
+  <h3 class="section-title">สรุปสมดุล</h3>
+  <div class="summary-box bull">
+    <strong>✓ เหตุผลสนับสนุน DCA:</strong> AI/HPC ตลาด 25-35% CAGR · Liquidity สูงพอ · Quebec infrastructure · Strategic pivot สำคัญ = สร้าง value ใหม่
+  </div>
+  <div class="summary-box bear">
+    <strong>✗ ข้อกังวล:</strong> G&A ramp ก่อน revenue = classic pre-revenue risk · คู่แข่งเยอะมาก · BTC mining = downside risk · ต้องดูว่า HPC deployment เป็นอย่างไรใน Q4 2026
+  </div>
+  <p><strong>เหมาะกับ DCA?</strong> <span class="dca-verdict neutral">DCA ได้ (Risk 1.5x)</span> — เหมาะกับคนเชื่อ AI infra thesis · พอร์ต DCA 3-5% รายเดือน $150-300 · ต้อง monitor Q3+Q4 HPC customer announcements</p>
+
+  <div class="sources">
+    <strong>แหล่งที่มา:</strong>
+    <a href="https://www.stocktitan.net/news/KEEL/keel-infrastructure-reports-second-quarter-2026-df5xhrr0abyn.html" target="_blank">Stocktitan KEEL Q2</a> ·
+    <a href="https://www.globenewswire.com/news-release/2026/08/10/3341696/0/en/keel-infrastructure-reports-second-quarter-2026-results.html" target="_blank">Globe Newswire KEEL</a> ·
+    <a href="https://investor.bitfarms.com/news-releases/news-release-details/keel-infrastructure-reports-first-quarter-2026-results" target="_blank">KEEL Q1 2026</a>
+  </div>
+</div>
+
+<!-- ===== RXT ===== -->
+<div class="stock-block">
+  <div class="stock-header">
+    <div>
+      <span class="stock-title">Rackspace Technology</span>
+      <span class="ticker">RXT</span>
+    </div>
+    <span class="market">NASDAQ · Enterprise Cloud / AI Infrastructure Pivot</span>
+  </div>
+
+  <h3 class="section-title">ภาพรวมธุรกิจ</h3>
+  <p>ผู้ให้บริการ cloud + AI infrastructure สำหรับ enterprise แบ่งเป็น 3 ส่วน: <strong>Public Cloud (~50%), Private Cloud (~33%), AI Infrastructure (ใหม่, กำลัง ramp)</strong> กำลัง <strong>pivot จาก cloud services ทั่วไป ไปสู่ AI infrastructure ที่ margin สูงกว่า</strong></p>
+
+  <h3 class="section-title">อุตสาหกรรม</h3>
+  <p><span class="bull">📈 AI Infrastructure</span> กำลังเติบโต 25%+ CAGR · Enterprise cloud กำลังโต <span class="neutral-text">15-20%</span> แต่ <span class="bear">📉 margin ต่ำ</span> ถ้าไม่มี AI differentiation</p>
+
+  <h3 class="section-title">ความได้เปรียบ (Moat)</h3>
+  <ul>
+    <li><strong>Customer base enterprise ใหญ่</strong> — 1,500+ enterprise customers ที่ต้องการ AI migration</li>
+    <li><strong>AI Foundry infrastructure</strong> — above 50% EBITDA margin (ตาม Q&A call)</li>
+    <li><strong>Strategic exit low-margin cloud</strong> = clean up business model</li>
+    <li><span class="neutral-text">Brand:</span> "Rackspace" รู้จักใน cloud world แต่ไม่ใช่ tier-1</li>
+  </ul>
+
+  <div class="metric-grid">
+    <div class="metric-card"><div class="metric-label">Revenue Q2 2026</div><div class="metric-value">$670.1M</div></div>
+    <div class="metric-card"><div class="metric-label">YoY Growth</div><div class="metric-value neutral">flat</div></div>
+    <div class="metric-card"><div class="metric-label">FY26 Revenue Guide</div><div class="metric-value">$2.45-2.55B</div></div>
+    <div class="metric-card"><div class="metric-label">FY26 Adj. EBITDA</div><div class="metric-value">$285-295M</div></div>
+    <div class="metric-card"><div class="metric-label">Net Loss Q2</div><div class="metric-value bear">-$67.5M</div></div>
+    <div class="metric-card"><div class="metric-label">AI EBITDA Margin</div><div class="metric-value bull">50%+</div></div>
+    <div class="metric-card"><div class="metric-label">Public Cloud FY26</div><div class="metric-value">$399-403M</div></div>
+    <div class="metric-card"><div class="metric-label">Private Cloud FY26</div><div class="metric-value">$242-246M</div></div>
+  </div>
+
+  <h3 class="section-title">สุขภาพการเงิน</h3>
+  <table>
+    <tr><th>Metric</th><th>Q2 2026</th><th>Q2 2025</th><th>Trend</th></tr>
+    <tr><td>Total Revenue</td><td>$670.1M</td><td>~$680M</td><td class="neutral-text">~Flat YoY</td></tr>
+    <tr><td>Net Loss</td><td>-$67.5M</td><td>worse</td><td class="bear">Continued losses</td></tr>
+    <tr><td>YTD Loss</td><td>halved vs 2025</td><td>—</td><td class="bull">Improving</td></tr>
+    <tr><td>FY26 Adj. EBITDA</td><td>$285-295M</td><td>—</td><td class="bull">Guided expansion</td></tr>
+  </table>
+  <p><strong>ปันผล:</strong> ไม่จ่าย | <strong>หนี้:</strong> มี $2.5B+ debt จาก Apollo PE buyout → interest coverage risk | <strong>Cash conversion:</strong> weak, current ratio 0.7 (tight)</p>
+
+  <h3 class="section-title warning">ปัจจัยเสี่ยง</h3>
+  <ul>
+    <li><span class="bear">หนี้สูง</span> จาก Apollo PE buyout ($2.5B+) → interest coverage ตึง</li>
+    <li><span class="bear">Margin ยังติดลบ</span> net loss ต่อเนื่อง ต้องรอ AI infra scale</li>
+    <li><span class="bear">Customer concentration & migration:</span> exit low-margin = short-term revenue drop</li>
+    <li><span class="bear">คู่แข่ง AI infra:</span> CoreWeave, Lambda, Crusoe (private), hyperscaler AWS/Azure/GCP</li>
+    <li><span class="neutral-text">Legacy cloud drag:</span> Microsoft Azure partnership = good แต่ margin ต่ำ</li>
+    <li><span class="neutral-text">Working capital:</span> current ratio 0.7 = แคบมาก</li>
+  </ul>
+
+  <h3 class="section-title success">มุมมอง 5 ปี</h3>
+  <table>
+    <tr><th>Scenario</th><th>Revenue 2030</th><th>Outcome</th></tr>
+    <tr><td><span class="bull">Bull</span></td><td>$3-4B</td><td>AI infra เป็น 40%+ revenue, EBITDA margin 18-22%, deleverage</td></tr>
+    <tr><td><span class="neutral-text">Base</span></td><td>$2.5-3B</td><td>Gradual AI ramp, EBITDA ขยายตาม guide, หนี้ค่อยๆ ลด</td></tr>
+    <tr><td><span class="bear">Bear</span></td><td>$1.8-2.2B</td><td>AI capex slowdown, หนี้ refinance ยาก, downgrade</td></tr>
+  </table>
+
+  <h3 class="section-title">สรุปสมดุล</h3>
+  <div class="summary-box bull">
+    <strong>✓ เหตุผลสนับสนุน DCA:</strong> AI infra thesis จริง, 50%+ EBITDA margin target · FY26 EBITDA expansion plan · Execution แผน exit low-margin คืบหน้า
+  </div>
+  <div class="summary-box bear">
+    <strong>✗ ข้อกังวล:</strong> หนี้สูงจาก PE buyout = capital structure risk · คู่แข่ง AI infra แข่งหนัก · Net loss ต่อเนื่อง · ตลาดใหญ่แต่อาจ oversupply
+  </div>
+  <p><strong>เหมาะกับ DCA?</strong> <span class="dca-verdict neutral">DCA ได้ (Balanced risk)</span> — เป็น mid-risk/mid-reward · เหมาะพอร์ต DCA 5-8% รายเดือน $200-500 · ต้องดู AI infra revenue ramp ใน Q3+Q4</p>
+
+  <div class="sources">
+    <strong>แหล่งที่มา:</strong>
+    <a href="https://www.stocktitan.net/news/RXT/rackspace-technology-reports-second-quarter-2026-o6g2lk562y3p.html" target="_blank">Rackspace Q2 2026</a> ·
+    <a href="https://www.tikr.com/blog/rackspace-rxt-stock-ai-infrastructure-shift" target="_blank">TIKR Analysis</a> ·
+    <a href="https://finance.yahoo.com/technology/ai/articles/rackspace-technology-inc-rxt-q2-010022496.html" target="_blank">Yahoo Finance Q2 Call</a>
+  </div>
+</div>
+
+<!-- ===== TE ===== -->
+<div class="stock-block">
+  <div class="stock-header">
+    <div>
+      <span class="stock-title">T1 Energy Inc.</span>
+      <span class="ticker">TE</span>
+    </div>
+    <span class="market">NYSE · Solar Manufacturing (US)</span>
+  </div>
+
+  <h3 class="section-title">ภาพรวมธุรกิจ</h3>
+  <p>T1 Energy เป็น <strong>ผู้ผลิต solar module + cell ในสหรัฐอเมริกา</strong> โดยใช้จุดแข็งจาก "transformation" ที่เสร็จ Dec 2024 (รวม business กับ GreenEnTec) ปัจจุบันมี <strong>3.1-4.2 GW 2026 guidance</strong> และโรงงานใน US</p>
+
+  <h3 class="section-title">อุตสาหกรรม</h3>
+  <p><span class="bull">📈 Solar capacity US โต 15-20% CAGR</span> ขับเคลื่อนโดย IRA tax credit + Section 232 pricing<br>
+  <span class="bear">📉 Solar module = commoditized</span> (เหมือนเหล็ก/ปูนซีเมนต์) → margin ต่ำมาก ยกเว้นได้ trade protection + tax credit</p>
+
+  <h3 class="section-title">ความได้เปรียบ (Moat)</h3>
+  <ul>
+    <li><strong>US-based manufacturing</strong> = eligible for IRA Section 45X tax credit ($0.03-0.07/W)</li>
+    <li><strong>Section 232 pricing protection</strong> = safeguard จากนำเข้า Asia</li>
+    <li><strong>Norway approval</strong> + 11.5% jump หลังข่าว</li>
+    <li><span class="neutral-text">Traded up:</span> stock +11.5% หลัง Norway approval (Q2 2026)</li>
+  </ul>
+
+  <div class="metric-grid">
+    <div class="metric-card"><div class="metric-label">2026 Capacity Guidance</div><div class="metric-value">3.1-4.2 GW</div></div>
+    <div class="metric-card"><div class="metric-label">Q2 Revenue (2026)</div><div class="metric-value">modest</div></div>
+    <div class="metric-card"><div class="metric-label">Net Loss</div><div class="metric-value bear">Reported</div></div>
+    <div class="metric-card"><div class="metric-label">Convertible Notes 4%</div><div class="metric-value">$160M</div></div>
+    <div class="metric-card"><div class="metric-label">Stock Move (Norway)</div><div class="metric-value bull">+11.5%</div></div>
+    <div class="metric-card"><div class="metric-label">Wall St Rating</div><div class="metric-value neutral">Hold</div></div>
+  </div>
+
+  <h3 class="section-title">สุขภาพการเงิน</h3>
+  <table>
+    <tr><th>Metric</th><th>2026 Status</th><th>Note</th></tr>
+    <tr><td>Convertible 4% 2031</td><td>$160M issued</td><td>Interest cost manageable</td></tr>
+    <tr><td>Capacity target</td><td>3.1-4.2 GW</td><td>Need execution</td></tr>
+    <tr><td>Wall St Rating</td><td>Hold</td><td>"commoditized economics"</td></tr>
+  </table>
+  <p><strong>ปันผล:</strong> ไม่จ่าย | <strong>หนี้:</strong> Convertible 4% (manageable) + capacity build-out capex (high)</p>
+
+  <h3 class="section-title warning">ปัจจัยเสี่ยง</h3>
+  <ul>
+    <li><span class="bear">Commoditized product:</span> Solar module ราคาถูกลง 30-40% ในปีที่ผ่านมา</li>
+    <li><span class="bear">IRA tax credit risk:</span> Trump admin อาจปรับ Section 45X → กระทบ margin</li>
+    <li><span class="bear">Capacity execution:</span> ต้อง scale เป็น 3-4 GW ภายในปีเดียว</li>
+    <li><span class="bear">Competitor:</span> First Solar (FSLR), SunPower bankruptcy แล้ว, Enphase, JinkoSolar (China)</li>
+    <li><span class="bear">Net loss:</span> ยังไม่ทำกำไร ต้องพึ่ง capacity ramp + tax credit</li>
+    <li><span class="neutral-text">Section 232:</span> ถ้าถูกยกเลิก → trade pressure</li>
+  </ul>
+
+  <h3 class="section-title success">มุมมอง 5 ปี</h3>
+  <table>
+    <tr><th>Scenario</th><th>Revenue 2030</th><th>Outcome</th></tr>
+    <tr><td><span class="bull">Bull</span></td><td>$1-2B</td><td>Capacity 5+ GW, IRA + Section 232 stay, EBITDA margin 12-18%</td></tr>
+    <tr><td><span class="neutral-text">Base</span></td><td>$500M-1B</td><td>Capacity ramp แต่ margin ตึง, trade risk</td></tr>
+    <tr><td><span class="bear">Bear</span></td><td>$200-400M</td><td>IRA ถูก cut, trade ถูกยกเลิก, bankruptcy risk</td></tr>
+  </table>
+
+  <h3 class="section-title">สรุปสมดุล</h3>
+  <div class="summary-box bull">
+    <strong>✓ เหตุผลสนับสนับ DCA:</strong> US solar เป็น secular growth · IRA tax credit + Section 232 protection · Capacity ramp เป็น thesis ที่ชัด · Norway approval = early signal
+  </div>
+  <div class="summary-box bear">
+    <strong>✗ ข้อกังวล:</strong> Commoditized product (price pressured) · พึ่งพา policy (IRA + Section 232) มาก · Net loss ต่อเนื่อง · Capex สูง vs cash flow · คู่แข่ง FSLR scale ใหญ่กว่า
+  </div>
+  <p><strong>เหมาะกับ DCA?</strong> <span class="dca-verdict neutral">DCA ได้ (Policy-dependent)</span> — พอร์ต DCA 3-5% รายเดือน $150-300 · ต้อง monitor: IRA news, Section 232 status, Q3 capacity update</p>
+
+  <div class="sources">
+    <strong>แหล่งที่มา:</strong>
+    <a href="https://ir.t1energy.com/" target="_blank">T1 Energy IR</a> ·
+    <a href="https://simplywall.st/stocks/us/semiconductors/nyse-te/t1-energy" target="_blank">Simply Wall St</a> ·
+    <a href="https://www.stocktitan.net/news/TE/" target="_blank">Stocktitan TE</a>
+  </div>
+</div>
+
+<!-- ===== PORTFOLIO COMPARISON ===== -->
+<div class="stock-block">
+  <h2 style="margin-bottom:16px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:12px;">📊 Portfolio DCA Comparison</h2>
+  <p style="margin-bottom:14px;">เปรียบเทียบทั้ง 4 ตัวตาม portfolio construction perspective สำหรับ DCA 5 ปี</p>
+  <table>
+    <tr>
+      <th>Stock</th><th>Sector</th><th>Risk Level</th><th>Volatility</th><th>Growth Path</th><th>DCA Suitability</th>
+    </tr>
+    <tr><td><strong>EOSE</strong></td><td>Energy Storage</td><td><span class="bear">High</span></td><td>~70%+</td><td>LDES scale</td><td>5-10% of DCA budget</td></tr>
+    <tr><td><strong>KEEL</strong></td><td>HPC/Bitcoin</td><td><span class="bear">High</span></td><td>~60%+</td><td>HPC pivot</td><td>3-5% of DCA budget</td></tr>
+    <tr><td><strong>RXT</strong></td><td>Cloud/AI Infra</td><td><span class="neutral-text">Medium</span></td><td>~40-50%</td><td>AI infra scale</td><td>5-8% of DCA budget</td></tr>
+    <tr><td><strong>TE</strong></td><td>Solar Manufacturing</td><td><span class="bear">High</span></td><td>~50-60%</td><td>US capacity ramp</td><td>3-5% of DCA budget</td></tr>
+  </table>
+
+  <h3 class="section-title">สรุป Portfolio Strategy</h3>
+  <div class="summary-box">
+    <strong>🎯 DCA Allocation Hint (Total 100%):</strong><br>
+    • <strong>Core (50%)</strong>: หุ้น large/mid cap อื่น (MSFT, NVDA, SPY) สำหรับ DCA principal<br>
+    • <strong>Satellite (50%)</strong>: EOSE (15%) + RXT (15%) + KEEL (10%) + TE (10%)
+  </div>
+  <div class="summary-box bull">
+    <strong>✅ เหตุผลเลือก combination นี้:</strong> Diversification across 4 themes (LDES + HPC + Cloud/AI + Solar) · EOSE+RXT = AI/Energy "picks and shovels" thesis · KEEL+TE = capital-intensive infrastructure · Thailand DCA-friendly ถ้าใช้ Interactive Brokers (รองรับ NASDAQ/NYSE)
+  </div>
+
+  <div class="chart-row">
+    <div class="chart-card">
+      <div class="chart-title">Risk vs Potential Return (Subjective Map)</div>
+      <canvas id="riskChart"></canvas>
+    </div>
+    <div class="chart-card">
+      <div class="chart-title">Suggested DCA Allocation</div>
+      <canvas id="allocationChart"></canvas>
+    </div>
+  </div>
+</div>
+
+<!-- ===== DISCLAIMER ===== -->
+<div class="disclaimer">
+  <strong>⚠️ Disclaimer:</strong> การวิเคราะห์นี้จัดทำจากข้อมูลสาธารณะ (Q2 2026 filings ณ วันที่ 28 Aug 2026) ไม่ใช่คำแนะนำการลงทุน หนูไม่ได้รับรองผลตอบแทน และไม่รับผิดชอบต่อการตัดสินใจของพี่ พี่ควรทำ due diligence เพิ่มเติม + ปรึกษา financial advisor ก่อนลงทุน
+  <div style="margin-top:10px;font-size:12px;">
+    <strong>ข้อมูลที่หนูไม่พบ:</strong> ราคาปัจจุบัน, P/E ratio, dividend history, 3-year revenue trend (มีแค่ Q2 2026 vs Q2 2025) พี่ต้อง verify เพิ่มใน Yahoo Finance หรือ broker terminal ก่อนตัดสินใจ
+  </div>
+</div>
+
+<script>
+// Risk vs Return scatter
+new Chart(document.getElementById('riskChart'), {
+  type: 'scatter',
+  data: {
+    datasets: [
+      { label: 'EOSE', data: [{x: 70, y: 80}], backgroundColor: '#ef4444' },
+      { label: 'KEEL', data: [{x: 60, y: 60}], backgroundColor: '#f59e0b' },
+      { label: 'RXT', data: [{x: 45, y: 55}], backgroundColor: '#3b82f6' },
+      { label: 'TE', data: [{x: 55, y: 50}], backgroundColor: '#8b5cf6' },
+    ],
+  },
+  options: {
+    responsive: true,
+    plugins: { legend: { position: 'bottom' } },
+    scales: {
+      x: { title: { display: true, text: 'Risk Level' }, min: 0, max: 100 },
+      y: { title: { display: true, text: 'Potential Return' }, min: 0, max: 100 },
+    },
+  },
+});
+// Allocation pie
+new Chart(document.getElementById('allocationChart'), {
+  type: 'doughnut',
+  data: {
+    labels: ['Core (Other stocks)', 'EOSE 15%', 'RXT 15%', 'KEEL 10%', 'TE 10%'],
+    datasets: [{
+      data: [50, 15, 15, 10, 10],
+      backgroundColor: ['#94a3b8', '#ef4444', '#3b82f6', '#f59e0b', '#8b5cf6'],
+    }],
+  },
+  options: { plugins: { legend: { position: 'bottom' } } },
+});
+</script>
+
+</div>
+</body>
+</html>
