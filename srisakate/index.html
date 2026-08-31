@@ -20,6 +20,19 @@
   --border: #DCE2EA;
   --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
   --shadow-md: 0 2px 8px rgba(0,0,0,0.06);
+  /* 2026-08-25: Typography design tokens (consolidated) */
+  --fs-2xs: 9px;       /* compact cells (ads table) */
+  --fs-xs: 10px;       /* captions, sort indicators */
+  --fs-sm: 11px;       /* table cells, page names */
+  --fs-md: 12px;       /* post snippets */
+  --fs-lg: 13px;       /* metric labels */
+  --fs-xl: 14px;       /* h3 sub-headers */
+  --fs-2xl: 16px;      /* insight box headers */
+  --fs-3xl: 17px;      /* h2 section titles */
+  --fs-4xl: 18px;      /* TOC button */
+  --fs-metric: 30px;   /* main KPI value */
+  --fs-metric-sm: 22px; /* secondary KPI value */
+  --fs-display: 24px;  /* h1 hero title */
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -39,17 +52,17 @@ body {
 }
 .hero h1 {
   margin: 0 0 6px 0;
-  font-size: 24px;
+  font-size: var(--fs-display);
   font-weight: 700;
   letter-spacing: -0.02em;
 }
-.hero-meta { font-size: 13px; opacity: 0.92; margin-bottom: 16px; }
+.hero-meta { font-size: var(--fs-lg); opacity: 0.92; margin-bottom: 16px; }
 .hero-chips { display: flex; gap: 12px; flex-wrap: wrap; }
 .hero-chip {
   background: rgba(255,255,255,0.15);
   padding: 6px 12px;
   border-radius: 20px;
-  font-size: 12px;
+  font-size: var(--fs-md);
   font-weight: 500;
   backdrop-filter: blur(8px);
 }
@@ -58,7 +71,7 @@ body {
   background: var(--bg-surface);
   border-bottom: 1px solid var(--border);
   padding: 8px 40px;
-  font-size: 12px;
+  font-size: var(--fs-md);
   display: flex;
   gap: 14px;
   overflow-x: auto;
@@ -102,18 +115,18 @@ body {
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  font-size: 13px;
+  font-size: var(--fs-lg);
   flex-shrink: 0;
 }
 .section-card h2 {
   margin: 0;
-  font-size: 17px;
+  font-size: var(--fs-3xl);
   font-weight: 700;
   color: var(--ink-900);
 }
 .section-card h3 {
   margin: 20px 0 12px;
-  font-size: 14px;
+  font-size: var(--fs-xl);
   font-weight: 700;
   color: var(--ink-700);
 }
@@ -121,7 +134,7 @@ body {
   background: var(--ink-50);
   padding: 12px 14px;
   border-radius: 8px;
-  font-size: 12px;
+  font-size: var(--fs-md);
   line-height: 1.7;
   margin-bottom: 16px;
   border-left: 3px solid var(--nmt-red);
@@ -135,7 +148,7 @@ body {
 table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 13px;
+  font-size: var(--fs-lg);
   margin: 12px 0;
 }
 thead tr {
@@ -146,7 +159,7 @@ thead th {
   padding: 10px 12px;
   text-align: left;
   font-weight: 600;
-  font-size: 12px;
+  font-size: var(--fs-md);
   border: none;
 }
 tbody tr:nth-child(odd) { background: var(--bg-surface); }
@@ -173,7 +186,7 @@ table.sortable thead th.sort-active .sort-ind {
   color: var(--nmt-red);
 }
 table.sortable thead th .sort-ind {
-  font-size: 10px;
+  font-size: var(--fs-xs);
   margin-left: 4px;
   opacity: 0.5;
   display: inline-block;
@@ -213,7 +226,7 @@ tbody td {
   color: white;
   padding: 3px 8px;
   border-radius: 4px;
-  font-size: 10px;
+  font-size: var(--fs-xs);
   font-weight: 700;
   letter-spacing: 0.05em;
   flex-shrink: 0;
@@ -226,7 +239,7 @@ tbody td {
   display: inline-block;
   padding: 1px 6px;
   border-radius: 4px;
-  font-size: 10px;
+  font-size: var(--fs-xs);
   font-weight: 700;
 }
 .pill-photo { background: #E3F2FD; color: #1565C0; }
@@ -240,7 +253,7 @@ tbody td {
   margin: 12px 0;
 }
 .chart-title {
-  font-size: 12px;
+  font-size: var(--fs-md);
   font-weight: 700;
   color: var(--ink-700);
   margin-bottom: 8px;
@@ -265,19 +278,19 @@ canvas { max-width: 100%; }
   transform: translateY(-1px);
 }
 .metric-label {
-  font-size: 11px;
+  font-size: var(--fs-sm);
   color: var(--ink-500);
   margin-bottom: 6px;
   font-weight: 500;
 }
 .metric-value {
-  font-size: 30px;
+  font-size: var(--fs-metric);
   font-weight: 700;
   color: var(--nmt-red);
   line-height: 1.1;
 }
 .metric-sub {
-  font-size: 10px;
+  font-size: var(--fs-xs);
   color: var(--ink-500);
   margin-top: 4px;
 }
@@ -288,7 +301,7 @@ canvas { max-width: 100%; }
   display: inline-block;
   padding: 2px 8px;
   border-radius: 4px;
-  font-size: 11px;
+  font-size: var(--fs-sm);
   font-weight: 700;
   background: var(--ink-100);
   color: var(--ink-700);
@@ -303,7 +316,7 @@ canvas { max-width: 100%; }
   display: inline-block;
   padding: 1px 6px;
   border-radius: 4px;
-  font-size: 11px;
+  font-size: var(--fs-sm);
   font-weight: 600;
   background: var(--nmt-red-soft);
   color: var(--nmt-red);
@@ -319,7 +332,7 @@ insight {
   padding: 14px 16px;
   border-radius: 8px;
   margin: 16px 0;
-  font-size: 13px;
+  font-size: var(--fs-lg);
   line-height: 1.7;
 }
 .dark-mode {
@@ -344,7 +357,7 @@ insight {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  font-size: 18px;
+  font-size: var(--fs-4xl);
   cursor: pointer;
   box-shadow: var(--shadow-md);
   z-index: 200;
@@ -398,11 +411,11 @@ insight {
       <div class="metric-sub">130 eng / 13 posts</div></div>
     <div class="metric-card">
       <div class="metric-label">🏆 Top Brand (Eng)</div>
-      <div class="metric-value" style="font-size:24px">Isuzu</div>
+      <div class="metric-value" style="font-size: var(--fs-display)">Isuzu</div>
       <div class="metric-sub">214 eng</div></div>
     <div class="metric-card">
       <div class="metric-label">🔥 Top Eng/Post</div>
-      <div class="metric-value" style="font-size:24px">TOYOTA</div>
+      <div class="metric-value" style="font-size: var(--fs-display)">TOYOTA</div>
       <div class="metric-sub">35.7 eng/post</div></div>
   </div>
 </div>
@@ -423,7 +436,7 @@ insight {
   <div class="headline"><span class="headline-label">🎯 เพื่ออะไร:</span> ดูการตลาด Offline — (Nissan Self ดู Section 6.2)</div>
   <table>
     <thead><tr><th>แบรนด์</th><th>Facebook Page</th><th>กิจกรรม</th><th>วันที่จัด</th><th>สถานที่</th><th style="text-align:center">Eng</th><th>URL</th></tr></thead>
-    <tbody>  <tr><td colspan="7" style="text-align:center;color:#94A0B3;padding:20px;font-size:13px">
+    <tbody>  <tr><td colspan="7" style="text-align:center;color:#94A0B3;padding:20px;font-size: var(--fs-lg)">
     <strong>📭 ไม่พบ Roadshow Events ในสัปดาห์นี้</strong>
   </td></tr></tbody>
   </table>
@@ -439,7 +452,7 @@ insight {
       <th data-sort="posts" style="text-align:center">โพสต์<span class="sort-indicator">⇅</span></th><th data-sort="eng" style="text-align:center">Engagement<span class="sort-indicator">⇅</span></th>
       <th data-sort="engperpost" style="text-align:center">Eng/Post<span class="sort-indicator">⇅</span></th><th style="text-align:center">L/C/S</th>
     </tr></thead>
-    <tbody><tr style=""><td><strong>Isuzu</strong></td><td style='font-size:11px'>อีซูซุตังปักศรีสะเกษ</td><td style='text-align:center'>13</td><td style='text-align:center'>214</td><td style='text-align:center'>16.5</td><td style='font-size:11px;text-align:center'>175/30/9</td></tr><tr style=""><td><strong>Mitsubishi</strong></td><td style='font-size:11px'>มิตซู ทีที ศรีสะเกษ</td><td style='text-align:center'>31</td><td style='text-align:center'>107</td><td style='text-align:center'>3.5</td><td style='font-size:11px;text-align:center'>89/1/17</td></tr><tr style=""><td><strong>TOYOTA</strong></td><td style='font-size:11px'>บริษัท โตโยต้าศรีสะเกษ (1993) ผู้จำหน่ายโตโยต้า จำกัด</td><td style='text-align:center'>3</td><td style='text-align:center'>107</td><td style='text-align:center'>35.7</td><td style='font-size:11px;text-align:center'>37/1/69</td></tr><tr style=""><td><strong>Honda</strong></td><td style='font-size:11px'>ฮอนด้าศรีสะเกษ เสนัส สิบทิศ</td><td style='text-align:center'>1</td><td style='text-align:center'>7</td><td style='text-align:center'>7.0</td><td style='font-size:11px;text-align:center'>7/0/0</td></tr><tr style="border-left:3px solid #c3002f"><td><strong>Nissan (Self)</strong></td><td style='font-size:11px'>นิสสันศรีสะเกษ</td><td style='text-align:center'>13</td><td style='text-align:center'>130</td><td style='text-align:center'>10.0</td><td style='font-size:11px;text-align:center'>104/2/24</td></tr></tbody>
+    <tbody><tr style=""><td><strong>Isuzu</strong></td><td style='font-size: var(--fs-sm)'>อีซูซุตังปักศรีสะเกษ</td><td style='text-align:center'>13</td><td style='text-align:center'>214</td><td style='text-align:center'>16.5</td><td style='font-size: var(--fs-sm);text-align:center'>175/30/9</td></tr><tr style=""><td><strong>Mitsubishi</strong></td><td style='font-size: var(--fs-sm)'>มิตซู ทีที ศรีสะเกษ</td><td style='text-align:center'>31</td><td style='text-align:center'>107</td><td style='text-align:center'>3.5</td><td style='font-size: var(--fs-sm);text-align:center'>89/1/17</td></tr><tr style=""><td><strong>TOYOTA</strong></td><td style='font-size: var(--fs-sm)'>บริษัท โตโยต้าศรีสะเกษ (1993) ผู้จำหน่ายโตโยต้า จำกัด</td><td style='text-align:center'>3</td><td style='text-align:center'>107</td><td style='text-align:center'>35.7</td><td style='font-size: var(--fs-sm);text-align:center'>37/1/69</td></tr><tr style=""><td><strong>Honda</strong></td><td style='font-size: var(--fs-sm)'>ฮอนด้าศรีสะเกษ เสนัส สิบทิศ</td><td style='text-align:center'>1</td><td style='text-align:center'>7</td><td style='text-align:center'>7.0</td><td style='font-size: var(--fs-sm);text-align:center'>7/0/0</td></tr><tr style="border-left:3px solid #c3002f"><td><strong>Nissan (Self)</strong></td><td style='font-size: var(--fs-sm)'>นิสสันศรีสะเกษ</td><td style='text-align:center'>13</td><td style='text-align:center'>130</td><td style='text-align:center'>10.0</td><td style='font-size: var(--fs-sm);text-align:center'>104/2/24</td></tr></tbody>
   </table>
 </div>
 
@@ -450,28 +463,28 @@ insight {
   <h3>6.1 Self Posts (Dealer Regular Activity)</h3>
   <table>
     <thead><tr><th>สาขา</th><th>Facebook Page</th><th style="text-align:center">โพสต์</th><th style="text-align:center">Engagement</th><th style="text-align:center">L/C/S</th><th>สถานะ</th></tr></thead>
-    <tbody><tr><td>ศรีสะเกษ</td><td style='font-size:11px'>siamnissansisaket</td>
+    <tbody><tr><td>ศรีสะเกษ</td><td style='font-size: var(--fs-sm)'>siamnissansisaket</td>
       <td style='text-align:center'>13</td><td style='text-align:center'>130</td>
-      <td style='font-size:11px;text-align:center'>104/2/24</td>
+      <td style='font-size: var(--fs-sm);text-align:center'>104/2/24</td>
       <td><span style='color:#2e7d32'>✓ ใช้งานปกติ</span></td></tr></tbody>
   </table>
 
   <h3>6.2 🚗 Nissan Roadshow (Self)</h3>
   <table>
     <thead><tr><th>แบรนด์</th><th>Facebook Page</th><th>กิจกรรม</th><th>วันที่จัด</th><th>สถานที่</th><th style="text-align:center">Eng</th><th>URL</th></tr></thead>
-    <tbody><tr><td>Nissan (Self)</td><td style="font-size:11px">นิสสันศรีสะเกษ</td><td style="font-size:12px">ออกไปรีชาร์จ แบบไม่ต้องรอชาร์จ กับคนที่คุณรัก 🚙🏕️🫶🏻
-ด้วย The</td><td style="color:#94A0B3;font-style:italic;font-size:12px">(ไม่ระบุ)</td><td>โชว์รูม</td><td style="text-align:center;font-weight:bold">3</td><td><a href="https://www.facebook.com/siamnissansisaket/posts/pfbid0bh2wZnf7vMPhH35zabswP5TLVecbBKRToQB6VyK9mMwPNus3mjQ6JXsdkqTrpDL9l" target="_blank" style="color:#c3002f;font-weight:bold;text-decoration:none;font-size:12px">🔗 Link</a></td></tr><tr><td>Nissan (Self)</td><td style="font-size:11px">นิสสันศรีสะเกษ</td><td style="font-size:12px">⚡ ชีวิตไปต่อ ไม่ต้องรอชาร์จ กับ Nissan e-POWER
-ชวนมาสัมผัสกา</td><td style="font-weight:600;color:#1976D2;font-size:12px;white-space:nowrap">14–16 สิงหาคม</td><td>ไม่ระบุ</td><td style="text-align:center;font-weight:bold">32</td><td><a href="https://www.facebook.com/reel/1709368940291445/" target="_blank" style="color:#c3002f;font-weight:bold;text-decoration:none;font-size:12px">🔗 Link</a></td></tr><tr><td>Nissan (Self)</td><td style="font-size:11px">นิสสันศรีสะเกษ</td><td style="font-size:12px">💁‍♀️ วันนี้เเอดมินนำภาพบรรยากาศภายในงานทดลองขับ Nissan e-POW</td><td style="font-weight:600;color:#1976D2;font-size:12px;white-space:nowrap">14–16 สิงหาคม</td><td>ไม่ระบุ</td><td style="text-align:center;font-weight:bold">13</td><td><a href="https://www.facebook.com/siamnissansisaket/posts/pfbid028wNmD4V4DXk6PDZNu3MzgeJVHk7TURMdehX8NBaENzJMBitWanfcHHMrxCYBdGmzl" target="_blank" style="color:#c3002f;font-weight:bold;text-decoration:none;font-size:12px">🔗 Link</a></td></tr><tr><td>Nissan (Self)</td><td style="font-size:11px">นิสสันศรีสะเกษ</td><td style="font-size:12px">⚡ ชีวิตไปต่อ ไม่ต้องรอชาร์จ กับ Nissan e-POWER
-ชวนมาสัมผัสกา</td><td style="font-weight:600;color:#1976D2;font-size:12px;white-space:nowrap">14–16 สิงหาคม</td><td>ไม่ระบุ</td><td style="text-align:center;font-weight:bold">43</td><td><a href="https://www.facebook.com/siamnissansisaket/posts/pfbid02hftHKUSGqChRLRbyuAjkuTX3eS71xEs6mkXdpyMjUJ4vTXc7NEMJwJGiVbzAwaXMl" target="_blank" style="color:#c3002f;font-weight:bold;text-decoration:none;font-size:12px">🔗 Link</a></td></tr></tbody>
+    <tbody><tr><td>Nissan (Self)</td><td style="font-size: var(--fs-sm)">นิสสันศรีสะเกษ</td><td style="font-size: var(--fs-md)">ออกไปรีชาร์จ แบบไม่ต้องรอชาร์จ กับคนที่คุณรัก 🚙🏕️🫶🏻
+ด้วย The</td><td style="color:#94A0B3;font-style:italic;font-size: var(--fs-md)">(ไม่ระบุ)</td><td>โชว์รูม</td><td style="text-align:center;font-weight:bold">3</td><td><a href="https://www.facebook.com/siamnissansisaket/posts/pfbid0bh2wZnf7vMPhH35zabswP5TLVecbBKRToQB6VyK9mMwPNus3mjQ6JXsdkqTrpDL9l" target="_blank" style="color:#c3002f;font-weight:bold;text-decoration:none;font-size: var(--fs-md)">🔗 Link</a></td></tr><tr><td>Nissan (Self)</td><td style="font-size: var(--fs-sm)">นิสสันศรีสะเกษ</td><td style="font-size: var(--fs-md)">⚡ ชีวิตไปต่อ ไม่ต้องรอชาร์จ กับ Nissan e-POWER
+ชวนมาสัมผัสกา</td><td style="font-weight:600;color:#1976D2;font-size: var(--fs-md);white-space:nowrap">14–16 สิงหาคมนี้</td><td>ไม่ระบุ</td><td style="text-align:center;font-weight:bold">32</td><td><a href="https://www.facebook.com/reel/1709368940291445/" target="_blank" style="color:#c3002f;font-weight:bold;text-decoration:none;font-size: var(--fs-md)">🔗 Link</a></td></tr><tr><td>Nissan (Self)</td><td style="font-size: var(--fs-sm)">นิสสันศรีสะเกษ</td><td style="font-size: var(--fs-md)">💁‍♀️ วันนี้เเอดมินนำภาพบรรยากาศภายในงานทดลองขับ Nissan e-POW</td><td style="font-weight:600;color:#1976D2;font-size: var(--fs-md);white-space:nowrap">14–16 สิงหาคมนี้</td><td>ไม่ระบุ</td><td style="text-align:center;font-weight:bold">13</td><td><a href="https://www.facebook.com/siamnissansisaket/posts/pfbid028wNmD4V4DXk6PDZNu3MzgeJVHk7TURMdehX8NBaENzJMBitWanfcHHMrxCYBdGmzl" target="_blank" style="color:#c3002f;font-weight:bold;text-decoration:none;font-size: var(--fs-md)">🔗 Link</a></td></tr><tr><td>Nissan (Self)</td><td style="font-size: var(--fs-sm)">นิสสันศรีสะเกษ</td><td style="font-size: var(--fs-md)">⚡ ชีวิตไปต่อ ไม่ต้องรอชาร์จ กับ Nissan e-POWER
+ชวนมาสัมผัสกา</td><td style="font-weight:600;color:#1976D2;font-size: var(--fs-md);white-space:nowrap">14–16 สิงหาคมนี้</td><td>ไม่ระบุ</td><td style="text-align:center;font-weight:bold">43</td><td><a href="https://www.facebook.com/siamnissansisaket/posts/pfbid02hftHKUSGqChRLRbyuAjkuTX3eS71xEs6mkXdpyMjUJ4vTXc7NEMJwJGiVbzAwaXMl" target="_blank" style="color:#c3002f;font-weight:bold;text-decoration:none;font-size: var(--fs-md)">🔗 Link</a></td></tr></tbody>
   </table>
 
   <h3>6.3 Self vs Top 3 Benchmark</h3>
   <table>
     <thead><tr><th>แบรนด์</th><th>Facebook Page(s)</th><th style="text-align:center">โพสต์</th><th style="text-align:center">Engagement</th><th style="text-align:center">Eng/Post</th></tr></thead>
-    <tbody><tr><td>Isuzu</td><td style='font-size:11px'>อีซูซุตังปักศรีสะเกษ</td><td style='text-align:center'>13</td><td style='text-align:center'>214</td><td style='text-align:center'>16.5</td></tr><tr><td>Mitsubishi</td><td style='font-size:11px'>มิตซู ทีที ศรีสะเกษ</td><td style='text-align:center'>31</td><td style='text-align:center'>107</td><td style='text-align:center'>3.5</td></tr><tr><td>TOYOTA</td><td style='font-size:11px'>บริษัท โตโยต้าศรีสะเกษ (1993) ผู้จำหน่ายโตโยต้า จำกัด</td><td style='text-align:center'>3</td><td style='text-align:center'>107</td><td style='text-align:center'>35.7</td></tr><tr style='border-left:3px solid #c3002f'><td><strong>Nissan (Self)</strong></td><td style='font-size:11px'>siamnissanubondautogroup</td><td style='text-align:center'>13</td><td style='text-align:center'><strong>130</strong></td><td style='text-align:center'><strong>10.0</strong></td></tr></tbody>
+    <tbody><tr><td>Isuzu</td><td style='font-size: var(--fs-sm)'>อีซูซุตังปักศรีสะเกษ</td><td style='text-align:center'>13</td><td style='text-align:center'>214</td><td style='text-align:center'>16.5</td></tr><tr><td>Mitsubishi</td><td style='font-size: var(--fs-sm)'>มิตซู ทีที ศรีสะเกษ</td><td style='text-align:center'>31</td><td style='text-align:center'>107</td><td style='text-align:center'>3.5</td></tr><tr><td>TOYOTA</td><td style='font-size: var(--fs-sm)'>บริษัท โตโยต้าศรีสะเกษ (1993) ผู้จำหน่ายโตโยต้า จำกัด</td><td style='text-align:center'>3</td><td style='text-align:center'>107</td><td style='text-align:center'>35.7</td></tr><tr style='border-left:3px solid #c3002f'><td><strong>Nissan (Self)</strong></td><td style='font-size: var(--fs-sm)'>siamnissanubondautogroup</td><td style='text-align:center'>13</td><td style='text-align:center'><strong>130</strong></td><td style='text-align:center'><strong>10.0</strong></td></tr></tbody>
   </table>
 
-  <blockquote style="background:#fff5f5;border-left-color:#c3002f;padding:10px 14px;border-left:3px solid #c3002f;margin:10px 0;border-radius:4px;font-size:13px;line-height:1.6">
+  <blockquote style="background:#fff5f5;border-left-color:#c3002f;padding:10px 14px;border-left:3px solid #c3002f;margin:10px 0;border-radius:4px;font-size: var(--fs-lg);line-height:1.6">
     <strong>📌 สรุปภาพรวมสัปดาห์นี้:</strong> Nissan มี 13 โพสต์ (130 Engagement) เน้นแคมเปญ Serena e-POWER และโปรส่วนลด
   </blockquote>
 </div>
@@ -483,7 +496,7 @@ insight {
     <div class="post-card">
     <div style="display:flex;justify-content:space-between;margin-bottom:6px">
       <span><span class="badge-brand">Isuzu</span> <strong style="color:#c3002f">Eng 143</strong></span>
-      <span style="font-size:11px;color:#888">อีซูซุตังปักศรีสะเกษ</span>
+      <span style="font-size: var(--fs-sm);color:#888">อีซูซุตังปักศรีสะเกษ</span>
     </div>
     <div>อีซูซุคุ้มค่า…ฝ่าทุกวิกฤต!
 กระบะ 4 ประตู ยกสูง รุ่น 2026 HR4 2.2 Ddi Z
@@ -500,14 +513,14 @@ insight {
   </div>  <div class="post-card">
     <div style="display:flex;justify-content:space-between;margin-bottom:6px">
       <span><span class="badge-brand">TOYOTA</span> <strong style="color:#c3002f">Eng 51</strong></span>
-      <span style="font-size:11px;color:#888">บริษัท โตโยต้าศรีสะเ</span>
+      <span style="font-size: var(--fs-sm);color:#888">บริษัท โตโยต้าศรีสะเ</span>
     </div>
     <div></div>
     <div class="post-meta">👍 12 💬 0 🔄 39 | <a href="https://www.facebook.com/TOYOTASISAKET/posts/pfbid0BzWu2FCmJZ1JM5p1VVU24ovMYZV2DmzmXZjg8LevL28sPT6Q6NtF5SbN9hPeTudVl" target="_blank" style="color:#c3002f;font-weight:bold;text-decoration:none">🔗 Link</a></div>
   </div>  <div class="post-card">
     <div style="display:flex;justify-content:space-between;margin-bottom:6px">
       <span><span class="badge-brand">TOYOTA</span> <strong style="color:#c3002f">Eng 42</strong></span>
-      <span style="font-size:11px;color:#888">บริษัท โตโยต้าศรีสะเ</span>
+      <span style="font-size: var(--fs-sm);color:#888">บริษัท โตโยต้าศรีสะเ</span>
     </div>
     <div></div>
     <div class="post-meta">👍 18 💬 0 🔄 24 | <a href="https://www.facebook.com/TOYOTASISAKET/posts/pfbid061tBzyg6f9bMjTuMosd2HBMkiKWkdnEov82cu9PeZaBhrMHnBup5RMhSp9gkeAj5l" target="_blank" style="color:#c3002f;font-weight:bold;text-decoration:none">🔗 Link</a></div>
@@ -517,9 +530,9 @@ insight {
 <!-- Section 8: Threats & Opps -->
 <div class="section-card" id="sec-8">
   <div class="section-card-header"><span class="section-num">8</span><h2>⚠️ โอกาสและภัยคุกคาม</h2></div>
-  <h3 style="color:#c3002f;font-size:14px">🚨 ภัยคุกคาม</h3>
+  <h3 style="color:#c3002f;font-size: var(--fs-xl)">🚨 ภัยคุกคาม</h3>
   <ul style="margin-left:20px;line-height:1.8"><li><strong>Isuzu ครองอันดับ 1</strong> — 13 โพสต์ (214 eng, 16.5/post)</li></ul>
-  <h3 style="color:#2e7d32;font-size:14px">💡 โอกาส</h3>
+  <h3 style="color:#2e7d32;font-size: var(--fs-xl)">💡 โอกาส</h3>
   <ul style="margin-left:20px;line-height:1.8"><li><strong>Nissan มี Engagement เฉลี่ย 10.0/post</strong> — ใช้ Content ที่ work ไป Amplify ต่อ</li></ul>
 </div>
 
@@ -682,58 +695,58 @@ initSortable('table4', { col: 'posts', dir: 'desc' });
   <div class="section-card-header"><span class="section-num">11</span><h2>🎯 Ads ที่คู่แข่งกำลังยิงอยู่ (Active Ads)</h2></div>
   <div class="headline"><span class="headline-label">🎯 Insight:</span> ดึงจากฐานข้อมูลโฆษณาสาธารณะของ Meta · ศรีสะเกษ · <b style="color:#C3002F">21 real ads</b> จาก 2 แบรนด์ที่ยิง</div>
   <div style="background:linear-gradient(135deg,#0D47A1,#1976D2);color:white;padding:16px 22px;border-radius:12px;margin:14px 0;box-shadow:0 4px 12px rgba(0,0,0,0.15)">
-    <h3 style="margin:0 0 10px 0;font-size:16px;color:#FFFFFF !important;font-weight:700">📊 Insights Box</h3>
+    <h3 style="margin:0 0 10px 0;font-size: var(--fs-2xl);color:#FFFFFF !important;font-weight:700">📊 Insights Box</h3>
     <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:10px">
-      <div style="background:rgba(255,255,255,0.15);padding:10px;border-radius:8px"><div style="font-size:22px;font-weight:700">21</div><div style="font-size:10px;opacity:0.9">Total Ads</div></div>
-      <div style="background:rgba(255,255,255,0.15);padding:10px;border-radius:8px"><div style="font-size:22px;font-weight:700">8.5</div><div style="font-size:10px;opacity:0.9">เฉลี่ย วัน/ad</div></div>
-      <div style="background:rgba(255,255,255,0.15);padding:10px;border-radius:8px"><div style="font-size:22px;font-weight:700">2/2</div><div style="font-size:10px;opacity:0.9">แบรนด์ที่ยิง</div></div>
-      <div style="background:#C3002F;padding:10px;border-radius:8px"><div style="font-size:22px;font-weight:700;color:white">179</div><div style="font-size:10px;color:white">Total Brand-Days</div></div>
+      <div style="background:rgba(255,255,255,0.15);padding:10px;border-radius:8px"><div style="font-size: var(--fs-metric-sm);font-weight:700">21</div><div style="font-size: var(--fs-xs);opacity:0.9">Total Ads</div></div>
+      <div style="background:rgba(255,255,255,0.15);padding:10px;border-radius:8px"><div style="font-size: var(--fs-metric-sm);font-weight:700">8.5</div><div style="font-size: var(--fs-xs);opacity:0.9">เฉลี่ย วัน/ad</div></div>
+      <div style="background:rgba(255,255,255,0.15);padding:10px;border-radius:8px"><div style="font-size: var(--fs-metric-sm);font-weight:700">2/2</div><div style="font-size: var(--fs-xs);opacity:0.9">แบรนด์ที่ยิง</div></div>
+      <div style="background:#C3002F;padding:10px;border-radius:8px"><div style="font-size: var(--fs-metric-sm);font-weight:700;color:white">179</div><div style="font-size: var(--fs-xs);color:white">Total Brand-Days</div></div>
     </div>
     <div style="margin-top:14px;background:rgba(255,255,255,0.1);padding:10px;border-radius:8px">
-      <div style="font-size:11px;font-weight:600;margin-bottom:6px;opacity:0.95">📊 Scale ของ Campaign (Brand-Days):</div>
+      <div style="font-size: var(--fs-sm);font-weight:600;margin-bottom:6px;opacity:0.95">📊 Scale ของ Campaign (Brand-Days):</div>
       <div style="display:flex;flex-wrap:wrap;gap:6px">
-        <span style="background:rgba(255,255,255,0.25);color:white;padding:4px 10px;border-radius:12px;font-size:11px;border-left:3px solid rgba(255,255,255,0.3)">มิตซู ทีที ศรีสะเก: <b>127d</b></span>
-        <span style="background:rgba(255,255,255,0.25);color:white;padding:4px 10px;border-radius:12px;font-size:11px;border-left:3px solid #C3002F">🚗 นิสสันศรีสะเกษ: <b>52d</b></span>
+        <span style="background:rgba(255,255,255,0.25);color:white;padding:4px 10px;border-radius:12px;font-size: var(--fs-sm);border-left:3px solid rgba(255,255,255,0.3)">มิตซู ทีที ศรีสะเก: <b>127d</b></span>
+        <span style="background:rgba(255,255,255,0.25);color:white;padding:4px 10px;border-radius:12px;font-size: var(--fs-sm);border-left:3px solid #C3002F">🚗 นิสสันศรีสะเกษ: <b>52d</b></span>
       </div>
     </div>
     <div style="margin-top:12px;display:flex;gap:6px;flex-wrap:wrap">
-      <span style="background:rgba(255,255,255,0.2);padding:3px 9px;border-radius:12px;font-size:11px">IMAGE: 15</span>
-      <span style="background:rgba(255,255,255,0.2);padding:3px 9px;border-radius:12px;font-size:11px">VIDEO: 5</span>
-      <span style="background:rgba(255,255,255,0.2);padding:3px 9px;border-radius:12px;font-size:11px">MULTI_IMAGES: 1</span>
+      <span style="background:rgba(255,255,255,0.2);padding:3px 9px;border-radius:12px;font-size: var(--fs-sm)">IMAGE: 15</span>
+      <span style="background:rgba(255,255,255,0.2);padding:3px 9px;border-radius:12px;font-size: var(--fs-sm)">VIDEO: 5</span>
+      <span style="background:rgba(255,255,255,0.2);padding:3px 9px;border-radius:12px;font-size: var(--fs-sm)">MULTI_IMAGES: 1</span>
     </div>
-    <div style="margin-top:10px;font-size:12px;opacity:0.95"><b>🎁 Top Promos:</b> 
+    <div style="margin-top:10px;font-size: var(--fs-md);opacity:0.95"><b>🎁 Top Promos:</b> 
 ผ่อนยาว (19) · ดาวน์ถูก (10) · แลก/รับฟรี (10) · ดอกเบี้ย 0% (8) · ส่วนลด (7)
 </div>
   </div>
-  <div style="margin-top:18px"><h3 style="font-size:15px;color:#0D47A1;margin-bottom:10px">🚗 Ads by Brand</h3></div>
-  <h4 style="margin:14px 0 6px 0;color:#C3002F;font-size:13px;border-left:3px solid #C3002F;padding-left:8px">🚗 📌 นิสสันศรีสะเกษ <span style="background:#C3002F;color:white;padding:2px 8px;border-radius:10px;font-size:10px">6 ads</span> <span style="background:#E65100;color:white;padding:2px 8px;border-radius:10px;font-size:10px">52 brand-days</span> <span style="background:#37474F;color:white;padding:2px 8px;border-radius:10px;font-size:10px">avg 9 วัน/ad</span></h4>
-  <table style="margin-bottom:10px;font-size:11px"><thead><tr><th>Ad Text</th><th style="width:80px">Format</th><th>CTA</th><th style="width:110px">ระยะ</th><th style="width:60px">Active</th><th style="width:55px">Link</th></tr></thead><tbody>
-    <tr><td style="font-size:10px">💐 โปรเดือนแห่งวันแม่ กับ Nissan Serena e-POWER พาคุณแม่ออกเดินทางแบบสบาย ๆ กับรถครอบครัวคันใหญ่ ใช้งานสะดวก นั่งสบายทุกท…</td><td style="font-size:10px;text-align:center">IMAGE</td><td style="font-size:10px">Send message</td><td style="font-size:9px;white-space:nowrap">2026-08-08 → 2026-08-17</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/siamnissansisaket/" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
-    <tr><td style="font-size:10px">💗 โปรเดือนแห่งวันแม่ กับ NISSAN ALMERA เดือนพิเศษนี้ มอบความคุ้มค่าให้คนที่คุณรัก พร้อมออกเดินทางกับ Nissan Almera 🌸  ✨ …</td><td style="font-size:10px;text-align:center">IMAGE</td><td style="font-size:10px">Send message</td><td style="font-size:9px;white-space:nowrap">2026-08-12 → 2026-08-17</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/siamnissansisaket/" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
-    <tr><td style="font-size:10px">💗 โปรเดือนแห่งวันแม่ กับ NISSAN ALMERA เดือนพิเศษนี้ มอบความคุ้มค่าให้คนที่คุณรัก พร้อมออกเดินทางกับ Nissan Almera 🌸  ✨ …</td><td style="font-size:10px;text-align:center">IMAGE</td><td style="font-size:10px">Send message</td><td style="font-size:9px;white-space:nowrap">2026-08-08 → 2026-08-17</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/siamnissansisaket/" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
-    <tr><td style="font-size:10px">💗 โปรเดือนแห่งวันแม่ มอบความคุ้มค่าให้คนสำคัญที่สุด…คุณแม่ กับ The All-New Nissan X-TRAIL e-POWER SUV พรีเมียม ที่พร้อมพ…</td><td style="font-size:10px;text-align:center">IMAGE</td><td style="font-size:10px">Send message</td><td style="font-size:9px;white-space:nowrap">2026-08-08 → 2026-08-17</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/siamnissansisaket/" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
-    <tr><td style="font-size:10px">💗 โปรเดือนแห่งวันแม่ กับ NISSAN NAVARA เดือนพิเศษนี้ มอบความคุ้มค่าให้คนสำคัญของครอบครัว พร้อมลุยทุกเส้นทางกับนาวารา 🌸  …</td><td style="font-size:10px;text-align:center">IMAGE</td><td style="font-size:10px">Send message</td><td style="font-size:9px;white-space:nowrap">2026-08-12 → 2026-08-17</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/siamnissansisaket/" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
-    <tr><td style="font-size:10px">💗 โปรเดือนแห่งวันแม่ กับ The All-New NISSAN KICKS e-POWER ของขวัญชิ้นพิเศษ ให้ทุกการเดินทางกับคุณแม่เต็มไปด้วยความสุข 🌸 …</td><td style="font-size:10px;text-align:center">IMAGE</td><td style="font-size:10px">Send message</td><td style="font-size:9px;white-space:nowrap">2026-08-08 → 2026-08-17</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/siamnissansisaket/" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
+  <div style="margin-top:18px"><h3 style="font-size: var(--fs-xl);color:#0D47A1;margin-bottom:10px">🚗 Ads by Brand</h3></div>
+  <h4 style="margin:14px 0 6px 0;color:#C3002F;font-size: var(--fs-lg);border-left:3px solid #C3002F;padding-left:8px">🚗 📌 นิสสันศรีสะเกษ <span style="background:#C3002F;color:white;padding:2px 8px;border-radius:10px;font-size: var(--fs-xs)">6 ads</span> <span style="background:#E65100;color:white;padding:2px 8px;border-radius:10px;font-size: var(--fs-xs)">52 brand-days</span> <span style="background:#37474F;color:white;padding:2px 8px;border-radius:10px;font-size: var(--fs-xs)">avg 9 วัน/ad</span></h4>
+  <table style="margin-bottom:10px;font-size: var(--fs-sm)"><thead><tr><th>Ad Text</th><th style="width:80px">Format</th><th>CTA</th><th style="width:110px">ระยะ</th><th style="width:60px">Active</th><th style="width:55px">Link</th></tr></thead><tbody>
+    <tr><td style="font-size: var(--fs-xs)">💐 โปรเดือนแห่งวันแม่ กับ Nissan Serena e-POWER พาคุณแม่ออกเดินทางแบบสบาย ๆ กับรถครอบครัวคันใหญ่ ใช้งานสะดวก นั่งสบายทุกท…</td><td style="font-size: var(--fs-xs);text-align:center">IMAGE</td><td style="font-size: var(--fs-xs)">Send message</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-08-08 → 2026-08-17</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/siamnissansisaket/" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
+    <tr><td style="font-size: var(--fs-xs)">💗 โปรเดือนแห่งวันแม่ กับ NISSAN ALMERA เดือนพิเศษนี้ มอบความคุ้มค่าให้คนที่คุณรัก พร้อมออกเดินทางกับ Nissan Almera 🌸  ✨ …</td><td style="font-size: var(--fs-xs);text-align:center">IMAGE</td><td style="font-size: var(--fs-xs)">Send message</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-08-12 → 2026-08-17</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/siamnissansisaket/" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
+    <tr><td style="font-size: var(--fs-xs)">💗 โปรเดือนแห่งวันแม่ กับ NISSAN ALMERA เดือนพิเศษนี้ มอบความคุ้มค่าให้คนที่คุณรัก พร้อมออกเดินทางกับ Nissan Almera 🌸  ✨ …</td><td style="font-size: var(--fs-xs);text-align:center">IMAGE</td><td style="font-size: var(--fs-xs)">Send message</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-08-08 → 2026-08-17</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/siamnissansisaket/" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
+    <tr><td style="font-size: var(--fs-xs)">💗 โปรเดือนแห่งวันแม่ มอบความคุ้มค่าให้คนสำคัญที่สุด…คุณแม่ กับ The All-New Nissan X-TRAIL e-POWER SUV พรีเมียม ที่พร้อมพ…</td><td style="font-size: var(--fs-xs);text-align:center">IMAGE</td><td style="font-size: var(--fs-xs)">Send message</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-08-08 → 2026-08-17</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/siamnissansisaket/" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
+    <tr><td style="font-size: var(--fs-xs)">💗 โปรเดือนแห่งวันแม่ กับ NISSAN NAVARA เดือนพิเศษนี้ มอบความคุ้มค่าให้คนสำคัญของครอบครัว พร้อมลุยทุกเส้นทางกับนาวารา 🌸  …</td><td style="font-size: var(--fs-xs);text-align:center">IMAGE</td><td style="font-size: var(--fs-xs)">Send message</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-08-12 → 2026-08-17</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/siamnissansisaket/" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
+    <tr><td style="font-size: var(--fs-xs)">💗 โปรเดือนแห่งวันแม่ กับ The All-New NISSAN KICKS e-POWER ของขวัญชิ้นพิเศษ ให้ทุกการเดินทางกับคุณแม่เต็มไปด้วยความสุข 🌸 …</td><td style="font-size: var(--fs-xs);text-align:center">IMAGE</td><td style="font-size: var(--fs-xs)">Send message</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-08-08 → 2026-08-17</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/siamnissansisaket/" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
   </tbody></table>
-  <h4 style="margin:14px 0 6px 0;color:#0D47A1;font-size:13px;border-left:3px solid #0D47A1;padding-left:8px">📌 มิตซู ทีที ศรีสะเกษ <span style="background:#0D47A1;color:white;padding:2px 8px;border-radius:10px;font-size:10px">15 ads</span> <span style="background:#E65100;color:white;padding:2px 8px;border-radius:10px;font-size:10px">127 brand-days</span> <span style="background:#37474F;color:white;padding:2px 8px;border-radius:10px;font-size:10px">avg 8 วัน/ad</span></h4>
-  <table style="margin-bottom:10px;font-size:11px"><thead><tr><th>Ad Text</th><th style="width:80px">Format</th><th>CTA</th><th style="width:110px">ระยะ</th><th style="width:60px">Active</th><th style="width:55px">Link</th></tr></thead><tbody>
-    <tr><td style="font-size:10px">Mirage /ดาวน์ 4,999  บาท  ผ่อน เดือนละ 5,989บาท 84งวด* * เฉพาะรุ่นที่ร่วมรายการเงื่อนไขเป็นไปตามที่สถาบันการเงินกำหนด วั…</td><td style="font-size:10px;text-align:center">IMAGE</td><td style="font-size:10px">Inquire now</td><td style="font-size:9px;white-space:nowrap">2026-08-06 → 2026-08-17</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/mitsuttsisaket" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
-    <tr><td style="font-size:10px">Mirage /ดาวน์ 4,999  บาท  ผ่อน เดือนละ 5,989บาท 84งวด* * เฉพาะรุ่นที่ร่วมรายการเงื่อนไขเป็นไปตามที่สถาบันการเงินกำหนด วั…</td><td style="font-size:10px;text-align:center">IMAGE</td><td style="font-size:10px">Inquire now</td><td style="font-size:9px;white-space:nowrap">2026-08-15 → 2026-08-15</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/mitsuttsisaket" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
-    <tr><td style="font-size:10px">รับรถ 4,999  บาท  ผ่อน 5,989 บาท 84งวด* * เฉพาะรุ่นที่ร่วมรายการเงื่อนไขเป็นไปตามที่สถาบันการเงินกำหนด วันที่ 1- 31 สิงห…</td><td style="font-size:10px;text-align:center">IMAGE</td><td style="font-size:10px">Inquire now</td><td style="font-size:9px;white-space:nowrap">2026-08-06 → 2026-08-17</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/mitsuttsisaket" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
-    <tr><td style="font-size:10px">รับรถ 4,999  บาท  ผ่อน 5,989 บาท 84งวด* * เฉพาะรุ่นที่ร่วมรายการเงื่อนไขเป็นไปตามที่สถาบันการเงินกำหนด วันที่ 1- 31 สิงห…</td><td style="font-size:10px;text-align:center">IMAGE</td><td style="font-size:10px">Inquire now</td><td style="font-size:9px;white-space:nowrap">2026-08-12 → 2026-08-12</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/mitsuttsisaket" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
-    <tr><td style="font-size:10px">รับรถ 4,999  บาท  ผ่อน 5,989 บาท 84งวด* * เฉพาะรุ่นที่ร่วมรายการเงื่อนไขเป็นไปตามที่สถาบันการเงินกำหนด วันที่ 1- 31 สิงห…</td><td style="font-size:10px;text-align:center">IMAGE</td><td style="font-size:10px">Inquire now</td><td style="font-size:9px;white-space:nowrap">2026-08-12 → 2026-08-17</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/mitsuttsisaket" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
-    <tr><td style="font-size:10px">🚘 คุ้มไปยาว ๆ ดูแลครบจบในที่เดียว ที่ศูนย์บริการ มิตซู ทีที ศรีสะเกษ  ✅ ยางมิราจ แอททราจ 4 เส้นเริ่มต้น 7,195 บาท  หรือซ…</td><td style="font-size:10px;text-align:center">VIDEO</td><td style="font-size:10px">Send message</td><td style="font-size:9px;white-space:nowrap">2026-08-07 → 2026-08-17</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/mitsuttsisaket" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
-    <tr><td style="font-size:10px">💙 โปรเดือนแห่งวันแม่ ให้รถคันใหม่แทนคำว่ารัก 💙 พาคุณแม่และครอบครัวออกเดินทางอย่างมั่นใจ กับรถมิตซูบิชิหลากหลายรุ่น พร้อม…</td><td style="font-size:10px;text-align:center">MULTI_IMAGES</td><td style="font-size:10px">Send message</td><td style="font-size:9px;white-space:nowrap">2026-08-05 → 2026-08-17</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/mitsuttsisaket" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
-    <tr><td style="font-size:10px">Attrage ล็อตสุดท้าย /ดาวน์ 4,999  บาท ผ่อนเดือนละ 6,353 บาท 84งวด * เฉพาะรุ่นที่ร่วมรายการเงื่อนไขเป็นไปตามที่สถาบันการเ…</td><td style="font-size:10px;text-align:center">IMAGE</td><td style="font-size:10px">Inquire now</td><td style="font-size:9px;white-space:nowrap">2026-08-06 → 2026-08-17</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/mitsuttsisaket" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
-    <tr><td style="font-size:10px">Mirage ล็อตสุดท้ายแล้ว 🚗 ดาวน์เริ่มต้นเพียง 4,999.- ผ่อนแค่ 5,989 x 84 งวด ฟรี! ประกันภัยชั้น 1 นาน 1 ปี  เหมาะสำหรับรถค…</td><td style="font-size:10px;text-align:center">VIDEO</td><td style="font-size:10px">Send message</td><td style="font-size:9px;white-space:nowrap">2026-08-04 → 2026-08-17</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/mitsuttsisaket" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
-    <tr><td style="font-size:10px">🚘 คุ้มไปยาว ๆ ดูแลครบจบในที่เดียว ที่ศูนย์บริการ มิตซู ทีที ศรีสะเกษ  ✅ ยางมิราจ แอททราจ 4 เส้นเริ่มต้น 7,195 บาท  หรือซ…</td><td style="font-size:10px;text-align:center">IMAGE</td><td style="font-size:10px">Send message</td><td style="font-size:9px;white-space:nowrap">2026-08-07 → 2026-08-17</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/mitsuttsisaket" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
-    <tr><td style="font-size:10px">🌧️ โปรหน้าฝน คุ้มครบที่มิตซู ทีที ศรีสะเกษ ✅ ยาง Mirage–Attrage 4 เส้น เริ่มต้น 7,195 บาท ✅ ชุดใบปัดน้ำฝนพร้อมน้ำยา เริ่…</td><td style="font-size:10px;text-align:center">VIDEO</td><td style="font-size:10px">Send message</td><td style="font-size:9px;white-space:nowrap">2026-08-12 → 2026-08-17</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/mitsuttsisaket" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
-    <tr><td style="font-size:10px">Attrage ล็อตสุดท้าย /ดาวน์ 4,999  บาท ผ่อนเดือนละ 6,353 บาท 84งวด * เฉพาะรุ่นที่ร่วมรายการเงื่อนไขเป็นไปตามที่สถาบันการเ…</td><td style="font-size:10px;text-align:center">IMAGE</td><td style="font-size:10px">Inquire now</td><td style="font-size:9px;white-space:nowrap">2026-08-11 → 2026-08-11</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/mitsuttsisaket" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
-    <tr><td style="font-size:10px">Attrage 2026 มาแล้ว  #มิตซูทีทีศรีสะเกษ #Attrage2026</td><td style="font-size:10px;text-align:center">VIDEO</td><td style="font-size:10px">Send message</td><td style="font-size:9px;white-space:nowrap">2026-08-04 → 2026-08-17</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/mitsuttsisaket" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
-    <tr><td style="font-size:10px">Mirage ล็อตสุดท้ายแล้ว 🚗 ดาวน์เพียง 4,999.- ผ่อน 5,989 x 84 งวด ฟรี! ประกันภัยชั้น 1 นาน 1 ปี เหมาะสำหรับรถคันแรก ขับง่า…</td><td style="font-size:10px;text-align:center">VIDEO</td><td style="font-size:10px">Send message</td><td style="font-size:9px;white-space:nowrap">2026-08-06 → 2026-08-17</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/mitsuttsisaket" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
-    <tr><td style="font-size:10px">Mirage /ดาวน์ 4,999  บาท  ผ่อน เดือนละ 5,989บาท 84งวด* * เฉพาะรุ่นที่ร่วมรายการเงื่อนไขเป็นไปตามที่สถาบันการเงินกำหนด วั…</td><td style="font-size:10px;text-align:center">IMAGE</td><td style="font-size:10px">Inquire now</td><td style="font-size:9px;white-space:nowrap">2026-08-14 → 2026-08-14</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/mitsuttsisaket" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
+  <h4 style="margin:14px 0 6px 0;color:#0D47A1;font-size: var(--fs-lg);border-left:3px solid #0D47A1;padding-left:8px">📌 มิตซู ทีที ศรีสะเกษ <span style="background:#0D47A1;color:white;padding:2px 8px;border-radius:10px;font-size: var(--fs-xs)">15 ads</span> <span style="background:#E65100;color:white;padding:2px 8px;border-radius:10px;font-size: var(--fs-xs)">127 brand-days</span> <span style="background:#37474F;color:white;padding:2px 8px;border-radius:10px;font-size: var(--fs-xs)">avg 8 วัน/ad</span></h4>
+  <table style="margin-bottom:10px;font-size: var(--fs-sm)"><thead><tr><th>Ad Text</th><th style="width:80px">Format</th><th>CTA</th><th style="width:110px">ระยะ</th><th style="width:60px">Active</th><th style="width:55px">Link</th></tr></thead><tbody>
+    <tr><td style="font-size: var(--fs-xs)">Mirage /ดาวน์ 4,999  บาท  ผ่อน เดือนละ 5,989บาท 84งวด* * เฉพาะรุ่นที่ร่วมรายการเงื่อนไขเป็นไปตามที่สถาบันการเงินกำหนด วั…</td><td style="font-size: var(--fs-xs);text-align:center">IMAGE</td><td style="font-size: var(--fs-xs)">Inquire now</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-08-06 → 2026-08-17</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/mitsuttsisaket" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
+    <tr><td style="font-size: var(--fs-xs)">Mirage /ดาวน์ 4,999  บาท  ผ่อน เดือนละ 5,989บาท 84งวด* * เฉพาะรุ่นที่ร่วมรายการเงื่อนไขเป็นไปตามที่สถาบันการเงินกำหนด วั…</td><td style="font-size: var(--fs-xs);text-align:center">IMAGE</td><td style="font-size: var(--fs-xs)">Inquire now</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-08-15 → 2026-08-15</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/mitsuttsisaket" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
+    <tr><td style="font-size: var(--fs-xs)">รับรถ 4,999  บาท  ผ่อน 5,989 บาท 84งวด* * เฉพาะรุ่นที่ร่วมรายการเงื่อนไขเป็นไปตามที่สถาบันการเงินกำหนด วันที่ 1- 31 สิงห…</td><td style="font-size: var(--fs-xs);text-align:center">IMAGE</td><td style="font-size: var(--fs-xs)">Inquire now</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-08-06 → 2026-08-17</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/mitsuttsisaket" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
+    <tr><td style="font-size: var(--fs-xs)">รับรถ 4,999  บาท  ผ่อน 5,989 บาท 84งวด* * เฉพาะรุ่นที่ร่วมรายการเงื่อนไขเป็นไปตามที่สถาบันการเงินกำหนด วันที่ 1- 31 สิงห…</td><td style="font-size: var(--fs-xs);text-align:center">IMAGE</td><td style="font-size: var(--fs-xs)">Inquire now</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-08-12 → 2026-08-12</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/mitsuttsisaket" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
+    <tr><td style="font-size: var(--fs-xs)">รับรถ 4,999  บาท  ผ่อน 5,989 บาท 84งวด* * เฉพาะรุ่นที่ร่วมรายการเงื่อนไขเป็นไปตามที่สถาบันการเงินกำหนด วันที่ 1- 31 สิงห…</td><td style="font-size: var(--fs-xs);text-align:center">IMAGE</td><td style="font-size: var(--fs-xs)">Inquire now</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-08-12 → 2026-08-17</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/mitsuttsisaket" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
+    <tr><td style="font-size: var(--fs-xs)">🚘 คุ้มไปยาว ๆ ดูแลครบจบในที่เดียว ที่ศูนย์บริการ มิตซู ทีที ศรีสะเกษ  ✅ ยางมิราจ แอททราจ 4 เส้นเริ่มต้น 7,195 บาท  หรือซ…</td><td style="font-size: var(--fs-xs);text-align:center">VIDEO</td><td style="font-size: var(--fs-xs)">Send message</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-08-07 → 2026-08-17</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/mitsuttsisaket" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
+    <tr><td style="font-size: var(--fs-xs)">💙 โปรเดือนแห่งวันแม่ ให้รถคันใหม่แทนคำว่ารัก 💙 พาคุณแม่และครอบครัวออกเดินทางอย่างมั่นใจ กับรถมิตซูบิชิหลากหลายรุ่น พร้อม…</td><td style="font-size: var(--fs-xs);text-align:center">MULTI_IMAGES</td><td style="font-size: var(--fs-xs)">Send message</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-08-05 → 2026-08-17</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/mitsuttsisaket" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
+    <tr><td style="font-size: var(--fs-xs)">Attrage ล็อตสุดท้าย /ดาวน์ 4,999  บาท ผ่อนเดือนละ 6,353 บาท 84งวด * เฉพาะรุ่นที่ร่วมรายการเงื่อนไขเป็นไปตามที่สถาบันการเ…</td><td style="font-size: var(--fs-xs);text-align:center">IMAGE</td><td style="font-size: var(--fs-xs)">Inquire now</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-08-06 → 2026-08-17</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/mitsuttsisaket" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
+    <tr><td style="font-size: var(--fs-xs)">Mirage ล็อตสุดท้ายแล้ว 🚗 ดาวน์เริ่มต้นเพียง 4,999.- ผ่อนแค่ 5,989 x 84 งวด ฟรี! ประกันภัยชั้น 1 นาน 1 ปี  เหมาะสำหรับรถค…</td><td style="font-size: var(--fs-xs);text-align:center">VIDEO</td><td style="font-size: var(--fs-xs)">Send message</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-08-04 → 2026-08-17</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/mitsuttsisaket" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
+    <tr><td style="font-size: var(--fs-xs)">🚘 คุ้มไปยาว ๆ ดูแลครบจบในที่เดียว ที่ศูนย์บริการ มิตซู ทีที ศรีสะเกษ  ✅ ยางมิราจ แอททราจ 4 เส้นเริ่มต้น 7,195 บาท  หรือซ…</td><td style="font-size: var(--fs-xs);text-align:center">IMAGE</td><td style="font-size: var(--fs-xs)">Send message</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-08-07 → 2026-08-17</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/mitsuttsisaket" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
+    <tr><td style="font-size: var(--fs-xs)">🌧️ โปรหน้าฝน คุ้มครบที่มิตซู ทีที ศรีสะเกษ ✅ ยาง Mirage–Attrage 4 เส้น เริ่มต้น 7,195 บาท ✅ ชุดใบปัดน้ำฝนพร้อมน้ำยา เริ่…</td><td style="font-size: var(--fs-xs);text-align:center">VIDEO</td><td style="font-size: var(--fs-xs)">Send message</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-08-12 → 2026-08-17</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/mitsuttsisaket" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
+    <tr><td style="font-size: var(--fs-xs)">Attrage ล็อตสุดท้าย /ดาวน์ 4,999  บาท ผ่อนเดือนละ 6,353 บาท 84งวด * เฉพาะรุ่นที่ร่วมรายการเงื่อนไขเป็นไปตามที่สถาบันการเ…</td><td style="font-size: var(--fs-xs);text-align:center">IMAGE</td><td style="font-size: var(--fs-xs)">Inquire now</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-08-11 → 2026-08-11</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/mitsuttsisaket" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
+    <tr><td style="font-size: var(--fs-xs)">Attrage 2026 มาแล้ว  #มิตซูทีทีศรีสะเกษ #Attrage2026</td><td style="font-size: var(--fs-xs);text-align:center">VIDEO</td><td style="font-size: var(--fs-xs)">Send message</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-08-04 → 2026-08-17</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/mitsuttsisaket" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
+    <tr><td style="font-size: var(--fs-xs)">Mirage ล็อตสุดท้ายแล้ว 🚗 ดาวน์เพียง 4,999.- ผ่อน 5,989 x 84 งวด ฟรี! ประกันภัยชั้น 1 นาน 1 ปี เหมาะสำหรับรถคันแรก ขับง่า…</td><td style="font-size: var(--fs-xs);text-align:center">VIDEO</td><td style="font-size: var(--fs-xs)">Send message</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-08-06 → 2026-08-17</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/mitsuttsisaket" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
+    <tr><td style="font-size: var(--fs-xs)">Mirage /ดาวน์ 4,999  บาท  ผ่อน เดือนละ 5,989บาท 84งวด* * เฉพาะรุ่นที่ร่วมรายการเงื่อนไขเป็นไปตามที่สถาบันการเงินกำหนด วั…</td><td style="font-size: var(--fs-xs);text-align:center">IMAGE</td><td style="font-size: var(--fs-xs)">Inquire now</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-08-14 → 2026-08-14</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/mitsuttsisaket" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
   </tbody></table>
-  <div style="margin-top:14px;padding:12px 16px;background:linear-gradient(135deg,#FFF3E0,#FFE0B2);border-left:3px solid #FF6F00;border-radius:6px;font-size:11px;color:#333">
+  <div style="margin-top:14px;padding:12px 16px;background:linear-gradient(135deg,#FFF3E0,#FFE0B2);border-left:3px solid #FF6F00;border-radius:6px;font-size: var(--fs-sm);color:#333">
     <b style="color:#E65100">🏆 Insight อัตโนมัติ:</b> แบรนด์ที่ยิงหนักที่สุดคือ <b>มิตซู ทีที ศรีสะเกษ</b> (127 brand-days) — 
 ส่วน <b style="color:#C3002F">Nissan</b> อยู่อันดับ 2 (52 brand-days)
 </div>
@@ -741,7 +754,7 @@ initSortable('table4', { col: 'posts', dir: 'desc' });
 
 <div class="footer">
   <p>📊 รายงาน Nissan ศรีสะเกษ สัปดาห์ 11 ส.ค. 2569 - 18 ส.ค. 2569</p>
-  <p>🕐 เวลาวิเคราะห์: 25 Aug 2026 19:31 น.</p>
+  <p>🕐 เวลาวิเคราะห์: 31 Aug 2026 16:36 น.</p>
   <p>👤 สร้างโดย: Tatchanon Wissawakornrungrot, Regional Marketing Manager at Nissan Motor (Thailand)</p>
 </div>
 

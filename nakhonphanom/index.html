@@ -20,6 +20,19 @@
   --border: #DCE2EA;
   --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
   --shadow-md: 0 2px 8px rgba(0,0,0,0.06);
+  /* 2026-08-25: Typography design tokens (consolidated) */
+  --fs-2xs: 9px;       /* compact cells (ads table) */
+  --fs-xs: 10px;       /* captions, sort indicators */
+  --fs-sm: 11px;       /* table cells, page names */
+  --fs-md: 12px;       /* post snippets */
+  --fs-lg: 13px;       /* metric labels */
+  --fs-xl: 14px;       /* h3 sub-headers */
+  --fs-2xl: 16px;      /* insight box headers */
+  --fs-3xl: 17px;      /* h2 section titles */
+  --fs-4xl: 18px;      /* TOC button */
+  --fs-metric: 30px;   /* main KPI value */
+  --fs-metric-sm: 22px; /* secondary KPI value */
+  --fs-display: 24px;  /* h1 hero title */
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -39,17 +52,17 @@ body {
 }
 .hero h1 {
   margin: 0 0 6px 0;
-  font-size: 24px;
+  font-size: var(--fs-display);
   font-weight: 700;
   letter-spacing: -0.02em;
 }
-.hero-meta { font-size: 13px; opacity: 0.92; margin-bottom: 16px; }
+.hero-meta { font-size: var(--fs-lg); opacity: 0.92; margin-bottom: 16px; }
 .hero-chips { display: flex; gap: 12px; flex-wrap: wrap; }
 .hero-chip {
   background: rgba(255,255,255,0.15);
   padding: 6px 12px;
   border-radius: 20px;
-  font-size: 12px;
+  font-size: var(--fs-md);
   font-weight: 500;
   backdrop-filter: blur(8px);
 }
@@ -58,7 +71,7 @@ body {
   background: var(--bg-surface);
   border-bottom: 1px solid var(--border);
   padding: 8px 40px;
-  font-size: 12px;
+  font-size: var(--fs-md);
   display: flex;
   gap: 14px;
   overflow-x: auto;
@@ -102,18 +115,18 @@ body {
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  font-size: 13px;
+  font-size: var(--fs-lg);
   flex-shrink: 0;
 }
 .section-card h2 {
   margin: 0;
-  font-size: 17px;
+  font-size: var(--fs-3xl);
   font-weight: 700;
   color: var(--ink-900);
 }
 .section-card h3 {
   margin: 20px 0 12px;
-  font-size: 14px;
+  font-size: var(--fs-xl);
   font-weight: 700;
   color: var(--ink-700);
 }
@@ -121,7 +134,7 @@ body {
   background: var(--ink-50);
   padding: 12px 14px;
   border-radius: 8px;
-  font-size: 12px;
+  font-size: var(--fs-md);
   line-height: 1.7;
   margin-bottom: 16px;
   border-left: 3px solid var(--nmt-red);
@@ -135,7 +148,7 @@ body {
 table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 13px;
+  font-size: var(--fs-lg);
   margin: 12px 0;
 }
 thead tr {
@@ -146,7 +159,7 @@ thead th {
   padding: 10px 12px;
   text-align: left;
   font-weight: 600;
-  font-size: 12px;
+  font-size: var(--fs-md);
   border: none;
 }
 tbody tr:nth-child(odd) { background: var(--bg-surface); }
@@ -173,7 +186,7 @@ table.sortable thead th.sort-active .sort-ind {
   color: var(--nmt-red);
 }
 table.sortable thead th .sort-ind {
-  font-size: 10px;
+  font-size: var(--fs-xs);
   margin-left: 4px;
   opacity: 0.5;
   display: inline-block;
@@ -213,7 +226,7 @@ tbody td {
   color: white;
   padding: 3px 8px;
   border-radius: 4px;
-  font-size: 10px;
+  font-size: var(--fs-xs);
   font-weight: 700;
   letter-spacing: 0.05em;
   flex-shrink: 0;
@@ -226,7 +239,7 @@ tbody td {
   display: inline-block;
   padding: 1px 6px;
   border-radius: 4px;
-  font-size: 10px;
+  font-size: var(--fs-xs);
   font-weight: 700;
 }
 .pill-photo { background: #E3F2FD; color: #1565C0; }
@@ -240,7 +253,7 @@ tbody td {
   margin: 12px 0;
 }
 .chart-title {
-  font-size: 12px;
+  font-size: var(--fs-md);
   font-weight: 700;
   color: var(--ink-700);
   margin-bottom: 8px;
@@ -265,19 +278,19 @@ canvas { max-width: 100%; }
   transform: translateY(-1px);
 }
 .metric-label {
-  font-size: 11px;
+  font-size: var(--fs-sm);
   color: var(--ink-500);
   margin-bottom: 6px;
   font-weight: 500;
 }
 .metric-value {
-  font-size: 30px;
+  font-size: var(--fs-metric);
   font-weight: 700;
   color: var(--nmt-red);
   line-height: 1.1;
 }
 .metric-sub {
-  font-size: 10px;
+  font-size: var(--fs-xs);
   color: var(--ink-500);
   margin-top: 4px;
 }
@@ -288,7 +301,7 @@ canvas { max-width: 100%; }
   display: inline-block;
   padding: 2px 8px;
   border-radius: 4px;
-  font-size: 11px;
+  font-size: var(--fs-sm);
   font-weight: 700;
   background: var(--ink-100);
   color: var(--ink-700);
@@ -303,7 +316,7 @@ canvas { max-width: 100%; }
   display: inline-block;
   padding: 1px 6px;
   border-radius: 4px;
-  font-size: 11px;
+  font-size: var(--fs-sm);
   font-weight: 600;
   background: var(--nmt-red-soft);
   color: var(--nmt-red);
@@ -319,7 +332,7 @@ insight {
   padding: 14px 16px;
   border-radius: 8px;
   margin: 16px 0;
-  font-size: 13px;
+  font-size: var(--fs-lg);
   line-height: 1.7;
 }
 .dark-mode {
@@ -344,7 +357,7 @@ insight {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  font-size: 18px;
+  font-size: var(--fs-4xl);
   cursor: pointer;
   box-shadow: var(--shadow-md);
   z-index: 200;
@@ -398,11 +411,11 @@ insight {
       <div class="metric-sub">151 eng / 60 posts</div></div>
     <div class="metric-card">
       <div class="metric-label">🏆 Top Brand (Eng)</div>
-      <div class="metric-value" style="font-size:24px">Isuzu</div>
+      <div class="metric-value" style="font-size: var(--fs-display)">Isuzu</div>
       <div class="metric-sub">1,578 eng</div></div>
     <div class="metric-card">
       <div class="metric-label">🔥 Top Eng/Post</div>
-      <div class="metric-value" style="font-size:24px">Isuzu</div>
+      <div class="metric-value" style="font-size: var(--fs-display)">Isuzu</div>
       <div class="metric-sub">31.6 eng/post</div></div>
   </div>
 </div>
@@ -425,49 +438,59 @@ insight {
     <thead><tr><th>แบรนด์</th><th>Facebook Page</th><th>กิจกรรม</th><th>วันที่จัด</th><th>สถานที่</th><th style="text-align:center">Eng</th><th>URL</th></tr></thead>
     <tbody>  <tr>
     <td>Isuzu</td>
-    <td style="font-size:11px">อีซูซุนครพนม ISUZU Nakhon</td>
-    <td style="font-size:12px">🚗ขอขอบพระคุณลูกค้าทุกท่านที่มาร่วมงาน
+    <td style="font-size: var(--fs-sm)">อีซูซุนครพนม ISUZU Nakhon</td>
+    <td style="font-size: var(--fs-md)">🚗ขอขอบพระคุณลูกค้าทุกท่านที่มาร่วมงาน
 💨 “ISUZU D-MAX จัดหนัก</td>
-    <td style="font-weight:600;color:#c3002f;font-size:12px;white-space:nowrap">8 สิงหาคม  2569</td>
+    <td style="font-weight:600;color:#c3002f;font-size: var(--fs-md);white-space:nowrap">8 สิงหาคม  2569</td>
     <td style="">โชว์รูม</td>
     <td style="text-align:center;font-weight:bold">21</td>
-    <td><a href="https://www.facebook.com/isuzunakhonphanom/posts/pfbid02WUxQ5oxqRTdYHMCLEtrVjBAC4Tz6EyAZB2P6k2XLLK29QN4TauVq5JqV6pudrtTvl" target="_blank" style="color:#c3002f;font-weight:bold;text-decoration:none;font-size:12px">🔗 Link</a></td>
+    <td><a href="https://www.facebook.com/isuzunakhonphanom/posts/pfbid02WUxQ5oxqRTdYHMCLEtrVjBAC4Tz6EyAZB2P6k2XLLK29QN4TauVq5JqV6pudrtTvl" target="_blank" style="color:#c3002f;font-weight:bold;text-decoration:none;font-size: var(--fs-md)">🔗 Link</a></td>
   </tr>  <tr>
     <td>Honda</td>
-    <td style="font-size:11px">บริษัท นครพนมฮอนด้าคาร์ส์</td>
-    <td style="font-size:12px">📣วันที่ 28 - 30 กรกฎาคม 2569 มาพบกันที่ Big C นครพนม นะคะ 
+    <td style="font-size: var(--fs-sm)">บริษัท นครพนมฮอนด้าคาร์ส์</td>
+    <td style="font-size: var(--fs-md)">📣วันที่ 28 - 30 กรกฎาคม 2569 มาพบกันที่ Big C นครพนม นะคะ 
 
 </td>
-    <td style="font-weight:600;color:#c3002f;font-size:12px;white-space:nowrap">28 - 30 กรกฎาคม 2569</td>
+    <td style="font-weight:600;color:#c3002f;font-size: var(--fs-md);white-space:nowrap">28 - 30 กรกฎาคม 2569</td>
     <td style="">BIG C นครพนม</td>
     <td style="text-align:center;font-weight:bold">16</td>
-    <td><a href="https://www.facebook.com/hondanakhonpanom/posts/pfbid0KetZ3VP7oTndriYAr9qoJ2Yd6cBvoc1Tupd2yxUmeHekC5C5WQrBQDp4eNPXx27Gl" target="_blank" style="color:#c3002f;font-weight:bold;text-decoration:none;font-size:12px">🔗 Link</a></td>
+    <td><a href="https://www.facebook.com/hondanakhonpanom/posts/pfbid0KetZ3VP7oTndriYAr9qoJ2Yd6cBvoc1Tupd2yxUmeHekC5C5WQrBQDp4eNPXx27Gl" target="_blank" style="color:#c3002f;font-weight:bold;text-decoration:none;font-size: var(--fs-md)">🔗 Link</a></td>
   </tr>  <tr>
     <td>TOYOTA</td>
-    <td style="font-size:11px">โตโยต้า เจริญศรี นครพนม</td>
-    <td style="font-size:12px">🚗 สัมผัสประสบการณ์ขับขี่รถยนต์ไฟฟ้าจากโตโยต้า
+    <td style="font-size: var(--fs-sm)">โตโยต้า เจริญศรี นครพนม</td>
+    <td style="font-size: var(--fs-md)">🚗 สัมผัสประสบการณ์ขับขี่รถยนต์ไฟฟ้าจากโตโยต้า
 Toyota bZ4xพร้</td>
-    <td style="font-weight:600;color:#c3002f;font-size:12px;white-space:nowrap">31 กรกฎาคม 2569</td>
+    <td style="font-weight:600;color:#c3002f;font-size: var(--fs-md);white-space:nowrap">31 กรกฎาคม 2569</td>
     <td style="">โชว์รูม</td>
     <td style="text-align:center;font-weight:bold">15</td>
-    <td><a href="https://www.facebook.com/reel/1060394789682170/" target="_blank" style="color:#c3002f;font-weight:bold;text-decoration:none;font-size:12px">🔗 Link</a></td>
+    <td><a href="https://www.facebook.com/reel/1060394789682170/" target="_blank" style="color:#c3002f;font-weight:bold;text-decoration:none;font-size: var(--fs-md)">🔗 Link</a></td>
   </tr>  <tr>
     <td>Honda</td>
-    <td style="font-size:11px">บริษัท นครพนมฮอนด้าคาร์ส์</td>
-    <td style="font-size:12px">🚗✨ ขอเชิญลูกค้าร่วมสัมผัสประสบการณ์ทดลองขับ NEW CITY e:HEV ✨</td>
-    <td style="font-weight:600;color:#c3002f;font-size:12px;white-space:nowrap">14 - 15 สิงหาคม</td>
+    <td style="font-size: var(--fs-sm)">บริษัท นครพนมฮอนด้าคาร์ส์</td>
+    <td style="font-size: var(--fs-md)">🚗✨ ขอเชิญลูกค้าร่วมสัมผัสประสบการณ์ทดลองขับ NEW CITY e:HEV ✨</td>
+    <td style="font-weight:600;color:#c3002f;font-size: var(--fs-md);white-space:nowrap">14 - 15 สิงหาคม 2569</td>
     <td style="">ปตท. นครพนม</td>
     <td style="text-align:center;font-weight:bold">11</td>
-    <td><a href="https://www.facebook.com/hondanakhonpanom/posts/pfbid02xt5h1DM7AV4Rtdk4FkJadi18bQjhzMv7PvPnYoZ8uHi19vGZr9rMqBsRsbqrnFFxl" target="_blank" style="color:#c3002f;font-weight:bold;text-decoration:none;font-size:12px">🔗 Link</a></td>
+    <td><a href="https://www.facebook.com/hondanakhonpanom/posts/pfbid02xt5h1DM7AV4Rtdk4FkJadi18bQjhzMv7PvPnYoZ8uHi19vGZr9rMqBsRsbqrnFFxl" target="_blank" style="color:#c3002f;font-weight:bold;text-decoration:none;font-size: var(--fs-md)">🔗 Link</a></td>
   </tr>  <tr>
     <td>Honda</td>
-    <td style="font-size:11px">บริษัท นครพนมฮอนด้าคาร์ส์</td>
-    <td style="font-size:12px">🚗✨ ขอเชิญลูกค้าร่วมกิจกรรมทดลองขับ NEW CIVIC e:HEV ✨🚗
+    <td style="font-size: var(--fs-sm)">บริษัท นครพนมฮอนด้าคาร์ส์</td>
+    <td style="font-size: var(--fs-md)">🚗✨ ขอเชิญลูกค้าร่วมกิจกรรมทดลองขับ NEW CIVIC e:HEV ✨🚗
 สัมผัส</td>
-    <td style="font-weight:600;color:#c3002f;font-size:12px;white-space:nowrap">6 - 8 สิงหาคม</td>
+    <td style="font-weight:600;color:#c3002f;font-size: var(--fs-md);white-space:nowrap">6 - 8 สิงหาคม 2569</td>
     <td style="">โชว์รูม</td>
     <td style="text-align:center;font-weight:bold">9</td>
-    <td><a href="https://www.facebook.com/hondanakhonpanom/posts/pfbid02dpf4FovLD3yCDQutZCGjyKRUb8M8Zub3uhyypuG2iGFQ8pXhTeAxCxbfwJTZM9Hul" target="_blank" style="color:#c3002f;font-weight:bold;text-decoration:none;font-size:12px">🔗 Link</a></td>
+    <td><a href="https://www.facebook.com/hondanakhonpanom/posts/pfbid02dpf4FovLD3yCDQutZCGjyKRUb8M8Zub3uhyypuG2iGFQ8pXhTeAxCxbfwJTZM9Hul" target="_blank" style="color:#c3002f;font-weight:bold;text-decoration:none;font-size: var(--fs-md)">🔗 Link</a></td>
+  </tr>  <tr>
+    <td>TOYOTA</td>
+    <td style="font-size: var(--fs-sm)">โตโยต้า เจริญศรี นครพนม</td>
+    <td style="font-size: var(--fs-md)">🎉 TOYOTA ฟูลฟีล ดีลสุดคุ้ม มาแล้ว! 🚗💥
+
+2 วันเท่านั้น! 17–18 </td>
+    <td style="font-weight:600;color:#c3002f;font-size: var(--fs-md);white-space:nowrap">17–18 กรกฎาคม 2569</td>
+    <td style="">โชว์รูม</td>
+    <td style="text-align:center;font-weight:bold">6</td>
+    <td><a href="https://www.facebook.com/toyotacharoensri/posts/pfbid0pM9DbwnfE4vv7uBTQDAsezU9M5F8m5BwRwnUDN5zRe8dfYi2E82iqAee8qpmjwU6l" target="_blank" style="color:#c3002f;font-weight:bold;text-decoration:none;font-size: var(--fs-md)">🔗 Link</a></td>
   </tr></tbody>
   </table>
 </div>
@@ -482,7 +505,7 @@ Toyota bZ4xพร้</td>
       <th data-sort="posts" style="text-align:center">โพสต์<span class="sort-indicator">⇅</span></th><th data-sort="eng" style="text-align:center">Engagement<span class="sort-indicator">⇅</span></th>
       <th data-sort="engperpost" style="text-align:center">Eng/Post<span class="sort-indicator">⇅</span></th><th style="text-align:center">L/C/S</th>
     </tr></thead>
-    <tbody><tr style=""><td><strong>Isuzu</strong></td><td style='font-size:11px'>อีซูซุนครพนม ISUZU Nakhon Phanom</td><td style='text-align:center'>50</td><td style='text-align:center'>1,578</td><td style='text-align:center'>31.6</td><td style='font-size:11px;text-align:center'>1423/12/143</td></tr><tr style=""><td><strong>Mitsubishi</strong></td><td style='font-size:11px'>มิตซู ทีเคที เจริญศรี นครพนม</td><td style='text-align:center'>15</td><td style='text-align:center'>342</td><td style='text-align:center'>22.8</td><td style='font-size:11px;text-align:center'>250/14/78</td></tr><tr style=""><td><strong>Honda</strong></td><td style='font-size:11px'>บริษัท นครพนมฮอนด้าคาร์ส์ จำกัด</td><td style='text-align:center'>27</td><td style='text-align:center'>286</td><td style='text-align:center'>10.6</td><td style='font-size:11px;text-align:center'>247/0/39</td></tr><tr style=""><td><strong>TOYOTA</strong></td><td style='font-size:11px'>โตโยต้า เจริญศรี นครพนม, โตโยต้านครพนมจำกัด Toyota Nakhonphanom</td><td style='text-align:center'>63</td><td style='text-align:center'>250</td><td style='text-align:center'>4.0</td><td style='font-size:11px;text-align:center'>196/10/44</td></tr><tr style="border-left:3px solid #c3002f"><td><strong>Nissan (Self)</strong></td><td style='font-size:11px'>นิสสันนครพนม, นิสสันนครพนม - Nissan Nakhon Phanom</td><td style='text-align:center'>60</td><td style='text-align:center'>151</td><td style='text-align:center'>2.5</td><td style='font-size:11px;text-align:center'>145/2/4</td></tr></tbody>
+    <tbody><tr style=""><td><strong>Isuzu</strong></td><td style='font-size: var(--fs-sm)'>อีซูซุนครพนม ISUZU Nakhon Phanom</td><td style='text-align:center'>50</td><td style='text-align:center'>1,578</td><td style='text-align:center'>31.6</td><td style='font-size: var(--fs-sm);text-align:center'>1423/12/143</td></tr><tr style=""><td><strong>Mitsubishi</strong></td><td style='font-size: var(--fs-sm)'>มิตซู ทีเคที เจริญศรี นครพนม</td><td style='text-align:center'>15</td><td style='text-align:center'>342</td><td style='text-align:center'>22.8</td><td style='font-size: var(--fs-sm);text-align:center'>250/14/78</td></tr><tr style=""><td><strong>Honda</strong></td><td style='font-size: var(--fs-sm)'>บริษัท นครพนมฮอนด้าคาร์ส์ จำกัด</td><td style='text-align:center'>27</td><td style='text-align:center'>286</td><td style='text-align:center'>10.6</td><td style='font-size: var(--fs-sm);text-align:center'>247/0/39</td></tr><tr style=""><td><strong>TOYOTA</strong></td><td style='font-size: var(--fs-sm)'>โตโยต้า เจริญศรี นครพนม, โตโยต้านครพนมจำกัด Toyota Nakhonphanom</td><td style='text-align:center'>63</td><td style='text-align:center'>250</td><td style='text-align:center'>4.0</td><td style='font-size: var(--fs-sm);text-align:center'>196/10/44</td></tr><tr style="border-left:3px solid #c3002f"><td><strong>Nissan (Self)</strong></td><td style='font-size: var(--fs-sm)'>นิสสันนครพนม, นิสสันนครพนม - Nissan Nakhon Phanom</td><td style='text-align:center'>60</td><td style='text-align:center'>151</td><td style='text-align:center'>2.5</td><td style='font-size: var(--fs-sm);text-align:center'>145/2/4</td></tr></tbody>
   </table>
 </div>
 
@@ -493,25 +516,25 @@ Toyota bZ4xพร้</td>
   <h3>6.1 Self Posts (Dealer Regular Activity)</h3>
   <table>
     <thead><tr><th>สาขา</th><th>Facebook Page</th><th style="text-align:center">โพสต์</th><th style="text-align:center">Engagement</th><th style="text-align:center">L/C/S</th><th>สถานะ</th></tr></thead>
-    <tbody><tr><td>ขอนแก่น (หลัก)</td><td style='font-size:11px'>นิสสันขอนแก่น-Nissan KKT Khonkaen</td>
+    <tbody><tr><td>ขอนแก่น (หลัก)</td><td style='font-size: var(--fs-sm)'>นิสสันขอนแก่น-Nissan KKT Khonkaen</td>
       <td style='text-align:center'>60</td><td style='text-align:center'>151</td>
-      <td style='font-size:11px;text-align:center'>145/2/4</td>
+      <td style='font-size: var(--fs-sm);text-align:center'>145/2/4</td>
       <td><span style='color:#2e7d32'>✓ ใช้งานปกติ</span></td></tr></tbody>
   </table>
 
   <h3>6.2 🚗 Nissan Roadshow (Self)</h3>
   <table>
     <thead><tr><th>แบรนด์</th><th>Facebook Page</th><th>กิจกรรม</th><th>วันที่จัด</th><th>สถานที่</th><th style="text-align:center">Eng</th><th>URL</th></tr></thead>
-    <tbody><tr><td colspan="7" style="text-align:center;color:#94A0B3;padding:20px;font-size:13px">ไม่มีกิจกรรม Roadshow ของ Nissan (Self) ในช่วงสัปดาห์นี้</td></tr></tbody>
+    <tbody><tr><td colspan="7" style="text-align:center;color:#94A0B3;padding:20px;font-size: var(--fs-lg)">ไม่มีกิจกรรม Roadshow ของ Nissan (Self) ในช่วงสัปดาห์นี้</td></tr></tbody>
   </table>
 
   <h3>6.3 Self vs Top 3 Benchmark</h3>
   <table>
     <thead><tr><th>แบรนด์</th><th>Facebook Page(s)</th><th style="text-align:center">โพสต์</th><th style="text-align:center">Engagement</th><th style="text-align:center">Eng/Post</th></tr></thead>
-    <tbody><tr><td>Isuzu</td><td style='font-size:11px'>อีซูซุนครพนม ISUZU Nakhon Phanom</td><td style='text-align:center'>50</td><td style='text-align:center'>1,578</td><td style='text-align:center'>31.6</td></tr><tr><td>Mitsubishi</td><td style='font-size:11px'>มิตซู ทีเคที เจริญศรี นครพนม</td><td style='text-align:center'>15</td><td style='text-align:center'>342</td><td style='text-align:center'>22.8</td></tr><tr><td>Honda</td><td style='font-size:11px'>บริษัท นครพนมฮอนด้าคาร์ส์ จำกัด</td><td style='text-align:center'>27</td><td style='text-align:center'>286</td><td style='text-align:center'>10.6</td></tr><tr style='border-left:3px solid #c3002f'><td><strong>Nissan (Self)</strong></td><td style='font-size:11px'>นิสสันขอนแก่น-Nissan KKT Khonkaen</td><td style='text-align:center'>60</td><td style='text-align:center'><strong>151</strong></td><td style='text-align:center'><strong>2.5</strong></td></tr></tbody>
+    <tbody><tr><td>Isuzu</td><td style='font-size: var(--fs-sm)'>อีซูซุนครพนม ISUZU Nakhon Phanom</td><td style='text-align:center'>50</td><td style='text-align:center'>1,578</td><td style='text-align:center'>31.6</td></tr><tr><td>Mitsubishi</td><td style='font-size: var(--fs-sm)'>มิตซู ทีเคที เจริญศรี นครพนม</td><td style='text-align:center'>15</td><td style='text-align:center'>342</td><td style='text-align:center'>22.8</td></tr><tr><td>Honda</td><td style='font-size: var(--fs-sm)'>บริษัท นครพนมฮอนด้าคาร์ส์ จำกัด</td><td style='text-align:center'>27</td><td style='text-align:center'>286</td><td style='text-align:center'>10.6</td></tr><tr style='border-left:3px solid #c3002f'><td><strong>Nissan (Self)</strong></td><td style='font-size: var(--fs-sm)'>นิสสันขอนแก่น-Nissan KKT Khonkaen</td><td style='text-align:center'>60</td><td style='text-align:center'><strong>151</strong></td><td style='text-align:center'><strong>2.5</strong></td></tr></tbody>
   </table>
 
-  <blockquote style="background:#fff5f5;border-left-color:#c3002f;padding:10px 14px;border-left:3px solid #c3002f;margin:10px 0;border-radius:4px;font-size:13px;line-height:1.6">
+  <blockquote style="background:#fff5f5;border-left-color:#c3002f;padding:10px 14px;border-left:3px solid #c3002f;margin:10px 0;border-radius:4px;font-size: var(--fs-lg);line-height:1.6">
     <strong>📌 สรุปภาพรวมสัปดาห์นี้:</strong> Nissan มี 60 โพสต์ (151 Engagement) — เน้นส่งมอบรถและโปรโมชั่น — ยังไม่มีกิจกรรม Roadshow ในช่วงนี้
   </blockquote>
 </div>
@@ -523,7 +546,7 @@ Toyota bZ4xพร้</td>
     <div class="post-card">
     <div style="display:flex;justify-content:space-between;margin-bottom:6px">
       <span><span class="badge-brand">Isuzu</span> <strong style="color:#c3002f">Eng 291</strong></span>
-      <span style="font-size:11px;color:#888">อีซูซุนครพนม ISUZU N</span>
+      <span style="font-size: var(--fs-sm);color:#888">อีซูซุนครพนม ISUZU N</span>
     </div>
     <div>ขอขอบคุณลูกค้าที่ไว้ใจให้อีซูซุนครพนม ได้ดูแลทุกท่าน🙏🏻ขอให้รถใหม่คันนี้นำพาความสุขมาให้ ค้าขายร่ำรวยเงินทอง ขับขี่ปลอดภัยทุกเส้นทาง🥰🎉💰💸
 ----------------------------
@@ -535,7 +558,7 @@ Toyota bZ4xพร้</td>
   </div>  <div class="post-card">
     <div style="display:flex;justify-content:space-between;margin-bottom:6px">
       <span><span class="badge-brand">Isuzu</span> <strong style="color:#c3002f">Eng 255</strong></span>
-      <span style="font-size:11px;color:#888">อีซูซุนครพนม ISUZU N</span>
+      <span style="font-size: var(--fs-sm);color:#888">อีซูซุนครพนม ISUZU N</span>
     </div>
     <div>👀 เซลล์อีซูซุ…เขาขับรถอะไรกันนะ?
 หลายคนเดาไม่ถูกแน่นอน! 😆
@@ -553,7 +576,7 @@ Toyota bZ4xพร้</td>
   </div>  <div class="post-card">
     <div style="display:flex;justify-content:space-between;margin-bottom:6px">
       <span><span class="badge-brand">Isuzu</span> <strong style="color:#c3002f">Eng 113</strong></span>
-      <span style="font-size:11px;color:#888">อีซูซุนครพนม ISUZU N</span>
+      <span style="font-size: var(--fs-sm);color:#888">อีซูซุนครพนม ISUZU N</span>
     </div>
     <div>🖤 เท่ทุกมุม…เร้าใจทุกเส้นทาง
 🔥 ใหม่! ISUZU X-SERIES SPEED 4 ประตู
@@ -571,10 +594,10 @@ Toyota bZ4xพร้</td>
 <!-- Section 8: Threats & Opps -->
 <div class="section-card" id="sec-8">
   <div class="section-card-header"><span class="section-num">8</span><h2>⚠️ โอกาสและภัยคุกคาม</h2></div>
-  <h3 style="color:#c3002f;font-size:14px">🚨 ภัยคุกคาม</h3>
+  <h3 style="color:#c3002f;font-size: var(--fs-xl)">🚨 ภัยคุกคาม</h3>
   <ul style="margin-left:20px;line-height:1.8"><li><strong>Isuzu ครองอันดับ 1</strong> — 50 โพสต์ (1,578 eng, 31.6/post)</li>
     <li><strong>หลายแบรนด์ Active หนัก</strong> — Isuzu, Mitsubishi, Honda, TOYOTA ลงโพสต์ 8+ รายการ</li></ul>
-  <h3 style="color:#2e7d32;font-size:14px">💡 โอกาส</h3>
+  <h3 style="color:#2e7d32;font-size: var(--fs-xl)">💡 โอกาส</h3>
   <ul style="margin-left:20px;line-height:1.8"><li><strong>Nissan มี Engagement เฉลี่ย 2.5/post</strong> — ใช้ Content ที่ work ไป Amplify ต่อ</li>
     <li><strong>ห้างค้าปลีกคึกคัก</strong> — 1 รายการที่ BIG C นครพนม — Nissan ควรพิจารณาจัด e-POWER Experience Zone</li></ul>
 </div>
@@ -739,102 +762,102 @@ initSortable('table4', { col: 'posts', dir: 'desc' });
   <div class="section-card-header"><span class="section-num">11</span><h2>🎯 Ads ที่คู่แข่งกำลังยิงอยู่ (Active Ads)</h2></div>
   <div class="headline"><span class="headline-label">🎯 Insight:</span> ดึงจากฐานข้อมูลโฆษณาสาธารณะของ Meta · นครพนม · <b style="color:#C3002F">46 real ads</b> จาก 6 แบรนด์ที่ยิง · <span style="color:#999">2 แบรนด์ไม่ได้ยิง</span></div>
   <div style="background:linear-gradient(135deg,#0D47A1,#1976D2);color:white;padding:16px 22px;border-radius:12px;margin:14px 0;box-shadow:0 4px 12px rgba(0,0,0,0.15)">
-    <h3 style="margin:0 0 10px 0;font-size:16px;color:#FFFFFF !important;font-weight:700">📊 Insights Box</h3>
+    <h3 style="margin:0 0 10px 0;font-size: var(--fs-2xl);color:#FFFFFF !important;font-weight:700">📊 Insights Box</h3>
     <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:10px">
-      <div style="background:rgba(255,255,255,0.15);padding:10px;border-radius:8px"><div style="font-size:22px;font-weight:700">46</div><div style="font-size:10px;opacity:0.9">Total Ads</div></div>
-      <div style="background:rgba(255,255,255,0.15);padding:10px;border-radius:8px"><div style="font-size:22px;font-weight:700">11.7</div><div style="font-size:10px;opacity:0.9">เฉลี่ย วัน/ad</div></div>
-      <div style="background:rgba(255,255,255,0.15);padding:10px;border-radius:8px"><div style="font-size:22px;font-weight:700">6/8</div><div style="font-size:10px;opacity:0.9">แบรนด์ที่ยิง</div></div>
-      <div style="background:#C3002F;padding:10px;border-radius:8px"><div style="font-size:22px;font-weight:700;color:white">537</div><div style="font-size:10px;color:white">Total Brand-Days</div></div>
+      <div style="background:rgba(255,255,255,0.15);padding:10px;border-radius:8px"><div style="font-size: var(--fs-metric-sm);font-weight:700">46</div><div style="font-size: var(--fs-xs);opacity:0.9">Total Ads</div></div>
+      <div style="background:rgba(255,255,255,0.15);padding:10px;border-radius:8px"><div style="font-size: var(--fs-metric-sm);font-weight:700">11.7</div><div style="font-size: var(--fs-xs);opacity:0.9">เฉลี่ย วัน/ad</div></div>
+      <div style="background:rgba(255,255,255,0.15);padding:10px;border-radius:8px"><div style="font-size: var(--fs-metric-sm);font-weight:700">6/8</div><div style="font-size: var(--fs-xs);opacity:0.9">แบรนด์ที่ยิง</div></div>
+      <div style="background:#C3002F;padding:10px;border-radius:8px"><div style="font-size: var(--fs-metric-sm);font-weight:700;color:white">537</div><div style="font-size: var(--fs-xs);color:white">Total Brand-Days</div></div>
     </div>
     <div style="margin-top:14px;background:rgba(255,255,255,0.1);padding:10px;border-radius:8px">
-      <div style="font-size:11px;font-weight:600;margin-bottom:6px;opacity:0.95">📊 Scale ของ Campaign (Brand-Days):</div>
+      <div style="font-size: var(--fs-sm);font-weight:600;margin-bottom:6px;opacity:0.95">📊 Scale ของ Campaign (Brand-Days):</div>
       <div style="display:flex;flex-wrap:wrap;gap:6px">
-        <span style="background:rgba(255,255,255,0.25);color:white;padding:4px 10px;border-radius:12px;font-size:11px;border-left:3px solid rgba(255,255,255,0.3)">อีซูซุนครพนม ISUZU: <b>338d</b></span>
-        <span style="background:rgba(255,255,255,0.25);color:white;padding:4px 10px;border-radius:12px;font-size:11px;border-left:3px solid #C3002F">🚗 นิสสันนครพนม: <b>161d</b></span>
-        <span style="background:rgba(255,255,255,0.25);color:white;padding:4px 10px;border-radius:12px;font-size:11px;border-left:3px solid rgba(255,255,255,0.3)">โตโยต้า เจริญศรี น: <b>14d</b></span>
-        <span style="background:rgba(255,255,255,0.25);color:white;padding:4px 10px;border-radius:12px;font-size:11px;border-left:3px solid rgba(255,255,255,0.3)">มิตซู ทีเคที เจริญ: <b>12d</b></span>
-        <span style="background:rgba(255,255,255,0.25);color:white;padding:4px 10px;border-radius:12px;font-size:11px;border-left:3px solid rgba(255,255,255,0.3)">บริษัท นครพนมฮอนด้: <b>8d</b></span>
-        <span style="background:rgba(255,255,255,0.25);color:white;padding:4px 10px;border-radius:12px;font-size:11px;border-left:3px solid #C3002F">🚗 นิสสันนครพนม - Nis: <b>4d</b></span>
+        <span style="background:rgba(255,255,255,0.25);color:white;padding:4px 10px;border-radius:12px;font-size: var(--fs-sm);border-left:3px solid rgba(255,255,255,0.3)">อีซูซุนครพนม ISUZU: <b>338d</b></span>
+        <span style="background:rgba(255,255,255,0.25);color:white;padding:4px 10px;border-radius:12px;font-size: var(--fs-sm);border-left:3px solid #C3002F">🚗 นิสสันนครพนม: <b>161d</b></span>
+        <span style="background:rgba(255,255,255,0.25);color:white;padding:4px 10px;border-radius:12px;font-size: var(--fs-sm);border-left:3px solid rgba(255,255,255,0.3)">โตโยต้า เจริญศรี น: <b>14d</b></span>
+        <span style="background:rgba(255,255,255,0.25);color:white;padding:4px 10px;border-radius:12px;font-size: var(--fs-sm);border-left:3px solid rgba(255,255,255,0.3)">มิตซู ทีเคที เจริญ: <b>12d</b></span>
+        <span style="background:rgba(255,255,255,0.25);color:white;padding:4px 10px;border-radius:12px;font-size: var(--fs-sm);border-left:3px solid rgba(255,255,255,0.3)">บริษัท นครพนมฮอนด้: <b>8d</b></span>
+        <span style="background:rgba(255,255,255,0.25);color:white;padding:4px 10px;border-radius:12px;font-size: var(--fs-sm);border-left:3px solid #C3002F">🚗 นิสสันนครพนม - Nis: <b>4d</b></span>
       </div>
     </div>
     <div style="margin-top:12px;display:flex;gap:6px;flex-wrap:wrap">
-      <span style="background:rgba(255,255,255,0.2);padding:3px 9px;border-radius:12px;font-size:11px">VIDEO: 37</span>
-      <span style="background:rgba(255,255,255,0.2);padding:3px 9px;border-radius:12px;font-size:11px">IMAGE: 7</span>
-      <span style="background:rgba(255,255,255,0.2);padding:3px 9px;border-radius:12px;font-size:11px">MULTI_IMAGES: 2</span>
+      <span style="background:rgba(255,255,255,0.2);padding:3px 9px;border-radius:12px;font-size: var(--fs-sm)">VIDEO: 37</span>
+      <span style="background:rgba(255,255,255,0.2);padding:3px 9px;border-radius:12px;font-size: var(--fs-sm)">IMAGE: 7</span>
+      <span style="background:rgba(255,255,255,0.2);padding:3px 9px;border-radius:12px;font-size: var(--fs-sm)">MULTI_IMAGES: 2</span>
     </div>
-    <div style="margin-top:10px;font-size:12px;opacity:0.95"><b>🎁 Top Promos:</b> 
+    <div style="margin-top:10px;font-size: var(--fs-md);opacity:0.95"><b>🎁 Top Promos:</b> 
 ผ่อนยาว (21) · ดาวน์ถูก (14) · ส่วนลด (13) · ดอกเบี้ย 0% (10) · แลก/รับฟรี (2)
 </div>
   </div>
-  <div style="margin-top:18px"><h3 style="font-size:15px;color:#0D47A1;margin-bottom:10px">🚗 Ads by Brand</h3></div>
-  <h4 style="margin:14px 0 6px 0;color:#0D47A1;font-size:13px;border-left:3px solid #0D47A1;padding-left:8px">📌 โตโยต้า เจริญศรี นครพนม <span style="background:#0D47A1;color:white;padding:2px 8px;border-radius:10px;font-size:10px">1 ads</span> <span style="background:#E65100;color:white;padding:2px 8px;border-radius:10px;font-size:10px">14 brand-days</span> <span style="background:#37474F;color:white;padding:2px 8px;border-radius:10px;font-size:10px">avg 14 วัน/ad</span></h4>
-  <table style="margin-bottom:10px;font-size:11px"><thead><tr><th>Ad Text</th><th style="width:80px">Format</th><th>CTA</th><th style="width:110px">ระยะ</th><th style="width:60px">Active</th><th style="width:55px">Link</th></tr></thead><tbody>
-    <tr><td style="font-size:10px">โปรฮอต Yaris ATIV รถสุดฮิต เริ่มต้นเป็นเจ้าของง่ายๆ รับรถเพียง 34,650 บาท  💙 เลือกโปรได้ตามสไตล์ ✅ รุ่น Sport รับรถ 42,6…</td><td style="font-size:10px;text-align:center">MULTI_IMAGES</td><td style="font-size:10px">Send message</td><td style="font-size:9px;white-space:nowrap">2026-07-31 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/toyotacharoensri" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
+  <div style="margin-top:18px"><h3 style="font-size: var(--fs-xl);color:#0D47A1;margin-bottom:10px">🚗 Ads by Brand</h3></div>
+  <h4 style="margin:14px 0 6px 0;color:#0D47A1;font-size: var(--fs-lg);border-left:3px solid #0D47A1;padding-left:8px">📌 โตโยต้า เจริญศรี นครพนม <span style="background:#0D47A1;color:white;padding:2px 8px;border-radius:10px;font-size: var(--fs-xs)">1 ads</span> <span style="background:#E65100;color:white;padding:2px 8px;border-radius:10px;font-size: var(--fs-xs)">14 brand-days</span> <span style="background:#37474F;color:white;padding:2px 8px;border-radius:10px;font-size: var(--fs-xs)">avg 14 วัน/ad</span></h4>
+  <table style="margin-bottom:10px;font-size: var(--fs-sm)"><thead><tr><th>Ad Text</th><th style="width:80px">Format</th><th>CTA</th><th style="width:110px">ระยะ</th><th style="width:60px">Active</th><th style="width:55px">Link</th></tr></thead><tbody>
+    <tr><td style="font-size: var(--fs-xs)">โปรฮอต Yaris ATIV รถสุดฮิต เริ่มต้นเป็นเจ้าของง่ายๆ รับรถเพียง 34,650 บาท  💙 เลือกโปรได้ตามสไตล์ ✅ รุ่น Sport รับรถ 42,6…</td><td style="font-size: var(--fs-xs);text-align:center">MULTI_IMAGES</td><td style="font-size: var(--fs-xs)">Send message</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-07-31 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/toyotacharoensri" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
   </tbody></table>
-  <h4 style="margin:14px 0 6px 0;color:#0D47A1;font-size:13px;border-left:3px solid #0D47A1;padding-left:8px">📌 อีซูซุนครพนม ISUZU Nakhon Phanom <span style="background:#0D47A1;color:white;padding:2px 8px;border-radius:10px;font-size:10px">10 ads</span> <span style="background:#E65100;color:white;padding:2px 8px;border-radius:10px;font-size:10px">338 brand-days</span> <span style="background:#37474F;color:white;padding:2px 8px;border-radius:10px;font-size:10px">avg 34 วัน/ad</span></h4>
-  <table style="margin-bottom:10px;font-size:11px"><thead><tr><th>Ad Text</th><th style="width:80px">Format</th><th>CTA</th><th style="width:110px">ระยะ</th><th style="width:60px">Active</th><th style="width:55px">Link</th></tr></thead><tbody>
-    <tr><td style="font-size:10px">🚗💥 ISUZU D-MAX CAB4  รถสวยพร้อมใช้งาน 🌟ผ่อนค่างวดเพียง 7,938.-    👍ปรึกษาฟรี ไม่มีค่าใช้จ่าย 👍 🏘️อยู่บ้านก็ซื้อรถได้🤳 🛻 …</td><td style="font-size:10px;text-align:center">IMAGE</td><td style="font-size:10px">Send message</td><td style="font-size:9px;white-space:nowrap">2026-06-11 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/isuzunakhonphanom" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
-    <tr><td style="font-size:10px">🚛 งานหนักแค่ไหน…ก็เอาอยู่! ใหม่ ISUZU D-MAX SPARK 💨 แรง ประหยัด ทนทาน พร้อมลุยทุกงาน 🔥 ดาวน์เริ่มต้นเพียง 35,200 บาท 💰 ห…</td><td style="font-size:10px;text-align:center">IMAGE</td><td style="font-size:10px">Send message</td><td style="font-size:9px;white-space:nowrap">2026-07-14 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/isuzunakhonphanom" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
-    <tr><td style="font-size:10px">รีวิวก่อนส่งมอบ หล่อ เท่ แค่ไหนไปดู  #อีซูซุนครพนม  #บริการดีที่อีซูซุนครพนม #ISUZUป้ายแดงออกง่าย #isuzuนครพนม</td><td style="font-size:10px;text-align:center">VIDEO</td><td style="font-size:10px">Send message</td><td style="font-size:9px;white-space:nowrap">2026-06-23 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/isuzunakhonphanom" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
-    <tr><td style="font-size:10px">🎉🎊ฤกษ์ดี...วันดี...ต้อนรับสมาชิกใหม่ อีซูซุนครพนมส่งมอบรถใหม่ 6 คัน 🚗🥰 🎉🎊บริษัท อีซูซุนครพนม จำกัด ขอขอบคุณลูกค้าทุกท่าน…</td><td style="font-size:10px;text-align:center">VIDEO</td><td style="font-size:10px">Send message</td><td style="font-size:9px;white-space:nowrap">2026-06-04 → 2026-08-12</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/isuzunakhonphanom" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
-    <tr><td style="font-size:10px">🚘 ใหม่! ISUZU MU-X ELEGANT 2026 ความหรูที่พร้อมพาคุณไปทุกเส้นทาง ✨ รับรถเพียง 99,000 บาท 💥 ดอกเบี้ยพิเศษ 0.89% 👉รับบัตรน…</td><td style="font-size:10px;text-align:center">IMAGE</td><td style="font-size:10px">Send message</td><td style="font-size:9px;white-space:nowrap">2026-07-14 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/isuzunakhonphanom" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
-    <tr><td style="font-size:10px">ขอขอบคุณลูกค้าที่ไว้ใจให้อีซูซุนครพนม ได้ดูแลทุกท่าน🙏🏻ขอให้รถใหม่คันนี้นำพาความสุขมาให้ ค้าขายร่ำรวยเงินทอง ขับขี่ปลอดภั…</td><td style="font-size:10px;text-align:center">VIDEO</td><td style="font-size:10px">Send message</td><td style="font-size:9px;white-space:nowrap">2026-08-07 → 2026-08-12</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/isuzunakhonphanom" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
-    <tr><td style="font-size:10px">ขับเดิมๆ มันก็ดี แต่แต่งแบบนี้ดีกว่า หล่อ เท่  😎 #อีซูซุนครพนม  #บริการดีที่อีซูซุนครพนม #อีซูซุป้ายแดง  #รถใหม่ป้ายแดง</td><td style="font-size:10px;text-align:center">VIDEO</td><td style="font-size:10px">Send message</td><td style="font-size:9px;white-space:nowrap">2026-06-23 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/isuzunakhonphanom" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
-    <tr><td style="font-size:10px">👀 เซลล์อีซูซุ…เขาขับรถอะไรกันนะ? หลายคนเดาไม่ถูกแน่นอน! 😆 ไปดูพร้อมกันในคลิปเลย 🚗✨  👍ปรึกษาฟรี ไม่มีค่าใช้จ่าย 👍 🏘️อยู่บ…</td><td style="font-size:10px;text-align:center">VIDEO</td><td style="font-size:10px">Send message</td><td style="font-size:9px;white-space:nowrap">2026-08-07 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/isuzunakhonphanom" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
-    <tr><td style="font-size:10px">ISUZU SPARK กระบะตอนเดียว แต่งจัดเต็ม 🚗 ⭐️ดาวน์เริ่มต้นเพียง 69,000 บาท  👍ปรึกษาฟรี ไม่มีค่าใช้จ่าย 👍 🏘️อยู่บ้านก็ซื้อรถ…</td><td style="font-size:10px;text-align:center">VIDEO</td><td style="font-size:10px">Send message</td><td style="font-size:9px;white-space:nowrap">2026-07-26 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/isuzunakhonphanom" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
-    <tr><td style="font-size:10px">🚗อีซูซุนครพนม แจกใหญ่ แจกจริง ซื้ออีซูซุ มีแต้คุ้ม🎉 😍ขอแสดงความยินดีกับลูกค้าที่ได้รับรางวัลทุกท่าน 🎊  👍ปรึกษาฟรี ไม่มีค…</td><td style="font-size:10px;text-align:center">MULTI_IMAGES</td><td style="font-size:10px">Send message</td><td style="font-size:9px;white-space:nowrap">2026-08-07 → 2026-08-12</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/isuzunakhonphanom" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
+  <h4 style="margin:14px 0 6px 0;color:#0D47A1;font-size: var(--fs-lg);border-left:3px solid #0D47A1;padding-left:8px">📌 อีซูซุนครพนม ISUZU Nakhon Phanom <span style="background:#0D47A1;color:white;padding:2px 8px;border-radius:10px;font-size: var(--fs-xs)">10 ads</span> <span style="background:#E65100;color:white;padding:2px 8px;border-radius:10px;font-size: var(--fs-xs)">338 brand-days</span> <span style="background:#37474F;color:white;padding:2px 8px;border-radius:10px;font-size: var(--fs-xs)">avg 34 วัน/ad</span></h4>
+  <table style="margin-bottom:10px;font-size: var(--fs-sm)"><thead><tr><th>Ad Text</th><th style="width:80px">Format</th><th>CTA</th><th style="width:110px">ระยะ</th><th style="width:60px">Active</th><th style="width:55px">Link</th></tr></thead><tbody>
+    <tr><td style="font-size: var(--fs-xs)">🚗💥 ISUZU D-MAX CAB4  รถสวยพร้อมใช้งาน 🌟ผ่อนค่างวดเพียง 7,938.-    👍ปรึกษาฟรี ไม่มีค่าใช้จ่าย 👍 🏘️อยู่บ้านก็ซื้อรถได้🤳 🛻 …</td><td style="font-size: var(--fs-xs);text-align:center">IMAGE</td><td style="font-size: var(--fs-xs)">Send message</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-06-11 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/isuzunakhonphanom" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
+    <tr><td style="font-size: var(--fs-xs)">🚛 งานหนักแค่ไหน…ก็เอาอยู่! ใหม่ ISUZU D-MAX SPARK 💨 แรง ประหยัด ทนทาน พร้อมลุยทุกงาน 🔥 ดาวน์เริ่มต้นเพียง 35,200 บาท 💰 ห…</td><td style="font-size: var(--fs-xs);text-align:center">IMAGE</td><td style="font-size: var(--fs-xs)">Send message</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-07-14 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/isuzunakhonphanom" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
+    <tr><td style="font-size: var(--fs-xs)">รีวิวก่อนส่งมอบ หล่อ เท่ แค่ไหนไปดู  #อีซูซุนครพนม  #บริการดีที่อีซูซุนครพนม #ISUZUป้ายแดงออกง่าย #isuzuนครพนม</td><td style="font-size: var(--fs-xs);text-align:center">VIDEO</td><td style="font-size: var(--fs-xs)">Send message</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-06-23 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/isuzunakhonphanom" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
+    <tr><td style="font-size: var(--fs-xs)">🎉🎊ฤกษ์ดี...วันดี...ต้อนรับสมาชิกใหม่ อีซูซุนครพนมส่งมอบรถใหม่ 6 คัน 🚗🥰 🎉🎊บริษัท อีซูซุนครพนม จำกัด ขอขอบคุณลูกค้าทุกท่าน…</td><td style="font-size: var(--fs-xs);text-align:center">VIDEO</td><td style="font-size: var(--fs-xs)">Send message</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-06-04 → 2026-08-12</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/isuzunakhonphanom" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
+    <tr><td style="font-size: var(--fs-xs)">🚘 ใหม่! ISUZU MU-X ELEGANT 2026 ความหรูที่พร้อมพาคุณไปทุกเส้นทาง ✨ รับรถเพียง 99,000 บาท 💥 ดอกเบี้ยพิเศษ 0.89% 👉รับบัตรน…</td><td style="font-size: var(--fs-xs);text-align:center">IMAGE</td><td style="font-size: var(--fs-xs)">Send message</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-07-14 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/isuzunakhonphanom" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
+    <tr><td style="font-size: var(--fs-xs)">ขอขอบคุณลูกค้าที่ไว้ใจให้อีซูซุนครพนม ได้ดูแลทุกท่าน🙏🏻ขอให้รถใหม่คันนี้นำพาความสุขมาให้ ค้าขายร่ำรวยเงินทอง ขับขี่ปลอดภั…</td><td style="font-size: var(--fs-xs);text-align:center">VIDEO</td><td style="font-size: var(--fs-xs)">Send message</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-08-07 → 2026-08-12</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/isuzunakhonphanom" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
+    <tr><td style="font-size: var(--fs-xs)">ขับเดิมๆ มันก็ดี แต่แต่งแบบนี้ดีกว่า หล่อ เท่  😎 #อีซูซุนครพนม  #บริการดีที่อีซูซุนครพนม #อีซูซุป้ายแดง  #รถใหม่ป้ายแดง</td><td style="font-size: var(--fs-xs);text-align:center">VIDEO</td><td style="font-size: var(--fs-xs)">Send message</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-06-23 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/isuzunakhonphanom" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
+    <tr><td style="font-size: var(--fs-xs)">👀 เซลล์อีซูซุ…เขาขับรถอะไรกันนะ? หลายคนเดาไม่ถูกแน่นอน! 😆 ไปดูพร้อมกันในคลิปเลย 🚗✨  👍ปรึกษาฟรี ไม่มีค่าใช้จ่าย 👍 🏘️อยู่บ…</td><td style="font-size: var(--fs-xs);text-align:center">VIDEO</td><td style="font-size: var(--fs-xs)">Send message</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-08-07 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/isuzunakhonphanom" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
+    <tr><td style="font-size: var(--fs-xs)">ISUZU SPARK กระบะตอนเดียว แต่งจัดเต็ม 🚗 ⭐️ดาวน์เริ่มต้นเพียง 69,000 บาท  👍ปรึกษาฟรี ไม่มีค่าใช้จ่าย 👍 🏘️อยู่บ้านก็ซื้อรถ…</td><td style="font-size: var(--fs-xs);text-align:center">VIDEO</td><td style="font-size: var(--fs-xs)">Send message</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-07-26 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/isuzunakhonphanom" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
+    <tr><td style="font-size: var(--fs-xs)">🚗อีซูซุนครพนม แจกใหญ่ แจกจริง ซื้ออีซูซุ มีแต้คุ้ม🎉 😍ขอแสดงความยินดีกับลูกค้าที่ได้รับรางวัลทุกท่าน 🎊  👍ปรึกษาฟรี ไม่มีค…</td><td style="font-size: var(--fs-xs);text-align:center">MULTI_IMAGES</td><td style="font-size: var(--fs-xs)">Send message</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-08-07 → 2026-08-12</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/isuzunakhonphanom" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
   </tbody></table>
-  <h4 style="margin:14px 0 6px 0;color:#0D47A1;font-size:13px;border-left:3px solid #0D47A1;padding-left:8px">📌 มิตซู ทีเคที เจริญศรี นครพนม <span style="background:#0D47A1;color:white;padding:2px 8px;border-radius:10px;font-size:10px">2 ads</span> <span style="background:#E65100;color:white;padding:2px 8px;border-radius:10px;font-size:10px">12 brand-days</span> <span style="background:#37474F;color:white;padding:2px 8px;border-radius:10px;font-size:10px">avg 6 วัน/ad</span></h4>
-  <table style="margin-bottom:10px;font-size:11px"><thead><tr><th>Ad Text</th><th style="width:80px">Format</th><th>CTA</th><th style="width:110px">ระยะ</th><th style="width:60px">Active</th><th style="width:55px">Link</th></tr></thead><tbody>
-    <tr><td style="font-size:10px">ข้อเสนอสุดเอนจอย 𝗡𝗲𝘄 𝗫𝗽𝗮𝗻𝗱𝗲𝗿 𝗛𝗘𝗩 และ 𝗡𝗲𝘄 𝗫𝗽𝗮𝗻𝗱𝗲𝗿 𝗖𝗿𝗼𝘀𝘀 𝗛𝗘𝗩 ✅ ดอกเบี้ยพิเศษ 0%* ✅ หรือ ผ่อนเริ่มต้น 6,672 บาท* ✅ ฟรี ประก…</td><td style="font-size:10px;text-align:center">IMAGE</td><td style="font-size:10px">Send message</td><td style="font-size:9px;white-space:nowrap">2026-08-08 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/MitsuTKTNakhonPhanom" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
-    <tr><td style="font-size:10px">𝙈𝙞𝙩𝙨𝙪𝙗𝙞𝙨𝙝𝙞 𝙓𝙁𝙊𝙍𝘾𝙀 𝙃𝙀𝙑 ราคาเริ่มต้น 899,000 บาท 💥 ดอกเบี้ยพิเศษ 0%* 💥 หรือ ผ่อนเริ่มต้น 6,388 บาท* 💥 หรือ รับบัตรเติมน้ำม…</td><td style="font-size:10px;text-align:center">IMAGE</td><td style="font-size:10px">Send message</td><td style="font-size:9px;white-space:nowrap">2026-08-08 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/MitsuTKTNakhonPhanom" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
+  <h4 style="margin:14px 0 6px 0;color:#0D47A1;font-size: var(--fs-lg);border-left:3px solid #0D47A1;padding-left:8px">📌 มิตซู ทีเคที เจริญศรี นครพนม <span style="background:#0D47A1;color:white;padding:2px 8px;border-radius:10px;font-size: var(--fs-xs)">2 ads</span> <span style="background:#E65100;color:white;padding:2px 8px;border-radius:10px;font-size: var(--fs-xs)">12 brand-days</span> <span style="background:#37474F;color:white;padding:2px 8px;border-radius:10px;font-size: var(--fs-xs)">avg 6 วัน/ad</span></h4>
+  <table style="margin-bottom:10px;font-size: var(--fs-sm)"><thead><tr><th>Ad Text</th><th style="width:80px">Format</th><th>CTA</th><th style="width:110px">ระยะ</th><th style="width:60px">Active</th><th style="width:55px">Link</th></tr></thead><tbody>
+    <tr><td style="font-size: var(--fs-xs)">ข้อเสนอสุดเอนจอย 𝗡𝗲𝘄 𝗫𝗽𝗮𝗻𝗱𝗲𝗿 𝗛𝗘𝗩 และ 𝗡𝗲𝘄 𝗫𝗽𝗮𝗻𝗱𝗲𝗿 𝗖𝗿𝗼𝘀𝘀 𝗛𝗘𝗩 ✅ ดอกเบี้ยพิเศษ 0%* ✅ หรือ ผ่อนเริ่มต้น 6,672 บาท* ✅ ฟรี ประก…</td><td style="font-size: var(--fs-xs);text-align:center">IMAGE</td><td style="font-size: var(--fs-xs)">Send message</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-08-08 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/MitsuTKTNakhonPhanom" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
+    <tr><td style="font-size: var(--fs-xs)">𝙈𝙞𝙩𝙨𝙪𝙗𝙞𝙨𝙝𝙞 𝙓𝙁𝙊𝙍𝘾𝙀 𝙃𝙀𝙑 ราคาเริ่มต้น 899,000 บาท 💥 ดอกเบี้ยพิเศษ 0%* 💥 หรือ ผ่อนเริ่มต้น 6,388 บาท* 💥 หรือ รับบัตรเติมน้ำม…</td><td style="font-size: var(--fs-xs);text-align:center">IMAGE</td><td style="font-size: var(--fs-xs)">Send message</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-08-08 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/MitsuTKTNakhonPhanom" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
   </tbody></table>
-  <h4 style="margin:14px 0 6px 0;color:#0D47A1;font-size:13px;border-left:3px solid #0D47A1;padding-left:8px">📌 บริษัท นครพนมฮอนด้าคาร์ส์ จำกัด <span style="background:#0D47A1;color:white;padding:2px 8px;border-radius:10px;font-size:10px">2 ads</span> <span style="background:#E65100;color:white;padding:2px 8px;border-radius:10px;font-size:10px">8 brand-days</span> <span style="background:#37474F;color:white;padding:2px 8px;border-radius:10px;font-size:10px">avg 4 วัน/ad</span></h4>
-  <table style="margin-bottom:10px;font-size:11px"><thead><tr><th>Ad Text</th><th style="width:80px">Format</th><th>CTA</th><th style="width:110px">ระยะ</th><th style="width:60px">Active</th><th style="width:55px">Link</th></tr></thead><tbody>
-    <tr><td style="font-size:10px">โปรเด็ดแห่งเดือน!      ❤️ Honda City     💸 ผ่อนเริ่มต้นเพียง 6,472 บาท/เดือน     ✔️ รถยอดนิยม ขับสนุก     ✔️ ประหยัดน้ำม…</td><td style="font-size:10px;text-align:center">IMAGE</td><td style="font-size:10px">Send message</td><td style="font-size:9px;white-space:nowrap">2026-08-10 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/hondanakhonpanom" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
-    <tr><td style="font-size:10px">🔥 CITY e:HEV ผ่อนเริ่มเพียง 6,472 บาท/เดือน!  ⚡ ดอกเบี้ยพิเศษ เริ่มเพียง 1.69% 💸 ผ่อนเริ่มต้นเพียง 6,472 บาท/เดือน 🎁 ลูก…</td><td style="font-size:10px;text-align:center">VIDEO</td><td style="font-size:10px">Send message</td><td style="font-size:9px;white-space:nowrap">2026-08-10 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/hondanakhonpanom" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
+  <h4 style="margin:14px 0 6px 0;color:#0D47A1;font-size: var(--fs-lg);border-left:3px solid #0D47A1;padding-left:8px">📌 บริษัท นครพนมฮอนด้าคาร์ส์ จำกัด <span style="background:#0D47A1;color:white;padding:2px 8px;border-radius:10px;font-size: var(--fs-xs)">2 ads</span> <span style="background:#E65100;color:white;padding:2px 8px;border-radius:10px;font-size: var(--fs-xs)">8 brand-days</span> <span style="background:#37474F;color:white;padding:2px 8px;border-radius:10px;font-size: var(--fs-xs)">avg 4 วัน/ad</span></h4>
+  <table style="margin-bottom:10px;font-size: var(--fs-sm)"><thead><tr><th>Ad Text</th><th style="width:80px">Format</th><th>CTA</th><th style="width:110px">ระยะ</th><th style="width:60px">Active</th><th style="width:55px">Link</th></tr></thead><tbody>
+    <tr><td style="font-size: var(--fs-xs)">โปรเด็ดแห่งเดือน!      ❤️ Honda City     💸 ผ่อนเริ่มต้นเพียง 6,472 บาท/เดือน     ✔️ รถยอดนิยม ขับสนุก     ✔️ ประหยัดน้ำม…</td><td style="font-size: var(--fs-xs);text-align:center">IMAGE</td><td style="font-size: var(--fs-xs)">Send message</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-08-10 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/hondanakhonpanom" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
+    <tr><td style="font-size: var(--fs-xs)">🔥 CITY e:HEV ผ่อนเริ่มเพียง 6,472 บาท/เดือน!  ⚡ ดอกเบี้ยพิเศษ เริ่มเพียง 1.69% 💸 ผ่อนเริ่มต้นเพียง 6,472 บาท/เดือน 🎁 ลูก…</td><td style="font-size: var(--fs-xs);text-align:center">VIDEO</td><td style="font-size: var(--fs-xs)">Send message</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-08-10 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/hondanakhonpanom" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
   </tbody></table>
-  <h4 style="margin:14px 0 6px 0;color:#C3002F;font-size:13px;border-left:3px solid #C3002F;padding-left:8px">🚗 📌 นิสสันนครพนม <span style="background:#C3002F;color:white;padding:2px 8px;border-radius:10px;font-size:10px">30 ads</span> <span style="background:#E65100;color:white;padding:2px 8px;border-radius:10px;font-size:10px">161 brand-days</span> <span style="background:#37474F;color:white;padding:2px 8px;border-radius:10px;font-size:10px">avg 5 วัน/ad</span></h4>
-  <table style="margin-bottom:10px;font-size:11px"><thead><tr><th>Ad Text</th><th style="width:80px">Format</th><th>CTA</th><th style="width:110px">ระยะ</th><th style="width:60px">Active</th><th style="width:55px">Link</th></tr></thead><tbody>
-    <tr><td style="font-size:10px">อยากได้รถประหยัด...แต่ขับสนุกกว่าเดิม? ต้อง NISSAN KICKS e-POWER รับดอกเบี้ย 0% นาน 48 เดือน  #รถใหม่ป้ายแดง #นิสสันนครพ…</td><td style="font-size:10px;text-align:center">VIDEO</td><td style="font-size:10px">—</td><td style="font-size:9px;white-space:nowrap">2026-08-09 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/share/1CAbc71N5V" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
-    <tr><td style="font-size:10px">NISSAN ALMERA  คุ้มจริงไม่จกตา ประหยัดน้ำมันแบบสุดๆ ดาวน์ 3,999 บาท เท่านั้น!    #รถใหม่ป้ายแดง #นิสสันนครพนม #NISSAN #A…</td><td style="font-size:10px;text-align:center">VIDEO</td><td style="font-size:10px">—</td><td style="font-size:9px;white-space:nowrap">2026-08-09 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/share/1CAbc71N5V" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
-    <tr><td style="font-size:10px">NISSAN ALMERA ดาวน์แค่นี้! 3,999 บาท ผ่อนเพียง 7,116 บาทเท่านั้น!   #รถใหม่ป้ายแดง #นิสสัน #ALMERA #ดาวน์น้อย #นิสสันนคร…</td><td style="font-size:10px;text-align:center">VIDEO</td><td style="font-size:10px">—</td><td style="font-size:9px;white-space:nowrap">2026-08-09 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/share/1CAbc71N5V" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
-    <tr><td style="font-size:10px">ใครสนใจรถครอบครัว ทรงสวย ต้องคันนี้! NISSAN X-TRAIL e-POWER  ระบบขับเคลื่อน 4ล้อแบบ e-4ORCE⚡  #รถใหม่ป้ายแดง #นิสสัน #XT…</td><td style="font-size:10px;text-align:center">VIDEO</td><td style="font-size:10px">Send message</td><td style="font-size:9px;white-space:nowrap">2026-08-09 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/share/1CAbc71N5V" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
-    <tr><td style="font-size:10px">ใครสนใจรถครอบครัว ทรงสวย ต้องคันนี้! NISSAN X-TRAIL e-POWER  ระบบขับเคลื่อน 4ล้อแบบ e-4ORCE⚡  #รถใหม่ป้ายแดง #นิสสัน #XT…</td><td style="font-size:10px;text-align:center">VIDEO</td><td style="font-size:10px">Send message</td><td style="font-size:9px;white-space:nowrap">2026-08-09 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/share/1CAbc71N5V" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
-    <tr><td style="font-size:10px">แคมเปญดีๆที่ นิสสันนครพนม   NISSAN KICKS e-POWER ราคาพิเศษ  789,900 บาท    #รถใหม่ป้ายแดง #นิสสัน #kicks #นิสสันนครพนม</td><td style="font-size:10px;text-align:center">VIDEO</td><td style="font-size:10px">Send message</td><td style="font-size:9px;white-space:nowrap">2026-08-07 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/share/1CAbc71N5V" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
-    <tr><td style="font-size:10px">The All-New NISSAN SERENA S-hybrid จองวันนี้รับส่วนลดทันที 270,000 บาท  หรือ เลือกดอกเบี้ยพิเศษ 0 % นาน 48 เดือน ลดเพิ่ม…</td><td style="font-size:10px;text-align:center">VIDEO</td><td style="font-size:10px">Send message</td><td style="font-size:9px;white-space:nowrap">2026-08-08 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/share/1CAbc71N5V" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
-    <tr><td style="font-size:10px">เติมน้ำมันได้ทันที ไม่ต้องกังวลเรื่องสถานีชาร์จ  ประตูสไลด์ไฟฟ้า 2 ด้าน เข้า-ออกสะดวกสำหรับทุกคนในครอบครัว ต้องคันนี้เลย…</td><td style="font-size:10px;text-align:center">VIDEO</td><td style="font-size:10px">Send message</td><td style="font-size:9px;white-space:nowrap">2026-08-07 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/share/1CAbc71N5V" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
-    <tr><td style="font-size:10px">ลดกว่านี้ ไม่มีอีกแล้ว💥 NISSAN X-TRAIL e-POWER x e-4ORCE  รับดอกเบี้ย 0.89% นาน 48 เดือน ✅  #รถใหม่ป้ายแดง #นิสสัน #XTRA…</td><td style="font-size:10px;text-align:center">VIDEO</td><td style="font-size:10px">Send message</td><td style="font-size:9px;white-space:nowrap">2026-08-06 → 2026-08-12</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/share/1CAbc71N5V" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
-    <tr><td style="font-size:10px">ชีวิตไปต่อ ไม่รอชาร์จแล้วน้า NISSAN KICKS e-POWER ดาวน์เริ่มต้น 19,999 บาท เท่านั้น!  #รถใหม่ป้ายแดง #นิสสัน #KICKS #รถไ…</td><td style="font-size:10px;text-align:center">VIDEO</td><td style="font-size:10px">Send message</td><td style="font-size:9px;white-space:nowrap">2026-08-09 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/share/1CAbc71N5V" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
-    <tr><td style="font-size:10px">ALMERA EL ออกรถเพียง 3.999 บาท ดอกเบี้ย 0% 48 เดือน  #รถใหม่ป้ายแดง #เก๋งประหยัดน้ำมัน #นิสสันนครพนม #ผ่อนสบาย #ออกรถง่า…</td><td style="font-size:10px;text-align:center">VIDEO</td><td style="font-size:10px">Send message</td><td style="font-size:9px;white-space:nowrap">2026-08-09 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/share/1CAbc71N5V" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
-    <tr><td style="font-size:10px">ALMERA EL ออกรถเพียง 3.999 บาท ดอกเบี้ย 0% 48 เดือน  #รถใหม่ป้ายแดง #เก๋งประหยัดน้ำมัน #นิสสันนครพนม #ผ่อนสบาย #ออกรถง่า…</td><td style="font-size:10px;text-align:center">VIDEO</td><td style="font-size:10px">Send message</td><td style="font-size:9px;white-space:nowrap">2026-08-07 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/share/1CAbc71N5V" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
-    <tr><td style="font-size:10px">กระบะแคป แดง จะไม่แรงจริงหรอ?!  NAVARA KC BlackEdition 7AT ดาวน์น้อย พร้อมส่วนลดสูงสุด 150,000 บาท   #กระบะ #ดาวน์น้อย #…</td><td style="font-size:10px;text-align:center">VIDEO</td><td style="font-size:10px">Send message</td><td style="font-size:9px;white-space:nowrap">2026-08-06 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/share/1CAbc71N5V" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
-    <tr><td style="font-size:10px">กระบะแคป แดง จะไม่แรงจริงหรอ?!  NAVARA KC BlackEdition 7AT ดาวน์น้อย พร้อมส่วนลดสูงสุด 150,000 บาท   #กระบะ #ดาวน์น้อย #…</td><td style="font-size:10px;text-align:center">VIDEO</td><td style="font-size:10px">Send message</td><td style="font-size:9px;white-space:nowrap">2026-08-06 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/share/1CAbc71N5V" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
-    <tr><td style="font-size:10px">The All-New NISSAN SERENA S-hybrid จองวันนี้รับส่วนลดทันที 270,000 บาท  หรือ เลือกดอกเบี้ยพิเศษ 0 % นาน 48 เดือน ลดเพิ่ม…</td><td style="font-size:10px;text-align:center">VIDEO</td><td style="font-size:10px">Send message</td><td style="font-size:9px;white-space:nowrap">2026-08-10 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/share/1CAbc71N5V" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
-    <tr><td style="font-size:10px">The All-New NISSAN SERENA S-hybrid จองวันนี้รับส่วนลดทันที 270,000 บาท  หรือ เลือกดอกเบี้ยพิเศษ 0 % นาน 48 เดือน ลดเพิ่ม…</td><td style="font-size:10px;text-align:center">VIDEO</td><td style="font-size:10px">Send message</td><td style="font-size:9px;white-space:nowrap">2026-08-08 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/share/1CAbc71N5V" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
-    <tr><td style="font-size:10px">ประหยัดน้ำมัน แต่ หล่อ เข้ม สุขุม ต้องคันนี้! NISSAN ALMERA ราคาเริ่มต้น 573,000 บาท    #รถใหม่ป้ายแดง #NISSAN #ALMERA #…</td><td style="font-size:10px;text-align:center">VIDEO</td><td style="font-size:10px">Send message</td><td style="font-size:9px;white-space:nowrap">2026-08-07 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/share/1CAbc71N5V" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
-    <tr><td style="font-size:10px">NISSAN ALMERA ดาวน์แค่นี้! 3,999 บาท ผ่อนเพียง 7,116 บาทเท่านั้น!   #รถใหม่ป้ายแดง #นิสสัน #ALMERA #ดาวน์น้อย #นิสสันนคร…</td><td style="font-size:10px;text-align:center">VIDEO</td><td style="font-size:10px">Send message</td><td style="font-size:9px;white-space:nowrap">2026-08-09 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/share/1CAbc71N5V" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
-    <tr><td style="font-size:10px">เติมน้ำมันได้ทันที ไม่ต้องกังวลเรื่องสถานีชาร์จ  ประตูสไลด์ไฟฟ้า 2 ด้าน เข้า-ออกสะดวกสำหรับทุกคนในครอบครัว ต้องคันนี้เลย…</td><td style="font-size:10px;text-align:center">VIDEO</td><td style="font-size:10px">Send message</td><td style="font-size:9px;white-space:nowrap">2026-08-10 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/share/1CAbc71N5V" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
-    <tr><td style="font-size:10px">NISSAN ALMERA ประหยัดน้ำมัน ดาวน์ 5,555 บาท ผ่อนนานสูงสุด 84 เดือน   #รถใหม่ป้ายแดง #NISSAN #ALMERA #ประหยัดน้ำมัน #นิสส…</td><td style="font-size:10px;text-align:center">VIDEO</td><td style="font-size:10px">Send message</td><td style="font-size:9px;white-space:nowrap">2026-08-11 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/share/1CAbc71N5V" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
-    <tr><td style="font-size:10px">กระบะบรรทุก แต่งเต็ม ไม่ต้องใส่อะไรเพิ่มก็หล่อแล้ว! NAVARA DC CALIBRE BLACK EDITION รับดอกเบี้ย 0% พร้อมส่วนลดเพิ่มเติม …</td><td style="font-size:10px;text-align:center">VIDEO</td><td style="font-size:10px">Send message</td><td style="font-size:9px;white-space:nowrap">2026-08-09 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/share/1CAbc71N5V" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
-    <tr><td style="font-size:10px">กระบะบรรทุก แต่งเต็ม ไม่ต้องใส่อะไรเพิ่มก็หล่อแล้ว! NAVARA DC CALIBRE BLACK EDITION รับดอกเบี้ย 0% พร้อมส่วนลดเพิ่มเติม …</td><td style="font-size:10px;text-align:center">VIDEO</td><td style="font-size:10px">Send message</td><td style="font-size:9px;white-space:nowrap">2026-08-09 → 2026-08-12</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/share/1CAbc71N5V" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
-    <tr><td style="font-size:10px">ลดกว่านี้ ไม่มีอีกแล้ว💥 NISSAN X-TRAIL e-POWER x e-4ORCE  รับดอกเบี้ย 0.89% นาน 48 เดือน ✅  #รถใหม่ป้ายแดง #นิสสัน #XTRA…</td><td style="font-size:10px;text-align:center">VIDEO</td><td style="font-size:10px">Send message</td><td style="font-size:9px;white-space:nowrap">2026-08-06 → 2026-08-10</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/share/1CAbc71N5V" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
-    <tr><td style="font-size:10px">ALMERA EL ออกรถเพียง 3.999 บาท ดอกเบี้ย 0% 48 เดือน  #รถใหม่ป้ายแดง #เก๋งประหยัดน้ำมัน #นิสสันนครพนม #ผ่อนสบาย #ออกรถง่า…</td><td style="font-size:10px;text-align:center">VIDEO</td><td style="font-size:10px">Send message</td><td style="font-size:9px;white-space:nowrap">2026-08-09 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/share/1CAbc71N5V" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
-    <tr><td style="font-size:10px">NISSAN ALMERA ดาวน์แค่นี้! 3,999 บาท ผ่อนเพียง 7,116 บาทเท่านั้น!   #รถใหม่ป้ายแดง #นิสสัน #ALMERA #ดาวน์น้อย #นิสสันนคร…</td><td style="font-size:10px;text-align:center">VIDEO</td><td style="font-size:10px">Send message</td><td style="font-size:9px;white-space:nowrap">2026-08-09 → 2026-08-12</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/share/1CAbc71N5V" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
-    <tr><td style="font-size:10px">มาใหม่กระบะแคป NISSAN NAVARA KC Calibre E 7AT เกียร์ออโต้!   #รถใหม่ป้ายแดง #กระบะแคป  #ดาวน์น้อย #นิสสันนครพนม</td><td style="font-size:10px;text-align:center">VIDEO</td><td style="font-size:10px">Send message</td><td style="font-size:9px;white-space:nowrap">2026-08-06 → 2026-08-10</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/share/1CAbc71N5V" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
-    <tr><td style="font-size:10px">ขับเคลื่อนด้วยมอเตอร์ไฟฟ้า ให้อัตราเร่งนุ่มนวลและเงียบ NISSAN SERENA e-POWER รถครอบครัวที่ตอบโจทย์ทุกไลฟ์สไตล์...ขับสนุก…</td><td style="font-size:10px;text-align:center">VIDEO</td><td style="font-size:10px">Send message</td><td style="font-size:9px;white-space:nowrap">2026-08-07 → 2026-08-11</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/share/1CAbc71N5V" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
-    <tr><td style="font-size:10px">ใครสนใจรถครอบครัว ทรงสวย ต้องคันนี้! NISSAN X-TRAIL e-POWER  ระบบขับเคลื่อน 4ล้อแบบ e-4ORCE⚡  #รถใหม่ป้ายแดง #นิสสัน #XT…</td><td style="font-size:10px;text-align:center">VIDEO</td><td style="font-size:10px">Send message</td><td style="font-size:9px;white-space:nowrap">2026-08-09 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/share/1CAbc71N5V" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
-    <tr><td style="font-size:10px">แคมเปญดีๆที่ นิสสันนครพนม   NISSAN KICKS e-POWER ราคาพิเศษ  789,900 บาท    #รถใหม่ป้ายแดง #นิสสัน #kicks #นิสสันนครพนม</td><td style="font-size:10px;text-align:center">VIDEO</td><td style="font-size:10px">Send message</td><td style="font-size:9px;white-space:nowrap">2026-08-07 → 2026-08-11</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/share/1CAbc71N5V" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
-    <tr><td style="font-size:10px">ลดแรงแซงทุกดีล! ที่นิสสันนครพนม ลดสูงสุด 100,000 บาท ! Nissan X-TRAIL e-POWER   #รถใหม่ป้ายแดง #Nissan #XTRAIL #รถครอบคร…</td><td style="font-size:10px;text-align:center">VIDEO</td><td style="font-size:10px">Send message</td><td style="font-size:9px;white-space:nowrap">2026-08-09 → 2026-08-12</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/share/1CAbc71N5V" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
+  <h4 style="margin:14px 0 6px 0;color:#C3002F;font-size: var(--fs-lg);border-left:3px solid #C3002F;padding-left:8px">🚗 📌 นิสสันนครพนม <span style="background:#C3002F;color:white;padding:2px 8px;border-radius:10px;font-size: var(--fs-xs)">30 ads</span> <span style="background:#E65100;color:white;padding:2px 8px;border-radius:10px;font-size: var(--fs-xs)">161 brand-days</span> <span style="background:#37474F;color:white;padding:2px 8px;border-radius:10px;font-size: var(--fs-xs)">avg 5 วัน/ad</span></h4>
+  <table style="margin-bottom:10px;font-size: var(--fs-sm)"><thead><tr><th>Ad Text</th><th style="width:80px">Format</th><th>CTA</th><th style="width:110px">ระยะ</th><th style="width:60px">Active</th><th style="width:55px">Link</th></tr></thead><tbody>
+    <tr><td style="font-size: var(--fs-xs)">อยากได้รถประหยัด...แต่ขับสนุกกว่าเดิม? ต้อง NISSAN KICKS e-POWER รับดอกเบี้ย 0% นาน 48 เดือน  #รถใหม่ป้ายแดง #นิสสันนครพ…</td><td style="font-size: var(--fs-xs);text-align:center">VIDEO</td><td style="font-size: var(--fs-xs)">—</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-08-09 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/share/1CAbc71N5V" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
+    <tr><td style="font-size: var(--fs-xs)">NISSAN ALMERA  คุ้มจริงไม่จกตา ประหยัดน้ำมันแบบสุดๆ ดาวน์ 3,999 บาท เท่านั้น!    #รถใหม่ป้ายแดง #นิสสันนครพนม #NISSAN #A…</td><td style="font-size: var(--fs-xs);text-align:center">VIDEO</td><td style="font-size: var(--fs-xs)">—</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-08-09 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/share/1CAbc71N5V" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
+    <tr><td style="font-size: var(--fs-xs)">NISSAN ALMERA ดาวน์แค่นี้! 3,999 บาท ผ่อนเพียง 7,116 บาทเท่านั้น!   #รถใหม่ป้ายแดง #นิสสัน #ALMERA #ดาวน์น้อย #นิสสันนคร…</td><td style="font-size: var(--fs-xs);text-align:center">VIDEO</td><td style="font-size: var(--fs-xs)">—</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-08-09 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/share/1CAbc71N5V" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
+    <tr><td style="font-size: var(--fs-xs)">ใครสนใจรถครอบครัว ทรงสวย ต้องคันนี้! NISSAN X-TRAIL e-POWER  ระบบขับเคลื่อน 4ล้อแบบ e-4ORCE⚡  #รถใหม่ป้ายแดง #นิสสัน #XT…</td><td style="font-size: var(--fs-xs);text-align:center">VIDEO</td><td style="font-size: var(--fs-xs)">Send message</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-08-09 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/share/1CAbc71N5V" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
+    <tr><td style="font-size: var(--fs-xs)">ใครสนใจรถครอบครัว ทรงสวย ต้องคันนี้! NISSAN X-TRAIL e-POWER  ระบบขับเคลื่อน 4ล้อแบบ e-4ORCE⚡  #รถใหม่ป้ายแดง #นิสสัน #XT…</td><td style="font-size: var(--fs-xs);text-align:center">VIDEO</td><td style="font-size: var(--fs-xs)">Send message</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-08-09 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/share/1CAbc71N5V" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
+    <tr><td style="font-size: var(--fs-xs)">แคมเปญดีๆที่ นิสสันนครพนม   NISSAN KICKS e-POWER ราคาพิเศษ  789,900 บาท    #รถใหม่ป้ายแดง #นิสสัน #kicks #นิสสันนครพนม</td><td style="font-size: var(--fs-xs);text-align:center">VIDEO</td><td style="font-size: var(--fs-xs)">Send message</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-08-07 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/share/1CAbc71N5V" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
+    <tr><td style="font-size: var(--fs-xs)">The All-New NISSAN SERENA S-hybrid จองวันนี้รับส่วนลดทันที 270,000 บาท  หรือ เลือกดอกเบี้ยพิเศษ 0 % นาน 48 เดือน ลดเพิ่ม…</td><td style="font-size: var(--fs-xs);text-align:center">VIDEO</td><td style="font-size: var(--fs-xs)">Send message</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-08-08 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/share/1CAbc71N5V" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
+    <tr><td style="font-size: var(--fs-xs)">เติมน้ำมันได้ทันที ไม่ต้องกังวลเรื่องสถานีชาร์จ  ประตูสไลด์ไฟฟ้า 2 ด้าน เข้า-ออกสะดวกสำหรับทุกคนในครอบครัว ต้องคันนี้เลย…</td><td style="font-size: var(--fs-xs);text-align:center">VIDEO</td><td style="font-size: var(--fs-xs)">Send message</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-08-07 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/share/1CAbc71N5V" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
+    <tr><td style="font-size: var(--fs-xs)">ลดกว่านี้ ไม่มีอีกแล้ว💥 NISSAN X-TRAIL e-POWER x e-4ORCE  รับดอกเบี้ย 0.89% นาน 48 เดือน ✅  #รถใหม่ป้ายแดง #นิสสัน #XTRA…</td><td style="font-size: var(--fs-xs);text-align:center">VIDEO</td><td style="font-size: var(--fs-xs)">Send message</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-08-06 → 2026-08-12</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/share/1CAbc71N5V" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
+    <tr><td style="font-size: var(--fs-xs)">ชีวิตไปต่อ ไม่รอชาร์จแล้วน้า NISSAN KICKS e-POWER ดาวน์เริ่มต้น 19,999 บาท เท่านั้น!  #รถใหม่ป้ายแดง #นิสสัน #KICKS #รถไ…</td><td style="font-size: var(--fs-xs);text-align:center">VIDEO</td><td style="font-size: var(--fs-xs)">Send message</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-08-09 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/share/1CAbc71N5V" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
+    <tr><td style="font-size: var(--fs-xs)">ALMERA EL ออกรถเพียง 3.999 บาท ดอกเบี้ย 0% 48 เดือน  #รถใหม่ป้ายแดง #เก๋งประหยัดน้ำมัน #นิสสันนครพนม #ผ่อนสบาย #ออกรถง่า…</td><td style="font-size: var(--fs-xs);text-align:center">VIDEO</td><td style="font-size: var(--fs-xs)">Send message</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-08-09 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/share/1CAbc71N5V" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
+    <tr><td style="font-size: var(--fs-xs)">ALMERA EL ออกรถเพียง 3.999 บาท ดอกเบี้ย 0% 48 เดือน  #รถใหม่ป้ายแดง #เก๋งประหยัดน้ำมัน #นิสสันนครพนม #ผ่อนสบาย #ออกรถง่า…</td><td style="font-size: var(--fs-xs);text-align:center">VIDEO</td><td style="font-size: var(--fs-xs)">Send message</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-08-07 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/share/1CAbc71N5V" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
+    <tr><td style="font-size: var(--fs-xs)">กระบะแคป แดง จะไม่แรงจริงหรอ?!  NAVARA KC BlackEdition 7AT ดาวน์น้อย พร้อมส่วนลดสูงสุด 150,000 บาท   #กระบะ #ดาวน์น้อย #…</td><td style="font-size: var(--fs-xs);text-align:center">VIDEO</td><td style="font-size: var(--fs-xs)">Send message</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-08-06 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/share/1CAbc71N5V" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
+    <tr><td style="font-size: var(--fs-xs)">กระบะแคป แดง จะไม่แรงจริงหรอ?!  NAVARA KC BlackEdition 7AT ดาวน์น้อย พร้อมส่วนลดสูงสุด 150,000 บาท   #กระบะ #ดาวน์น้อย #…</td><td style="font-size: var(--fs-xs);text-align:center">VIDEO</td><td style="font-size: var(--fs-xs)">Send message</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-08-06 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/share/1CAbc71N5V" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
+    <tr><td style="font-size: var(--fs-xs)">The All-New NISSAN SERENA S-hybrid จองวันนี้รับส่วนลดทันที 270,000 บาท  หรือ เลือกดอกเบี้ยพิเศษ 0 % นาน 48 เดือน ลดเพิ่ม…</td><td style="font-size: var(--fs-xs);text-align:center">VIDEO</td><td style="font-size: var(--fs-xs)">Send message</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-08-10 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/share/1CAbc71N5V" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
+    <tr><td style="font-size: var(--fs-xs)">The All-New NISSAN SERENA S-hybrid จองวันนี้รับส่วนลดทันที 270,000 บาท  หรือ เลือกดอกเบี้ยพิเศษ 0 % นาน 48 เดือน ลดเพิ่ม…</td><td style="font-size: var(--fs-xs);text-align:center">VIDEO</td><td style="font-size: var(--fs-xs)">Send message</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-08-08 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/share/1CAbc71N5V" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
+    <tr><td style="font-size: var(--fs-xs)">ประหยัดน้ำมัน แต่ หล่อ เข้ม สุขุม ต้องคันนี้! NISSAN ALMERA ราคาเริ่มต้น 573,000 บาท    #รถใหม่ป้ายแดง #NISSAN #ALMERA #…</td><td style="font-size: var(--fs-xs);text-align:center">VIDEO</td><td style="font-size: var(--fs-xs)">Send message</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-08-07 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/share/1CAbc71N5V" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
+    <tr><td style="font-size: var(--fs-xs)">NISSAN ALMERA ดาวน์แค่นี้! 3,999 บาท ผ่อนเพียง 7,116 บาทเท่านั้น!   #รถใหม่ป้ายแดง #นิสสัน #ALMERA #ดาวน์น้อย #นิสสันนคร…</td><td style="font-size: var(--fs-xs);text-align:center">VIDEO</td><td style="font-size: var(--fs-xs)">Send message</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-08-09 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/share/1CAbc71N5V" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
+    <tr><td style="font-size: var(--fs-xs)">เติมน้ำมันได้ทันที ไม่ต้องกังวลเรื่องสถานีชาร์จ  ประตูสไลด์ไฟฟ้า 2 ด้าน เข้า-ออกสะดวกสำหรับทุกคนในครอบครัว ต้องคันนี้เลย…</td><td style="font-size: var(--fs-xs);text-align:center">VIDEO</td><td style="font-size: var(--fs-xs)">Send message</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-08-10 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/share/1CAbc71N5V" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
+    <tr><td style="font-size: var(--fs-xs)">NISSAN ALMERA ประหยัดน้ำมัน ดาวน์ 5,555 บาท ผ่อนนานสูงสุด 84 เดือน   #รถใหม่ป้ายแดง #NISSAN #ALMERA #ประหยัดน้ำมัน #นิสส…</td><td style="font-size: var(--fs-xs);text-align:center">VIDEO</td><td style="font-size: var(--fs-xs)">Send message</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-08-11 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/share/1CAbc71N5V" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
+    <tr><td style="font-size: var(--fs-xs)">กระบะบรรทุก แต่งเต็ม ไม่ต้องใส่อะไรเพิ่มก็หล่อแล้ว! NAVARA DC CALIBRE BLACK EDITION รับดอกเบี้ย 0% พร้อมส่วนลดเพิ่มเติม …</td><td style="font-size: var(--fs-xs);text-align:center">VIDEO</td><td style="font-size: var(--fs-xs)">Send message</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-08-09 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/share/1CAbc71N5V" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
+    <tr><td style="font-size: var(--fs-xs)">กระบะบรรทุก แต่งเต็ม ไม่ต้องใส่อะไรเพิ่มก็หล่อแล้ว! NAVARA DC CALIBRE BLACK EDITION รับดอกเบี้ย 0% พร้อมส่วนลดเพิ่มเติม …</td><td style="font-size: var(--fs-xs);text-align:center">VIDEO</td><td style="font-size: var(--fs-xs)">Send message</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-08-09 → 2026-08-12</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/share/1CAbc71N5V" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
+    <tr><td style="font-size: var(--fs-xs)">ลดกว่านี้ ไม่มีอีกแล้ว💥 NISSAN X-TRAIL e-POWER x e-4ORCE  รับดอกเบี้ย 0.89% นาน 48 เดือน ✅  #รถใหม่ป้ายแดง #นิสสัน #XTRA…</td><td style="font-size: var(--fs-xs);text-align:center">VIDEO</td><td style="font-size: var(--fs-xs)">Send message</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-08-06 → 2026-08-10</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/share/1CAbc71N5V" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
+    <tr><td style="font-size: var(--fs-xs)">ALMERA EL ออกรถเพียง 3.999 บาท ดอกเบี้ย 0% 48 เดือน  #รถใหม่ป้ายแดง #เก๋งประหยัดน้ำมัน #นิสสันนครพนม #ผ่อนสบาย #ออกรถง่า…</td><td style="font-size: var(--fs-xs);text-align:center">VIDEO</td><td style="font-size: var(--fs-xs)">Send message</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-08-09 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/share/1CAbc71N5V" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
+    <tr><td style="font-size: var(--fs-xs)">NISSAN ALMERA ดาวน์แค่นี้! 3,999 บาท ผ่อนเพียง 7,116 บาทเท่านั้น!   #รถใหม่ป้ายแดง #นิสสัน #ALMERA #ดาวน์น้อย #นิสสันนคร…</td><td style="font-size: var(--fs-xs);text-align:center">VIDEO</td><td style="font-size: var(--fs-xs)">Send message</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-08-09 → 2026-08-12</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/share/1CAbc71N5V" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
+    <tr><td style="font-size: var(--fs-xs)">มาใหม่กระบะแคป NISSAN NAVARA KC Calibre E 7AT เกียร์ออโต้!   #รถใหม่ป้ายแดง #กระบะแคป  #ดาวน์น้อย #นิสสันนครพนม</td><td style="font-size: var(--fs-xs);text-align:center">VIDEO</td><td style="font-size: var(--fs-xs)">Send message</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-08-06 → 2026-08-10</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/share/1CAbc71N5V" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
+    <tr><td style="font-size: var(--fs-xs)">ขับเคลื่อนด้วยมอเตอร์ไฟฟ้า ให้อัตราเร่งนุ่มนวลและเงียบ NISSAN SERENA e-POWER รถครอบครัวที่ตอบโจทย์ทุกไลฟ์สไตล์...ขับสนุก…</td><td style="font-size: var(--fs-xs);text-align:center">VIDEO</td><td style="font-size: var(--fs-xs)">Send message</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-08-07 → 2026-08-11</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/share/1CAbc71N5V" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
+    <tr><td style="font-size: var(--fs-xs)">ใครสนใจรถครอบครัว ทรงสวย ต้องคันนี้! NISSAN X-TRAIL e-POWER  ระบบขับเคลื่อน 4ล้อแบบ e-4ORCE⚡  #รถใหม่ป้ายแดง #นิสสัน #XT…</td><td style="font-size: var(--fs-xs);text-align:center">VIDEO</td><td style="font-size: var(--fs-xs)">Send message</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-08-09 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/share/1CAbc71N5V" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
+    <tr><td style="font-size: var(--fs-xs)">แคมเปญดีๆที่ นิสสันนครพนม   NISSAN KICKS e-POWER ราคาพิเศษ  789,900 บาท    #รถใหม่ป้ายแดง #นิสสัน #kicks #นิสสันนครพนม</td><td style="font-size: var(--fs-xs);text-align:center">VIDEO</td><td style="font-size: var(--fs-xs)">Send message</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-08-07 → 2026-08-11</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/share/1CAbc71N5V" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
+    <tr><td style="font-size: var(--fs-xs)">ลดแรงแซงทุกดีล! ที่นิสสันนครพนม ลดสูงสุด 100,000 บาท ! Nissan X-TRAIL e-POWER   #รถใหม่ป้ายแดง #Nissan #XTRAIL #รถครอบคร…</td><td style="font-size: var(--fs-xs);text-align:center">VIDEO</td><td style="font-size: var(--fs-xs)">Send message</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-08-09 → 2026-08-12</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/share/1CAbc71N5V" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
   </tbody></table>
-  <h4 style="margin:14px 0 6px 0;color:#C3002F;font-size:13px;border-left:3px solid #C3002F;padding-left:8px">🚗 📌 นิสสันนครพนม - Nissan Nakhon Phanom <span style="background:#C3002F;color:white;padding:2px 8px;border-radius:10px;font-size:10px">1 ads</span> <span style="background:#E65100;color:white;padding:2px 8px;border-radius:10px;font-size:10px">4 brand-days</span> <span style="background:#37474F;color:white;padding:2px 8px;border-radius:10px;font-size:10px">avg 4 วัน/ad</span></h4>
-  <table style="margin-bottom:10px;font-size:11px"><thead><tr><th>Ad Text</th><th style="width:80px">Format</th><th>CTA</th><th style="width:110px">ระยะ</th><th style="width:60px">Active</th><th style="width:55px">Link</th></tr></thead><tbody>
-    <tr><td style="font-size:10px">⚡🚗 e-POWER ชีวิตไปต่อ…ไม่ต้องรอชาร์จ! 🔥 WEEKEND TEST DRIVE 🔥  อยากรู้ไหมว่า…ขับรถที่ให้ฟีลเหมือนรถ EV แต่ ไม่ต้องเสียบปล…</td><td style="font-size:10px;text-align:center">IMAGE</td><td style="font-size:10px">—</td><td style="font-size:9px;white-space:nowrap">2026-08-10 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size:9px">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/NissanNKP" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size:11px">🔗 เปิด</a></td></tr>
+  <h4 style="margin:14px 0 6px 0;color:#C3002F;font-size: var(--fs-lg);border-left:3px solid #C3002F;padding-left:8px">🚗 📌 นิสสันนครพนม - Nissan Nakhon Phanom <span style="background:#C3002F;color:white;padding:2px 8px;border-radius:10px;font-size: var(--fs-xs)">1 ads</span> <span style="background:#E65100;color:white;padding:2px 8px;border-radius:10px;font-size: var(--fs-xs)">4 brand-days</span> <span style="background:#37474F;color:white;padding:2px 8px;border-radius:10px;font-size: var(--fs-xs)">avg 4 วัน/ad</span></h4>
+  <table style="margin-bottom:10px;font-size: var(--fs-sm)"><thead><tr><th>Ad Text</th><th style="width:80px">Format</th><th>CTA</th><th style="width:110px">ระยะ</th><th style="width:60px">Active</th><th style="width:55px">Link</th></tr></thead><tbody>
+    <tr><td style="font-size: var(--fs-xs)">⚡🚗 e-POWER ชีวิตไปต่อ…ไม่ต้องรอชาร์จ! 🔥 WEEKEND TEST DRIVE 🔥  อยากรู้ไหมว่า…ขับรถที่ให้ฟีลเหมือนรถ EV แต่ ไม่ต้องเสียบปล…</td><td style="font-size: var(--fs-xs);text-align:center">IMAGE</td><td style="font-size: var(--fs-xs)">—</td><td style="font-size: var(--fs-2xs);white-space:nowrap">2026-08-10 → 2026-08-13</td><td style="text-align:center"><span style="background:#4CAF50;color:white;padding:1px 6px;border-radius:8px;font-size: var(--fs-2xs)">Active</span></td><td style="text-align:center"><a href="https://www.facebook.com/NissanNKP" target="_blank" rel="noopener" style="color:#1976D2;font-weight:bold;text-decoration:none;font-size: var(--fs-sm)">🔗 เปิด</a></td></tr>
   </tbody></table>
-  <div style="margin:14px 0;padding:12px 16px;background:#F5F5F5;border-left:3px solid #999;border-radius:6px;font-size:11px;color:#555">
+  <div style="margin:14px 0;padding:12px 16px;background:#F5F5F5;border-left:3px solid #999;border-radius:6px;font-size: var(--fs-sm);color:#555">
     <b style="color:#333">🚫 แบรนด์ที่ไม่ได้ยิง ads (2 แบรนด์):</b> MG รวมกิจ นครพนม จำกัด · โตโยต้านครพนมจำกัด Toyota Nakhonphanom
   </div>
-  <div style="margin-top:14px;padding:12px 16px;background:linear-gradient(135deg,#FFF3E0,#FFE0B2);border-left:3px solid #FF6F00;border-radius:6px;font-size:11px;color:#333">
+  <div style="margin-top:14px;padding:12px 16px;background:linear-gradient(135deg,#FFF3E0,#FFE0B2);border-left:3px solid #FF6F00;border-radius:6px;font-size: var(--fs-sm);color:#333">
     <b style="color:#E65100">🏆 Insight อัตโนมัติ:</b> แบรนด์ที่ยิงหนักที่สุดคือ <b>อีซูซุนครพนม ISUZU Nakhon Phanom</b> (338 brand-days) — 
 ส่วน <b style="color:#C3002F">Nissan</b> อยู่อันดับ 2 (161 brand-days)
 </div>
@@ -842,7 +865,7 @@ initSortable('table4', { col: 'posts', dir: 'desc' });
 
 <div class="footer">
   <p>📊 รายงาน Nissan ขอนแก่น สัปดาห์ 15 ก.ค. 2569 - 14 ส.ค. 2569</p>
-  <p>🕐 เวลาวิเคราะห์: 25 Aug 2026 19:31 น.</p>
+  <p>🕐 เวลาวิเคราะห์: 31 Aug 2026 16:36 น.</p>
   <p>👤 สร้างโดย: Tatchanon Wissawakornrungrot, Regional Marketing Manager — Nissan Motor (Thailand)</p>
 </div>
 
