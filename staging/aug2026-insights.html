@@ -3,810 +3,608 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>August 2026 Insights & September Action Plan | Nissan Isan</title>
+<title>August 2026 Insights & September Action Plan — Nissan Isan Region</title>
 <style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans Thai", sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f5f7fa;
+    color: #1a1a1a;
+    line-height: 1.6;
+  }
+  .container { max-width: 1100px; margin: 0 auto; padding: 24px; }
+  .header {
+    background: linear-gradient(135deg, #C3002F 0%, #8B0017 100%);
+    color: white;
+    padding: 48px 32px;
+    text-align: center;
+    border-radius: 12px;
+    margin-bottom: 32px;
+    box-shadow: 0 4px 16px rgba(195,0,47,0.3);
+  }
+  .header h1 {
+    margin: 0 0 12px 0;
+    font-size: 32px;
+    font-weight: 700;
+  }
+  .header .subtitle { font-size: 16px; opacity: 0.95; margin-bottom: 6px; }
+  .header .meta { font-size: 13px; opacity: 0.85; margin-top: 12px; }
 
-:root {
-  --nmt-red: #C3002F;
-  --nmt-red-soft: rgba(195, 0, 47, 0.08);
-  --nmt-red-mid: rgba(195, 0, 47, 0.4);
-  --ink-50: #F9FBFD;
-  --ink-100: #F0F3F7;
-  --ink-200: #DCE2EA;
-  --ink-400: #94A0B3;
-  --ink-500: #6B7785;
-  --ink-700: #3F4750;
-  --ink-900: #1A1A1A;
-  --bg-page: #FFFFFF;
-  --bg-surface: #FFFFFF;
-  --border: #DCE2EA;
-  --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
-  --shadow-md: 0 2px 8px rgba(0,0,0,0.06);
-  /* 2026-08-25: Typography design tokens (consolidated) */
-  --fs-2xs: 9px;       /* compact cells (ads table) */
-  --fs-xs: 10px;       /* captions, sort indicators */
-  --fs-sm: 11px;       /* table cells, page names */
-  --fs-md: 12px;       /* post snippets */
-  --fs-lg: 13px;       /* metric labels */
-  --fs-xl: 14px;       /* h3 sub-headers */
-  --fs-2xl: 16px;      /* insight box headers */
-  --fs-3xl: 17px;      /* h2 section titles */
-  --fs-4xl: 18px;      /* TOC button */
-  --fs-metric: 30px;   /* main KPI value */
-  --fs-metric-sm: 22px; /* secondary KPI value */
-  --fs-display: 24px;  /* h1 hero title */
-}
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  font-family: 'Inter', 'Noto Sans Thai', sans-serif;
-  margin: 0; padding: 0;
-  background: var(--ink-50);
-  color: var(--ink-900);
-  line-height: 1.55;
-}
-.hero {
-  background: linear-gradient(135deg, var(--nmt-red) 0%, #8B0020 100%);
-  color: white;
-  padding: 32px 40px 28px;
-  box-shadow: var(--shadow-md);
-  /* Hero unfrozen per user request (17 Aug 2026) — remove position:sticky */
-}
-.hero h1 {
-  margin: 0 0 6px 0;
-  font-size: var(--fs-display);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-}
-.hero-meta { font-size: var(--fs-lg); opacity: 0.92; margin-bottom: 16px; }
-.hero-chips { display: flex; gap: 12px; flex-wrap: wrap; }
-.hero-chip {
-  background: rgba(255,255,255,0.15);
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-size: var(--fs-md);
-  font-weight: 500;
-  backdrop-filter: blur(8px);
-}
-.hero-chip strong { font-weight: 700; }
-.toc {
-  background: var(--bg-surface);
-  border-bottom: 1px solid var(--border);
-  padding: 8px 40px;
-  font-size: var(--fs-md);
-  display: flex;
-  gap: 14px;
-  overflow-x: auto;
-  /* Menu bar unfrozen per user request (17 Aug 2026) — remove position:sticky */
-}
-.toc a {
-  color: var(--ink-500);
-  text-decoration: none;
-  white-space: nowrap;
-  padding: 4px 8px;
-  border-radius: 4px;
-  transition: all 0.15s;
-}
-.toc a:hover, .toc a.active {
-  color: var(--nmt-red);
-  background: var(--nmt-red-soft);
-}
-.container { max-width: 1400px; margin: 0 auto; padding: 20px 40px 60px; }
-.section-card {
-  background: var(--bg-surface);
-  border-radius: 12px;
-  padding: 24px 28px;
-  margin-bottom: 20px;
-  box-shadow: var(--shadow-sm);
-  border: 1px solid var(--border);
-}
-.section-card-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 16px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid var(--border);
-}
-.section-num {
-  background: var(--nmt-red);
-  color: white;
-  width: 28px; height: 28px;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: var(--fs-lg);
-  flex-shrink: 0;
-}
-.section-card h2 {
-  margin: 0;
-  font-size: var(--fs-3xl);
-  font-weight: 700;
-  color: var(--ink-900);
-}
-.section-card h3 {
-  margin: 20px 0 12px;
-  font-size: var(--fs-xl);
-  font-weight: 700;
-  color: var(--ink-700);
-}
-.headline {
-  background: var(--ink-50);
-  padding: 12px 14px;
-  border-radius: 8px;
-  font-size: var(--fs-md);
-  line-height: 1.7;
-  margin-bottom: 16px;
-  border-left: 3px solid var(--nmt-red);
-}
-.headline-label {
-  display: inline-block;
-  font-weight: 700;
-  color: var(--ink-700);
-  margin-right: 4px;
-}
-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: var(--fs-lg);
-  margin: 12px 0;
-}
-thead tr {
-  background: linear-gradient(135deg, var(--nmt-red) 0%, #8B0020 100%);
-}
-thead th {
-  color: white;
-  padding: 10px 12px;
-  text-align: left;
-  font-weight: 600;
-  font-size: var(--fs-md);
-  border: none;
-}
-tbody tr:nth-child(odd) { background: var(--bg-surface); }
-tbody tr:nth-child(even) { background: var(--ink-50); }
-tbody tr:hover { background: var(--nmt-red-soft); }
-table.sortable thead th {
-  cursor: pointer;
-  user-select: none;
-  position: relative;
-  transition: background 0.15s;
-}
-/* Hover: slightly darker red gradient so white text remains readable */
-table.sortable thead th:hover {
-  background: linear-gradient(135deg, #A8001F 0%, #6B0017 100%);
-}
-/* Active sort column: light background + dark red text for max contrast */
-table.sortable thead th.sort-active {
-  background: var(--ink-50);
-  color: var(--nmt-red);
-  border-bottom: 2px solid var(--nmt-red);
-}
-table.sortable thead th.sort-active .sort-ind {
-  opacity: 1;
-  color: var(--nmt-red);
-}
-table.sortable thead th .sort-ind {
-  font-size: var(--fs-xs);
-  margin-left: 4px;
-  opacity: 0.5;
-  display: inline-block;
-  min-width: 10px;
-}
-tbody td {
-  padding: 9px 12px;
-  border-bottom: 1px solid var(--border);
-  vertical-align: middle;
-}
-.brand-cell {
-  font-weight: 700;
-  border-left: 4px solid transparent;
-  padding-left: 10px !important;
-}
-.brand-cell[style*="border-color"] {
-  border-left-width: 4px;
-  border-left-style: solid;
-}
-.priority-card {
-  display: flex;
-  align-items: start;
-  gap: 12px;
-  padding: 14px 16px;
-  border-radius: 8px;
-  background: var(--bg-surface);
-  border: 1px solid var(--border);
-  margin-bottom: 12px;
-  transition: all 0.15s;
-}
-.priority-card:hover {
-  box-shadow: var(--shadow-md);
-  border-color: var(--nmt-red-mid);
-}
-.priority-card .badge {
-  background: var(--nmt-red);
-  color: white;
-  padding: 3px 8px;
-  border-radius: 4px;
-  font-size: var(--fs-xs);
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  flex-shrink: 0;
-}
-.priority-card.high .badge { background: var(--nmt-red); }
-.priority-card.med .badge { background: #F57C00; }
-.priority-card.low .badge { background: #1976D2; }
-.priority-card div { flex: 1; }
-.format-pill {
-  display: inline-block;
-  padding: 1px 6px;
-  border-radius: 4px;
-  font-size: var(--fs-xs);
-  font-weight: 700;
-}
-.pill-photo { background: #E3F2FD; color: #1565C0; }
-.pill-reel { background: #FCE4EC; color: #C3002F; }
-.pill-video { background: #FFF3E0; color: #E65100; }
-.chart-container {
-  background: var(--bg-surface);
-  padding: 14px;
-  border-radius: 8px;
-  border: 1px solid var(--border);
-  margin: 12px 0;
-}
-.chart-title {
-  font-size: var(--fs-md);
-  font-weight: 700;
-  color: var(--ink-700);
-  margin-bottom: 8px;
-}
-canvas { max-width: 100%; }
-.metric-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 14px;
-  margin: 8px 0 0;
-}
-.metric-card {
-  background: var(--ink-50);
-  padding: 16px 12px;
-  border-radius: 8px;
-  text-align: center;
-  border: 1px solid transparent;
-  transition: all 0.15s;
-}
-.metric-card:hover {
-  border-color: var(--nmt-red-mid);
-  transform: translateY(-1px);
-}
-.metric-label {
-  font-size: var(--fs-sm);
-  color: var(--ink-500);
-  margin-bottom: 6px;
-  font-weight: 500;
-}
-.metric-value {
-  font-size: var(--fs-metric);
-  font-weight: 700;
-  color: var(--nmt-red);
-  line-height: 1.1;
-}
-.metric-sub {
-  font-size: var(--fs-xs);
-  color: var(--ink-500);
-  margin-top: 4px;
-}
-.metric-value.good { color: #388E3C; }
-.metric-value.bad { color: var(--nmt-red); }
+  .section {
+    background: white;
+    border-radius: 10px;
+    margin-bottom: 24px;
+    padding: 28px 32px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  .section h2 {
+    color: #C3002F;
+    font-size: 22px;
+    margin: 0 0 8px 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #C3002F;
+  }
+  .section h3 {
+    color: #1a1a1a;
+    font-size: 17px;
+    margin: 20px 0 10px 0;
+  }
+  .section h4 {
+    color: #3F4750;
+    font-size: 14px;
+    margin: 16px 0 6px 0;
+  }
+  .badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-right: 4px;
+  }
+  .badge-red { background: #fee; color: #C3002F; }
+  .badge-green { background: #e6f9ed; color: #2E7D32; }
+  .badge-yellow { background: #fff7e0; color: #F57C00; }
+  .badge-blue { background: #e8f0fe; color: #1565C0; }
+  .badge-gray { background: #f0f0f0; color: #6B7785; }
 
-.event-type {
-  display: inline-block;
-  padding: 2px 8px;
-  border-radius: 4px;
-  font-size: var(--fs-sm);
-  font-weight: 700;
-  background: var(--ink-100);
-  color: var(--ink-700);
-}
-.event-type.motor-show { background: #FFE0B2; color: #E65100; }
-.event-type.roadshow { background: #F8BBD0; color: #AD1457; }
-.event-type.test-drive { background: #C5E1A5; color: #33691E; }
-.event-type.booth { background: #B3E5FC; color: #01579B; }
-.event-type.event { background: #E1BEE7; color: #4A148C; }
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 16px 0;
+  }
+  .kpi-card {
+    background: #f9fbfd;
+    padding: 18px;
+    border-radius: 8px;
+    border-left: 4px solid #C3002F;
+  }
+  .kpi-card .label { font-size: 12px; color: #6B7785; text-transform: uppercase; letter-spacing: 0.5px; }
+  .kpi-card .value { font-size: 28px; font-weight: 700; color: #C3002F; margin: 4px 0; }
+  .kpi-card .delta { font-size: 12px; color: #6B7785; }
+  .kpi-card .delta.up { color: #2E7D32; }
+  .kpi-card .delta.down { color: #C62828; }
 
-.venue-pill {
-  display: inline-block;
-  padding: 1px 6px;
-  border-radius: 4px;
-  font-size: var(--fs-sm);
-  font-weight: 600;
-  background: var(--nmt-red-soft);
-  color: var(--nmt-red);
-}
-.venue-pill.unknown {
-  background: var(--ink-100);
-  color: var(--ink-500);
-}
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 14px;
+  }
+  th {
+    background: linear-gradient(135deg, #C3002F, #8B0017);
+    color: white;
+    padding: 10px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #E5E9F0;
+  }
+  tr:nth-child(even) { background: #f9fbfd; }
+  .num { text-align: right; font-variant-numeric: tabular-nums; }
+  .pos { color: #2E7D32; font-weight: 600; }
+  .neg { color: #C62828; font-weight: 600; }
 
-insight {
-  background: var(--nmt-red-soft);
-  border-left: 4px solid var(--nmt-red);
-  padding: 14px 16px;
-  border-radius: 8px;
-  margin: 16px 0;
-  font-size: var(--fs-lg);
-  line-height: 1.7;
-}
-.dark-mode {
-  --bg-page: #0F1419;
-  --bg-surface: #1A1F26;
-  --ink-50: #232930;
-  --ink-100: #2A313A;
-  --ink-200: #3A434E;
-  --ink-500: #8B96A3;
-  --ink-700: #C5CDD6;
-  --ink-900: #E8EDF2;
-  --border: #2F3742;
-  --nmt-red-soft: rgba(195, 0, 47, 0.15);
-}
-.dark-mode-toggle {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: var(--nmt-red);
-  color: white;
-  border: none;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  font-size: var(--fs-4xl);
-  cursor: pointer;
-  box-shadow: var(--shadow-md);
-  z-index: 200;
-}
+  .callout {
+    padding: 16px 20px;
+    border-radius: 8px;
+    margin: 16px 0;
+    border-left: 4px solid;
+  }
+  .callout-red { background: #fef5f5; border-color: #C3002F; }
+  .callout-green { background: #f0fdf4; border-color: #2E7D32; }
+  .callout-yellow { background: #fffbeb; border-color: #F57C00; }
+  .callout-blue { background: #eff6ff; border-color: #1565C0; }
+  .callout-title { font-weight: 700; margin: 0 0 6px 0; font-size: 15px; }
+  .callout-body { margin: 0; font-size: 14px; line-height: 1.7; }
 
-/* Override for standalone report */
-.section-card {
-  max-width: 1100px;
-  margin: 20px auto;
-}
-.hero {
-  background: linear-gradient(135deg, #C3002F 0%, #8B0017 100%);
-  color: white;
-  padding: 40px 32px;
-  text-align: center;
-  border-radius: 12px;
-  margin: 24px auto 0;
-  max-width: 1100px;
-}
-.hero h1 {
-  margin: 0 0 12px 0;
-  font-size: var(--fs-display);
-  font-weight: 700;
-}
-.hero-meta {
-  font-size: var(--fs-md);
-  opacity: 0.92;
-  margin-top: 12px;
-}
-h2.section-eng {
-  background: linear-gradient(135deg, #C3002F 0%, #8B0017 100%);
-  color: white;
-  padding: 12px 20px;
-  margin: 0;
-  font-size: var(--fs-2xl);
-  border-radius: 8px 8px 0 0;
-}
+  .priority {
+    background: #f9fbfd;
+    padding: 16px 20px;
+    border-radius: 8px;
+    margin: 12px 0;
+    border-left: 4px solid #C3002F;
+  }
+  .priority.p1 { border-color: #C3002F; }
+  .priority.p2 { border-color: #1565C0; }
+  .priority.p3 { border-color: #F57C00; }
+  .priority.p4 { border-color: #2E7D32; }
+  .priority-title { font-size: 16px; font-weight: 700; margin: 0 0 10px 0; }
+  .priority ul { margin: 0; padding-left: 20px; }
+  .priority li { margin-bottom: 4px; }
+
+  .footer {
+    text-align: center;
+    padding: 20px;
+    color: #6B7785;
+    font-size: 12px;
+  }
 </style>
 </head>
 <body>
+<div class="container">
 
-<div class="hero">
+<div class="header">
   <h1>📊 August 2026 Insights & September Action Plan</h1>
-  <div class="hero-meta">Nissan Isan Region · KKT ขอนแก่น & สยามนิสสัน อุบล · Data through 31 Aug 2026</div>
-  <div class="hero-meta" style="margin-top:8px">Prepared by: Tatchanon Wissawakornrungrot, Regional Marketing Manager — Nissan Motor (Thailand)</div>
+  <div class="subtitle">Nissan Isan Region — KKT ขอนแก่น & สยามนิสสัน อุบล</div>
+  <div class="subtitle">Monthly Performance Analysis & Forward-Looking Strategy</div>
+  <div class="meta">Data through 31 Aug 2026 · Prepared 02 Sep 2026 · Tatchanon W., Regional Marketing Manager — NMT</div>
 </div>
 
-<!-- Section 1: Executive Summary -->
-<div class="section-card" id="sec-summary">
-  <div class="section-card-header"><h2 class="section-eng">1. Executive Summary — August 2026</h2></div>
-  <div class="headline"><span class="headline-label">📊 Network Performance:</span> All four KPIs (PP/TD/BK/RS) increased vs July 2026, but remain significantly below the May 2026 peak.</div>
+<!-- ============== SECTION 1: EXECUTIVE SUMMARY ============== -->
+<div class="section">
+  <h2>1. Executive Summary</h2>
+  <p>August 2026 marked the beginning of a <strong>volume recovery</strong> across the Nissan dealer network, but performance remains significantly below the May 2026 peak. Prospect and Test Drive volumes rose vs July (+13.7% and +6.9%), but Retail Sales (RS) — the ultimate measure of success — also rose only +6.9% (262→280), and is still <strong>45.4% below May 2026 peak</strong> (513 units).</p>
+  
+  <p>The conversion funnel remains healthy at the network level: PP→TD 36.7%, TD→BK 37.4%, BK→RS 38.6%. <strong>The challenge is volume, not closing.</strong> But at the dealer level, two distinct stories emerged: KKT ขอนแก่น (HO) faces a serious conversion bottleneck despite a 137% surge in prospects, while สยามนิสสัน อุบล doubled retail sales by leveraging NMT-organized activities.</p>
 
-  <table style="width:100%;border-collapse:collapse;margin:16px 0;font-size:var(--fs-sm)">
+  <h3>Network-Wide KPIs (Aug 2026 vs History)</h3>
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="label">Test Drives (Network)</div>
+      <div class="value">1,943</div>
+      <div class="delta up">▲ +6.9% vs Jul (1,817)</div>
+      <div class="delta down">▼ -19.1% vs May peak (2,402)</div>
+    </div>
+    <div class="kpi-card">
+      <div class="label">Retail Sales (Network)</div>
+      <div class="value">280</div>
+      <div class="delta up">▲ +6.9% vs Jul (262)</div>
+      <div class="delta down">▼ -45.4% vs May peak (513)</div>
+    </div>
+    <div class="kpi-card">
+      <div class="label">Prospects (Network)</div>
+      <div class="value">5,298</div>
+      <div class="delta up">▲ +13.7% vs Jul (4,659)</div>
+      <div class="delta">vs May: n/a (no comparable data)</div>
+    </div>
+  </div>
+
+  <h4>Conversion Funnel Health (Network, Aug 2026)</h4>
+  <div class="kpi-grid">
+    <div class="kpi-card" style="border-left-color: #C3002F">
+      <div class="label">Total Prospect</div>
+      <div class="value">5,298</div>
+    </div>
+    <div class="kpi-card" style="border-left-color: #1565C0">
+      <div class="label">PP → TD Rate</div>
+      <div class="value">36.7%</div>
+    </div>
+    <div class="kpi-card" style="border-left-color: #F57C00">
+      <div class="label">TD → BK Rate</div>
+      <div class="value">37.4%</div>
+    </div>
+    <div class="kpi-card" style="border-left-color: #2E7D32">
+      <div class="label">BK → RS Rate</div>
+      <div class="value">38.6%</div>
+    </div>
+  </div>
+  <p>Conversion rates are stable at 36-38% across stages. <strong>The industry market remains soft, but operational foundation is solid.</strong></p>
+</div>
+
+<!-- ============== SECTION 2: KKT ขอนแก่น ============== -->
+<div class="section">
+  <h2>2. KKT ขอนแก่น (Dealer ID: 9230801) — Deep Dive</h2>
+  <p>KKT ขอนแก่น is the <strong>flagship dealer of the Isan region</strong> (Tier 2, R3). Despite a 137% surge in prospect volume in August 2026, retail sales remained flat at 6 units — the same as July and May 2026 peaks. This signals a critical <strong>conversion bottleneck</strong> in the PP→TD stage.</p>
+
+  <h3>Monthly Performance — KKT ขอนแก่น (HO)</h3>
+  <table>
     <thead>
-      <tr style="background:linear-gradient(135deg,#c3002f,#8B0017);color:white">
-        <th style="padding:10px;text-align:left">Metric</th>
-        <th style="padding:10px;text-align:center">May 2026 (Peak)</th>
-        <th style="padding:10px;text-align:center">Jul 2026</th>
-        <th style="padding:10px;text-align:center">Aug 2026 (Actual)</th>
-        <th style="padding:10px;text-align:center">vs Jul</th>
-        <th style="padding:10px;text-align:center">vs May</th>
+      <tr>
+        <th>Period</th>
+        <th class="num">Prospect</th>
+        <th class="num">Test Drive</th>
+        <th class="num">Booking</th>
+        <th class="num">Retail</th>
+        <th class="num">PP → TD</th>
+        <th class="num">Δ Retail vs May</th>
       </tr>
     </thead>
     <tbody>
-      <tr style="border-bottom:1px solid var(--border)">
-        <td style="padding:10px"><strong>Test Drives (Network)</strong></td>
-        <td style="padding:10px;text-align:center">2,402</td>
-        <td style="padding:10px;text-align:center">1,817</td>
-        <td style="padding:10px;text-align:center">1,943</td>
-        <td style="padding:10px;text-align:center;color:#2e7d32"><strong>+6.9%</strong></td>
-        <td style="padding:10px;text-align:center;color:#c62828"><strong>-19.1%</strong></td>
-      </tr>
-      <tr style="border-bottom:1px solid var(--border);background:var(--bg-surface)">
-        <td style="padding:10px"><strong>Retail Sales (Network)</strong></td>
-        <td style="padding:10px;text-align:center">513</td>
-        <td style="padding:10px;text-align:center">262</td>
-        <td style="padding:10px;text-align:center">280</td>
-        <td style="padding:10px;text-align:center;color:#2e7d32"><strong>+6.9%</strong></td>
-        <td style="padding:10px;text-align:center;color:#c62828"><strong>-45.4%</strong></td>
+      <tr>
+        <td><strong>May 2026 (Peak)</strong></td>
+        <td class="num">—</td>
+        <td class="num">37</td>
+        <td class="num">—</td>
+        <td class="num">6</td>
+        <td class="num">—</td>
+        <td class="num">—</td>
       </tr>
       <tr>
-        <td style="padding:10px"><strong>Prospects (Network)</strong></td>
-        <td style="padding:10px;text-align:center">—</td>
-        <td style="padding:10px;text-align:center">4,659</td>
-        <td style="padding:10px;text-align:center">5,298</td>
-        <td style="padding:10px;text-align:center;color:#2e7d32"><strong>+13.7%</strong></td>
-        <td style="padding:10px;text-align:center;color:#94A0B3">n/a</td>
+        <td><strong>Jul 2026</strong></td>
+        <td class="num">62</td>
+        <td class="num">16</td>
+        <td class="num">—</td>
+        <td class="num">6</td>
+        <td class="num">25.8%</td>
+        <td class="num">0%</td>
+      </tr>
+      <tr style="background: #fff5f5">
+        <td><strong>Aug 2026 (Current)</strong></td>
+        <td class="num"><span class="pos">147</span> <span class="badge badge-green">+137%</span></td>
+        <td class="num"><span class="pos">27</span> <span class="badge badge-green">+69%</span></td>
+        <td class="num">14</td>
+        <td class="num">6</td>
+        <td class="num neg">18.0%</td>
+        <td class="num">0%</td>
       </tr>
     </tbody>
   </table>
 
-  <h3 style="color:#c3002f;font-size:var(--fs-xl);margin:20px 0 10px">🔍 Conversion Funnel Health (Aug 2026)</h3>
-  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:12px 0">
-    <div style="background:var(--bg-surface);padding:14px;border-left:3px solid #c3002f;border-radius:6px">
-      <div style="font-size:var(--fs-xs);color:var(--ink-500)">PP Total</div>
-      <div style="font-size:var(--fs-2xl);font-weight:700;color:#c3002f">5,298</div>
+  <h3>Prospect Quality (Aug 2026)</h3>
+  <div class="kpi-grid" style="grid-template-columns: repeat(3, 1fr);">
+    <div class="kpi-card" style="border-left-color: #C3002F">
+      <div class="label">Hot Prospects</div>
+      <div class="value">19</div>
+      <div class="delta">12.7% (only)</div>
     </div>
-    <div style="background:var(--bg-surface);padding:14px;border-left:3px solid #1565c0;border-radius:6px">
-      <div style="font-size:var(--fs-xs);color:var(--ink-500)">PP → TD Rate</div>
-      <div style="font-size:var(--fs-2xl);font-weight:700;color:#1565c0">36.7%</div>
+    <div class="kpi-card" style="border-left-color: #F57C00">
+      <div class="label">Warm Prospects</div>
+      <div class="value">11</div>
+      <div class="delta">7.3%</div>
     </div>
-    <div style="background:var(--bg-surface);padding:14px;border-left:3px solid #f57c00;border-radius:6px">
-      <div style="font-size:var(--fs-xs);color:var(--ink-500)">TD → BK Rate</div>
-      <div style="font-size:var(--fs-2xl);font-weight:700;color:#f57c00">37.4%</div>
-    </div>
-    <div style="background:var(--bg-surface);padding:14px;border-left:3px solid #2e7d32;border-radius:6px">
-      <div style="font-size:var(--fs-xs);color:var(--ink-500)">BK → RS Rate</div>
-      <div style="font-size:var(--fs-2xl);font-weight:700;color:#2e7d32">38.6%</div>
+    <div class="kpi-card" style="border-left-color: #94A0B3">
+      <div class="label">Cold Prospects</div>
+      <div class="value">120</div>
+      <div class="delta neg">80.0% ⚠️</div>
     </div>
   </div>
-  <p style="font-size:var(--fs-md);line-height:1.7;margin-top:12px">
-    <strong>✅ Funnel is healthy.</strong> Conversion rates are stable at 36-38% across stages. The challenge is <strong>volume at the top (PP/TD)</strong>, not closing. Industry-wide market remains soft, but operational foundation is solid.
-  </p>
+
+  <div class="callout callout-red">
+    <p class="callout-title">🔴 Critical Issue: Conversion Bottleneck at PP→TD</p>
+    <p class="callout-body">KKT HO's prospect volume jumped <strong>+137% (62→147)</strong>, yet Retail Sales remained flat at 6 units for the 3rd consecutive month. The PP→TD conversion rate is only <strong>18.0%</strong> — about 1/3 of สยามนิสสัน อุบล's 54.2%. <strong>80% of prospects are classified "Cold"</strong> (>3 months interest), indicating lead nurturing is the weakest link. The pipeline is filling but not converting to test drives.</p>
+  </div>
 </div>
 
-<!-- Section 2: KKT ขอนแก่น Deep-Dive -->
-<div class="section-card" id="sec-kkt">
-  <div class="section-card-header"><h2 class="section-eng">2. KKT ขอนแก่น (Dealer 9230801) — Deep Dive</h2></div>
+<!-- ============== SECTION 3: สยามนิสสัน อุบล ============== -->
+<div class="section">
+  <h2>3. สยามนิสสัน อุบล (Dealer ID: 9215801) — Deep Dive</h2>
+  <p>สยามนิสสัน อุบล is the <strong>highest-volume dealer in the Isan region</strong> (Tier 2, R3), with a long history of strong performance (60-120 TDs/month). August 2026 showed a successful return to growth, with Retail Sales <strong>tripling</strong> from 4 to 12 units, driven primarily by NMT-organized activities.</p>
 
-  <h3 style="color:#c3002f;font-size:var(--fs-xl);margin:20px 0 10px">📊 Monthly Performance (KKT HO)</h3>
-  <table style="width:100%;border-collapse:collapse;margin:12px 0;font-size:var(--fs-sm)">
+  <h3>Monthly Performance — สยามนิสสัน อุบล</h3>
+  <table>
     <thead>
-      <tr style="background:linear-gradient(135deg,#c3002f,#8B0017);color:white">
-        <th style="padding:10px;text-align:center">Month</th>
-        <th style="padding:10px;text-align:center">Prospect</th>
-        <th style="padding:10px;text-align:center">Test Drive</th>
-        <th style="padding:10px;text-align:center">Booking</th>
-        <th style="padding:10px;text-align:center">Retail</th>
-        <th style="padding:10px;text-align:center">PP→TD</th>
-        <th style="padding:10px;text-align:center">BK→RS</th>
+      <tr>
+        <th>Period</th>
+        <th class="num">Prospect</th>
+        <th class="num">Test Drive</th>
+        <th class="num">Booking</th>
+        <th class="num">Retail</th>
+        <th class="num">PP → TD</th>
+        <th class="num">Δ Retail vs Jul</th>
       </tr>
     </thead>
     <tbody>
-      <tr style="border-bottom:1px solid var(--border)">
-        <td style="padding:8px;text-align:center">Mar 2026</td>
-        <td style="padding:8px;text-align:center">—</td>
-        <td style="padding:8px;text-align:center">10</td>
-        <td style="padding:8px;text-align:center">—</td>
-        <td style="padding:8px;text-align:center">2</td>
-        <td style="padding:8px;text-align:center">—</td>
-        <td style="padding:8px;text-align:center">—</td>
+      <tr>
+        <td><strong>May 2026 (Peak)</strong></td>
+        <td class="num">—</td>
+        <td class="num">109</td>
+        <td class="num">—</td>
+        <td class="num">8</td>
+        <td class="num">—</td>
+        <td class="num">—</td>
       </tr>
-      <tr style="border-bottom:1px solid var(--border);background:var(--bg-surface)">
-        <td style="padding:8px;text-align:center">Apr 2026</td>
-        <td style="padding:8px;text-align:center">—</td>
-        <td style="padding:8px;text-align:center">10</td>
-        <td style="padding:8px;text-align:center">—</td>
-        <td style="padding:8px;text-align:center">3</td>
-        <td style="padding:8px;text-align:center">—</td>
-        <td style="padding:8px;text-align:center">—</td>
+      <tr>
+        <td><strong>Jul 2026</strong></td>
+        <td class="num">87</td>
+        <td class="num">60</td>
+        <td class="num">—</td>
+        <td class="num">4</td>
+        <td class="num">68.9%</td>
+        <td class="num">—</td>
       </tr>
-      <tr style="border-bottom:1px solid var(--border)">
-        <td style="padding:8px;text-align:center">May 2026 (peak)</td>
-        <td style="padding:8px;text-align:center">—</td>
-        <td style="padding:8px;text-align:center"><strong>37</strong></td>
-        <td style="padding:8px;text-align:center">—</td>
-        <td style="padding:8px;text-align:center"><strong>6</strong></td>
-        <td style="padding:8px;text-align:center">—</td>
-        <td style="padding:8px;text-align:center">—</td>
-      </tr>
-      <tr style="border-bottom:1px solid var(--border);background:var(--bg-surface)">
-        <td style="padding:8px;text-align:center">Jun 2026</td>
-        <td style="padding:8px;text-align:center">—</td>
-        <td style="padding:8px;text-align:center">17</td>
-        <td style="padding:8px;text-align:center">—</td>
-        <td style="padding:8px;text-align:center">4</td>
-        <td style="padding:8px;text-align:center">—</td>
-        <td style="padding:8px;text-align:center">—</td>
-      </tr>
-      <tr style="border-bottom:1px solid var(--border)">
-        <td style="padding:8px;text-align:center">Jul 2026</td>
-        <td style="padding:8px;text-align:center">62</td>
-        <td style="padding:8px;text-align:center">16</td>
-        <td style="padding:8px;text-align:center">—</td>
-        <td style="padding:8px;text-align:center">6</td>
-        <td style="padding:8px;text-align:center;color:#c62828">25.8%</td>
-        <td style="padding:8px;text-align:center">—</td>
-      </tr>
-      <tr style="background:#fff5f5">
-        <td style="padding:8px;text-align:center"><strong>Aug 2026</strong></td>
-        <td style="padding:8px;text-align:center;color:#2e7d32"><strong>147</strong></td>
-        <td style="padding:8px;text-align:center"><strong>27</strong></td>
-        <td style="padding:8px;text-align:center"><strong>14</strong></td>
-        <td style="padding:8px;text-align:center"><strong>6</strong></td>
-        <td style="padding:8px;text-align:center;color:#c62828"><strong>18.0%</strong></td>
-        <td style="padding:8px;text-align:center;color:#2e7d32"><strong>42.9%</strong></td>
+      <tr style="background: #f0fdf4">
+        <td><strong>Aug 2026 (Current)</strong></td>
+        <td class="num"><span class="pos">167</span> <span class="badge badge-green">+92%</span></td>
+        <td class="num"><span class="pos">97</span> <span class="badge badge-green">+62%</span></td>
+        <td class="num">29</td>
+        <td class="num"><span class="pos">12</span> <span class="badge badge-green">+200%</span></td>
+        <td class="num pos">58.1%</td>
+        <td class="num pos">+8 units</td>
       </tr>
     </tbody>
   </table>
 
-  <div style="background:#fff5f5;border-left:3px solid #c3002f;padding:14px 18px;border-radius:6px;margin:16px 0">
-    <p style="font-size:var(--fs-md);margin:0 0 8px 0"><strong>🔴 Critical Issue: Conversion Bottleneck at PP→TD Stage</strong></p>
-    <p style="font-size:var(--fs-sm);margin:0;line-height:1.7">
-      PP volume <strong>jumped +137% (62→147)</strong> but Retail remained <strong>flat at 6 units</strong>. The pipeline is filling up, but it's not converting to test drives. PP→TD conversion is only <strong>18.0%</strong> — and 80% of PP are classified "Cold" (>3 months interest), indicating lead nurturing is the weakest link.
-    </p>
-  </div>
-</div>
-
-<!-- Section 3: สยามนิสสัน อุบล -->
-<div class="section-card" id="sec-ubon">
-  <div class="section-card-header"><h2 class="section-eng">3. สยามนิสสัน อุบล (Dealer 9215801) — Deep Dive</h2></div>
-
-  <h3 style="color:#c3002f;font-size:var(--fs-xl);margin:20px 0 10px">📊 Monthly Performance (Siam Ubon)</h3>
-  <table style="width:100%;border-collapse:collapse;margin:12px 0;font-size:var(--fs-sm)">
+  <h3>Retail Source Breakdown (Aug 2026) — What Drove the Growth</h3>
+  <table>
     <thead>
-      <tr style="background:linear-gradient(135deg,#c3002f,#8B0017);color:white">
-        <th style="padding:10px;text-align:center">Month</th>
-        <th style="padding:10px;text-align:center">Prospect</th>
-        <th style="padding:10px;text-align:center">Test Drive</th>
-        <th style="padding:10px;text-align:center">Booking</th>
-        <th style="padding:10px;text-align:center">Retail</th>
-        <th style="padding:10px;text-align:center">PP→TD</th>
-        <th style="padding:10px;text-align:center">BK→RS</th>
+      <tr>
+        <th>Source</th>
+        <th class="num">Units</th>
+        <th class="num">% of Aug Retail</th>
+        <th>Insight</th>
       </tr>
     </thead>
     <tbody>
-      <tr style="border-bottom:1px solid var(--border)">
-        <td style="padding:8px;text-align:center">Mar 2026</td>
-        <td style="padding:8px;text-align:center">—</td>
-        <td style="padding:8px;text-align:center">103</td>
-        <td style="padding:8px;text-align:center">—</td>
-        <td style="padding:8px;text-align:center">3</td>
-        <td style="padding:8px;text-align:center">—</td>
-        <td style="padding:8px;text-align:center">—</td>
+      <tr style="background: #f0fdf4">
+        <td><strong>🏢 NMT-organized activities</strong></td>
+        <td class="num"><strong>8</strong></td>
+        <td class="num"><strong>66.7%</strong></td>
+        <td>Central team's events convert reliably</td>
       </tr>
-      <tr style="border-bottom:1px solid var(--border);background:var(--bg-surface)">
-        <td style="padding:8px;text-align:center">Apr 2026</td>
-        <td style="padding:8px;text-align:center">—</td>
-        <td style="padding:8px;text-align:center">69</td>
-        <td style="padding:8px;text-align:center">—</td>
-        <td style="padding:8px;text-align:center">2</td>
-        <td style="padding:8px;text-align:center">—</td>
-        <td style="padding:8px;text-align:center">—</td>
+      <tr>
+        <td>Dealer-organized activities</td>
+        <td class="num">2</td>
+        <td class="num">16.7%</td>
+        <td>Smaller scale but still works</td>
       </tr>
-      <tr style="border-bottom:1px solid var(--border)">
-        <td style="padding:8px;text-align:center">May 2026 (peak)</td>
-        <td style="padding:8px;text-align:center">—</td>
-        <td style="padding:8px;text-align:center"><strong>109</strong></td>
-        <td style="padding:8px;text-align:center">—</td>
-        <td style="padding:8px;text-align:center">8</td>
-        <td style="padding:8px;text-align:center">—</td>
-        <td style="padding:8px;text-align:center">—</td>
+      <tr>
+        <td>Online media (dealer)</td>
+        <td class="num">1</td>
+        <td class="num">8.3%</td>
+        <td>Low organic conversion</td>
       </tr>
-      <tr style="border-bottom:1px solid var(--border);background:var(--bg-surface)">
-        <td style="padding:8px;text-align:center">Jun 2026</td>
-        <td style="padding:8px;text-align:center">—</td>
-        <td style="padding:8px;text-align:center">84</td>
-        <td style="padding:8px;text-align:center">—</td>
-        <td style="padding:8px;text-align:center">7</td>
-        <td style="padding:8px;text-align:center">—</td>
-        <td style="padding:8px;text-align:center">—</td>
+      <tr>
+        <td>Showroom visit (walk-in)</td>
+        <td class="num">1</td>
+        <td class="num">8.3%</td>
+        <td>Traditional channel</td>
       </tr>
-      <tr style="border-bottom:1px solid var(--border)">
-        <td style="padding:8px;text-align:center">Jul 2026</td>
-        <td style="padding:8px;text-align:center">87</td>
-        <td style="padding:8px;text-align:center">60</td>
-        <td style="padding:8px;text-align:center">—</td>
-        <td style="padding:8px;text-align:center">4</td>
-        <td style="padding:8px;text-align:center;color:#2e7d32">68.9%</td>
-        <td style="padding:8px;text-align:center">—</td>
-      </tr>
-      <tr style="background:#f0fdf4">
-        <td style="padding:8px;text-align:center"><strong>Aug 2026</strong></td>
-        <td style="padding:8px;text-align:center">167</td>
-        <td style="padding:8px;text-align:center"><strong>97</strong></td>
-        <td style="padding:8px;text-align:center">29</td>
-        <td style="padding:8px;text-align:center"><strong>12</strong></td>
-        <td style="padding:8px;text-align:center;color:#2e7d32"><strong>58.1%</strong></td>
-        <td style="padding:8px;text-align:center;color:#2e7d32"><strong>41.4%</strong></td>
+      <tr style="font-weight:700">
+        <td>TOTAL</td>
+        <td class="num">12</td>
+        <td class="num">100%</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
 
-  <h3 style="color:#2e7d32;font-size:var(--fs-xl);margin:20px 0 10px">🎯 Retail Source Breakdown (Aug 2026)</h3>
-  <table style="width:100%;border-collapse:collapse;margin:12px 0;font-size:var(--fs-sm)">
+  <div class="callout callout-green">
+    <p class="callout-title">🚀 Winning Formula: NMT Activities → Dealer Conversion</p>
+    <p class="callout-body"><strong>67% of Ubon's retail sales came from NMT-organized events</strong> (8/12 units). This proves that when the central NMT team plans and executes events (roadshows, mall activations, test drive days), the dealer network can convert them into retail at <strong>41.4% efficiency</strong> (BK→RS). Ubon's PP→TD conversion (58.1%) is 3.2x better than KKT HO's (18.0%). <strong>This model should be replicated network-wide.</strong></p>
+  </div>
+</div>
+
+<!-- ============== SECTION 4: KKT บ้านไผ่ (Branch) ============== -->
+<div class="section">
+  <h2>4. KKT บ้านไผ่ (Dealer ID: 9230802) — Branch Reactivation</h2>
+  <p>KKT บ้านไผ่ is a Tier 2 sub-branch of KKT (R3), historically a low-volume contributor. After 0 retail sales in July 2026, the branch produced <strong>2 RS units in August 2026</strong> — a positive reactivation signal worth continued investment.</p>
+
+  <table>
     <thead>
-      <tr style="background:linear-gradient(135deg,#c3002f,#8B0017);color:white">
-        <th style="padding:10px;text-align:left">Source</th>
-        <th style="padding:10px;text-align:center">Units</th>
-        <th style="padding:10px;text-align:center">% of Aug RS</th>
+      <tr>
+        <th>Period</th>
+        <th class="num">Prospect</th>
+        <th class="num">Test Drive</th>
+        <th class="num">Retail</th>
       </tr>
     </thead>
     <tbody>
-      <tr style="background:#f0fdf4">
-        <td style="padding:10px"><strong>🏢 NMT-organized activities</strong></td>
-        <td style="padding:10px;text-align:center"><strong>8</strong></td>
-        <td style="padding:10px;text-align:center"><strong>66.7%</strong></td>
+      <tr>
+        <td>May 2026 (peak)</td>
+        <td class="num">—</td>
+        <td class="num">10</td>
+        <td class="num">3</td>
       </tr>
       <tr>
-        <td style="padding:10px">Dealer-organized activities</td>
-        <td style="padding:10px;text-align:center">2</td>
-        <td style="padding:10px;text-align:center">16.7%</td>
+        <td>Jul 2026</td>
+        <td class="num">23</td>
+        <td class="num">4</td>
+        <td class="num neg">0</td>
       </tr>
-      <tr>
-        <td style="padding:10px">Online media (dealer)</td>
-        <td style="padding:10px;text-align:center">1</td>
-        <td style="padding:10px;text-align:center">8.3%</td>
-      </tr>
-      <tr>
-        <td style="padding:10px">Showroom visit</td>
-        <td style="padding:10px;text-align:center">1</td>
-        <td style="padding:10px;text-align:center">8.3%</td>
+      <tr style="background: #f0fdf4">
+        <td><strong>Aug 2026</strong></td>
+        <td class="num">37</td>
+        <td class="num">5</td>
+        <td class="num pos">2 <span class="badge badge-green">∞ from 0</span></td>
       </tr>
     </tbody>
   </table>
 
-  <div style="background:#f0fdf4;border-left:3px solid #2e7d32;padding:14px 18px;border-radius:6px;margin:16px 0">
-    <p style="font-size:var(--fs-md);margin:0 0 8px 0"><strong>🚀 Winning Formula: NMT Activities → Dealer Conversion</strong></p>
-    <p style="font-size:var(--fs-sm);margin:0;line-height:1.7">
-      <strong>67% of Ubon's retail sales came from NMT-organized events.</strong> This proves that when NMT central team plans and executes events (roadshow, mall activation, test drive day), the dealer network can convert them into retail at 41.4% efficiency (BK→RS). Ubon's PP→TD conversion (58.1%) is 3x better than KKT HO (18.0%). <strong>This model should be replicated network-wide.</strong>
-    </p>
+  <div class="callout callout-yellow">
+    <p class="callout-title">🌱 Small but Positive Signal</p>
+    <p class="callout-body">After 0 retail sales in July 2026, KKT บ้านไผ่ produced 2 RS units in August 2026. Small volume, but a positive sign that the branch is operational again. <strong>Recommendation:</strong> Sustain investment in this sub-region (Banphai district market days) to maintain 1+ RS/month through Q4 2026.</p>
   </div>
 </div>
 
-<!-- Section 4: Key Insights -->
-<div class="section-card" id="sec-insights">
-  <div class="section-card-header"><h2 class="section-eng">4. Four Key Insights (What We Learned)</h2></div>
+<!-- ============== SECTION 5: 4 KEY INSIGHTS ============== -->
+<div class="section">
+  <h2>5. Four Key Insights (What We Learned)</h2>
 
-  <div style="background:#fff5f5;border-left:4px solid #c3002f;padding:16px 20px;border-radius:6px;margin:16px 0">
-    <p style="font-size:var(--fs-xl);font-weight:700;margin:0 0 8px 0">🔴 Insight #1: KKT Khon Kaen (HO) has a Conversion Bottleneck</p>
-    <p style="font-size:var(--fs-md);margin:0;line-height:1.7">
-      PP volume surged <strong>+137%</strong> (62→147) but RS remained flat (6). The pipeline is filling but not closing. <strong>80% of prospects are classified "Cold"</strong> (>3 months interest), and the PP→TD conversion rate is only <strong>18.0%</strong> (vs Siam Ubon's 58.1%). Lead nurturing is the weakest link in KKT HO's operation.
-    </p>
+  <div class="callout callout-red">
+    <p class="callout-title">🔴 Insight #1: KKT ขอนแก่น (HO) has a Conversion Bottleneck</p>
+    <p class="callout-body">PP volume surged <strong>+137% (62→147)</strong> but RS remained flat at 6 units. The pipeline is filling but not closing. <strong>80% of prospects are classified "Cold"</strong> (>3 months interest), and the PP→TD conversion rate is only <strong>18.0%</strong> (vs สยามนิสสัน อุบล's 58.1%). Lead nurturing is the weakest link in KKT HO's operation. The dealers are collecting names but not converting them to walk-ins or test drives.</p>
   </div>
 
-  <div style="background:#f0fdf4;border-left:4px solid #2e7d32;padding:16px 20px;border-radius:6px;margin:16px 0">
-    <p style="font-size:var(--fs-xl);font-weight:700;margin:0 0 8px 0">🚀 Insight #2: Siam Ubon Doubled Retail via NMT Activities</p>
-    <p style="font-size:var(--fs-md);margin:0;line-height:1.7">
-      Retail Sales jumped <strong>+200%</strong> (4→12), and <strong>67%</strong> of those RS came from "NMT-organized activities". This validates the central activity model: when NMT plans and executes events, dealers convert them into retail. Ubon's PP→TD efficiency (58.1%) is 3x KKT HO's.
-    </p>
+  <div class="callout callout-green">
+    <p class="callout-title">🚀 Insight #2: สยามนิสสัน อุบล Doubled Retail via NMT Activities</p>
+    <p class="callout-body">Retail Sales jumped <strong>+200% (4→12)</strong>, and <strong>67% of those RS came from "NMT-organized activities"</strong>. This validates the central activity model: when NMT plans and executes events, dealers convert them into retail at 41.4% efficiency. Ubon's PP→TD conversion (58.1%) is 3.2x KKT HO's (18.0%). The NMT activity model works — KKT HO is the outlier that needs urgent intervention.</p>
   </div>
 
-  <div style="background:#fef7e0;border-left:4px solid #f57c00;padding:16px 20px;border-radius:6px;margin:16px 0">
-    <p style="font-size:var(--fs-xl);font-weight:700;margin:0 0 8px 0">🌱 Insight #3: KKT Banphai Branch Reactivated</p>
-    <p style="font-size:var(--fs-md);margin:0;line-height:1.7">
-      After 0 retail sales in July, KKT Banphai produced <strong>2 RS</strong> in August (from zero). Small volume, but a positive signal that the branch is operational again. Worth continued investment in this sub-region.
-    </p>
+  <div class="callout callout-yellow">
+    <p class="callout-title">🌱 Insight #3: KKT บ้านไผ่ Branch Reactivated</p>
+    <p class="callout-body">After 0 retail sales in July 2026, KKT บ้านไผ่ produced <strong>2 RS</strong> in August 2026 (from zero). Small volume, but a positive signal that the branch is operational again. Worth continued investment in this sub-region to maintain 1+ RS/month through Q4 2026.</p>
   </div>
 
-  <div style="background:#fef7e0;border-left:4px solid #f57c00;padding:16px 20px;border-radius:6px;margin:16px 0">
-    <p style="font-size:var(--fs-xl);font-weight:700;margin:0 0 8px 0">⚠️ Insight #4: Industry-Wide Slowdown Persists</p>
-    <p style="font-size:var(--fs-md);margin:0;line-height:1.7">
-      Despite volume recovery, RS is still <strong>45.4% below May 2026 peak</strong> (513). Market conditions remain challenging. Network-wide planning must account for the fact that even strong months (Aug) are still significantly below 2026 H1 peak. We need to plan for a sustained "new normal" until macro factors improve.
-    </p>
+  <div class="callout callout-yellow">
+    <p class="callout-title">⚠️ Insight #4: Industry-Wide Slowdown Persists</p>
+    <p class="callout-body">Despite volume recovery, network RS is still <strong>45.4% below May 2026 peak</strong> (513). Market conditions remain challenging. Network-wide planning must account for the fact that even strong months (Aug) are still significantly below 2026 H1 peak. We need to plan for a sustained "new normal" until macro factors improve.</p>
   </div>
 </div>
 
-<!-- Section 5: September Action Plan -->
-<div class="section-card" id="sec-plan">
-  <div class="section-card-header"><h2 class="section-eng">5. September 2026 Action Plan</h2></div>
+<!-- ============== SECTION 6: SEPTEMBER ACTION PLAN ============== -->
+<div class="section">
+  <h2>6. September 2026 Action Plan</h2>
+  <p>Based on the insights above, the September plan focuses on <strong>two parallel priorities</strong>: (1) Fix KKT HO's conversion bottleneck, and (2) Scale Ubon's proven NMT-activity model network-wide. Plus, sustain the Banphai branch recovery and push network-wide volume back toward May peak levels.</p>
 
-  <div style="background:rgba(195,0,47,0.05);border-left:4px solid #c3002f;padding:16px 20px;border-radius:6px;margin:16px 0">
-    <p style="font-size:var(--fs-xl);font-weight:700;margin:0 0 12px 0">🔴 Priority 1: Fix KKT Khon Kaen (HO) Conversion Funnel</p>
-    <ul style="font-size:var(--fs-md);margin:0 0 0 20px;line-height:1.7">
-      <li><strong>Week 1-2:</strong> Activate NMT-organized test-drive events at CentralPlaza Khon Kaen (target: 2 events/month)</li>
-      <li><strong>Week 2-4:</strong> Re-engage the 120 Cold prospects via phone outreach + targeted FB ads (target: 20% reactivation)</li>
+  <div class="priority p1">
+    <p class="priority-title">🔴 Priority 1: Fix KKT ขอนแก่น (HO) Conversion Funnel</p>
+    <ul>
+      <li><strong>Week 1-2:</strong> Activate 2 NMT-organized test-drive events at CentralPlaza Khon Kaen (target: 50+ TDs per event)</li>
+      <li><strong>Week 2-4:</strong> Re-engage the 120 Cold prospects via phone outreach + targeted Facebook ads (target: 20% reactivation = 24 new TDs)</li>
+      <li><strong>Week 1-4:</strong> Implement weekly lead-nurturing SOP: every new prospect gets a follow-up call within 48 hours</li>
       <li><strong>Owner:</strong> KKT Dealer Manager + NMT Regional Marketing (Isan)</li>
-      <li><strong>Target:</strong> Increase PP→TD conversion from 18% to 35%, RS from 6 to 10+</li>
+      <li><strong>Target:</strong> Increase PP→TD conversion from 18% to 35%, RS from 6 to 10+ units</li>
     </ul>
   </div>
 
-  <div style="background:rgba(21,101,192,0.05);border-left:4px solid #1565c0;padding:16px 20px;border-radius:6px;margin:16px 0">
-    <p style="font-size:var(--fs-xl);font-weight:700;margin:0 0 12px 0">🔴 Priority 2: Scale Ubon's NMT-Activity Model Network-Wide</p>
-    <ul style="font-size:var(--fs-md);margin:0 0 0 20px;line-height:1.7">
-      <li><strong>Week 1-2:</strong> Document Ubon's success formula (NMT event → dealer conversion = 67% RS)</li>
-      <li><strong>Week 3-4:</strong> Replicate in 3 more provinces: KKT, NKP, SRSK (1 NMT event per province)</li>
+  <div class="priority p2">
+    <p class="priority-title">🔴 Priority 2: Scale สยามนิสสัน อุบล's NMT-Activity Model Network-Wide</p>
+    <ul>
+      <li><strong>Week 1-2:</strong> Document Ubon's success formula (NMT event → dealer conversion = 67% of RS) as a playbook</li>
+      <li><strong>Week 3-4:</strong> Replicate in 3 more provinces: KKT, NKP, SRSK (1 NMT-organized event per province)</li>
+      <li><strong>Ongoing:</strong> Track NMT-attributed RS monthly; aim for 30% of network RS from NMT events by Sep end</li>
       <li><strong>Owner:</strong> NMT Regional Marketing Manager (Isan)</li>
       <li><strong>Target:</strong> Network-wide NMT-attributed RS from ~10/month to 30/month</li>
     </ul>
   </div>
 
-  <div style="background:rgba(245,124,0,0.05);border-left:4px solid #f57c00;padding:16px 20px;border-radius:6px;margin:16px 0">
-    <p style="font-size:var(--fs-xl);font-weight:700;margin:0 0 12px 0">🟡 Priority 3: Sustain KKT Banphai Recovery</p>
-    <ul style="font-size:var(--fs-md);margin:0 0 0 20px;line-height:1.7">
+  <div class="priority p3">
+    <p class="priority-title">🟡 Priority 3: Sustain KKT บ้านไผ่ Recovery</p>
+    <ul>
       <li><strong>Ongoing:</strong> Local community events (Banphai district market days) to maintain 1+ RS/month</li>
-      <li><strong>Owner:</strong> KKT Banphai Branch Manager</li>
+      <li><strong>Owner:</strong> KKT บ้านไผ่ Branch Manager</li>
       <li><strong>Target:</strong> Hold at 2+ RS/month through Q4 2026</li>
     </ul>
   </div>
 
-  <div style="background:rgba(195,0,47,0.05);border-left:4px solid #c3002f;padding:16px 20px;border-radius:6px;margin:16px 0">
-    <p style="font-size:var(--fs-xl);font-weight:700;margin:0 0 12px 0">🟡 Priority 4: Network-Wide Volume Push</p>
-    <ul style="font-size:var(--fs-md);margin:0 0 0 20px;line-height:1.7">
-      <li><strong>Week 1-4:</strong> Launch "September Drive" campaign — 0% interest financing + free insurance for all e-POWER models</li>
-      <li><strong>Target:</strong> Recover May 2026 peak: TD 2,402, RS 513 (vs Aug 1,943 / 280)</li>
+  <div class="priority p4">
+    <p class="priority-title">🟡 Priority 4: Network-Wide Volume Push (Recover May Peak)</p>
+    <ul>
+      <li><strong>Week 1-4:</strong> Launch "September Drive" campaign — 0% interest financing + free insurance for all e-POWER models (KICKS, SERENA, X-TRAIL)</li>
+      <li><strong>Week 1-4:</strong> Increase social media ad spend on KKT HO + Ubon by 30% vs Aug (focus: e-POWER USP "No Charging Required")</li>
       <li><strong>Owner:</strong> NMT Marketing + Dealer Network</li>
+      <li><strong>Target:</strong> Recover May 2026 peak — TD 2,400+ (from 1,943), RS 400+ (from 280)</li>
     </ul>
   </div>
 </div>
 
-<!-- Section 6: KPI Targets -->
-<div class="section-card" id="sec-kpi">
-  <div class="section-card-header"><h2 class="section-eng">6. KPI Targets — September 2026</h2></div>
+<!-- ============== SECTION 7: KPI TARGETS ============== -->
+<div class="section">
+  <h2>7. KPI Targets — September 2026</h2>
+  <p>The September targets are designed to recover May 2026 peak performance, with stretch goals for KKT HO conversion and NMT-attributed retail sales.</p>
 
-  <table style="width:100%;border-collapse:collapse;margin:16px 0;font-size:var(--fs-sm)">
+  <table>
     <thead>
-      <tr style="background:linear-gradient(135deg,#c3002f,#8B0017);color:white">
-        <th style="padding:12px;text-align:left">Metric</th>
-        <th style="padding:12px;text-align:center">Aug 2026 (Actual)</th>
-        <th style="padding:12px;text-align:center">Sep 2026 (Target)</th>
-        <th style="padding:12px;text-align:center">% Change</th>
+      <tr>
+        <th>Metric</th>
+        <th class="num">Aug 2026 (Actual)</th>
+        <th class="num">Sep 2026 (Target)</th>
+        <th class="num">% Change</th>
+        <th>Stretch Goal</th>
       </tr>
     </thead>
     <tbody>
-      <tr style="border-bottom:1px solid var(--border)">
-        <td style="padding:12px"><strong>Test Drives (Network)</strong></td>
-        <td style="padding:12px;text-align:center">1,943</td>
-        <td style="padding:12px;text-align:center"><strong>2,400</strong></td>
-        <td style="padding:12px;text-align:center;color:#2e7d32">+23.5%</td>
-      </tr>
-      <tr style="border-bottom:1px solid var(--border);background:var(--bg-surface)">
-        <td style="padding:12px"><strong>Retail Sales (Network)</strong></td>
-        <td style="padding:12px;text-align:center">280</td>
-        <td style="padding:12px;text-align:center"><strong>400</strong></td>
-        <td style="padding:12px;text-align:center;color:#2e7d32">+42.9%</td>
-      </tr>
-      <tr style="border-bottom:1px solid var(--border)">
-        <td style="padding:12px"><strong>KKT HO: PP→TD Rate</strong></td>
-        <td style="padding:12px;text-align:center">18.0%</td>
-        <td style="padding:12px;text-align:center"><strong>35.0%</strong></td>
-        <td style="padding:12px;text-align:center;color:#2e7d32">+17 pts</td>
-      </tr>
-      <tr style="border-bottom:1px solid var(--border);background:var(--bg-surface)">
-        <td style="padding:12px"><strong>KKT HO: Retail (units)</strong></td>
-        <td style="padding:12px;text-align:center">6</td>
-        <td style="padding:12px;text-align:center"><strong>10+</strong></td>
-        <td style="padding:12px;text-align:center;color:#2e7d32">+67%</td>
+      <tr>
+        <td><strong>Test Drives (Network)</strong></td>
+        <td class="num">1,943</td>
+        <td class="num">2,400</td>
+        <td class="num pos">+23.5%</td>
+        <td>2,500+ (May peak: 2,402)</td>
       </tr>
       <tr>
-        <td style="padding:12px"><strong>NMT-Attributed RS</strong></td>
-        <td style="padding:12px;text-align:center">~10</td>
-        <td style="padding:12px;text-align:center"><strong>30</strong></td>
-        <td style="padding:12px;text-align:center;color:#2e7d32">+200%</td>
+        <td><strong>Retail Sales (Network)</strong></td>
+        <td class="num">280</td>
+        <td class="num">400</td>
+        <td class="num pos">+42.9%</td>
+        <td>450+ (May peak: 513)</td>
+      </tr>
+      <tr>
+        <td><strong>KKT HO: PP→TD Rate</strong></td>
+        <td class="num neg">18.0%</td>
+        <td class="num pos">35.0%</td>
+        <td class="num pos">+17 pts</td>
+        <td>50%+ (match Ubon)</td>
+      </tr>
+      <tr>
+        <td><strong>KKT HO: Retail (units)</strong></td>
+        <td class="num">6</td>
+        <td class="num pos">10+</td>
+        <td class="num pos">+67%</td>
+        <td>15+ (recover peak)</td>
+      </tr>
+      <tr>
+        <td><strong>NMT-Attributed Retail Sales</strong></td>
+        <td class="num">~10</td>
+        <td class="num pos">30</td>
+        <td class="num pos">+200%</td>
+        <td>50+ (full network scale)</td>
       </tr>
     </tbody>
   </table>
 
-  <blockquote style="background:#f9fbfd;border-left:4px solid #c3002f;padding:16px 20px;margin:20px 0;border-radius:6px;font-size:var(--fs-md);line-height:1.7">
-    <strong>💡 Closing Note:</strong> August showed us that <strong>volume is recovering, but conversion is the real battle</strong>. The September plan prioritizes fixing KKT Khon Kaen's pipeline and scaling Ubon's NMT-activity model. We don't need to invent new strategies — we need to <strong>execute the proven ones</strong> more consistently across the network. Target: <strong>400 retail sales by end of September</strong>.
-  </blockquote>
+  <h3>Dealer-Specific Targets</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Dealer</th>
+        <th class="num">Aug RS (Actual)</th>
+        <th class="num">Sep RS Target</th>
+        <th>Focus</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>สยามนิสสัน อุบล</td>
+        <td class="num">12</td>
+        <td class="num">15-20</td>
+        <td>Continue NMT activity model, push for 15+ RS</td>
+      </tr>
+      <tr>
+        <td>KKT ขอนแก่น (HO)</td>
+        <td class="num">6</td>
+        <td class="num">10-12</td>
+        <td>Fix conversion funnel, Cold prospect reactivation</td>
+      </tr>
+      <tr>
+        <td>KKT บ้านไผ่</td>
+        <td class="num">2</td>
+        <td class="num">2-3</td>
+        <td>Sustain recovery, local events</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
-<div class="footer" style="text-align:center;padding:20px;color:var(--ink-500);font-size:var(--fs-xs);margin-top:40px">
+<!-- ============== SECTION 8: CLOSING ============== -->
+<div class="section">
+  <h2>8. Closing Note</h2>
+  <div class="callout callout-blue">
+    <p class="callout-title">💡 Key Takeaway</p>
+    <p class="callout-body">August 2026 showed us that <strong>volume is recovering, but conversion is the real battle</strong>. The September plan prioritizes fixing KKT ขอนแก่น's pipeline and scaling สยามนิสสัน อุบล's NMT-activity model network-wide. We don't need to invent new strategies — we need to <strong>execute the proven ones</strong> more consistently across the dealer network.</p>
+  </div>
+
+  <h3>Three Things We Must Do Differently in September</h3>
+  <ol>
+    <li><strong>Stop collecting cold leads.</strong> KKT HO's 80% Cold rate is a red flag. Every prospect must get a follow-up call within 48 hours, or we lose them.</li>
+    <li><strong>Invest in NMT activities, not just dealer activities.</strong> Ubon's data shows 67% of RS comes from NMT events. This is the highest-ROI channel — double down on it.</li>
+    <li><strong>Track weekly, not monthly.</strong> With RS at 6/month for KKT HO, one bad week can wreck the month. Weekly check-ins on PP→TD conversion rate are critical.</li>
+  </ol>
+
+  <p>Target for end of September: <strong>400 retail sales network-wide</strong>, with KKT HO contributing at least 10 units. This is ambitious but achievable if we execute on the priorities above.</p>
+</div>
+
+<div class="footer">
   <p>📊 Nissan Isan Region · August 2026 Insights & September Action Plan</p>
   <p>📅 Generated 02 Sep 2026 · Source: /Users/tatchanon/workspace-MKT/Data/NISSAN_Data/</p>
   <p>👤 Tatchanon Wissawakornrungrot, Regional Marketing Manager — Nissan Motor (Thailand)</p>
 </div>
 
+</div>
 </body>
 </html>
